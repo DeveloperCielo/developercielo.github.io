@@ -21,13 +21,16 @@ strong {
 .post ol {
     color: #76797a;
     line-height: 25px;
-    margin-left: 25px;
 }
-
 
 .post ul li,
 .post ol li {
   line-height: 25px;
+}
+
+.post ul li ul,
+.post ol li ol {
+  margin-left: 25px;
 }
 
 .no-toc {
