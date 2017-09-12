@@ -227,34 +227,33 @@ Se você já tentou essas soluções, mas continua a ter problemas, entre em con
 * O sistema operacional e a versão utilizada no computador.
 * Uma captura de tela do problema.
 
-
 ## Histórico de versões
 
 * **Versão 1.9** - 22/02/2016
-    - Notificação via JSON
+  * Notificação via JSON
 * **Versão 1.8** - 19/01/2016
-    - Inclusão do Cálculo próprio de parcelamento com juros
-    - Inclusão do Frete Cubado.
-    - Atualização da Recorrência.
+  * Inclusão do Cálculo próprio de parcelamento com juros
+  * Inclusão do Frete Cubado.
+  * Atualização da Recorrência.
 * **Versão 1.7** - 03/11/2015
-    - Alteração dos Status de pagamento,
+  * Alteração dos Status de pagamento,
 * **Versão 1.6** - 04/11/2015
-    - Inclusão do ChargeBack nos status da transação
-    - Inclusão dos navegadores suportados.
+  * Inclusão do ChargeBack nos status da transação
+  * Inclusão dos navegadores suportados.
 * **Versão 1.5** - 27/08/2015
-    - Inclusão do Botão Recorrente.
+  * Inclusão do Botão Recorrente.
 * **Versão 1.4** - 14/07/2015
-    - Nó de Recorrência na API
-    - Inclusão de dados sobre Recorrência no item 11 do manual.
+  * Nó de Recorrência na API
+  * Inclusão de dados sobre Recorrência no item 11 do manual.
 * **Versão 1.3** - 21/01/2015
-    - Troca de nomes – Solução Integrada para Checkout Cielo
+  * Troca de nomes – Solução Integrada para Checkout Cielo
 * **Versão 1.2** - 09/01/2015
-    - Inclusão dos seguintes parâmetros no Post de notificação: `discount_amount`, `shipping_address_state`, `payment_boleto`, `number`, `tid`;
-    - Alteração do parâmetro numero do pedido no Post de Mudança de Status
+  * Inclusão dos seguintes parâmetros no Post de notificação: `discount_amount`, `shipping_address_state`, `payment_boleto`, `number`, `tid`;
+  * Alteração do parâmetro numero do pedido no Post de Mudança de Status
 * **Versão 1.1** - 08/01/2015
-    - Alinhamento dos fluxos de pagamento; inclusão de informações sobre os meios de pagamento; inclusão da tela de configurações do [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/)
+  * Alinhamento dos fluxos de pagamento; inclusão de informações sobre os meios de pagamento; inclusão da tela de configurações do [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/)
 * **Versão 1.0** - 24/11/2014
-    - Versão inicial
+  * Versão inicial
 
 ## Produtos e serviços
 
@@ -473,13 +472,13 @@ Para utilizar a url de retorno via contrato técnico (na API), segue o parâmetr
 |7|JCB|
 
 #### payment_method_bank
+
 |Valor|Descrição|
 |-----|---------|
 |1|Banco do Brasil|
 |2|Bradesco|
 
 <aside class="notice">A página destino do POST de Notificação deve seguir a formatação dos parâmetros com todos os nomes em MINUSCULO</aside>
-
 
 ## Notificação de transação
 
@@ -503,7 +502,6 @@ Retorno aguardado para o envio da notificação:
 HttpStatus = 200 (OK) (Post recebido e processado com sucesso) (edited)
 
 Obs.: Caso a loja envie o retorno diferente de sucesso o Checkout Cielo realiza 3 novas tentativas de envio da notificação com intervalo de 1 hora. Caso a confirmação não ocorra, novos POSTs não serão realizadas para a mesma transação.
-
 
 ## Mudança de status via consulta
 
@@ -544,7 +542,6 @@ O parâmetro `payment_status` poderá vir com um dos seguintes valores:
 |6|Não Finalizado (Todos os meios de pagamento)|
 |7|Autorizado (somente para Cartão de Crédito)|
 |8|Chargeback (somente para Cartão de Crédito)|
-
 
 <aside class="notice">Na tela de pedidos, dentro de cada transação, há a opção de reenvio do POST de mudança de status. Basta clicar nos botões azuis, marcados na imagem abaixo</aside>
 
@@ -1070,7 +1067,7 @@ string json = "{"
 using (var writer = new StreamWriter(request.GetRequestStream()))
 {
     writer.Write(json);
-	writer.Close();
+    writer.Close();
 }
 
 HttpWebResponse response = (HttpWebResponse) request.GetResponse();
@@ -1196,9 +1193,9 @@ Transações recorrentes são ideais para modelos de negócios que envolvam o co
 Diferença entre transações recorrentes e parceladas:
 
 * **Parceladas**: Se trata de uma transação dividida em vários meses. O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial (ver exemplo abaixo). O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.
-    * **EX**: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada
+  * **EX**: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada
 * **Recorrentes**: São transações diferentes realizadas no mesmo cartão em momentos previamente agendados. A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido (ver exemplo abaixo).  A cada intervalo haverá uma cobrança no cartão de crédito. O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.
-    * **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.
+  * **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.
 
 ## Pagamento Recorrente Programado
 
@@ -1702,7 +1699,7 @@ string json = "{"
 using (var writer = new StreamWriter(request.GetRequestStream()))
 {
     writer.Write(json);
-	writer.Close();
+    writer.Close();
 }
 
 HttpWebResponse response = (HttpWebResponse) request.GetResponse();
@@ -2208,9 +2205,9 @@ O Checkout Cielo aceita as principais bandeiras de cartão de débito do mercado
 
 * **E-mail**: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)
 * **Telefones**:
-    * **Capitais**: (sem DDD) 4002.9700
-    * **Demais Localidades**: 0800.570.1700
-    * **Do exterior**: +55 (11) 2860.1348
+  * **Capitais**: (sem DDD) 4002.9700
+  * **Demais Localidades**: 0800.570.1700
+  * **Do exterior**: +55 (11) 2860.1348
 
 A autenticação da transação garantirá uma segurança extra ao lojista contra contestações dos consumidores (chargeback). O produto débito obrigatoriamente exige uma transação autenticada, caso contrário, a transação não é autorizada. A autenticação é obrigatória para transações de débito e opcional para o crédito.
 

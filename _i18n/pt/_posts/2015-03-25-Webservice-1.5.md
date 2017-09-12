@@ -14,7 +14,6 @@ toc_footers:
   - <a href='/Boas-praticas-de-ecommerce/'>Boas práticas de eCommerce</a>
   - <a href='/Webservice-1.5-FAQ'>Perguntas frequentes</a>
   - <a href='/Webservice-1.5-Processamento-em-lote/'>Processamento em lote</a>
-
 search: true
 ---
 
@@ -23,7 +22,6 @@ search: true
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a solução Webservice da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
 
 O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos XML, são necessários para implantar a solução Cielo eCommerce com sucesso. É importante destacar para utilizar essa plataforma, o website deve estar em confirmidade com regras de segurança ou utilizar a certificação PCI. Para dúvidas sobre segurança web, favor encaminhar email para: [Segurança Web](mailto:e-seg@cielo.com.br).
-
 
 Após a conclusão do credenciamento e recebimento das instruções é preciso desenvolver a integração utilizando como guia este manual. Assim que a integração estiver concluída, é necessário preencher completamente o formulário de homologação e enviá-lo para o Suporte Web do Cielo eCommerce que informará ao estabelecimento a chave de segurança.
 
@@ -1269,7 +1267,7 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
     <soft-descriptor>softdescriptor</soft-descriptor>
     <taxa-embarque>1000</taxa-embarque>
     <avs>
-	<![CDATA[
+  <![CDATA[
       <dados-avs>
         <endereco>Rua Teste AVS</endereco>
         <complemento>Casa</complemento>
@@ -1278,7 +1276,7 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
         <cep>12345-123</cep>
         <dados-avs>11111111111</dados-avs>
       </dados-avs>
-	]]>
+  ]]>
     </avs>
   </dados-pedido>
   <!-- ... -->
@@ -1313,8 +1311,8 @@ A operação de consulta é essencial na integração, pois ela que garantirá a
 
 * **Objetivo** - Realizar a consulta de uma transação através do TID informado.
 * **Regras**
-    * Somente transações dos últimos 365 dias estão disponíveis.
-    * Não há mudança de status da transação.
+  * Somente transações dos últimos 365 dias estão disponíveis.
+  * Não há mudança de status da transação.
 
 #### Requisição
 
@@ -1340,9 +1338,9 @@ A operação de consulta é essencial na integração, pois ela que garantirá a
 
 * **Objetivo** - Realizar a consulta de uma transação através do número do pedido, fornecido pela loja no momento da requisição de transação.
 * **Regras**:
-    * Somente transações dos últimos 365 dias estão disponíveis.
-    * Caso seja encontrada mais de uma transação para o mesmo número do pedido, a Cielo enviará a transação mais recente.
-    * Não há mudança de status da transação.
+  * Somente transações dos últimos 365 dias estão disponíveis.
+  * Caso seja encontrada mais de uma transação para o mesmo número do pedido, a Cielo enviará a transação mais recente.
+  * Não há mudança de status da transação.
 
 <aside class="notice"><strong>INFORMAÇÃO</strong>: A consulta por Número do Pedido deve ser usada apenas como contingência à Consulta por TID, pois esta pode não garantir unicidade da transação, tendo em vista que este campo é enviado pela loja virtual e apenas acatado pela Cielo.</aside>
 
@@ -1524,7 +1522,6 @@ A massa de dados para realizar os testes neste ambiente está disposta na tabela
 |Discover|Não|6011020000245045|05/2018|123|
 |JCB|Não|3566007770004971|05/2018|123|
 |Aura|Não|5078601912345600019|05/2018|123|
-
 
 ## Chave de testes
 

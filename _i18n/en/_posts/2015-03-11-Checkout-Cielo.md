@@ -230,30 +230,30 @@ If you have tried these solutions, but you still have problems, please contact u
 ## Changelog
 
 * **Version 1.9** - 02/22/2016
-   - Notification via JSON
+  * Notification via JSON
 * **Version 1.8** - 01/19/2016
-   - Inclusion of Own Installment Calculation with interest costs
-   - Inclusion of Cubed Freight ("frete cubado")
-   - Updating Recurrence
+  * Inclusion of Own Installment Calculation with interest costs
+  * Inclusion of Cubed Freight ("frete cubado")
+  * Updating Recurrence
 * **Version 1.7** - 11/03/2015
-   - Changing payment status,
+  * Changing payment status,
 * **Version 1.6** - 11/04/2015
-   - Inclusion of ChargeBack in the transaction status
-   - Inclusion of supported browsers.
+  * Inclusion of ChargeBack in the transaction status
+  * Inclusion of supported browsers.
 * **Version 1.5** - 08/27/2015
-   - Inclusion of Recurring button.
+  * Inclusion of Recurring button.
 * **Version 1.4** - 07/14/2015
-   - Recurrence node API
-   - Inclusion of data on Recurrence in item 11 of the manual.
+  * Recurrence node API
+  * Inclusion of data on Recurrence in item 11 of the manual.
 * **Version 1.3** - 01/21/2015
-    - Change of names – Solution integrated for Cielo Checkout
+  * Change of names – Solution integrated for Cielo Checkout
 * **Version 1.2** - 01/09/2015
-    - Inclusion of followers parameters at notification Post: `discount_amount`, `shipping_address_state`, `payment_boleto`, `number`, `tid`;
-    - Alteration of parameter of order at Post of status change
+  * Inclusion of followers parameters at notification Post: `discount_amount`, `shipping_address_state`, `payment_boleto`, `number`, `tid`;
+  * Alteration of parameter of order at Post of status change
 * **Version 1.1** - 01/08/2015
-    - Alignment of payment flux; inclusion of information of payment methods; inclusion at setting screen at Cielo [Checkout Backoffice](http://developercielo.github.io/Checkout-Backoffice/)
+  * Alignment of payment flux; inclusion of information of payment methods; inclusion at setting screen at Cielo [Checkout Backoffice](http://developercielo.github.io/Checkout-Backoffice/)
 * **Version 1.0** - 11/24/2014
-    - Initial version
+  * Initial version
 
 ## Products and services
 
@@ -277,8 +277,8 @@ After reading this documentation, if you still have questions (technical or not)
 * +55 4002-9700 - *Capitals and Metropolitan regions*
 * +55 0800-570-1700 - *Others localities*
 * +55 11 2860-1348 - *International*
-    * Option 1: *Technical support*
-    * Option 2: *E-commerce credential*
+  * Option 1: *Technical support*
+  * Option 2: *E-commerce credential*
 * Email: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)
 
 ## Cielo Checkout testing mode
@@ -383,8 +383,8 @@ The Return URL is used by Cielo to redirect the customer back to the store as so
 
 At the end of a transaction, the customer can be redirected to the return URL. By clicking "BACK" button on the sales receipt of sales screen, the buyer will be directed to the previously UR registered return URL in the Back Office or sent via contract in the API, ie Checkout Cielo offers two options to configure the return URL:
 
- * via Backoffice: the return URL is fixed for all purchases.
- * via Technical Agreement: the Return URL can be parameterized with every purchase, or is flexible.
+* via Backoffice: the return URL is fixed for all purchases.
+* via Technical Agreement: the Return URL can be parameterized with every purchase, or is flexible.
 
  ### Via Backoffice
 
@@ -466,6 +466,7 @@ The notification URL is that Cielo will use to send the data of the transaction,
 |7|JCB|
 
 #### payment_method_bank
+
 |Valor|Descrição|
 |-----|---------|
 |1|Banco do Brasil|
@@ -1039,7 +1040,7 @@ string json = "{"
 using (var writer = new StreamWriter(request.GetRequestStream()))
 {
     writer.Write(json);
-	writer.Close();
+    writer.Close();
 }
 
 HttpWebRequest response = (HttpWebResponse) request.GetResponse();
@@ -1145,6 +1146,7 @@ Below you see the information necessary to register the product.
     <input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content/images/botao_comprar_3.jpg' />
 </form>
 ```
+
 Adding the button on your HTML page you have to copy the button HTML code created and put the HTML code on your website, as the example below:
 
 Each button has a unique code that only allows to buy a certain product in the pricing and shipping conditions registered. Therefore, the fraudster can’t change any of these information on purchase submit, because Cielo Checkout will search all product data on [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/), and will be considered the registration data.
@@ -1160,9 +1162,9 @@ Recurring transaction are ideal for the business model that involves the subscri
 Difference between recurring payment and installment payment:
 
 * **Installment**: It is a transaction split into several months. The total value of the sale commits the buyer's credit card limit regardless of the initial installment (see example below). The merchant receives the value of the sale in installments and not run the risk of one of the parcels be denied.
-    * **EX**: Sale of R$ 1,000.00 installment in 2 times. Although the buyer pay only R $ 500.00 in the first installment, the value of the consumed credit limit is full, ie, R $ 1,000.00. If the card limit is less than or the amount is not released, the R $ 1,000.00 the transaction will be denied
+  * **EX**: Sale of R$ 1,000.00 installment in 2 times. Although the buyer pay only R $ 500.00 in the first installment, the value of the consumed credit limit is full, ie, R $ 1,000.00. If the card limit is less than or the amount is not released, the R $ 1,000.00 the transaction will be denied
 * **Recurring**: They are different transactions on the same card at previously scheduled times. The first sale schedule future sales from a pre defined time interval (see example below). Each range will be a charge on your credit card. The recurring payment locks the card limit only debited value on the date of the first applicant and sales of the total sale.
-    * **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.
+  * **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.
 
 ## Recurring Payment Scheduled
 
@@ -1666,11 +1668,12 @@ string json = "{"
 using (var writer = new StreamWriter(request.GetRequestStream()))
 {
     writer.Write(json);
-	writer.Close();
+    writer.Close();
 }
 
 HttpWebResponse response = (HttpWebResponse) request.GetResponse();
 ```
+
 A recurrence of the transaction Cielo Checkout has two settings: "Interval" and "Closing Date".
 
 * **Interval** - repeating pattern and time interval between each transaction. This time lag between transactions can be: Monthly, Bimonthly, Quarterly, Semi-Annual and Annual.
@@ -1685,8 +1688,8 @@ Except the `Payment` object that contains a specific new element to the recurren
 
 |Field|Type|Compulsory|Size|Description|
 |-----|----|-----------|-------|---------|
-|BoletoDiscount|Numeric	Conditional|0. 3|Discount in percentage, for payments to be made with boleto.|
-|Debit Discount|Numeric	Conditional|0. 3|Discount in percentage, for payments to be made with online debt.|
+|BoletoDiscount|Numeric    Conditional|0. 3|Discount in percentage, for payments to be made with boleto.|
+|Debit Discount|Numeric    Conditional|0. 3|Discount in percentage, for payments to be made with online debt.|
 |**RecurrentPayment**|[RecurrentPayment](#recurrentpayment)|Conditional|Object required for recurring payments|
 
 ### Answer
@@ -1720,7 +1723,7 @@ The recurrence button is a method in the Checkout to perform the recurrence. You
 
 The Checkout Cielo provides two installments methods:
 
-##Installment via backoffice
+## Installment via backoffice
 
 * The installments available as Store payment option should be set by the shopkeeper in backoffice Checkout, located in the Cielo site.
 * The configuration of the plots will be applied to all sales.
@@ -1863,15 +1866,16 @@ Parameter of request with information about a shopping cart item. See also the [
     "SourceZipCode": "14400000",
     "TargetZipCode": "11000000",
     "Measures": {
-    	"Package": "BOX",
-    	"Lenght": 30,
-    	"Height": 5,
-	"Width": 10,
+        "Package": "BOX",
+        "Lenght": 30,
+        "Height": 5,
+    "Width": 10,
     },
     "Address": {},
     "Services": []
 }
 ```
+
 Request parameter with information about the address and shipping service of product delivery.
 
 |Field|Type|Mandatory|Size|Description|

@@ -19,10 +19,10 @@ O objetivo deste documento é orientar o lojista sobre como acessar Backoffice d
 
 O Backoffice da API Cielo Ecommerce permite que o lojista possa acessar 4 menus com diferentes funcionalidades:
 
-1.	**Área do desenvolvedor Cielo** – Onde desenvolvedores podem acessar informações como manuais de integração, FAQs e suporte
-2.	**Pesquisa de transações** – Busca todas as transações executadas pela loja e exibe como captura ou cancelar transações
-3.	**Extrato de cobrança** – Detalha os valores cobradas pela a Cielo por cada função utilizada na API Cielo Ecommerce.
-4.	**Configuração da recorrência** – Alterar quantidades de tentativas de execução de recorrências em caso de cartão negado.
+1. **Área do desenvolvedor Cielo** – Onde desenvolvedores podem acessar informações como manuais de integração, FAQs e suporte
+2. **Pesquisa de transações** – Busca todas as transações executadas pela loja e exibe como captura ou cancelar transações
+3. **Extrato de cobrança** – Detalha os valores cobradas pela a Cielo por cada função utilizada na API Cielo Ecommerce.
+4. **Configuração da recorrência** – Alterar quantidades de tentativas de execução de recorrências em caso de cartão negado.
 
 ## Acessando o Backoffice
 
@@ -72,16 +72,16 @@ Sobre os Filtros:
 
 |Filtros|Descrição|
 |-------|---------|
-|Tid|	Identificador da transação Cielo. Retornado via response e disponivel no site Cielo|
-|EC|	Número da Afiliação Cielo|
-|Payment Id|	Identificador da transação e-commerce|
-|Número do Pedido|	Número do pedido enviado pelo lojista|
-|NSU|	Identificação da autorização. Enviado via response|
-|Código de Erro|	Código retornado caso uma transação gere um erro.|
+|Tid| Identificador da transação Cielo. Retornado via response e disponivel no site Cielo|
+|EC| Número da Afiliação Cielo|
+|Payment Id| Identificador da transação e-commerce|
+|Número do Pedido| Número do pedido enviado pelo lojista|
+|NSU| Identificação da autorização. Enviado via response|
+|Código de Erro| Código retornado caso uma transação gere um erro.|
 |Status da Transação|**Cancelado** - Transação cancelada pelo lojista<br>**Estornado** - Transações canceladas com menos de 24 horas<br>**Não Autorizado** - Transações negadas pelo Autorizador Cielo<br>**Não Pago** - Transações autorizadas, mas não capturadas<br>**Pago** - Transações capturadas<br>|
-|Tipos de meio de pagamento	| Grupo de meios de pagamento como Boletos ou cartão de crédito. Não diferencia |bandeira ou banco.|
-|Meios de pagamento|	Meio de pagamento especifico usado na transação (EX: Boleto Bradesco)|
-|Análise de Fraude|	Qual o status de antifraude da transação no momento da pesquisa|
+|Tipos de meio de pagamento | Grupo de meios de pagamento como Boletos ou cartão de crédito. Não diferencia |bandeira ou banco.|
+|Meios de pagamento| Meio de pagamento especifico usado na transação (EX: Boleto Bradesco)|
+|Análise de Fraude| Qual o status de antifraude da transação no momento da pesquisa|
 
 Os filtros podem ser combinados para realizar uma pesquisa personalizada.
 
@@ -122,12 +122,12 @@ O Extrato de cobrança permite visualizar o valor a ser cobrado pela utilizaçã
 
 Para maiores informações a respeito dos serviços cobrados, entre em contato com nossa equipe de suporte:
 
- * +55 4002-9700 – Capitais e Regiões Metropolitanas
- * +55 0800-570-1700 – Demais Localidades
- * +55 11 2860-1348 – Internacionais
- --- Opção 1 – Suporte técnico;
- --- Opção 2 – Credenciamento eCommerce.
- * Email: cieloeCommerce@cielo.com.br
+* +55 4002-9700 – Capitais e Regiões Metropolitanas
+* +55 0800-570-1700 – Demais Localidades
+* +55 11 2860-1348 – Internacionais
+  * Opção 1 – Suporte técnico;
+  * Opção 2 – Credenciamento eCommerce.
+* Email: cieloeCommerce@cielo.com.br
 
 # Configurando a Recorrência
 

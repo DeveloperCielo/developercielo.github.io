@@ -58,7 +58,7 @@ No [Backoffice Checkout Cielo](/Checkout-Backoffice/), no menu Configurações/C
 # Qual a diferença entre o  Erro OPSSS antes e depois da exibição da tela do Checkout Cielo?
 
 * **Antes da exibição da tela de Checkout** - significa que houve algum dado errado no envio da transação. Dados obrigatórios podem estar faltando ou o formato é invalido. Aqui o lojista sempre vai receber um e-mail informando o motivo do erro.
-    * Para esses, é exibido um código (os mesmos dos manuais) dentro do pedido no Backoffice Checkout Cielo.
+  * Para esses, é exibido um código (os mesmos dos manuais) dentro do pedido no Backoffice Checkout Cielo.
 * **Depois da Exibição da tela de Checkout (quando a venda é finalizada)** - significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout.
 
 # Qual a relação entre os tipos de produtos e os tipos de fretes?

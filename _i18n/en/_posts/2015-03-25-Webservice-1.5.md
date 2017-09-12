@@ -14,7 +14,6 @@ toc_footers:
   - <a href='/Boas-praticas-de-ecommerce/'>Boas práticas de eCommerce</a>
   - <a href='/Webservice-1.5-FAQ'>Perguntas frequentes</a>
   - <a href='/Webservice-1.5-Processamento-em-lote/'>Processamento em lote</a>
-
 search: true
 ---
 
@@ -333,6 +332,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
   </avs>
 </requisicao-transacao>
 ```
+
 <aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
 ### ROOT Node
@@ -500,13 +500,13 @@ When there is authentication, the flux to execute an authorization happens in tw
 ![fluxo-autenticacao]({{ site.baseurl_root }}/images/fluxo-autenticacao.png)
 
 1. finishOrder() - it happens when a cardholder finishes the order and starts the payment purchase.
-    1. createTransaction (authenticated) - the retailer system send a XML request `<requisicao-transacao>` requesting an authenticated transaction, in other words, the TAG <autorizar> will be 0,1 or 2. After this, Cielo will inform at XML returned a field <url-autenticacao> with the address which the holder must be redirected for.
+  1. createTransaction (authenticated) - the retailer system send a XML request `<requisicao-transacao>` requesting an authenticated transaction, in other words, the TAG <autorizar> will be 0,1 or 2. After this, Cielo will inform at XML returned a field <url-autenticacao> with the address which the holder must be redirected for.
 2. access (url-authentication) - the holder's browser is redirected to Cielo environment. Thereby, the Cielo's page is accessed, it automatically is directed to an issuer bank (3.1). This redirect is so fast that is practically imperceptible.
 3. authenticate (token, cpf) - the holder will be on bank environment and will use some mechanism provided by his/her own issuer to realize the authentication of the transaction (generally token, "bingo card"/security card, cpf, electronic sign, etc).
-    1. resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item "2.3 Architecture of integration".
-   1. process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.
+  1. resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item "2.3 Architecture of integration".
+    1.process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.
     2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (`<requisicao-transacao>`)
-        1. access (url-return) - the holder's browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.
+      1. access (url-return) - the holder's browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.
 
 ### Notes
 
@@ -552,6 +552,7 @@ Looking at the diagram of section [Transaction](# transaction), you can see that
   </autenticacao>
 </transacao>
 ```
+
 Just the "node" fields `<autenticacao>` are listed on the table below:
 
 |Elemento|Tipo|Tamanho|Descrição|
@@ -817,8 +818,8 @@ The direct authorization is characterized for being a transaction without authen
   * Valid only for credit.
   * The retailer must pay attention on sending card rules.
   * In direct authorization, the security level of transaction (ECI) is defined as:
-      * "7"  for Visa, Mastercard and Aura
-      * "0" for Mastercard and Aura
+    * "7"  for Visa, Mastercard and Aura
+    * "0" for Mastercard and Aura
 
 ## Recurrent authorization
 
@@ -1159,6 +1160,7 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
   <!-- ... -->
 </requisicao-transacao>
 ```
+
 * **Purpose** - Allows the retailer to send a text with until 13 characters that will be printed on holder invoice, next to store identification, respecting the card issuers length:
   * **Visa**: 25 characters
   * **Mastercard**: 11 characters
@@ -1179,6 +1181,7 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
   <!-- ... -->
 </requisicao-transacao>
 ```
+
 * **Purpose** - The automatic capture allows a request of authorization to be captured immediately after its approval. So it's not necessary realize a `<requisicao-captura>`.
 * **Rules**
   * Just approved authorizations can be captured automatically.
@@ -1227,7 +1230,7 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
     <soft-descriptor>softdescriptor</soft-descriptor>
     <taxa-embarque>1000</taxa-embarque>
     <avs>
-	<![CDATA[
+  <![CDATA[
       <dados-avs>
         <endereco>Rua Teste AVS</endereco>
         <complemento>Casa</complemento>
@@ -1236,7 +1239,7 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
         <cep>12345-123</cep>
         <cpf>11111111111</cpf>
       </dados-avs>
-	]]>
+  ]]>
     </avs>
   </dados-pedido>
   <!-- ... -->
