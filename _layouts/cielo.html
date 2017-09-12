@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+  {% include head.html %}
+  <body>
+    {% if page.language_tabs %}
+    <div class="content-container">
+      <div class="dark-box">
+        <a class="code-menu">
+          <i class="fa fa-code code-hamb" aria-hidden="true"></i>
+        </a>
+      </div>
+    {% else %}
+    <div class="content-container no-dark-box">
+    {% endif %}
+      <div id="submenu">
+        <div class="submenu-itens">
+          <a href="#" class="help">{% t global.support %}</a>
+
+          {% if page.translated %}
+          <div class="lang">
+            <span>{% t global.languages %}</span>
+            {% for lang in site.language_names %}
+            {% if lang[0] == site.default_lang %}
+            <a href="{{ site.baseurl_root }}{{page.url}}">
+            {% else %}
+            <a href="{{ site.baseurl_root }}/{{ lang[0] }}{{page.url}}">
+            {% endif %}
+              <img alt="{{ lang[1] }}" src="{{ site.baseurl }}/assets/images/{{ lang[0] }}.png"/>
+            </a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+        {% if page.search %}
+        <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="{% t global.search %}">
+        </div>
+      </div>
+      <div class="search-results-container">
+        <ul class="search-results"></ul>
+      </div>
+      {% endif %}
+        <ol class="breadcrumb">
+            {% if site.lang == site.default_lang %}
+            <li><a href="/">{% t global.home %}</a></li>
+            {% else %}
+            <li><a href="{{ site.baseurl_root }}/{{ site.lang }}/">{% t global.home %}</a></li>
+            {% endif %}
+            {% assign crumbs = page.url | split: '/' %}
+            {% assign crumbs_total = crumbs | size | minus: 1 %}
+            {% for crumb in crumbs offset: 1 %}
+                {% if forloop.index == crumbs_total %}
+                    {% if site.lang == site.default_lang %}
+                    <li class="active">&gt; <a href="{{ site.baseurl_root }}{{ page.url }}">{{page.title}}</a></li>
+                    {% else %}
+                    <li class="active">&gt; <a href="{{ site.baseurl_root }}/{{ site.lang }}{{ page.url }}">{{page.title}}</a></li>
+                    {% endif %}
+                {% else %}
+                    {% assign crumb_limit = forloop.index | plus: 1 %}
+                    {% capture crumb_url %}{% for c in crumbs limit: crumb_limit %}{{ c | append: '/' }}{% endfor %}{% endcapture %}
+                    {% capture crumb_with_index %}{{ crumb_url | append: 'index.html' }}{% endcapture %}
+                    {% capture current_page %}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+                    {% for p in site.pages %}
+                        {% if crumb_with_index != current_page and crumb_with_index == p.url %}
+                            <li>&gt; <a href="{{ crumb_with_index }}">{{ crumb | replace:'-',' ' | capitalize}}</a>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </div>
+
+    {% if page.language_tabs %}
+    <div class="content-container">
+        <div class="dark-box"></div>
+    {% else %}
+    <div class="content-container no-dark-box">
+    {% endif %}
+
+        {{ content }}
+    </div>
+
+    <div class="content-container">
+      <div class="footer-conteudo">
+						<div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+							<img src="{{ site.baseurl }}/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+						</div>
+						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+							<h1>Precisa de ajuda?</h1>
+							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
+						</div>
+				</div>
+    </div>
+
+    {% include sidebar.html %}
+
+    <script src="{{ site.baseurl }}/assets/js/jquery-1.8.3.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/bootstrap.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/jquery.tocify.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/prettify.js"></script>
+    <script>
+    $(function() {
+        $("#toc").tocify({
+            {% if page.layout == "faq" %}
+            selectors: "h1",
+            {% elsif page.layout == "tutorial" %}
+            selectors: "h1,h2,h3,h4,h5,h6",
+            {% else %}
+            selectors: "h1,h2",
+            {% endif %}
+            hashGenerator: "pretty",
+            ignoreSelector: ".no-toc"
+        }).data("toc-tocify");
+
+        $('ul').prev('li').addClass('has-subitens');
+
+           var openedHeader = null;
+
+           $(window).scroll(function () {
+               if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                   $('li.is-open').removeClass('is-open');
+
+                   openedHeader = $('li.active').closest('.tocify-header');
+               }
+
+               openedHeader.find('ul:visible').prev('li').addClass('is-open');
+           });
+
+           $('.hamburger').click(function() {
+              $('body').toggleClass('sidebar-closed');
+           });
+
+           $('.code-menu').click(function() {
+               $('body').toggleClass('code-menu-closed');
+           });
+
+        prettyPrint();
+
+
+    });
+    </script>
+
+    {% if page.language_tabs %}
+    <script src="{{ site.baseurl }}/assets/js/lang.js"></script>
+    <script>
+    $(function() {
+        setupLanguages([ {% for lang in page.language_tabs %} "{{ lang[0] }}", {% endfor %}]);
+
+    });
+    </script>
+    {% endif %}
+
+    {% if page.search %}
+    <script src="{{ site.baseurl }}/assets/js/jquery.highlight.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/lunr.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/search.js"></script>
+    {% endif %}
+  </body>
+</html>

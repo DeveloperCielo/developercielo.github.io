@@ -1,0 +1,37 @@
+<div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="{{ site.baseurl }}/">
+        <img src="{{ site.baseurl }}/assets/images/logo.png" alt="{{ site.title }}">
+      </a>
+      <a title="{% t global.toggle %} {% t global.sidebar %}" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="toc-footer">
+      <h2 class="no-toc toc-footer-title">{% t global.complementary %}</h2>
+      <ul class="toc-footer">
+        {%for link in page.toc_footers  limit:3%}
+        <li>{{ link }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="{% t global.contact %}" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>{% t global.contact %}</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="{% t global.github %}" href="{{ site.github.repo }}">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>{% t global.github %}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

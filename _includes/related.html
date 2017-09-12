@@ -1,0 +1,13 @@
+{% if  site.related_posts %}
+<h1>Veja também</h1>
+<ul class="related-posts post">
+    {% for post in site.related_posts limit:3 %}
+    <li class="post-title">
+        <h1 class="no-toc">{{ post.categories }}</h1>
+        <h2 class="no-toc">{{ post.title }}</h2>
+        <p>{{ post.description | truncatewords:75 }}</p>
+        <a class="btn" href="{{ site.baseurl }}{{ post.url }}">Ver Conteúdo</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

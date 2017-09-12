@@ -1,0 +1,15 @@
+global:
+  tagline: Português
+  github: Acesse nosso GitHub
+  contact: Entre em contato
+  languages: Idiomas
+  support: Ajuda
+  toggle: Esconder
+  sidebar: a coluna da esquerda
+  darkbox: a coluna da direita
+  complementary: Materiais complementares
+  search: Busca
+  home: Início
+langs:
+  en: English
+  pt: Português
