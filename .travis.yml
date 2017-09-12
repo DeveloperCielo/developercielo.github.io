@@ -9,6 +9,10 @@ before_script:
 script: ./script/build
 
 branches:
+  except:
+  - master
+
+branches:
   only:
   - docs
 
