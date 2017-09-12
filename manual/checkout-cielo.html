@@ -970,10 +970,25 @@ Nesta documentação estão descritas todas as funcionalidades desta integraçã
 </table>
 
 <h4 id="payment_method_bank">payment_method_bank</h4>
-<p>|Valor|Descrição|
-|—–|———|
-|1|Banco do Brasil|
-|2|Bradesco|</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Bradesco</td>
+    </tr>
+  </tbody>
+</table>
 
 <aside class="notice">A página destino do POST de Notificação deve seguir a formatação dos parâmetros com todos os nomes em MINUSCULO</aside>
 
@@ -1651,7 +1666,7 @@ Lembre-se de substituir `00000000-0000-0000-0000-000000000000` pelo seu Merchant
 <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">writer</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
     <span class="n">writer</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
-	<span class="n">writer</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+    <span class="n">writer</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="n">HttpWebResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebResponse</span><span class="p">)</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
@@ -2482,7 +2497,7 @@ Lembre-se de substituir `00000000-0000-0000-0000-000000000000` pelo seu Merchant
 <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">writer</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
     <span class="n">writer</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
-	<span class="n">writer</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+    <span class="n">writer</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="n">HttpWebResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebResponse</span><span class="p">)</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>

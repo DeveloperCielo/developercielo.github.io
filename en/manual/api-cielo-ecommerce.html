@@ -358,9 +358,7 @@
 
 <ol>
   <li>Test account register</li>
-  <li>
-    <p>Transactional Endpoints</p>
-
+  <li>Transactional Endpoints
     <ul>
       <li><strong>Request</strong>: https://apisandbox.cieloecommerce.cielo.com.br</li>
       <li><strong>Query</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br/</li>
@@ -467,23 +465,23 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito simples"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="nt">"Payment"</span><span class="p">:{</span><span class="w">
-     </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-	 </span><span class="nt">"CreditCard"</span><span class="p">:{</span><span class="w">
-         </span><span class="nt">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-     </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+    </span><span class="nt">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador crédito simples"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -504,7 +502,7 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
      <span class="s2">"Amount"</span>:15700,
      <span class="s2">"Installments"</span>:1,
-	 <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
+     <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
      <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
          <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,
          <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
@@ -867,7 +865,7 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
      </span><span class="nt">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
      </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-	 </span><span class="nt">"CreditCard"</span><span class="p">:{</span><span class="w">  
+     </span><span class="nt">"CreditCard"</span><span class="p">:{</span><span class="w">  
          </span><span class="nt">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
@@ -1505,28 +1503,28 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-	</span><span class="nt">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111903"</span><span class="p">,</span><span class="w">
-	</span><span class="nt">"Customer"</span><span class="p">:</span><span class="w">
-	</span><span class="p">{</span><span class="w">
-		</span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito autenticação"</span><span class="w">
-	</span><span class="p">},</span><span class="w">
-	</span><span class="nt">"Payment"</span><span class="p">:</span><span class="w">
-	</span><span class="p">{</span><span class="w">
-	    </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-	    </span><span class="nt">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-	    </span><span class="nt">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-	    </span><span class="nt">"Authenticate"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"ReturnUrl"</span><span class="p">:</span><span class="s2">"https://www.cielo.com.br"</span><span class="p">,</span><span class="w">
-	    </span><span class="nt">"CreditCard"</span><span class="p">:</span><span class="w">
-	    </span><span class="p">{</span><span class="w">
-		    </span><span class="nt">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-		    </span><span class="nt">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-		    </span><span class="nt">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-		    </span><span class="nt">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-		    </span><span class="nt">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-	    </span><span class="p">}</span><span class="w">
-	</span><span class="p">}</span><span class="w">
+    </span><span class="nt">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111903"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Customer"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito autenticação"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Payment"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Authenticate"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ReturnUrl"</span><span class="p">:</span><span class="s2">"https://www.cielo.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CreditCard"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -1692,46 +1690,46 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
 <h3 id="response-2">Response</h3>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-	</span><span class="nt">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111903"</span><span class="p">,</span><span class="w">
-	</span><span class="nt">"Customer"</span><span class="p">:</span><span class="w">
-	</span><span class="p">{</span><span class="w">
-		</span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito autenticação"</span><span class="w">
-	</span><span class="p">},</span><span class="w">
-	</span><span class="nt">"Payment"</span><span class="p">:</span><span class="w">
-	</span><span class="p">{</span><span class="w">
-		</span><span class="nt">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Authenticate"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"CreditCard"</span><span class="p">:</span><span class="w">
-		</span><span class="p">{</span><span class="w">
-			</span><span class="nt">"CardNumber"</span><span class="p">:</span><span class="s2">"123412******1112"</span><span class="p">,</span><span class="w">
-			</span><span class="nt">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-			</span><span class="nt">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-			</span><span class="nt">"SaveCard"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-			</span><span class="nt">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-		</span><span class="p">},</span><span class="w">
-		</span><span class="nt">"AuthenticationUrl"</span><span class="p">:</span><span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111903"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Customer"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito autenticação"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Payment"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Authenticate"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CreditCard"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"CardNumber"</span><span class="p">:</span><span class="s2">"123412******1112"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"SaveCard"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"AuthenticationUrl"</span><span class="p">:</span><span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1006993069257E521001"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"PaymentId"</span><span class="p">:</span><span class="s2">"f2dbd5df-c2ee-482f-ab1b-7fee039108c0"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"ExtraDataCollection"</span><span class="p">:[],</span><span class="w">
-		</span><span class="nt">"Status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"PaymentId"</span><span class="p">:</span><span class="s2">"f2dbd5df-c2ee-482f-ab1b-7fee039108c0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ExtraDataCollection"</span><span class="p">:[],</span><span class="w">
+        </span><span class="nt">"Status"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Links"</span><span class="p">:</span><span class="w">
-		</span><span class="p">[</span><span class="w">
-			</span><span class="p">{</span><span class="w">
-				</span><span class="nt">"Method"</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-				</span><span class="nt">"Rel"</span><span class="p">:</span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-				</span><span class="nt">"Href"</span><span class="p">:</span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"</span><span class="w">
-			</span><span class="p">}</span><span class="w">
-		</span><span class="p">]</span><span class="w">
-	</span><span class="p">}</span><span class="w">
+        </span><span class="nt">"Links"</span><span class="p">:</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Method"</span><span class="p">:</span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Rel"</span><span class="p">:</span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Href"</span><span class="p">:</span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
@@ -1740,46 +1738,46 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
 --header <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 --data-binary
 <span class="o">{</span>
-	<span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111903"</span>,
-	<span class="s2">"Customer"</span>:
-	<span class="o">{</span>
-		<span class="s2">"Name"</span>:<span class="s2">"Comprador crédito autenticação"</span>
-	<span class="o">}</span>,
-	<span class="s2">"Payment"</span>:
-	<span class="o">{</span>
-		<span class="s2">"ServiceTaxAmount"</span>:0,
-		<span class="s2">"Installments"</span>:1,
-		<span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
-		<span class="s2">"Capture"</span>:false,
-		<span class="s2">"Authenticate"</span>:true,
-		<span class="s2">"CreditCard"</span>:
-		<span class="o">{</span>
-			<span class="s2">"CardNumber"</span>:<span class="s2">"123412******1112"</span>,
-			<span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
-			<span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
-			<span class="s2">"SaveCard"</span>:false,
-			<span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-		<span class="o">}</span>,
-		<span class="s2">"AuthenticationUrl"</span>:<span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span>,
+    <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111903"</span>,
+    <span class="s2">"Customer"</span>:
+    <span class="o">{</span>
+        <span class="s2">"Name"</span>:<span class="s2">"Comprador crédito autenticação"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>:
+    <span class="o">{</span>
+        <span class="s2">"ServiceTaxAmount"</span>:0,
+        <span class="s2">"Installments"</span>:1,
+        <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
+        <span class="s2">"Capture"</span>:false,
+        <span class="s2">"Authenticate"</span>:true,
+        <span class="s2">"CreditCard"</span>:
+        <span class="o">{</span>
+            <span class="s2">"CardNumber"</span>:<span class="s2">"123412******1112"</span>,
+            <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
+            <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
+            <span class="s2">"SaveCard"</span>:false,
+            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+        <span class="o">}</span>,
+        <span class="s2">"AuthenticationUrl"</span>:<span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span>,
         <span class="s2">"Tid"</span>: <span class="s2">"1006993069257E521001"</span>,
         <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
-		<span class="s2">"PaymentId"</span>:<span class="s2">"f2dbd5df-c2ee-482f-ab1b-7fee039108c0"</span>,
-		<span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-		<span class="s2">"Amount"</span>:15700,
-		<span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
-		<span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-		<span class="s2">"ExtraDataCollection"</span>:[],
-		<span class="s2">"Status"</span>:0,
+        <span class="s2">"PaymentId"</span>:<span class="s2">"f2dbd5df-c2ee-482f-ab1b-7fee039108c0"</span>,
+        <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
+        <span class="s2">"Amount"</span>:15700,
+        <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+        <span class="s2">"ExtraDataCollection"</span>:[],
+        <span class="s2">"Status"</span>:0,
         <span class="s2">"ReturnCode"</span>: <span class="s2">"0"</span>,
-		<span class="s2">"Links"</span>:
-		<span class="o">[</span>
-			<span class="o">{</span>
-				<span class="s2">"Method"</span>:<span class="s2">"GET"</span>,
-				<span class="s2">"Rel"</span>:<span class="s2">"self"</span>,
-				<span class="s2">"Href"</span>:<span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"</span>
-			<span class="o">}</span>
-		<span class="o">]</span>
-	<span class="o">}</span>
+        <span class="s2">"Links"</span>:
+        <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>:<span class="s2">"GET"</span>,
+                <span class="s2">"Rel"</span>:<span class="s2">"self"</span>,
+                <span class="s2">"Href"</span>:<span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"</span>
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>
 <span class="o">}</span>
 </code></pre>
 </div>
@@ -1901,7 +1899,7 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
      </span><span class="nt">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
      </span><span class="nt">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-	 </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -1915,14 +1913,14 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
      </span><span class="nt">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
        </span><span class="nt">"Sequence"</span><span class="p">:</span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"Always"</span><span class="p">,</span><span class="w">
-	   </span><span class="nt">"FingerPrintId"</span><span class="p">:</span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">
-	   </span><span class="nt">"Browser"</span><span class="p">:{</span><span class="w">
-		 </span><span class="nt">"CookiesAccepted"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-		 </span><span class="nt">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
-		 </span><span class="nt">"HostName"</span><span class="p">:</span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
-		 </span><span class="nt">"IpAddress"</span><span class="p">:</span><span class="s2">"200.190.150.350"</span><span class="p">,</span><span class="w">
-		 </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"Chrome"</span><span class="w">
-		</span><span class="p">},</span><span class="w">
+       </span><span class="nt">"FingerPrintId"</span><span class="p">:</span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"Browser"</span><span class="p">:{</span><span class="w">
+         </span><span class="nt">"CookiesAccepted"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"HostName"</span><span class="p">:</span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"IpAddress"</span><span class="p">:</span><span class="s2">"200.190.150.350"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"Chrome"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
        </span><span class="nt">"Cart"</span><span class="p">:{</span><span class="w">
          </span><span class="nt">"IsGift"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="nt">"ReturnsAccepted"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1936,38 +1934,38 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
            </span><span class="nt">"Sku"</span><span class="p">:</span><span class="s2">"201411170235134521346"</span><span class="p">,</span><span class="w">
            </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w">
-		   </span><span class="nt">"Risk"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
-		   </span><span class="nt">"TimeHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-		   </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"AdultContent"</span><span class="p">,</span><span class="w">
-		   </span><span class="nt">"VelocityHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
-		   </span><span class="nt">"Passenger"</span><span class="p">:{</span><span class="w">
-			 </span><span class="nt">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
-			 </span><span class="nt">"Identity"</span><span class="p">:</span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
-			 </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Comprador accept"</span><span class="p">,</span><span class="w">
-			 </span><span class="nt">"Rating"</span><span class="p">:</span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
-			 </span><span class="nt">"Phone"</span><span class="p">:</span><span class="s2">"999994444"</span><span class="p">,</span><span class="w">
-			 </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"Accepted"</span><span class="w">
-			</span><span class="p">}</span><span class="w">
+           </span><span class="nt">"Risk"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"TimeHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"AdultContent"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"VelocityHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"Passenger"</span><span class="p">:{</span><span class="w">
+             </span><span class="nt">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"Identity"</span><span class="p">:</span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Comprador accept"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"Rating"</span><span class="p">:</span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"Phone"</span><span class="p">:</span><span class="s2">"999994444"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"Status"</span><span class="p">:</span><span class="s2">"Accepted"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
            </span><span class="p">}]</span><span class="w">
        </span><span class="p">},</span><span class="w">
-	   </span><span class="nt">"MerchantDefinedFields"</span><span class="p">:[{</span><span class="w">
-			</span><span class="nt">"Id"</span><span class="p">:</span><span class="mi">95</span><span class="p">,</span><span class="w">
-			</span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Eu defini isso"</span><span class="w">
-		</span><span class="p">}],</span><span class="w">
-		</span><span class="nt">"Shipping"</span><span class="p">:{</span><span class="w">
-			</span><span class="nt">"Addressee"</span><span class="p">:</span><span class="s2">"Sr Comprador Teste"</span><span class="p">,</span><span class="w">
-			</span><span class="nt">"Method"</span><span class="p">:</span><span class="s2">"LowCost"</span><span class="p">,</span><span class="w">
-			</span><span class="nt">"Phone"</span><span class="p">:</span><span class="s2">"21114740"</span><span class="w">
-		</span><span class="p">},</span><span class="w">
-		</span><span class="nt">"Travel"</span><span class="p">:{</span><span class="w">
-			</span><span class="nt">"DepartureTime"</span><span class="p">:</span><span class="s2">"2010-01-02"</span><span class="p">,</span><span class="w">
-			</span><span class="nt">"JourneyType"</span><span class="p">:</span><span class="s2">"Ida"</span><span class="p">,</span><span class="w">
-			</span><span class="nt">"Route"</span><span class="p">:</span><span class="s2">"MAO-RJO"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"MerchantDefinedFields"</span><span class="p">:[{</span><span class="w">
+            </span><span class="nt">"Id"</span><span class="p">:</span><span class="mi">95</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Value"</span><span class="p">:</span><span class="s2">"Eu defini isso"</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="nt">"Shipping"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"Addressee"</span><span class="p">:</span><span class="s2">"Sr Comprador Teste"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Method"</span><span class="p">:</span><span class="s2">"LowCost"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Phone"</span><span class="p">:</span><span class="s2">"21114740"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"Travel"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"DepartureTime"</span><span class="p">:</span><span class="s2">"2010-01-02"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"JourneyType"</span><span class="p">:</span><span class="s2">"Ida"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Route"</span><span class="p">:</span><span class="s2">"MAO-RJO"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"Legs"</span><span class="p">:[{</span><span class="w">
-				</span><span class="nt">"Destination"</span><span class="p">:</span><span class="s2">"GYN"</span><span class="p">,</span><span class="w">
-				</span><span class="nt">"Origin"</span><span class="p">:</span><span class="s2">"VCP"</span><span class="w">
+                </span><span class="nt">"Destination"</span><span class="p">:</span><span class="s2">"GYN"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Origin"</span><span class="p">:</span><span class="s2">"VCP"</span><span class="w">
           </span><span class="p">}]</span><span class="w">
-		</span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2012,7 +2010,7 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
      <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
      <span class="s2">"ServiceTaxAmount"</span>:0,
      <span class="s2">"Installments"</span>:1,
-	 <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
+     <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
      <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
      <span class="s2">"Capture"</span>:false,
      <span class="s2">"Authenticate"</span>:false,
@@ -2027,14 +2025,14 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
      <span class="s2">"FraudAnalysis"</span>:<span class="o">{</span>
        <span class="s2">"Sequence"</span>:<span class="s2">"AuthorizeFirst"</span>,
        <span class="s2">"SequenceCriteria"</span>:<span class="s2">"Always"</span>,
-	   <span class="s2">"FingerPrintId"</span>:<span class="s2">"074c1ee676ed4998ab66491013c565e2"</span>,
-	   <span class="s2">"Browser"</span>:<span class="o">{</span>
-		 <span class="s2">"CookiesAccepted"</span>:false,
-		 <span class="s2">"Email"</span>:<span class="s2">"compradorteste@live.com"</span>,
-		 <span class="s2">"HostName"</span>:<span class="s2">"Teste"</span>,
-		 <span class="s2">"IpAddress"</span>:<span class="s2">"200.190.150.350"</span>,
-		 <span class="s2">"Type"</span>:<span class="s2">"Chrome"</span>
-		<span class="o">}</span>,
+       <span class="s2">"FingerPrintId"</span>:<span class="s2">"074c1ee676ed4998ab66491013c565e2"</span>,
+       <span class="s2">"Browser"</span>:<span class="o">{</span>
+         <span class="s2">"CookiesAccepted"</span>:false,
+         <span class="s2">"Email"</span>:<span class="s2">"compradorteste@live.com"</span>,
+         <span class="s2">"HostName"</span>:<span class="s2">"Teste"</span>,
+         <span class="s2">"IpAddress"</span>:<span class="s2">"200.190.150.350"</span>,
+         <span class="s2">"Type"</span>:<span class="s2">"Chrome"</span>
+        <span class="o">}</span>,
        <span class="s2">"Cart"</span>:<span class="o">{</span>
          <span class="s2">"IsGift"</span>:false,
          <span class="s2">"ReturnsAccepted"</span>:true,
@@ -2048,38 +2046,38 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
            <span class="s2">"Quantity"</span>:1,
            <span class="s2">"Sku"</span>:<span class="s2">"201411170235134521346"</span>,
            <span class="s2">"UnitPrice"</span>:123,
-		   <span class="s2">"Risk"</span>:<span class="s2">"High"</span>,
-		   <span class="s2">"TimeHedge"</span>:<span class="s2">"Normal"</span>,
-		   <span class="s2">"Type"</span>:<span class="s2">"AdultContent"</span>,
-		   <span class="s2">"VelocityHedge"</span>:<span class="s2">"High"</span>,
-		   <span class="s2">"Passenger"</span>:<span class="o">{</span>
-			 <span class="s2">"Email"</span>:<span class="s2">"compradorteste@live.com"</span>,
-			 <span class="s2">"Identity"</span>:<span class="s2">"1234567890"</span>,
-			 <span class="s2">"Name"</span>:<span class="s2">"Comprador accept"</span>,
-			 <span class="s2">"Rating"</span>:<span class="s2">"Adult"</span>,
-			 <span class="s2">"Phone"</span>:<span class="s2">"999994444"</span>,
-			 <span class="s2">"Status"</span>:<span class="s2">"Accepted"</span>
-			<span class="o">}</span>
+           <span class="s2">"Risk"</span>:<span class="s2">"High"</span>,
+           <span class="s2">"TimeHedge"</span>:<span class="s2">"Normal"</span>,
+           <span class="s2">"Type"</span>:<span class="s2">"AdultContent"</span>,
+           <span class="s2">"VelocityHedge"</span>:<span class="s2">"High"</span>,
+           <span class="s2">"Passenger"</span>:<span class="o">{</span>
+             <span class="s2">"Email"</span>:<span class="s2">"compradorteste@live.com"</span>,
+             <span class="s2">"Identity"</span>:<span class="s2">"1234567890"</span>,
+             <span class="s2">"Name"</span>:<span class="s2">"Comprador accept"</span>,
+             <span class="s2">"Rating"</span>:<span class="s2">"Adult"</span>,
+             <span class="s2">"Phone"</span>:<span class="s2">"999994444"</span>,
+             <span class="s2">"Status"</span>:<span class="s2">"Accepted"</span>
+            <span class="o">}</span>
            <span class="o">}]</span>
        <span class="o">}</span>,
-	   <span class="s2">"MerchantDefinedFields"</span>:[<span class="o">{</span>
-			<span class="s2">"Id"</span>:95,
-			<span class="s2">"Value"</span>:<span class="s2">"Eu defini isso"</span>
-		<span class="o">}]</span>,
-		<span class="s2">"Shipping"</span>:<span class="o">{</span>
-			<span class="s2">"Addressee"</span>:<span class="s2">"Sr Comprador Teste"</span>,
-			<span class="s2">"Method"</span>:<span class="s2">"LowCost"</span>,
-			<span class="s2">"Phone"</span>:<span class="s2">"21114740"</span>
-		<span class="o">}</span>,
-		<span class="s2">"Travel"</span>:<span class="o">{</span>
-			<span class="s2">"DepartureTime"</span>:<span class="s2">"2010-01-02"</span>,
-			<span class="s2">"JourneyType"</span>:<span class="s2">"Ida"</span>,
-			<span class="s2">"Route"</span>:<span class="s2">"MAO-RJO"</span>,
+       <span class="s2">"MerchantDefinedFields"</span>:[<span class="o">{</span>
+            <span class="s2">"Id"</span>:95,
+            <span class="s2">"Value"</span>:<span class="s2">"Eu defini isso"</span>
+        <span class="o">}]</span>,
+        <span class="s2">"Shipping"</span>:<span class="o">{</span>
+            <span class="s2">"Addressee"</span>:<span class="s2">"Sr Comprador Teste"</span>,
+            <span class="s2">"Method"</span>:<span class="s2">"LowCost"</span>,
+            <span class="s2">"Phone"</span>:<span class="s2">"21114740"</span>
+        <span class="o">}</span>,
+        <span class="s2">"Travel"</span>:<span class="o">{</span>
+            <span class="s2">"DepartureTime"</span>:<span class="s2">"2010-01-02"</span>,
+            <span class="s2">"JourneyType"</span>:<span class="s2">"Ida"</span>,
+            <span class="s2">"Route"</span>:<span class="s2">"MAO-RJO"</span>,
           <span class="s2">"Legs"</span>:[<span class="o">{</span>
-				<span class="s2">"Destination"</span>:<span class="s2">"GYN"</span>,
-				<span class="s2">"Origin"</span>:<span class="s2">"VCP"</span>
+                <span class="s2">"Destination"</span>:<span class="s2">"GYN"</span>,
+                <span class="s2">"Origin"</span>:<span class="s2">"VCP"</span>
           <span class="o">}]</span>
-		<span class="o">}</span>
+        <span class="o">}</span>
      <span class="o">}</span>
   <span class="o">}</span>
 <span class="o">}</span>
@@ -4410,6 +4408,7 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
+
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl
 --request POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
 --header <span class="s2">"Content-Type: application/json"</span>
@@ -4660,15 +4659,15 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
     </span><span class="p">{</span><span class="w">
         </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Boleto Completo"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"Address"</span><span class="p">:</span><span class="w">
-		</span><span class="p">{</span><span class="w">
-		</span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av Marechal Camara"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22750012"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-		</span><span class="nt">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="w">
-		</span><span class="p">}</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av Marechal Camara"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22750012"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"Payment"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -5662,7 +5661,7 @@ It is widely used for magazine subscriptions, monthly fees, software licenses, a
      </span><span class="nt">"Amount"</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-	 </span><span class="nt">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
      </span><span class="nt">"CreditCard"</span><span class="p">:{</span><span class="w">  
          </span><span class="nt">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
@@ -7547,7 +7546,7 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
     </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-	</span><span class="nt">"NewCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"NewCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
        </span><span class="nt">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40000000000000000"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10/2020"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -7613,7 +7612,7 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
     <span class="s2">"SoftDescriptor"</span>: <span class="s2">"123456789ABCD"</span>,
     <span class="s2">"Provider"</span>: <span class="s2">"Cielo"</span>,
     <span class="s2">"Eci"</span>: <span class="s2">"0"</span>,
-	<span class="s2">"NewCard"</span>: <span class="o">{</span>
+    <span class="s2">"NewCard"</span>: <span class="o">{</span>
        <span class="s2">"CardNumber"</span>: <span class="s2">"40000000000000000"</span>,
        <span class="s2">"ExpirationDate"</span>: <span class="s2">"10/2020"</span>,
        <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
@@ -8639,6 +8638,7 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
+
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl
 --request POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/card/"</span>
 --header <span class="s2">"Content-Type: application/json"</span>
@@ -8656,13 +8656,55 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
 --verbose
 </code></pre>
 </div>
-<p>|Property|Type|Size|Required|Description|
-|—|—|—|—|—|
-|<code class="highlighter-rouge">Name</code>|Text|255|Yes|Buyer name.|
-|<code class="highlighter-rouge">CardNumber</code>|Text|16|Yes|Buyer Card Number.|
-|<code class="highlighter-rouge">Holder</code>|Text|25|Yes|Buyer name printed on card.|
-|<code class="highlighter-rouge">ExpirationDate</code>|Text|7|Yes|Expiry date printed on card.|
-|<code class="highlighter-rouge">Brand</code>|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Name</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Yes</td>
+      <td>Buyer name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CardNumber</code></td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Yes</td>
+      <td>Buyer Card Number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Holder</code></td>
+      <td>Text</td>
+      <td>25</td>
+      <td>Yes</td>
+      <td>Buyer name printed on card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ExpirationDate</code></td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+      <td>Expiry date printed on card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Brand</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+      <td>Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="response-29">Response</h3>
 
@@ -8675,6 +8717,7 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
+
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>--header <span class="s2">"Content-Type: application/json"</span>
 --header <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 --data-binary
@@ -8752,7 +8795,7 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
      </span><span class="nt">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-	 </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
      </span><span class="nt">"CreditCard"</span><span class="p">:{</span><span class="w">  
          </span><span class="nt">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
@@ -8765,6 +8808,7 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
+
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>curl
 --request POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
 --header <span class="s2">"Content-Type: application/json"</span>
@@ -9197,7 +9241,7 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
             </span><span class="nt">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-			</span><span class="nt">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d37bf475-307d-47be-b50a-8dcc38c5056c"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d37bf475-307d-47be-b50a-8dcc38c5056c"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nt">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
@@ -9271,7 +9315,7 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
             <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">true</span>,
-			<span class="s2">"CardToken"</span>: <span class="s2">"d37bf475-307d-47be-b50a-8dcc38c5056c"</span>
+            <span class="s2">"CardToken"</span>: <span class="s2">"d37bf475-307d-47be-b50a-8dcc38c5056c"</span>
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
@@ -9775,8 +9819,8 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
      </span><span class="nt">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="nt">"CreditCard"</span><span class="p">:{</span><span class="w">  
-    	</span><span class="nt">"CardToken"</span><span class="p">:</span><span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span><span class="p">,</span><span class="w">
-    	</span><span class="nt">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="nt">"CardToken"</span><span class="p">:</span><span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -9800,8 +9844,8 @@ Thus, when a transaction with recurring markup is submitted to the API and Cielo
      <span class="s2">"Amount"</span>:100,
      <span class="s2">"Installments"</span>:1,
      <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
-    	<span class="s2">"CardToken"</span>:<span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span>,
-    	<span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+        <span class="s2">"CardToken"</span>:<span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span>,
+        <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
      <span class="o">}</span>
    <span class="o">}</span>
 <span class="o">}</span>
@@ -10117,15 +10161,15 @@ To use wallets in API 3.0, the merchant must have the wallets integrated at thei
      </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-	 </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
      </span><span class="nt">"CreditCard"</span><span class="p">:{</span><span class="w">
          </span><span class="nt">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
             </span><span class="err">}</span><span class="p">,</span><span class="w">
      </span><span class="nt">"Wallet"</span><span class="p">:{</span><span class="w">
          </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"VisaCheckout"</span><span class="p">,</span><span class="w">
          </span><span class="nt">"WalletKey"</span><span class="p">:</span><span class="s2">"1140814777695873901"</span><span class="w">
-		</span><span class="p">}</span><span class="w">
-	 </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -10154,8 +10198,8 @@ To use wallets in API 3.0, the merchant must have the wallets integrated at thei
      <span class="s2">"Wallet"</span>:<span class="o">{</span>
          <span class="s2">"Type"</span>:<span class="s2">"VisaCheckout"</span>,
          <span class="s2">"WalletKey"</span>:<span class="s2">"1140814777695873901"</span>
-		<span class="o">}</span>
-	 <span class="o">}</span>
+        <span class="o">}</span>
+     <span class="o">}</span>
 <span class="o">}</span>
 
 --verbose
@@ -10470,26 +10514,26 @@ To use wallets in API 3.0, the merchant must have the wallets integrated at thei
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nt">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Comprador Teste"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="nt">"Payment"</span><span class="p">:{</span><span class="w">
-     </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-	 </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"CreditCard"</span><span class="p">:{</span><span class="w">
-         </span><span class="nt">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-			</span><span class="err">}</span><span class="p">,</span><span class="w">
-	</span><span class="err">}</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"Wallet"</span><span class="p">:{</span><span class="w">
-         </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"MasterPass"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"AdditionalData"</span><span class="p">:{</span><span class="w">
-               </span><span class="nt">"CaptureCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"103"</span><span class="p">}</span><span class="w">
-     </span><span class="p">}</span><span class="w">
+    </span><span class="nt">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Teste"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MasterPass"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"CaptureCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"103"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 </div>
 
@@ -10501,24 +10545,25 @@ To use wallets in API 3.0, the merchant must have the wallets integrated at thei
 --header <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 --data-binary
 <span class="o">{</span>
-   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111703"</span>,
-   <span class="s2">"Customer"</span>:<span class="o">{</span>
-      <span class="s2">"Name"</span>:<span class="s2">"Comprador Teste"</span>
-   <span class="o">}</span>,
-   <span class="s2">"Payment"</span>:<span class="o">{</span>
-     <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-     <span class="s2">"Amount"</span>:15700,
-     <span class="s2">"Installments"</span>:1,
-	 <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
-     <span class="s2">"CreditCard"</span>:<span class="o">{</span>
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-			<span class="o">}</span>,
-	<span class="o">}</span>,
-     <span class="s2">"Wallet"</span>:<span class="o">{</span>
-         <span class="s2">"Type"</span>:<span class="s2">"MasterPass"</span>,
-         <span class="s2">"AdditionalData"</span>:<span class="o">{</span>
-               <span class="s2">"CaptureCode"</span>: <span class="s2">"103"</span><span class="o">}</span>
-     <span class="o">}</span>
+    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014111703"</span>,
+    <span class="s2">"Customer"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Comprador Teste"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+        <span class="s2">"Amount"</span>: 15700,
+        <span class="s2">"Installments"</span>: 1,
+        <span class="s2">"SoftDescriptor"</span>: <span class="s2">"123456789ABCD"</span>,
+        <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+            <span class="s2">"SecurityCode"</span>: <span class="s2">"123"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="s2">"Wallet"</span>: <span class="o">{</span>
+        <span class="s2">"Type"</span>: <span class="s2">"MasterPass"</span>,
+        <span class="s2">"AdditionalData"</span>: <span class="o">{</span>
+            <span class="s2">"CaptureCode"</span>: <span class="s2">"103"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
 <span class="o">}</span>
 --verbose
 </code></pre>

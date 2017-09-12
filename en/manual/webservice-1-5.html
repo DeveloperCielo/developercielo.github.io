@@ -504,6 +504,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
 </code></pre>
 </div>
+
 <aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
 <h3 id="root-node">ROOT Node</h3>
@@ -941,21 +942,15 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <p><img src="/images/fluxo-autenticacao.png" alt="fluxo-autenticacao" /></p>
 
 <ol>
-  <li>finishOrder() - it happens when a cardholder finishes the order and starts the payment purchase.
-    <ol>
-      <li>createTransaction (authenticated) - the retailer system send a XML request <code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code> requesting an authenticated transaction, in other words, the TAG <autorizar> will be 0,1 or 2. After this, Cielo will inform at XML returned a field <url-autenticacao> with the address which the holder must be redirected for.</url-autenticacao></autorizar></li>
-    </ol>
-  </li>
+  <li>finishOrder() - it happens when a cardholder finishes the order and starts the payment purchase.</li>
+  <li>createTransaction (authenticated) - the retailer system send a XML request <code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code> requesting an authenticated transaction, in other words, the TAG <autorizar> will be 0,1 or 2. After this, Cielo will inform at XML returned a field <url-autenticacao> with the address which the holder must be redirected for.</url-autenticacao></autorizar></li>
   <li>access (url-authentication) - the holder’s browser is redirected to Cielo environment. Thereby, the Cielo’s page is accessed, it automatically is directed to an issuer bank (3.1). This redirect is so fast that is practically imperceptible.</li>
-  <li>authenticate (token, cpf) - the holder will be on bank environment and will use some mechanism provided by his/her own issuer to realize the authentication of the transaction (generally token, “bingo card”/security card, cpf, electronic sign, etc).
+  <li>authenticate (token, cpf) - the holder will be on bank environment and will use some mechanism provided by his/her own issuer to realize the authentication of the transaction (generally token, “bingo card”/security card, cpf, electronic sign, etc).</li>
+  <li>resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item “2.3 Architecture of integration”.
+    1.process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.
+    2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (<code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>)
     <ol>
-      <li>resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item “2.3 Architecture of integration”.</li>
-      <li>process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.</li>
-      <li>sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (<code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>)
-        <ol>
-          <li>access (url-return) - the holder’s browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.</li>
-        </ol>
-      </li>
+      <li>access (url-return) - the holder’s browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.</li>
     </ol>
   </li>
 </ol>
@@ -1008,6 +1003,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <span class="nt">&lt;/transacao&gt;</span>
 </code></pre>
 </div>
+
 <p>Just the “node” fields <code class="highlighter-rouge">&lt;autenticacao&gt;</code> are listed on the table below:</p>
 
 <table>
@@ -2867,6 +2863,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
 </code></pre>
 </div>
+
 <ul>
   <li><strong>Purpose</strong> - Allows the retailer to send a text with until 13 characters that will be printed on holder invoice, next to store identification, respecting the card issuers length:
     <ul>
@@ -2895,6 +2892,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
 </code></pre>
 </div>
+
 <ul>
   <li><strong>Purpose</strong> - The automatic capture allows a request of authorization to be captured immediately after its approval. So it’s not necessary realize a <code class="highlighter-rouge">&lt;requisicao-captura&gt;</code>.</li>
   <li><strong>Rules</strong>
@@ -2955,7 +2953,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;soft-descriptor&gt;</span>softdescriptor<span class="nt">&lt;/soft-descriptor&gt;</span>
     <span class="nt">&lt;taxa-embarque&gt;</span>1000<span class="nt">&lt;/taxa-embarque&gt;</span>
     <span class="nt">&lt;avs&gt;</span>
-	<span class="cp">&lt;![CDATA[
+  <span class="cp">&lt;![CDATA[
       &lt;dados-avs&gt;</span>
         <span class="nt">&lt;endereco&gt;</span>Rua Teste AVS<span class="nt">&lt;/endereco&gt;</span>
         <span class="nt">&lt;complemento&gt;</span>Casa<span class="nt">&lt;/complemento&gt;</span>
@@ -2964,7 +2962,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
         <span class="nt">&lt;cep&gt;</span>12345-123<span class="nt">&lt;/cep&gt;</span>
         <span class="nt">&lt;cpf&gt;</span>11111111111<span class="nt">&lt;/cpf&gt;</span>
       <span class="nt">&lt;/dados-avs&gt;</span>
-	]]&gt;
+  ]]&gt;
     <span class="nt">&lt;/avs&gt;</span>
   <span class="nt">&lt;/dados-pedido&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>

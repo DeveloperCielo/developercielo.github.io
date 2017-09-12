@@ -941,10 +941,25 @@ Nesta documentação estão descritas todas as funcionalidades desta integraçã
 </table>
 
 <h4 id="payment_method_bank">payment_method_bank</h4>
-<p>|Valor|Descrição|
-|—–|———|
-|1|Banco do Brasil|
-|2|Bradesco|</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Bradesco</td>
+    </tr>
+  </tbody>
+</table>
 
 <aside class="notice">The destination page of Notification POST should follow the parameter formats with all the names in SMALL LETTERS</aside>
 
@@ -1589,7 +1604,7 @@ Nesta documentação estão descritas todas as funcionalidades desta integraçã
 <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">writer</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
     <span class="n">writer</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
-	<span class="n">writer</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+    <span class="n">writer</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="n">HttpWebRequest</span> <span class="n">response</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebResponse</span><span class="p">)</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
@@ -1887,6 +1902,7 @@ Nesta documentação estão descritas todas as funcionalidades desta integraçã
 <span class="nt">&lt;/form&gt;</span>
 </code></pre>
 </div>
+
 <p>Adding the button on your HTML page you have to copy the button HTML code created and put the HTML code on your website, as the example below:</p>
 
 <p>Each button has a unique code that only allows to buy a certain product in the pricing and shipping conditions registered. Therefore, the fraudster can’t change any of these information on purchase submit, because Cielo Checkout will search all product data on <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a>, and will be considered the registration data.</p>
@@ -2415,12 +2431,13 @@ Nesta documentação estão descritas todas as funcionalidades desta integraçã
 <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">writer</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">StreamWriter</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">GetRequestStream</span><span class="p">()))</span>
 <span class="p">{</span>
     <span class="n">writer</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
-	<span class="n">writer</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
+    <span class="n">writer</span><span class="p">.</span><span class="nf">Close</span><span class="p">();</span>
 <span class="p">}</span>
 
 <span class="n">HttpWebResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="p">(</span><span class="n">HttpWebResponse</span><span class="p">)</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponse</span><span class="p">();</span>
 </code></pre>
 </div>
+
 <p>A recurrence of the transaction Cielo Checkout has two settings: “Interval” and “Closing Date”.</p>
 
 <ul>
@@ -2448,14 +2465,14 @@ The buyer’s credit card data is stored securely within the Checkout Cielo, all
   <tbody>
     <tr>
       <td>BoletoDiscount</td>
-      <td>Numeric	Conditional</td>
+      <td>Numeric    Conditional</td>
       <td>0. 3</td>
       <td>Discount in percentage, for payments to be made with boleto.</td>
       <td> </td>
     </tr>
     <tr>
       <td>Debit Discount</td>
-      <td>Numeric	Conditional</td>
+      <td>Numeric    Conditional</td>
       <td>0. 3</td>
       <td>Discount in percentage, for payments to be made with online debt.</td>
       <td> </td>
@@ -2501,7 +2518,7 @@ The buyer’s credit card data is stored securely within the Checkout Cielo, all
 
 <p>The Checkout Cielo provides two installments methods:</p>
 
-<p>##Installment via backoffice</p>
+<h2 id="installment-via-backoffice">Installment via backoffice</h2>
 
 <ul>
   <li>The installments available as Store payment option should be set by the shopkeeper in backoffice Checkout, located in the Cielo site.</li>
@@ -2650,15 +2667,16 @@ Parameter of request with information about a shopping cart item. See also the [
     "SourceZipCode": "14400000",
     "TargetZipCode": "11000000",
     "Measures": {
-    	"Package": "BOX",
-    	"Lenght": 30,
-    	"Height": 5,
-	"Width": 10,
+        "Package": "BOX",
+        "Lenght": 30,
+        "Height": 5,
+    "Width": 10,
     },
     "Address": {},
     "Services": []
 }
 ```
+
 Request parameter with information about the address and shipping service of product delivery.
 
 |Field|Type|Mandatory|Size|Description|
