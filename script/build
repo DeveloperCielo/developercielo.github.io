@@ -9,6 +9,9 @@ fi
 # enable error reporting to the console
 set -e
 
+# lint for markdown
+bundle exec mdl --rules MD002,MD003,MD004,MD006,MD007,MD010,MD011,MD012,MD018,MD019,MD022,MD025,MD027,MD028,MD029="ordered",MD030,MD031,MD040 _i18n/
+
 # cleanup "_site"
 rm -rf _site
 mkdir _site
