@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Backoffice API 3.0 Cielo &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/hyde.css">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/css/prettify.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/cielo.css">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+  <body>
+    
+    <div class="content-container no-dark-box">
+    
+      <div id="submenu">
+        <div class="submenu-itens">
+          <a href="#" class="help">Ajuda</a>
+
+          
+        </div>
+
+        
+        <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="Busca">
+        </div>
+      </div>
+      <div class="search-results-container">
+        <ul class="search-results"></ul>
+      </div>
+      
+        <ol class="breadcrumb">
+            
+            <li><a href="/">Início</a></li>
+            
+            
+            
+            
+                
+                    
+                    
+                    
+                    
+                    
+                        
+                    
+                        
+                    
+                
+            
+                
+                    
+                    <li class="active">&gt; <a href="/tutorial/backoffice-3-0">Backoffice API 3.0 Cielo</a></li>
+                    
+                
+            
+        </ol>
+    </div>
+
+    
+    <div class="content-container no-dark-box">
+    
+
+        <div class="post">
+    <h1 id="backoffice-api-cielo">Backoffice API Cielo</h1>
+
+<p>O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.</p>
+
+<h2 id="visão-geral">Visão Geral</h2>
+
+<p>O Backoffice da API Cielo Ecommerce permite que o lojista possa acessar 4 menus com diferentes funcionalidades:</p>
+
+<ol>
+  <li><strong>Área do desenvolvedor Cielo</strong> – Onde desenvolvedores podem acessar informações como manuais de integração, FAQs e suporte</li>
+  <li><strong>Pesquisa de transações</strong> – Busca todas as transações executadas pela loja e exibe como captura ou cancelar transações</li>
+  <li><strong>Extrato de cobrança</strong> – Detalha os valores cobradas pela a Cielo por cada função utilizada na API Cielo Ecommerce.</li>
+  <li><strong>Configuração da recorrência</strong> – Alterar quantidades de tentativas de execução de recorrências em caso de cartão negado.</li>
+</ol>
+
+<h2 id="acessando-o-backoffice">Acessando o Backoffice</h2>
+
+<p>Para acessar o Backoffice, é necessário que o lojista realize login no Site Cielo, inserindo sua Afiliação (Nº de estabelecimento) e Usuário:</p>
+
+<p><img src="/images/i0.png" alt="Acessando o Backoffice" /></p>
+
+<p><img src="/images/i1.png" alt="Acessando o Backoffice" /></p>
+
+<p>Em seguida é necessário incluir sua Senha:</p>
+
+<p><img src="/images/i2.png" alt="Acessando o Backoffice" /></p>
+
+<p>Na área de “Vendas Online” basta clicar em Webservice 3.0</p>
+
+<p><img src="/images/i3.png" alt="Acessando o Backoffice" /></p>
+
+<p>Você será direcionado para o Backoffice:</p>
+
+<p><img src="/images/i4.png" alt="Acessando o Backoffice" /></p>
+
+<p>Nesta área você pode acessar as outras funcionalidades do Backoffice</p>
+
+<h2 id="acessando-a-área-do-desenvolvedor">Acessando a área do Desenvolvedor</h2>
+
+<p>Clique no link destacado abaixo:</p>
+
+<p><img src="/images/i45.png" alt="Desenvolvedor" /></p>
+
+<p>Você será redirecionado para <a href="https://www.cielo.com.br/desenvolvedores/">https://www.cielo.com.br/desenvolvedores/</a></p>
+
+<h1 id="pesquisando-e-editando-transações">Pesquisando e editando transações</h1>
+
+<h2 id="pesquisar-transações">Pesquisar Transações</h2>
+
+<p>Ao acessar a opção abaixo:</p>
+
+<p><img src="/images/i5.png" alt="Pesquisa de transações" /></p>
+
+<p>Você será direcionado a tela de pesquisa de transações:</p>
+
+<p><img src="/images/i6.png" alt="Pesquisa de transações" /></p>
+
+<p>Essa tela permite buscar todas as transações realizadas com sucesso na API Cielo Ecommerce e realizar a captura ou cancelamento de transações.</p>
+
+<p>Sobre os Filtros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filtros</th>
+      <th>Descrição</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tid</td>
+      <td>Identificador da transação Cielo. Retornado via response e disponivel no site Cielo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>EC</td>
+      <td>Número da Afiliação Cielo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment Id</td>
+      <td>Identificador da transação e-commerce</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Número do Pedido</td>
+      <td>Número do pedido enviado pelo lojista</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>NSU</td>
+      <td>Identificação da autorização. Enviado via response</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Código de Erro</td>
+      <td>Código retornado caso uma transação gere um erro.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Status da Transação</td>
+      <td><strong>Cancelado</strong> - Transação cancelada pelo lojista<br /><strong>Estornado</strong> - Transações canceladas com menos de 24 horas<br /><strong>Não Autorizado</strong> - Transações negadas pelo Autorizador Cielo<br /><strong>Não Pago</strong> - Transações autorizadas, mas não capturadas<br /><strong>Pago</strong> - Transações capturadas<br /></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Tipos de meio de pagamento</td>
+      <td>Grupo de meios de pagamento como Boletos ou cartão de crédito. Não diferencia</td>
+      <td>bandeira ou banco.</td>
+    </tr>
+    <tr>
+      <td>Meios de pagamento</td>
+      <td>Meio de pagamento especifico usado na transação (EX: Boleto Bradesco)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Análise de Fraude</td>
+      <td>Qual o status de antifraude da transação no momento da pesquisa</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Os filtros podem ser combinados para realizar uma pesquisa personalizada.</p>
+
+<h2 id="capturando-ou-cancelando-transações">Capturando ou Cancelando Transações</h2>
+
+<p>Ao realizar uma pesquisa, é possível realizar a captura ou cancelamento de transações. Ao identificar a transação que deseje cancelar ou capturar:</p>
+
+<p><img src="/images/i7.png" alt="capturando transações" /></p>
+
+<p><img src="/images/i8.png" alt="capturando transações" /></p>
+
+<p>Basta realizar o cancelamento ou a Captura (O botão apresentado depende do status da transação no momento de exibição.</p>
+
+<p><img src="/images/i9.png" alt="capturando transações" /></p>
+
+<p>Confirme o valor a ser capturado ou cancelado.
+<strong>OBS:</strong> Alterar o valor no menu acima, define o comportamento do Cancelamento/Captura Parcial.</p>
+
+<h2 id="capturando-ou-cancelando-transações-em-bloco">Capturando ou cancelando Transações em bloco.</h2>
+
+<p>Ao realizar uma pesquisa, é possível realizar a captura ou cancelamento de transações em bloco. Basta selecionar quais serão modificadas e clique em “Opções”:</p>
+
+<p><img src="/images/i10.png" alt="bloco de transações" /></p>
+
+<p>Selecione a opção desejada:</p>
+
+<p><img src="/images/i11.png" alt="bloco de transações" /></p>
+
+<p>Ao selecionar a opção desejada, você será direcionado a uma tela onde poderá ser definido o valor da captura/cancelamento.</p>
+
+<p><img src="/images/i12.png" alt="bloco de transações" /></p>
+
+<h1 id="utilizando-o-extrato">Utilizando o Extrato</h1>
+
+<p>O Extrato de cobrança permite visualizar o valor a ser cobrado pela utilização das funcionalidades da API Cielo Ecommerce. Basta selecionar o mês e ano que se deseja exibir.</p>
+
+<p><img src="/images/i13.png" alt="extrato" /></p>
+
+<p>Para maiores informações a respeito dos serviços cobrados, entre em contato com nossa equipe de suporte:</p>
+
+<ul>
+  <li>+55 4002-9700 – Capitais e Regiões Metropolitanas</li>
+  <li>+55 0800-570-1700 – Demais Localidades</li>
+  <li>+55 11 2860-1348 – Internacionais
+ — Opção 1 – Suporte técnico;
+ — Opção 2 – Credenciamento eCommerce.</li>
+  <li>Email: cieloeCommerce@cielo.com.br</li>
+</ul>
+
+<h1 id="configurando-a-recorrência">Configurando a Recorrência</h1>
+
+<p>A área de configuração da recorrência permite modificar o número e o intervalo das tentativas de transações. Essas tentativas ocorrem quando uma transação (dentro de uma recorrência) é negada. A API Cielo Ecommerce possui a inteligência para identificar esse cenário, e executar uma nova transação.</p>
+
+<p>Acesse a tela de configuração e use o link “<strong>Tipo de pagamento</strong>”:</p>
+
+<p><img src="/images/i14.png" alt="Recorrência" /></p>
+
+<p>Você será direcionado para a tela de configuração:</p>
+
+<p><img src="/images/i15.png" alt="Recorrência" /></p>
+
+<p>Nessa tela é possível alterar:</p>
+
+<ul>
+  <li><strong>Quantidades de tentativas:</strong> Número de vezes a API vai realizar uma nova transação em caso de não autorização dentro de uma recorrência. Limitada a 4 tentativas</li>
+  <li><strong>Intervalo de tentativas:</strong> Espaço de tempo entre a execução de cada nova tentativa de autorização de uma transação dentro de uma recorrência. Limitado a 4 dias entre cada tentativa.</li>
+</ul>
+
+    
+<h1>Veja também</h1>
+<ul class="related-posts post">
+    
+    <li class="post-title">
+        <h1 class="no-toc">tutorial</h1>
+        <h2 class="no-toc">Postman Cielo</h2>
+        <p>O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações HTTP / s simples e complexas, bem como ler suas respostas.</p>
+        <a class="btn" href="/tutorial/postman">Ver Conteúdo</a>
+    </li>
+    
+    <li class="post-title">
+        <h1 class="no-toc">manual</h1>
+        <h2 class="no-toc">Integração API Cielo eCommerce</h2>
+        <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Cielo eCommerce da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.</p>
+        <a class="btn" href="/manual/api-cielo-ecommerce">Ver Conteúdo</a>
+    </li>
+    
+    <li class="post-title">
+        <h1 class="no-toc">faq</h1>
+        <h2 class="no-toc">Perguntas frequentes da API Cielo</h2>
+        <p>Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com a API Cielo.</p>
+        <a class="btn" href="/faq/faq-api-3-0">Ver Conteúdo</a>
+    </li>
+    
+</ul>
+
+
+</div>
+
+    </div>
+
+    <div class="content-container">
+      <div class="footer-conteudo">
+						<div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+							<img src="/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+						</div>
+						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+							<h1>Precisa de ajuda?</h1>
+							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
+						</div>
+				</div>
+    </div>
+
+    <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <a title="Esconder a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="toc-footer">
+      <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+      <ul class="toc-footer">
+        
+        <li><a href='/Webservice-3.0/'>Integração API Cielo eCommerce</a></li>
+        
+        <li><a href='/Checkout-FAQ/'>Perguntas Frequentes</a></li>
+        
+      </ul>
+    </div>
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Entre em contato" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Entre em contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="Acesse nosso GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>Acesse nosso GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="/assets/js/jquery-1.8.3.min.js"></script>
+    <script src="/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <script src="/assets/js/jquery.tocify.js"></script>
+    <script src="/assets/js/prettify.js"></script>
+    <script>
+    $(function() {
+        $("#toc").tocify({
+            
+            selectors: "h1,h2,h3,h4,h5,h6",
+            
+            hashGenerator: "pretty",
+            ignoreSelector: ".no-toc"
+        }).data("toc-tocify");
+
+        $('ul').prev('li').addClass('has-subitens');
+
+           var openedHeader = null;
+
+           $(window).scroll(function () {
+               if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                   $('li.is-open').removeClass('is-open');
+
+                   openedHeader = $('li.active').closest('.tocify-header');
+               }
+
+               openedHeader.find('ul:visible').prev('li').addClass('is-open');
+           });
+
+           $('.hamburger').click(function() {
+              $('body').toggleClass('sidebar-closed');
+           });
+
+           $('.code-menu').click(function() {
+               $('body').toggleClass('code-menu-closed');
+           });
+
+        prettyPrint();
+
+
+    });
+    </script>
+
+    
+
+    
+    <script src="/assets/js/jquery.highlight.js"></script>
+    <script src="/assets/js/lunr.js"></script>
+    <script src="/assets/js/search.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Fluxo de integração e URLs do Checkout Cielo &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/hyde.css">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/css/prettify.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/cielo.css">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+  <body>
+    
+    <div class="content-container no-dark-box">
+    
+      <div id="submenu">
+        <div class="submenu-itens">
+          <a href="#" class="help">Ajuda</a>
+
+          
+        </div>
+
+        
+        <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="Busca">
+        </div>
+      </div>
+      <div class="search-results-container">
+        <ul class="search-results"></ul>
+      </div>
+      
+        <ol class="breadcrumb">
+            
+            <li><a href="/">Início</a></li>
+            
+            
+            
+            
+                
+                    
+                    
+                    
+                    
+                    
+                        
+                    
+                        
+                    
+                
+            
+                
+                    
+                    <li class="active">&gt; <a href="/tutorial/fluxo-checkout">Fluxo de integração e URLs do Checkout Cielo</a></li>
+                    
+                
+            
+        </ol>
+    </div>
+
+    
+    <div class="content-container no-dark-box">
+    
+
+        <div class="post">
+    <h1 id="fluxo-de-integração">Fluxo de integração</h1>
+
+<p>O Checkout Cielo utiliza uma tecnologia REST que deve ser usada quando houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar ao carrinho e depois, então, finalizar a compra. Há também opção de integração via botão usada sempre que não houver um “carrinho de compras” em sua loja ou quando se deseja associar uma compra rápida direta a um produto.</p>
+
+<p>Durante a integração com o Checkout Cielo, alguns passos e alguns redirecionamentos ocorrerão. A imagem abaixo ilustra esse fluxo:</p>
+
+<p><img src="/images/fluxo-checkout.svg" alt="Fluxo de integração Checkout Cielo" /></p>
+
+<p>Após o cliente escolher seu(s) produto(s), ele entrará no fluxo de finalização da compra.</p>
+
+<ol>
+  <li>O cliente decide pagar.</li>
+  <li>A loja faz a integração com o Checkout Cielo</li>
+  <li>A API da Cielo returna o CheckoutURL que deverá ser utilizado pela loja para redirecionar o cliente para o ambiente seguro de pagamento.</li>
+  <li>A loja redireciona o cliente para a URL retornada pela Cielo</li>
+  <li>O cliente faz o pagamento</li>
+  <li>A Cielo redireciona o cliente para a URL de Retorno, configurada no Backoffice Cielo.</li>
+  <li>A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por email.</li>
+  <li>A Cielo envia o POST de notificação para a URL de Notificação, configurada no Backoffice Cielo.</li>
+  <li>A loja processa o pedido utilizando os dados do POST de notificação e, se a transação estiver autorizada, libera o pedido.</li>
+</ol>
+
+<h1 id="urls-do-checkout-cielo">URLs do Checkout Cielo</h1>
+
+<p>A loja configura três URLs em seu Backoffice:</p>
+
+<p><img src="/images/checkout-configuracoes-loja.png" alt="Configurações da loja" /></p>
+
+<ul>
+  <li><strong>URL de Retorno</strong> – Ao finalizar uma transação, o comprador final poderá ser redirecionado para a URL de retorno. Ao clicar no botão “VOLTAR” na tela de comprovante de vendas, o comprador será direcionando para a URL de retorno previamente cadastrada no BackOffice.</li>
+  <li><strong>URL de Notificação</strong> – Ao finalizar uma transação é enviado um post com todos os dados da venda para a URL de Notificação cadastrada, previamente cadastrada no BackOffice.</li>
+  <li><strong>URL de Mudança de Status</strong> – Quando um pedido tiver seu status alterado, será enviando um post para a URL de Mudança de Status, previamente cadastrada no BackOffice.</li>
+</ul>
+
+<h2 id="url-de-retorno">URL de Retorno</h2>
+
+<p>A URL de Retorno é a que a Cielo utilizará para redirecionar o cliente de volta para a loja assim que o pagamento for concluído. Essa página da loja deverá estar preparada para receber o cliente ao fim do fluxo e avisá-lo que o processo foi concluído e que ele receberá mais informações em breve.</p>
+
+<h2 id="url-de-notificação">URL de Notificação</h2>
+
+<p>A URL de Notificação é a que a Cielo utilizará para enviar os dados da transação, do carrinho e da autorização ao fim do fluxo de integração. Ao receber a notificação, a loja terá todas as informações sobre o carrinho, pedido e poderá utilizar essas informações para alimentar seu sistema.</p>
+
+<h3 id="parâmetros-para-integração-com-post-de-notificação">Parâmetros para integração com POST de notificação</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo do campo</th>
+      <th>Tamanho mínimo</th>
+      <th>Tamanho máximo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td>Identificador único gerado pelo CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">amount</code></td>
+      <td>Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">order_number</code></td>
+      <td>Número do pedido enviado pela loja</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">created_date</code></td>
+      <td>Data da criação do pedido (dd/MM/yyyy HH:mm:ss)</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_name</code></td>
+      <td>Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>289</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_identity</code></td>
+      <td>Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_email</code></td>
+      <td>E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_phone</code></td>
+      <td>Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">discount_amount</code></td>
+      <td>Valor do desconto fornecido (enviado somente se houver desconto)</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_type</code></td>
+      <td>Modalidade de frete</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_name</code></td>
+      <td>Nome do frete</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_price</code></td>
+      <td>Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_zipcode</code></td>
+      <td>CEP do endereço de entrega</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_district</code></td>
+      <td>Bairro do endereço de entrega</td>
+      <td>Texto</td>
+      <td>1</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_city</code></td>
+      <td>Cidade do endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_state</code></td>
+      <td>Estado de endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_line1</code></td>
+      <td>Endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_line2</code></td>
+      <td>Complemento do endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_number</code></td>
+      <td>Número do endereço de entrega</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_type</code></td>
+      <td>Cód. do tipo de meio de pagamento</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_brand</code></td>
+      <td>Bandeira (somente para transações com meio de pagamento cartão de crédito)</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_bank</code></td>
+      <td>Banco emissor (Para transações de Boleto e Débito Automático)</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_maskedcredicard</code></td>
+      <td>Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_installments</code></td>
+      <td>Número de parcelas</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_antifrauderesult</code></td>
+      <td>Status das transações de cartão de Crédito no Antifraude</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_boletonumber</code></td>
+      <td>Numero do boleto gerado</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_boletoexpirationdate</code></td>
+      <td>Data de vencimento para transações realizadas com boleto bancário</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_status</code></td>
+      <td>Status da transação</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tid</code></td>
+      <td>TID Cielo gerado no momento da autorização da transação</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>32</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">A página destino do POST de Notificação deve seguir a formatação dos parâmetros com todos os nomes em MINUSCULO</aside>
+
+<h3 id="recebimento-do-post-de-notificação">Recebimento do POST de notificação</h3>
+
+<ul>
+  <li>Quando acessada pelo servidor da Braspag, enviando o POST da tabela acima, a URL cadastrada para Notificação deverá exibir um código informando que recebeu a mudança de status e a processou com sucesso. <strong>Código:</strong><code class="highlighter-rouge">&lt;status&gt;OK&lt;/status&gt;</code></li>
+  <li>Se a URL for acessada pelo nosso servidor e não exibir o código de confirmação, o servidor irá tentar novamente por três vezes, a cada hora. Caso o <code class="highlighter-rouge">&lt;status&gt;OK&lt;/status&gt;</code> ainda não seja exibido, será entendido que o servidor da loja não responde.</li>
+  <li>A URL de Notificação somente pode utilizar <strong>porta 80</strong> (padrão para http) ou <strong>porta 443</strong> (padrão para https).</li>
+</ul>
+
+<h2 id="url-de-mudança-de-status">URL de Mudança de Status</h2>
+
+<p>A URL de Mudança de Status é a que a Cielo utilizará para notificar a loja sobre as mudanças de status das transações. Uma mudança de status, de Autorizado para Cancelado, por exemplo, pode ocorrer a qualquer momento. Se o administrador da loja cancelar um pedido no Backoffice Cielo, então a Cielo enviará para a URL de Mudança de Status uma notificação semelhante a enviada para a URL de notificação. A única diferença dessa notificação é que não conterá os dados do carrinho, mas apenas do pedido e o novo status da autorização.</p>
+
+<aside class="warning">A URL de mudança de status é fornecida pelo lojista. Nessa URL serão postadas as informações de todos os pedidos que tiverem seu status alterado.</aside>
+
+<h3 id="parâmetros-para-integração-com-post-de-mudança-de-status">Parâmetros para integração com POST de Mudança de Status</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo do campo</th>
+      <th>Tamanho mínimo</th>
+      <th>Tamanho máximo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td>Identificador único gerado pelo CHECKOUT CIELO.</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">amount</code></td>
+      <td>Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">order_number</code></td>
+      <td>Número do pedido enviado pela loja</td>
+      <td>Alfanumérico</td>
+      <td>1</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_status</code></td>
+      <td>Status da transação</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="recebimento-do-post-de-mudança-de-status">Recebimento do POST de Mudança de Status</h3>
+
+<ul>
+  <li>Quando acessada pelo servidor da Braspag, enviando o POST, a URL cadastrada para Retorno de Mudança de Status, deverá exibir um código informando que recebeu a mudança de status e a processou com sucesso: <code class="highlighter-rouge">&lt;status&gt;OK&lt;/status&gt;</code></li>
+  <li>Se a URL de mudança de status da loja for acessada pelo servidor da Braspag não exibir o código de confirmação, o servidor irá tentar novamente por três vezes.</li>
+  <li>Caso o <code class="highlighter-rouge">&lt;status&gt;OK&lt;/status&gt;</code> ainda não seja exibido, será entendido que o servidor da loja não responde, e será enviado um e-mail ao responsável pela loja, informando que o pedido em questão foi pago.</li>
+  <li>Ou seja, o código fonte da página indicando Sucesso deverá conter APENAS <code class="highlighter-rouge">&lt;status&gt;OK&lt;/status&gt;</code> <strong>e nada mais</strong>.</li>
+</ul>
+
+<aside class="notice">Na tela de pedidos, dentro de cada transação, há a opção de reenvio do POST de mudança de status. Basta clicar nos botões azuis, marcados na imagem abaixo</aside>
+
+<p><img src="/images/checkout-reenviar-notificacao.png" alt="Reenvio de notificação" /></p>
+
+    
+<h1>Veja também</h1>
+<ul class="related-posts post">
+    
+    <li class="post-title">
+        <h1 class="no-toc">tutorial</h1>
+        <h2 class="no-toc">Postman Cielo</h2>
+        <p>O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações HTTP / s simples e complexas, bem como ler suas respostas.</p>
+        <a class="btn" href="/tutorial/postman">Ver Conteúdo</a>
+    </li>
+    
+    <li class="post-title">
+        <h1 class="no-toc">manual</h1>
+        <h2 class="no-toc">Integração API Cielo eCommerce</h2>
+        <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Cielo eCommerce da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.</p>
+        <a class="btn" href="/manual/api-cielo-ecommerce">Ver Conteúdo</a>
+    </li>
+    
+    <li class="post-title">
+        <h1 class="no-toc">tutorial</h1>
+        <h2 class="no-toc">Backoffice API 3.0 Cielo</h2>
+        <p>O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.</p>
+        <a class="btn" href="/tutorial/backoffice-3-0">Ver Conteúdo</a>
+    </li>
+    
+</ul>
+
+
+</div>
+
+    </div>
+
+    <div class="content-container">
+      <div class="footer-conteudo">
+						<div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+							<img src="/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+						</div>
+						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+							<h1>Precisa de ajuda?</h1>
+							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
+						</div>
+				</div>
+    </div>
+
+    <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <a title="Esconder a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="toc-footer">
+      <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+      <ul class="toc-footer">
+        
+        <li><a href='/Checkout-Backoffice/'>Backoffice Cielo</a></li>
+        
+        <li><a href='/Checkout-FAQ/'>Perguntas Frequêntes</a></li>
+        
+      </ul>
+    </div>
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Entre em contato" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Entre em contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="Acesse nosso GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>Acesse nosso GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="/assets/js/jquery-1.8.3.min.js"></script>
+    <script src="/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <script src="/assets/js/jquery.tocify.js"></script>
+    <script src="/assets/js/prettify.js"></script>
+    <script>
+    $(function() {
+        $("#toc").tocify({
+            
+            selectors: "h1,h2,h3,h4,h5,h6",
+            
+            hashGenerator: "pretty",
+            ignoreSelector: ".no-toc"
+        }).data("toc-tocify");
+
+        $('ul').prev('li').addClass('has-subitens');
+
+           var openedHeader = null;
+
+           $(window).scroll(function () {
+               if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                   $('li.is-open').removeClass('is-open');
+
+                   openedHeader = $('li.active').closest('.tocify-header');
+               }
+
+               openedHeader.find('ul:visible').prev('li').addClass('is-open');
+           });
+
+           $('.hamburger').click(function() {
+              $('body').toggleClass('sidebar-closed');
+           });
+
+           $('.code-menu').click(function() {
+               $('body').toggleClass('code-menu-closed');
+           });
+
+        prettyPrint();
+
+
+    });
+    </script>
+
+    
+
+    
+    <script src="/assets/js/jquery.highlight.js"></script>
+    <script src="/assets/js/lunr.js"></script>
+    <script src="/assets/js/search.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,72 @@
+/* Redefinir dependendo do cliente */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.content table th,
+{
+  font-family: 'Fira Sans', Helvetica, Arial, sans-serif;
+  color: #888;
+}
+
+a,
+a:hover,
+a.btn:hover,
+.sidebar-sticky>.search:before,
+.nav-list > .active > a, .nav-list > .active > a:hover,
+.nav > li > a:hover
+{
+  color: #00aeef;
+}
+
+.content aside.notice,
+.lang-selector a.active,
+{
+  background-color: #00aeef;
+}
+
+a.btn {
+  background: #00aeef;
+}
+
+a.btn {
+  border: 1px solid #00aeef;
+}
+
+.sidebar-closed .sidebar {
+    width: 50px;
+    overflow: hidden;
+}
+
+.sidebar-closed .sidebar .tocify,
+.sidebar-closed .sidebar .sidebar-about img,
+.sidebar-closed .sidebar .toc-footer,
+.sidebar-closed .toc-contact {
+    display: none;
+}
+
+.sidebar-closed .content-container {
+    padding-left: 140px;
+}
+
+.code-menu-closed .code-menu {
+    margin-right: 20px;
+}
+
+.code-menu-closed .dark-box {
+    width: 0px;
+}
+
+.code-menu-closed div.highlighter-rouge {
+    width: 100%;
+    position: relative;
+    float: none;
+    margin: 20px auto;
+}
+
+.code-menu-closed .content-container {
+    padding-right: 80px;
+}
