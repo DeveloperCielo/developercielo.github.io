@@ -9,7 +9,7 @@ script: ./script/build
 
 branches:
   only:
-  - master
+  - docs
 
 env:
   global:
