@@ -216,7 +216,7 @@ Apenas os boletos necessitam de dados adicionais:</p>
   <li><strong>Produção</strong>: é necessário entrar em contato com a central de credenciamento Cielo e solicitar suas credenciais. Elas serão enviadas via e-mail. Sobre a central de credenciamento acesse https://developercielo.github.io/Guia-de-migracao-1.5x3.0/#suporte-cielo</li>
 </ul>
 
-<h2 id="é-preciso-algum-software-proprietário-como-dlls-para-fazer-a-integração">É preciso algum software proprietário, como DLLs, para fazer a integração?</h2>
+<h2 id="É-preciso-algum-software-proprietário-como-dlls-para-fazer-a-integração">É preciso algum software proprietário, como DLLs, para fazer a integração?</h2>
 
 <p>Não. A ausência de aplicativos proprietários é uma das características da solução: Não é necessário instalar aplicativos no ambiente da loja em nenhuma hipótese.</p>
 
@@ -257,11 +257,11 @@ Cada meio de pagamento (Crédito, Débito, boleto e Transferência online) possu
 
 <p>Ademais, atendidos os requisitos, no momento do credenciamento E-commerce deve ser mencionada a escolha por leitura do cartão na própria loja.</p>
 
-<h2 id="é-necessário-usar-algum-certificado-em-para-realizar-a-conexão-com-a-api-cielo-ecommerce">É necessário usar algum certificado em para realizar a conexão com a API Cielo eCommerce</h2>
+<h2 id="É-necessário-usar-algum-certificado-em-para-realizar-a-conexão-com-a-api-cielo-ecommerce">É necessário usar algum certificado em para realizar a conexão com a API Cielo eCommerce</h2>
 
 <p>Sim, é necessário realizar a instalação do certificado SSL EV. Mais informações em https://developercielo.github.io/Webservice-3.0/#o-que-é-certificado-ev-ssl</p>
 
-<h2 id="é-necessário-algum-protocolo-de-segurança-para-a-utilização-da-api-cielo-ecommerce">É necessário algum protocolo de segurança para a utilização da API Cielo eCommerce</h2>
+<h2 id="É-necessário-algum-protocolo-de-segurança-para-a-utilização-da-api-cielo-ecommerce">É necessário algum protocolo de segurança para a utilização da API Cielo eCommerce</h2>
 
 <p><strong>É obrigatório o uso de TLS 1.2 na comunicação a API.</strong></p>
 
@@ -325,7 +325,7 @@ Dúvidas ou questões a respeito de agenda financeira e antecipação de recebí
 <p>O prazo para captura de uma transação é definido em seu cadastro Cielo e depende do ramo de atividade de sua empresa.
 Caso uma transação não seja capturada dentro desse limite, ela deixa de ser válida, não podendo mais ser capturada. O status da venda continuará como autorizado, mas não será possível altera-lo.</p>
 
-<h2 id="é-possível-fazer-uma-captura-em-um-momento-após-a-autorização">É possível fazer uma captura em um momento após a autorização?</h2>
+<h2 id="É-possível-fazer-uma-captura-em-um-momento-após-a-autorização">É possível fazer uma captura em um momento após a autorização?</h2>
 
 <p>Uma transação autorizada somente gera o crédito para o estabelecimento comercial caso ela seja capturada. Por isso, toda venda que o lojista queira efetivar será preciso realizar a captura (ou confirmação) da transação.</p>
 
@@ -338,7 +338,7 @@ Caso uma transação não seja capturada dentro desse limite, ela deixa de ser v
 
 <aside class="warning"><strong>Atenção!</strong><br /><br />Na modalidade de débito não existe a opção de captura. Toda transação de débito autorizada é capturada automaticamente.</aside>
 
-<h2 id="é-possível-cancelar-uma-transação">É possível cancelar uma transação?</h2>
+<h2 id="É-possível-cancelar-uma-transação">É possível cancelar uma transação?</h2>
 
 <p>O cancelamento é utilizado quando o lojista decide não efetivar um pedido de compra, seja por insuficiência de estoque, por desistência da compra pelo consumidor, ou qualquer outro motivo. Seu uso faz-se necessário principalmente se a transação estiver capturada, pois haverá débito na fatura do portador, caso ela não seja cancelada.</p>
 
@@ -402,7 +402,7 @@ Cada meio de pagamento possui diferentes status, podendo variar em relação a i
 
 <p>A notificação de transações de recorrência inteligente são as mesmas enviadas para transações padrão. Para mais informações sobre as notificações de transações, acesse: https://developercielo.github.io/Webservice-3.0/#autorizando-a-primeira-recorrência</p>
 
-<h2 id="é-possível-atualizar-dados-de-uma-recorrência-quais">É possível atualizar dados de uma recorrência? Quais?</h2>
+<h2 id="É-possível-atualizar-dados-de-uma-recorrência-quais">É possível atualizar dados de uma recorrência? Quais?</h2>
 
 <p>Sim, na recorrência inteligente, é possível atualizar dados de uma recorrência via um PUT dentro da API Cielo eCommerce. Os dados passiveis de modificação são:</p>
 
@@ -451,11 +451,11 @@ Cada meio de pagamento possui diferentes status, podendo variar em relação a i
   <li>Utilizando o contrato de salvamento de cartão disponível na documentação tecnica</li>
 </ol>
 
-<h2 id="é-necessário-ser-pci-para-armazenar-os-tokens">É necessário ser PCI para armazenar os Tokens?</h2>
+<h2 id="É-necessário-ser-pci-para-armazenar-os-tokens">É necessário ser PCI para armazenar os Tokens?</h2>
 
 <p>Não, para armazenar os tokens não é necessário ser certificado PCI</p>
 
-<h2 id="é-necessário-enviar-o-cvv-para-realizar-uma-transação-somente-com-o-token">É necessário enviar o CVV para realizar uma transação somente com o token?</h2>
+<h2 id="É-necessário-enviar-o-cvv-para-realizar-uma-transação-somente-com-o-token">É necessário enviar o CVV para realizar uma transação somente com o token?</h2>
 
 <p>Sim, por questão de segurança, a API Cielo eCommerce exige o envio do CVV caso um token seja utilizado para transacionar.</p>
 
@@ -473,7 +473,7 @@ Cada meio de pagamento possui diferentes status, podendo variar em relação a i
 
 <p>Sim, o processo de autenticação exige que o comprador seja direcionado para o ambiente do banco.</p>
 
-<h2 id="é-necessário-habilitar-a-autenticação-em-meu-cadastro-cielo">É necessário habilitar a autenticação em meu cadastro Cielo?</h2>
+<h2 id="É-necessário-habilitar-a-autenticação-em-meu-cadastro-cielo">É necessário habilitar a autenticação em meu cadastro Cielo?</h2>
 
 <p>Sim, é necessário que o lojista entre em contato com o suporte cielo e solicite que sua Afiliação possa estar apta a realizar autenticações online.</p>
 
