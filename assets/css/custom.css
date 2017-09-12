@@ -21,6 +21,7 @@ strong {
 .post ol {
     color: #76797a;
     line-height: 25px;
+    margin-left: 25px;
 }
 
 .post ul li,
