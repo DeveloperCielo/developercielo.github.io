@@ -20,20 +20,6 @@ toc_footers:
   - <a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a>
   - <a href='/Checkout-FAQ/'>FAQ</a>
 ---
- ---
-layout: post
-title:  "Manual Checkout"
-search: true
-categories:
-toc_footers:
-    - <a href='/Webservice-3.0/'>Integração API Cielo eCommerce</a>
-    - <a href='/Checkout-Cielo/'>Integração Checkout Cielo</a>
-
-language_tabs:
-  - json: JSON
-
-
----
  
 # Sobre o Checkout Cielo
 O objetivo desta documentação é orientar o desenvolvedor sobre o método de integração da API Checkout Cielo
