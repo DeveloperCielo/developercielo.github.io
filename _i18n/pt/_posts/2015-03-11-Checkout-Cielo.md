@@ -269,7 +269,7 @@ Durante a integração com o Checkout Cielo, ma seguencia de troca de informaç�
 Veja o fluxo abaixo:
  
 **Fluxo de integração Checkout Cielo** - Diagrama sequêncial
-![Fluxo de integração Checkout Cielo]({{ site.baseurl_root }}/images/fluxobasico.svg)
+![Fluxo de integração Checkout Cielo]({{ site.baseurl_root }}/images/Checkout/fluxobasico.svg)
  
 **Fluxo de integração Checkout Cielo** - Fluxograma
 ![Fluxo de integração Checkout Cielo]({{ site.baseurl_root }}/images/Checkout/fluxocheckoutbasico.png)
