@@ -20,6 +20,20 @@ toc_footers:
   - <a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a>
   - <a href='/Checkout-FAQ/'>FAQ</a>
 ---
+ ---
+layout: post
+title:  "Manual Checkout"
+search: true
+categories:
+toc_footers:
+    - <a href='/Webservice-3.0/'>Integração API Cielo eCommerce</a>
+    - <a href='/Checkout-Cielo/'>Integração Checkout Cielo</a>
+
+language_tabs:
+  - json: JSON
+
+
+---
  
 # Sobre o Checkout Cielo
 O objetivo desta documentação é orientar o desenvolvedor sobre o método de integração da API Checkout Cielo
@@ -54,7 +68,7 @@ O Checkout Cielo é uma funcionalidade indicada para:
 * **Vendas via Redes sociais**: Com a capacidade de gerar um link ou QR Code para levar o comprador a tela transacional, o Checkout é indicado para realizar vendas via redes sociais de modo simplificado, sem a necessidade de integração técnica.
  
  
-<BR><BR><BR><BR>
+
  
 ## Meios de pagamento do Checkout Cielo
  
@@ -177,7 +191,12 @@ Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo n
 * [Certificado Raiz](./attachment/root.crt)
 * [Certificado Intermediária](./attachment/intermediaria.crt)
 * [Certificado E-Commerce Cielo](./attachment/ecommerce.cielo.com.br.crt)
+
+
 ## Passo a Passo para a Instalação
+
+
+
 ### Instalação no Servidor da Loja Virtual
  
 O passo a passo para a instalação do Certificado EV deverá ser contatado o suporte do fornecedor do seu servidor.
@@ -195,6 +214,7 @@ Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, p
 * [Certificado Raiz](./attachment/root.crt)
 * [Certificado Intermediária](./attachment/intermediaria.crt)
 * [Certificado E-Commerce Cielo](./attachment/ecommerce.cielo.com.br.crt)
+
 #### 2o Passo:
  
 No “Internet Explorer”, clique no menu “Ferramentas” e acesse as “Opções da Internet”:
@@ -286,9 +306,8 @@ Existem duas maneiras de realizar a integração:
 |`API`    |É utilizada uma Integração via API que permite o lojista enviar o **"Carrinho de compras"** do seu site com todos os dados que ele deseja apresentar na tela transacional. <br> Neste tipo de integração o lojista possui maior controle sobre como o pedido será gerado.|
 |`Botão / QR Code / Link`|Dentro do Backoffice do Checkout Cielo, é possível registrar um produto ou grupo de produtos que vão gerar um Link capaz de criar várias telas de pagamento. Esse modelo é usado para pagamentos por redes sociais, campanhas promocionais ou Vendas via QR Code. Nessa categoria o lojista possui menos controle sobre como os pedidos serão apresentados ou gerados na tela transacional|
  
- 
-<BR><BR><BR>
- 
+
+
 ## Fluxo de integração
  
 Durante a integração com o Checkout Cielo, ma seguencia de troca de informações e redirecionamentos serão executados.
@@ -333,9 +352,9 @@ Quando a opção for salva, uma tarja vermelha será exibida na parte superior d
 Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.
  
  
-| Backoffice   | Transacional |
-|--------------|--------------|
-|![Tarja vermelha - Backoffice](images/Checkout/tmbackoffice.png) | ![Tarja vermelha - Transacional](images/Checkout/tmtransacional.png)|
+| Backoffice                                                       | Transacional                                                         |
+|------------------------------------------------------------------|----------------------------------------------------------------------|
+| ![Tarja vermelha - Backoffice](images/Checkout/tmbackoffice.png) | ![Tarja vermelha - Transacional](images/Checkout/tmtransacional.png) |
  
 ### Como transacionar no Modo de teste.
  
@@ -360,7 +379,7 @@ Para testar cartões de crédito é necessário que dois dados importantes sejam
 | Não Autorizado        | 0000.0000.0000.0006                       | 99                | Time Out                          |
  
  
-**Exemplo:** 540443424293010**7** = **Autorizado**
+**Exemplo:** 540443424293010 **7** = **Autorizado**
  
  
  
@@ -447,16 +466,18 @@ Esses dados são separados nos seguintes "nós principais":
 Após o envio dos dados do carrinho, o Checkout enviará um Response contendo um **LINK para a tela de pagamento**
  
  
-> **IMPORTANTE**: Uma chamada a API Checkout **NÃO CRIA UMA TRANSAÇÃO**. O Link retornado é apenas uma "pré-ordem" indicando que uma tela transacional está pronta para ser utilizada. A Transação é criada apenas quando o comprador clica em "FINALIZAR"
+**IMPORTANTE**: Uma chamada a API Checkout **NÃO CRIA UMA TRANSAÇÃO**. O Link retornado é apenas uma "pré-ordem" indicando que uma tela transacional está pronta para ser utilizada. A Transação é criada apenas quando o comprador clica em "FINALIZAR"
+
 ### Request
  
 Endpoint é a URL para onde as requisições com os dados do carrinho serão enviadas. Todas as requisições deverão ser enviadas utilizando o método HTTP POST, para o endpoint:
  
  
-> **Produção** `https://cieloecommerce.cielo.com.br/api/public/v1/orders`.
+**Produção** `https://cieloecommerce.cielo.com.br/api/public/v1/orders`.
  
  
 **Exemplo de uma requisição**
+
 ```json
 {  
    "OrderNumber":"Pedido01",
@@ -524,6 +545,7 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
    "Settings":null
 }
 ```
+
 **Header/Cabeçalho**
  
 | Campo          | Tipo         | Obrigatório | Tamanho | Descrição                                                                      |
@@ -533,39 +555,39 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
  
  
  
->  **Cabeçalho e Autenticação** - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do `MerchantID`, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. 
-A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP `MerchandId`, como ilustrado abaixo e ao lado:
- 
+**Cabeçalho e Autenticação** - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do `MerchantID`, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP `MerchandId`, como ilustrado abaixo e ao lado:
  
  
  
 **Body - Detalhado**
+
  
- 
- 
-| Campo                         | Tipo         | Obrigatório | Tamanho | Descrição                                                                                               | Condicional                                                     |
-|-------------------------------|--------------|-------------|---------|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| `OrderNumber`                 | Alphanumeric | Opcional    | 64      | Número do pedido da loja.                                                                               |                                                                 |
-| `SoftDescriptor`              | Alphanumeric | Opcional    | 13      | Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços. EX: `Loja_ABC_1234`          |                                                                 |
-| `Cart.Discount.Type`          | Alphanumeric | Condicional | 255     | Tipo do desconto a ser aplicado: `Amount` ou `Percent`.                                                 | Obrigatório caso Cart.Discount.Value for maior ou igual a zero. |
-| `Cart.Discount.Value`         | Numeric      | Condicional | 18      | Valor do desconto a ser aplicado: Valor ou Percentual                                                   | Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.  |
-| `Cart.Items.Name`             | Alphanumeric | Sim         | 128     | Nome do item no carrinho.                                                                               |                                                                 |
-| `Cart.Items.Description`      | Alphanumeric | Opcional    | 256     | Descrição do item no carrinho.                                                                          |                                                                 |
-| `Cart.Items.UnitPrice`        | Numeric      | Sim         | 18      | Preço unitário do produto em centavos. Ex: R$ 1,00 = 100                                                |                                                                 |
-| `Cart.Items.Quantity`         | Numeric      | Sim         | 9       | Quantidade do item no carrinho.                                                                         |                                                                 |
-| `Cart.Items.Type`             | Alphanumeric | Sim         | 255     | Tipo do item no carrinho: <BR>`Asset`<BR>`Digital`<BR>`Service`<BR>`Payment`<BR>                        |                                                                 |
-| `Cart.Items.Sku`              | Alphanumeric | Opcional    | 32      | Sku do item no carrinho.                                                                                |                                                                 |
-| `Cart.Items.Weight`           | Numeric      | Condicional | 9       | Peso em gramas do item no carrinho.                                                                     | Necessário caso Shipping.Type for "Correios".                   |
-| `Payment.BoletoDiscount`      | Numeric      | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com boleto.                                |                                                                 |
-| `Payment.DebitDiscount`       | Numeric      | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com débito online.                         |                                                                 |
-| `FirstInstallmentDiscount`    | Numeric      | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com crédito a vista.                       |                                                                 |
-| `MaxNumberOfInstallments`     | Numeric      | Condicional | 2       | Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice      |                                                                 |
-| `Customer.Identity`           | Numeric      | Condicional | 14      | CPF ou CNPJ do comprador.                                                                               | Não obrigatório na API, mas obrigatório na tela transacional    |
-| `Customer.FullName`           | Alphanumeric | Condicional | 288     | Nome completo do comprador.                                                                             | Não obrigatório na API, mas obrigatório na tela transacional    |
-| `Customer.Email`              | Alphanumeric | Condicional | 64      | Email do comprador.                                                                                     | Não obrigatório na API, mas obrigatório na tela transacional    |
-| `Customer.Phone`              | Numeric      | Condicional | 11      | Telefone do comprador.                                                                                  | Não obrigatório na API, mas obrigatório na tela transacional    |
-| `Options.AntifraudEnabled`    | Boolean      | Condicional | n/a     | Habilitar ou não a análise de fraude para o pedido: true ou false.                                      |                                                                 |
-| `Options.ReturnUrl`           | Strin        | Condicional | 255     | Define para qual url o comprador será enviado após finalizar a compra.                                  | Uma URL fixa pode ser registrada no Backoffice Checkout         |
+
+| Campo                      | Tipo         | Obrigatório | Tamanho | Descrição                                                                                           | Condicional                                                     |
+|----------------------------|--------------|-------------|---------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| `OrderNumber`              | Alphanumeric | Opcional    | 64      | Número do pedido da loja.                                                                           |                                                                 |
+| `SoftDescriptor`           | Alphanumeric | Opcional    | 13      | Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços. EX: `Loja_ABC_1234`      |                                                                 |
+| `Cart.Discount.Type`       | Alphanumeric | Condicional | 255     | Tipo do desconto a ser aplicado: `Amount` ou `Percent`.                                             | Obrigatório caso Cart.Discount.Value for maior ou igual a zero. |
+| `Cart.Discount.Value`      | Numeric      | Condicional | 18      | Valor do desconto a ser aplicado: Valor ou Percentual                                               | Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.  |
+| `Cart.Items.Name`          | Alphanumeric | Sim         | 128     | Nome do item no carrinho.                                                                           |                                                                 |
+| `Cart.Items.Description`   | Alphanumeric | Opcional    | 256     | Descrição do item no carrinho.                                                                      |                                                                 |
+| `Cart.Items.UnitPrice`     | Numeric      | Sim         | 18      | Preço unitário do produto em centavos. Ex: R$ 1,00 = 100                                            |                                                                 |
+| `Cart.Items.Quantity`      | Numeric      | Sim         | 9       | Quantidade do item no carrinho.                                                                     |                                                                 |
+| `Cart.Items.Type`          | Alphanumeric | Sim         | 255     | Tipo do item no carrinho: <BR>`Asset`<BR>`Digital`<BR>`Service`<BR>`Payment`<BR>                    |                                                                 |
+| `Cart.Items.Sku`           | Alphanumeric | Opcional    | 32      | Sku do item no carrinho.                                                                            |                                                                 |
+| `Cart.Items.Weight`        | Numeric      | Condicional | 9       | Peso em gramas do item no carrinho.                                                                 | Necessário caso Shipping.Type for "Correios".                   |
+| `Payment.BoletoDiscount`   | Numeric      | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com boleto.                            |                                                                 |
+| `Payment.DebitDiscount`    | Numeric      | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com débito online.                     |                                                                 |
+| `FirstInstallmentDiscount` | Numeric      | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com crédito a vista.                   |                                                                 |
+| `MaxNumberOfInstallments`  | Numeric      | Condicional | 2       | Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice  |                                                                 |
+| `Customer.Identity`        | Numeric      | Condicional | 14      | CPF ou CNPJ do comprador.                                                                           | Não obrigatório na API, mas obrigatório na tela transacional    |
+| `Customer.FullName`        | Alphanumeric | Condicional | 288     | Nome completo do comprador.                                                                         | Não obrigatório na API, mas obrigatório na tela transacional    |
+| `Customer.Email`           | Alphanumeric | Condicional | 64      | Email do comprador.                                                                                 | Não obrigatório na API, mas obrigatório na tela transacional    |
+| `Customer.Phone`           | Numeric      | Condicional | 11      | Telefone do comprador.                                                                              | Não obrigatório na API, mas obrigatório na tela transacional    |
+| `Options.AntifraudEnabled` | Boolean      | Condicional | n/a     | Habilitar ou não a análise de fraude para o pedido: true ou false.                                  |                                                                 |
+| `Options.ReturnUrl`        | Strin        | Condicional | 255     | Define para qual url o comprador será enviado após finalizar a compra.                              | Uma URL fixa pode ser registrada no Backoffice Checkout         |
+
+
  
 ### Responses
  
@@ -575,7 +597,7 @@ Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a cr
 * **Response - Transação Finalizada** - Contém dados sobre o resultado da transação, após o comprador clica em "Finalizar" na tela transacional. **É retornado apenas via Notificação**
  
  
-> **Resultado/Status da transação:** Para obter o retorno do status da transação, é necessário definir uma URL de NOTIFICAÇÃO. Veja a sessão de notificação para maiores informações.
+**Resultado/Status da transação:** Para obter o retorno do status da transação, é necessário definir uma URL de NOTIFICAÇÃO. Veja a sessão de notificação para maiores informações.
  
  
 <br>
@@ -598,7 +620,7 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 }
 ```
  
-<BR><BR>
+
  
 | Campo         | Tipo   | Obrigatório | Tamanho | Descrição                                                                                                 |
 |---------------|--------|-------------|---------|-----------------------------------------------------------------------------------------------------------|
@@ -606,33 +628,36 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 | `Profile`     | String | Sim         | 16      | Perfil do lojista: fixo “CheckoutCielo”.                                                                  |
 | `Version`     | String | Sim         | 1       | Versão do serviço de criação de pedido (versão: 1).                                                       |
  
-<BR><BR><BR>
+
  
 **Erro** - Em caso de erro, a mensagem abaixo será retornada.
+
  
 ```json
 {
     "message":"An error has occurred."
 }
+
 ```
-<BR><BR>
- 
+
+
 | Campo     | Tipo   | Obrigatório | Tamanho | Descrição                   |
 |-----------|--------|-------------|---------|-----------------------------|
 | `Message` | String | Sim         | 254     | Mensagem descritiva do erro |
  
-<BR><BR>
+
  
-> **Importante** - O Checkout Cielo não possui erros numerados, apenas uma mensagem genérica. Veja a sessão "Identificando erros de Integração" para maiores informações
+**Importante** - O Checkout Cielo não possui erros numerados, apenas uma mensagem genérica. Veja a sessão "Identificando erros de Integração" para maiores informações
+
+
 ### Funcionalidades Adicionais
  
 Nos items a seguir, será explicado o comportamento de algumas das funcionalidades da integração via API. Essas funcionalidades possuem regras especificas para utilização e não estão disponíveis na integração via Botão.
  
 * **Tipos de "Desconto"**
 * **Tipos de "Frete"**
- 
-<BR><BR>
- 
+
+
 #### Tipos de "Desconto"
  
 O Checkout Cielo permite que o lojista aplique descontos específicos tanto para o carrinho quanto para meios de pagamento.
@@ -661,10 +686,12 @@ Para enviar um Desconto sobre o `Carrinho` basta enviar o nó abaixo dentro do n
       }
 ```
  
-| Campo                         | Tipo         | Obrigatório | Tamanho | Descrição                                                                                               | Condicional                                                     |
-|-------------------------------|--------------|-------------|---------|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| `Cart.Discount.Type`          | Alphanumeric | Condicional | 255     | Tipo do desconto a ser aplicado: `Amount` ou `Percent`.                                                 | Obrigatório caso Cart.Discount.Value for maior ou igual a zero. |
-| `Cart.Discount.Value`         | Numeric      | Condicional | 18      | Valor do desconto a ser aplicado: Valor ou Percentual                                                   | Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.  |
+
+| Campo                 | Tipo         | Obrigatório | Tamanho | Descrição                                               | Condicional                                                     |
+|-----------------------|--------------|-------------|---------|---------------------------------------------------------|-----------------------------------------------------------------|
+| `Cart.Discount.Type`  | Alphanumeric | Condicional | 255     | Tipo do desconto a ser aplicado: `Amount` ou `Percent`. | Obrigatório caso Cart.Discount.Value for maior ou igual a zero. |
+| `Cart.Discount.Value` | Numeric      | Condicional | 18      | Valor do desconto a ser aplicado: Valor ou Percentual   | Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.  |
+
  
 Abaixo, como o efeito do desconto são apresentados no Carrinho:
  
@@ -674,7 +701,7 @@ Abaixo, como o efeito do desconto são apresentados no Carrinho:
 |![Percentual](images/Checkout/checkout-discount-percent.png)|![Valor](images/Checkout/checkout-discount-amount.png)|
  
  
-<br><br>
+
  
  
 **Boleto & Débito Online**
@@ -704,7 +731,7 @@ Abaixo, como o efeito do desconto são apresentados no Carrinho:
 |-----------------|
 |![Meios de pagamento](images/Checkout/checkout-discount-mp.png)|
  
-<br>
+
  
 #### Tipos de "Frete"
  
@@ -723,15 +750,16 @@ O Checkout cielo possui diferentes tipos de frete.
  
 Abaixo, como cada opção é demonstrada na tela transacional
  
-| Tipo de frete           | Transacional                                                                                                       |
-|:-----------------------:|:------------------------------------------------------------------------------------------------------------------:|
+| Tipo de frete           | Transacional                                                        |
+|:-----------------------:|:-------------------------------------------------------------------:|
 | `FixedAmount`           | ![FixedAmount](images/Checkout/fixedamount.png)                     |
 | `Free`                  | ![Free](images/Checkout/free.png)                                   |
 | `WithoutShippingPickUp` | ![WithoutShippingPickUp](images/Checkout/withoutshippingpickup.png) |
 | `WithoutShipping`       | ![WithoutShipping](images/Checkout/withoutshippingpickup.png)       |
 | `Correios`              | ![Correios](images/Checkout/correios.png)                           |
+
  
-> **OBS:** As opções para múltiplos fretes na categoria `Correios` devem ser selecionadas dentro do Backoffice Cielo.        
+**OBS:** As opções para múltiplos fretes na categoria `Correios` devem ser selecionadas dentro do Backoffice Cielo.        
  
 Os nós que formam as informações de frete abaixo:
  
@@ -747,18 +775,22 @@ Os nós que formam as informações de frete abaixo:
  
 | Campo                         | Tipo         | Obrigatório | Tamanho | Descrição                                                                                                    | 
 |-------------------------------|--------------|-------------|---------|--------------------------------------------------------------------------------------------------------------|
-| `Shipping.Address.Street`     | Alphanumeric | Sim         | 256     | Rua, avenida, travessa, etc, do endereço de entrega do comprador.                                            |                                                                
-| `Shipping.Address.Number`     | Alphanumeric | Sim         | 8       | Número do endereço de entrega do comprador.                                                                  |                                                                
-| `Shipping.Address.Complement` | Alphanumeric | Opcional    | 256     | Complemento do endereço de entrega do comprador.                                                             |                                                                 
-| `Shipping.Address.District`   | Alphanumeric | Sim         | 64      | Bairro do endereço de entrega do comprador.                                                                  |                                                                 
-| `Shipping.Address.City`       | Alphanumeric | Sim         | 64      | Cidade do endereço de entrega do comprador.                                                                  |                                                                 
+| `Shipping.Address.Street`     | Alphanumeric | Sim         | 256     | Rua, avenida, travessa, etc, do endereço de entrega do comprador.                                            |
+| `Shipping.Address.Number`     | Alphanumeric | Sim         | 8       | Número do endereço de entrega do comprador.                                                                  |                       
+| `Shipping.Address.Complement` | Alphanumeric | Opcional    | 256     | Complemento do endereço de entrega do comprador.                                                             |                      
+| `Shipping.Address.District`   | Alphanumeric | Sim         | 64      | Bairro do endereço de entrega do comprador.                                                                  |
+| `Shipping.Address.City`       | Alphanumeric | Sim         | 64      | Cidade do endereço de entrega do comprador.                                                                  |                       
 | `Shipping.Address.State`      | Alphanumeric | Sim         | 2       | Estado (UF) do endereзo de entrega do comprador.                                                             |                                                                 
  
 **Shipping.Services**
- 
-| `Shipping.Services.Name`      | Alphanumeric | Sim         | 128     | Nome do serviço de frete.                                                                                    |                                                                 
-| `Shipping.Services.Price`     | Numeric      | Sim         | 18      | Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100.                                                    |                                                                 
-| `Shipping.Services.Deadline`  | Numeric      | Condicional | 9       | Prazo de entrega (em dias).                                                                                  |                                                                 
+
+| Campo                       | Tipo         | Obrigatório | Tamanho | Descrição                                                                                                    | 
+|-----------------------------|--------------|-------------|---------|--------------------------------------------------------------------------------------------------------------|
+`Shipping.Services.Name`      | Alphanumeric | Sim         | 128     | Nome do serviço de frete.                                                                                    |                       
+`Shipping.Services.Price`     | Numeric      | Sim         | 18      | Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100.                                                    |                    
+`Shipping.Services.Deadline`  | Numeric      | Condicional | 9       | Prazo de entrega (em dias).                                                                                  |                         
+
+
  
  
  
@@ -782,7 +814,15 @@ Para utilizar o frete volumétrico, basta enviar o nó `Shipping.Measures`, segu
  
 Para realizar o cálculo de frete via Correios é necessário respeitar as medidas definidas pelo contrato utilizado pelo lojista. Para maiores informações sobre as dimensões e pesos permitidos, sugerimos que valide o contrato da loja no link abaixo:
  
-> [Limites e dimensões para entregas do correio](http://www.correios.com.br/para-voce/precisa-de-ajuda/limites-de-dimensoes-e-de-peso)
+[Limites e dimensões para entregas do correio](http://www.correios.com.br/para-voce/precisa-de-ajuda/limites-de-dimensoes-e-de-peso)
+
+
+
+
+
+
+
+
 ### Identificando Erros de integração
  
 Devido a estrutura do checkout Cielo, onde o comprador é redirecionado para um ambiente separado para completa a transação, existem possibilidades de erros e falhas de integração em diferentes momentos do fluxo de pagamento.
@@ -1139,6 +1179,9 @@ Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acess
  
 Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
  
+
+
+
 ## Notificação: JSON
  
 A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
@@ -1180,6 +1223,7 @@ Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de
  
  
 **RESPONSE**
+
 ```json
 {
     "order_number": "Pedido01",
