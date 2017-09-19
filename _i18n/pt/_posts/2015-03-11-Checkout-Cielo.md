@@ -9,12 +9,12 @@ tags:
   - Checkout Cielo
 language_tabs:
   json: JSON
-
 toc_footers:
   - <a href='/Habilitacao-meios-de-pagamento/'>Manual de Boleto e débito online</a>
   - <a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a>
   - <a href='/Checkout-FAQ/'>FAQ</a>
 ---
+
 # Sobre o Checkout Cielo
 O objetivo desta documentação é orientar o desenvolvedor sobre o método de integração da API Checkout Cielo
  
