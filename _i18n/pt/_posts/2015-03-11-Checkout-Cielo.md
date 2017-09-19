@@ -529,7 +529,7 @@ Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a cr
 Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 
 **Sucesso** - Em caso de sucesso, o response será o conteúdo do Request mais o Link que direciona a tela transacional
- 
+
 ```
 {
     "Settings": {
@@ -547,7 +547,7 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 | `Version`     | String | Sim         | 1       | Versão do serviço de criação de pedido (versão: 1).                                                       |
   
 **Erro** - Em caso de erro, a mensagem abaixo será retornada.
- 
+
 ```
 {
     "message":"An error has occurred."
@@ -584,7 +584,7 @@ Os descontos disponíveis no Checkout Cielo são:
 **Carrinho**
  
 Para enviar um Desconto sobre o `Carrinho` basta enviar o nó abaixo dentro do nó `Cart`
- 
+
 ```json
       {
        "Discount": {  
@@ -608,7 +608,7 @@ Abaixo, como o efeito do desconto são apresentados no Carrinho:
 **Boleto & Débito Online**
  
 Para enviar um Desconto sobre o `Boleto` e `Débito online` basta enviar dentro do nó Payment os campos abaixo:
- 
+
 ```json
       {
       "Payment": {  
@@ -618,7 +618,7 @@ Para enviar um Desconto sobre o `Boleto` e `Débito online` basta enviar dentro 
         },
       }
 ```
- 
+
 | Campo                             | Tipo         | Obrigatório | Tamanho | Descrição                                                                                               | 
 |-----------------------------------|--------------|-------------|---------|---------------------------------------------------------------------------------------------------------|
 | `Payment.BoletoDiscount`          | Numeric      | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com boleto.                                | 
@@ -1273,7 +1273,7 @@ Alguns exemplos de negócios são:
 |---|---|
 |**Parceladas**|Se trata de **uma transação dividida em vários meses**. <BR>O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<BR> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br><br> **EX**: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada|
 |**Recorrentes**|São **transações diferentes realizadas no mesmo cartão em momentos previamente agendados**.<BR> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<BR>  A cada intervalo haverá uma cobrança no cartão de crédito. <BR> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br><br> **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.|
-  
+
 ## Recorrência por API
 
 Uma transação de recorrência no Checkout Cielo possui duas configurações: `Intervalo` e `Data de encerramento`.
