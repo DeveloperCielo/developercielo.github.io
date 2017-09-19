@@ -663,14 +663,15 @@ Os nós que formam as informações de frete abaixo:
 
 **Shipping.Address** - Informações de endereço de entrega. **Não obrigatório no contrato da API, mas obrigatório na tela transacional**. Sugerimos que esses dados sejam enviados, se ja foram recolhidos dentro do ambiente da loja.
  
-| Campo                         | Tipo         | Obrigatório | Tamanho | Descrição                                                                                                    | 
-|-------------------------------|--------------|-------------|---------|--------------------------------------------------------------------------------------------------------------|
-| `Shipping.Address.Street`     | Alphanumeric | Sim         | 256     | Rua, avenida, travessa, etc, do endereço de entrega do comprador.                                            |
-| `Shipping.Address.Number`     | Alphanumeric | Sim         | 8       | Número do endereço de entrega do comprador.                                                                  |                       
-| `Shipping.Address.Complement` | Alphanumeric | Opcional    | 256     | Complemento do endereço de entrega do comprador.                                                             |                      
-| `Shipping.Address.District`   | Alphanumeric | Sim         | 64      | Bairro do endereço de entrega do comprador.                                                                  |
-| `Shipping.Address.City`       | Alphanumeric | Sim         | 64      | Cidade do endereço de entrega do comprador.                                                                  |                       
-| `Shipping.Address.State`      | Alphanumeric | Sim         | 2       | Estado (UF) do endereзo de entrega do comprador.                                                             |                                                                 
+| Campo                        | Tipo         | Obrigatório | Tamanho | Descrição                                                        |
+|------------------------------|--------------|-------------|---------|------------------------------------------------------------------|
+| `Shipping.Address.Street`    | Alphanumeric | Sim         | 256     | Rua, avenida, travessa, etc, do endereço de entrega do comprador.|
+| `Shipping.Address.Number`    | Alphanumeric | Sim         | 8       | Número do endereço de entrega do comprador.                      |                       
+| `Shipping.Address.Complement`| Alphanumeric | Opcional    | 256     | Complemento do endereço de entrega do comprador.                 |                      
+| `Shipping.Address.District`  | Alphanumeric | Sim         | 64      | Bairro do endereço de entrega do comprador.                      |
+| `Shipping.Address.City`      | Alphanumeric | Sim         | 64      | Cidade do endereço de entrega do comprador.                      |                       
+| `Shipping.Address.State`     | Alphanumeric | Sim         | 2       | Estado (UF) do endereзo de entrega do comprador.                 |  
+
 **Shipping.Services**
 
 | Campo                       | Tipo         | Obrigatório | Tamanho | Descrição                                                                                                    | 
