@@ -17,8 +17,6 @@ toc_footers:
 
 # Sobre o Checkout Cielo
 
-O objetivo desta documentação é orientar o desenvolvedor sobre o método de integração da API Checkout Cielo
-
 ## O que é o Checkout Cielo
 
 O **Checkout Cielo** é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da Cielo
@@ -530,7 +528,7 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 
 **Sucesso** - Em caso de sucesso, o response será o conteúdo do Request mais o Link que direciona a tela transacional
 
-```
+```Json
 {
     "Settings": {
         "CheckoutUrl": "https://cieloecommerce.cielo.com.br/transacional/order/index?id=123",
@@ -548,7 +546,7 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
   
 **Erro** - Em caso de erro, a mensagem abaixo será retornada.
 
-```
+```json
 {
     "message":"An error has occurred."
 }
@@ -787,13 +785,13 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 Abaixo é possível ver como o cadastro de um botão gera os 3 métodos de para acesso a tela transacional.
  
 * **Botão** - Será criado um código HTML como o abaixo:
- 
+
 ```
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'>
     <input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content/images/botao_comprar_3.jpg' />
 </form>
 ```
- 
+
 **Exemplo de um botão Funcional:**
  
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow' target='blank'><input type='hidden' name='id' value='937874c6-a4d7-477e-9272-a4cb8b0c5f79' /><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png'/></form>
@@ -1076,7 +1074,7 @@ Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de
 }
  
 ```
- 
+
 Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
  
 **Retorno aguardado para o envio da notificação:** `HttpStatus = 200 (OK)` - Post recebido e processado com sucesso
@@ -1242,13 +1240,13 @@ O Checkout realiza o cálculo das parcelas considerando valor total e limite par
   
 O Parcelamento via API é realizado enviando o campo `MaxNumberOfInstallments` dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
 Abaixo, um exemplo do Nó
- 
+
 ```json
 "Payment": {
   "MaxNumberOfInstallments": 3
 }
 ```
- 
+
 | Campo                         | Tipo         | Obrigatório | Tamanho | Descrição                                                                                               |
 |-------------------------------|--------------|-------------|---------|---------------------------------------------------------------------------------------------------------|
 | `MaxNumberOfInstallments`     | Numeric      | Condicional | 2       | Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice      |
@@ -1280,7 +1278,7 @@ Uma transação de recorrência no Checkout Cielo possui duas configurações: `
  
 * **Intervalo** – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.
 * **Data de encerramento** – Data que o processo de recorrência deixa de ocorrer.
- 
+
 ```json
 "Payment": {
         "RecurrentPayment": {
@@ -1288,7 +1286,7 @@ Uma transação de recorrência no Checkout Cielo possui duas configurações: `
             "EndDate": "2018-12-31"
         }
 ```
-  
+
 **Payment.RecurrentPayment**
  
 | Campo                                | Tipo         | Obrigatório | Tamanho | Descrição                                                                                               | 
@@ -1309,7 +1307,7 @@ Os dados do cartão de crédito do comprador ficam armazenados de forma segura d
 Exceto o objeto `Payment` que contém um novo elemento específico para a recorrência chamado `RecurrentPayment`, todos os outros objetos são iguais à integração com o Carrinho.
   
 **Requisição**
- 
+
 ```json
 {
     "OrderNumber": "12344",
@@ -1370,12 +1368,12 @@ Exceto o objeto `Payment` que contém um novo elemento específico para a recorr
     }
 }
 ```
-  
+
 **Exemplo**: Bem Físico
  
 Se o tipo de produto for `Bem Físico`, a **API obriga o envio do tipo de frete**. 
 Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo `WithoutShipping`, caso contrário, a seguinte resposta será apresentada:
- 
+
 ```json
 {
     "message": "The request is invalid.",
@@ -1386,7 +1384,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
     }
 }
 ```
- 
+
 **IMPORTANTE:** A Recorrência é criada apenas se a transação for **AUTORIZADA**. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.
 
 ## Recorrência por Botão
