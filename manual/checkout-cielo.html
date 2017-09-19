@@ -1465,15 +1465,63 @@ Os descontos disponíveis no Checkout Cielo são:</p>
 
 <p><strong>Shipping.Address</strong> - Informações de endereço de entrega. <strong>Não obrigatório no contrato da API, mas obrigatório na tela transacional</strong>. Sugerimos que esses dados sejam enviados, se ja foram recolhidos dentro do ambiente da loja.</p>
 
-<p>| Campo                         | Tipo         | Obrigatório | Tamanho | Descrição                                                                                                    | 
-|——————————-|————–|————-|———|————————————————————————————————————–|
-| <code class="highlighter-rouge">Shipping.Address.Street</code>     | Alphanumeric | Sim         | 256     | Rua, avenida, travessa, etc, do endereço de entrega do comprador.                                            |
-| <code class="highlighter-rouge">Shipping.Address.Number</code>     | Alphanumeric | Sim         | 8       | Número do endereço de entrega do comprador.                                                                  |                     <br />
-| <code class="highlighter-rouge">Shipping.Address.Complement</code> | Alphanumeric | Opcional    | 256     | Complemento do endereço de entrega do comprador.                                                             |                    <br />
-| <code class="highlighter-rouge">Shipping.Address.District</code>   | Alphanumeric | Sim         | 64      | Bairro do endereço de entrega do comprador.                                                                  |
-| <code class="highlighter-rouge">Shipping.Address.City</code>       | Alphanumeric | Sim         | 64      | Cidade do endereço de entrega do comprador.                                                                  |                     <br />
-| <code class="highlighter-rouge">Shipping.Address.State</code>      | Alphanumeric | Sim         | 2       | Estado (UF) do endereзo de entrega do comprador.                                                             |                                                               <br />
-<strong>Shipping.Services</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.Street</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>256</td>
+      <td>Rua, avenida, travessa, etc, do endereço de entrega do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.Number</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>8</td>
+      <td>Número do endereço de entrega do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.Complement</code></td>
+      <td>Alphanumeric</td>
+      <td>Opcional</td>
+      <td>256</td>
+      <td>Complemento do endereço de entrega do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.District</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>64</td>
+      <td>Bairro do endereço de entrega do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.City</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>64</td>
+      <td>Cidade do endereço de entrega do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.State</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>2</td>
+      <td>Estado (UF) do endereзo de entrega do comprador.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Shipping.Services</strong></p>
 
 <table>
   <thead>
