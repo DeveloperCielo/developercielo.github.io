@@ -18,9 +18,9 @@ toc_footers:
 # Sobre o Checkout Cielo
 
 O objetivo desta documentação é orientar o desenvolvedor sobre o método de integração da API Checkout Cielo
- 
+
 ## O que é o Checkout Cielo
- 
+
 O **Checkout Cielo** é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da Cielo
 A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo as normas de segurança PCI.
  
@@ -251,9 +251,9 @@ Clique em “Ok” para concluir a importação.
 O Certificado poderá ser visualizado na aba padrão “Outras Pessoas” ou na escolhida pelo cliente.
  
 ![Instalar IE e GC](./images/certificado-instalar-ie-gc-10.jpg)
- 
+
 #### 9o Passo:
- 
+
 Repita o mesmo procedimento para os 3 arquivos enviados.
  
 # Integrando o Checkout Cielo
