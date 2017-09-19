@@ -513,8 +513,7 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 | `Customer.Email`           | Alphanumeric | Condicional | 64      | Email do comprador.                                                                                 | Não obrigatório na API, mas obrigatório na tela transacional    |
 | `Customer.Phone`           | Numeric      | Condicional | 11      | Telefone do comprador.                                                                              | Não obrigatório na API, mas obrigatório na tela transacional    |
 | `Options.AntifraudEnabled` | Boolean      | Condicional | n/a     | Habilitar ou não a análise de fraude para o pedido: true ou false.                                  |                                                                 |
-| `Options.ReturnUrl`        | Strin        | Condicional | 255     | Define para qual url o comprador será enviado após finalizar a compra.                              | Uma URL fixa pode ser registrada no Backoffice Checkout         |
--  
+| `Options.ReturnUrl`        | Strin        | Condicional | 255     | Define para qual url o comprador será enviado após finalizar a compra.                              | Uma URL fixa pode ser registrada no Backoffice Checkout         |  
 
 ### Responses
 
@@ -531,7 +530,7 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 
 **Sucesso** - Em caso de sucesso, o response será o conteúdo do Request mais o Link que direciona a tela transacional
  
-```json
+```
 {
     "Settings": {
         "CheckoutUrl": "https://cieloecommerce.cielo.com.br/transacional/order/index?id=123",
@@ -540,7 +539,7 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
     }
 }
 ```
- 
+
 | Campo         | Tipo   | Obrigatório | Tamanho | Descrição                                                                                                 |
 |---------------|--------|-------------|---------|-----------------------------------------------------------------------------------------------------------|
 | `CheckoutUrl` | String | Sim         | 255     | URL da tela transacional. O Comprador **deve ser direcionado a esse ambiente para finalizar a transação** |
@@ -549,11 +548,10 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
   
 **Erro** - Em caso de erro, a mensagem abaixo será retornada.
  
-```json
-
+```
+{
     "message":"An error has occurred."
 }
-
 ```
 
 | Campo     | Tipo   | Obrigatório | Tamanho | Descrição                   |
