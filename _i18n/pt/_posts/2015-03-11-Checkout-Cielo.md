@@ -45,9 +45,9 @@ O Checkout Cielo é uma funcionalidade indicada para:
  
 * **Sites com Carrinhos de compra**: quando houver um “carrinho de compras”  a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos a fim de finalizar a compra.
 * **Vendas via Redes sociais**: Com a capacidade de gerar um link ou QR Code para levar o comprador a tela transacional, o Checkout é indicado para realizar vendas via redes sociais de modo simplificado, sem a necessidade de integração técnica.
-  
+
 ## Meios de pagamento do Checkout Cielo
- 
+
 A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagamento:
  
 **Cartão de Crédito**
@@ -86,9 +86,9 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 |---------------|
 |Bradesco       |
 |Banco do Brasil|
- 
+
 ## Pré-requisitos para Integração.
- 
+
 O Checkout Cielo  possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido.
 Abaixo listamos pontos que devem estar prontos antes da integração:
  
@@ -125,35 +125,35 @@ Se você já tentou essas soluções, mas continua a ter problemas, entre em con
 * O navegador e a versão que estão sendo utilizados.
 * O sistema operacional e a versão utilizada no computador.
 * Uma captura de tela do problema.
-  
+
 # Certificado Extended Validation
- 
+
 ## O que é Certificado SSL?
- 
+
 O Certificado SSL para servidor web oferece autenticidade e integridade dos dados de um web site, proporcionando aos clientes das lojas virtuais a garantia de que estão realmente acessando o site que desejam, e não uma um site fraudador.
  
 Empresas especializadas são responsáveis por fazer a validação do domínio e, dependendo do tipo de certificado, também da entidade detentora do domínio.
- 
+
 ### Internet Explorer:
- 
+
 ![Certificado EV Internet Explorer](./images/certificado-ie.jpg)
- 
+
 ### Firefox
- 
+
 ![Certificado EV Firefox](./images/certificado-firefox.jpg)
- 
+
 ### Google Chrome
- 
+
 ![Certificado EV Google Chrome](./images/certificado-chrome.jpg)
- 
+
 ## O que é Certificado EV SSL?
- 
+
 O Certificado EV foi lançado no mercado recentemente e garante um nível de segurança maior para os clientes das lojas virtuais.
  
 Trata-se de um certificado de maior confiança e quando o https for acessado a barra de endereço ficará verde, dando mais confiabilidade aos visitantes do site.
- 
+
 ## Como instalar o Certificado Extended Validation no servidor da Loja?
- 
+
 Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.
  
 * [Certificado Raiz](./attachment/root.crt)
@@ -163,17 +163,17 @@ Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo n
 ## Passo a Passo para a Instalação
 
 ### Instalação no Servidor da Loja Virtual
- 
+
 O passo a passo para a instalação do Certificado EV deverá ser contatado o suporte do fornecedor do seu servidor.
  
 <aside class="warning">A Cielo não oferece suporte para a instalação do Certificado.</aside>
- 
+
 ### Acesso do Cliente à Loja Virtual
- 
+
 Normalmente, o browser faz a atualização do Certificado automaticamente, caso não o faça e o cliente entre em contato deverá ser informado os seguintes passos:
- 
+
 #### 1o Passo:
- 
+
 Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:
  
 * [Certificado Raiz](./attachment/root.crt)
@@ -181,21 +181,21 @@ Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, p
 * [Certificado E-Commerce Cielo](./attachment/ecommerce.cielo.com.br.crt)
 
 #### 2o Passo:
- 
+
 No “Internet Explorer”, clique no menu “Ferramentas” e acesse as “Opções da Internet”:
- 
+
 ![Instalar IE](./images/certificado-instalar-ie-1.jpg)
- 
+
 No “Firefox”, clique no menu “Abrir Menu” e acesse “Avançado” e “Opções”:
- 
+
 ![Instalar FF](./images/certificado-instalar-ff-1.jpg)
- 
+
 No “Chrome”, clique no “Personalizar e Controlar o Google Chrome” e acesse “Configurações” e “Mostrar configurações avançadas... “Alterar Configurações de Proxy e “Conteúdo” e Certificados:
- 
+
 ![Instalar GC](./images/certificado-instalar-gc-1.jpg)
- 
+
 #### 3o Passo:
- 
+
 No Internet Explorer, em “Certificados”, clique em “Importar”.
  
 ![Instalar IE](./images/certificado-instalar-ie-2.jpg)
@@ -207,9 +207,9 @@ No Firefox clique em “Ver Certificados”, clique em “Importar”
 No Chrome clique em “Gerenciar Certificados”, clique em “Importar”
  
 ![Instalar GC](./images/certificado-instalar-gc-2.jpg)
- 
+
 #### 4o Passo:
- 
+
 No Internet Explorer e Chrome “Assistente para Importação de Certificados”, clique em “Avançar”.
  
 ![Instalar IE e GC](./images/certificado-instalar-ie-gc-3.jpg)
@@ -219,29 +219,29 @@ No Internet Explorer e Chrome “Assistente para Importação de Certificados”
 No Firefox “Aba Servidores ”, clique em “Importar”
  
 ![Instalar FF](./images/certificado-instalar-ff-3.jpg)
- 
+
 #### 5o Passo:
- 
+
 No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “cieloecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.
  
 ![Instalar IE e GC](./images/certificado-instalar-ie-gc-5.jpg)
  
 ![Instalar IE e GC](./images/certificado-instalar-ie-gc-6.jpg)
- 
+
 #### 6o Passo:
- 
+
 Selecionar a opção desejada: adicionar o Certificado em uma pasta padrão ou procurar a pasta de sua escolha.
  
 ![Instalar IE e GC](./images/certificado-instalar-ie-gc-7.jpg)
- 
+
 #### 7o Passo:
- 
+
 Clique em “Concluir”.
  
 ![Instalar IE e GC](./images/certificado-instalar-ie-gc-8.jpg)
- 
+
 #### 8o Passo:
- 
+
 Clique em “Ok” para concluir a importação.
  
 ![Instalar IE e GC](./images/certificado-instalar-ie-gc-9.jpg)
@@ -255,9 +255,9 @@ O Certificado poderá ser visualizado na aba padrão “Outras Pessoas” ou na 
 #### 9o Passo:
 
 Repita o mesmo procedimento para os 3 arquivos enviados.
- 
+
 # Integrando o Checkout Cielo
- 
+
 Nesta documentação estão descritas todas as funcionalidades da integração da API Checkout Cielo, os parâmetros técnicos e principalmente os códigos de exemplos para facilitar o seu desenvolvimento.
  
 Existem duas maneiras de realizar a integração:
@@ -268,7 +268,7 @@ Existem duas maneiras de realizar a integração:
 |`Botão / QR Code / Link`|Dentro do Backoffice do Checkout Cielo, é possível registrar um produto ou grupo de produtos que vão gerar um Link capaz de criar várias telas de pagamento. Esse modelo é usado para pagamentos por redes sociais, campanhas promocionais ou Vendas via QR Code. Nessa categoria o lojista possui menos controle sobre como os pedidos serão apresentados ou gerados na tela transacional|
 
 ## Fluxo de integração
- 
+
 Durante a integração com o Checkout Cielo, ma seguencia de troca de informações e redirecionamentos serão executados.
 Veja o fluxo abaixo:
  
@@ -291,11 +291,11 @@ Após o portador do cartão (consumidor) selecionar suas compras e apertar o bot
 **OBS:** O Checkout Cielo não notifica os compradores a respeito do status de compra, apenas ao lojista. Isso ocorre pois permite ao lojista decidir quando e como informar aos seus consumidores sobre o prazo de entrega e processo de envio
 
 ## Modo de teste do Checkout Cielo
- 
+
 O modo de teste Checkout Cielo é uma ferramenta que permite testar a integração do seu site com a plataforma. Com o modo teste, você pode realizar transações a medida que evolui com a integração e consegue simular cenários para testar diferentes meios de pagamento.
- 
+
 ### Ativação do Modo de Teste.
- 
+
 O modo de teste pode ser ativado na aba **Configurações**, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.
  
 ![Ativando Modo de teste](images/Checkout/tm01.png)
@@ -307,9 +307,9 @@ Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente
 | Backoffice                                                       | Transacional                                                         |
 |------------------------------------------------------------------|----------------------------------------------------------------------|
 | ![Tarja vermelha - Backoffice](images/Checkout/tmbackoffice.png) | ![Tarja vermelha - Transacional](images/Checkout/tmtransacional.png) |
- 
+
 ### Como transacionar no Modo de teste.
- 
+
 A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico [Integração com carrinho](#integração-carrinho-de-compras), entretanto, os meios de pagamentos a serem usados serão meios simulados.
  
 Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:
@@ -362,7 +362,7 @@ Essas transações terão o símbolo de teste as diferenciando de suas outras tr
 ![Transações de teste](/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png)
  
 <aside class="notice">É muito importante que ao liberar sua loja para a realização de vendas para seus clientes que **ela não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
- 
+
 ## SDKs e POSTMAN
 
 O Checkout Cielo possui uma coleção POSTMAN de testes exclusiva com todos os parametros e opções descritas neste manual.
@@ -378,7 +378,7 @@ No postman é possivel criar exemplos de sua integração em:
 * SHELL
 
 ## Integração por API
- 
+
 Este tipo de integração deve ser usada sempre que  houver  um  “carrinho  de  compras”  a  ser  enviado,  ou  seja,  no  caso  do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar a um carrinho e depois então finalizar a venda. 
  
 Se você não possui um carrinho de compras implementado, veja a seção de **Integração via botão** Checkout Cielo.
@@ -386,9 +386,9 @@ Se você não possui um carrinho de compras implementado, veja a seção de **In
 Abaixo, é demonstrado como o fluxo de compra ocorre na integração via API:
  
 ![Integração Via API](images/Checkout/intapi.png)
- 
+
 ### Criando o Carrinho
- 
+
 Na integração via API, a tela transacional é "montada" com bases em dados enviados que formam um **Carrinho de compras**.
 Esses dados são separados nos seguintes "nós principais":
  
@@ -405,7 +405,7 @@ Após o envio dos dados do carrinho, o Checkout enviará um Response contendo um
 **IMPORTANTE**: Uma chamada a API Checkout **NÃO CRIA UMA TRANSAÇÃO**. O Link retornado é apenas uma "pré-ordem" indicando que uma tela transacional está pronta para ser utilizada. A Transação é criada apenas quando o comprador clica em "FINALIZAR"
 
 ### Request
- 
+
 Endpoint é a URL para onde as requisições com os dados do carrinho serão enviadas. Todas as requisições deverão ser enviadas utilizando o método HTTP POST, para o endpoint:
  
 **Produção** `https://cieloecommerce.cielo.com.br/api/public/v1/orders`.
@@ -514,9 +514,9 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 | `Customer.Phone`           | Numeric      | Condicional | 11      | Telefone do comprador.                                                                              | Não obrigatório na API, mas obrigatório na tela transacional    |
 | `Options.AntifraudEnabled` | Boolean      | Condicional | n/a     | Habilitar ou não a análise de fraude para o pedido: true ou false.                                  |                                                                 |
 | `Options.ReturnUrl`        | Strin        | Condicional | 255     | Define para qual url o comprador será enviado após finalizar a compra.                              | Uma URL fixa pode ser registrada no Backoffice Checkout         |
- 
+  
 ### Responses
- 
+
 Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a criação da tela transacional e a segunda, a finalização do pagamento; O Checkout possui duas respostas para uma transação:
  
 * **Response - Tela transacional** - É o Response retornado com dados para enviar o comprador para a tela transacional
@@ -562,14 +562,14 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 **Importante** - O Checkout Cielo não possui erros numerados, apenas uma mensagem genérica. Veja a sessão "Identificando erros de Integração" para maiores informações
 
 ### Funcionalidades Adicionais
- 
+
 Nos items a seguir, será explicado o comportamento de algumas das funcionalidades da integração via API. Essas funcionalidades possuem regras especificas para utilização e não estão disponíveis na integração via Botão.
  
 * **Tipos de "Desconto"**
 * **Tipos de "Frete"**
 
 #### Tipos de "Desconto"
- 
+
 O Checkout Cielo permite que o lojista aplique descontos específicos tanto para o carrinho quanto para meios de pagamento.
 Os descontos disponíveis no Checkout Cielo são:
  
@@ -631,9 +631,9 @@ Abaixo, como o efeito do desconto são apresentados no Carrinho:
 |Tela transacional|
 |-----------------|
 |![Meios de pagamento](images/Checkout/checkout-discount-mp.png)|
-  
+
 #### Tipos de "Frete"
- 
+
 O Checkout cielo possui diferentes tipos de frete.
 
 | Campo                   | Descrição                                                                                     |
@@ -706,7 +706,7 @@ Para realizar o cálculo de frete via Correios é necessário respeitar as medid
 [Limites e dimensões para entregas do correio](http://www.correios.com.br/para-voce/precisa-de-ajuda/limites-de-dimensoes-e-de-peso)
 
 ### Identificando Erros de integração
- 
+
 Devido a estrutura do checkout Cielo, onde o comprador é redirecionado para um ambiente separado para completa a transação, existem possibilidades de erros e falhas de integração em diferentes momentos do fluxo de pagamento.
 Durante a integração é importante 
 Há dois tipos de erro que poderão ocorrer durante o processo de integração com o Checkout Cielo. São eles:
@@ -717,9 +717,9 @@ Há dois tipos de erro que poderão ocorrer durante o processo de integração c
 | **Pós-Tela transacional**   | Significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout                            |
  
 Caso algum erro ocorra após a finalização da transação, entre em contato com o Suporte Cielo.
- 
+
 ## Integração por BOTÃO
- 
+
 **Integração via Botão, QR CODE ou LINK** é um método de compra usada sempre que não houver um “carrinho de compras” em sua loja. 
 Esse tipo de integração é realizado via o cadastro de um conjunto de itens a ser vendido on backoffice do Checkout Cielo.
  
@@ -740,9 +740,9 @@ Este modelo de integração é utilizado para:
 * Sempre que se deseja disponibilizar uma venda rápida.
   
 Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/), no menu de Produtos/Cadastrar Produto.
- 
+
 ### Características do Botão
-  
+
 Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/), e valerão os dados do cadastro.
   
 | Característica | Explicação |
@@ -754,9 +754,9 @@ Cada botão possui um código único que só permite comprar aquele determinado 
  **Abaixo, o fluxo de pagamento via Botão:**
  
 ![Fluxo de integração Checkout Cielo Botão](images/Checkout/intbt.png)
- 
+
 ### Criando o Botão
- 
+
 Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/), no menu de Produtos/Cadastrar Produto.
   
 **Tela de Cadastro:**
@@ -782,8 +782,9 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 |`Valor do Frete`  | Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.            | n/a          | n/a          | Sim         |
 |`Método de envio` | Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.                                            | n/a          | n/a          | Sim         |
 |`URL`             | Esse campo só aparece para Tipo Produto igual a Digital.                                                                                       | n/a          | n/a          | Sim         |
+
 ### Exemplo de Botão:
- 
+
 Abaixo é possível ver como o cadastro de um botão gera os 3 métodos de para acesso a tela transacional.
  
 * **Botão** - Será criado um código HTML como o abaixo:
@@ -809,11 +810,11 @@ Adicionando o botão na sua página HTML você deve copiar o código HTML do bot
 <aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
  
 Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/), e valerão os dados do cadastro.
-  
+
 ## Fluxos Meios de pagamento
- 
+
 ### Cartão de Crédito
- 
+
 O Checkout Cielo permite a utilização de Cartões de Crédito das principais bandeiras nacionais e internacionais. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.
  
 Transações de cartão de crédito serão incluídas no [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/) como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao Banco.
@@ -831,9 +832,9 @@ Transações de cartão de crédito serão incluídas no [Backoffice Cielo Check
 **Atenção - Cartões Internacionais:** O Checkout Cielo aceita cartões emitidos fora do Brasil, entretanto esses cartões não possuem a capacidade de pagar vendas parceladas. Essa é uma limitação imposta pelo banco emissor.
  
 **Atenção - TRANSAÇÕES EXPIRADAS:** Por padrão, lojas Checkout Cielo possuem 15 dias para realizarem a captura da transação de Crédito. Se não capturadas, essas transações serão PERDIDAs.
- 
+
 ### Análise de Fraude
- 
+
 Transações de crédito **“AUTORIZADAS”** serão enviadas para análise da ferramenta de antifraude caso o parametro `Options.AntifraudEnabled` esteja definido como `TRUE`. 
 O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 A análise indicará um grau de *RISCO**, especificado pelo `Status`, para a venda em questão. 
@@ -859,9 +860,9 @@ A analise será apresentada no “Detalhes do Pedido”, como abaixo:
 Você pode visualizar o status do antifraude acessando o detalhe da compra, na aba Pedidos e clicando no (+)
  
 ![Status Antifraude](/images/checkout-status-antifraude.png)
- 
+
 ### Cartão de Débito
- 
+
 O Checkout Cielo permite a utilização de Cartões de débito MasterCard e Visa. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.
  
 Bancos Suportados:
@@ -891,9 +892,9 @@ Transações de cartão de débito serão incluídas no [Backoffice Cielo Checko
 4. **Não Autorizado** - O Comprador não apresentava saldo em conta para finalizar a transação.
  
 **OBS**: A opção **Cancelar** dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador
- 
+
 ### Boleto
- 
+
 O Checkout Cielo permite a utilização de Boletos do Bradesco (Carteira 26 e SPS) e Banco do Brasil (Carteira 18). 
 Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja disponibilizado no Backoffice Checkout.
  
@@ -924,9 +925,9 @@ Transações de cartão de débito serão incluídas no [Backoffice Cielo Checko
 4. **Não Autorizado** - O Comprador não apresentava saldo em conta para finalizar a transação.
  
 **OBS**: A opção **Cancelar** dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador
- 
+
 ### Débito Online
- 
+
 O Checkout Cielo permite a utilização de Débito Online (Transferência entre contas bancarias) para compradores que possuam contas nos bancos Bradesco e Banco do Brasil.
 Esse meio de pagamento é liberado via cadastro junto ao Suporte Cielo. 
  
@@ -942,14 +943,14 @@ Transações de Débito online serão incluídos no [Backoffice Cielo Checkout](
 * **Não Autorizado** - O Comprador não apresentava saldo em conta para finalizar a transação.
  
 **OBS**: A opção **Cancelar** dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador
- 
+
 # Notificações de Pagamento
- 
+
 O processo de notificação transacional no Checkout Cielo ocorre via a inclusão de uma URL para onde serão direcionados dados das transações realizadas na plataforma.
 Vale destacar que o Checkout realiza a notificação somente quando uma transação é considerada finalizada ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em "Finalizar".
- 
+
 ## Tipos de notificação
- 
+
 O Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar de acordo com suas necessidades:
  
 |Tipo|Descrição|
@@ -958,9 +959,9 @@ O Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar
 |`JSON`| Notificação onde o lojista realiza uma consulta. Um `POST` contendo informações para a realização de uma consulta (`GET`) as transações checkout |
  
 Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a `URL de NOTIFICAÇÃO` quando a `URL de MUDANÇA de STATUS`.
- 
+
 ## Tipos de URL de Notificação
- 
+
 O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.
  
 |Tipo|Descrição|Observação|
@@ -986,9 +987,9 @@ Todas as 3 URLs devem possuir as seguintes características:
 3. Cadastre as URLS e escolhe o tipo de Notificação desejado
  
 ![Cadastro de URLS](images/Checkout/urls.png)
- 
+
 ## Notificação: POST
- 
+
 A notificação via POST é baseada no envio de um `POST HTTP` quando uma transação é realizada. Ela é realizada em duas etapas:
  
 1. `POST de NOTIFICAÇÃO` - Ocorre quando a transação é finalizada. Esse POST possui todos os dados do pedido, incluindo o STATUS inicial da transação.
