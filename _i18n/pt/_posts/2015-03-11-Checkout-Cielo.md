@@ -514,7 +514,8 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 | `Customer.Phone`           | Numeric      | Condicional | 11      | Telefone do comprador.                                                                              | Não obrigatório na API, mas obrigatório na tela transacional    |
 | `Options.AntifraudEnabled` | Boolean      | Condicional | n/a     | Habilitar ou não a análise de fraude para o pedido: true ou false.                                  |                                                                 |
 | `Options.ReturnUrl`        | Strin        | Condicional | 255     | Define para qual url o comprador será enviado após finalizar a compra.                              | Uma URL fixa pode ser registrada no Backoffice Checkout         |
-  
+-  
+
 ### Responses
 
 Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a criação da tela transacional e a segunda, a finalização do pagamento; O Checkout possui duas respostas para uma transação:
@@ -1012,7 +1013,7 @@ Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acess
 Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
 
 ## Notificação: JSON
- 
+
 A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
 Essa modalidade de notificação é baseada em um `POST JSON`, onde o lojista recebe credenciais para que uma consulta (`GET`) possa ser realizado junto a base de dados Checkout Cielo.
  
@@ -1087,9 +1088,9 @@ Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de
 Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
  
 ![Reenvio de notificação](images/Checkout/reenvipost.png)
- 
+
 ## Conteúdo da Notificação
- 
+
 Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo. 
 Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:
  
@@ -1199,11 +1200,11 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 | 3     | Frete grátis                                          |
 | 4     | Retirar em mãos/loja                                  |
 | 5     | Sem cobrança de frete (serviços ou produtos digitais) |
- 
+
 # Parcelamentos do Checkout Cielo
- 
+
 ## Tipo de Parcelamento
- 
+
 O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes. 
 Existem dois métodos de parcelamento:
  
@@ -1211,9 +1212,9 @@ Existem dois métodos de parcelamento:
 * **Parcelamento via API** - O Lojista limita o numero de parcelas a serem apresentadas no backoffice
  
 **OBS:** O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em cotato com o Suporte Cielo e verifique a configuração de sua Afiliação.
- 
+
 ## Parcelamento via backoffice
- 
+
 Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba **Configurações** e alterando a sessão **Pagamentos**
  
  ![Seleção de Parcelas](images/Checkout/parcelamento.png)
@@ -1228,9 +1229,9 @@ Neste modo, o lojista controla o limite máximo de parcelas que a loja realizar�
 * O valor do frete é somado ao valor do parcelamento;
 * A opção “à vista” sempre está disponível ao comprador.
 * Todas as transações possuirão as mesmas opções de parcelamento.
- 
+
 ## Parcelamento via API
- 
+
 Nesta opção, o lojista pode configurar a quantidade de parcelas por venda, especificado via request da API no momento de envio da transação.
 O Checkout realiza o cálculo das parcelas considerando valor total e limite parcelas enviadas via API.
  
@@ -1253,9 +1254,9 @@ Abaixo, um exemplo do Nó
 | Campo                         | Tipo         | Obrigatório | Tamanho | Descrição                                                                                               |
 |-------------------------------|--------------|-------------|---------|---------------------------------------------------------------------------------------------------------|
 | `MaxNumberOfInstallments`     | Numeric      | Condicional | 2       | Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice      |
- 
+
 # Recorrência do Checkout Cielo
- 
+
 A Recorrência é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.
  
 <aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção <a href="#retentativa">Retentativa</a>.</aside>
@@ -1274,9 +1275,9 @@ Alguns exemplos de negócios são:
 |---|---|
 |**Parceladas**|Se trata de **uma transação dividida em vários meses**. <BR>O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<BR> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br><br> **EX**: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada|
 |**Recorrentes**|São **transações diferentes realizadas no mesmo cartão em momentos previamente agendados**.<BR> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<BR>  A cada intervalo haverá uma cobrança no cartão de crédito. <BR> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br><br> **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.|
- 
+  
 ## Recorrência por API
- 
+
 Uma transação de recorrência no Checkout Cielo possui duas configurações: `Intervalo` e `Data de encerramento`.
  
 * **Intervalo** – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.
@@ -1389,9 +1390,9 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 ```
  
 **IMPORTANTE:** A Recorrência é criada apenas se a transação for **AUTORIZADA**. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.
- 
+
 ## Recorrência por Botão
- 
+
 Uma maneira de realizar a recorrência dentro do Checkout é criar um botão recorrente.
  
 Basta cadastrar o produto, incluindo um intervalo de cobrança e uma data para encerramento (Opcional), como no exemplo abaixo:
@@ -1399,9 +1400,9 @@ Basta cadastrar o produto, incluindo um intervalo de cobrança e uma data para e
 ![Botão recorrência](/images/checkout-botao-recorrencia.png)
  
 **ATENÇÃO:** Caso um botão seja utilizado após a “Data final” cadastrada, a transação apresentará um erro exibindo **Oppss** na tela transacional. A Data pode ser editada na tela de edição do botão dentro de “Detalhes do Produto”
- 
+
 ## Retentativa de Recorrências
- 
+
 Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:
  
 * **Intervalo de tempo entre as tentativas:** 1 dia
@@ -1410,9 +1411,9 @@ Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo
 **OBS**: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada 
  
 **ATENÇÃO:**A regra da retentativa não pode ser modificada pelo lojista.
- 
+
 ## Consultando transações
- 
+
 As transações de Recorrência ficam disponíveis no Backoffice Checkout Cielo como as outras vendas de sua loja na aba “PEDIDOS” (veja imagem abaixo).
  
 A primeira transação da recorrência é uma transação normal, seguindo as regras e preferências definidas pelo lojista no Backoffice.
@@ -1424,9 +1425,9 @@ A primeira transação da recorrência é uma transação normal, seguindo as re
 Esta tela mostra a data que a 1° transação da recorrência foi autorizada e deverá ser capturada manualmente. **As demais transações da recorrência sempre serão capturadas automaticamente**, independente se primeira transação foi capturada ou cancelada. Se o Cliente tiver configurado Captura automática, a captura da recorrência também será automática.
  
 **ATENÇÃO:** Somente a 1° transação é submetida a análise do antifraude
- 
+
 ## Cancelamento de Recorrência no Checkout Cielo.
- 
+
 O cancelamento da recorrência ocorre dentro do Backoffice do Checkout Cielo, também na aba “PEDIDOS”. Basta:
  
 1. Acessar uma transação de recorrência (marcada com o símbolo “Recorrente”)
@@ -1449,7 +1450,7 @@ Na tela acima, há duas opções de Cancelamento pelos botões:
 * Sua afiliação Cielo deve ser habilitada para transacionar sem CVV ou Em recorrência, do contrário, todas as transações recorrentes serão negadas.
 
 ## Edição da Recorrência
- 
+
 O Checkout Cielo permite que o lojista modifique 3 dados da recorrencia:
  
 * **Ativação** - Uma recorrência pode ser ativada ou desativada. EX: Suspensão de uma assinatura por um periodo de 3 meses; Basta definir a Recorrência como inativa.
@@ -1457,9 +1458,9 @@ O Checkout Cielo permite que o lojista modifique 3 dados da recorrencia:
 * **Dia de ocorrência** - É possivel modificar o dia de execução da transação recorrente.
  
 A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o [**Tutorial do Backoffice Checkout Cielo**](https://developercielo.github.io/Checkout-Backoffice/) para mais informações.
-  
+
 # Suporte Cielo
- 
+
 Após a leitura deste manual, caso ainda persistam dúvidas (técnicas ou não), a Cielo disponibiliza o suporte técnico 24 horas por dia, 7 dias por semana em idiomas (Português e Inglês), nos seguintes contatos:
  
 * +55 4002-9700 – *Capitais e Regiões Metropolitanas*
