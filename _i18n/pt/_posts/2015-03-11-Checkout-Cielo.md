@@ -16,6 +16,7 @@ toc_footers:
 ---
 
 # Sobre o Checkout Cielo
+
 O objetivo desta documentação é orientar o desenvolvedor sobre o método de integração da API Checkout Cielo
  
 ## O que é o Checkout Cielo
@@ -593,7 +594,6 @@ Para enviar um Desconto sobre o `Carrinho` basta enviar o nó abaixo dentro do n
        },
       }
 ```
- 
 
 | Campo                 | Tipo         | Obrigatório | Tamanho | Descrição                                               | Condicional                                                     |
 |-----------------------|--------------|-------------|---------|---------------------------------------------------------|-----------------------------------------------------------------|
@@ -635,8 +635,7 @@ Abaixo, como o efeito do desconto são apresentados no Carrinho:
 #### Tipos de "Frete"
  
 O Checkout cielo possui diferentes tipos de frete.
- 
- 
+
 | Campo                   | Descrição                                                                                     |
 |-------------------------|-----------------------------------------------------------------------------------------------|
 | `FixedAmount`           | Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio |
@@ -1189,7 +1188,6 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 |:-----:|-----------------|
 | 1     | Banco do Brasil |
 | 2     | Bradesco        |
- 
  
 **Shipping_type**
  
