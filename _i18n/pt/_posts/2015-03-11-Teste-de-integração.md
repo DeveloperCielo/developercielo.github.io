@@ -1,12 +1,12 @@
 ---
 layout: manual
 title: Teste de Documentação
-description: O objetivo desta documentação é orientar o desenvolvedor sobre o método de integração da API Checkout Cielo, solução simplificada na qual o consumidor é direcionado para uma página de pagamento online segura da Cielo, proporcionando um alto nível de confiança, dentro das mais rígidas normas de segurança (PCI).
+description: MD criado para testar regras e possibilidades de edição do novo manual
 search: true
 translated: true
 categories: manual
 tags:
-  - Checkout Cielo
+  - Testes
 language_tabs:
   json: JSON
 
