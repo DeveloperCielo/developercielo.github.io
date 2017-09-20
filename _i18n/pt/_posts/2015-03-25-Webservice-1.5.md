@@ -1,7 +1,7 @@
 ---
 layout: manual
 title: Integração Webservice 1.5
-description: Integração Técnia via XML
+description: Integração Técnica via XML
 search: true
 translated: true
 categories: manual
