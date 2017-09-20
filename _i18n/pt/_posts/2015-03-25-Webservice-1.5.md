@@ -1,7 +1,7 @@
 ---
 layout: manual
 title: Integração Webservice 1.5
-description: O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a solução Webservice da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
+description: Integração Técnia via XML
 search: true
 translated: true
 categories: manual
