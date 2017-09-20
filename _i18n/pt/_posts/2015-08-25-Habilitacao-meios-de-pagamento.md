@@ -1,7 +1,7 @@
 ---
 layout: tutorial
-title:  "Habilitação dos Meios de Pagamento"
-description: Este manual tem como objetivo orientar o LOJISTA nas contratações dos meios de pagamento BOLETO e DÉBITO ONLINE disponíveis no CHECKOUT CIELO e na API 3.0.
+title:  "Tutorial Boleto e Débito Online"
+description: Como configurar o Boleto e o Débito online em seu banco
 search: true
 categories: tutorial
 tags:
