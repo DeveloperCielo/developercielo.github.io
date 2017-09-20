@@ -9,10 +9,7 @@ tags:
   - Checkout Cielo
 language_tabs:
   json: JSON
-toc_footers:
-  - <a href='/Habilitacao-meios-de-pagamento/'>Manual de Boleto e débito online</a>
-  - <a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a>
-  - <a href='/Checkout-FAQ/'>FAQ</a>
+
 ---
 
 # Nivel 1
