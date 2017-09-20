@@ -1,0 +1,3357 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Manual Checkout Cielo &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/hyde.css">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/css/prettify.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/cielo.css">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+  <body>
+    
+    <div class="content-container">
+      <div class="dark-box">
+        <a class="code-menu">
+          <i class="fa fa-code code-hamb" aria-hidden="true"></i>
+        </a>
+      </div>
+    
+      <div id="submenu">
+        <div class="submenu-itens">
+          <a href="#" class="help">Ajuda</a>
+
+          
+          <div class="lang">
+            <span>Idiomas</span>
+            
+            
+            <a href="/manual/teste-de-integra%C3%A7%C3%A3o">
+            
+              <img alt="Português" src="/assets/images/pt.png"/>
+            </a>
+            
+            
+            <a href="/en/manual/teste-de-integra%C3%A7%C3%A3o">
+            
+              <img alt="English" src="/assets/images/en.png"/>
+            </a>
+            
+          </div>
+          
+        </div>
+
+        
+        <div class="search">
+            <input type="text" class="search" id="input-search" placeholder="Busca">
+        </div>
+      </div>
+      <div class="search-results-container">
+        <ul class="search-results"></ul>
+      </div>
+      
+        <ol class="breadcrumb">
+            
+            <li><a href="/">Início</a></li>
+            
+            
+            
+            
+                
+                    
+                    
+                    
+                    
+                    
+                        
+                    
+                        
+                    
+                
+            
+                
+                    
+                    <li class="active">&gt; <a href="/manual/teste-de-integra%C3%A7%C3%A3o">Manual Checkout Cielo</a></li>
+                    
+                
+            
+        </ol>
+    </div>
+
+    
+    <div class="content-container">
+        <div class="dark-box"></div>
+    
+
+        <div class="post">
+  <h1 id="sobre-o-checkout-cielo">Sobre o Checkout Cielo.</h1>
+
+<p>O <strong>Checkout Cielo</strong> é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da Cielo.
+A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo as normas de segurança PCI.</p>
+
+<p>O grande diferencial do Checkout Cielo é a gama de serviços agregados em uma tela transacional segura e com apenas uma integração técnica via API REST.</p>
+
+<p>O Checkout possui as seguintes Funcionalidades:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Funcionalidade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tela transacional</strong></td>
+      <td>O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. <br /></td>
+    </tr>
+    <tr>
+      <td><strong>Registro de Compradores</strong></td>
+      <td>O Checkout Cielo possui a capacidade de salvar cartões e dados de pagamento de compradores, permitindo que em compras futuras, os dados ja estejam preenchidos na tela transacional</td>
+    </tr>
+    <tr>
+      <td><strong>Compra com 1 Clique</strong></td>
+      <td>Com o comprador cadastrado, o Checkout permite que a compra seja concluída rapidamente, utilizando os dados de pagamento e endereço favoritos do comprador</td>
+    </tr>
+    <tr>
+      <td><strong>Recorrência</strong></td>
+      <td>O Checkout Cielo possui a Recorrência Programada disponível na API Cielo Ecommerce. <br /> Basta que o lojista defina que uma transação deve se repetir, que o Checkout vai executa-la novamente no intervalo definido</td>
+    </tr>
+    <tr>
+      <td><strong>Antifraude</strong></td>
+      <td>O Checkout já possui uma integração com o Antifraude da CyberSource, permitindo a análise de transações de crédito sem uma integração adicional</td>
+    </tr>
+    <tr>
+      <td><strong>Meios de pagamentos</strong></td>
+      <td>O Checkout Cielo possui uma variada gama de meios de pagamento: <br /><br /> <strong>Cartões de crédito</strong> <br /> <strong>Cartão de Débito</strong><br /><strong>Débito Online</strong><br /><strong>Boleto Bradesco e Banco do Brasil</strong><br /></td>
+    </tr>
+    <tr>
+      <td><strong>Backoffice Simplificado</strong></td>
+      <td>O Backoffice do Checkout Cielo possui um layout simplificado e dinâmico que permite uma navegação rápida e confortável para que o Lojista possa acompanhar as vendas sem dificuldade</td>
+    </tr>
+    <tr>
+      <td><strong>Integração com Botão e QR Code</strong></td>
+      <td>Sem integração técnica ou o programação, o Checkout disponibiliza uma integração que torna possível realizar a criação de um link gerador de pedidos apenas com um cadastro de produtos dentro do Backoffice Checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Integração com Plataformas Ecommerce</strong></td>
+      <td>. Possui integração com a Loja Virtual Terra e outras plataformas, já estando presente nas principais plataformas ecommerce do mercado brasileiro</td>
+    </tr>
+    <tr>
+      <td><strong>Relatórios transacionais</strong></td>
+      <td>Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: <br /><br /> <strong>Relatório de Recorrências</strong> <br /> <strong>Relatório de compradores</strong><br /><strong>Extrato de vendas</strong><br /><strong>Relatório de vendas</strong><br /><br /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O Checkout Cielo é uma funcionalidade indicada para:</p>
+
+<ul>
+  <li><strong>Sites com Carrinhos de compra</strong>: quando houver um “carrinho de compras”  a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos a fim de finalizar a compra.</li>
+  <li><strong>Vendas via Redes sociais</strong>: Com a capacidade de gerar um link ou QR Code para levar o comprador a tela transacional, o Checkout é indicado para realizar vendas via redes sociais de modo simplificado, sem a necessidade de integração técnica.</li>
+</ul>
+
+<h2 id="meios-de-pagamento-do-checkout-cielo">Meios de pagamento do Checkout Cielo</h2>
+
+<p>A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagamento:</p>
+
+<p><strong>Cartão de Crédito</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bandeira</th>
+      <th>Crédito à vista</th>
+      <th>Crédito parcelado Loja</th>
+      <th>Débito</th>
+      <th>Voucher</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>MasterCard</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>American Express</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Diners Club</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Discover</td>
+      <td>Sim</td>
+      <td>Não</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>JCB</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Aura</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>OBS</strong>: Limite maximo de parcelas do Checkout Cielo é 12X.</p>
+
+<p><strong>Cartão de Débito</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bandeira</th>
+      <th>Banco</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>Bradesco<br />Banco do Brasil<br />HSBC<br />Santander<br />Itaú<br />BRB<br />Safra<br />Banco da Amazônia<br />Sicredi<br />Banco do Espirito Santo<br />Banco do Nordeste<br />Mercantil<br /></td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>Banco do Brasil<br />Santander<br />Itaú<br />BRB<br />Sicredi<br />Bancoob<br />CitiBank<br /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Boleto</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Banco</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco</td>
+      <td>Não registrado</td>
+    </tr>
+    <tr>
+      <td>Bradesco</td>
+      <td>Registrado SPS</td>
+    </tr>
+    <tr>
+      <td>Banco do Brasil</td>
+      <td>Não registrado</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Débito Online</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Banco</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco</td>
+    </tr>
+    <tr>
+      <td>Banco do Brasil</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="pré-requisitos-para-integração">Pré-requisitos para Integração.</h2>
+
+<p>O Checkout Cielo  possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido.
+Abaixo listamos pontos que devem estar prontos antes da integração:</p>
+
+<ol>
+  <li>
+    <p>O cadastro da loja deve estar <strong>ativo</strong> junto à Cielo, possuindo ao menus um tipo de <strong>PLANO de pagamento</strong> atrelado a conta.</p>
+  </li>
+  <li>
+    <p>Deve-se definir um <strong>timeout</strong> adequado nas requisições HTTP à Cielo; recomendamos 30 segundos.</p>
+  </li>
+  <li>
+    <p>O certificado Root da entidade certificadora (CA) de nosso Web Service deve estar cadastrado na Truststore a ser utilizada. Como nossa certificadora é de ampla aceitação no mercado, é provável que ela já esteja registrada na Truststore do próprio sistema operacional. Veja a seção <a href="#certificado-extended-validation">Certificado Extended Validation</a> para mais informações.</p>
+  </li>
+  <li>
+    <p>O Checkout funciona de forma eficiente apenas nos navegadores suportados:</p>
+  </li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th>Navegador</th>
+      <th>Versão</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Chrome</td>
+      <td>V40.0 ou posterior</td>
+    </tr>
+    <tr>
+      <td>FireFox</td>
+      <td>V34.0.5 ou posterior</td>
+    </tr>
+    <tr>
+      <td>Internet Explorer</td>
+      <td>10 ou superior</td>
+    </tr>
+    <tr>
+      <td>Safari (MAC/iOS)</td>
+      <td>7 ou posterior</td>
+    </tr>
+    <tr>
+      <td>Opera</td>
+      <td>V26 ou posterior</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>OBS</strong>: Para que compradores e lojistas obtenham a melhor experiência do Checkout Cielo, recomendamos baixar a última versão dos navegadores mencionados acima.</p>
+
+<p>Confira este <a href="http://browsehappy.com/"><strong>site</strong></a> para visualizar as últimas versões dos navegadores.</p>
+
+<p><strong>Observação:</strong> navegadores antigos podem negar acesso ao Checkout Cielo e alguns recursos não funcionarão como desejado. Navegadores mais recentes também oferecem melhores recursos de encriptação e privacidade.</p>
+
+<p>Se um recurso ainda não funcionar como esperado:</p>
+
+<ul>
+  <li>Tente utilizar outro navegador como solução temporária para o problema.</li>
+  <li>Se você utiliza o Internet Explorer, tente desativar o modo de compatibilidade.</li>
+</ul>
+
+<p>Se você já tentou essas soluções, mas continua a ter problemas, entre em contato conosco pelo <a href="#suporte-cielo">Suporte Cielo</a> e forneça as seguintes informações:</p>
+
+<ul>
+  <li>Uma explicação geral do problema.</li>
+  <li>O navegador e a versão que estão sendo utilizados.</li>
+  <li>O sistema operacional e a versão utilizada no computador.</li>
+  <li>Uma captura de tela do problema.</li>
+</ul>
+
+<h1 id="certificado-extended-validation">Certificado Extended Validation</h1>
+
+<h2 id="o-que-é-certificado-ssl">O que é Certificado SSL?</h2>
+
+<p>O Certificado SSL para servidor web oferece autenticidade e integridade dos dados de um web site, proporcionando aos clientes das lojas virtuais a garantia de que estão realmente acessando o site que desejam, e não uma um site fraudador.</p>
+
+<p>Empresas especializadas são responsáveis por fazer a validação do domínio e, dependendo do tipo de certificado, também da entidade detentora do domínio.</p>
+
+<h3 id="internet-explorer">Internet Explorer:</h3>
+
+<p><img src="/images/certificado-ie.jpg" alt="Certificado EV Internet Explorer" /></p>
+
+<h3 id="firefox">Firefox</h3>
+
+<p><img src="/images/certificado-firefox.jpg" alt="Certificado EV Firefox" /></p>
+
+<h3 id="google-chrome">Google Chrome</h3>
+
+<p><img src="/images/certificado-chrome.jpg" alt="Certificado EV Google Chrome" /></p>
+
+<h2 id="o-que-é-certificado-ev-ssl">O que é Certificado EV SSL?</h2>
+
+<p>O Certificado EV foi lançado no mercado recentemente e garante um nível de segurança maior para os clientes das lojas virtuais.</p>
+
+<p>Trata-se de um certificado de maior confiança e quando o https for acessado a barra de endereço ficará verde, dando mais confiabilidade aos visitantes do site.</p>
+
+<h2 id="como-instalar-o-certificado-extended-validation-no-servidor-da-loja">Como instalar o Certificado Extended Validation no servidor da Loja?</h2>
+
+<p>Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.</p>
+
+<ul>
+  <li><a href="./attachment/root.crt">Certificado Raiz</a></li>
+  <li><a href="./attachment/intermediaria.crt">Certificado Intermediária</a></li>
+  <li><a href="./attachment/ecommerce.cielo.com.br.crt">Certificado E-Commerce Cielo</a></li>
+</ul>
+
+<h2 id="passo-a-passo-para-a-instalação">Passo a Passo para a Instalação</h2>
+
+<h3 id="instalação-no-servidor-da-loja-virtual">Instalação no Servidor da Loja Virtual</h3>
+
+<p>O passo a passo para a instalação do Certificado EV deverá ser contatado o suporte do fornecedor do seu servidor.</p>
+
+<aside class="warning">A Cielo não oferece suporte para a instalação do Certificado.</aside>
+
+<h3 id="acesso-do-cliente-à-loja-virtual">Acesso do Cliente à Loja Virtual</h3>
+
+<p>Normalmente, o browser faz a atualização do Certificado automaticamente, caso não o faça e o cliente entre em contato deverá ser informado os seguintes passos:</p>
+
+<h4 id="1o-passo">1o Passo:</h4>
+
+<p>Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:</p>
+
+<ul>
+  <li><a href="./attachment/root.crt">Certificado Raiz</a></li>
+  <li><a href="./attachment/intermediaria.crt">Certificado Intermediária</a></li>
+  <li><a href="./attachment/ecommerce.cielo.com.br.crt">Certificado E-Commerce Cielo</a></li>
+</ul>
+
+<h4 id="2o-passo">2o Passo:</h4>
+
+<p>No “Internet Explorer”, clique no menu “Ferramentas” e acesse as “Opções da Internet”:</p>
+
+<p><img src="/images/certificado-instalar-ie-1.jpg" alt="Instalar IE" /></p>
+
+<p>No “Firefox”, clique no menu “Abrir Menu” e acesse “Avançado” e “Opções”:</p>
+
+<p><img src="/images/certificado-instalar-ff-1.jpg" alt="Instalar FF" /></p>
+
+<p>No “Chrome”, clique no “Personalizar e Controlar o Google Chrome” e acesse “Configurações” e “Mostrar configurações avançadas… “Alterar Configurações de Proxy e “Conteúdo” e Certificados:</p>
+
+<p><img src="/images/certificado-instalar-gc-1.jpg" alt="Instalar GC" /></p>
+
+<h4 id="3o-passo">3o Passo:</h4>
+
+<p>No Internet Explorer, em “Certificados”, clique em “Importar”.</p>
+
+<p><img src="/images/certificado-instalar-ie-2.jpg" alt="Instalar IE" /></p>
+
+<p>No Firefox clique em “Ver Certificados”, clique em “Importar”</p>
+
+<p><img src="/images/certificado-instalar-ff-2.jpg" alt="Instalar FF" /></p>
+
+<p>No Chrome clique em “Gerenciar Certificados”, clique em “Importar”</p>
+
+<p><img src="/images/certificado-instalar-gc-2.jpg" alt="Instalar GC" /></p>
+
+<h4 id="4o-passo">4o Passo:</h4>
+
+<p>No Internet Explorer e Chrome “Assistente para Importação de Certificados”, clique em “Avançar”.</p>
+
+<p><img src="/images/certificado-instalar-ie-gc-3.jpg" alt="Instalar IE e GC" /></p>
+
+<p><img src="/images/certificado-instalar-ie-gc-4.jpg" alt="Instalar IE e GC" /></p>
+
+<p>No Firefox “Aba Servidores ”, clique em “Importar”</p>
+
+<p><img src="/images/certificado-instalar-ff-3.jpg" alt="Instalar FF" /></p>
+
+<h4 id="5o-passo">5o Passo:</h4>
+
+<p>No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “cieloecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.</p>
+
+<p><img src="/images/certificado-instalar-ie-gc-5.jpg" alt="Instalar IE e GC" /></p>
+
+<p><img src="/images/certificado-instalar-ie-gc-6.jpg" alt="Instalar IE e GC" /></p>
+
+<h4 id="6o-passo">6o Passo:</h4>
+
+<p>Selecionar a opção desejada: adicionar o Certificado em uma pasta padrão ou procurar a pasta de sua escolha.</p>
+
+<p><img src="/images/certificado-instalar-ie-gc-7.jpg" alt="Instalar IE e GC" /></p>
+
+<h4 id="7o-passo">7o Passo:</h4>
+
+<p>Clique em “Concluir”.</p>
+
+<p><img src="/images/certificado-instalar-ie-gc-8.jpg" alt="Instalar IE e GC" /></p>
+
+<h4 id="8o-passo">8o Passo:</h4>
+
+<p>Clique em “Ok” para concluir a importação.</p>
+
+<p><img src="/images/certificado-instalar-ie-gc-9.jpg" alt="Instalar IE e GC" /></p>
+
+<aside class="notice">No Firefox não consta a mensagem de Importação com Êxito, apenas conclui a importação.</aside>
+
+<p>O Certificado poderá ser visualizado na aba padrão “Outras Pessoas” ou na escolhida pelo cliente.</p>
+
+<p><img src="/images/certificado-instalar-ie-gc-10.jpg" alt="Instalar IE e GC" /></p>
+
+<h4 id="9o-passo">9o Passo:</h4>
+
+<p>Repita o mesmo procedimento para os 3 arquivos enviados.</p>
+
+<h1 id="integrando-o-checkout-cielo">Integrando o Checkout Cielo</h1>
+
+<p>Nesta documentação estão descritas todas as funcionalidades da integração da API Checkout Cielo, os parâmetros técnicos e principalmente os códigos de exemplos para facilitar o seu desenvolvimento.</p>
+
+<p>Existem duas maneiras de realizar a integração:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">API</code></td>
+      <td>É utilizada uma Integração via API que permite o lojista enviar o <strong>“Carrinho de compras”</strong> do seu site com todos os dados que ele deseja apresentar na tela transacional. <br /> Neste tipo de integração o lojista possui maior controle sobre como o pedido será gerado.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Botão / QR Code / Link</code></td>
+      <td>Dentro do Backoffice do Checkout Cielo, é possível registrar um produto ou grupo de produtos que vão gerar um Link capaz de criar várias telas de pagamento. Esse modelo é usado para pagamentos por redes sociais, campanhas promocionais ou Vendas via QR Code. Nessa categoria o lojista possui menos controle sobre como os pedidos serão apresentados ou gerados na tela transacional</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="fluxo-de-integração">Fluxo de integração</h2>
+
+<p>Durante a integração com o Checkout Cielo, ma seguencia de troca de informações e redirecionamentos serão executados.
+Veja o fluxo abaixo:</p>
+
+<p><strong>Fluxo de integração Checkout Cielo</strong> - Diagrama sequêncial
+<img src="/images/Checkout/fluxobasico.svg" alt="Fluxo de integração Checkout Cielo" /></p>
+
+<p><strong>Fluxo de integração Checkout Cielo</strong> - Fluxograma
+<img src="/images/Checkout/fluxocheckoutbasico.png" alt="Fluxo de integração Checkout Cielo" /></p>
+
+<p>Após o portador do cartão (consumidor) selecionar suas compras e apertar o botão “Comprar” de uma loja já integrada ao Checkout Cielo, o fluxo nesta ordem:</p>
+
+<ol>
+  <li>A API da Cielo retorna o <strong>CheckoutURL</strong>, que é a URL da tela transacional montada com base nos dados enviados pelo Lojista/Botão.</li>
+  <li>A loja redireciona o cliente para a URL retornada pela Cielo. A tela apresentada é parte do <strong>Ambiente de pagamento seguro Cielo</strong>.</li>
+  <li>O portador escolhe: Meio de pagamento, tipo de frete e endereço de entrega na tela transacional</li>
+  <li>O Checkout Cielo redireciona o cliente para a <strong>URL de Retorno</strong> escolhida pela loja, configurada no <a href="/Checkout-Backoffice/">Backoffice Checkout Cielo</a>ou enviada pela integração via API.</li>
+  <li>Se a loja possui uma <strong>URL de notificação</strong>, ela será notificada sobre a situação da transação.</li>
+  <li>A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por e-mail.e</li>
+  <li>A loja processa o pedido de compra utilizando os dados do POST de notificação e, se a transação estiver autorizada, libera o pedido.</li>
+</ol>
+
+<p><strong>OBS:</strong> O Checkout Cielo não notifica os compradores a respeito do status de compra, apenas ao lojista. Isso ocorre pois permite ao lojista decidir quando e como informar aos seus consumidores sobre o prazo de entrega e processo de envio</p>
+
+<h2 id="modo-de-teste-do-checkout-cielo">Modo de teste do Checkout Cielo</h2>
+
+<p>O modo de teste Checkout Cielo é uma ferramenta que permite testar a integração do seu site com a plataforma. Com o modo teste, você pode realizar transações a medida que evolui com a integração e consegue simular cenários para testar diferentes meios de pagamento.</p>
+
+<h3 id="ativação-do-modo-de-teste">Ativação do Modo de Teste.</h3>
+
+<p>O modo de teste pode ser ativado na aba <strong>Configurações</strong>, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.</p>
+
+<p><img src="/images/Checkout/tm01.png" alt="Ativando Modo de teste" /></p>
+
+<p>Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> e na tela transacional do Checkout Cielo.</p>
+
+<p>Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Backoffice</th>
+      <th>Transacional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="/images/Checkout/tmbackoffice.png" alt="Tarja vermelha - Backoffice" /></td>
+      <td><img src="/images/Checkout/tmtransacional.png" alt="Tarja vermelha - Transacional" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="como-transacionar-no-modo-de-teste">Como transacionar no Modo de teste.</h3>
+
+<p>A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico <a href="#integração-carrinho-de-compras">Integração com carrinho</a>, entretanto, os meios de pagamentos a serem usados serão meios simulados.</p>
+
+<p>Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:</p>
+
+<p><strong>A - Transações com Cartão de crédito:</strong></p>
+
+<p>Para testar cartões de crédito é necessário que dois dados importantes sejam definidos, o status da autorização do cartão e o retorno da analise de fraude.</p>
+
+<p><strong>Status da Autorização do Cartão de Crédito</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status da Transação</th>
+      <th>Cartões para realização dos testes</th>
+      <th>Código de Retorno</th>
+      <th>Mensagem de Retorno</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Autorizado</td>
+      <td>0000.0000.0000.0001 / 0000.0000.0000.0004</td>
+      <td>4</td>
+      <td>Operação realizada com sucesso</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0002</td>
+      <td>2</td>
+      <td>Não Autorizada</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0007</td>
+      <td>77</td>
+      <td>Cartão Cancelado</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0008</td>
+      <td>70</td>
+      <td>Problemas com o Cartão de Crédito</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0005</td>
+      <td>78</td>
+      <td>Cartão Bloqueado</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0003</td>
+      <td>57</td>
+      <td>Cartão Expirado</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0006</td>
+      <td>99</td>
+      <td>Time Out</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Exemplo:</strong> 540443424293010 <strong>7</strong> = <strong>Autorizado</strong></p>
+
+<p><strong>B - Boleto Bancário</strong></p>
+
+<p>Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento. 
+O boleto gerado no modo de teste sempre será um boleto simulado.</p>
+
+<p><strong>C - Debito online</strong></p>
+
+<p>É necessário informa o status da transação de Debito online para que seja retornado o status desejado. Esse processo ocorre como no antifraude do cartão de crédito descrito acima, com a alteração do nome do comprador.</p>
+
+<p><strong>Status do Débito</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sobre nome do cliente</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pago</td>
+      <td>Pago</td>
+    </tr>
+    <tr>
+      <td>Qualquer nome.</td>
+      <td>Não autorizado</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>Exemplo:</strong> Status não Autorizado.</li>
+  <li><strong>Nome do Cliente:</strong> Maria Pereira</li>
+</ul>
+
+<p><strong>D - Transações de teste</strong></p>
+
+<p>Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba Pedidos do Checkout Cielo, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.</p>
+
+<p><img src="/images/checkout-cielo-modo-teste-transacoes-de-teste.png" alt="Transações de teste" /></p>
+
+<p>Essas transações terão o símbolo de teste as diferenciando de suas outras transações. Elas podem ser capturadas ou canceladas utilizando os mesmos procedimentos das transações reais.</p>
+
+<p><img src="/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png" alt="Transações de teste" /></p>
+
+<aside class="notice">É muito importante que ao liberar sua loja para a realização de vendas para seus clientes que **ela não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
+
+<h2 id="sdks-e-postman">SDKs e POSTMAN</h2>
+
+<p>O Checkout Cielo possui uma coleção POSTMAN de testes exclusiva com todos os parametros e opções descritas neste manual.
+Basta acessar nosso <a href="https://developercielo.github.io/Tutorial//Postman">Tutorial</a> para obter informações sobre a utilização da ferramenta.</p>
+
+<p>No postman é possivel criar exemplos de sua integração em:</p>
+
+<ul>
+  <li>PHP</li>
+  <li>RUBY</li>
+  <li>C#</li>
+  <li>JAVA</li>
+  <li>PYTHON</li>
+  <li>SHELL</li>
+</ul>
+
+<h2 id="integração-por-api">Integração por API</h2>
+
+<p>Este tipo de integração deve ser usada sempre que  houver  um  “carrinho  de  compras”  a  ser  enviado,  ou  seja,  no  caso  do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar a um carrinho e depois então finalizar a venda.</p>
+
+<p>Se você não possui um carrinho de compras implementado, veja a seção de <strong>Integração via botão</strong> Checkout Cielo.</p>
+
+<p>Abaixo, é demonstrado como o fluxo de compra ocorre na integração via API:</p>
+
+<p><img src="/images/Checkout/intapi.png" alt="Integração Via API" /></p>
+
+<h3 id="criando-o-carrinho">Criando o Carrinho</h3>
+
+<p>Na integração via API, a tela transacional é “montada” com bases em dados enviados que formam um <strong>Carrinho de compras</strong>.
+Esses dados são separados nos seguintes “nós principais”:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nó</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Cart</code></td>
+      <td>Contem dados dos produtos a serem vendidos.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping</code></td>
+      <td>Contem dados do tipo de frete a ser cobrado. É influenciado pelo nó <code class="highlighter-rouge">Cart</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment</code></td>
+      <td>Contem informações que influenciam o valor cobrado. <strong>Não contem informações sobre meios de pagamento</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer</code></td>
+      <td>Possui dados o comprador. Não obrigatório na integração, mas exigido na tela de pagamentos. Sugerimos que seja enviado para acelerar o processo de compra</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Options</code></td>
+      <td>Controla features opcionais do Checkout. Nó não obrigatório</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Após o envio dos dados do carrinho, o Checkout enviará um Response contendo um <strong>LINK para a tela de pagamento</strong></p>
+
+<p><strong>IMPORTANTE</strong>: Uma chamada a API Checkout <strong>NÃO CRIA UMA TRANSAÇÃO</strong>. O Link retornado é apenas uma “pré-ordem” indicando que uma tela transacional está pronta para ser utilizada. A Transação é criada apenas quando o comprador clica em “FINALIZAR”</p>
+
+<h3 id="request">Request</h3>
+
+<p>Endpoint é a URL para onde as requisições com os dados do carrinho serão enviadas. Todas as requisições deverão ser enviadas utilizando o método HTTP POST, para o endpoint:</p>
+
+<p><strong>Produção</strong> <code class="highlighter-rouge">https://cieloecommerce.cielo.com.br/api/public/v1/orders</code>.</p>
+
+<p><strong>Exemplo de uma requisição</strong></p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nt">"OrderNumber"</span><span class="p">:</span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Exemplo"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"Cart"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"Discount"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Value"</span><span class="p">:</span><span class="mi">00</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"Items"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Produto01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Description"</span><span class="p">:</span><span class="s2">"ProdutoExemplo01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Sku"</span><span class="p">:</span><span class="s2">"ABC001"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Weight"</span><span class="p">:</span><span class="mi">500</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"Shipping"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"SourceZipCode"</span><span class="p">:</span><span class="s2">"20020080"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"TargetZipCode"</span><span class="p">:</span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Services"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Price"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Deadline"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Carrier"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"UPS Express"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Price"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Deadline"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Carrier"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"Address"</span><span class="p">:{</span><span class="w">  
+         </span><span class="nt">"Street"</span><span class="p">:</span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Number"</span><span class="p">:</span><span class="s2">"92"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Complement"</span><span class="p">:</span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"District"</span><span class="p">:</span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"Payment"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"BoletoDiscount"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"DebitDiscount"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Installments"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nt">"Identity"</span><span class="p">:</span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"FullName"</span><span class="p">:</span><span class="s2">"Test de Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Email"</span><span class="p">:</span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"Phone"</span><span class="p">:</span><span class="s2">"21987654321"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"Options"</span><span class="p">:{</span><span class="w">  
+     </span><span class="nt">"AntifraudEnabled"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.cielo.com.br"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nt">"Settings"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><strong>Header/Cabeçalho</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>Sim</td>
+      <td>36</td>
+      <td>Identificador único da loja. <strong>Formato:</strong> 00000000-0000-0000-0000-000000000000</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Content-type</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>n/a</td>
+      <td>Tipo do conteúdo da mensagem a ser enviada. <strong>Utilizar:</strong> “application/json”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Cabeçalho e Autenticação</strong> - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do <code class="highlighter-rouge">MerchantID</code>, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP <code class="highlighter-rouge">MerchandId</code>, como ilustrado abaixo e ao lado:</p>
+
+<p><strong>Body - Detalhado</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+      <th>Condicional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">OrderNumber</code></td>
+      <td>Alphanumeric</td>
+      <td>Opcional</td>
+      <td>64</td>
+      <td>Número do pedido da loja.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SoftDescriptor</code></td>
+      <td>Alphanumeric</td>
+      <td>Opcional</td>
+      <td>13</td>
+      <td>Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços. EX: <code class="highlighter-rouge">Loja_ABC_1234</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Discount.Type</code></td>
+      <td>Alphanumeric</td>
+      <td>Condicional</td>
+      <td>255</td>
+      <td>Tipo do desconto a ser aplicado: <code class="highlighter-rouge">Amount</code> ou <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Obrigatório caso Cart.Discount.Value for maior ou igual a zero.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Discount.Value</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>18</td>
+      <td>Valor do desconto a ser aplicado: Valor ou Percentual</td>
+      <td>Obrigatório caso Cart.Discount.Type for <code class="highlighter-rouge">Amount</code> ou <code class="highlighter-rouge">Percent</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Name</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>128</td>
+      <td>Nome do item no carrinho.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Description</code></td>
+      <td>Alphanumeric</td>
+      <td>Opcional</td>
+      <td>256</td>
+      <td>Descrição do item no carrinho.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.UnitPrice</code></td>
+      <td>Numeric</td>
+      <td>Sim</td>
+      <td>18</td>
+      <td>Preço unitário do produto em centavos. Ex: R$ 1,00 = 100</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Quantity</code></td>
+      <td>Numeric</td>
+      <td>Sim</td>
+      <td>9</td>
+      <td>Quantidade do item no carrinho.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Type</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>255</td>
+      <td>Tipo do item no carrinho: <br /><code class="highlighter-rouge">Asset</code><br /><code class="highlighter-rouge">Digital</code><br /><code class="highlighter-rouge">Service</code><br /><code class="highlighter-rouge">Payment</code><br /></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Sku</code></td>
+      <td>Alphanumeric</td>
+      <td>Opcional</td>
+      <td>32</td>
+      <td>Sku do item no carrinho.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Weight</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>9</td>
+      <td>Peso em gramas do item no carrinho.</td>
+      <td>Necessário caso Shipping.Type for “Correios”.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.BoletoDiscount</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>3</td>
+      <td>Desconto, em porcentagem, para pagamentos a serem realizados com boleto.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.DebitDiscount</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>3</td>
+      <td>Desconto, em porcentagem, para pagamentos a serem realizados com débito online.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FirstInstallmentDiscount</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>3</td>
+      <td>Desconto, em porcentagem, para pagamentos a serem realizados com crédito a vista.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>2</td>
+      <td>Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>14</td>
+      <td>CPF ou CNPJ do comprador.</td>
+      <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.FullName</code></td>
+      <td>Alphanumeric</td>
+      <td>Condicional</td>
+      <td>288</td>
+      <td>Nome completo do comprador.</td>
+      <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Alphanumeric</td>
+      <td>Condicional</td>
+      <td>64</td>
+      <td>Email do comprador.</td>
+      <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>11</td>
+      <td>Telefone do comprador.</td>
+      <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Options.AntifraudEnabled</code></td>
+      <td>Boolean</td>
+      <td>Condicional</td>
+      <td>n/a</td>
+      <td>Habilitar ou não a análise de fraude para o pedido: true ou false.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Options.ReturnUrl</code></td>
+      <td>Strin</td>
+      <td>Condicional</td>
+      <td>255</td>
+      <td>Define para qual url o comprador será enviado após finalizar a compra.</td>
+      <td>Uma URL fixa pode ser registrada no Backoffice Checkout</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="responses">Responses</h3>
+
+<p>Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a criação da tela transacional e a segunda, a finalização do pagamento; O Checkout possui duas respostas para uma transação:</p>
+
+<ul>
+  <li><strong>Response - Tela transacional</strong> - É o Response retornado com dados para enviar o comprador para a tela transacional</li>
+  <li><strong>Response - Transação Finalizada</strong> - Contém dados sobre o resultado da transação, após o comprador clica em “Finalizar” na tela transacional. <strong>É retornado apenas via Notificação</strong></li>
+</ul>
+
+<p><strong>Resultado/Status da transação:</strong> Para obter o retorno do status da transação, é necessário definir uma URL de NOTIFICAÇÃO. Veja a sessão de notificação para maiores informações.</p>
+
+<p><strong>Response - Tela transacional</strong></p>
+
+<p>Existem apenas duas opções de resposta na integração da API: Sucesso / Erro</p>
+
+<p><strong>Sucesso</strong> - Em caso de sucesso, o response será o conteúdo do Request mais o Link que direciona a tela transacional</p>
+
+<pre><code class="language-Json">{
+    "Settings": {
+        "CheckoutUrl": "https://cieloecommerce.cielo.com.br/transacional/order/index?id=123",
+        "Profile": "CheckoutCielo",
+        "Version": 1
+    }
+}
+</code></pre>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">CheckoutUrl</code></td>
+      <td>String</td>
+      <td>Sim</td>
+      <td>255</td>
+      <td>URL da tela transacional. O Comprador <strong>deve ser direcionado a esse ambiente para finalizar a transação</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Profile</code></td>
+      <td>String</td>
+      <td>Sim</td>
+      <td>16</td>
+      <td>Perfil do lojista: fixo “CheckoutCielo”.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Version</code></td>
+      <td>String</td>
+      <td>Sim</td>
+      <td>1</td>
+      <td>Versão do serviço de criação de pedido (versão: 1).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Erro</strong> - Em caso de erro, a mensagem abaixo será retornada.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"An error has occurred."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Message</code></td>
+      <td>String</td>
+      <td>Sim</td>
+      <td>254</td>
+      <td>Mensagem descritiva do erro</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Importante</strong> - O Checkout Cielo não possui erros numerados, apenas uma mensagem genérica. Veja a sessão “Identificando erros de Integração” para maiores informações</p>
+
+<h3 id="funcionalidades-adicionais">Funcionalidades Adicionais</h3>
+
+<p>Nos items a seguir, será explicado o comportamento de algumas das funcionalidades da integração via API. Essas funcionalidades possuem regras especificas para utilização e não estão disponíveis na integração via Botão.</p>
+
+<ul>
+  <li><strong>Tipos de “Desconto”</strong></li>
+  <li><strong>Tipos de “Frete”</strong></li>
+</ul>
+
+<h4 id="tipos-de-desconto">Tipos de “Desconto”</h4>
+
+<p>O Checkout Cielo permite que o lojista aplique descontos específicos tanto para o carrinho quanto para meios de pagamento.
+Os descontos disponíveis no Checkout Cielo são:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Desconto</th>
+      <th>Aplicação</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Carrinho</code></td>
+      <td>API</td>
+      <td>Quando enviado, aplica o desconto sobre todo o carrinho, independente do meio de pagamento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Boleto</code></td>
+      <td>API e Backoffice</td>
+      <td>Quando enviado, o desconto é aplicado somente caso o Boleto seja o meio de pagamento escolhido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Débito Online</code></td>
+      <td>API e Backoffice</td>
+      <td>Quando enviado, o desconto é aplicado somente caso o Débito online seja o meio de pagamento escolhido</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">A vista</code></td>
+      <td>API</td>
+      <td>Quando enviado, o desconto é aplicado quando Cartão de crédito a vista é o meio de pagamento escolhido</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>OBS:</strong> Descontos podem ser enviados na API ou definidos no Backoffice. Caso um Valor de desconto seja enviado na API, esse será o valor considerado, mesmo que o Backoffice possua outro valor registrado</p>
+</blockquote>
+
+<p><strong>Carrinho</strong></p>
+
+<p>Para enviar um Desconto sobre o <code class="highlighter-rouge">Carrinho</code> basta enviar o nó abaixo dentro do nó <code class="highlighter-rouge">Cart</code></p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
+         </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"Value"</span><span class="p">:</span><span class="mi">00</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+      </span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+      <th>Condicional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Discount.Type</code></td>
+      <td>Alphanumeric</td>
+      <td>Condicional</td>
+      <td>255</td>
+      <td>Tipo do desconto a ser aplicado: <code class="highlighter-rouge">Amount</code> ou <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Obrigatório caso Cart.Discount.Value for maior ou igual a zero.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Discount.Value</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>18</td>
+      <td>Valor do desconto a ser aplicado: Valor ou Percentual</td>
+      <td>Obrigatório caso Cart.Discount.Type for <code class="highlighter-rouge">Amount</code> ou <code class="highlighter-rouge">Percent</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Abaixo, como o efeito do desconto são apresentados no Carrinho:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Percentual</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="/images/Checkout/checkout-discount-percent.png" alt="Percentual" /></td>
+      <td><img src="/images/Checkout/checkout-discount-amount.png" alt="Valor" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Boleto &amp; Débito Online</strong></p>
+
+<p>Para enviar um Desconto sobre o <code class="highlighter-rouge">Boleto</code> e <code class="highlighter-rouge">Débito online</code> basta enviar dentro do nó Payment os campos abaixo:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
+        </span><span class="nt">"BoletoDiscount"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DebitDiscount"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"FirstInstallmentDiscount"</span><span class="p">:</span><span class="mi">90</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+      </span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.BoletoDiscount</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>3</td>
+      <td>Desconto, em porcentagem, para pagamentos a serem realizados com boleto.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.DebitDiscount</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>3</td>
+      <td>Desconto, em porcentagem, para pagamentos a serem realizados com débito online.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FirstInstallmentDiscount</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>3</td>
+      <td>Desconto, em porcentagem, para pagamentos a vista no Cartão de crédito</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Abaixo, como o efeito do desconto são apresentados no Carrinho:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tela transacional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="/images/Checkout/checkout-discount-mp.png" alt="Meios de pagamento" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tipos-de-frete">Tipos de “Frete”</h4>
+
+<p>O Checkout cielo possui diferentes tipos de frete.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">FixedAmount</code></td>
+      <td>Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Free</code></td>
+      <td>Não realiza calculo de frete e exibe na tela transacional “Frete Grátis”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">WithoutShippingPickUp</code></td>
+      <td>Considerado “Retirada na loja”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">WithoutShipping</code></td>
+      <td>Sem cobrança de frete (aplicável para serviços e produtos digitais).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Correios</code></td>
+      <td>Utiliza a API dos correios para realizar o calculo do custo. O valor do calculo dependerá o contrato utilizado (Escolhido no Backoffice do checkout) e do tipo de integração para calculo: <strong>Frete com Volume</strong> ou <strong>Frete sem Volume</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Abaixo, como cada opção é demonstrada na tela transacional</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Tipo de frete</th>
+      <th style="text-align: center">Transacional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">FixedAmount</code></td>
+      <td style="text-align: center"><img src="/images/Checkout/fixedamount.png" alt="FixedAmount" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">Free</code></td>
+      <td style="text-align: center"><img src="/images/Checkout/free.png" alt="Free" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">WithoutShippingPickUp</code></td>
+      <td style="text-align: center"><img src="/images/Checkout/withoutshippingpickup.png" alt="WithoutShippingPickUp" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">WithoutShipping</code></td>
+      <td style="text-align: center"><img src="/images/Checkout/withoutshippingpickup.png" alt="WithoutShipping" /></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">Correios</code></td>
+      <td style="text-align: center"><img src="/images/Checkout/correios.png" alt="Correios" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>OBS:</strong> As opções para múltiplos fretes na categoria <code class="highlighter-rouge">Correios</code> devem ser selecionadas dentro do Backoffice Cielo.</p>
+
+<p>Os nós que formam as informações de frete abaixo:</p>
+
+<ul>
+  <li><strong>Shipping</strong> - Nó base. É obrigatório na integração via API. Ele define os tipos de frete a serem utilizados</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+      <th>Condicional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Type</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>255</td>
+      <td>Tipo do frete: <br /><code class="highlighter-rouge">Correios</code><br /><code class="highlighter-rouge">FixedAmount</code><br /><code class="highlighter-rouge">Free</code><br /><code class="highlighter-rouge">WithoutShippingPickUp</code><br /><code class="highlighter-rouge">WithoutShipping</code><br /></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.SourceZipCode</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>8</td>
+      <td>CEP de origem do carrinho de compras.</td>
+      <td>Obrigatório caso Shipping.Type for “Correios”.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.TargetZipCode</code></td>
+      <td>Numeric</td>
+      <td>Opcional</td>
+      <td>8</td>
+      <td>CEP do endereзo de entrega do comprador.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Shipping.Address</strong> - Informações de endereço de entrega. <strong>Não obrigatório no contrato da API, mas obrigatório na tela transacional</strong>. Sugerimos que esses dados sejam enviados, se ja foram recolhidos dentro do ambiente da loja.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.Street</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>256</td>
+      <td>Rua, avenida, travessa, etc, do endereço de entrega do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.Number</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>8</td>
+      <td>Número do endereço de entrega do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.Complement</code></td>
+      <td>Alphanumeric</td>
+      <td>Opcional</td>
+      <td>256</td>
+      <td>Complemento do endereço de entrega do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.District</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>64</td>
+      <td>Bairro do endereço de entrega do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.City</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>64</td>
+      <td>Cidade do endereço de entrega do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.State</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>2</td>
+      <td>Estado (UF) do endereзo de entrega do comprador.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Shipping.Services</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Services.Name</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>128</td>
+      <td>Nome do serviço de frete.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Services.Price</code></td>
+      <td>Numeric</td>
+      <td>Sim</td>
+      <td>18</td>
+      <td>Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Services.Deadline</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>9</td>
+      <td>Prazo de entrega (em dias).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O Frete Correios pode ser calculado de 2 maneiras:</p>
+
+<ul>
+  <li><strong>Frete com Volume</strong> - Utiliza a API dos correios, mas exige que a loja envie as dimensões do pacote a ser enviado com as mercadorias</li>
+  <li><strong>Frete sem Volume</strong> - Utiliza a API dos correios, mas considera apenas o peso do carrinho como base de cálculo para a entrega.</li>
+</ul>
+
+<p>Para utilizar o frete volumétrico, basta enviar o nó <code class="highlighter-rouge">Shipping.Measures</code>, seguindo as regras de integração via API REST.</p>
+
+<p><strong>Shipping.Measures</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+      <th>Condicional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Package</code></td>
+      <td>Alphanumeric</td>
+      <td>Obrigatório</td>
+      <td>Inteiro</td>
+      <td>Tipo de pacote: <br /><code class="highlighter-rouge">BOX</code>- Caixa <br /> <code class="highlighter-rouge">ROL</code> - Cilindro ou ENVELOPE</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Lenght</code></td>
+      <td>Numeric</td>
+      <td>Obrigatório</td>
+      <td>Inteiro</td>
+      <td>Comprimento do pacote</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Height</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>Inteiro</td>
+      <td>Altura do pacote enviado</td>
+      <td>Obrigatório caso Shipping.Package como BOX</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Width</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>Inteiro</td>
+      <td>Largura do pacote.</td>
+      <td>Obrigatório caso Shipping.Package como BOX ou ENVELOPE</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Diameter</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>Inteiro</td>
+      <td>Diâmetro do pacote.</td>
+      <td>Obrigatório caso Shipping.Package como ROL</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para realizar o cálculo de frete via Correios é necessário respeitar as medidas definidas pelo contrato utilizado pelo lojista. Para maiores informações sobre as dimensões e pesos permitidos, sugerimos que valide o contrato da loja no link abaixo:</p>
+
+<p><a href="http://www.correios.com.br/para-voce/precisa-de-ajuda/limites-de-dimensoes-e-de-peso">Limites e dimensões para entregas do correio</a></p>
+
+<h3 id="identificando-erros-de-integração">Identificando Erros de integração</h3>
+
+<p>Devido a estrutura do checkout Cielo, onde o comprador é redirecionado para um ambiente separado para completa a transação, existem possibilidades de erros e falhas de integração em diferentes momentos do fluxo de pagamento.
+Durante a integração é importante 
+Há dois tipos de erro que poderão ocorrer durante o processo de integração com o Checkout Cielo. São eles:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Tipo de frete</th>
+      <th style="text-align: left">Transacional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>Pré-Tela transacional</strong></td>
+      <td style="text-align: left">Significa que houve algum dado erra do no envio da transação. Dados obrigatórios podem estar faltando ou no formato invalido. Aqui o lojista sempre vai receber um e-mail informando o que deu errado</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>Pós-Tela transacional</strong></td>
+      <td style="text-align: left">Significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Caso algum erro ocorra após a finalização da transação, entre em contato com o Suporte Cielo.</p>
+
+<h2 id="integração-por-botÃo">Integração por BOTÃO</h2>
+
+<p><strong>Integração via Botão, QR CODE ou LINK</strong> é um método de compra usada sempre que não houver um “carrinho de compras” em sua loja. 
+Esse tipo de integração é realizado via o cadastro de um conjunto de itens a ser vendido on backoffice do Checkout Cielo.</p>
+
+<p>O gera um do 3 tipos diferentes de métodos de acesso a <strong>mesma tela transacional</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Método</th>
+      <th style="text-align: center">Nome</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="/images/Checkout/botao.png" alt="Botão" /></td>
+      <td style="text-align: center"><strong>Botão</strong></td>
+      <td>É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em <strong>hotSites</strong> ou <strong>E-mail Marketing</strong></td>
+    </tr>
+    <tr>
+      <td><img src="/images/Checkout/qrcode.png" alt="QRCODE" /></td>
+      <td style="text-align: center"><strong>QRCODE</strong></td>
+      <td>Código interpretável por Smartphones e Tablets - Ideal para uso em <strong>Marketing impressos</strong> ou <strong>Digital</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td style="text-align: center"><strong>LINK</strong></td>
+      <td>é um link compartilhável, ideal para uso em <strong>Redes Sociais</strong> ou <strong>Messengers Mobile</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Este modelo de integração é utilizado para:</p>
+
+<ul>
+  <li>Associar uma compra rápida direta a um produto como uma promoção numa homepage pulando a etapa do carrinho.</li>
+  <li>Enviar um e-mail marketing, ou uma cobrança via e-mail.</li>
+  <li>Adicionar o botão (HTML) referente ao produto/serviço a ser comprado/pago.</li>
+  <li>Realizar envio de pagamentos por aplicativos mobile</li>
+  <li>Sempre que se deseja disponibilizar uma venda rápida.</li>
+</ul>
+
+<p>Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a>, no menu de Produtos/Cadastrar Produto.</p>
+
+<h3 id="características-do-botão">Características do Botão</h3>
+
+<p>Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a>, e valerão os dados do cadastro.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Característica</th>
+      <th>Explicação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>Especifico</strong></td>
+      <td>Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br /><br /><strong>Exemplo:</strong> Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 3 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>Numero do Pedido do Checkout</strong></td>
+      <td>O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um <code class="highlighter-rouge">GUID</code>) único. O Lojista receberá esse número de pedido como link a venda realizada</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>Criação de pedidos</strong></td>
+      <td>Um botão gera vários pedidos independentes, ou seja, não é possível limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Abaixo, o fluxo de pagamento via Botão:</strong></p>
+
+<p><img src="/images/Checkout/intbt.png" alt="Fluxo de integração Checkout Cielo Botão" /></p>
+
+<h3 id="criando-o-botão">Criando o Botão</h3>
+
+<p>Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a>, no menu de Produtos/Cadastrar Produto.</p>
+
+<p><strong>Tela de Cadastro:</strong></p>
+
+<p><img src="/images/Checkout/btcadastro.png" alt="Cadastro de Botão" /></p>
+
+<p><strong>Botão Cadastrado:</strong></p>
+
+<p><img src="/images/Checkout/btcadastro2.png" alt="Cadastro de Botão" /></p>
+
+<p>Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campos</th>
+      <th>Descrição</th>
+      <th>Tamanho Min.</th>
+      <th>Tamanho Máx.</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Tipo do Produto</code></td>
+      <td>Indique se está vendendo um bem Material, um Serviço ou um bem Digital. Para bens Digitais, não será apresentada a opção de tipo de Frete.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SKU</code></td>
+      <td>Código de identificação do produto</td>
+      <td>1</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Título</code></td>
+      <td>Titulo do Produto</td>
+      <td>1</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Descrição</code></td>
+      <td>Descrição do Produto</td>
+      <td>1</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Preço</code></td>
+      <td>Valor total do pedido <strong>em centavos</strong> (ex.: R$1,00 =100).</td>
+      <td>11</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Frete</code></td>
+      <td>Escolher dentre uma das opções de Frete (Correios, Frete Fixo, Frete Grátis, Retirar na loja, Sem Cobrança).</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CEP de Origem</code></td>
+      <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete.</td>
+      <td>9</td>
+      <td>9</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Peso(kg)</code></td>
+      <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Valor do Frete</code></td>
+      <td>Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Método de envio</code></td>
+      <td>Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">URL</code></td>
+      <td>Esse campo só aparece para Tipo Produto igual a Digital.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="exemplo-de-botão">Exemplo de Botão:</h3>
+
+<p>Abaixo é possível ver como o cadastro de um botão gera os 3 métodos de para acesso a tela transacional.</p>
+
+<ul>
+  <li><strong>Botão</strong> - Será criado um código HTML como o abaixo:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'&gt;
+    &lt;input type='hidden' name='id' value=00000000-0000-0000-000000000000/&gt;&lt;input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content/images/botao_comprar_3.jpg' /&gt;
+&lt;/form&gt;
+</code></pre>
+</div>
+
+<p><strong>Exemplo de um botão Funcional:</strong></p>
+
+<form method="post" action="https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow" target="blank"><input type="hidden" name="id" value="937874c6-a4d7-477e-9272-a4cb8b0c5f79" /><input type="image" name="submit" alt="Comprar" src="https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png" /></form>
+
+<ul>
+  <li><strong>QR CODE E LINK</strong> - O link e o QRCODE tem o mesmo comportamento do botão, levando a mesma tela transacional.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">QR Code</th>
+      <th style="text-align: center">Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="data:image/jpeg;base64,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" /></td>
+      <td style="text-align: center"><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Adicionando o botão na sua página HTML você deve copiar o código HTML do botão criado e colocar no código HTML do seu site, conforme o exemplo abaixo.</p>
+
+<aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
+
+<p>Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a>, e valerão os dados do cadastro.</p>
+
+<h2 id="fluxos-meios-de-pagamento">Fluxos Meios de pagamento</h2>
+
+<h3 id="cartão-de-crédito">Cartão de Crédito</h3>
+
+<p>O Checkout Cielo permite a utilização de Cartões de Crédito das principais bandeiras nacionais e internacionais. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.</p>
+
+<p>Transações de cartão de crédito serão incluídas no <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao Banco.</p>
+
+<p><strong>Cartão de Crédito</strong> Ordem de Status:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ordem</th>
+      <th>Status</th>
+      <th>Explicação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>PENDENTE</strong></td>
+      <td>Status original. A transação está ocorrendo, esperando resposta do processo de autorização</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>AUTORIZADO / NEGADO</strong></td>
+      <td>Resultado do processo de autorização. <br /><br /><strong>AUTORIZADO</strong> - Crédito foi reservado para a compra <br /> <strong>NEGADO</strong> - Cartão não autorizado pelo emissor a continuar a transação</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>PAGO</strong></td>
+      <td>Ocorre pós captura. Indica que o crédito reservado no cartão será depositado na conta do lojista</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><strong>EXPIRADO</strong></td>
+      <td>Ocorre caso a transação não seja capturada em 15 dias pós autorização. Nessa situação a transação é perdida.</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><strong>CHARGEBACK</strong></td>
+      <td>Status não automatico. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.<br /> Este Status é apenas uma marcação, não afetando processos de pagamento</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Atenção - Cartões Internacionais:</strong> O Checkout Cielo aceita cartões emitidos fora do Brasil, entretanto esses cartões não possuem a capacidade de pagar vendas parceladas. Essa é uma limitação imposta pelo banco emissor.</p>
+
+<p><strong>Atenção - TRANSAÇÕES EXPIRADAS:</strong> Por padrão, lojas Checkout Cielo possuem 15 dias para realizarem a captura da transação de Crédito. Se não capturadas, essas transações serão PERDIDAs.</p>
+
+<h3 id="análise-de-fraude">Análise de Fraude</h3>
+
+<p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude caso o parametro <code class="highlighter-rouge">Options.AntifraudEnabled</code> esteja definido como <code class="highlighter-rouge">TRUE</code>. 
+O Antifraude possui o conceito de <code class="highlighter-rouge">Status</code> e <code class="highlighter-rouge">SubStatus</code>, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
+A análise indicará um grau de *RISCO**, especificado pelo <code class="highlighter-rouge">Status</code>, para a venda em questão. 
+Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status Antifraude</th>
+      <th>Substatus</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Baixo Risco</code></td>
+      <td>Baixo Risco</td>
+      <td>Baixo risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Médio Risco</code></td>
+      <td>Médio Risco</td>
+      <td>Médio risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Alto Risco</code></td>
+      <td>Alto Risco</td>
+      <td>Alto risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Não finalizado</code></td>
+      <td>Não finalizado</td>
+      <td>Não foi possível finalizar a consulta</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Autenticado</td>
+      <td>Transações autenticadas pelo banco - <strong>Não são analisáveis pelo AF</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>AF Não contratado</td>
+      <td>Antifraude não habilitado no plano do lojista - <strong>Não são analisáveis pelo AF</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>AF Dispensado</td>
+      <td>Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Não aplicável</td>
+      <td>Meio de pagamento não analisável como cartões de débito, boleto e débito online</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Transação de recorrência</td>
+      <td>Transação de crédito seja posterior a transação de agendamento. <strong>Somente o Agendamento é analisado</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Transação negada</td>
+      <td>Venda a crédito foi negada - <strong>Não são analisáveis pelo AF</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A analise será apresentada no “Detalhes do Pedido”, como abaixo:</p>
+
+<p><img src="/images/checkout-cielo-analise-risco.png" alt="Análise de risco" /></p>
+
+<p>Você pode visualizar o status do antifraude acessando o detalhe da compra, na aba Pedidos e clicando no (+)</p>
+
+<p><img src="/images/checkout-status-antifraude.png" alt="Status Antifraude" /></p>
+
+<h3 id="cartão-de-débito">Cartão de Débito</h3>
+
+<p>O Checkout Cielo permite a utilização de Cartões de débito MasterCard e Visa. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.</p>
+
+<p>Bancos Suportados:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mastercard</th>
+      <th>Visa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco</td>
+      <td>Bradesco</td>
+    </tr>
+    <tr>
+      <td>Banco do Brasil</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>Santander</td>
+      <td>Santander</td>
+    </tr>
+    <tr>
+      <td>Itaú</td>
+      <td>Itaú</td>
+    </tr>
+    <tr>
+      <td>CitiBank</td>
+      <td>CitiBank</td>
+    </tr>
+    <tr>
+      <td>BRB</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Caixa</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>BancooB</td>
+      <td>N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>OBS:</strong> Cartões não pertencentes a esses bancos terão suas autorizações negadas.</p>
+
+<p>Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.</p>
+
+<p>Transações de cartão de débito serão incluídas no <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.</p>
+
+<p><strong>Cartão de Débito</strong> - Ordem de Status</p>
+
+<ol>
+  <li><strong>Pendente</strong> - Status original. A transação está ocorrendo, esperando resposta do banco para envio do comprador ao ambiente de autenticação</li>
+  <li><strong>Não Finalizado</strong> - Status intermediário. Neste ponto o Checkout Cielo espera a confirmação do Banco sobre o status da autenticação e transação. Caso o comprador abandone o ambiente do banco, o status não se altera.</li>
+  <li><strong>Pago</strong> - Comprador finalizou o pagamento com o cartão de débito com sucesso.</li>
+  <li><strong>Não Autorizado</strong> - O Comprador não apresentava saldo em conta para finalizar a transação.</li>
+</ol>
+
+<p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador</p>
+
+<h3 id="boleto">Boleto</h3>
+
+<p>O Checkout Cielo permite a utilização de Boletos do Bradesco (Carteira 26 e SPS) e Banco do Brasil (Carteira 18). 
+Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja disponibilizado no Backoffice Checkout.</p>
+
+<p>Bancos Suportados:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mastercard</th>
+      <th>Visa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco</td>
+      <td>Bradesco</td>
+    </tr>
+    <tr>
+      <td>Banco do Brasil</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>Santander</td>
+      <td>Santander</td>
+    </tr>
+    <tr>
+      <td>Itaú</td>
+      <td>Itaú</td>
+    </tr>
+    <tr>
+      <td>CitiBank</td>
+      <td>CitiBank</td>
+    </tr>
+    <tr>
+      <td>BRB</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Caixa</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>BancooB</td>
+      <td>N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>OBS:</strong> Cartões não pertencentes a esses bancos terão suas autorizações negadas.</p>
+
+<p>Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.</p>
+
+<p>Transações de cartão de débito serão incluídas no <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.</p>
+
+<p><strong>Cartão de Débito</strong> - Ordem de Status</p>
+
+<ol>
+  <li><strong>Pendente</strong> - Status original. A transação está ocorrendo, esperando resposta do banco para envio do comprador ao ambiente de autenticação</li>
+  <li><strong>Não Finalizado</strong> - Status intermediário. Neste ponto o Checkout Cielo espera a confirmação do Banco sobre o status da autenticação e transação. Caso o comprador abandone o ambiente do banco, o status não se altera.</li>
+  <li><strong>Pago</strong> - Comprador finalizou o pagamento com o cartão de débito com sucesso.</li>
+  <li><strong>Não Autorizado</strong> - O Comprador não apresentava saldo em conta para finalizar a transação.</li>
+</ol>
+
+<p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador</p>
+
+<h3 id="débito-online">Débito Online</h3>
+
+<p>O Checkout Cielo permite a utilização de Débito Online (Transferência entre contas bancarias) para compradores que possuam contas nos bancos Bradesco e Banco do Brasil.
+Esse meio de pagamento é liberado via cadastro junto ao Suporte Cielo.</p>
+
+<p>Ao acessar a tela transacional, o comprador obterá pelo pagamento via Débito online, e será redirecionado ao ambiente bancário para Autenticação e Autorização.</p>
+
+<p>Transações de Débito online serão incluídos no <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.</p>
+
+<p><strong>Débito online</strong> - Ordem de Status</p>
+
+<ul>
+  <li><strong>Pendente</strong> - Status original. A transação está ocorrendo, esperando resposta do banco  para envio do comprador ao ambiente de autenticação</li>
+  <li><strong>Não Finalizado</strong> - Status intermediário. Neste ponto o Checkout Cielo espera a confirmação do Banco sobre o status da autenticação e transação. Caso o comprador abandone o ambiente do banco, o status não se altera.</li>
+  <li><strong>Pago</strong> - Comprador finalizou o pagamento do débito com sucesso.</li>
+  <li><strong>Não Autorizado</strong> - O Comprador não apresentava saldo em conta para finalizar a transação.</li>
+</ul>
+
+<p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador</p>
+
+<h1 id="notificações-de-pagamento">Notificações de Pagamento</h1>
+
+<p>O processo de notificação transacional no Checkout Cielo ocorre via a inclusão de uma URL para onde serão direcionados dados das transações realizadas na plataforma.
+Vale destacar que o Checkout realiza a notificação somente quando uma transação é considerada finalizada ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em “Finalizar”.</p>
+
+<h2 id="tipos-de-notificação">Tipos de notificação</h2>
+
+<p>O Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar de acordo com suas necessidades:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">POST</code></td>
+      <td>Notificação onde o lojista é passivo. Dois <code class="highlighter-rouge">POST HTTP</code> são disparados, um informando dados da venda e outra mudança de Status da transação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">JSON</code></td>
+      <td>Notificação onde o lojista realiza uma consulta. Um <code class="highlighter-rouge">POST</code> contendo informações para a realização de uma consulta (<code class="highlighter-rouge">GET</code>) as transações checkout</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a <code class="highlighter-rouge">URL de NOTIFICAÇÃO</code> quando a <code class="highlighter-rouge">URL de MUDANÇA de STATUS</code>.</p>
+
+<h2 id="tipos-de-url-de-notificação">Tipos de URL de Notificação</h2>
+
+<p>O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Observação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">URL de Retorno</code></td>
+      <td>Página web na qual o comprador será redirecionado ao fim da compra. <br /><br />Nenhum dado é trocado ou enviado para essa URL.<br /><br /> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.</td>
+      <td>Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br /><br /> Pode ser enviada via API - Ver “Integração por API”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">URL de Notificação</code></td>
+      <td>Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br /><br /> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do status da transação**</td>
+      <td>Utilizada na Notificação via <code class="highlighter-rouge">POST</code>e <code class="highlighter-rouge">JSON</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">URL de Mudança de Status</code></td>
+      <td>Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br /><br /> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido</td>
+      <td>Utilizada somente na Notificação via <code class="highlighter-rouge">POST</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>OBS:</strong> Caso uma <code class="highlighter-rouge">URL de retorno</code> seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo <code class="highlighter-rouge">via Botão</code>, só é possível usar a opção de URL de retorno via backoffice.</p>
+
+<p><strong>Características das URLs</strong></p>
+
+<p>Todas as 3 URLs devem possuir as seguintes características:</p>
+
+<ul>
+  <li>Devem ser URLs estáticas</li>
+  <li>Devem possuir menos de 255 caracteres</li>
+  <li>Caracteres especiais não são suportados</li>
+</ul>
+
+<p><strong>Configurando as URLs</strong></p>
+
+<ol>
+  <li>Basta acessar dentro do <strong>Backoffice</strong> as Abas <strong>Configurações</strong></li>
+  <li>Em <strong>Configurações da Loja</strong>, Vá a sessão de <strong>Pagamentos</strong></li>
+  <li>Cadastre as URLS e escolhe o tipo de Notificação desejado</li>
+</ol>
+
+<p><img src="/images/Checkout/urls.png" alt="Cadastro de URLS" /></p>
+
+<h2 id="notificação-post">Notificação: POST</h2>
+
+<p>A notificação via POST é baseada no envio de um <code class="highlighter-rouge">POST HTTP</code> quando uma transação é realizada. Ela é realizada em duas etapas:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">POST de NOTIFICAÇÃO</code> - Ocorre quando a transação é finalizada. Esse POST possui todos os dados do pedido, incluindo o STATUS inicial da transação.</li>
+  <li><code class="highlighter-rouge">POST de MUDANÇA DE STATUS</code> - Ocorre quando uma transação possui seu STATUS alterado - <strong>EX:</strong> “Autorizado” &gt; &gt; &gt; “Pago”</li>
+</ol>
+
+<p>Este fluxo é utilizado por lojas que ainda não realizam transações via API.</p>
+
+<p>Abaixo o Fluxo de uma Notificação POST</p>
+
+<p><img src="/images/Checkout/npost.png" alt="Fluxo N.POST" /></p>
+
+<p><strong>Retorno aguardado para o envio da notificação:</strong> <code class="highlighter-rouge">HttpStatus = 200 (OK)</code> - Post recebido e processado com sucesso</p>
+
+<p><strong>IMPORTANTE</strong> Se a <code class="highlighter-rouge">URL de Notificação</code> cadastrada retornar algum erro/estiver indisponível, serão realizadas <em>*3 novas tentativas, com intervalo de 1 hora entre cada POST</em>.</p>
+
+<p>Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:</p>
+
+<p><img src="/images/Checkout/reenvipost.png" alt="Reenvio de notificação" /></p>
+
+<p>Veja a descrição dos itens de notificação na sessão <strong>“Conteúdo do POST de NOTIFICAÇÃO”</strong></p>
+
+<h2 id="notificação-json">Notificação: JSON</h2>
+
+<p>A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
+Essa modalidade de notificação é baseada em um <code class="highlighter-rouge">POST JSON</code>, onde o lojista recebe credenciais para que uma consulta (<code class="highlighter-rouge">GET</code>) possa ser realizado junto a base de dados Checkout Cielo.</p>
+
+<p>Ela é realizada em duas etapas:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">POST de NOTIFICAÇÃO</code> - Ocorre quando a transação é finalizada. Possui as Credenciais necessárias consultas transacionais.</li>
+  <li><code class="highlighter-rouge">CONSULTA TRANSACIONAL</code> - Com as credenciais de consulta, o lojista busca dados da venda junto ao Checkout Cielo</li>
+</ol>
+
+<p>Na Notificação de JSON, não há diferença entre o <code class="highlighter-rouge">POST de Notificação</code> e <code class="highlighter-rouge">Mudança de Status</code>. Sempre que algo ocorrer na transação, o lojista receberá um <code class="highlighter-rouge">POST de Notificação</code></p>
+
+<p>Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de status)</p>
+
+<p><img src="/images/Checkout/njson.png" alt="Fluxo N.JSON" /></p>
+
+<p><strong>Conteúdo do POST de NOTIFICAÇÃO JSON:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo do Campo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">URL</code></td>
+      <td>URL com os dados necessários para realizar a busca dos dados da transação.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja no Checkout Cielo; consta no Backoffice no menu Configuração/Dados Cadastrais.</td>
+      <td>Alfanumérico (GUID)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderNumber</code></td>
+      <td>Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.</td>
+      <td>Alfanumérico</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Exemplo de uma consulta:</strong></p>
+
+<p><strong>REQUEST</strong></p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>--HEADER: MerchantID
+ GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/{merchantId}/{merchantOrderNumber}
+</code></pre>
+</div>
+
+<p><strong>RESPONSE</strong></p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"checkout_cielo_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65930e7460bd4a849502ed14d7be6c03"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/09/2017 14:38:56"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_address_zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_address_district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_address_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_address_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payment_method_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payment_method_brand"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payment_maskedcreditcard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"471612******7044"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payment_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10447480686J51OH8BPB"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+ 
+</span></code></pre>
+</div>
+
+<p>Veja a descrição dos itens de notificação na sessão <strong>“Conteúdo do POST de NOTIFICAÇÃO”</strong></p>
+
+<p><strong>Retorno aguardado para o envio da notificação:</strong> <code class="highlighter-rouge">HttpStatus = 200 (OK)</code> - Post recebido e processado com sucesso</p>
+
+<p><strong>IMPORTANTE</strong> Se a <code class="highlighter-rouge">URL de Notificação</code> cadastrada retornar algum erro/estiver indisponível, serão realizadas <em>*3 novas tentativas, com intervalo de 1 hora entre cada POST</em>.</p>
+
+<p>Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:</p>
+
+<p><img src="/images/Checkout/reenvipost.png" alt="Reenvio de notificação" /></p>
+
+<h2 id="conteúdo-da-notificação">Conteúdo da Notificação</h2>
+
+<p>Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo. 
+Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:</p>
+
+<p><strong>Conteúdo do POST de NOTIFICAÇÃO:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo do campo</th>
+      <th>Tamanho máximo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td>Identificador único gerado pelo CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">amount</code></td>
+      <td>Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)</td>
+      <td>Numérico</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">order_number</code></td>
+      <td>Número do pedido enviado pela loja</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">created_date</code></td>
+      <td>Data da criação do pedido - <code class="highlighter-rouge">dd/MM/yyyy HH:mm:ss</code></td>
+      <td>Alfanumérico</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_name</code></td>
+      <td>Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>289</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_identity</code></td>
+      <td>Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_email</code></td>
+      <td>E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_phone</code></td>
+      <td>Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Numérico</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">discount_amount</code></td>
+      <td>Valor do desconto fornecido (enviado somente se houver desconto)</td>
+      <td>Numérico</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_type</code></td>
+      <td>Modalidade de frete</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_name</code></td>
+      <td>Nome do frete</td>
+      <td>Alfanumérico</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_price</code></td>
+      <td>Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)</td>
+      <td>Numérico</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_zipcode</code></td>
+      <td>CEP do endereço de entrega</td>
+      <td>Numérico</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_district</code></td>
+      <td>Bairro do endereço de entrega</td>
+      <td>Texto</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_city</code></td>
+      <td>Cidade do endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_state</code></td>
+      <td>Estado de endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_line1</code></td>
+      <td>Endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_line2</code></td>
+      <td>Complemento do endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_number</code></td>
+      <td>Número do endereço de entrega</td>
+      <td>Numérico</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_type</code></td>
+      <td>Cód. do tipo de meio de pagamento</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_brand</code></td>
+      <td>Bandeira (somente para transações com meio de pagamento cartão de crédito)</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_bank</code></td>
+      <td>Banco emissor (Para transações de Boleto e Débito Automático)</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_maskedcredicard</code></td>
+      <td>Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)</td>
+      <td>Alfanumérico</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_installments</code></td>
+      <td>Número de parcelas</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_antifrauderesult</code></td>
+      <td>Status das transações de cartão de Crédito no Antifraude</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_boletonumber</code></td>
+      <td>Numero do boleto gerado</td>
+      <td>String</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_boletoexpirationdate</code></td>
+      <td>Data de vencimento para transações realizadas com boleto bancário</td>
+      <td>Numérico</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_status</code></td>
+      <td>Status da transação</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tid</code></td>
+      <td>TID Cielo gerado no momento da autorização da transação</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">test_transaction</code></td>
+      <td>Indica se a transação foi gerada com o <code class="highlighter-rouge">Modo de teste</code> ativado</td>
+      <td>Boolean</td>
+      <td>32</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Payment_status</strong></p>
+
+<p>O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Valor</th>
+      <th>Status de transação</th>
+      <th>Meios de pagamento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td><code class="highlighter-rouge">Pendente</code></td>
+      <td>Para todos os meios de pagamento</td>
+      <td>Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td><code class="highlighter-rouge">Pago</code></td>
+      <td>Para todos os meios de pagamento</td>
+      <td>Transação capturada e o dinheiro será depositado em conta.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td><code class="highlighter-rouge">Negado</code></td>
+      <td>Somente para Cartão Crédito</td>
+      <td>Transação não autorizada pelo responsável do meio de pagamento</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td><code class="highlighter-rouge">Expirado</code></td>
+      <td>Cartões de Crédito e Boleto</td>
+      <td>Transação deixa de ser válida para captura - <strong>15 dias pós Autorização</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td><code class="highlighter-rouge">Cancelado</code></td>
+      <td>Para cartões de crédito</td>
+      <td>Transação foi cancelada pelo lojista</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td><code class="highlighter-rouge">Não Finalizado</code></td>
+      <td>Todos os meios de pagamento</td>
+      <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td><code class="highlighter-rouge">Autorizado</code></td>
+      <td>somente para Cartão de Crédito</td>
+      <td>Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">8</td>
+      <td><code class="highlighter-rouge">Chargeback</code></td>
+      <td>somente para Cartão de Crédito</td>
+      <td>Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Payment_antifrauderesult</strong></p>
+
+<p>O Antifraude possui o conceito de <code class="highlighter-rouge">Status</code> e <code class="highlighter-rouge">SubStatus</code>, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Valor</th>
+      <th>Status Antifraude</th>
+      <th>Substatus</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td><code class="highlighter-rouge">Baixo Risco</code></td>
+      <td>Baixo Risco</td>
+      <td>Baixo risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td><code class="highlighter-rouge">Médio Risco</code></td>
+      <td>Médio Risco</td>
+      <td>Médio risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td><code class="highlighter-rouge">Alto Risco</code></td>
+      <td>Alto Risco</td>
+      <td>Alto risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td><code class="highlighter-rouge">Não finalizado</code></td>
+      <td>Não finalizado</td>
+      <td>Não foi possível finalizar a consulta</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Autenticado</td>
+      <td>Transações autenticadas pelo banco - <strong>Não são analisaveis pelo AF</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>AF Não contratado</td>
+      <td>Antifraude não habilitado no plano do lojista - <strong>Não são analisaveis pelo AF</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>AF Dispensado</td>
+      <td>Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Não aplicável</td>
+      <td>Meio de pagamento não analisável como cartões de débito, boleto e débito online</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Transação de recorrência</td>
+      <td>Transação de crédito seja posterior a transação de agendamento. <strong>Somente o Agendamento é analisado</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Transação negada</td>
+      <td>Venda a crédito foi negada - <strong>Não são analisaveis pelo AF</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Payment_method_type</strong></p>
+
+<p>O Checkout permite apenas um tipo de <code class="highlighter-rouge">Boleto</code> ou <code class="highlighter-rouge">Débito Online</code> por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>Cartão de Crédito</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>Boleto Bancário</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>Débito Online</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>Cartão de Débito</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Payment_method_brand</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>Mastercad</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>AmericanExpress</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>Diners</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td>Aura</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">7</td>
+      <td>JCB</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Payment_method_bank</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>Bradesco</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Shipping_type</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>Correios</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>Frete fixo</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>Frete grátis</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>Retirar em mãos/loja</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td>Sem cobrança de frete (serviços ou produtos digitais)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="parcelamentos-do-checkout-cielo">Parcelamentos do Checkout Cielo</h1>
+
+<h2 id="tipo-de-parcelamento">Tipo de Parcelamento</h2>
+
+<p>O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes. 
+Existem dois métodos de parcelamento:</p>
+
+<ul>
+  <li><strong>Parcelamento via backoffice</strong> - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo numero de parcelas.</li>
+  <li><strong>Parcelamento via API</strong> - O Lojista limita o numero de parcelas a serem apresentadas no backoffice</li>
+</ul>
+
+<p><strong>OBS:</strong> O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em cotato com o Suporte Cielo e verifique a configuração de sua Afiliação.</p>
+
+<h2 id="parcelamento-via-backoffice">Parcelamento via backoffice</h2>
+
+<p>Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba <strong>Configurações</strong> e alterando a sessão <strong>Pagamentos</strong></p>
+
+<p><img src="/images/Checkout/parcelamento.png" alt="Seleção de Parcelas" /></p>
+
+<p><strong>OBS:</strong> O Check Box deve estar marcado para que o meio de pagamento seja exibido na tela transacional.</p>
+
+<p><strong>Características</strong></p>
+
+<ul>
+  <li>Disponível nas integrações do Checkout Cielo via API ou Botão;</li>
+  <li>O valor total dos itens do carrinho é somado e dividido pela quantidade de parcelas do lojista;</li>
+  <li>O valor da compra é sempre o mesmo, independentemente da quantidade de parcelas escolhida pelo comprador (Não há cobrança de Juros);</li>
+  <li>O valor do frete é somado ao valor do parcelamento;</li>
+  <li>A opção “à vista” sempre está disponível ao comprador.</li>
+  <li>Todas as transações possuirão as mesmas opções de parcelamento.</li>
+</ul>
+
+<h2 id="parcelamento-via-api">Parcelamento via API</h2>
+
+<p>Nesta opção, o lojista pode configurar a quantidade de parcelas por venda, especificado via request da API no momento de envio da transação.
+O Checkout realiza o cálculo das parcelas considerando valor total e limite parcelas enviadas via API.</p>
+
+<p><strong>ATENÇÃO:</strong> Nesta opção de parcelamento, o número de parcelas desejadas deve ser inferior a quantidade que está cadastrada no backoffice Checkout.</p>
+
+<p><strong>Características</strong></p>
+
+<ul>
+  <li>O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador.</li>
+  <li>O valor do frete é somado ao valor do parcelamento.</li>
+</ul>
+
+<p>O Parcelamento via API é realizado enviando o campo <code class="highlighter-rouge">MaxNumberOfInstallments</code> dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
+Abaixo, um exemplo do Nó</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"Payment"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>2</td>
+      <td>Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="recorrência-do-checkout-cielo">Recorrência do Checkout Cielo</h1>
+
+<p>A Recorrência é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.</p>
+
+<aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção <a href="#retentativa">Retentativa</a>.</aside>
+
+<p>Transações recorrentes são ideais para modelos de negócios que envolvam o <strong>conceito de assinatura, plano ou mensalidade</strong> na sua forma de <strong>cobrança</strong>. 
+Alguns exemplos de negócios são:</p>
+
+<ul>
+  <li>Escolas</li>
+  <li>Academias</li>
+  <li>Editoras</li>
+  <li>Serviços de hospedagem</li>
+</ul>
+
+<p><strong>Diferença entre transações recorrentes e parceladas:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Parceladas</strong></td>
+      <td>Se trata de <strong>uma transação dividida em vários meses</strong>. <br />O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<br /> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br /><br /> <strong>EX</strong>: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada</td>
+    </tr>
+    <tr>
+      <td><strong>Recorrentes</strong></td>
+      <td>São <strong>transações diferentes realizadas no mesmo cartão em momentos previamente agendados</strong>.<br /> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<br />  A cada intervalo haverá uma cobrança no cartão de crédito. <br /> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br /><br /> <strong>EX</strong>: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recorrência-por-api">Recorrência por API</h2>
+
+<p>Uma transação de recorrência no Checkout Cielo possui duas configurações: <code class="highlighter-rouge">Intervalo</code> e <code class="highlighter-rouge">Data de encerramento</code>.</p>
+
+<ul>
+  <li><strong>Intervalo</strong> – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.</li>
+  <li><strong>Data de encerramento</strong> – Data que o processo de recorrência deixa de ocorrer.</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"Payment"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-31"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><strong>Payment.RecurrentPayment</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>10</td>
+      <td>Intervalo entre cada transação da recorrencia</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td>YYYY-MM-DD</td>
+      <td>Não</td>
+      <td>255</td>
+      <td>Data onde a Recorrência se encerrará; Se não enviado a recorrência se encerra somente se cancelada</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Intervalo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Monthly</code></td>
+      <td>Mensal</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bimonthly</code></td>
+      <td>Bimestral</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Quarterly</code></td>
+      <td>Trimestral</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SemiAnnual</code></td>
+      <td>Semestral</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Annual</code></td>
+      <td>Anual</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.</p>
+
+<p>Exceto o objeto <code class="highlighter-rouge">Payment</code> que contém um novo elemento específico para a recorrência chamado <code class="highlighter-rouge">RecurrentPayment</code>, todos os outros objetos são iguais à integração com o Carrinho.</p>
+
+<p><strong>Requisição</strong></p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12344"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome que aparecerá na fatura"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do produto"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do produto"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sku do item no carrinho"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correios"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"SourceZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14400000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TargetZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endereço de entrega"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bairro da entrega"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade de entrega"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"Services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serviço de frete"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"Deadline"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"BoletoDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"DebitDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="mi">11111111111</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"FullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano Comprador da Silva"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fulano@email.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11999999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"Options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"AntifraudEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><strong>Exemplo</strong>: Bem Físico</p>
+
+<p>Se o tipo de produto for <code class="highlighter-rouge">Bem Físico</code>, a <strong>API obriga o envio do tipo de frete</strong>. 
+Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo <code class="highlighter-rouge">WithoutShipping</code>, caso contrário, a seguinte resposta será apresentada:</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"modelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"[Shipping.Type]"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'."</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><strong>IMPORTANTE:</strong> A Recorrência é criada apenas se a transação for <strong>AUTORIZADA</strong>. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.</p>
+
+<h2 id="recorrência-por-botão">Recorrência por Botão</h2>
+
+<p>Uma maneira de realizar a recorrência dentro do Checkout é criar um botão recorrente.</p>
+
+<p>Basta cadastrar o produto, incluindo um intervalo de cobrança e uma data para encerramento (Opcional), como no exemplo abaixo:</p>
+
+<p><img src="/images/checkout-botao-recorrencia.png" alt="Botão recorrência" /></p>
+
+<p><strong>ATENÇÃO:</strong> Caso um botão seja utilizado após a “Data final” cadastrada, a transação apresentará um erro exibindo <strong>Oppss</strong> na tela transacional. A Data pode ser editada na tela de edição do botão dentro de “Detalhes do Produto”</p>
+
+<h2 id="retentativa-de-recorrências">Retentativa de Recorrências</h2>
+
+<p>Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:</p>
+
+<ul>
+  <li><strong>Intervalo de tempo entre as tentativas:</strong> 1 dia</li>
+  <li><strong>Quantidade de retentativas:</strong> 3 (três), uma por dia, por 3 dias corridos a partir do dia seguinte da transação original não autorizada.</li>
+</ul>
+
+<p><strong>OBS</strong>: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada</p>
+
+<p><strong>ATENÇÃO:</strong>A regra da retentativa não pode ser modificada pelo lojista.</p>
+
+<h2 id="consultando-transações">Consultando transações</h2>
+
+<p>As transações de Recorrência ficam disponíveis no Backoffice Checkout Cielo como as outras vendas de sua loja na aba “PEDIDOS” (veja imagem abaixo).</p>
+
+<p>A primeira transação da recorrência é uma transação normal, seguindo as regras e preferências definidas pelo lojista no Backoffice.</p>
+
+<p><strong>ATENÇÃO:</strong> O valor e data de cobrança das transações recorrentes serão sempre os mesmos da transação inicial. O agendamento passa a funcionar automaticamente a partir da data em que a primeira transação for autorizada.</p>
+
+<p><img src="/images/checkout-consulta-recorrencia.png" alt="Consultando transações" /></p>
+
+<p>Esta tela mostra a data que a 1° transação da recorrência foi autorizada e deverá ser capturada manualmente. <strong>As demais transações da recorrência sempre serão capturadas automaticamente</strong>, independente se primeira transação foi capturada ou cancelada. Se o Cliente tiver configurado Captura automática, a captura da recorrência também será automática.</p>
+
+<p><strong>ATENÇÃO:</strong> Somente a 1° transação é submetida a análise do antifraude</p>
+
+<h2 id="cancelamento-de-recorrência-no-checkout-cielo">Cancelamento de Recorrência no Checkout Cielo.</h2>
+
+<p>O cancelamento da recorrência ocorre dentro do Backoffice do Checkout Cielo, também na aba “PEDIDOS”. Basta:</p>
+
+<ol>
+  <li>Acessar uma transação de recorrência (marcada com o símbolo “Recorrente”)</li>
+  <li>Entrar em Detalhes (o símbolo de “+”)</li>
+</ol>
+
+<p><img src="/images/checkout-cancelar-recorrencia.png" alt="Pedido de recorrência" />
+<br />
+<img src="/images/Checkout/pedidoreccance.png" alt="Cancelamento de recorrência" /></p>
+
+<p>Tela de detalhes da Recorrência</p>
+
+<p>Na tela acima, há duas opções de Cancelamento pelos botões:</p>
+
+<ul>
+  <li><strong>Cancelar</strong> – Cancela a transação, sem efetuar o cancelamento das futuras transações de recorrência.</li>
+  <li><strong>Cancelar Recorrência</strong> - Cancela o agendamento de futuras transações, encerrando a recorrência. Não cancela a transação atual nem as que já ocorreram. Essas necessitam ser canceladas manualmente.</li>
+</ul>
+
+<p><strong>ATENÇÃO:</strong></p>
+<ul>
+  <li>A Recorrência ocorre somente para Cartões de crédito e para produtos tipo “SERVIÇO” e “BENS DIGITAIS”.</li>
+  <li>A Recorrência é iniciada no momento da AUTORIZAÇAO, NÃO NA CAPTURA. Se a recorrência não tiver uma data para ser finalizada, ela se repetirá automaticamente até ser cancelada manualmente.</li>
+  <li>Sua afiliação Cielo deve ser habilitada para transacionar sem CVV ou Em recorrência, do contrário, todas as transações recorrentes serão negadas.</li>
+</ul>
+
+<h2 id="edição-da-recorrência">Edição da Recorrência</h2>
+
+<p>O Checkout Cielo permite que o lojista modifique 3 dados da recorrencia:</p>
+
+<ul>
+  <li><strong>Ativação</strong> - Uma recorrência pode ser ativada ou desativada. EX: Suspensão de uma assinatura por um periodo de 3 meses; Basta definir a Recorrência como inativa.</li>
+  <li><strong>Intervalo</strong> - É possivel modificar o intervalo de execução.</li>
+  <li><strong>Dia de ocorrência</strong> - É possivel modificar o dia de execução da transação recorrente.</li>
+</ul>
+
+<p>A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o <a href="https://developercielo.github.io/Checkout-Backoffice/"><strong>Tutorial do Backoffice Checkout Cielo</strong></a> para mais informações.</p>
+
+<h1 id="suporte-cielo">Suporte Cielo</h1>
+
+<p>Após a leitura deste manual, caso ainda persistam dúvidas (técnicas ou não), a Cielo disponibiliza o suporte técnico 24 horas por dia, 7 dias por semana em idiomas (Português e Inglês), nos seguintes contatos:</p>
+
+<ul>
+  <li>+55 4002-9700 – <em>Capitais e Regiões Metropolitanas</em></li>
+  <li>+55 0800-570-1700 – <em>Demais Localidades</em></li>
+  <li>+55 11 2860-1348 – <em>Internacionais</em>
+    <ul>
+      <li>Opção 1 – <em>Suporte técnico;</em></li>
+      <li>Opção 2 – <em>Credenciamento E-commerce.</em></li>
+    </ul>
+  </li>
+  <li>Email: <a href="mailto:cieloecommerce@cielo.com.br">cieloecommerce@cielo.com.br</a></li>
+</ul>
+
+  
+<h1>Veja também</h1>
+<ul class="related-posts post">
+    
+    <li class="post-title">
+        <h1 class="no-toc">tutorial</h1>
+        <h2 class="no-toc">Postman Cielo</h2>
+        <p>O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs.</p>
+        <a class="btn" href="/tutorial/postman">Ver Conteúdo</a>
+    </li>
+    
+    <li class="post-title">
+        <h1 class="no-toc">manual</h1>
+        <h2 class="no-toc">Integração API Cielo eCommerce</h2>
+        <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Cielo eCommerce da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.</p>
+        <a class="btn" href="/manual/api-cielo-ecommerce">Ver Conteúdo</a>
+    </li>
+    
+    <li class="post-title">
+        <h1 class="no-toc">tutorial</h1>
+        <h2 class="no-toc">Backoffice API 3.0 Cielo</h2>
+        <p>O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.</p>
+        <a class="btn" href="/tutorial/backoffice-3-0">Ver Conteúdo</a>
+    </li>
+    
+</ul>
+
+
+</div>
+
+    </div>
+
+    <div class="content-container">
+      <div class="footer-conteudo">
+						<div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+							<img src="/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+						</div>
+						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+							<h1>Precisa de ajuda?</h1>
+							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
+						</div>
+				</div>
+    </div>
+
+    <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="/">
+        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <a title="Esconder a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="toc-footer">
+      <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+      <ul class="toc-footer">
+        
+        <li><a href='/Habilitacao-meios-de-pagamento/'>Manual de Boleto e débito online</a></li>
+        
+        <li><a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a></li>
+        
+        <li><a href='/Checkout-FAQ/'>FAQ</a></li>
+        
+      </ul>
+    </div>
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Entre em contato" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Entre em contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="Acesse nosso GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>Acesse nosso GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="/assets/js/jquery-1.8.3.min.js"></script>
+    <script src="/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+    <script src="/assets/js/bootstrap.js"></script>
+    <script src="/assets/js/jquery.tocify.js"></script>
+    <script src="/assets/js/prettify.js"></script>
+    <script>
+    $(function() {
+        $("#toc").tocify({
+            
+            selectors: "h1,h2",
+            
+            hashGenerator: "pretty",
+            ignoreSelector: ".no-toc"
+        }).data("toc-tocify");
+
+        $('ul').prev('li').addClass('has-subitens');
+
+           var openedHeader = null;
+
+           $(window).scroll(function () {
+               if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                   $('li.is-open').removeClass('is-open');
+
+                   openedHeader = $('li.active').closest('.tocify-header');
+               }
+
+               openedHeader.find('ul:visible').prev('li').addClass('is-open');
+           });
+
+           $('.hamburger').click(function() {
+              $('body').toggleClass('sidebar-closed');
+           });
+
+           $('.code-menu').click(function() {
+               $('body').toggleClass('code-menu-closed');
+           });
+
+        prettyPrint();
+
+
+    });
+    </script>
+
+    
+    <script src="/assets/js/lang.js"></script>
+    <script>
+    $(function() {
+        setupLanguages([  "json", ]);
+
+    });
+    </script>
+    
+
+    
+    <script src="/assets/js/jquery.highlight.js"></script>
+    <script src="/assets/js/lunr.js"></script>
+    <script src="/assets/js/search.js"></script>
+    
+  </body>
+</html>
