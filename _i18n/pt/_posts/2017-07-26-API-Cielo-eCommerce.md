@@ -331,7 +331,6 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 
 > **Teste de destaque de informações:** TesteTesteTesteTesteTesteTesteTesteTesteTeste
 
-
 <aside class="request"><span class="method GET">GET</span> <span class="endpoint">/1/GET/</span></aside>
 
 <aside class="request"><span class="method PUT">PUT</span> <span class="endpoint">/1/PUT/</span></aside>
