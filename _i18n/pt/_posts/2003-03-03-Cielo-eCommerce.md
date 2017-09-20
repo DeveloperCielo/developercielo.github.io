@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Integração API Cielo eCommerce
-description: O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Cielo eCommerce da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
+title: Manual API Cielo eCommerce
+description: Manual integração técnica via API
 search: true
 translated: true
 categories: manual
