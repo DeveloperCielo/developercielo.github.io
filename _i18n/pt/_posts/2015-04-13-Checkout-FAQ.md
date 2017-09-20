@@ -1,7 +1,7 @@
 ---
 layout: faq
-title: Perguntas frequentes do Checkout Cielo
-description: Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com o Checkout Cielo
+title: FAQ Checkout Cielo
+description: Respostas para dúvidas comuns sobre o Checkout
 search: true
 categories: faq
 tags:
