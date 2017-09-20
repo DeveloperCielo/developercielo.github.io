@@ -329,6 +329,8 @@ Para que você possa disfrutar de todos os recursos disponíveis em nossa API, �
 
 Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
 
+> **Teste de destaque de informações:** TesteTesteTesteTesteTesteTesteTesteTesteTeste
+
 <aside class="notice"><strong>Atenção:</strong> Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
 
 ### Requisição
