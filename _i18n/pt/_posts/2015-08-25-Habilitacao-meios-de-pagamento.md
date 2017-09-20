@@ -5,8 +5,7 @@ description: Como configurar o Boleto e o Débito online em seu banco
 search: true
 categories: tutorial
 tags:
-  - Checkout Cielo
-  - API Cielo
+  - Documentos Adicionais
 toc_footers:
   - <a href='/Checkout-Cielo/'>Manual Checkout Cielo</a>
   - <a href='/Webservice-3.0'>Manual API 3.0</a>
