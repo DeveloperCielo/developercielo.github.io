@@ -1288,7 +1288,7 @@ curl
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
 |`Payment.Country`|Texto|3|Não|Pais na qual o pagamento será feito.|
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.ServiceTaxAmount`|Número|15|Não|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
+|`Payment.ServiceTaxAmount`|Número|15|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
