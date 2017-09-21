@@ -18,7 +18,7 @@ toc_footers:
   - <a href='/Boas-praticas-de-ecommerce/'>Boas práticas de eCommerce</a>
 ---
 
-# Visão geral - API Cielo eCommerce
+# Visão geral
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Cielo eCommerce da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
 
@@ -38,7 +38,7 @@ Ambiente Sandbox
 
 Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
 
-## Características da solução
+## Características
 
 A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.
 
