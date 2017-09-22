@@ -433,13 +433,12 @@
   <li>The return on XML format, can be: <code class="highlighter-rouge">&lt;transacao/&gt;</code>, <code class="highlighter-rouge">&lt;retorno-token&gt;</code> or <code class="highlighter-rouge">&lt;erro/&gt;</code>.</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>POST /servicos/ecommwsec.do HTTP/1.1
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /servicos/ecommwsec.do HTTP/1.1
 Host: ecommerce.cielo.com.br
 Content-Type: application/x-www-form-urlencoded
 Content-Length: length
 mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura id="3e22bdd0-2017-4756-80b7-35a532e6c973" versao="1.2.1"&gt;&lt;tid&gt;10069930690101012005&lt;/tid&gt;&lt;dados-ec&gt;&lt;numero&gt;1006993069&lt;/numero&gt;&lt;chave&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&lt;/chave&gt;&lt;/dados-ec&gt;&lt;valor&gt;3880&lt;/valor&gt;&lt;/requisicao-captura&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="transaction">Transaction</h2>
 
@@ -455,7 +454,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservice at Cielo with a XML message <code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>, which group of TAGS defines a transaction configuration:</p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;dados-ec&gt;</span>
     <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
@@ -502,8 +501,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   ]]&gt;
   <span class="nt">&lt;/avs&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
@@ -828,7 +826,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>The next example shows the more reduced way of a message of return such <transaction>. Basically, it's composed by order data and data from transaction's configuration.</transaction></p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transaction</span> <span class="na">version=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"af32f93c-5e9c-4f44-9478-ccc5aca9319e"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>10017348980735271001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;dados-pedido&gt;</span>
@@ -847,8 +845,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="nt">&lt;status&gt;</span>0<span class="nt">&lt;/status&gt;</span>
   <span class="nt">&lt;url-autenticacao&gt;</span>https://ecommerce.cielo.com.br/web/index.cbmp?id=a783251<span class="nt">&lt;/url-autenticacao&gt;</span>
 <span class="nt">&lt;/transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The more important information are:</p>
 
@@ -905,14 +902,13 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>Finally, there is another type of return which is employed every time a request can’t be executed, because it’s invalid or for some failure in its process. In this scenario, root node of XML response is like this <code class="highlighter-rouge">&lt;erro&gt;</code>.</p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;erro</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;codigo&gt;</span>001<span class="nt">&lt;/codigo&gt;</span>
   <span class="nt">&lt;messagem&gt;</span><span class="cp">&lt;![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '&lt;xml-fragment/&gt;]]&gt;</span>
   <span class="nt">&lt;/mensagem&gt;</span>
 <span class="nt">&lt;/erro&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>When the transaction is invalid, we can classify the error in two types:</p>
 
@@ -974,7 +970,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>Looking at the diagram of section <a href="# transaction">Transaction</a>, you can see that all transactions will pass through status “Authenticated” or “not authenticated”. Consequently, all receive the node <code class="highlighter-rouge">&lt;autenticacao&gt;</code> in the merchant response XML. Below the XML with the authentication node:</p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"5e445904-963e-4fa1-95cd-55ef88c289cc"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>1001734898073E931001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;pan&gt;</span>IqVz7P9zaIgTYdU41HaW/OB/d7Idwttqwb2vaTt8MT0=<span class="nt">&lt;/pan&gt;</span>
@@ -1001,8 +997,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;eci&gt;</span>5<span class="nt">&lt;/eci&gt;</span>
   <span class="nt">&lt;/autenticacao&gt;</span>
 <span class="nt">&lt;/transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Just the “node” fields <code class="highlighter-rouge">&lt;autenticacao&gt;</code> are listed on the table below:</p>
 
@@ -2337,7 +2332,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h2 id="direct-authorization">Direct authorization</h2>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;dados-ec&gt;</span>
     <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
@@ -2361,8 +2356,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
   <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The direct authorization is characterized for being a transaction without authentication from holder, because it’s a retailer option (and risk), or because the card issuer or emitter don’t have support. The direct authorization can be done in two ways: traditional (with card data) or using a token.</p>
 
@@ -2388,7 +2382,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h2 id="recurrent-authorization">Recurrent authorization</h2>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;dados-ec&gt;</span>
     <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
@@ -2412,8 +2406,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="nt">&lt;autorizar&gt;</span>4<span class="nt">&lt;/autorizar&gt;</span>
   <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The recurrent authorization must be done in two ways: sending a token previously registered, or using a card. The recurrent transaction is very similar than traditional transaction, the changes consist on the rules that emitter and card issuer use to authorize or deny a transaction. Another difference is related to “Renova Fácil” (Easy Renew).</p>
 
@@ -2435,7 +2428,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="easy-renew-renova-fácil">EASY RENEW (Renova Fácil):</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"d35b67189442"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>10069930690362461001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
@@ -2461,8 +2454,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;codigo-seguranca/&gt;</span>
   <span class="nt">&lt;/dados-portador&gt;</span>
 <span class="nt">&lt;/transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This functionality makes easier to identify a card which has been replaced for another at emitter bank. In this way, when a recurrent transaction is submitted to Web Service and Cielo identifies that the card used is outdated, the system will behave like that:</p>
 
@@ -2480,7 +2472,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="authorization-of-a-transaction-previously-created">Authorization of a transaction previously created</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-autorizacao-tid</span> <span class="na">id=</span><span class="s">"0000000000"</span> <span class="na">versao=</span><span class="s">"1.2.0"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>1006993069990BCAA001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;dados-ec&gt;</span>
@@ -2488,8 +2480,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;chave&gt;</span>25fbb997438630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
   <span class="nt">&lt;/dados-ec&gt;</span>
 <span class="nt">&lt;/requisicao-autorizacao-tid&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>To the establishments that use the authentication process of authentication it’s possible to request an authorization of transaction that stopped after the execution of this process. The message to perform this operation is “requisicao-autorizacao-tid”, as described below:</p>
 
@@ -2534,7 +2525,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h2 id="transaction-with-token">Transaction with token</h2>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-token</span> <span class="na">id=</span><span class="s">"8fc889c7-004f-42f1-963a-31aa26f75e5c"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;dados-ec&gt;</span>
     <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
@@ -2546,8 +2537,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;nome-portador&gt;</span>FULANO DA SILVA<span class="nt">&lt;/nome-portador&gt;</span>
   <span class="nt">&lt;/dados-portador&gt;</span>
 <span class="nt">&lt;/requisicao-token&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Purpose</strong> - Request the creation of a token associated to a credit card to help the transaction sending without card.</li>
@@ -2622,7 +2612,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="response">Response</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;retorno-token</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"57239017"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;token&gt;</span>
     <span class="nt">&lt;dados-token&gt;</span>
@@ -2632,8 +2622,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;/dados-token&gt;</span>
   <span class="nt">&lt;/token&gt;</span>
 <span class="nt">&lt;/retorno-token&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The return will be like: <retorno-token> when a request has been concluded with success, or in case of failure <error>.</error></retorno-token></p>
 
@@ -2670,7 +2659,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="direct-authorization-via-token">Direct Authorization via TOKEN</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;dados-ec&gt;</span>
     <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
@@ -2691,8 +2680,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
   <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Purpose</strong> - To submit a direct transaction (without authentication) using a token previously registered.</li>
@@ -2707,7 +2695,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="recurrent-authorization-with-token">Recurrent Authorization with TOKEN</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;dados-ec&gt;</span>
     <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
@@ -2729,8 +2717,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Purpose</strong> - To submit a recurrent transaction using a token previously registered.** - Submeter uma transação recorrente com o uso de um token previamente cadastrado.</li>
@@ -2745,7 +2732,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="easy-renew-with-token">Easy Renew with TOKEN</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"d35b67189442"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>10069930690362461001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
@@ -2773,8 +2760,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;/dados-token&gt;</span>
   <span class="nt">&lt;/token&gt;</span>
 <span class="nt">&lt;/transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This functionality makes easier to identify a card which has been replaced for another in emitter bank. So, when a recurrent transaction is submitted to Web Service and Cielo identifies a card in use outdated, the system will behave like that:</p>
 
@@ -2786,13 +2772,12 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="creating-token">Creating TOKEN</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.0"</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
   <span class="nt">&lt;gerar-token&gt;</span>true<span class="nt">&lt;/gerar-token&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <aside class="warning">This additional service is subjected to a charge from the moment of a token create request.</aside>
 
@@ -2809,7 +2794,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="authentication-and-transaction-with-debit-card">Authentication and transaction with debit card</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
   <span class="nt">&lt;forma-pagamento&gt;</span>
@@ -2820,8 +2805,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="c">&lt;!-- ... --&gt;</span>
   <span class="nt">&lt;autorizar&gt;</span>1<span class="nt">&lt;/autorizar&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The authenticated transaction will ensure an extra security for the retailer against Chargebacks, however, according to presented on chapter “2.5 - Authentication and security level”, neither all card issuers and emitters make this kind of service available.</p>
 
@@ -2848,7 +2832,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="allows-the-retailer-to-send-a-text-soft-descriptor">Allows the retailer to send a text (Soft Descriptor)</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
   <span class="nt">&lt;dados-pedido&gt;</span>
     <span class="nt">&lt;numero&gt;</span>178148599<span class="nt">&lt;/numero&gt;</span>
@@ -2861,8 +2845,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="nt">&lt;/dados-pedido&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Purpose</strong> - Allows the retailer to send a text with until 13 characters that will be printed on holder invoice, next to store identification, respecting the card issuers length:
@@ -2884,14 +2867,13 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="automatic-capture">Automatic Capture</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
   <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Purpose</strong> - The automatic capture allows a request of authorization to be captured immediately after its approval. So it’s not necessary realize a <code class="highlighter-rouge">&lt;requisicao-captura&gt;</code>.</li>
@@ -2904,7 +2886,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="boarding-fee">Boarding fee</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
   <span class="nt">&lt;dados-pedido&gt;</span>
@@ -2919,8 +2901,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="nt">&lt;/dados-pedido&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Purpose</strong>: the boarding fee is the informative field that defines the total amount of transaction  (informed on tag data-order//value) that must be destined to payment of Infraero tax.
@@ -2940,7 +2921,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="avs-address-verification-service">AVS (Address Verification Service)</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
   <span class="nt">&lt;dados-pedido&gt;</span>
@@ -2967,8 +2948,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="nt">&lt;/dados-pedido&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Purpose</strong>: AVS is a service to card transaction not presencial where is realized a register validation through numeric data of address informed by holder (shipping/delivery address on invoice) at online store, with register data of emitter.
@@ -3022,7 +3002,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="total-and-partial-capture">Total and Partial Capture</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-captura</span> <span class="na">id=</span><span class="s">"0374f305-0e23-4aad-82a2-055788c8cf4d"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>10069930690360EF1001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;dados-ec&gt;</span>
@@ -3033,8 +3013,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="nt">&lt;taxa-embarque&gt;</span>1000<span class="nt">&lt;/taxa-embarque&gt;</span>
 <span class="nt">&lt;/requisicao-captura&gt;</span>
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Purpose</strong>: realize total and partial capture of a transaction previously authorized.</li>
@@ -3058,7 +3037,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="return">Return</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"0378c8cf4d"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>10069930690360EF1001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
@@ -3071,8 +3050,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;taxa-embarque&gt;</span>900<span class="nt">&lt;/taxa-embarque&gt;</span>
   <span class="nt">&lt;/captura&gt;</span>
 <span class="nt">&lt;/transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The field of node <code class="highlighter-rouge">&lt;captura&gt;</code> are detailed below:</p>
 
@@ -3133,7 +3111,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="total-and-partial-cancellation">Total and Partial Cancellation</h3>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-cancelamento</span> <span class="na">id=</span><span class="s">"13368079-dedc-4cdf-9140-84473faf83d4"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>100699306903613D1001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;dados-ec&gt;</span>
@@ -3143,8 +3121,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <span class="nt">&lt;/dados-ec&gt;</span>
   <span class="nt">&lt;valor&gt;</span>200<span class="nt">&lt;/valor&gt;</span>
 <span class="nt">&lt;/requisicao-cancelamento&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li><strong>Purpose</strong>: Realize the cancellation of total or partial value of a transaction.</li>
@@ -3211,7 +3188,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h4 id="return-1">Return</h4>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"2c18f00a-3ff6-4c85-8865-a4fde599b2b2"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;tid&gt;</span>100699306903613E1001<span class="nt">&lt;/tid&gt;</span>
   <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
@@ -3225,8 +3202,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;/cancelamento&gt;</span>
   <span class="nt">&lt;/cancelamentos&gt;</span>
 <span class="nt">&lt;/transacao&gt;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <aside class="notice">The cancellations (partial or total) of transaction with boarding fee and partial capture are not be accepted automatically by the system.</aside>
 

@@ -554,8 +554,9 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
 
 <h2 id="fluxo-de-integração">Fluxo de integração</h2>
 
-<p>Durante a integração com o Checkout Cielo, ma seguencia de troca de informações e redirecionamentos serão executados.
-Veja o fluxo abaixo:</p>
+<p>Durante a integração com o Checkout Cielo, uma seguencia de troca de informações e redirecionamentos serão executados para que a uma transação seja criada e executada.</p>
+
+<p>Veja o fluxo abaixo:</p>
 
 <p><strong>Fluxo de integração Checkout Cielo</strong> - Diagrama sequêncial
 <img src="/images/Checkout/fluxobasico.svg" alt="Fluxo de integração Checkout Cielo" /></p>
@@ -796,73 +797,72 @@ Esses dados são separados nos seguintes “nós principais”:</p>
 
 <p><strong>Exemplo de uma requisição</strong></p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-   </span><span class="nt">"OrderNumber"</span><span class="p">:</span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Exemplo"</span><span class="p">,</span><span class="w">
-   </span><span class="nt">"Cart"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nt">"Discount"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Value"</span><span class="p">:</span><span class="mi">00</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="s2">"OrderNumber"</span><span class="p">:</span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Exemplo"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Cart"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"Discount"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Value"</span><span class="p">:</span><span class="mi">00</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"Items"</span><span class="p">:[</span><span class="w">  
+      </span><span class="s2">"Items"</span><span class="p">:[</span><span class="w">  
          </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Produto01"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Description"</span><span class="p">:</span><span class="s2">"ProdutoExemplo01"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Sku"</span><span class="p">:</span><span class="s2">"ABC001"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Weight"</span><span class="p">:</span><span class="mi">500</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Produto01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Description"</span><span class="p">:</span><span class="s2">"ProdutoExemplo01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Sku"</span><span class="p">:</span><span class="s2">"ABC001"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Weight"</span><span class="p">:</span><span class="mi">500</span><span class="w">
          </span><span class="p">},</span><span class="w">
         </span><span class="p">]</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="nt">"Shipping"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nt">"SourceZipCode"</span><span class="p">:</span><span class="s2">"20020080"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"TargetZipCode"</span><span class="p">:</span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Services"</span><span class="p">:[</span><span class="w">  
+   </span><span class="s2">"Shipping"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"SourceZipCode"</span><span class="p">:</span><span class="s2">"20020080"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TargetZipCode"</span><span class="p">:</span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Services"</span><span class="p">:[</span><span class="w">  
          </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Price"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Deadline"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Carrier"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Price"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Deadline"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Carrier"</span><span class="p">:</span><span class="kc">null</span><span class="w">
          </span><span class="p">},</span><span class="w">
          </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"UPS Express"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Price"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Deadline"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Carrier"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"UPS Express"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Price"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Deadline"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Carrier"</span><span class="p">:</span><span class="kc">null</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
-      </span><span class="nt">"Address"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nt">"Street"</span><span class="p">:</span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Number"</span><span class="p">:</span><span class="s2">"92"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Complement"</span><span class="p">:</span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"District"</span><span class="p">:</span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="w">
+      </span><span class="s2">"Address"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"92"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="nt">"Payment"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nt">"BoletoDiscount"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"DebitDiscount"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Installments"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"BoletoDiscount"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DebitDiscount"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="nt">"Customer"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nt">"Identity"</span><span class="p">:</span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"FullName"</span><span class="p">:</span><span class="s2">"Test de Test"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Email"</span><span class="p">:</span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"Phone"</span><span class="p">:</span><span class="s2">"21987654321"</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"Identity"</span><span class="p">:</span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"FullName"</span><span class="p">:</span><span class="s2">"Test de Test"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Email"</span><span class="p">:</span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Phone"</span><span class="p">:</span><span class="s2">"21987654321"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="nt">"Options"</span><span class="p">:{</span><span class="w">  
-     </span><span class="nt">"AntifraudEnabled"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.cielo.com.br"</span><span class="w">
+   </span><span class="s2">"Options"</span><span class="p">:{</span><span class="w">  
+     </span><span class="s2">"AntifraudEnabled"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.cielo.com.br"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="nt">"Settings"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+   </span><span class="s2">"Settings"</span><span class="p">:</span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p><strong>Header/Cabeçalho</strong></p>
 
@@ -1144,11 +1144,10 @@ Esses dados são separados nos seguintes “nós principais”:</p>
 
 <p><strong>Erro</strong> - Em caso de erro, a mensagem abaixo será retornada.</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">"An error has occurred."</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"An error has occurred."</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -1227,14 +1226,13 @@ Os descontos disponíveis no Checkout Cielo são:</p>
 
 <p>Para enviar um Desconto sobre o <code class="highlighter-rouge">Carrinho</code> basta enviar o nó abaixo dentro do nó <code class="highlighter-rouge">Cart</code></p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
-       </span><span class="nt">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
-         </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"Value"</span><span class="p">:</span><span class="mi">00</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
+         </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Value"</span><span class="p">:</span><span class="mi">00</span><span class="w">
        </span><span class="p">},</span><span class="w">
-      </span><span class="err">}</span><span class="w">
-</span></code></pre>
-</div>
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -1288,15 +1286,14 @@ Os descontos disponíveis no Checkout Cielo são:</p>
 
 <p>Para enviar um Desconto sobre o <code class="highlighter-rouge">Boleto</code> e <code class="highlighter-rouge">Débito online</code> basta enviar dentro do nó Payment os campos abaixo:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
-        </span><span class="nt">"BoletoDiscount"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"DebitDiscount"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"FirstInstallmentDiscount"</span><span class="p">:</span><span class="mi">90</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
+        </span><span class="s2">"BoletoDiscount"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DebitDiscount"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FirstInstallmentDiscount"</span><span class="p">:</span><span class="mi">90</span><span class="w">
         </span><span class="p">},</span><span class="w">
-      </span><span class="err">}</span><span class="w">
-</span></code></pre>
-</div>
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -1845,11 +1842,10 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   <li><strong>Botão</strong> - Será criado um código HTML como o abaixo:</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'&gt;
     &lt;input type='hidden' name='id' value=00000000-0000-0000-000000000000/&gt;&lt;input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content/images/botao_comprar_3.jpg' /&gt;
 &lt;/form&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Exemplo de um botão Funcional:</strong></p>
 
@@ -2320,44 +2316,42 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
 
 <p><strong>REQUEST</strong></p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>--HEADER: MerchantID
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--HEADER: MerchantID
  GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/{merchantId}/{merchantOrderNumber}
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>RESPONSE</strong></p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"checkout_cielo_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65930e7460bd4a849502ed14d7be6c03"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/09/2017 14:38:56"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Test"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21987654321"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer_identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_address_zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_address_district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_address_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_address_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payment_method_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payment_method_brand"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payment_maskedcreditcard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"471612******7044"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payment_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10447480686J51OH8BPB"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"checkout_cielo_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65930e7460bd4a849502ed14d7be6c03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/09/2017 14:38:56"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_method_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_method_brand"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_maskedcreditcard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"471612******7044"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10447480686J51OH8BPB"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
 </span><span class="p">}</span><span class="w">
  
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p>Veja a descrição dos itens de notificação na sessão <strong>“Conteúdo do POST de NOTIFICAÇÃO”</strong></p>
 
@@ -2887,11 +2881,10 @@ O Checkout realiza o cálculo das parcelas considerando valor total e limite par
 <p>O Parcelamento via API é realizado enviando o campo <code class="highlighter-rouge">MaxNumberOfInstallments</code> dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
 Abaixo, um exemplo do Nó</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"Payment"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nt">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -2960,13 +2953,12 @@ Alguns exemplos de negócios são:</p>
   <li><strong>Data de encerramento</strong> – Data que o processo de recorrência deixa de ocorrer.</li>
 </ul>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="s2">"Payment"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-31"</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-31"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p><strong>Payment.RecurrentPayment</strong></p>
 
@@ -3035,82 +3027,80 @@ Alguns exemplos de negócios são:</p>
 
 <p><strong>Requisição</strong></p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12344"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome que aparecerá na fatura"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12344"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome que aparecerá na fatura"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do produto"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do produto"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sku do item no carrinho"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do produto"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do produto"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sku do item no carrinho"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correios"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"SourceZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14400000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"TargetZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11000000"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endereço de entrega"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bairro da entrega"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade de entrega"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="w">
+    </span><span class="s2">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correios"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SourceZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14400000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TargetZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endereço de entrega"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bairro da entrega"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade de entrega"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"Services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serviço de frete"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"Deadline"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
+                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serviço de frete"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Deadline"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"BoletoDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"DebitDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31"</span><span class="w">
+    </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"BoletoDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DebitDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="mi">11111111111</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"FullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano Comprador da Silva"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fulano@email.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11999999999"</span><span class="w">
+    </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="mi">11111111111</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano Comprador da Silva"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fulano@email.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11999999999"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"Options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"AntifraudEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="s2">"Options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AntifraudEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p><strong>Exemplo</strong>: Bem Físico</p>
 
 <p>Se o tipo de produto for <code class="highlighter-rouge">Bem Físico</code>, a <strong>API obriga o envio do tipo de frete</strong>. 
 Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo <code class="highlighter-rouge">WithoutShipping</code>, caso contrário, a seguinte resposta será apresentada:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"modelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"[Shipping.Type]"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"[Shipping.Type]"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'."</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <p><strong>IMPORTANTE:</strong> A Recorrência é criada apenas se a transação for <strong>AUTORIZADA</strong>. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.</p>
 
