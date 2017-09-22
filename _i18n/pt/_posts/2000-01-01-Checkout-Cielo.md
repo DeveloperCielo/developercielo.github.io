@@ -660,7 +660,7 @@ Os nós que formam as informações de frete abaixo:
 |-------------------------------|--------------|-------------|---------|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | `Shipping.Type`               | Alphanumeric | Sim         | 255     | Tipo do frete: <BR>`Correios`<BR>`FixedAmount`<BR>`Free`<BR>`WithoutShippingPickUp`<BR>`WithoutShipping`<BR> |                                                                 |
 | `Shipping.SourceZipCode`      | Numeric      | Condicional | 8       | CEP de origem do carrinho de compras.                                                                        | Obrigatório caso Shipping.Type for "Correios".                  |
-| `Shipping.TargetZipCode`      | Numeric      | Opcional    | 8       | CEP do endereзo de entrega do comprador.                                                                     |                                                                 |
+| `Shipping.TargetZipCode`      | Numeric      | Opcional    | 8       | CEP do endereço de entrega do comprador.                                                                     |                                                                 |
 
 **Shipping.Address** - Informações de endereço de entrega. **Não obrigatório no contrato da API, mas obrigatório na tela transacional**. Sugerimos que esses dados sejam enviados, se ja foram recolhidos dentro do ambiente da loja.
  
@@ -671,7 +671,7 @@ Os nós que formam as informações de frete abaixo:
 | `Shipping.Address.Complement`| Alphanumeric | Opcional    | 256     | Complemento do endereço de entrega do comprador.                 |                      
 | `Shipping.Address.District`  | Alphanumeric | Sim         | 64      | Bairro do endereço de entrega do comprador.                      |
 | `Shipping.Address.City`      | Alphanumeric | Sim         | 64      | Cidade do endereço de entrega do comprador.                      |                       
-| `Shipping.Address.State`     | Alphanumeric | Sim         | 2       | Estado (UF) do endereзo de entrega do comprador.                 |  
+| `Shipping.Address.State`     | Alphanumeric | Sim         | 2       | Estado (UF) do endereço de entrega do comprador.                 |  
 
 **Shipping.Services**
 
@@ -744,8 +744,8 @@ Cada botão possui um código único que só permite comprar aquele determinado 
   
 | Característica | Explicação |
 |:--------------:|------------|
-|**Especifico**| Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <BR><BR>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 3 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
-|**Numero do Pedido do Checkout**| O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada|
+|**Específico **| Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <BR><BR>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 3 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
+|**número do Pedido do Checkout**| O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada|
 |**Criação de pedidos**|Um botão gera vários pedidos independentes, ou seja, não é possível limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido| 
  
  **Abaixo, o fluxo de pagamento via Botão:**
@@ -836,6 +836,12 @@ Transações de crédito **“AUTORIZADAS”** serão enviadas para análise da 
 O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 A análise indicará um grau de *RISCO**, especificado pelo `Status`, para a venda em questão. 
 Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda. 
+ 
+ Para que as transações sejam analisadas pelo antifraude, é necessario que a loja Checkout possua:
+ * Enviar via contrato `Options.AntifraudEnabled` como `true`
+ * Valor da compra deve ser MAIOR que o valor mínimo configurado - Ver em Tutotial Backoffice Checkout
+ * Possuir um Plano que inclua a ferramenta de analise.
+ * A transação de crédito deve ser AUTORIZADA
  
 | Status Antifraude | Substatus                | Descrição                                                                                                       |
 |-------------------|--------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -1119,7 +1125,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `payment_maskedcredicard`      | Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)                           | Alfanumérico  | 20             | 
 | `payment_installments`         | Número de parcelas                                                                                           | Numérico      | 1              | 
 | `payment_antifrauderesult`     | Status das transações de cartão de Crédito no Antifraude                                                     | Numérico      | 1              | 
-| `payment_boletonumber`         | Numero do boleto gerado                                                                                      | String        | 1              | 
+| `payment_boletonumber`         | número do boleto gerado                                                                                      | String        | 1              | 
 | `payment_boletoexpirationdate` | Data de vencimento para transações realizadas com boleto bancário                                            | Numérico      | 10             |
 | `payment_status`               | Status da transação                                                                                          | Numérico      | 1              | 
 | `tid`                          | TID Cielo gerado no momento da autorização da transação                                                      | Alfanumérico  | 32             |
@@ -1204,8 +1210,8 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes. 
 Existem dois métodos de parcelamento:
  
-* **Parcelamento via backoffice** - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo numero de parcelas.
-* **Parcelamento via API** - O Lojista limita o numero de parcelas a serem apresentadas no backoffice
+* **Parcelamento via backoffice** - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.
+* **Parcelamento via API** - O Lojista limita o número de parcelas a serem apresentadas no backoffice
  
 **OBS:** O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em cotato com o Suporte Cielo e verifique a configuração de sua Afiliação.
 
