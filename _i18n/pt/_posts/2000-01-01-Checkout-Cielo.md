@@ -88,7 +88,7 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 O Checkout Cielo  possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido.
 Abaixo listamos pontos que devem estar prontos antes da integração:
  
-1. O cadastro da loja deve estar **ativo** junto à Cielo, possuindo ao menus um tipo de **PLANO de pagamento** atrelado a conta.
+1. O cadastro da loja deve estar **ativo** junto à Cielo, possuindo ao menos um tipo de **PLANO de pagamento** atrelado a conta.
  
 2. Deve-se definir um **timeout** adequado nas requisições HTTP à Cielo; recomendamos 30 segundos.
  
