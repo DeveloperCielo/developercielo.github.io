@@ -1454,7 +1454,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
       <td>Numeric</td>
       <td>Opcional</td>
       <td>8</td>
-      <td>CEP do endereзo de entrega do comprador.</td>
+      <td>CEP do endereço de entrega do comprador.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1513,7 +1513,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>2</td>
-      <td>Estado (UF) do endereзo de entrega do comprador.</td>
+      <td>Estado (UF) do endereço de entrega do comprador.</td>
     </tr>
   </tbody>
 </table>
@@ -1711,11 +1711,11 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><strong>Especifico</strong></td>
+      <td style="text-align: center">**Específico **</td>
       <td>Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br /><br /><strong>Exemplo:</strong> Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 3 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Numero do Pedido do Checkout</strong></td>
+      <td style="text-align: center"><strong>número do Pedido do Checkout</strong></td>
       <td>O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um <code class="highlighter-rouge">GUID</code>) único. O Lojista receberá esse número de pedido como link a venda realizada</td>
     </tr>
     <tr>
@@ -1933,6 +1933,14 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 O Antifraude possui o conceito de <code class="highlighter-rouge">Status</code> e <code class="highlighter-rouge">SubStatus</code>, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 A análise indicará um grau de *RISCO**, especificado pelo <code class="highlighter-rouge">Status</code>, para a venda em questão. 
 Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.</p>
+
+<p>Para que as transações sejam analisadas pelo antifraude, é necessario que a loja Checkout possua:</p>
+<ul>
+  <li>Enviar via contrato <code class="highlighter-rouge">Options.AntifraudEnabled</code> como <code class="highlighter-rouge">true</code></li>
+  <li>Valor da compra deve ser MAIOR que o valor mínimo configurado - Ver em Tutotial Backoffice Checkout</li>
+  <li>Possuir um Plano que inclua a ferramenta de analise.</li>
+  <li>A transação de crédito deve ser AUTORIZADA</li>
+</ul>
 
 <table>
   <thead>
@@ -2532,7 +2540,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     </tr>
     <tr>
       <td><code class="highlighter-rouge">payment_boletonumber</code></td>
-      <td>Numero do boleto gerado</td>
+      <td>número do boleto gerado</td>
       <td>String</td>
       <td>1</td>
     </tr>
@@ -2839,8 +2847,8 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 Existem dois métodos de parcelamento:</p>
 
 <ul>
-  <li><strong>Parcelamento via backoffice</strong> - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo numero de parcelas.</li>
-  <li><strong>Parcelamento via API</strong> - O Lojista limita o numero de parcelas a serem apresentadas no backoffice</li>
+  <li><strong>Parcelamento via backoffice</strong> - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.</li>
+  <li><strong>Parcelamento via API</strong> - O Lojista limita o número de parcelas a serem apresentadas no backoffice</li>
 </ul>
 
 <p><strong>OBS:</strong> O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em cotato com o Suporte Cielo e verifique a configuração de sua Afiliação.</p>
