@@ -265,7 +265,8 @@ Existem duas maneiras de realizar a integração:
 
 ## Fluxo de integração
 
-Durante a integração com o Checkout Cielo, ma seguencia de troca de informações e redirecionamentos serão executados.
+Durante a integração com o Checkout Cielo, uma seguencia de troca de informações e redirecionamentos serão executados para que a uma transação seja criada e executada.
+
 Veja o fluxo abaixo:
  
 **Fluxo de integração Checkout Cielo** - Diagrama sequêncial
