@@ -52,7 +52,6 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 }
 ```
 
-
 | Propriedade                 | Tipo   | Tamanho | Obrigatório | Descrição                                                                                              |
 |-----------------------------|--------|---------|-------------|--------------------------------------------------------------------------------------------------------|
 | `MerchantId`                | Guid   | 36      | Sim         | Identificador da loja na Cielo.                                                                        |
