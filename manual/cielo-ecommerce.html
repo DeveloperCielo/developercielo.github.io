@@ -111,7 +111,159 @@
     
 
         <div class="post">
-  <h1 id="visão-geral">Visão geral</h1>
+  <h1 id="pagamentos-com-cartão-de-crédito">Pagamentos com Cartão de Crédito</h1>
+
+<p>Para que você possa disfrutar de todos os recursos disponíveis em nossa API, é importante que antes você conheça os conceitos envolvidos no processamento de uma transação de cartão de crédito.</p>
+
+<h2 id="criando-uma-transação-simples">Criando uma transação simples</h2>
+
+<p>Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método <code class="highlighter-rouge">POST</code> para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
+
+<h3 id="requisição">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito simples"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
+     </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificador da loja na Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+      <td>Chave Publica para Autenticação Dupla na Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Não</td>
+      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Numero de identificação do Pedido.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Nome do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Status</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do Meio de Pagamento.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do Pedido (ser enviado em centavos).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>—</td>
+      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de Parcelas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>Sim</td>
+      <td>Número do Cartão do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Não</td>
+      <td>Nome do Comprador impresso no cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+      <td>Data de validade impresso no cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Não</td>
+      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="visão-geral">Visão geral</h1>
 
 <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Cielo eCommerce da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.</p>
 
@@ -622,7 +774,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h1 id="pagamentos-com-cartão-de-crédito">Pagamentos com Cartão de Crédito</h1>
+<h1 id="pagamentos-com-cartão-de-crédito-1">Pagamentos com Cartão de Crédito</h1>
 
 <p>Para que você possa disfrutar de todos os recursos disponíveis em nossa API, é importante que antes você conheça os conceitos envolvidos no processamento de uma transação de cartão de crédito.</p>
 
@@ -637,11 +789,11 @@ Abaixo especificamos qualquer diferença existente:</p>
 É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Os lojistas contarão com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, pois toda parametrização é configurável, tais como: periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.</li>
 </ul>
 
-<h2 id="criando-uma-transação-simples">Criando uma transação simples</h2>
+<h2 id="criando-uma-transação-simples-1">Criando uma transação simples</h2>
 
 <p>Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método <code class="highlighter-rouge">POST</code> para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
 
-<h3 id="requisição">Requisição</h3>
+<h3 id="requisição-1">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1002,7 +1154,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método <code class="highlighter-rouge">POST</code> para o recurso Payment conforme o exemplo. Esse exemplo contempla todos os campos possíveis que podem ser enviados.</p>
 
-<h3 id="requisição-1">Requisição</h3>
+<h3 id="requisição-2">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1630,7 +1782,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="notice"><strong>Autenticação:</strong> Nesta modalidade o portador do cartão é direcionado para o ambiente de autenticação do banco emissor do cartão onde será solicitada a inclusão da senha do cartão.</aside>
 
-<h3 id="requisição-2">Requisição</h3>
+<h3 id="requisição-3">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1991,7 +2143,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para criar uma venda com cartão de crédito e analise de fraude, é necessário enviar uma requisição utilizando o método <code class="highlighter-rouge">POST</code> para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-3">Requisição</h3>
+<h3 id="requisição-4">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3234,7 +3386,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para criar uma venda de cartão de crédito com token do cartão protegido, é necessário fazer um POST para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-4">Requisição</h3>
+<h3 id="requisição-5">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3578,7 +3730,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para captura uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-5">Requisição</h3>
+<h3 id="requisição-6">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
 
@@ -3925,7 +4077,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="notice"><strong>Atenção:</strong> O cancelamento por MerchantOrderId afeta sempre a transação mais nova, ou seja, caso haja pedidos com o numero do pedido duplicado, somente o mais atual será cancelado. O pedido anterior não poderá ser cancelado por esse método</aside>
 
-<h3 id="requisição-6">Requisição</h3>
+<h3 id="requisição-7">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
 
@@ -4252,7 +4404,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
 
-<h3 id="requisição-7">Requisição</h3>
+<h3 id="requisição-8">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4558,7 +4710,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para criar uma venda de transferência eletronica, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
 
-<h3 id="requisição-8">Requisição</h3>
+<h3 id="requisição-9">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4779,7 +4931,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p><strong>OBS:</strong> A API suporta boletos registrados e não registrados, sendo o provider o diferenciador entre eles. Sugerimos que valide com seu banco qual o tipo de boleto suportado por sua carteira. A API Aceita apenas boletos <strong>Bradesco</strong> e <strong>Banco do Brasil</strong></p>
 
-<h3 id="requisição-9">Requisição</h3>
+<h3 id="requisição-10">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -5221,7 +5373,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="notice"><strong>Atenção:</strong> Nessa modalidade de recorrência, a primeira transação deve ser capturada. Todas as transções posteriores serão capturadas automaticamente.</aside>
 
-<h3 id="requisição-10">Requisição</h3>
+<h3 id="requisição-11">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -5609,7 +5761,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para criar uma venda recorrente cuja a primeira recorrência não será autorizada na mesma data com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.</p>
 
-<h3 id="requisição-11">Requisição</h3>
+<h3 id="requisição-12">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6020,7 +6172,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="notice"><strong>Atenção:</strong> Nessa modalidade de recorrencia, cabe ao lojista a inteligencia de realizar transações no mesmo formato de acordo com intervalo que desejar. A API não realizará transações automaticamente.</aside>
 
-<h3 id="requisição-12">Requisição</h3>
+<h3 id="requisição-13">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6446,7 +6598,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para alterar os dados do comprador da Recorrência, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-13">Requisição</h3>
+<h3 id="requisição-14">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -6721,7 +6873,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para alterar a data final da Recorrência, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-14">Requisição</h3>
+<h3 id="requisição-15">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -6799,7 +6951,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para alterar o Intervalo da Recorrência, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-15">Requisição</h3>
+<h3 id="requisição-16">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -6879,7 +7031,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="notice"><strong>Regra:</strong> Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
 
-<h3 id="requisição-16">Requisição</h3>
+<h3 id="requisição-17">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -7037,7 +7189,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para alterar a data do próximo Pagamento, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-17">Requisição</h3>
+<h3 id="requisição-18">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -7117,7 +7269,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="notice"><strong>Atenção:</strong> Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
 
-<h3 id="requisição-18">Requisição</h3>
+<h3 id="requisição-19">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -7277,7 +7429,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para desabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-19">Requisição</h3>
+<h3 id="requisição-20">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
@@ -7344,7 +7496,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-20">Requisição</h3>
+<h3 id="requisição-21">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -7414,7 +7566,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <aside class="notice"><strong>Atenção:</strong> Necessário solicitar a habilitação desta funcionalidade no cadastro  </aside>
 
-<h3 id="requisição-21">Requisição</h3>
+<h3 id="requisição-22">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7846,7 +7998,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <p>Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-22">Requisição</h3>
+<h3 id="requisição-23">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -8130,7 +8282,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <p>Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.</p>
 
-<h3 id="requisição-23">Requisição</h3>
+<h3 id="requisição-24">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -8244,7 +8396,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <p>Para consultar uma venda de cartão de crédito com antifraud, é necessário fazer um GET para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-24">Requisição</h3>
+<h3 id="requisição-25">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -8549,7 +8701,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <p>**A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não trazem dados sobre as transações em si. Para isso, deve ser realizado um <code class="highlighter-rouge">GET</code> na transação (Diponivel em “Consultanto vendas”</p>
 
-<h3 id="requisição-25">Requisição</h3>
+<h3 id="requisição-26">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -8713,7 +8865,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <p>Para salvar um cartão sem autoriza-lo, basta realizar um posto com os dados do cartão.</p>
 
-<h3 id="requisição-26">Requisição</h3>
+<h3 id="requisição-27">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/card/</span></aside>
 
@@ -8840,7 +8992,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <p>Para salvar um cartão, criando seu token, basta enviar uma requisição padrão de criação de venda, enviado SaveCard como “ true”. O response retornará o Token do cartão.</p>
 
-<h3 id="requisição-27">Requisição</h3>
+<h3 id="requisição-28">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -9475,7 +9627,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <p>Para criar uma venda de cartão de crédito com token do cartão protegido, é necessário fazer um POST para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-28">Requisição</h3>
+<h3 id="requisição-29">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -9840,7 +9992,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   </tbody>
 </table>
 
-<h3 id="requisição-29">Requisição</h3>
+<h3 id="requisição-30">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -10914,7 +11066,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
 
 <h2 id="como-realizar-transação-com-masterpass">Como realizar transação com MasterPass</h2>
 
-<h3 id="requisição-30">Requisição</h3>
+<h3 id="requisição-31">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
