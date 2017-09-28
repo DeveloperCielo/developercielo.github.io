@@ -1657,7 +1657,7 @@ Há dois tipos de erro que poderão ocorrer durante o processo de integração c
 <p><strong>Integração via Botão, QR CODE ou LINK</strong> é um método de compra usada sempre que não houver um “carrinho de compras” em sua loja. 
 Esse tipo de integração é realizado via o cadastro de um conjunto de itens a ser vendido on backoffice do Checkout Cielo.</p>
 
-<p>O gera um do 3 tipos diferentes de métodos de acesso a <strong>mesma tela transacional</strong>:</p>
+<p>O botão gera um do 3 tipos diferentes de métodos de acesso a <strong>mesma tela transacional</strong>:</p>
 
 <table>
   <thead>
@@ -1712,7 +1712,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   <tbody>
     <tr>
       <td style="text-align: center">**Específico **</td>
-      <td>Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br /><br /><strong>Exemplo:</strong> Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 3 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas</td>
+      <td>Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br /><br /><strong>Exemplo:</strong> Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas</td>
     </tr>
     <tr>
       <td style="text-align: center"><strong>número do Pedido do Checkout</strong></td>
@@ -2061,8 +2061,6 @@ Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou canc
   </tbody>
 </table>
 
-<p><strong>OBS:</strong> Cartões não pertencentes a esses bancos terão suas autorizações negadas.</p>
-
 <p>Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.</p>
 
 <p>Transações de cartão de débito serão incluídas no <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.</p>
@@ -2089,61 +2087,31 @@ Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja d
   <thead>
     <tr>
       <th>Mastercard</th>
-      <th>Visa</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Bradesco</td>
-      <td>Bradesco</td>
     </tr>
     <tr>
       <td>Banco do Brasil</td>
-      <td>Banco do Brasil</td>
-    </tr>
-    <tr>
-      <td>Santander</td>
-      <td>Santander</td>
-    </tr>
-    <tr>
-      <td>Itaú</td>
-      <td>Itaú</td>
-    </tr>
-    <tr>
-      <td>CitiBank</td>
-      <td>CitiBank</td>
-    </tr>
-    <tr>
-      <td>BRB</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <td>Caixa</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <td>BancooB</td>
-      <td>N/A</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>OBS:</strong> Cartões não pertencentes a esses bancos terão suas autorizações negadas.</p>
+<p>Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Boleto.</p>
 
-<p>Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.</p>
+<p>Transações de boleto  serão incluídas no <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> como NÃO FINALIZADO ou PAGO.
+Diferentemente de outros meios de pagamento, o boleto não possui atualização de Status. Caberá ao Lojista acessar o Backoffice e modificar o status do boleto manualmente.</p>
 
-<p>Transações de cartão de débito serão incluídas no <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.</p>
-
-<p><strong>Cartão de Débito</strong> - Ordem de Status</p>
+<p><strong>Boleto</strong> - Ordem de Status</p>
 
 <ol>
-  <li><strong>Pendente</strong> - Status original. A transação está ocorrendo, esperando resposta do banco para envio do comprador ao ambiente de autenticação</li>
-  <li><strong>Não Finalizado</strong> - Status intermediário. Neste ponto o Checkout Cielo espera a confirmação do Banco sobre o status da autenticação e transação. Caso o comprador abandone o ambiente do banco, o status não se altera.</li>
+  <li><strong>Não Finalizado</strong> - Status inicial. O Boleto é gerado, e ainda é valido. Como o Checkout <strong>não</strong> acessa o ambiente do banco para identificar o pagamento do boleto, esse status continuará efetivo até que o lojista entre no backoffice o atualize.</li>
   <li><strong>Pago</strong> - Comprador finalizou o pagamento com o cartão de débito com sucesso.</li>
-  <li><strong>Não Autorizado</strong> - O Comprador não apresentava saldo em conta para finalizar a transação.</li>
 </ol>
 
-<p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador</p>
+<p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO FINALIZADO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador</p>
 
 <h3 id="débito-online">Débito Online</h3>
 
