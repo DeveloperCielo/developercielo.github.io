@@ -710,7 +710,7 @@ Há dois tipos de erro que poderão ocorrer durante o processo de integração c
   
 | Tipo de frete                 | Transacional                                                                                                                                                                                          |
 |:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Pré-Tela transacional**   | Significa que houve algum dado erra do no envio da transação. Dados obrigatórios podem estar faltando ou no formato invalido. Aqui o lojista sempre vai receber um e-mail informando o que deu errado |
+| **Pré-Tela transacional**   | Significa que houve algum dado errado no envio da transação. Dados obrigatórios podem estar faltando ou no formato invalido. Aqui o lojista sempre vai receber um e-mail informando o que deu errado |
 | **Pós-Tela transacional**   | Significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout                            |
  
 Caso algum erro ocorra após a finalização da transação, entre em contato com o Suporte Cielo.
