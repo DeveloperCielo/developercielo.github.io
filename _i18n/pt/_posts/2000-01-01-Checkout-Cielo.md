@@ -916,7 +916,6 @@ Diferentemente de outros meios de pagamento, o boleto não possui atualização 
 1. **Não Finalizado** - Status inicial. O Boleto é gerado, e ainda é valido. Como o Checkout **não** acessa o ambiente do banco para identificar o pagamento do boleto, esse status continuará efetivo até que o lojista entre no backoffice o atualize.
 2. **Pago** - Comprador finalizou o pagamento com o cartão de débito com sucesso.
 
- 
 **OBS**: A opção **Cancelar** dentro do backoffice, vai modificar o status da transação de PAGO/NÃO FINALIZADO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador
 
 ### Débito Online
