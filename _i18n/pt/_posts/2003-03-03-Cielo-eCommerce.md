@@ -20,7 +20,7 @@ toc_footers:
 
 # Pagamentos com Cartão de Crédito
 
-Para que você possa disfrutar de todos os recursos disponíveis em nossa API, é importante que antes você conheça os conceitos envolvidos no processamento de uma transação de cartão de crédito.
+**Para que você possa disfrutar de todos os recursos disponíveis em nossa API, é importante que antes você conheça os conceitos envolvidos no processamento de uma transação de cartão de crédito.**
 
 ## Criando uma transação simples
 
