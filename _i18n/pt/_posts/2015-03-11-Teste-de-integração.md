@@ -6,7 +6,7 @@ search: true
 translated: true
 categories: manual
 tags:
-  - Testes
+  - Documentos LIO
 language_tabs:
   json: JSON
 
