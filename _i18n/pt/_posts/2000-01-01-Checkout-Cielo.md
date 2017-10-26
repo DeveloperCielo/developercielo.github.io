@@ -17,7 +17,7 @@ toc_footers:
 
 # Sobre o Checkout Cielo.
 
-O **Checkout Cielo** é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da Cielo.
+O **Checkout Cielo** é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da *Cielo*.
 A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo as normas de segurança PCI.
  
 O grande diferencial do Checkout Cielo é a gama de serviços agregados em uma tela transacional segura e com apenas uma integração técnica via **API REST**.
