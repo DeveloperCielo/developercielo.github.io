@@ -4,71 +4,81 @@
   <body>
     {% if page.language_tabs %}
     <div class="content-container">
+      <a class="code-menu">
+        <i class="fa fa-code code-hamb" aria-hidden="true"></i>
+      </a>
       <div class="dark-box">
-        <a class="code-menu">
-          <i class="fa fa-code code-hamb" aria-hidden="true"></i>
-        </a>
       </div>
     {% else %}
     <div class="content-container no-dark-box">
     {% endif %}
-      <div id="submenu">
-        <div class="submenu-itens">
-          <a href="#" class="help">{% t global.support %}</a>
-
-          {% if page.translated %}
-          <div class="lang">
-            <span>{% t global.languages %}</span>
+    <div id="submenu">
+      <div class="submenu-container">
+          <div class="submenu-row sub-items">
+            <div class="submenu-itens">
+              <a href="#" class="help">{% t global.support %}</a>
+              {% if page.translated %}
+            <div class="lang">
+              <span>{% t global.languages %}</span>
             {% for lang in site.language_names %}
             {% if lang[0] == site.default_lang %}
-            <a href="{{ site.baseurl_root }}{{page.url}}">
+              <a href="{{ site.baseurl_root }}{{page.url}}">
             {% else %}
-            <a href="{{ site.baseurl_root }}/{{ lang[0] }}{{page.url}}">
+              <a href="{{ site.baseurl_root }}/{{ lang[0] }}{{page.url}}">
             {% endif %}
-              <img alt="{{ lang[1] }}" src="{{ site.baseurl }}/assets/images/{{ lang[0] }}.png"/>
-            </a>
-            {% endfor %}
+                <img alt="{{ lang[1] }}" src="{{ site.baseurl }}/assets/images/{{ lang[0] }}.png"/>
+              </a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+            {% if page.search %}
+            <div class="search">
+              <input type="text" class="search" id="input-search">
+            </div>
+          </div>
+          <div class="submenu-row results">
+            <div class="search-results-container">
+              <ul class="search-results"></ul>
+            </div>
+          </div>
+          {% else %}
           </div>
           {% endif %}
-        </div>
-
-        {% if page.search %}
-        <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="{% t global.search %}">
-        </div>
-      </div>
-      <div class="search-results-container">
-        <ul class="search-results"></ul>
-      </div>
-      {% endif %}
-        <ol class="breadcrumb">
-            {% if site.lang == site.default_lang %}
-            <li><a href="/">{% t global.home %}</a></li>
-            {% else %}
-            <li><a href="{{ site.baseurl_root }}/{{ site.lang }}/">{% t global.home %}</a></li>
-            {% endif %}
-            {% assign crumbs = page.url | split: '/' %}
-            {% assign crumbs_total = crumbs | size | minus: 1 %}
-            {% for crumb in crumbs offset: 1 %}
-                {% if forloop.index == crumbs_total %}
+            <div class="submenu-row breads">
+                <ol class="breadcrumb">
                     {% if site.lang == site.default_lang %}
-                    <li class="active">&gt; <a href="{{ site.baseurl_root }}{{ page.url }}">{{page.title}}</a></li>
+                    <li><a href="/">{% t global.home %}</a></li>
                     {% else %}
-                    <li class="active">&gt; <a href="{{ site.baseurl_root }}/{{ site.lang }}{{ page.url }}">{{page.title}}</a></li>
+                    <li><a href="{{ site.baseurl_root }}/{{ site.lang }}/">{% t global.home %}</a></li>
                     {% endif %}
-                {% else %}
-                    {% assign crumb_limit = forloop.index | plus: 1 %}
-                    {% capture crumb_url %}{% for c in crumbs limit: crumb_limit %}{{ c | append: '/' }}{% endfor %}{% endcapture %}
-                    {% capture crumb_with_index %}{{ crumb_url | append: 'index.html' }}{% endcapture %}
-                    {% capture current_page %}{{ site.baseurl }}{{ page.url }}{% endcapture %}
-                    {% for p in site.pages %}
-                        {% if crumb_with_index != current_page and crumb_with_index == p.url %}
-                            <li>&gt; <a href="{{ crumb_with_index }}">{{ crumb | replace:'-',' ' | capitalize}}</a>
+                    {% assign crumbs = page.url | split: '/' %}
+                    {% assign crumbs_total = crumbs | size | minus: 1 %}
+                    {% for crumb in crumbs offset: 1 %}
+                        {% if forloop.index == crumbs_total %}
+                            {% if site.lang == site.default_lang %}
+                            <li class="active">&gt; <a href="{{ site.baseurl_root }}{{ page.url }}">{{page.title}}</a></li>
+                            {% else %}
+                            <li class="active">&gt; <a href="{{ site.baseurl_root }}/{{ site.lang }}{{ page.url }}">{{page.title}}</a></li>
+                            {% endif %}
+                        {% else %}
+                            {% assign crumb_limit = forloop.index | plus: 1 %}
+                            {% capture crumb_url %}{% for c in crumbs limit: crumb_limit %}{{ c | append: '/' }}{% endfor %}{% endcapture %}
+                            {% capture crumb_with_index %}{{ crumb_url | append: 'index.html' }}{% endcapture %}
+                            {% capture current_page %}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+                            {% for p in site.pages %}
+                                {% if crumb_with_index != current_page and crumb_with_index == p.url %}
+                                    <li>&gt; <a href="{{ crumb_with_index }}">{{ crumb | replace:'-',' ' | capitalize}}</a>
+                                {% endif %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
-                {% endif %}
-            {% endfor %}
-        </ol>
+                </ol>
+            </div>
+          </div>
+    </div>
+
+      
     </div>
 
     {% if page.language_tabs %}
@@ -87,7 +97,7 @@
 							<img src="{{ site.baseurl }}/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
 						</div>
 						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-							<h1>Precisa de ajuda?</h1>
+							<h2>Precisa de ajuda?</h2>
 							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
 						</div>
 				</div>
@@ -157,15 +167,5 @@
     <script src="{{ site.baseurl }}/assets/js/lunr.js"></script>
     <script src="{{ site.baseurl }}/assets/js/search.js"></script>
     {% endif %}
-  <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
   </body>
 </html>
