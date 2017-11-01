@@ -369,7 +369,6 @@ aside a:hover {
 }
 
 h3 +  aside.request {
-    margin-top: 0;
 }
 
 h2 + h3 {
@@ -493,8 +492,10 @@ ul {
 ul.post {
     list-style: none;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
     justify-content: center;
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 ul.post li {
@@ -548,6 +549,15 @@ a.btn:hover {
 
 ul.related-posts.post {
     padding: 0;
+    margin: 0 auto;
+}
+
+.related-posts h1 {
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 header.logo img {
@@ -617,7 +627,7 @@ header.logo img {
     font-size: 20px;
     top: 4px;
     position: relative;
-    color: #000;
+    color: #00aeef;
     transition: .3s ease all;
 }
 
@@ -651,6 +661,11 @@ header.logo img {
 
 .toc-footer {
     width: 100%;
+}
+
+.toc-contact div {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
 }
 
 .nav-list > .active > a, .nav-list > .active > a:hover {
@@ -723,7 +738,12 @@ header.logo img {
 }
 
 #toc .tocify-item.active {
-  background-color: #eee;
+    background-color: #d8d8d8;
+    border-left: 3px solid #02aeef;
+}
+
+#toc .tocify-item.active a {
+    color: #76797a;
 }
 
 #toc .tocify-header li a {
@@ -936,6 +956,11 @@ a.help {
     color: #90a959;
 }
 
+.highlight .err {
+    background: none;
+    color: #f60;
+}
+
 .darbox {
       width: 25%;
 }
@@ -969,6 +994,9 @@ aside.request span.method {
     display: inline-block;
     text-align: center;
     padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 aside.request span.method.post {
@@ -990,15 +1018,16 @@ aside.request span.method.get {
 }
 
 aside.request {
-    margin: 7px 0;
+    margin: 10px 0;
+    display: flex;
 }
 
 span.endpoint {
     background-color: #f5f5f5;
     padding: 12px;
     display: inline-block;
-    width: 100%;
-    max-width: 250px;
+    display: flex;
+    align-items: center;
 }
 
 /* Aside Warnings & Notice */
@@ -1069,6 +1098,61 @@ ul.search-results {
 /* Menu */
 
 
+/* Expandir */
+
+div.highlight {
+    position: relative;
+}
+
+a.expand-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    background-color: #3e3f42;
+    padding: 5px 15px;
+}
+
+a.expand-btn:hover {
+    background-color: #51545a;
+    color: #fff;
+}
+
+.expand-btn .fa {
+    margin-right: 5px;
+}
+
+@media(min-width: 1660px) {
+ a.hide-btn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    width: 25%;
+    background-color: #282a2e;
+    color: #fff;
+    padding: 20px;
+    font-size: 13px;
+}
+
+a.hide-btn:hover {
+    color: #bfbfbf;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.hide-btn .fa {
+    margin-right: 10px;
+}   
+}
+
+
+
+
+/* Expandir */
+
 
 /* Queries */
 
@@ -1117,6 +1201,10 @@ ul.search-results {
         clear: right;
         box-sizing: border-box;
         text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+    }
+
+    a.expand-btn {
+        display: none;
     }
 
     .highlighter-rouge pre.highlight {

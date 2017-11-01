@@ -7,6 +7,7 @@
       <a class="code-menu">
         <i class="fa fa-code code-hamb" aria-hidden="true"></i>
       </a>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
       <div class="dark-box">
       </div>
     {% else %}
@@ -83,7 +84,9 @@
 
     {% if page.language_tabs %}
     <div class="content-container">
-        <div class="dark-box"></div>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
+        <div class="dark-box">
+        </div>
     {% else %}
     <div class="content-container no-dark-box">
     {% endif %}
@@ -118,7 +121,7 @@
             {% elsif page.layout == "tutorial" %}
             selectors: "h1,h2,h3,h4,h5,h6",
             {% else %}
-            selectors: "h1,h2",
+            selectors: "h1,h2,h3,h4,h5,h6",
             {% endif %}
             hashGenerator: "pretty",
             ignoreSelector: ".no-toc"
@@ -167,5 +170,6 @@
     <script src="{{ site.baseurl }}/assets/js/lunr.js"></script>
     <script src="{{ site.baseurl }}/assets/js/search.js"></script>
     {% endif %}
+    <script>jQuery( "div.highlight" ).append( "<a class='expand-btn' id='expand-button'><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>" );</script>
   </body>
 </html>
