@@ -52,7 +52,7 @@ A URL de Retorno é a que a Cielo utilizará para redirecionar o cliente de volt
 ### Parâmetros para integração com POST de notificação
 
 |Parâmetro|Descrição|Tipo do campo|Tamanho mínimo|Tamanho máximo|
-|---------|---------|-------------|--------------|--------------|
+|---|---|---|---|---|
 |`checkout_cielo_order_number`|Identificador único gerado pelo CHECKOUT CIELO|Alfanumérico|1|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Numérico|1|10|
 |`order_number`|Número do pedido enviado pela loja|Alfanumérico|1|32|
@@ -100,7 +100,7 @@ A URL de Mudança de Status é a que a Cielo utilizará para notificar a loja so
 ### Parâmetros para integração com POST de Mudança de Status
 
 |Parâmetro|Descrição|Tipo do campo|Tamanho mínimo|Tamanho máximo|
-|---------|---------|-------------|--------------|--------------|
+|---|---|---|---|---|
 |`checkout_cielo_order_number`|Identificador único gerado pelo CHECKOUT CIELO.|Alfanumérico|1|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Numérico|1|10|
 |`order_number`|Número do pedido enviado pela loja|Alfanumérico|1|32|
