@@ -39,48 +39,56 @@
     
     <div class="content-container no-dark-box">
     
-      <div id="submenu">
-        <div class="submenu-itens">
-          <a href="#" class="help">Ajuda</a>
-
+    <div id="submenu">
+      <div class="submenu-container">
+          <div class="submenu-row sub-items">
+            <div class="submenu-itens">
+              <a href="#" class="help">Ajuda</a>
+              
+          </div>
+            
+            <div class="search">
+              <input type="text" class="search" id="input-search">
+            </div>
+          </div>
+          <div class="submenu-row results">
+            <div class="search-results-container">
+              <ul class="search-results"></ul>
+            </div>
+          </div>
           
-        </div>
+            <div class="submenu-row breads">
+                <ol class="breadcrumb">
+                    
+                    <li><a href="/">Início</a></li>
+                    
+                    
+                    
+                    
+                        
+                            
+                            
+                            
+                            
+                            
+                                
+                            
+                                
+                            
+                        
+                    
+                        
+                            
+                            <li class="active">&gt; <a href="/tutorial/fluxo-checkout">Fluxo de integração e URLs do Checkout Cielo</a></li>
+                            
+                        
+                    
+                </ol>
+            </div>
+          </div>
+    </div>
 
-        
-        <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Busca">
-        </div>
-      </div>
-      <div class="search-results-container">
-        <ul class="search-results"></ul>
-      </div>
       
-        <ol class="breadcrumb">
-            
-            <li><a href="/">Início</a></li>
-            
-            
-            
-            
-                
-                    
-                    
-                    
-                    
-                    
-                        
-                    
-                        
-                    
-                
-            
-                
-                    
-                    <li class="active">&gt; <a href="/tutorial/fluxo-checkout">Fluxo de integração e URLs do Checkout Cielo</a></li>
-                    
-                
-            
-        </ol>
     </div>
 
     
@@ -422,34 +430,6 @@
 
 <p><img src="/images/checkout-reenviar-notificacao.png" alt="Reenvio de notificação" /></p>
 
-    
-<h1>Veja também</h1>
-<ul class="related-posts post">
-    
-    <li class="post-title">
-        <h1 class="no-toc">tutorial</h1>
-        <h2 class="no-toc">Postman Cielo</h2>
-        <p>O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs.</p>
-        <a class="btn" href="/tutorial/postman">Ver Conteúdo</a>
-    </li>
-    
-    <li class="post-title">
-        <h1 class="no-toc">manual</h1>
-        <h2 class="no-toc">Pagador Braspag</h2>
-        <p>Integração técnica Gateway Braspag</p>
-        <a class="btn" href="/manual/pagador">Ver Conteúdo</a>
-    </li>
-    
-    <li class="post-title">
-        <h1 class="no-toc">tutorial</h1>
-        <h2 class="no-toc">Tutorial Boleto e Débito Online</h2>
-        <p>Como configurar o Boleto e o Débito online em seu banco</p>
-        <a class="btn" href="/tutorial/habilitacao-meios-de-pagamento">Ver Conteúdo</a>
-    </li>
-    
-</ul>
-
-
 </div>
 
     </div>
@@ -460,7 +440,7 @@
 							<img src="/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
 						</div>
 						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-							<h1>Precisa de ajuda?</h1>
+							<h2>Precisa de ajuda?</h2>
 							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
 						</div>
 				</div>
@@ -469,16 +449,18 @@
     <div class="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/">
-        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
-      </a>
       <a title="Esconder a coluna da esquerda" class="hamburger">
         <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
       </a>
+      <a href="/">
+        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
     </div>
 
     <div id="toc"></div>
 
+    
     <div class="toc-footer">
       <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
       <ul class="toc-footer">
@@ -489,17 +471,18 @@
         
       </ul>
     </div>
+    
     <div class="toc-contact">
       <div class="contact">
-        <a title="Entre em contato" href="#">
+        <a title="Contato" href="#">
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Entre em contato</span>
+          <span>Contato</span>
         </a>
       </div>
       <div class="github">
-        <a title="Acesse nosso GitHub" href="https://github.com/developercielo">
+        <a title="GitHub" href="https://github.com/developercielo">
           <i class="fa fa-github" aria-hidden="true"></i>
-          <span>Acesse nosso GitHub</span>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -557,15 +540,14 @@
     <script src="/assets/js/lunr.js"></script>
     <script src="/assets/js/search.js"></script>
     
-  <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
+      $('.highlighter-rouge').each(function (index) {
+          if($(this).next().hasClass('highlighter-rouge')) {
+              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
+          }
+      });
+      $('.language-group').prepend('<div class="language-buttons"><a href="#" class="active">JSON</a><a href="#">cURL</a></div>');
+    </script>
   </body>
 </html>

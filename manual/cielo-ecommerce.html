@@ -38,76 +38,87 @@
   <body>
     
     <div class="content-container">
+      <a class="code-menu">
+        <i class="fa fa-code code-hamb" aria-hidden="true"></i>
+      </a>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
       <div class="dark-box">
-        <a class="code-menu">
-          <i class="fa fa-code code-hamb" aria-hidden="true"></i>
-        </a>
       </div>
     
-      <div id="submenu">
-        <div class="submenu-itens">
-          <a href="#" class="help">Ajuda</a>
-
-          
-          <div class="lang">
-            <span>Idiomas</span>
+    <div id="submenu">
+      <div class="submenu-container">
+          <div class="submenu-row sub-items">
+            <div class="submenu-itens">
+              <a href="#" class="help">Ajuda</a>
+              
+            <div class="lang">
+              <span>Idiomas</span>
             
             
-            <a href="/manual/cielo-ecommerce">
+              <a href="/manual/cielo-ecommerce">
             
-              <img alt="Português" src="/assets/images/pt.png"/>
-            </a>
+                <img alt="Português" src="/assets/images/pt.png"/>
+              </a>
+              
             
+              <a href="/en/manual/cielo-ecommerce">
             
-            <a href="/en/manual/cielo-ecommerce">
-            
-              <img alt="English" src="/assets/images/en.png"/>
-            </a>
+                <img alt="English" src="/assets/images/en.png"/>
+              </a>
+              
+            </div>
             
           </div>
+            
+            <div class="search">
+              <input type="text" class="search" id="input-search">
+            </div>
+          </div>
+          <div class="submenu-row results">
+            <div class="search-results-container">
+              <ul class="search-results"></ul>
+            </div>
+          </div>
           
-        </div>
+            <div class="submenu-row breads">
+                <ol class="breadcrumb">
+                    
+                    <li><a href="/">Início</a></li>
+                    
+                    
+                    
+                    
+                        
+                            
+                            
+                            
+                            
+                            
+                                
+                            
+                                
+                            
+                        
+                    
+                        
+                            
+                            <li class="active">&gt; <a href="/manual/cielo-ecommerce">Manual API Cielo eCommerce</a></li>
+                            
+                        
+                    
+                </ol>
+            </div>
+          </div>
+    </div>
 
-        
-        <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Busca">
-        </div>
-      </div>
-      <div class="search-results-container">
-        <ul class="search-results"></ul>
-      </div>
       
-        <ol class="breadcrumb">
-            
-            <li><a href="/">Início</a></li>
-            
-            
-            
-            
-                
-                    
-                    
-                    
-                    
-                    
-                        
-                    
-                        
-                    
-                
-            
-                
-                    
-                    <li class="active">&gt; <a href="/manual/cielo-ecommerce">Manual API Cielo eCommerce</a></li>
-                    
-                
-            
-        </ol>
     </div>
 
     
     <div class="content-container">
-        <div class="dark-box"></div>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
+        <div class="dark-box">
+        </div>
     
 
         <div class="post">
@@ -311,21 +322,21 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">Método</th>
+      <th>Método</th>
       <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><strong>POST</strong></td>
+      <td><strong>POST</strong></td>
       <td>O método HTTP <code class="highlighter-rouge">POST</code> é utilizado na criação dos recursos ou no envio de informações que serão processadas. Por exemplo, criação de uma transação.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>PUT</strong></td>
+      <td><strong>PUT</strong></td>
       <td>O método HTTP <code class="highlighter-rouge">PUT</code> é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>GET</strong></td>
+      <td><strong>GET</strong></td>
       <td>O método HTTP <code class="highlighter-rouge">GET</code> é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.</td>
     </tr>
   </tbody>
@@ -338,69 +349,69 @@
 <table>
   <thead>
     <tr>
-      <th style="text-align: center">Termo</th>
+      <th>Termo</th>
       <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: center"><strong>Autenticação</strong></td>
+      <td><strong>Autenticação</strong></td>
       <td>processo para assegurar que o comprador é realmente aquele quem diz ser (portador legítimo), geralmente ocorre no banco emissor com uso de um token digital ou cartão com chaves de segurança.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Autorização</strong></td>
+      <td><strong>Autorização</strong></td>
       <td>processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios, etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Cancelamento</strong></td>
+      <td><strong>Cancelamento</strong></td>
       <td>processo para cancelar uma compra realizada com cartão.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Captura</strong></td>
+      <td><strong>Captura</strong></td>
       <td>processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizá-la em seu extrato ou fatura.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Chave de acesso</strong></td>
+      <td><strong>Chave de acesso</strong></td>
       <td>é um código de segurança específico de cada loja, gerado pela Cielo, usada para realizar a autenticação e comunicação em todas as mensagens trocadas com a Cielo. Também conhecido como chave de produção e key data.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Comprador</strong></td>
+      <td><strong>Comprador</strong></td>
       <td>é o aquele que efetua compra na loja virtual.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Emissor (ou banco emissor)</strong></td>
+      <td><strong>Emissor (ou banco emissor)</strong></td>
       <td>É a instituição financeira que emite o cartão de crédito, débito ou voucher.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Estabelecimento comercial ou EC</strong></td>
+      <td><strong>Estabelecimento comercial ou EC</strong></td>
       <td>Entidade que responde pela loja virtual.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Gateway de pagamentos</strong></td>
+      <td><strong>Gateway de pagamentos</strong></td>
       <td>Empresa responsável pelo integração técnica e processamento das transações.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Número de credenciamento</strong></td>
+      <td><strong>Número de credenciamento</strong></td>
       <td>é um número identificador que o lojista recebe após seu credenciamento junto à Cielo.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Portador</strong></td>
+      <td><strong>Portador</strong></td>
       <td>é a pessoa que tem o porte do cartão no momento da venda.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>SecureCode</strong></td>
+      <td><strong>SecureCode</strong></td>
       <td>programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>TID (Transaction Identifier)</strong></td>
+      <td><strong>TID (Transaction Identifier)</strong></td>
       <td>código composto por 20 caracteres que identificada unicamente uma transação Cielo eCommerce.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>Transação</strong></td>
+      <td><strong>Transação</strong></td>
       <td>é o pedido de compra do portador do cartão na Cielo.</td>
     </tr>
     <tr>
-      <td style="text-align: center"><strong>VBV (Verified by Visa)</strong></td>
+      <td><strong>VBV (Verified by Visa)</strong></td>
       <td>Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.</td>
     </tr>
   </tbody>
@@ -682,7 +693,7 @@ Com esse meio de pagamento é possível simular os fluxos de:</p>
     <tr>
       <th>Status da Transação</th>
       <th>Final do Cartão</th>
-      <th style="text-align: center">Código de Retorno</th>
+      <th>Código de Retorno</th>
       <th>Mensagem de Retorno</th>
     </tr>
   </thead>
@@ -690,49 +701,49 @@ Com esse meio de pagamento é possível simular os fluxos de:</p>
     <tr>
       <td>Autorizado</td>
       <td>0000.0000.0000.0001<br />0000.0000.0000.0004</td>
-      <td style="text-align: center">4</td>
+      <td>4</td>
       <td>Operação realizada com sucesso</td>
     </tr>
     <tr>
       <td>Não Autorizado</td>
       <td>0000.0000.0000.0002</td>
-      <td style="text-align: center">2</td>
+      <td>2</td>
       <td>Não Autorizada</td>
     </tr>
     <tr>
       <td>Autorização Aleatória</td>
       <td>0000.0000.0000.0009</td>
-      <td style="text-align: center">4 / 99</td>
+      <td>4 / 99</td>
       <td>Operation Successful / Time Out</td>
     </tr>
     <tr>
       <td>Não Autorizado</td>
       <td>0000.0000.0000.0007</td>
-      <td style="text-align: center">77</td>
+      <td>77</td>
       <td>Cartão Cancelado</td>
     </tr>
     <tr>
       <td>Não Autorizado</td>
       <td>0000.0000.0000.0008</td>
-      <td style="text-align: center">70</td>
+      <td>70</td>
       <td>Problemas com o Cartão de Crédito</td>
     </tr>
     <tr>
       <td>Não Autorizado</td>
       <td>0000.0000.0000.0005</td>
-      <td style="text-align: center">78</td>
+      <td>78</td>
       <td>Cartão Bloqueado</td>
     </tr>
     <tr>
       <td>Não Autorizado</td>
       <td>0000.0000.0000.0003</td>
-      <td style="text-align: center">57</td>
+      <td>57</td>
       <td>Cartão Expirado</td>
     </tr>
     <tr>
       <td>Não Autorizado</td>
       <td>0000.0000.0000.0006</td>
-      <td style="text-align: center">99</td>
+      <td>99</td>
       <td>Time Out</td>
     </tr>
   </tbody>
@@ -8377,7 +8388,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       <th>Propriedade</th>
       <th>Descrição</th>
       <th>Tipo</th>
-      <th style="text-align: center">Tamanho</th>
+      <th>Tamanho</th>
       <th>Formato</th>
     </tr>
   </thead>
@@ -8386,7 +8397,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       <td><code class="highlighter-rouge">PaymentId</code></td>
       <td>Campo Identificador do Pedido.</td>
       <td>Guid</td>
-      <td style="text-align: center">36</td>
+      <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
   </tbody>
@@ -12262,7 +12273,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <th>Definição</th>
       <th>Significado</th>
       <th>Ação</th>
-      <th style="text-align: center">Permite Retentativa</th>
+      <th>Permite Retentativa</th>
       <th> </th>
     </tr>
   </thead>
@@ -12272,7 +12283,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Criada</td>
       <td>Transação criada</td>
       <td>N/A</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12280,7 +12291,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Em andamento</td>
       <td>Processamento em andamento</td>
       <td>N/A</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12288,7 +12299,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Autenticada</td>
       <td>Confirmação de autenticação</td>
       <td>N/A</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12296,7 +12307,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Não Autenticada</td>
       <td>Transação não autenticavel</td>
       <td>N/A</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12304,7 +12315,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Autorizada</td>
       <td>Confirmação de autorização</td>
       <td>Captura ou Cancelamento</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12312,7 +12323,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Não Autorizada</td>
       <td>Confirmação de não autorização</td>
       <td>N/A</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12320,7 +12331,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Capturada</td>
       <td>Confirmação de captura</td>
       <td>N/A ou cancelamento</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12328,7 +12339,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Cancelada</td>
       <td>Confirmação de cancelamento</td>
       <td>N/A</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12336,7 +12347,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Em autenticação</td>
       <td>Processamento de autenticação</td>
       <td>N/A</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12344,7 +12355,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Em cancelamento</td>
       <td>Processamento para cancelamento</td>
       <td>N/A</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12352,7 +12363,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação autorizada com sucesso.</td>
       <td>Transação autorizada com sucesso.</td>
       <td>Transação autorizada com sucesso.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12360,7 +12371,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação autorizada com sucesso.</td>
       <td>Transação autorizada com sucesso.</td>
       <td>Transação autorizada com sucesso.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12368,7 +12379,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Transação referida.</td>
       <td>Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12376,7 +12387,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Transação referida.</td>
       <td>Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12384,7 +12395,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Erro no cadastramento do código do estabelecimento no arquivo de configuração do TEF</td>
       <td>Transação não permitida. Estabelecimento inválido. Entre com contato com a Cielo.</td>
       <td>Não foi possível processar a transação. Entre com contato com a Loja Virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12392,7 +12403,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão bloqueado pelo banco emissor.</td>
       <td>Transação não autorizada. Cartão bloqueado pelo banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12400,7 +12411,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão inadimplente (Do not honor).</td>
       <td>Transação não autorizada. Não foi possível processar a transação. Questão relacionada a segurança, inadimplencia ou limite do portador.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12408,7 +12419,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão cancelado.</td>
       <td>Transação não autorizada. Não foi possível processar a transação. Cartão cancelado permanentemente pelo banco emissor.</td>
       <td>Não foi possível processar a transação. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12416,7 +12427,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação negada. Reter cartão condição especial</td>
       <td>Transação não autorizada por regras do banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12424,7 +12435,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Código de segurança inválido.</td>
       <td>Transação não autorizada. Código de segurança inválido. Oriente o portador a corrigir os dados e tentar novamente.</td>
       <td>Transação não autorizada. Dados incorretos. Reveja os dados e informe novamente.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12432,7 +12443,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação autorizada com sucesso para cartão emitido no exterior</td>
       <td>Transação autorizada com sucesso.</td>
       <td>Transação autorizada com sucesso.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12440,7 +12451,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação inválida, erro no cartão.</td>
       <td>Não foi possível processar a transação. Solicite ao portador que verifique os dados do cartão e tente novamente.</td>
       <td>Não foi possível processar a transação. reveja os dados informados e tente novamente. Se o erro persistir, entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12448,7 +12459,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Valor da transação Inválido.</td>
       <td>Transação não permitida. Valor inválido. Solicite ao portador que reveja os dados e novamente. Se o erro persistir, entre em contato com a Cielo.</td>
       <td>Transação não autorizada. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12456,7 +12467,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão Inválido</td>
       <td>Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor, dados incorretos ou tentativas de testes de cartão. Use o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo. Consulte www.cielo.com.br/desenvolvedores para implantar o Algoritmo de Lhum.</td>
       <td>Não foi possível processar a transação. reveja os dados informados e tente novamente. Se o erro persistir, entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12464,7 +12475,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Banco emissor indisponível ou inexistente.</td>
       <td>Transação não autorizada. Banco emissor indisponível.</td>
       <td>Não foi possível processar a transação. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12472,7 +12483,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Refaça a transação ou tente novamente mais tarde.</td>
       <td>Não foi possível processar a transação. Refaça a transação ou tente novamente mais tarde. Se o erro persistir, entre em contato com a Cielo.</td>
       <td>Não foi possível processar a transação. Refaça a transação ou tente novamente mais tarde. Se o erro persistir entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12480,7 +12491,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Cancelamento não efetuado. Transação não localizada.</td>
       <td>Não foi possível processar o cancelamento. Se o erro persistir, entre em contato com a Cielo.</td>
       <td>Não foi possível processar o cancelamento. Tente novamente mais tarde. Persistindo o erro, entrar em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12488,7 +12499,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Parcelamento inválido. Número de parcelas inválidas.</td>
       <td>Não foi possível processar a transação. Número de parcelas inválidas. Se o erro persistir, entre em contato com a Cielo.</td>
       <td>Não foi possível processar a transação. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12496,7 +12507,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Valor da prestação inválido.</td>
       <td>Não foi possível processar a transação. Valor da prestação inválido. Se o erro persistir, entre em contato com a Cielo.</td>
       <td>Não foi possível processar a transação. Valor da prestação inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12504,7 +12515,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Quantidade de parcelas inválido.</td>
       <td>Não foi possível processar a transação. Quantidade de parcelas inválido. Se o erro persistir, entre em contato com a Cielo.</td>
       <td>Não foi possível processar a transação. Quantidade de parcelas inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12512,7 +12523,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Pedido de autorização não enviou número do cartão</td>
       <td>Não foi possível processar a transação. Solicitação de autorização não enviou o número do cartão. Se o erro persistir, verifique a comunicação entre loja virtual e Cielo.</td>
       <td>Não foi possível processar a transação. reveja os dados informados e tente novamente. Persistindo o erro, entrar em contato com a loja virtual.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12520,7 +12531,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Arquivo temporariamente indisponível.</td>
       <td>Não foi possível processar a transação. Arquivo temporariamente indisponível. Reveja a comunicação entre Loja Virtual e Cielo. Se o erro persistir, entre em contato com a Cielo.</td>
       <td>Não foi possível processar a transação. Entre com contato com a Loja Virtual.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12528,7 +12539,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Decline Message</td>
       <td>Não foi possível processar a transação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação com a Cielo esta sendo feita corretamente</td>
       <td>Não foi possível processar a transação. Reveja os dados e tente novamente. Se o erro persistir, entre em contato com a loja</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12536,7 +12547,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Erro no banco emissor.</td>
       <td>Transação não autorizada. Erro no banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12544,7 +12555,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão bloqueado por perda.</td>
       <td>Transação não autorizada. Cartão bloqueado por perda.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12552,7 +12563,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão bloqueado por roubo.</td>
       <td>Transação não autorizada. Cartão bloqueado por roubo.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12560,7 +12571,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Limite excedido/sem saldo.</td>
       <td>Transação não autorizada. Limite excedido/sem saldo.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12568,7 +12579,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Cartão com dígito de controle inválido.</td>
       <td>Não foi possível processar a transação. Cartão com dígito de controle inválido.</td>
       <td>Transação não autorizada. Reveja os dados informados e tente novamente.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12576,7 +12587,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Cartão poupança inválido</td>
       <td>Transação não permitida. Cartão poupança inválido.</td>
       <td>Não foi possível processar a transação. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12584,7 +12595,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão vencido</td>
       <td>Transação não autorizada. Cartão vencido.</td>
       <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12592,7 +12603,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Senha inválida</td>
       <td>Transação não autorizada. Senha inválida.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12600,7 +12611,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida para o cartão</td>
       <td>Transação não autorizada. Transação não permitida para o cartão.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12608,7 +12619,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Opção de pagamento inválida.</td>
       <td>Transação não permitida. Opção de pagamento inválida. Reveja se a opção de pagamento escolhida está habilitada no cadastro</td>
       <td>Transação não autorizada. Entre em contato com sua loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12616,7 +12627,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Suspeita de fraude.</td>
       <td>Transação não autorizada. Suspeita de fraude.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12624,7 +12635,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada.</td>
       <td>Transação não autorizada. Tente novamente. Se o erro persistir o portador deve entrar em contato com o banco emissor.</td>
       <td>Não foi possível processar a transação. Tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12632,7 +12643,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Banco emissor indisponível.</td>
       <td>Transação não autorizada. Banco emissor indisponível.</td>
       <td>Transação não autorizada. Tente novamente. Se o erro persistir, entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12640,7 +12651,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão restrito para uso doméstico</td>
       <td>Transação não autorizada. Cartão restrito para uso doméstico.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12648,7 +12659,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Violação de segurança</td>
       <td>Transação não autorizada. Violação de segurança.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12656,7 +12667,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Valor abaixo do mínimo exigido pelo banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
       <td>Transação não autorizada. Valor abaixo do mínimo exigido pelo banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12664,7 +12675,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Excedida a quantidade de transações para o cartão.</td>
       <td>Transação não autorizada. Excedida a quantidade de transações para o cartão.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12672,7 +12683,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão bloqueado para compras hoje.</td>
       <td>Transação não autorizada. Cartão bloqueado para compras hoje. Bloqueio pode ter ocorrido por excesso de tentativas inválidas. O cartão será desbloqueado automaticamente à meia noite.</td>
       <td>Transação não autorizada. Cartão bloqueado temporariamente. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12680,7 +12691,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Limite excedido/sem saldo.</td>
       <td>Transação não autorizada. Limite excedido/sem saldo.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12688,7 +12699,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente.</td>
       <td>Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente. Se o erro persistir, entre em contato com a Cielo.</td>
       <td>Cancelamento não efetuado. Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12696,7 +12707,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. A senha está vencida.</td>
       <td>Transação não autorizada. A senha está vencida.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12704,7 +12715,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Senha bloqueada. Excedeu tentativas de cartão.</td>
       <td>Transação não autorizada.</td>
       <td>Sua Transação não pode ser processada. Entre em contato com o Emissor do seu cartão.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12712,7 +12723,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Cancelamento não efetuado. Banco emissor não localizou a transação original</td>
       <td>Cancelamento não efetuado. Banco emissor não localizou a transação original</td>
       <td>Cancelamento não efetuado. Entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12720,7 +12731,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Cancelamento não efetuado. Não foi localizado a transação original</td>
       <td>Cancelamento não efetuado. Não foi localizado a transação original</td>
       <td>Cancelamento não efetuado. Entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12728,7 +12739,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão bloqueado primeiro uso.</td>
       <td>Transação não autorizada. Cartão bloqueado primeiro uso. Solicite ao portador que desbloqueie o cartão diretamente com seu banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor e solicite o desbloqueio do cartão.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12736,7 +12747,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
       <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
       <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12744,7 +12755,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão inválido.</td>
       <td>Transação não autorizada. Cartão Inválido. Solicite ao portador que reveja os dados e tente novamente.</td>
       <td>Transação não autorizada. Refazer a transação confirmando os dados. Se o erro persistir, entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12752,7 +12763,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Erro no controle de senhas</td>
       <td>Transação não autorizada. Erro no controle de senhas</td>
       <td>Transação não autorizada. Refazer a transação confirmando os dados. Se o erro persistir, entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12760,7 +12771,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Falha da operação.</td>
       <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
       <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12768,7 +12779,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Falha da operação.</td>
       <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
       <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12776,7 +12787,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Erro na transação.</td>
       <td>Transação não autorizada. Erro na transação. O portador deve tentar novamente e se o erro persistir, entrar em contato com o banco emissor.</td>
       <td>Transação não autorizada. Erro na transação. Tente novamente e se o erro persistir, entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12784,7 +12795,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Falha da operação.</td>
       <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
       <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12792,7 +12803,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Banco emissor temporariamente indisponível.</td>
       <td>Transação não autorizada. Banco emissor temporariamente indisponível.</td>
       <td>Transação não autorizada. Banco emissor temporariamente indisponível. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12800,7 +12811,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Tempo de comunicação excedido.</td>
       <td>Transação não autorizada. Tempo de comunicação excedido.</td>
       <td>Transação não autorizada. Comunicação temporariamente indisponível. Entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12808,7 +12819,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Violação de regra - Possível erro no cadastro.</td>
       <td>Transação não autorizada. Violação de regra - Possível erro no cadastro.</td>
       <td>Sua transação não pode ser processada. Entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12816,7 +12827,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Falha no processamento.</td>
       <td>Não foi possível processar a transação. Falha no sistema da Cielo. Se o erro persistir, entre em contato com a Cielo.</td>
       <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12824,7 +12835,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Valor não permitido para essa transação.</td>
       <td>Transação não autorizada. Valor não permitido para essa transação.</td>
       <td>Transação não autorizada. Valor não permitido para essa transação.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12832,7 +12843,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Sistema/comunicação indisponível.</td>
       <td>Transação não autorizada. Sistema do emissor sem comunicação. Se for geral, verificar SITEF, GATEWAY e/ou Conectividade.</td>
       <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12840,7 +12851,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Sistema/comunicação indisponível.</td>
       <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !</td>
       <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12848,7 +12859,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Sistema/comunicação indisponível.</td>
       <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !</td>
       <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12856,7 +12867,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Tempo Excedido</td>
       <td>Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.</td>
       <td>Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12864,7 +12875,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Cartão de débito sendo usado com crédito. Use a função débito.</td>
       <td>Transação não permitida. Cartão de débito sendo usado com crédito. Solicite ao portador que selecione a opção de pagamento Cartão de Débito.</td>
       <td>Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de débito.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12872,7 +12883,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Tente Mais Tarde</td>
       <td>Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.</td>
       <td>Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12880,7 +12891,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Falha da operação.</td>
       <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
       <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12888,7 +12899,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Falha da operação.</td>
       <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
       <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12896,7 +12907,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Cartão de crédito sendo usado com débito. Use a função crédito.</td>
       <td>Transação não permitida. Cartão de crédito sendo usado com débito. Solicite ao portador que selecione a opção de pagamento Cartão de Crédito.</td>
       <td>Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de crédito.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12904,7 +12915,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Autenticação não foi realizada.</td>
       <td>Transação não autorizada. Autenticação não foi realizada. O portador não concluiu a autenticação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir, entre em contato com a Cielo informando o BIN (6 primeiros dígitos do cartão)</td>
       <td>Transação não autorizada. Autenticação não foi realizada com sucesso. Tente novamente e informe corretamente os dados solicitado. Se o erro persistir, entre em contato com o lojista.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12912,7 +12923,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente selecionando a opção Private Label.</td>
       <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Solicite ao portador que tente novamente selecionando a opção Private Label. Caso não disponibilize a opção Private Label verifique na Cielo se o seu estabelecimento permite essa operação.</td>
       <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente e selecione a opção Private Label. Em caso de um novo erro entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12920,7 +12931,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Dados Inválidos</td>
       <td>Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.</td>
       <td>Falha na validação dos dados. Reveja os dados informados e tente novamente.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12928,7 +12939,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Falha da operação.</td>
       <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
       <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12936,7 +12947,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Limite diário excedido.</td>
       <td>Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.</td>
       <td>Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12944,7 +12955,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão Inválido</td>
       <td>Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor ou dados incorretos. Tente usar o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo.</td>
       <td>Transação não autorizada. Cartão inválido.  Refaça a transação confirmando os dados informados.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12952,7 +12963,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão ou conta bloqueado.</td>
       <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com  seu banco emissor.</td>
       <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com  seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12960,7 +12971,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Falha da operação.</td>
       <td>Transação não permitida. Houve um erro no processamento. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.</td>
       <td>Transação não permitida. Houve um erro no processamento. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -12968,7 +12979,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Conta corrente inexistente.</td>
       <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Solicite ao portador que entre em contato com o banco emissor.</td>
       <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Entre em contato com o banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12976,7 +12987,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão vencido</td>
       <td>Transação não autorizada. Cartão vencido.</td>
       <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12984,7 +12995,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada.C79:J79 Falha na validação dos dados.</td>
       <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
       <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -12992,7 +13003,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Falha na validação dos dados.</td>
       <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
       <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13000,7 +13011,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Falha na validação dos dados.</td>
       <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
       <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13008,7 +13019,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Falha no cartão ou cartão inválido.</td>
       <td>Transação não permitida. Falha no cartão ou cartão inválido. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco</td>
       <td>Transação não permitida. Falha no cartão ou cartão inválido. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -13016,7 +13027,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Limite excedido/sem saldo.</td>
       <td>Transação não autorizada. Limite excedido/sem saldo.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -13024,7 +13035,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Falha na validação dos dados.</td>
       <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
       <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13032,7 +13043,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida para o cartão</td>
       <td>Transação não autorizada. Transação não permitida para o cartão.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -13040,7 +13051,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Limite diário excedido.</td>
       <td>Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.</td>
       <td>Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -13048,7 +13059,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Valor da parcela inferior ao mínimo permitido.</td>
       <td>Transação não permitida. Valor da parcela inferior ao mínimo permitido. Não é permitido parcelas inferiores a R$ 5,00. Necessário rever calculo para parcelas.</td>
       <td>Transação não permitida. O valor da parcela está abaixo do mínimo permitido. Entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13056,7 +13067,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida para o cartão</td>
       <td>Transação não autorizada. Transação não permitida para o cartão.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -13064,7 +13075,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada.</td>
       <td>Transação não autorizada AmEx.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13072,7 +13083,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Ligue Emissor</td>
       <td>Transação não autorizada. Oriente o portador a entrar em contato com o banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13080,7 +13091,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação negada. Reter cartão condição especial</td>
       <td>Transação não autorizada por regras do banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13088,7 +13099,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
       <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
       <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13096,7 +13107,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Cancelamento OK</td>
       <td>Transação de cancelamento autorizada com sucesso. ATENÇÂO: Esse retorno é para casos de cancelamentos e não para casos de autorizações.</td>
       <td>Transação de cancelamento autorizada com sucesso</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13104,7 +13115,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Ligue AmEx.</td>
       <td>Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.</td>
       <td>Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13112,7 +13123,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Ligue 08007285090</td>
       <td>Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.</td>
       <td>Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13120,7 +13131,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Aguarde Contato</td>
       <td>Transação não autorizada. Referida pelo Lynx Online de forma preventiva. A Cielo entrará em contato com o lojista sobre esse caso.</td>
       <td>Transação não autorizada. Entre em contato com o lojista.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13128,7 +13139,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Código da operação inválido.</td>
       <td>Transação não permitida. Código da operação Coban inválido.</td>
       <td>Transação não permitida. Código da operação Coban inválido. Entre em contato com o lojista.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13136,7 +13147,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Indicador da operação inválido.</td>
       <td>Transação não permitida. Indicador da operação Coban inválido.</td>
       <td>Transação não permitida. Indicador da operação Coban inválido. Entre em contato com o lojista.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13144,7 +13155,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Valor da operação inválido.</td>
       <td>Transação não permitida. Valor da operação Coban inválido.</td>
       <td>Transação não permitida. Valor da operação Coban inválido. Entre em contato com o lojista.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13152,7 +13163,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Falha na validação dos dados.</td>
       <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
       <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13160,7 +13171,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Selecionado a opção incorrente.</td>
       <td>Transação não permitida. Selecionado a opção incorreta. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir deve ser verificado a comunicação entre loja virtual e Cielo.</td>
       <td>Transação não permitida. Selecionado a opção incorreta. Tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13168,7 +13179,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Falha na validação dos dados.</td>
       <td>Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Verifique as opções disponíveis para o portador.</td>
       <td>Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Entre em contato com a loja virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13176,7 +13187,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Código de segurança inválido.</td>
       <td>Transação não autorizada. Código de segurança inválido. Oriente o portador corrigir os dados e tentar novamente.</td>
       <td>Transação não autorizada. Reveja os dados e informe novamente.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13184,7 +13195,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não autorizada. Cartão inadimplente (Do not honor).</td>
       <td>Transação não autorizada. Não foi possível processar a transação. Questão relacionada a segurança, inadimplencia ou limite do portador.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td style="text-align: center">Apenas 4 vezes em 16 dias.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
       <td> </td>
     </tr>
     <tr>
@@ -13192,7 +13203,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida. Falha na validação dos dados.</td>
       <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
       <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
-      <td style="text-align: center">Não</td>
+      <td>Não</td>
       <td> </td>
     </tr>
     <tr>
@@ -13200,7 +13211,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       <td>Transação não permitida</td>
       <td>Transação não permitida</td>
       <td>Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes.</td>
-      <td style="text-align: center">Transação não permitida. Entre em contato com a loja virtual</td>
+      <td>Transação não permitida. Entre em contato com a loja virtual</td>
       <td>Não</td>
     </tr>
   </tbody>
@@ -14039,34 +14050,6 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
   </tbody>
 </table>
 
-  
-<h1>Veja também</h1>
-<ul class="related-posts post">
-    
-    <li class="post-title">
-        <h1 class="no-toc">tutorial</h1>
-        <h2 class="no-toc">Postman Cielo</h2>
-        <p>O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs.</p>
-        <a class="btn" href="/tutorial/postman">Ver Conteúdo</a>
-    </li>
-    
-    <li class="post-title">
-        <h1 class="no-toc">manual</h1>
-        <h2 class="no-toc">Pagador Braspag</h2>
-        <p>Integração técnica Gateway Braspag</p>
-        <a class="btn" href="/manual/pagador">Ver Conteúdo</a>
-    </li>
-    
-    <li class="post-title">
-        <h1 class="no-toc">tutorial</h1>
-        <h2 class="no-toc">Tutorial Boleto e Débito Online</h2>
-        <p>Como configurar o Boleto e o Débito online em seu banco</p>
-        <a class="btn" href="/tutorial/habilitacao-meios-de-pagamento">Ver Conteúdo</a>
-    </li>
-    
-</ul>
-
-
 </div>
 
     </div>
@@ -14077,7 +14060,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
 							<img src="/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
 						</div>
 						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-							<h1>Precisa de ajuda?</h1>
+							<h2>Precisa de ajuda?</h2>
 							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
 						</div>
 				</div>
@@ -14086,16 +14069,18 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
     <div class="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/">
-        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
-      </a>
       <a title="Esconder a coluna da esquerda" class="hamburger">
         <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
       </a>
+      <a href="/">
+        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
     </div>
 
     <div id="toc"></div>
 
+    
     <div class="toc-footer">
       <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
       <ul class="toc-footer">
@@ -14108,17 +14093,18 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
         
       </ul>
     </div>
+    
     <div class="toc-contact">
       <div class="contact">
-        <a title="Entre em contato" href="#">
+        <a title="Contato" href="#">
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Entre em contato</span>
+          <span>Contato</span>
         </a>
       </div>
       <div class="github">
-        <a title="Acesse nosso GitHub" href="https://github.com/developercielo">
+        <a title="GitHub" href="https://github.com/developercielo">
           <i class="fa fa-github" aria-hidden="true"></i>
-          <span>Acesse nosso GitHub</span>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -14135,7 +14121,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
     $(function() {
         $("#toc").tocify({
             
-            selectors: "h1,h2",
+            selectors: "h1,h2,h3,h4,h5,h6",
             
             hashGenerator: "pretty",
             ignoreSelector: ".no-toc"
@@ -14184,15 +14170,14 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
     <script src="/assets/js/lunr.js"></script>
     <script src="/assets/js/search.js"></script>
     
-  <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
+      $('.highlighter-rouge').each(function (index) {
+          if($(this).next().hasClass('highlighter-rouge')) {
+              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
+          }
+      });
+      $('.language-group').prepend('<div class="language-buttons"><a href="#" class="active">JSON</a><a href="#">cURL</a></div>');
+    </script>
   </body>
 </html>

@@ -38,76 +38,87 @@
   <body>
     
     <div class="content-container">
+      <a class="code-menu">
+        <i class="fa fa-code code-hamb" aria-hidden="true"></i>
+      </a>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
       <div class="dark-box">
-        <a class="code-menu">
-          <i class="fa fa-code code-hamb" aria-hidden="true"></i>
-        </a>
       </div>
     
-      <div id="submenu">
-        <div class="submenu-itens">
-          <a href="#" class="help">Help</a>
-
-          
-          <div class="lang">
-            <span>Languages</span>
+    <div id="submenu">
+      <div class="submenu-container">
+          <div class="submenu-row sub-items">
+            <div class="submenu-itens">
+              <a href="#" class="help">Help</a>
+              
+            <div class="lang">
+              <span>Languages</span>
             
             
-            <a href="/manual/checkout-cielo">
+              <a href="/manual/checkout-cielo">
             
-              <img alt="Português" src="/en/assets/images/pt.png"/>
-            </a>
+                <img alt="Português" src="/en/assets/images/pt.png"/>
+              </a>
+              
             
+              <a href="/en/manual/checkout-cielo">
             
-            <a href="/en/manual/checkout-cielo">
-            
-              <img alt="English" src="/en/assets/images/en.png"/>
-            </a>
+                <img alt="English" src="/en/assets/images/en.png"/>
+              </a>
+              
+            </div>
             
           </div>
+            
+            <div class="search">
+              <input type="text" class="search" id="input-search">
+            </div>
+          </div>
+          <div class="submenu-row results">
+            <div class="search-results-container">
+              <ul class="search-results"></ul>
+            </div>
+          </div>
           
-        </div>
+            <div class="submenu-row breads">
+                <ol class="breadcrumb">
+                    
+                    <li><a href="/en/">Home</a></li>
+                    
+                    
+                    
+                    
+                        
+                            
+                            
+                            
+                            
+                            
+                                
+                            
+                                
+                            
+                        
+                    
+                        
+                            
+                            <li class="active">&gt; <a href="/en/manual/checkout-cielo">Manual Checkout Cielo</a></li>
+                            
+                        
+                    
+                </ol>
+            </div>
+          </div>
+    </div>
 
-        
-        <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-      </div>
-      <div class="search-results-container">
-        <ul class="search-results"></ul>
-      </div>
       
-        <ol class="breadcrumb">
-            
-            <li><a href="/en/">Home</a></li>
-            
-            
-            
-            
-                
-                    
-                    
-                    
-                    
-                    
-                        
-                    
-                        
-                    
-                
-            
-                
-                    
-                    <li class="active">&gt; <a href="/en/manual/checkout-cielo">Manual Checkout Cielo</a></li>
-                    
-                
-            
-        </ol>
     </div>
 
     
     <div class="content-container">
-        <div class="dark-box"></div>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
+        <div class="dark-box">
+        </div>
     
 
         <div class="post">
@@ -2571,7 +2582,7 @@ Below is the parameters that should be sent to Checkout via technical contract, 
 Request parameter with information about shopping cart. See also the parameter Item [Item](#item)
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|-----------|-------|---------|
+|---|---|---|---|---|
 |Discount|[Discount](#discount)|Optional|n/a|Discount information about the shopping cart.|
 |Items|[Item[]](#item)|Sim|n/a|List of shopping cart items (must contain at minimum of 1 item).|
 
@@ -2587,8 +2598,8 @@ Request parameter with information about shopping cart. See also the parameter I
 Request Parameter with information about discounts.
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|-----------|-------|---------|
-|Type|Alphanumeric|Conditional|n/a|Type of discount to be applied:  "Amount”, “Percent”. It’s mandatory in case of the Value being higher or equals zero. |
+|---|---|---|---|---|
+|Type|Alphanumeric|Conditional|n/a|Type of discount to be applied:  "Amount”, “Percent”. It’s mandatory in case of the Value being higher or equals zero.|
 |Value|Numeric|Conditional|0..18|Discount value to be applied (it can be an absolute value or percentage). It’s mandatory in case of Type being “Amount” or “Percent”.|
 
 #### Discount.Type = Amount
@@ -2616,9 +2627,9 @@ In case the discount type chosen being `Percentual`, it must be insert the **int
 Parameter of request with information about a shopping cart item. See also the [Cart](#cart) parameter.
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|-----------|-------|---------|
+|---|---|---|---|---|
 |Name|Alphanumeric|Sim|1..128|Item’s name of cart.|
-|Description|Alphanumeric|Opcional|0.256|Item description in the cart |
+|Description|Alphanumeric|Opcional|0.256|Item description in the cart|
 |UnitPrice|Numeric|Sim|1..18|Unit price of item in cart (in centavos.* Ex: R$ 1,00 = 100)*.|
 |Quantity|Numeric|Sim|1..9|Quantity of item in cart|
 |Type|Alphanumeric|Sim|n/a|Item type in cart|
@@ -2628,7 +2639,7 @@ Parameter of request with information about a shopping cart item. See also the [
 #### Items type
 
 |Tipo|Descrição|
-|----|---------|
+|---|---|
 |Asset|Physical material|
 |Digital|Digital Goods|
 |Service|Services|
@@ -2655,7 +2666,7 @@ Parameter of request with information about a shopping cart item. See also the [
 Request parameter with information about the address and shipping service of product delivery.
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|---------|----|-----------|
+|---|---|---|---|---|
 |Type|Alphanumeric|Sim|n/a|Shipping type: “Correios”, “FixedAmount”, “Free”, “WithoutShippingPickUp”, “WithoutShipping”.|
 |SourceZipCode|Numeric|Conditional|8|Origin Zip code of shopping cart|
 |TargetZipCode|Numeric|Optional|8|Zip code of customer shipping address|
@@ -2666,7 +2677,7 @@ Request parameter with information about the address and shipping service of pro
 ### Métricas
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|---------|----|-----------|
+|---|---|---|---|---|
 |Package|Alphanumeric|Obrigatório|n/a|Package type: BOX, ROL or ENVELOPE|
 |Lenght|Numeric|Mandatory|n/a|Packet length|
 |Height|Numeric|Conditional|n/a|Package Height sent|Required if Shipping.Package is a BOX, for example|
@@ -2694,13 +2705,13 @@ To use the Volumetric shipping, just send the Shipping.Measures node, following 
 Request parameter with information about the customer address. See also the Customer [Customer](#customer) parameter
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|-----------|-------|---------|
+|---|---|---|---|---|
 |Street|Alphanumeric|Sim|1..256|Street, avenue, crosspiece, etc, of customer shipping address.|
 |Number|Alphanumeric|Sim|1..8|Number of customer shipping address|
-|Complement|Alphanumeric|Opcional|0..256|Complement of customer shipping address  |
-|District|Alphanumeric|Sim|1..64|Neighborhood (district) of customer shipping address. |
+|Complement|Alphanumeric|Opcional|0..256|Complement of customer shipping address|
+|District|Alphanumeric|Sim|1..64|Neighborhood (district) of customer shipping address.|
 |City|Alphanumeric|Sim|1..64|City of customer shipping address.|
-|State|Alphanumeric|Sim|2|Federal State (UF) of customer shipping address. |
+|State|Alphanumeric|Sim|2|Federal State (UF) of customer shipping address.|
 
 ### Service
 
@@ -2715,7 +2726,7 @@ Request parameter with information about the customer address. See also the Cust
 Request parameter with information about the shipping service that will be used.
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|-----------|-------|---------|
+|---|---|---|---|---|
 |Name|Alphanumeric|Sim|1..128|Shipping service name|
 |Price|Numeric|Sim|1..18|Shipping service price (in centavos. Ex: R$ 1,00 = 100).|
 |Deadline|Numeric|Condicional|0..9|Delivery deadline (in days).|
@@ -2736,7 +2747,7 @@ Request parameter with information about the shipping service that will be used.
 Request parameter with information about the discount for payment via boleto or online debit.
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|-----------|-------|---------|
+|---|---|---|---|---|
 |BoletoDiscount|Numeric|Condicional|0..3|Discount, in percentage, for payment to be executed with boleto.|
 |DebitDiscount|Numeric|Condicional|0..3|Discount, in percentage, for payment to be executed online debit.|
 |RecurrentPayment|[RecurrentPayment](#recurrentpayment)|Conditional|Object required for recurrence payment|
@@ -2753,14 +2764,14 @@ Request parameter with information about the discount for payment via boleto or 
 Request parameter with information about recurrency
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|-----------|-------|---------|
+|---|---|---|---|---|
 |Interval|Alphanumeric|Sim|n/a|Type recurrence interval; see the table [Intervalo de Recorrência](#intervalo-de-recorrência)|
 |EndDate|Date|No|n/a|Final date of recurrency on format YYYY-MM-DD|
 
 ### Recurrency interval
 
 |Value|Description|
-|-----|---------|
+|---|---|
 |Monthly|Monthly transaction.|
 |Bimonthly|Bimonthly transaction.|
 |Quarterly|Quarterly transaction.|
@@ -2781,12 +2792,12 @@ Request parameter with information about recurrency
 Request parameter with information about the buyer. See also [Address](#address) Parameter.
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|-----------|-------|---------|
+|---|---|---|---|---|
 |Identity|Numeric|Condicional|0..14|Customer CPF or CNPJ (digital certificate
 for the Brazilian legal entities)|
-|FullName|Alphanumeric|Condicional|0..288|Complete customer name. |
+|FullName|Alphanumeric|Condicional|0..288|Complete customer name.|
 |Email|Alphanumeric|Condicional|0..64|Customer Email.|
-|Phone|Numeric|Condicional|0..11|Customer telephone |
+|Phone|Numeric|Condicional|0..11|Customer telephone|
 
 ## Options
 
@@ -2799,7 +2810,7 @@ for the Brazilian legal entities)|
 Request parameter to configure the anti fraud system for a transaction.
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|-----------|-------|---------|
+|---|---|---|---|---|
 |AntifraudEnabled|Boolean|Conditional|n/a|Enable or not a fraud analysis for an order|
 
 ## Settings
@@ -2815,7 +2826,7 @@ Response parameter, received in case of success.
 ```
 
 |Field|Type|Mandatory|Size|Description|
-|-----|----|-----------|-------|---------|
+|---|---|---|---|---|
 |CheckoutUrl|Alphanumeric|Sim|1..128|Checkout URL of order. **Format**: `https://cieloecommerce.cielo.com.br/transacional/order/index?id={id}`|
 |Profile|Alphanumeric|Sim|1..16|Retailer’s profile: fix “CheckoutCielo”.|
 |Version|Alphanumeric|Sim|1|Service version of order creation *(version: 1)*.|
@@ -2834,8 +2845,8 @@ Orders for credit card will be included on Cielo Checkout Backoffice at [Backoff
 
 ### Status de transação
 
-|Transaction Status |Description|
-|-------------------|-----------|
+|Transaction Status|Description|
+|---|---|
 |Pending (For all payment methods)|Indicates a payment that is being processed; Comments: Boleto - Indicates that a boleto didn't changed its status by the merchant|
 |Paid (For all payment methods)|Captured transacation and the money will be deposited in account.|
 |Denied (Only for Credit Card)|Transaction not authorized by the payment method issuer|
@@ -2855,7 +2866,7 @@ This analysis will indicate a **“LOW RISK”** or “HIGH RISK” for the sale
 ### Antifraud Status
 
 |Antifraud Status|Substatus|Description|
-|----------------|---------|-----------|
+|---|---|---|
 |Low Risk|Low Risk|Low Risk of a fraudlent transaction|
 |Medium Risk|Medium Risk|Medium Risk of a fraudlent transaction|
 |Not finished|Not finished|It's impossible to finish this consult|
@@ -3071,27 +3082,6 @@ It’s possible to select one or more options of shipping. They are presented to
 <aside class="notice">The consumer can not change the shipping address on the Checkout screen Cielo</aside>
 </strong></aside></strong></aside></strong></aside></strong></aside>
 
-  
-<h1>Veja também</h1>
-<ul class="related-posts post">
-    
-    <li class="post-title">
-        <h1 class="no-toc">manual</h1>
-        <h2 class="no-toc">Integração Webservice 1.5</h2>
-        <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a solução Webservice da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.</p>
-        <a class="btn" href="/en/manual/webservice-1-5">Ver Conteúdo</a>
-    </li>
-    
-    <li class="post-title">
-        <h1 class="no-toc">manual</h1>
-        <h2 class="no-toc">API Integration 3.0</h2>
-        <p>The purpose of this documentation is to guide the developer on how to integrate with Cielo's API 3.0, describing the features, methods to be used, listing information to be sent and received and providing examples.</p>
-        <a class="btn" href="/en/manual/api-cielo-ecommerce">Ver Conteúdo</a>
-    </li>
-    
-</ul>
-
-
 </div>
 
     </div>
@@ -3102,7 +3092,7 @@ It’s possible to select one or more options of shipping. They are presented to
 							<img src="/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
 						</div>
 						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-							<h1>Precisa de ajuda?</h1>
+							<h2>Precisa de ajuda?</h2>
 							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
 						</div>
 				</div>
@@ -3111,16 +3101,18 @@ It’s possible to select one or more options of shipping. They are presented to
     <div class="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/en/">
-        <img src="/en/assets/images/logo.png" alt="Documentações e tutoriais">
-      </a>
       <a title="Toggle left column" class="hamburger">
         <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
       </a>
+      <a href="/en/">
+        <img src="/en/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
     </div>
 
     <div id="toc"></div>
 
+    
     <div class="toc-footer">
       <h2 class="no-toc toc-footer-title">Complementary materials</h2>
       <ul class="toc-footer">
@@ -3133,17 +3125,18 @@ It’s possible to select one or more options of shipping. They are presented to
         
       </ul>
     </div>
+    
     <div class="toc-contact">
       <div class="contact">
-        <a title="Be in touch" href="#">
+        <a title="Contact" href="#">
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Be in touch</span>
+          <span>Contact</span>
         </a>
       </div>
       <div class="github">
-        <a title="Access our GitHub" href="https://github.com/developercielo">
+        <a title="GitHub" href="https://github.com/developercielo">
           <i class="fa fa-github" aria-hidden="true"></i>
-          <span>Access our GitHub</span>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -3160,7 +3153,7 @@ It’s possible to select one or more options of shipping. They are presented to
     $(function() {
         $("#toc").tocify({
             
-            selectors: "h1,h2",
+            selectors: "h1,h2,h3,h4,h5,h6",
             
             hashGenerator: "pretty",
             ignoreSelector: ".no-toc"
@@ -3209,15 +3202,14 @@ It’s possible to select one or more options of shipping. They are presented to
     <script src="/en/assets/js/lunr.js"></script>
     <script src="/en/assets/js/search.js"></script>
     
-  <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
+      $('.highlighter-rouge').each(function (index) {
+          if($(this).next().hasClass('highlighter-rouge')) {
+              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
+          }
+      });
+      $('.language-group').prepend('<div class="language-buttons"><a href="#" class="active">JSON</a><a href="#">cURL</a></div>');
+    </script>
   </body>
 </html>

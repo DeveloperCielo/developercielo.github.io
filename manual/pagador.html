@@ -38,106 +38,212 @@
   <body>
     
     <div class="content-container">
+      <a class="code-menu">
+        <i class="fa fa-code code-hamb" aria-hidden="true"></i>
+      </a>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
       <div class="dark-box">
-        <a class="code-menu">
-          <i class="fa fa-code code-hamb" aria-hidden="true"></i>
-        </a>
       </div>
     
-      <div id="submenu">
-        <div class="submenu-itens">
-          <a href="#" class="help">Ajuda</a>
-
-          
-          <div class="lang">
-            <span>Idiomas</span>
+    <div id="submenu">
+      <div class="submenu-container">
+          <div class="submenu-row sub-items">
+            <div class="submenu-itens">
+              <a href="#" class="help">Ajuda</a>
+              
+            <div class="lang">
+              <span>Idiomas</span>
             
             
-            <a href="/manual/pagador">
+              <a href="/manual/pagador">
             
-              <img alt="Português" src="/assets/images/pt.png"/>
-            </a>
+                <img alt="Português" src="/assets/images/pt.png"/>
+              </a>
+              
             
+              <a href="/en/manual/pagador">
             
-            <a href="/en/manual/pagador">
-            
-              <img alt="English" src="/assets/images/en.png"/>
-            </a>
+                <img alt="English" src="/assets/images/en.png"/>
+              </a>
+              
+            </div>
             
           </div>
+            
+            <div class="search">
+              <input type="text" class="search" id="input-search">
+            </div>
+          </div>
+          <div class="submenu-row results">
+            <div class="search-results-container">
+              <ul class="search-results"></ul>
+            </div>
+          </div>
           
-        </div>
+            <div class="submenu-row breads">
+                <ol class="breadcrumb">
+                    
+                    <li><a href="/">Início</a></li>
+                    
+                    
+                    
+                    
+                        
+                            
+                            
+                            
+                            
+                            
+                                
+                            
+                                
+                            
+                        
+                    
+                        
+                            
+                            <li class="active">&gt; <a href="/manual/pagador">Pagador Braspag</a></li>
+                            
+                        
+                    
+                </ol>
+            </div>
+          </div>
+    </div>
 
-        
-        <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Busca">
-        </div>
-      </div>
-      <div class="search-results-container">
-        <ul class="search-results"></ul>
-      </div>
       
-        <ol class="breadcrumb">
-            
-            <li><a href="/">Início</a></li>
-            
-            
-            
-            
-                
-                    
-                    
-                    
-                    
-                    
-                        
-                    
-                        
-                    
-                
-            
-                
-                    
-                    <li class="active">&gt; <a href="/manual/pagador">Pagador Braspag</a></li>
-                    
-                
-            
-        </ol>
     </div>
 
     
     <div class="content-container">
-        <div class="dark-box"></div>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
+        <div class="dark-box">
+        </div>
     
 
         <div class="post">
-  
+  <h1 id="introdução-ao-pagador-api">Introdução ao Pagador API</h1>
 
-  
-<h1>Veja também</h1>
-<ul class="related-posts post">
-    
-    <li class="post-title">
-        <h1 class="no-toc">tutorial</h1>
-        <h2 class="no-toc">Postman Cielo</h2>
-        <p>O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs.</p>
-        <a class="btn" href="/tutorial/postman">Ver Conteúdo</a>
-    </li>
-    
-    <li class="post-title">
-        <h1 class="no-toc">tutorial</h1>
-        <h2 class="no-toc">Tutorial Boleto e Débito Online</h2>
-        <p>Como configurar o Boleto e o Débito online em seu banco</p>
-        <a class="btn" href="/tutorial/habilitacao-meios-de-pagamento">Ver Conteúdo</a>
-    </li>
-    
-    <li class="post-title">
-        <h1 class="no-toc">manual</h1>
-        <h2 class="no-toc">Integração Webservice 1.5</h2>
-        <p>Integração Técnica via XML</p>
-        <a class="btn" href="/manual/webservice-1-5">Ver Conteúdo</a>
-    </li>
-    
+<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com o API do Pagador, gateway de pagamentos da Braspag, descrevendo os serviços disponíveis com exemplos de requisição e respostas.</p>
+
+<p>Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key) específicos para respectivos ambientes: <strong>Sandbox</strong>, <strong>Homologação</strong> e <strong>Produção</strong>. Para executar uma operação, combine o endpoint base do ambiente com o endpoint da operação desejada e envie utilizando o VERBO HTTP conforme descrito na operação.</p>
+
+<h2 id="ambientes">Ambientes</h2>
+
+<h3 id="ambiente-sandbox">Ambiente Sandbox</h3>
+
+<p>Experimente as nossas APIs sem compromisso!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Informação</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Credenciais de Acesso à API</td>
+      <td>Acesse o <a href="https://cadastrosandbox.braspag.com.br/">Cadastro do Sandbox</a> e crie uma conta de testes.<br />Ao fim do cadastro você receberá um <code class="highlighter-rouge">MerchantId</code> e um <code class="highlighter-rouge">MerchantKey</code>,<br /> que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API</td>
+    </tr>
+    <tr>
+      <td>Endpoint Transacional</td>
+      <td>https://apisandbox.braspag.com.br/</td>
+    </tr>
+    <tr>
+      <td>Endpoint para Serviços de Consultas</td>
+      <td>https://apiquerysandbox.braspag.com.br/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ambiente-de-homologação">Ambiente de Homologação</h3>
+
+<p>Valide seu desenvolvimento junto à nossa equipe!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Informação</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Credenciais de Acesso à API</td>
+      <td>Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio!</td>
+    </tr>
+    <tr>
+      <td>Endpoint Transacional</td>
+      <td>https://apihomolog.braspag.com.br/</td>
+    </tr>
+    <tr>
+      <td>Endpoint para Serviços de Consultas</td>
+      <td>https://apiqueryhomolog.braspag.com.br/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ambiente-de-produção">Ambiente de Produção</h3>
+
+<p>Já estou pronto para entrar em Produção!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Informação</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Credenciais de Acesso à API</td>
+      <td>Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio!</td>
+    </tr>
+    <tr>
+      <td>Endpoint Transacional</td>
+      <td>https://api.braspag.com.br/</td>
+    </tr>
+    <tr>
+      <td>Endpoint para Serviços de Consultas</td>
+      <td>https://apiquery.braspag.com.br/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="suporte-braspag">Suporte Braspag</h2>
+
+<aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda à sexta, das 9h às 19h, e telefone de emergência 24×7, através de ferramenta via web. Contamos com a equipe que poderá atender em português, inglês e espanhol</aside>
+
+<ul>
+  <li>Atendimento Web: <a href="http://suporte.braspag.com.br/">Suporte Braspag via Portal</a></li>
+  <li>E-mail: <a href="suporte@braspag.com.br">mailto:suporte@braspag.com.br</a></li>
+  <li>Telefone: (11) 2184-0550</li>
+</ul>
+
+<h2 id="características-da-solução">Características da Solução</h2>
+
+<p>A solução API Pagador foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Desta forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, entre outras.</p>
+
+<p>Entre outras características, os atributos que mais se destacam na plataforma Braspag eCommerce:</p>
+
+<ul>
+  <li><strong>Ausência de aplicativos proprietários</strong>: não é necessário instalar aplicativos no ambiente da loja virtual em nenhuma hipótese.</li>
+  <li><strong>Simplicidade</strong>: o protocolo utilizado é puramente o HTTPS.</li>
+  <li><strong>Facilidade de testes</strong>: a plataforma Braspag oferece um ambiente Sandbox publicamente acessível, que permite ao desenvolvedor a criação de uma conta de testes sem a necessidade de credenciamento, facilitando e agilizando o início da integração.</li>
+  <li><strong>Credenciais</strong>: o tratamento das credenciais do cliente (número de afiliação e chave de acesso) trafega no cabeçalho da requisição HTTP da mensagem.</li>
+  <li><strong>Segurança</strong>: a troca de informações se dá sempre entre o Servidor da Loja e da Braspag, ou seja, sem o browser do comprador.</li>
+  <li><strong>Multiplataforma</strong>: a integração é realizada através de Web Service REST.</li>
+</ul>
+
+<h2 id="arquitetura">Arquitetura</h2>
+
+<p>A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Existem duas URLs (endpoints), uma específica para autorização, captura e cancelamento de transações, e uma outra para operações como pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT. Cada tipo de mensagem deve ser enviada para um endereço identificado através do “path”.</p>
+
+<ul>
+  <li><strong>POST</strong> - O método HTTP POST é utilizado na criação de uma transação.</li>
+  <li><strong>PUT</strong> - O método HTTP PUT é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.</li>
+  <li><strong>GET</strong> - O método HTTP GET é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.</li>
 </ul>
 
 
@@ -151,7 +257,7 @@
 							<img src="/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
 						</div>
 						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-							<h1>Precisa de ajuda?</h1>
+							<h2>Precisa de ajuda?</h2>
 							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
 						</div>
 				</div>
@@ -160,16 +266,18 @@
     <div class="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/">
-        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
-      </a>
       <a title="Esconder a coluna da esquerda" class="hamburger">
         <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
       </a>
+      <a href="/">
+        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
     </div>
 
     <div id="toc"></div>
 
+    
     <div class="toc-footer">
       <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
       <ul class="toc-footer">
@@ -182,17 +290,18 @@
         
       </ul>
     </div>
+    
     <div class="toc-contact">
       <div class="contact">
-        <a title="Entre em contato" href="#">
+        <a title="Contato" href="#">
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Entre em contato</span>
+          <span>Contato</span>
         </a>
       </div>
       <div class="github">
-        <a title="Acesse nosso GitHub" href="https://github.com/developercielo">
+        <a title="GitHub" href="https://github.com/developercielo">
           <i class="fa fa-github" aria-hidden="true"></i>
-          <span>Acesse nosso GitHub</span>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -209,7 +318,7 @@
     $(function() {
         $("#toc").tocify({
             
-            selectors: "h1,h2",
+            selectors: "h1,h2,h3,h4,h5,h6",
             
             hashGenerator: "pretty",
             ignoreSelector: ".no-toc"
@@ -258,15 +367,14 @@
     <script src="/assets/js/lunr.js"></script>
     <script src="/assets/js/search.js"></script>
     
-  <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
+      $('.highlighter-rouge').each(function (index) {
+          if($(this).next().hasClass('highlighter-rouge')) {
+              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
+          }
+      });
+      $('.language-group').prepend('<div class="language-buttons"><a href="#" class="active">JSON</a><a href="#">cURL</a></div>');
+    </script>
   </body>
 </html>

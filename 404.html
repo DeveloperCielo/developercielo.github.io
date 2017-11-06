@@ -39,28 +39,36 @@
     
     <div class="content-container no-dark-box">
     
-      <div id="submenu">
-        <div class="submenu-itens">
-          <a href="#" class="help">Ajuda</a>
-
+    <div id="submenu">
+      <div class="submenu-container">
+          <div class="submenu-row sub-items">
+            <div class="submenu-itens">
+              <a href="#" class="help">Ajuda</a>
+              
+          </div>
+            
+          </div>
           
-        </div>
+            <div class="submenu-row breads">
+                <ol class="breadcrumb">
+                    
+                    <li><a href="/">Início</a></li>
+                    
+                    
+                    
+                    
+                        
+                            
+                            <li class="active">&gt; <a href="/404.html">404: Page not found</a></li>
+                            
+                        
+                    
+                </ol>
+            </div>
+          </div>
+    </div>
 
-        
-        <ol class="breadcrumb">
-            
-            <li><a href="/">Início</a></li>
-            
-            
-            
-            
-                
-                    
-                    <li class="active">&gt; <a href="/404.html">404: Page not found</a></li>
-                    
-                
-            
-        </ol>
+      
     </div>
 
     
@@ -80,7 +88,7 @@
 							<img src="/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
 						</div>
 						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-							<h1>Precisa de ajuda?</h1>
+							<h2>Precisa de ajuda?</h2>
 							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
 						</div>
 				</div>
@@ -89,33 +97,29 @@
     <div class="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/">
-        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
-      </a>
       <a title="Esconder a coluna da esquerda" class="hamburger">
         <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
       </a>
+      <a href="/">
+        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
     </div>
 
     <div id="toc"></div>
 
-    <div class="toc-footer">
-      <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
-      <ul class="toc-footer">
-        
-      </ul>
-    </div>
+    
     <div class="toc-contact">
       <div class="contact">
-        <a title="Entre em contato" href="#">
+        <a title="Contato" href="#">
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Entre em contato</span>
+          <span>Contato</span>
         </a>
       </div>
       <div class="github">
-        <a title="Acesse nosso GitHub" href="https://github.com/developercielo">
+        <a title="GitHub" href="https://github.com/developercielo">
           <i class="fa fa-github" aria-hidden="true"></i>
-          <span>Acesse nosso GitHub</span>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -132,7 +136,7 @@
     $(function() {
         $("#toc").tocify({
             
-            selectors: "h1,h2",
+            selectors: "h1,h2,h3,h4,h5,h6",
             
             hashGenerator: "pretty",
             ignoreSelector: ".no-toc"
@@ -169,15 +173,14 @@
     
 
     
-  <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
+      $('.highlighter-rouge').each(function (index) {
+          if($(this).next().hasClass('highlighter-rouge')) {
+              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
+          }
+      });
+      $('.language-group').prepend('<div class="language-buttons"><a href="#" class="active">JSON</a><a href="#">cURL</a></div>');
+    </script>
   </body>
 </html>

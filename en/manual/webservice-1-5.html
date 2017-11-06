@@ -38,76 +38,87 @@
   <body>
     
     <div class="content-container">
+      <a class="code-menu">
+        <i class="fa fa-code code-hamb" aria-hidden="true"></i>
+      </a>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
       <div class="dark-box">
-        <a class="code-menu">
-          <i class="fa fa-code code-hamb" aria-hidden="true"></i>
-        </a>
       </div>
     
-      <div id="submenu">
-        <div class="submenu-itens">
-          <a href="#" class="help">Help</a>
-
-          
-          <div class="lang">
-            <span>Languages</span>
+    <div id="submenu">
+      <div class="submenu-container">
+          <div class="submenu-row sub-items">
+            <div class="submenu-itens">
+              <a href="#" class="help">Help</a>
+              
+            <div class="lang">
+              <span>Languages</span>
             
             
-            <a href="/manual/webservice-1-5">
+              <a href="/manual/webservice-1-5">
             
-              <img alt="Português" src="/en/assets/images/pt.png"/>
-            </a>
+                <img alt="Português" src="/en/assets/images/pt.png"/>
+              </a>
+              
             
+              <a href="/en/manual/webservice-1-5">
             
-            <a href="/en/manual/webservice-1-5">
-            
-              <img alt="English" src="/en/assets/images/en.png"/>
-            </a>
+                <img alt="English" src="/en/assets/images/en.png"/>
+              </a>
+              
+            </div>
             
           </div>
+            
+            <div class="search">
+              <input type="text" class="search" id="input-search">
+            </div>
+          </div>
+          <div class="submenu-row results">
+            <div class="search-results-container">
+              <ul class="search-results"></ul>
+            </div>
+          </div>
           
-        </div>
+            <div class="submenu-row breads">
+                <ol class="breadcrumb">
+                    
+                    <li><a href="/en/">Home</a></li>
+                    
+                    
+                    
+                    
+                        
+                            
+                            
+                            
+                            
+                            
+                                
+                            
+                                
+                            
+                        
+                    
+                        
+                            
+                            <li class="active">&gt; <a href="/en/manual/webservice-1-5">Integração Webservice 1.5</a></li>
+                            
+                        
+                    
+                </ol>
+            </div>
+          </div>
+    </div>
 
-        
-        <div class="search">
-            <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-      </div>
-      <div class="search-results-container">
-        <ul class="search-results"></ul>
-      </div>
       
-        <ol class="breadcrumb">
-            
-            <li><a href="/en/">Home</a></li>
-            
-            
-            
-            
-                
-                    
-                    
-                    
-                    
-                    
-                        
-                    
-                        
-                    
-                
-            
-                
-                    
-                    <li class="active">&gt; <a href="/en/manual/webservice-1-5">Integração Webservice 1.5</a></li>
-                    
-                
-            
-        </ol>
     </div>
 
     
     <div class="content-container">
-        <div class="dark-box"></div>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
+        <div class="dark-box">
+        </div>
     
 
         <div class="post">
@@ -3402,27 +3413,6 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>International Program of Mastercard allows the customer authentication at the purchase moment on e-commerce environment. Visit: <a href="http://www.verifiedbyvisa.com.br/">http://www.verifiedbyvisa.com.br/</a> to more information.</p>
 
-  
-<h1>Veja também</h1>
-<ul class="related-posts post">
-    
-    <li class="post-title">
-        <h1 class="no-toc">manual</h1>
-        <h2 class="no-toc">API Integration 3.0</h2>
-        <p>The purpose of this documentation is to guide the developer on how to integrate with Cielo's API 3.0, describing the features, methods to be used, listing information to be sent and received and providing examples.</p>
-        <a class="btn" href="/en/manual/api-cielo-ecommerce">Ver Conteúdo</a>
-    </li>
-    
-    <li class="post-title">
-        <h1 class="no-toc">manual</h1>
-        <h2 class="no-toc">Manual Checkout Cielo</h2>
-        <p>O objetivo desta documentação é orientar o desenvolvedor sobre o método de integração da API Checkout Cielo, solução simplificada na qual o consumidor é direcionado para uma página de pagamento online segura da Cielo, proporcionando um alto nível de confiança, dentro das mais rígidas normas de segurança (PCI).</p>
-        <a class="btn" href="/en/manual/checkout-cielo">Ver Conteúdo</a>
-    </li>
-    
-</ul>
-
-
 </div>
 
     </div>
@@ -3433,7 +3423,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 							<img src="/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
 						</div>
 						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-							<h1>Precisa de ajuda?</h1>
+							<h2>Precisa de ajuda?</h2>
 							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
 						</div>
 				</div>
@@ -3442,16 +3432,18 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <div class="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
-      <a href="/en/">
-        <img src="/en/assets/images/logo.png" alt="Documentações e tutoriais">
-      </a>
       <a title="Toggle left column" class="hamburger">
         <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
       </a>
+      <a href="/en/">
+        <img src="/en/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
     </div>
 
     <div id="toc"></div>
 
+    
     <div class="toc-footer">
       <h2 class="no-toc toc-footer-title">Complementary materials</h2>
       <ul class="toc-footer">
@@ -3464,17 +3456,18 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
         
       </ul>
     </div>
+    
     <div class="toc-contact">
       <div class="contact">
-        <a title="Be in touch" href="#">
+        <a title="Contact" href="#">
           <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Be in touch</span>
+          <span>Contact</span>
         </a>
       </div>
       <div class="github">
-        <a title="Access our GitHub" href="https://github.com/developercielo">
+        <a title="GitHub" href="https://github.com/developercielo">
           <i class="fa fa-github" aria-hidden="true"></i>
-          <span>Access our GitHub</span>
+          <span>GitHub</span>
         </a>
       </div>
     </div>
@@ -3491,7 +3484,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     $(function() {
         $("#toc").tocify({
             
-            selectors: "h1,h2",
+            selectors: "h1,h2,h3,h4,h5,h6",
             
             hashGenerator: "pretty",
             ignoreSelector: ".no-toc"
@@ -3540,15 +3533,14 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <script src="/en/assets/js/lunr.js"></script>
     <script src="/en/assets/js/search.js"></script>
     
-  <script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <script>
+      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
+      $('.highlighter-rouge').each(function (index) {
+          if($(this).next().hasClass('highlighter-rouge')) {
+              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
+          }
+      });
+      $('.language-group').prepend('<div class="language-buttons"><a href="#" class="active">JSON</a><a href="#">cURL</a></div>');
+    </script>
   </body>
 </html>
