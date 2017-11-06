@@ -70,6 +70,7 @@ Um Alias pode ser associado a um novo Token, desde que antes seja desassociado d
 <aside class="notice">Obs.: A desassociação ocorrerá após a execução do método InvalidateCreditCard </aside>
 
 ## Forma de Associação Não Aceita
+
 Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
 desde que esteja desvinculado de um determinado Token:
 
@@ -79,7 +80,7 @@ desde que esteja desvinculado de um determinado Token:
 |LOJA A|Token 2|XPTO|1|
 |LOJA A|Token 3|XPTO|1|
 
-#FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO
+# FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO
 
 Abaixo está representado o fluxo de uma requisição para salvar um cartão de um cliente durante uma venda, seguido de outro fluxo onde o mesmo cliente realiza uma compra via CARTÃO PROTEGIDO.
 
@@ -228,7 +229,6 @@ O método GetMaskedCreditCard recebe o objeto GetMaskedCreditCardRequest, e deve
 |Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
 |ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
 
-
 ## RECUPERANDO informações sobre o Cartão de Crédito
 
 O método GetCreditCard recebe o objeto GetCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito, incluindo o número aberto do cartão. Em geral, esse método será utilizado apenas quando se desejar autorizar a transação via outra plataforma que não o PAGADOR. Este método deve ser usado com muito cuidado por ter informações sensíveis.
@@ -307,7 +307,6 @@ O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e de
 |Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
 |ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
 
-
 ## Detalhes importantes no consumo dos métodos
 
 * **“RequestID”/ “CorrelationID”**: No envio do objeto de Request, deve ser enviado no parâmetro “RequestID” um guid qualquer que funcionará como uma chave identificadora daquela requisição. Após processamento do Request em questão, o objeto de Response será montado com o devido resultado e o parâmetro “CorrelationID” conterá o mesmo guid enviado no Request (“RequestID”). Desta forma é possível se certificar de qual Request o objeto Response é
@@ -317,7 +316,6 @@ proveniente;
 deve ser abortado e o erro analisado e tratado.
 
 * **“ErrorReportCollection”**: Todo objeto de Response possui o parâmetro “ErrorReportCollection” que conterá o(s) erro(s) ocorrido(s) no processamento, ou seja, quando o parâmetro “Sucess” for FALSE. Erro de processamento pode ser devido a um parâmetro incorreto ou a falta de um parâmetro esperado.
-
 
 # MAPA DE ERROS
 

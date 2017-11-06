@@ -79,7 +79,6 @@ Alguns blocos são opcionais de serem exibidos na tela, e para os mesmos ficarem
  
 A seguir iremos explicar passo a passo quais os blocos disponíveis com seus campos e a obrigatoriedade de cada campo referente ao bloco que pertence. 
 
-
 ### Dados do Pedido 
 
 Neste passo é possível informar os dados do pedido. 
@@ -166,10 +165,10 @@ O fim de uma recorrência dependerá da data fim informada, caso não seja infor
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
-|Intervalo 	Intervalo da recorrência Obs.: por padrão Mensal|SIM| 
+|Intervalo|Intervalo da recorrência Obs.: por padrão Mensal|SIM| 
 |Data Início|Data para início da recorrência Obs.: Não é possível alterar|SIM|
 |Dia das demais recorrências|Dia em que as demais recorrências irão acontecer. Ex.: a próxima poderá ser em 15/10/2016 por exemplo|SIM|
-|Data Fim 	Data para término da recorrência|NÃO|
+|Data Fim|Data para término da recorrência|NÃO|
 
 ### Endereço de Cobrança 
 
@@ -233,12 +232,12 @@ A coluna “Ações” possui links onde o usuário poderá tomar a ação desej
 
 ## Capturar 
 
-Esta ação ficará disponível para o usuário caso o seu POS Virtual no momento do setup não desejar que a forma de pagamento seja com captura automática, ou seja, ao realizar o passo 7 clicando no botão “Pagar”, o pedido será autorizado apenas, necessitando da ação de clicar no link “Capturar” do usuário para mudar o status de “Não Pago” para “Pago”. Para esta opção, no momento do setup do seu POS Virtual, é possível escolher por captura parcial ou total. 
- 	 
+Esta ação ficará disponível para o usuário caso o seu POS Virtual no momento do setup não desejar que a forma de pagamento seja com captura automática, ou seja, ao realizar o passo 7 clicando no botão “Pagar”, o pedido será autorizado apenas, necessitando da ação de clicar no link “Capturar” do usuário para mudar o status de “Não Pago” para “Pago”. Para esta opção, no momento do setup do seu POS Virtual, é possível escolher por captura parcial ou total.
+
 ### Captura Parcial
 
-É a ação de capturar um determinado valor menor que o valor autorizado. Ex.: 
- 
+É a ação de capturar um determinado valor menor que o valor autorizado. Ex.:
+
 * Transação autorizada de R$ 100,00 
 * Captura parcial de R$ 50,00 
 
