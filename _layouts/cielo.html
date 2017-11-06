@@ -118,8 +118,6 @@
         $("#toc").tocify({
             {% if page.layout == "faq" %}
             selectors: "h1",
-            {% elsif page.layout == "tutorial" %}
-            selectors: "h1,h2,h3,h4,h5,h6",
             {% else %}
             selectors: "h1,h2,h3,h4,h5,h6",
             {% endif %}
