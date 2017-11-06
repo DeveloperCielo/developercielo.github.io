@@ -423,20 +423,25 @@ No <strong>Checkout Cielo</strong> não há <code class="highlighter-rouge">Merc
     </script>
 
     
-
-    
     <script src="/assets/js/jquery.highlight.js"></script>
     <script src="/assets/js/lunr.js"></script>
     <script src="/assets/js/search.js"></script>
     
     <script>
       $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
-      $('.highlighter-rouge').each(function (index) {
+      $('.highlighter-rouge pre').parent().each(function (index) {
           if($(this).next().hasClass('highlighter-rouge')) {
               $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
           }
       });
-      $('.language-group').prepend('<div class="language-buttons"><a href="#" class="active">JSON</a><a href="#">cURL</a></div>');
+
+      let langs = '';
+      let activeLang = '';
+
+      
+
+      $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
     </script>
+    
   </body>
 </html>

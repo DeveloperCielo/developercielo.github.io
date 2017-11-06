@@ -23,8 +23,8 @@ under the License.
     if (!language) return;
     if (language === "") return;
 
-    $(".lang-selector a").removeClass('active');
-    $(".lang-selector a[data-language-name='" + language + "']").addClass('active');
+    $(".language-buttons a").removeClass('active');
+    $(".language-buttons a[data-language-name='" + language + "']").addClass('active');
     for (var i=0; i < languages.length; i++) {
       $(".language-" + languages[i]).hide();
     }
@@ -73,7 +73,7 @@ under the License.
 
   // if we click on a language tab, activate that language
   $(function() {
-    $(".lang-selector a").on("click", function() {
+    $(".language-buttons a").on("click", function() {
       var language = $(this).data("language-name");
       var e = new CustomEvent('languagechange', { 'detail': language});
 

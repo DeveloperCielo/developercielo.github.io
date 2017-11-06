@@ -3188,6 +3188,68 @@ It’s possible to select one or more options of shipping. They are presented to
     </script>
 
     
+    <script src="/en/assets/js/jquery.highlight.js"></script>
+    <script src="/en/assets/js/lunr.js"></script>
+    <script src="/en/assets/js/search.js"></script>
+    
+    <script>
+      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
+      $('.highlighter-rouge pre').parent().each(function (index) {
+          if($(this).next().hasClass('highlighter-rouge')) {
+              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
+          }
+      });
+
+      let langs = '';
+      let activeLang = '';
+
+      
+      langs += "<a data-language-name='json'>JSON</a>";
+
+      if (activeLang == '') {
+          activeLang = 'json';
+      }
+      
+      langs += "<a data-language-name='shell'>Shell</a>";
+
+      if (activeLang == '') {
+          activeLang = 'shell';
+      }
+      
+      langs += "<a data-language-name='php'>PHP</a>";
+
+      if (activeLang == '') {
+          activeLang = 'php';
+      }
+      
+      langs += "<a data-language-name='ruby'>Ruby</a>";
+
+      if (activeLang == '') {
+          activeLang = 'ruby';
+      }
+      
+      langs += "<a data-language-name='python'>Python</a>";
+
+      if (activeLang == '') {
+          activeLang = 'python';
+      }
+      
+      langs += "<a data-language-name='java'>Java</a>";
+
+      if (activeLang == '') {
+          activeLang = 'java';
+      }
+      
+      langs += "<a data-language-name='csharp'>C#</a>";
+
+      if (activeLang == '') {
+          activeLang = 'csharp';
+      }
+      
+
+      $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+    </script>
+    
     <script src="/en/assets/js/lang.js"></script>
     <script>
     $(function() {
@@ -3196,20 +3258,5 @@ It’s possible to select one or more options of shipping. They are presented to
     });
     </script>
     
-
-    
-    <script src="/en/assets/js/jquery.highlight.js"></script>
-    <script src="/en/assets/js/lunr.js"></script>
-    <script src="/en/assets/js/search.js"></script>
-    
-    <script>
-      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
-      $('.highlighter-rouge').each(function (index) {
-          if($(this).next().hasClass('highlighter-rouge')) {
-              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
-          }
-      });
-      $('.language-group').prepend('<div class="language-buttons"><a href="#" class="active">JSON</a><a href="#">cURL</a></div>');
-    </script>
   </body>
 </html>

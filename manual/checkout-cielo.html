@@ -3291,6 +3291,32 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
     </script>
 
     
+    <script src="/assets/js/jquery.highlight.js"></script>
+    <script src="/assets/js/lunr.js"></script>
+    <script src="/assets/js/search.js"></script>
+    
+    <script>
+      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
+      $('.highlighter-rouge pre').parent().each(function (index) {
+          if($(this).next().hasClass('highlighter-rouge')) {
+              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
+          }
+      });
+
+      let langs = '';
+      let activeLang = '';
+
+      
+      langs += "<a data-language-name='json'>JSON</a>";
+
+      if (activeLang == '') {
+          activeLang = 'json';
+      }
+      
+
+      $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+    </script>
+    
     <script src="/assets/js/lang.js"></script>
     <script>
     $(function() {
@@ -3299,20 +3325,5 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
     });
     </script>
     
-
-    
-    <script src="/assets/js/jquery.highlight.js"></script>
-    <script src="/assets/js/lunr.js"></script>
-    <script src="/assets/js/search.js"></script>
-    
-    <script>
-      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
-      $('.highlighter-rouge').each(function (index) {
-          if($(this).next().hasClass('highlighter-rouge')) {
-              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
-          }
-      });
-      $('.language-group').prepend('<div class="language-buttons"><a href="#" class="active">JSON</a><a href="#">cURL</a></div>');
-    </script>
   </body>
 </html>
