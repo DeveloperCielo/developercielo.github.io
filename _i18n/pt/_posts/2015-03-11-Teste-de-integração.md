@@ -22,9 +22,9 @@ language_tabs:
 
 <aside class="request">Teste de POST<span class="method POST">
 
-<aside class="notice">
+<aside class="notice">Valor do *NOTICE*</aside>
 
-<aside class="warning">
+<aside class="warning">Valor do *Warning*</aside>
 
 ## Nivel 2
 
