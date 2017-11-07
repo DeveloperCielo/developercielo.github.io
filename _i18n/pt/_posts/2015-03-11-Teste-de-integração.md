@@ -85,11 +85,11 @@ Detaque de Código: `Name.Company`
 |`Name.company`|Nome do produto|
 |`price.company`|Preço do Produto|
 
+> Teste de Mensagem de destaque
+
 #### Nivel 4
 
 4444444444444444444
-
-> Teste de Mensagem de destaque
 
 ```json
 {
@@ -165,3 +165,6 @@ Conteudo Tipo *D*
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
+<aside class="warning">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
+
+<aside class="notice">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
