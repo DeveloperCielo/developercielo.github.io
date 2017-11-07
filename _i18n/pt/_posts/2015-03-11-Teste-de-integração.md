@@ -157,7 +157,6 @@ Conteudo Tipo *C*
 
 Conteudo Tipo *D*
 
-
 <aside class="request"><span class="method get">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 <aside class="request"><span class="method put">POST</span> <span class="endpoint">/1/sales/</span></aside>
