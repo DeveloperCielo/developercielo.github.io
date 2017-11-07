@@ -12,7 +12,7 @@ language_tabs:
   shell: cURL
 ---
 
-# Nivel 1
+# **Nivel 1**
 
 ```json
 {
@@ -68,7 +68,7 @@ curl
 
 11111111111111111111
 
-## Nivel 2
+## **Nivel 2**
 
 2222222222222222222
 
