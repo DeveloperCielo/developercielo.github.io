@@ -126,71 +126,160 @@
 
 <p>11111111111111111111</p>
 
-<h2 id="nivel-2">Nivel 2</h2>
+<aside class="request">Teste de GET<span class="method GET">
 
-<p>2222222222222222222</p>
+<aside class="request">Teste de PUT<span class="method PUT">
 
-<h3 id="nivel-3">Nivel 3</h3>
+<aside class="request">Teste de POST<span class="method POST">
 
-<p>333333333333333333</p>
+<aside class="notice">
 
-<h4 id="nivel-4">Nivel 4</h4>
+<aside class="warning">
 
-<p>4444444444444444444</p>
+## Nivel 2
 
-<blockquote>
-  <p>Teste de Mensagem de destaque</p>
-</blockquote>
+2222222222222222222
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito simples"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
-     </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-     </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+```json
+{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     }
+   }
+}
+```
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>  
-   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111703"</span>,
-   <span class="s2">"Customer"</span>:<span class="o">{</span>  
-      <span class="s2">"Name"</span>:<span class="s2">"Comprador crédito simples"</span>
-   <span class="o">}</span>,
-   <span class="s2">"Payment"</span>:<span class="o">{</span>  
-     <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-     <span class="s2">"Amount"</span>:15700,
-     <span class="s2">"Installments"</span>:1,
-     <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
-     <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
-         <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,
-         <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
-         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-     <span class="o">}</span>
-   <span class="o">}</span>
-<span class="o">}</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111703",
+   "Customer":{  
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"4551870000000183",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     }
+   }
+}
+--verbose
+```
+
+### Nivel 3
+
+333333333333333333
+
+Teste de Cor das tabelas: *Cabeçalho* e *fundo*
+
+|Tipo|Descrição|
+|----|---------|
+|`Nome`|Nome do produto|
+|`preço`|Preço do Produto|
+
+#### Nivel 4
+
+4444444444444444444
+
+&gt; Teste de Mensagem de destaque
+
+```json
+{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111703",
+   "Customer":{  
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"4551870000000183",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     }
+   }
+}
+--verbose
+```
+
+# Nivel A
+
+Conteudo Tipo *A*
+
+## Nivel B
+
+Conteudo Tipo *B*
+
+### Nivel C
+
+Conteudo Tipo *C*
+
+#### Nivel D
+
+Conteudo Tipo *D*
+
+
+
+</aside></aside></span></aside></span></aside></span></aside>
 
 </div>
 
