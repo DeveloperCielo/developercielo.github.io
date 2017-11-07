@@ -78,6 +78,8 @@ curl
 
 Teste de Cor das tabelas: *Cabeçalho* e *fundo*
 
+Detaque de Código: `Name.Company`
+
 |Tipo|Descrição|
 |----|---------|
 |`Name.company`|Nome do produto|
