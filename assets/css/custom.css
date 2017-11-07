@@ -791,12 +791,21 @@ ol.breadcrumb li.active a {
 }
 
 code {
-    background: #fff;
     padding: 3px;
     color: #888;
-    font-family: monaco;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
     font-size: 12px;
     border-radius: 5px;
+    background-color: #e6e6e6;
+}
+
+.post table tbody code {
+    padding: 3px;
+    color: #888;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: #e6e6e6;
 }
 
 .highlight {
@@ -1197,6 +1206,26 @@ a.hide-btn .fa {
 }
 
 /* Trocar Linguagem */
+
+/* Blockquotes */
+
+blockquote {
+    background-color: #fafafa;
+    display: table;
+    padding: 15px 60px 15px 15px;
+    border-left: 5px solid #32AEED;
+}
+
+/* Blockquotes */
+
+/* Offseting Anchors */
+
+div:empty {
+    position: relative;
+    content: "";
+    display: block;
+    top: -120px;
+}
 
 
 /* Queries */

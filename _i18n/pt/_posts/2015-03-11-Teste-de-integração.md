@@ -13,7 +13,7 @@ language_tabs:
 
 ---
 
-# O que é a Teste
+# Nível 1
 
 11111111111111111111
 
@@ -30,6 +30,12 @@ language_tabs:
 4444444444444444444
 
 > Teste de Mensagem de destaque
+
+Destaque de código `Código`
+
+|Funcionalidade|Descrição|
+|---|---|
+|**Tela transacional**|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`<br>|
 
 ```json
 {
