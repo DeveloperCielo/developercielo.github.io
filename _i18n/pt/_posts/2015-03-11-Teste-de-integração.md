@@ -80,8 +80,8 @@ Teste de Cor das tabelas: *Cabeçalho* e *fundo*
 
 |Tipo|Descrição|
 |----|---------|
-|`Nome`|Nome do produto|
-|`preço`|Preço do Produto|
+|`Name.company`|Nome do produto|
+|`price.company`|Preço do Produto|
 
 #### Nivel 4
 
