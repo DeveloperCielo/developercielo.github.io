@@ -12,6 +12,7 @@
 
     <div id="toc"></div>
 
+    {% if page.toc_footers %}
     <div class="toc-footer">
       <h2 class="no-toc toc-footer-title">{% t global.complementary %}</h2>
       <ul class="toc-footer">
@@ -20,6 +21,7 @@
         {% endfor %}
       </ul>
     </div>
+    {% endif %}
     <div class="toc-contact">
       <div class="contact">
         <a title="{% t global.contact %}" href="#">

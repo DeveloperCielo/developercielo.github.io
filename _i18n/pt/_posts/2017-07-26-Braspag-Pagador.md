@@ -28,7 +28,7 @@ Todas as operações requerem credenciais de acesso (Merchant ID e Merchant Key)
 Experimente as nossas APIs sem compromisso! 
 
 |Informação|Descrição|
-|----------|---------|
+|---|---|
 |Credenciais de Acesso à API|Acesse o [Cadastro do Sandbox](https://cadastrosandbox.braspag.com.br/) e crie uma conta de testes.<BR>Ao fim do cadastro você receberá um `MerchantId` e um `MerchantKey`,<BR> que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API|
 |Endpoint Transacional|https://apisandbox.braspag.com.br/|
 |Endpoint para Serviços de Consultas|https://apiquerysandbox.braspag.com.br/|
@@ -38,7 +38,7 @@ Experimente as nossas APIs sem compromisso!
 Valide seu desenvolvimento junto à nossa equipe! 
 
 |Informação|Descrição|
-|----------|---------|
+|---|---|
 |Credenciais de Acesso à API|Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio!|
 |Endpoint Transacional|https://apihomolog.braspag.com.br/|
 |Endpoint para Serviços de Consultas|https://apiqueryhomolog.braspag.com.br/|
@@ -48,7 +48,7 @@ Valide seu desenvolvimento junto à nossa equipe!
 Já estou pronto para entrar em Produção!
 
 |Informação|Descrição|
-|----------|---------|
+|---|---|
 |Credenciais de Acesso à API|Envie um email para comercial@braspag.com.br para mais informações sobre a Braspag e sobre como podemos ajudar no seu negócio!|
 |Endpoint Transacional|https://api.braspag.com.br/|
 |Endpoint para Serviços de Consultas|https://apiquery.braspag.com.br/|
@@ -119,7 +119,7 @@ Exemplo de uma transação com dados obrigatórios para um simples processamento
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -149,7 +149,7 @@ curl
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -297,18 +297,18 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|-----------|---------|----|-------|-------|
-|`AcquirerTransactionId`|Id da transação no provedor de meio de pagamento|Texto|40|Texto alfanumérico|
-|`ProofOfSale`|Número do Comprovante de Venda|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização|Texto|300|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReceivedDate`|Data em que a transação foi recebida pela Brapag|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`ReasonCode`|Código de retorno da Operação|Texto|32|Texto alfanumérico|
-|`ReasonMessage`|Mensagem de retorno da Operação|Texto|512|Texto alfanumérico|
-|`Status`|Status da Transação|Byte|2|1|
-|`ProviderReturnCode`|Código retornado pelo provedor do meio de pagamento (adquirente e bancos)|Texto|32|57|
-|`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
+| Propriedade             | Descrição                                                                   | Tipo  | Tamanho | Formato                              |
+|-------------------------|-----------------------------------------------------------------------------|-------|---------|--------------------------------------|
+| `AcquirerTransactionId` | Id da transação no provedor de meio de pagamento                            | Texto | 40      | Texto alfanumérico                   |
+| `ProofOfSale`           | Número do Comprovante de Venda                                              | Texto | 20      | Texto alfanumérico                   |
+| `AuthorizationCode`     | Código de autorização                                                       | Texto | 300     | Texto alfanumérico                   |
+| `PaymentId`             | Campo Identificador do Pedido                                               | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ReceivedDate`          | Data em que a transação foi recebida pela Brapag                            | Texto | 19      | AAAA-MM-DD HH:mm:SS                  |
+| `ReasonCode`            | Código de retorno da Operação                                               | Texto | 32      | Texto alfanumérico                   |
+| `ReasonMessage`         | Mensagem de retorno da Operação                                             | Texto | 512     | Texto alfanumérico                   |
+| `Status`                | Status da Transação                                                         | Byte  | 2       | 1                                    |
+| `ProviderReturnCode`    | Código retornado pelo provedor do meio de pagamento (adquirente e bancos)   | Texto | 32      | 57                                   |
+| `ProviderReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos) | Texto | 512     | Transação Aprovada                   |
 
 ## Criando uma transação com dados do comprador
 
@@ -335,9 +335,9 @@ Este é um exemplo de uma transação com todos os dados preenchidos. Isso inclu
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-      },
-	  "DeliveryAddress": {
+        "District":"Alphaville"
+    },
+      "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -345,8 +345,8 @@ Este é um exemplo de uma transação com todos os dados preenchidos. Isso inclu
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-	    }
+        "District":"Alphaville"
+    }
    },
    "Payment":{  
      "Provider":"Simulado",
@@ -401,9 +401,9 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-      },
-	  "DeliveryAddress": {
+       "District":"Alphaville"
+    },
+    "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -411,8 +411,8 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-	    }
+         "District":"Alphaville"
+    }
    },
    "Payment":{  
      "Provider":"Simulado",
@@ -511,7 +511,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     },
     "DeliveryAddress": {
       "Street": "Alameda Xingu",
@@ -521,7 +521,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+      "District":"Alphaville"
     }
   },
   "Payment": {
@@ -603,7 +603,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+      "District":"Alphaville"
     },
     "DeliveryAddress": {
       "Street": "Alameda Xingu",
@@ -613,7 +613,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     }
   },
   "Payment": {
@@ -716,9 +716,9 @@ Este é um exemplo de uma transação com dados de autenticação externa. Este 
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-      },
-	  "DeliveryAddress": {
+         "District":"Alphaville"
+    },
+     "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -726,8 +726,8 @@ Este é um exemplo de uma transação com dados de autenticação externa. Este 
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-	    }
+         "District":"Alphaville"
+    }
    },
    "Payment":{  
      "Provider":"Simulado",
@@ -750,7 +750,7 @@ Este é um exemplo de uma transação com dados de autenticação externa. Este 
          "Brand":"Visa",
          "SaveCard":"false"
      },
-	 "ExternalAuthentication":{
+     "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
        "Eci":"5",
@@ -787,9 +787,9 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-      },
-	  "DeliveryAddress": {
+         "District":"Alphaville"
+    },
+     "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -797,8 +797,8 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-	    }
+         "District":"Alphaville"
+    }
    },
    "Payment":{  
      "Provider":"Simulado",
@@ -821,7 +821,7 @@ curl
          "Brand":"Visa",
          "SaveCard":"false"
      },
-	 "ExternalAuthentication":{
+     "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
        "Eci":"5",
@@ -905,7 +905,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+      "District":"Alphaville"
     },
     "DeliveryAddress": {
       "Street": "Alameda Xingu",
@@ -915,7 +915,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+      "District":"Alphaville"
     }
   },
   "Payment": {
@@ -950,7 +950,7 @@ curl
     "Currency": "BRL",
     "Country": "BRA",
     "Provider": "Simulado",
-	"ExternalAuthentication":{
+    "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
        "Eci":"5",
@@ -1002,7 +1002,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+      "District":"Alphaville"
     },
     "DeliveryAddress": {
       "Street": "Alameda Xingu",
@@ -1012,7 +1012,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+      "District":"Alphaville"
     }
   },
   "Payment": {
@@ -1047,7 +1047,7 @@ curl
     "Currency": "BRL",
     "Country": "BRA",
     "Provider": "Simulado",
-	"ExternalAuthentication":{
+    "ExternalAuthentication":{
        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
        "Eci":"5",
@@ -1113,9 +1113,9 @@ Quando uma transação é submetida ao processo de autenticação, o portador se
    },
    "Payment":{  
       "Provider":"Cielo",
-	  "Type":"CreditCard",
-      "Amount":10000, 
-	  "Capture":true,
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Capture":true,
       "Installments":1,
       "Authenticate":true,
       "ReturnUrl":"http://www.braspag.com.br",
@@ -1145,9 +1145,9 @@ curl
    },
    "Payment":{  
       "Provider":"Cielo",
-	  "Type":"CreditCard",
-      "Amount":10000,  
-      "Capture":true,	  
+      "Type":"CreditCard",
+      "Amount":10000,
+      "Capture":true,    
       "Installments":1,
       "Authenticate":true,
       "ReturnUrl":"http://www.braspag.com.br",
@@ -1316,9 +1316,9 @@ Para que a análise de fraude seja efetuada em tempo de transação, é necessá
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-      },
-	  "DeliveryAddress": {
+         "District":"Alphaville"
+    },
+    "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -1326,14 +1326,14 @@ Para que a análise de fraude seja efetuada em tempo de transação, é necessá
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-	    }
+         "District":"Alphaville"
+      }
    },
    "Payment":{  
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "ServiceTaxAmount":0,
      "Currency":"BRL",
      "Country":"BRA",
@@ -1356,59 +1356,59 @@ Para que a análise de fraude seja efetuada em tempo de transação, é necessá
        "SequenceCriteria":"Always",
        "CaptureOnLowRisk":false,
        "VoidOnHighRisk":false,       
-       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",    
-	   "Browser":{
-		 "CookiesAccepted":false,
-		 "Email":"comprador@braspag.com.br",
-		 "HostName":"Teste",
-		 "IpAddress":"127.0.0.1",
-		 "Type":"Chrome"
-		},
+       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2"
+       "Browser":{
+         "CookiesAccepted":false,
+         "Email":"comprador@braspag.com.br",
+         "HostName":"Teste",
+         "IpAddress":"127.0.0.1",
+         "Type":"Chrome"
+         },
        "Cart":{
          "IsGift":false,
          "ReturnsAccepted":true,
          "Items":[{
-				"GiftCategory":"Undefined",
-				"HostHedge":"Off",
-				"NonSensicalHedge":"Off",
-				"ObscenitiesHedge":"Off",
-				"PhoneHedge":"Off",
-				"Name":"ItemTeste",
-				"Quantity":1,
-				"Sku":"20170511",
-				"UnitPrice":10000,
-				"Risk":"High",
-				"TimeHedge":"Normal",
-				"Type":"AdultContent",
-				"VelocityHedge":"High",
-				"Passenger":{
-				"Email":"comprador@braspag.com.br",
-				"Identity":"1234567890",
-				"Name":"Nome do Comprador",
-				"Rating":"Adult",
-				"Phone":"999994444",
-				"Status":"Accepted"
-			}
-           }]
+                "GiftCategory":"Undefined",
+                "HostHedge":"Off",
+                "NonSensicalHedge":"Off",
+                "ObscenitiesHedge":"Off",
+                "PhoneHedge":"Off",
+                "Name":"ItemTeste",
+                "Quantity":1,
+                "Sku":"20170511",
+                "UnitPrice":10000,
+                "Risk":"High",
+                "TimeHedge":"Normal",
+                "Type":"AdultContent",
+                "VelocityHedge":"High",
+                "Passenger":{
+                   "Email":"comprador@braspag.com.br",
+                   "Identity":"1234567890",
+                   "Name":"Nome do Comprador",
+                   "Rating":"Adult",
+                   "Phone":"999994444",
+                   "Status":"Accepted"
+                   }
+            }]
        },
-	    "MerchantDefinedFields":[{
-			"Id":95,
-			"Value":"Dado Definido pela Loja"
-		}],
-		"Shipping":{
-			"Addressee":"Alameda Xingu, 512",
-			"Method":"LowCost",
-			"Phone":"1121840540"
-		},
-		"Travel":{
-			"DepartureTime":"2020-01-01",
-			"JourneyType":"Ida",
-			"Route":"MAO-RJO",
-		"Legs":[{
-			"Destination":"GYN",
-			"Origin":"VCP"
+       "MerchantDefinedFields":[{
+            "Id":95,
+            "Value":"Dado Definido pela Loja"
+            }],
+       "Shipping":{
+            "Addressee":"Alameda Xingu, 512",
+            "Method":"LowCost",
+            "Phone":"1121840540"
+            },
+        "Travel":{
+            "DepartureTime":"2020-01-01",
+            "JourneyType":"Ida",
+            "Route":"MAO-RJO",
+        "Legs":[{
+            "Destination":"GYN",
+            "Origin":"VCP"
           }]
-		}
+         }
      }
   }
 }
@@ -1438,9 +1438,9 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-      },
-	  "DeliveryAddress": {
+         "District":"Alphaville"
+        },
+    "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -1448,14 +1448,14 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA",
-		 "District":"Alphaville"
-	    }
+         "District":"Alphaville"
+      },
    },
    "Payment":{  
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "ServiceTaxAmount":0,
      "Currency":"BRL",
      "Country":"BRA",
@@ -1478,59 +1478,59 @@ curl
        "SequenceCriteria":"Always",
        "CaptureOnLowRisk":false,
        "VoidOnHighRisk":false,       
-       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",    
-	   "Browser":{
-		 "CookiesAccepted":false,
-		 "Email":"comprador@braspag.com.br",
-		 "HostName":"Teste",
-		 "IpAddress":"127.0.0.1",
-		 "Type":"Chrome"
-		},
+       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+       "Browser":{
+         "CookiesAccepted":false,
+         "Email":"comprador@braspag.com.br",
+         "HostName":"Teste",
+         "IpAddress":"127.0.0.1",
+         "Type":"Chrome"
+         },
        "Cart":{
          "IsGift":false,
          "ReturnsAccepted":true,
          "Items":[{
-				"GiftCategory":"Undefined",
-				"HostHedge":"Off",
-				"NonSensicalHedge":"Off",
-				"ObscenitiesHedge":"Off",
-				"PhoneHedge":"Off",
-				"Name":"ItemTeste",
-				"Quantity":1,
-				"Sku":"20170511",
-				"UnitPrice":10000,
-				"Risk":"High",
-				"TimeHedge":"Normal",
-				"Type":"AdultContent",
-				"VelocityHedge":"High",
-				"Passenger":{
-				"Email":"comprador@braspag.com.br",
-				"Identity":"1234567890",
-				"Name":"Nome do Comprador",
-				"Rating":"Adult",
-				"Phone":"999994444",
-				"Status":"Accepted"
-			}
-           }]
-       },
-	    "MerchantDefinedFields":[{
-			"Id":95,
-			"Value":"Dado Definido pela Loja"
-		}],
-		"Shipping":{
-			"Addressee":"Alameda Xingu, 512",
-			"Method":"LowCost",
-			"Phone":"1121840540"
-		},
-		"Travel":{
-			"DepartureTime":"2020-01-01",
-			"JourneyType":"Ida",
-			"Route":"MAO-RJO",
-		"Legs":[{
-			"Destination":"GYN",
-			"Origin":"VCP"
+                "GiftCategory":"Undefined",
+                "HostHedge":"Off",
+                "NonSensicalHedge":"Off",
+                "ObscenitiesHedge":"Off",
+                "PhoneHedge":"Off",
+        "Name":"ItemTeste",
+        "Quantity":1,
+        "Sku":"20170511",
+        "UnitPrice":10000,
+        "Risk":"High",
+        "TimeHedge":"Normal",
+        "Type":"AdultContent",
+        "VelocityHedge":"High",
+        "Passenger":{
+        "Email":"comprador@braspag.com.br",
+        "Identity":"1234567890",
+        "Name":"Nome do Comprador",
+        "Rating":"Adult",
+        "Phone":"999994444",
+        "Status":"Accepted"
+        }
+      }]
+  },
+  "MerchantDefinedFields":[{
+          "Id":95,
+          "Value":"Dado Definido pela Loja"
+          }],
+      "Shipping":{
+          "Addressee":"Alameda Xingu, 512",
+          "Method":"LowCost",
+      "Phone":"1121840540"
+    },
+    "Travel":{
+        "DepartureTime":"2020-01-01",
+        "JourneyType":"Ida
+        "Route":"MAO-RJO",
+     "Legs":[{
+        "Destination":"GYN",
+        "Origin":"VCP"
           }]
-		}
+        }
      }
   }
 }
@@ -1586,7 +1586,7 @@ curl
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o token (CardToken)|
 |`FraudAnalysis.Sequence`|Texto|14|Sim|Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst)|
 |`FraudAnalysis.SequenceCriteria`|Texto|9|Sim|Critério do fluxo.<BR><UL><LI>OnSuccess - Só realiza a analise se tiver sucesso na transação</LI><LI>Always - Sempre realiza a analise</LI></UL>|
-|`FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro "Capture". Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado	|
+|`FraudAnalysis.CaptureOnLowRisk`|Booleano|---|Não|Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro "Capture". Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado|
 |`FraudAnalysis.VoidOnHighRisk`|Booleano|---|Não|Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente "AuthorizeFirst". Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado. |
 |`FraudAnalysis.FingerPrintId`|Texto|50|Sim|Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint|
 |`FraudAnalysis.Browser.CookiesAccepted`|Booleano|---|Sim|Booleano para identificar se o browser do cliente aceita cookies|
@@ -1645,8 +1645,8 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
-    },
+      "District":"Alphaville"
+      },
     "DeliveryAddress": {
       "Street": "Alameda Xingu",
       "Number": "512",
@@ -1655,8 +1655,8 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
-    }
+      "District":"Alphaville"
+      }
   },
   "Payment": {
     "ServiceTaxAmount": 0,
@@ -1673,7 +1673,7 @@ curl
       "Brand": "Undefined"
     },
     "SoftDescriptor": "Mensagem",
-	"FraudAnalysis": {
+    "FraudAnalysis": {
             "Sequence": "AnalyseFirst",
             "SequenceCriteria": "Always",
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
@@ -1794,8 +1794,8 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
-    },
+      "District":"Alphaville"
+      },
     "DeliveryAddress": {
       "Street": "Alameda Xingu",
       "Number": "512",
@@ -1804,9 +1804,9 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
-    }
-  },
+      "District":"Alphaville"
+      }
+},
   "Payment": {
     "ServiceTaxAmount": 0,
     "Installments": 1,
@@ -1822,7 +1822,7 @@ curl
       "Brand": "Undefined"
     },
     "SoftDescriptor": "Mensagem",
-	"FraudAnalysis": {
+    "FraudAnalysis": {
             "Sequence": "AnalyseFirst",
             "SequenceCriteria": "Always",
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
@@ -2798,7 +2798,7 @@ Caso você tenha contratado o Cartão Protegido, é possível salvar um cartão 
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -2807,7 +2807,7 @@ Caso você tenha contratado o Cartão Protegido, é possível salvar um cartão 
          "SecurityCode":"123",
          "Brand":"Visa",
          "SaveCard":true,
-	 "Alias": "Cliente1"
+         "Alias": "Cliente1"
      }
    }
 }
@@ -2830,7 +2830,7 @@ curl
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -2839,7 +2839,7 @@ curl
          "SecurityCode":"123",
          "Brand":"Visa",
          "SaveCard":true,
-	 "Alias": "Cliente1"
+         "Alias": "Cliente1"
      }
    }
 }
@@ -3005,7 +3005,6 @@ curl
 |`ProviderReturnMessage`|Mensagem retornada pelo provedor do meio de pagamento (adquirente e bancos)|Texto|512|Transação Aprovada|
 |`CreditCard.CardToken`|Token no Cartão Protegido que representa os dados do cartão|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-
 ## Criando uma transação com Card Token
 
 Este é um exemplo de como utilizar o Card Token, previamente salvo, para criar uma transação. Por questão de segurança, um Card Token não tem guardado o Código de Segurança. Desta forma, é preciso solicitar esta informação ao portador para cada nova transação (exceto em casos de transações recorrentes).
@@ -3024,7 +3023,7 @@ Este é um exemplo de como utilizar o Card Token, previamente salvo, para criar 
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
@@ -3052,7 +3051,7 @@ curl
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardToken":"250e7c7c-5501-4a7c-aa42-a33d7ad61167",
@@ -3223,7 +3222,7 @@ Este é um exemplo de como utilizar o Alias, previamente salvo, para criar uma t
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "Alias":"Cliente1",
@@ -3251,7 +3250,7 @@ curl
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+   "Capture":true,
      "Installments":1,
      "CreditCard":{
          "Alias":"Cliente1",
@@ -3589,7 +3588,7 @@ No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP171 -
          "State":"SP",
          "Country":"BRA"
       },
-	  "DeliveryAddress": {
+      "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -3597,13 +3596,13 @@ No caso da rejeição pela regra de Velocity, o ProviderReasonCode será BP171 -
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA"
-	    }
+         }
    },
    "Payment":{
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -3640,7 +3639,7 @@ curl
          "State":"SP",
          "Country":"BRA"
       },
-	  "DeliveryAddress": {
+      "DeliveryAddress": {
          "Street":"Alameda Xingu",
          "Number":"512",
          "Complement":"27 andar",
@@ -3648,13 +3647,13 @@ curl
          "City":"São Paulo",
          "State":"SP",
          "Country":"BRA"
-	    }
+         }
    },
    "Payment":{
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000181",
@@ -3882,7 +3881,7 @@ substituiu as vencidas. Bancos Emissores participantes: Bradesco, Banco do Brasi
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000183",
@@ -3911,7 +3910,7 @@ curl
      "Provider":"Simulado",
      "Type":"CreditCard",
      "Amount":10000,
-	 "Capture":true,
+     "Capture":true,
      "Installments":1,
      "CreditCard":{
          "CardNumber":"4551870000000183",
@@ -4244,7 +4243,7 @@ curl
 |`AuthenticationUrl`|URL para o qual o portador será redirecionado para autenticação |Texto |56 |https://qasecommerce.cielo.com.br/web/index.cbmp?id=13fda1da8e3d90d3d0c9df8820b96a7f|
 
 # Pagamentos com Transferência Eletrônica
-	
+
 ## Criando uma transação
 
 Para criar uma venda de transferência eletrônica (conhecido como Débito Online), é necessário fazer um POST para o recurso Payment conforme o exemplo. 
@@ -4262,18 +4261,18 @@ Para criar uma venda de transferência eletrônica (conhecido como Débito Onlin
         "Identity": "12345678909",
         "IdentityType": "CPF",
         "Email": "comprador@braspag.com.br",
-        "Address": 
+        "Address":
         {
-			 "Street":"Alameda Xingu",
-			 "Number":"512",
-			 "Complement":"27 andar",
-			 "ZipCode":"12345987",
-			 "City":"São Paulo",
-			 "State":"SP",
-			 "Country":"BRA",
-			 "District":"Alphaville"
-        }
-    },
+             "Street":"Alameda Xingu",
+             "Number":"512",
+             "Complement":"27 andar",
+             "ZipCode":"12345987",
+             "City":"São Paulo",
+             "State":"SP",
+             "Country":"BRA",
+             "District":"Alphaville"
+         }
+  },
     "Payment":
     {  
         "Provider":"Bradesco",
@@ -4302,14 +4301,14 @@ curl
         "Email": "comprador@braspag.com.br",
         "Address": 
         {
-			 "Street":"Alameda Xingu",
-			 "Number":"512",
-			 "Complement":"27 andar",
-			 "ZipCode":"12345987",
-			 "City":"São Paulo",
-			 "State":"SP",
-			 "Country":"BRA",
-			 "District":"Alphaville"
+             "Street":"Alameda Xingu",
+             "Number":"512",
+             "Complement":"27 andar",
+             "ZipCode":"12345987",
+             "City":"São Paulo",
+             "State":"SP",
+             "Country":"BRA",
+             "District":"Alphaville"
         }
     },
     "Payment":
@@ -4356,16 +4355,15 @@ curl
         "IdentityType": "CPF",
         "Email": "comprador@braspag.com.br",
         "Address": 
-        {
-			 "Street":"Alameda Xingu",
-			 "Number":"512",
-			 "Complement":"27 andar",
-			 "ZipCode":"12345987",
-			 "City":"São Paulo",
-			 "State":"SP",
-			 "Country":"BRA",
-			 "District":"Alphaville"
-        }
+        {"Street":"Alameda Xingu",
+        "Number":"512",
+        "Complement":"27 andar",
+        "ZipCode":"12345987",
+        City":"São Paulo",
+        "State":"SP",
+             "Country":"BRA",
+             "District":"Alphaville"
+            }
     },
     "Payment": {
         "Url": "https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}",
@@ -4450,14 +4448,14 @@ Para criar uma transação de Boleto sem Registro, basta fazer um POST conform
     "Payment":
     {  
         "Provider":"Simulado",
-		"Type":"Boleto",
-        "Amount":10000,
-		"Assignor": "Braspag Tecnologia de Pagamento Ltda",
-        "Demonstrative": "Texto para Demonstrativo",
+    "Type":"Boleto",
+    "Amount":10000,
+    "Assignor": "Braspag Tecnologia de Pagamento Ltda",
+    "Demonstrative": "Texto para Demonstrativo",
         "ExpirationDate": "2017-12-31",
         "Identification": "01234567000189",
-        "Instructions": "Aceitar somente até a data de vencimento"		
-    }
+        "Instructions": "Aceitar somente até a data de vencimento"
+        }
 }
 ```
 
@@ -4478,10 +4476,10 @@ curl
     "Payment":
     {  
         "Provider":"Simulado",
-		"Type":"Boleto",
-        "Amount":10000,
-		"Assignor": "Braspag Tecnologia de Pagamento Ltda",
-        "Demonstrative": "Texto para Demonstrativo",
+    "Type":"Boleto",
+    "Amount":10000,
+    "Assignor": "Braspag Tecnologia de Pagamento Ltda",
+    "Demonstrative": "Texto para Demonstrativo",
         "ExpirationDate": "2017-12-31",
         "Identification": "01234567000189",
         "Instructions": "Aceitar somente até a data de vencimento"
@@ -4614,25 +4612,25 @@ Para gerar um boleto registrado, é necessário fornecer alguns dados a mais do 
     {  
         "Name":"Nome do Comprador",
         "Identity":"12345678909",
-		"IdentityType":"CPF",
-		"Address":{  
-			"Street":"Alameda Xingu",
-			"Number":"512",
-			"Complement":"27 andar",
-			"ZipCode":"12345987",
-			"City":"São Paulo",
-			"State":"SP",
-			"Country":"BRA",
-			"District":"Alphaville"
-		}	
+    "IdentityType":"CPF",
+    "Address":{  
+       "Street":"Alameda Xingu",
+       "Number":"512",
+       "Complement":"27 andar",
+       "ZipCode":"12345987",
+       "City":"São Paulo",
+       "State":"SP",
+       "Country":"BRA",
+       "District":"Alphaville"
+     }
     },
     "Payment":
     {  
         "Provider":"Simulado",
-		"Type":"Boleto",
-        "Amount":10000,
-		"BoletoNumber":"2017091101",
-        "Assignor": "Empresa Teste",
+    "Type":"Boleto",
+    "Amount":10000,
+    "BoletoNumber":"2017091101",
+    "Assignor": "Empresa Teste",
         "Demonstrative": "Desmonstrative Teste",
         "ExpirationDate": "2017-12-31",
         "Identification": "12346578909",
@@ -4655,25 +4653,25 @@ curl
     {  
         "Name":"Nome do Comprador",
         "Identity":"12345678909",
-		"IdentityType":"CPF",
-		"Address":{  
-			"Street":"Alameda Xingu",
-			"Number":"512",
-			"Complement":"27 andar",
-			"ZipCode":"12345987",
-			"City":"São Paulo",
-			"State":"SP",
-			"Country":"BRA",
-			"District":"Alphaville"
-		}	
+    "IdentityType":"CPF",
+    "Address":{
+        "Street":"Alameda Xingu",
+        "Number":"512",
+        "Complement":"27 andar",
+        "ZipCode":"12345987",
+        "City":"São Paulo",
+        "State":"SP",
+        "Country":"BRA",
+        "District":"Alphaville"
+     }
     },
     "Payment":
     {  
         "Provider":"Simulado",
-		"Type":"Boleto",
-        "Amount":10000,
-		"BoletoNumber":"2017091101",		
-        "Assignor": "Empresa Teste",
+    "Type":"Boleto",
+    "Amount":10000,
+    "BoletoNumber":"2017091101",
+    "Assignor": "Empresa Teste",
         "Demonstrative": "Desmonstrative Teste",
         "ExpirationDate": "2017-12-31",
         "Identification": "12346578909",
@@ -4798,7 +4796,7 @@ curl
       "City": "São Paulo",
       "State": "SP",
       "Country": "BRA",
-	  "District":"Alphaville"
+     "District":"Alphaville"
     }
   },
   "Payment": {
@@ -5299,31 +5297,32 @@ Para alterar os dados do comprador em uma recorrência, basta fazer um PUT con
 
 ```json
 {  
-	"Name":"Outro nome do Comprador",
-	"Email":"outrocomprador@braspag.com.br",
-	"Birthdate":"1999-12-12",
-	"Identity":"0987654321",
-	"IdentityType":"CPF",
-	"Address":{  
-		"Street":"Avenida Brigadeiro Faria Lima",
-		"Number":"1500",
-		"Complement":"AP 201",
-		"ZipCode":"05426200",
-		"City":"São Paulo",
-		"State":"SP",
-		"Country":"BRA",
-		"District":"Pinheiros"
-	},
-	"DeliveryAddress":{  
-		"Street":"Avenida Brigadeiro Faria Lima",
-		"Number":"1500",
-		"Complement":"AP 201",
-		"ZipCode":"05426200",
-		"City":"São Paulo",
-		"State":"SP",
-		"Country":"BRA",
-		"District":"Pinheiros"
-	}
+  "Name":"Outro nome do Comprador",
+  "Email":"outrocomprador@braspag.com.br",
+  "Birthdate":"1999-12-12",
+  "Identity":"0987654321",
+  "IdentityType":"CPF",
+  "Address":{
+      "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Alphaville"
+      },
+   "DeliveryAddress":{  
+      "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Alphaville"
+      }
+    }
 }
 ```
 
@@ -5335,32 +5334,32 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{  
-	"Name":"Outro nome do Comprador",
-	"Email":"outrocomprador@braspag.com.br",
-	"Birthdate":"1999-12-12",
-	"Identity":"0987654321",
-	"IdentityType":"CPF",
-	"Address":{  
-		"Street":"Avenida Brigadeiro Faria Lima",
-		"Number":"1500",
-		"Complement":"AP 201",
-		"ZipCode":"05426200",
-		"City":"São Paulo",
-		"State":"SP",
-		"Country":"BRA",
-		"District":"Pinheiros"
-	},
-	"DeliveryAddress":{  
-		"Street":"Avenida Brigadeiro Faria Lima",
-		"Number":"1500",
-		"Complement":"AP 201",
-		"ZipCode":"05426200",
-		"City":"São Paulo",
-		"State":"SP",
-		"Country":"BRA",
-		"District":"Pinheiros"
-	}
+{   
+    "Name":"Outro nome do Comprador",
+    "Email":"outrocomprador@braspag.com.br",
+    "Birthdate":"1999-12-12",
+    "Identity":"0987654321",
+    "IdentityType":"CPF",
+    "Address":{  
+    "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Alphaville"
+   },
+   "DeliveryAddress":{  
+    "Street":"Avenida Brigadeiro Faria Lima",
+      "Number":"1500",
+      "Complement":"AP 201",
+      "ZipCode":"05426200",
+      "City":"São Paulo",
+      "State":"SP",
+      "Country":"BRA",
+      "District":"Alphaville"
+      }
 }
 --verbose
 ```
@@ -6276,66 +6275,66 @@ Status retornados pela API
 
 ## Lista de Status do Antifraude
 
-|Código|Descrição|
-|------|-------------------|
-|500|Started|
-|501|Accept|
-|502|Review|
-|503|Reject|
-|504|Pendent|
-|505|Unfinished|
-|506|Aborted|
+| Código | Descrição  |
+|--------|------------|
+| 500    | Started    |
+| 501    | Accept     |
+| 502    | Review     |
+| 503    | Reject     |
+| 504    | Pendent    |
+| 505    | Unfinished |
+| 506    | Aborted    |
 
 ## Lista de HTTP Status Code
 
-|HTTP Status Code|Descrição|
-|----------------|---------|
-|200|OK|
-|400|Bad Request|
-|404|Resource Not Found|
-|500|Internal Server Error|
+| HTTP Status Code | Descrição             |
+|------------------|-----------------------|
+| 200              | OK                    |
+| 400              | Bad Request           |
+| 404              | Resource Not Found    |
+| 500              | Internal Server Error |
 
 ## Lista de Status da Recorrência
 
-|Código|Descrição|
-|------|---------|
-|1|	Active|
-|2|	Finished|
-|3|	DisabledByMerchant|
-|4|	DisabledMaxAttempts|
-|5|	DisabledExpiredCreditCard|
+| Código | Descrição                 |
+|--------|---------------------------|
+| 1      | Active                    |
+| 2      | Finished                  |
+| 3      | DisabledByMerchant        |
+| 4      | DisabledMaxAttempts       |
+| 5      | DisabledExpiredCreditCard |
 
 ## Lista de ReasonCode/ReasonMessage
 
-|Reason Code|Reason Message|
-|-----------|--------------|
-|0|	Successful|
-|1|	AffiliationNotFound|
-|2|	IssuficientFunds|
-|3|	CouldNotGetCreditCard|
-|4|	ConnectionWithAcquirerFailed|
-|5|	InvalidTransactionType|
-|6|	InvalidPaymentPlan|
-|7|	Denied|
-|8|	Scheduled|
-|9|	Waiting|
-|10|	Authenticated|
-|11|	NotAuthenticated|
-|12|	ProblemsWithCreditCard|
-|13|	CardCanceled|
-|14|	BlockedCreditCard|
-|15|	CardExpired|
-|16|	AbortedByFraud|
-|17|	CouldNotAntifraud|
-|18|	TryAgain|
-|19|	InvalidAmount|
-|20|	ProblemsWithIssuer|
-|21|	InvalidCardNumber|
-|22|	TimeOut|
-|23|	CartaoProtegidoIsNotEnabled|
-|24|	PaymentMethodIsNotEnabled|
-|98|	InvalidRequest|
-|99|	InternalError|
+| Reason Code | Reason Message               |
+|-------------|------------------------------|
+| 0           | Successful                   |
+| 1           | AffiliationNotFound          |
+| 2           | IssuficientFunds             |
+| 3           | CouldNotGetCreditCard        |
+| 4           | ConnectionWithAcquirerFailed |
+| 5           | InvalidTransactionType       |
+| 6           | InvalidPaymentPlan           |
+| 7           | Denied                       |
+| 8           | Scheduled                    |
+| 9           | Waiting                      |
+| 10          | Authenticated                |
+| 11          | NotAuthenticated             |
+| 12          | ProblemsWithCreditCard       |
+| 13          | CardCanceled                 |
+| 14          | BlockedCreditCard            |
+| 15          | CardExpired                  |
+| 16          | AbortedByFraud               |
+| 17          | CouldNotAntifraud            |
+| 18          | TryAgain                     |
+| 19          | InvalidAmount                |
+| 20          | ProblemsWithIssuer           |
+| 21          | InvalidCardNumber            |
+| 22          | TimeOut                      |
+| 23          | CartaoProtegidoIsNotEnabled  |
+| 24          | PaymentMethodIsNotEnabled    |
+| 98          | InvalidRequest               |
+| 99          | InternalError                |
 
 ## Códigos de Erros da API
 
@@ -6505,7 +6504,7 @@ Os status das transações serão conforme a utilização de cada cartão.
 
 As informações de Cód.Segurança (CVV) e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).
 
-##Device Finger Print
+## Device Finger Print
 
 Você precisará adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ‹Body› da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.
 
@@ -6525,28 +6524,36 @@ Production - Altere o domínio para uma URL local, e configure seu servidor Web 
 ‹session ID›: Use o mesmo valor passado no parametro “DeviceFingerprintID”, do serviço de requisição de análise de fraude.
 Certifique-se de copiar todos os dados corretamente e de remover os sinais de tag (<>) ao substituir as variáveis.
 
-###PNG image
-```html
+### PNG image
+
+```
+html
 ‹p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&session_id=‹merchant id›‹session ID›&m=1)"›‹/p›
 ‹img src="https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&session_id=‹merchant id›‹session ID›&m=2" alt=""›
+
 ```
 
-```html
+```
+html
+
 <!-- EXEMPLO -->
 ‹p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&session_id=sample_merchantIDsample_sessionID&m=1)"›‹/p›
 ‹img src="https://h.online-metrix.net/fp/clear.png?org_id=sample_orgID&session_\id=sample_merchantIDsample_sessionID&m=2" alt=""›
+
 ```
 
-###Flash code
+### Flash code
 
-```html
+```
+html
 ‹object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=‹org ID›&session_id=‹merchant id›‹session ID›" width="1" height="1"id="thm_fp"›
 ‹param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=‹orgID›&session_id=‹merchant id›‹session ID›" /›
 ‹div›‹/div›
 ‹/object› 
 ```
 
-```html
+```
+html
 <!-- EXEMPLO -->
 ‹object type="application/x-shockwave-flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&session_id=sample_merchantIDsample_sessionID"width="1" height="1" id="thm_fp"›
 ‹param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=sample_orgID&session_id=sample_merchantIDsample_sessionID" /›
@@ -6554,24 +6561,31 @@ Certifique-se de copiar todos os dados corretamente e de remover os sinais de ta
 ‹/object› 
 ```
 
-###JavaScript code
+### JavaScript code
 
-```html
+```
+html
+
 ‹script src="https://h.online-metrix.net/fp/check.js?org_id=‹org ID›&session_
 id=‹merchant id›‹session ID›" type="text/javascript"›
 ‹/script› 
+
 ```
 
-```html
+```
+html
+
 <!-- EXEMPLO -->
 ‹script src="https://h.online-metrix.net/fp/check.js?org_id=‹org ID›&session_
 id=‹merchant id›‹session ID›" type="text/javascript"›
 ‹/script› 
+
 ```
 
-#FAQ
+# FAQ
 
 |Perguntas|Respostas|Tema|
 |---------|---------|----|
-|Qual é a diferença entre Status, ReasonCode e ProviderReturnCode?|A explicação conforme a seguir:<BR><UL><LI>Status: representa o status atual da transação.</LI><LI>ReasonCode: representa o status da requisição.</LI><LI>ProviderReturnCode: representa o código de resposta da transação da adquirente.</LI></UL>Por exemplo, uma requisição de autorização poderá ter o retorno com ReasonCode=0 (Sucessfull), ou seja, a requisição finalizou com sucesso, porém, o Status poderá ser 0-Denied, por ter a transação não autorizada pela adquirente, por exemplo, ProviderReturnCode 57 (um dos códigos de negada da Cielo)|Integração|
+|Qual é a diferença entre *Status*, ReasonCode e ProviderReturnCode?|A explicação conforme a seguir:<BR><UL><LI>Status: representa o status atual da transação.</LI><LI>ReasonCode: representa o status da requisição.</LI><LI>ProviderReturnCode: representa o código de resposta da transação da adquirente.</LI></UL>Por exemplo, uma requisição de autorização poderá ter o retorno com ReasonCode=0 (Sucessfull), ou seja, a requisição finalizou com sucesso, porém, o Status poderá ser 0-Denied, por ter a transação não autorizada pela adquirente, por exemplo, ProviderReturnCode 57 (um dos códigos de negada da Cielo)|Integração|
 
+```

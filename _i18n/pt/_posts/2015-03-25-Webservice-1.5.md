@@ -70,7 +70,7 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
 |Bandeira|Crédito à vista|Crédito parcelado Loja|Débito|Voucher|
-|--------|---------------|----------------------|------|-------|
+|---|---|---|---|---|
 |Visa|Sim|Sim|Sim|*Não*|
 |Master Card|Sim|Sim|Sim|*Não*|
 |American Express|Sim|Sim|*Não*|*Não*|
@@ -343,7 +343,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 ### raiz
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
-|--------|----|-----------|-------|---------|
+|---|---|---|---|---|
 |[dados-ec](#dados-ec)|n/a|Sim|n/a|Dados do estabelecimento comercial|
 |[dados-portador](#dados-portador)|n/a|Sim|n/a|Dados do cartão|
 |[dados-pedido](#dados-pedido)|n/a|Sim|n/a|Dados do pedido|
@@ -358,14 +358,14 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 ### dados-ec
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
-|--------|----|-----------|-------|---------|
+|---|---|---|---|---|
 |numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
 |chave|AlfaNumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
 
 ### dados-portador
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
-|--------|----|-----------|-------|---------|
+|---|---|---|---|---|
 |numero|Numérico|Sim|19|Número do cartão.|
 |validade|Numérico|Sim|6|Validade do cartão no formato aaaamm. Exemplo: 201212 (dez/2012).|
 |indicador|Numérico|Sim|1|Indicador sobre o envio do Código de segurança: **0** – não informado, **1** – informado, **2** – ilegível, **9** – inexistente|
@@ -376,7 +376,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 ### dados-pedido
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
-|--------|----|-----------|-------|---------|
+|---|---|---|---|---|
 |numero|Alfanumérico|Sim|1..20|Número do pedido da loja. **Recomenda-se que seja um valor único por pedido.**|
 |valor|Numérico|Sim|1..12|Valor a ser cobrado pelo pedido (já deve incluir valoresde frete, embrulho, custos extras, taxa de embarque, etc). Esse valor é o que será debitado do consumidor.|
 |moeda|Numérico|Sim|3|Código numérico da moeda na norma ISO 4217. **Para o Real, o código é 986**.|
@@ -391,7 +391,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 ### forma-pagamento
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
-|--------|----|-----------|-------|---------|
+|---|---|---|---|---|
 |bandeira|Alfanumérico|Sim|n/a|Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”|
 |produto|Alfanumérico|Sim|1|Código do produto: **1** – Crédito à Vista, **2** – Parcelado loja, **A** – Débito.|
 |parcelas|Numérico|Sim|1..2|Número de parcelas. **Para crédito à vista ou débito, utilizar 1.**|
@@ -478,7 +478,7 @@ As informações mais importantes são:
 A tabela abaixo detalha as TAGS do XML básico de retorno, identificado pelo nó raiz `<transação>`:
 
 |Elemento|Tipo|Tamanho|Descrição|
-|--------|----|-------|---------|
+|---|---|---|---|
 |tid|Alfanumérico|1..40|Identificador da transação|
 |dados-pedido|Idêntico ao nó enviado pela loja na criação da transação.|
 |forma-pagamento|Idêntico ao nó enviado pela loja na criação da transação.|
@@ -591,7 +591,7 @@ Observando o diagrama da seção [Transação](#transação), é possível obser
 Os campos apenas do nó `<autenticacao>` estão listados na tabela abaixo:
 
 |Elemento|Tipo|Tamanho|Descrição|
-|--------|----|-------|---------|
+|---|---|---|---|
 |codigo|Numérico|1.2|Código do processamento|
 |mensagem|Alfanumérico|1..100|Detalhe do processamento|
 |data-hora|Alfanumérico|19|Data e hora do processamento|
@@ -615,7 +615,7 @@ Caso tenha uma quantidade elevada de códigos de retorno que não está listado 
 <aside class="notice">Exceto os códigos AA, AC e GA, todos os outros são gerados pelos emissores/bandeiras.</aside>
 
 |Código Resposta|Definição|Significado|Ação|Permite Retentativa|
-|---------------|---------|-----------|----|-------------------|
+|---|---|---|---|---|
 |00|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Não|
 |000|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Não|
 |01|Transação não autorizada. Transação referida.|Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
@@ -698,14 +698,14 @@ Caso tenha uma quantidade elevada de códigos de retorno que não está listado 
 |CF|Transação não autorizada.C79:J79 Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
 |CG|Transação não autorizada. Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
 |DA|Transação não autorizada. Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
-|DF|Transação não permitida. Falha no cartão ou cartão inválido.|Transação não permitida. Falha no cartão ou cartão inválido. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco |Transação não permitida. Falha no cartão ou cartão inválido. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco |Sim|
+|DF|Transação não permitida. Falha no cartão ou cartão inválido.|Transação não permitida. Falha no cartão ou cartão inválido. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco|Transação não permitida. Falha no cartão ou cartão inválido. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco|Sim|
 |DM|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Entre em contato com seu banco emissor.|Sim|
 |DQ|Transação não autorizada. Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
 |DS|Transação não permitida para o cartão|Transação não autorizada. Transação não permitida para o cartão.|Transação não autorizada. Entre em contato com seu banco emissor.|Sim|
 |EB|Transação não autorizada. Limite diário excedido.|Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.|Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.|Sim|
 |EE|Transação não permitida. Valor da parcela inferior ao mínimo permitido.|Transação não permitida. Valor da parcela inferior ao mínimo permitido. Não é permitido parcelas inferiores a R$ 5,00. Necessário rever calculo para parcelas.|Transação não permitida. O valor da parcela está abaixo do mínimo permitido. Entre em contato com a loja virtual.|Não|
 |EK|Transação não permitida para o cartão|Transação não autorizada. Transação não permitida para o cartão. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir significa que o lojista não possui essa modalidade de pagamento habilitada. Entre em contato com a Cielo e solicite a habilitação dessa modalidade.|Transação não autorizada. Reveja os dados e tente novamente. Se o erro persistir, entre em contato com a Loja Virtual.|Sim|
-|FA|Transação não autorizada. |Transação não autorizada AmEx.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|FA|Transação não autorizada.|Transação não autorizada AmEx.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
 |FC|Transação não autorizada. Ligue Emissor|Transação não autorizada. Oriente o portador a entrar em contato com o banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
 |FD|Transação negada. Reter cartão condição especial|Transação não autorizada por regras do banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor|Não|
 |FE|Transação não autorizada. Divergencia na data de transação/pagamento.|Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.|Transação não autorizada. Refazer a transação confirmando os dados.|Não|
@@ -731,7 +731,7 @@ Os erros que podem ser apresentados na mensagem XML, através da TAG `<erro>`, e
 ### Tabela de erros de integração
 
 |Código|Mensagem|Descrição|Ação|
-|------|--------|---------|----|
+|---|---|---|---|
 |1|Mensagem inválida|A mensagem XML está fora do formato especificado pelo arquivo eCommerce.xsd|Revisar as informações enviadas na mensagem XML frente às especificações|
 |2|Credenciais inválidas|Impossibilidade de autenticar uma requisição daloja virtual.|Verificar se o número de credenciamento e a chave estão corretos|
 |3|Transação inexistente|Não existe transação para o identificador informado|Rever a aplicação|
@@ -783,7 +783,7 @@ Os erros que podem ser apresentados na mensagem XML, através da TAG `<erro>`, e
 ## Status das transações
 
 |Status|Código|
-|------|------|
+|---|---|
 |Transação Criada|0|
 |Transação em Andamento|1|
 |Transação Autenticada|2|
@@ -798,7 +798,7 @@ Os erros que podem ser apresentados na mensagem XML, através da TAG `<erro>`, e
 ## ECI
 
 |Resultado da Autenticação|Visa|Mastercard|Aura|Demais|
-|-------------------------|----|----------|----|------|
+|---|---|---|---|---|
 |Portador autenticado com sucesso.|5|2|n/d|n/d|
 |Portador não fez autenticação, pois o emissor não forneceu mecanismos de autenticação.|6|1|n/d|n/d|
 |Portador não se autenticou com sucesso, pois ocorreu um erro técnico inesperado.|7|1|n/d|n/d|
@@ -963,7 +963,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 <aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
-|--------|----|-----------|-------|---------|
+|---|---|---|---|---|
 |tid|Alfanumérico|Sim|20|Identificador da transação|
 |dados-ec.numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
 |dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
@@ -996,7 +996,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 <aside class="notice">Um token não utilizado por mais de um ano será automaticamente removido do banco de dados da Cielo. É possível realizar o bloqueio de um token específico para que este não seja mais usado. O bloqueio do token deve ser solicitado ao Suporte Web Cielo eCommerce.</aside>
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
-|--------|----|-----------|-------|---------|
+|---|---|---|---|---|
 |dados-ec.numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
 |dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
 |daods-portador|n/a|Opcional|n/a|Nó com os dados do cartão.|
@@ -1022,7 +1022,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 O retorno será do tipo <retorno-token> quando a solicitação tenha sido concluída com sucesso, ou <erro> em caso de fracasso.
 
 |Elemento|Tipo|Tamanho|Descrição|
-|--------|----|-------|---------|
+|---|---|---|---|
 |codigo-token|Alfanumérico|100|Código do token gerado|
 |status|Numérico|1|Status do Token: **0** – Bloqueado, **1** – Desbloqueado|
 |numero-cartao-truncado|Alfanumérico|1..16|Número do cartão truncado.|
@@ -1329,7 +1329,7 @@ A operação de consulta é essencial na integração, pois ela que garantirá a
 ```
 
 |TAG|Tipo|Obrig.|Tam.|Descrição|
-|---|----|------|----|---------|
+|---|---|---|---|---|
 |dados-ec.numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
 |dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
 |Tid|Alfanumérico|Sim|1..40|Identificador da transação|
@@ -1359,7 +1359,7 @@ A operação de consulta é essencial na integração, pois ela que garantirá a
 ```
 
 |TAG|Tipo|Obrig.|Tam.|Descrição|
-|---|----|------|----|---------|
+|---|---|---|---|---|
 |dados-ec.numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
 |dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
 |Numero|Alfanumérico|Sim|1..20|Número do pedido associado a uma transação.|
@@ -1429,7 +1429,7 @@ Já no segundo caso, é preciso fazer uma “captura posterior”, através de u
 Os campos do nó <captura> estão detalhados a seguir:
 
 |Elemento|Tipo|Tamanho|Descrição|
-|--------|----|-------|---------|
+|---|---|---|---|
 |captura|Nó com dados da captura caso tenha passado por essa etapa.|
 |captura.codigo|Numérico|1..2|Código do processamento|
 |captura.mensagem|Alfanumérico|1..100|Detalhe do processamento.|
@@ -1470,7 +1470,7 @@ O cancelamento é utilizado quando o lojista decide não efetivar um pedido de c
     * Transações capturadas com o mesmo valor da autorização (ou seja, captura total) possuem o mesmo tratamento para cancelamentos parciais e totais, pois o valor da taxa de embarque é cancelado integralmente.
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
-|--------|----|-----------|-------|---------|
+|---|---|---|---|---|
 |tid|Alfanumérico|Sim|1..40|Identificador da transação.|
 |dados-ec.numero|Numérico|Sim|1..10|Número de credenciamento da loja com a Cielo.|
 |dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
@@ -1510,7 +1510,7 @@ Os testes de integração deverão ser realizados antes do início da homologaç
 A massa de dados para realizar os testes neste ambiente está disposta na tabela abaixo:
 
 |Bandeira|Autenticação|Número do cartão de teste|Validade|Código de segurança - CVC|
-|--------|------------|-------------------------|--------|-------------------------|
+|---|---|---|---|---|
 |Visa|Sim|4012001037141112|05/2018|123|
 |Mastercard|Sim|5453010000066167|05/2018|123|
 |Visa|Não|4012001038443335|05/2018|123|
@@ -1528,7 +1528,7 @@ A massa de dados para realizar os testes neste ambiente está disposta na tabela
 Para facilitar o desenvolvimento disponibilizamos duas chaves para testes, uma para cada modalidade de integração. Com base nas configurações iniciais feitas durante o seu credenciamento, escolha os dados corretos para realizar os testes:
 
 |Número estabelecimento comercial|Chave de testes|
-|--------------------------------|---------------|
+|---|---|
 |1006993069|25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3|
 
 <aside class="warning">O valor do pedido além de seguir o formato sem pontos ou vírgulas decimais, deve terminar em “00”, caso contrário, a autorização será sempre negada. Exemplo: R$ 15,00 deve ser formatado como “1500”.</aside>

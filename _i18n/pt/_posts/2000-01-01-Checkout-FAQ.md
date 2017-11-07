@@ -88,7 +88,7 @@ Para compreender a diferença entre os parâmetros do POST em relação a frete 
 ## Parâmetros obrigatórios
 
 |Material físico|Bens Digitais / Serviço|
-|--------|---------------|
+|---|---|
 |`MERCHANT_ID`|`MERCHANT_ID`|
 |`ORDER_NUMBER`|`ORDER_NUMBER`|
 |`SHIPPING_TYPE`: 1, 2 ou 3|`SHIPPING_TYPE`: 5|

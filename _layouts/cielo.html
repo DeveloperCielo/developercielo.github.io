@@ -118,8 +118,6 @@
         $("#toc").tocify({
             {% if page.layout == "faq" %}
             selectors: "h1",
-            {% elsif page.layout == "tutorial" %}
-            selectors: "h1,h2,h3,h4,h5,h6",
             {% else %}
             selectors: "h1,h2,h3,h4,h5,h6",
             {% endif %}
@@ -155,6 +153,32 @@
     });
     </script>
 
+    {% if page.search %}
+    <script src="{{ site.baseurl }}/assets/js/jquery.highlight.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/lunr.js"></script>
+    <script src="{{ site.baseurl }}/assets/js/search.js"></script>
+    {% endif %}
+    <script>
+      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
+      $('.highlighter-rouge pre').parent().each(function (index) {
+          if($(this).next().hasClass('highlighter-rouge')) {
+              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
+          }
+      });
+
+      let langs = '';
+      let activeLang = '';
+
+      {% for lang in page.language_tabs %}
+      langs += "<a data-language-name='{{ lang[0] }}'>{{ lang[1] }}</a>";
+
+      if (activeLang == '') {
+          activeLang = '{{ lang[0] }}';
+      }
+      {% endfor %}
+
+      $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+    </script>
     {% if page.language_tabs %}
     <script src="{{ site.baseurl }}/assets/js/lang.js"></script>
     <script>
@@ -164,20 +188,5 @@
     });
     </script>
     {% endif %}
-
-    {% if page.search %}
-    <script src="{{ site.baseurl }}/assets/js/jquery.highlight.js"></script>
-    <script src="{{ site.baseurl }}/assets/js/lunr.js"></script>
-    <script src="{{ site.baseurl }}/assets/js/search.js"></script>
-    {% endif %}
-    <script>
-      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
-      $('.highlighter-rouge').each(function (index) {
-          if($(this).next().hasClass('highlighter-rouge')) {
-              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
-          }
-      });
-      $('.language-group').prepend('<div class="language-buttons"><a href="#" class="active">JSON</a><a href="#">cURL</a></div>');
-    </script>
   </body>
 </html>
