@@ -16,8 +16,6 @@ language_tabs:
 
 11111111111111111111
 
-
-
 ## Nivel 2
 
 2222222222222222222
@@ -159,12 +157,10 @@ Conteudo Tipo *C*
 
 Conteudo Tipo *D*
 
-<aside class="request">Teste de GET<span class="method GET">
 
-<aside class="request">Teste de PUT<span class="method PUT">
+<aside class="request"><span class="method get">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-<aside class="request">Teste de POST<span class="method POST">
+<aside class="request"><span class="method put">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-<aside class="notice">Valor do *NOTICE*</aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-<aside class="warning">Valor do *Warning*</aside>
