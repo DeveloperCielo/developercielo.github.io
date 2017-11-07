@@ -122,61 +122,11 @@
     
 
         <div class="post">
-  <h1 id="nivel-1"><strong>Nivel 1</strong></h1>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito simples"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
-     </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-     </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>  
-   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111703"</span>,
-   <span class="s2">"Customer"</span>:<span class="o">{</span>  
-      <span class="s2">"Name"</span>:<span class="s2">"Comprador crédito simples"</span>
-   <span class="o">}</span>,
-   <span class="s2">"Payment"</span>:<span class="o">{</span>  
-     <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-     <span class="s2">"Amount"</span>:15700,
-     <span class="s2">"Installments"</span>:1,
-     <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
-     <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
-         <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,
-         <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
-         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-     <span class="o">}</span>
-   <span class="o">}</span>
-<span class="o">}</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
+  <h1 id="nível-1">Nível 1</h1>
 
 <p>11111111111111111111</p>
 
-<h2 id="nivel-2"><strong>Nivel 2</strong></h2>
+<h2 id="nivel-2">Nivel 2</h2>
 
 <p>2222222222222222222</p>
 
@@ -184,36 +134,30 @@
 
 <p>333333333333333333</p>
 
-<p>Teste de Cor das tabelas: <em>Cabeçalho</em> e <em>fundo</em></p>
+<h4 id="nivel-4">Nivel 4</h4>
 
-<p>Detaque de Código: <code class="highlighter-rouge">Name.Company</code></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tipo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">Name.company</code></td>
-      <td>Nome do produto</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">price.company</code></td>
-      <td>Preço do Produto</td>
-    </tr>
-  </tbody>
-</table>
+<p>4444444444444444444</p>
 
 <blockquote>
   <p>Teste de Mensagem de destaque</p>
 </blockquote>
 
-<h4 id="nivel-4">Nivel 4</h4>
+<p>Destaque de código <code class="highlighter-rouge">Código</code></p>
 
-<p>4444444444444444444</p>
+<table>
+  <thead>
+    <tr>
+      <th>Funcionalidade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tela transacional</strong></td>
+      <td>O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. <code class="highlighter-rouge">Código</code><br /></td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -264,32 +208,6 @@
 <span class="o">}</span>
 <span class="nt">--verbose</span>
 </code></pre></div></div>
-
-<h1 id="nivel-a">Nivel A</h1>
-
-<p>Conteudo Tipo <em>A</em></p>
-
-<h2 id="nivel-b">Nivel B</h2>
-
-<p>Conteudo Tipo <em>B</em></p>
-
-<h3 id="nivel-c">Nivel C</h3>
-
-<p>Conteudo Tipo <em>C</em></p>
-
-<h4 id="nivel-d">Nivel D</h4>
-
-<p>Conteudo Tipo <em>D</em></p>
-
-<aside class="request"><span class="method get">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<aside class="request"><span class="method put">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<aside class="warning">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
-
-<aside class="notice">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
 
 </div>
 
