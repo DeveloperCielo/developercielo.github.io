@@ -10,12 +10,6 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
-toc_footers:
-  - <a href='/Guia-D-migracao-1.5x3.0/'>Guia de migração API 1.5</a>
-  - <a href='/API-3.0-FAQ/'>FAQ API CIELO</a>
-  - <a href='/Tutorial-Backoffice-3.0/'>Tutorial Backoffice 3.0</a>
-  - <a href='/Habilitacao-meios-de-pagamento/'>Tutorial Boleto / Débito online</a>
-  - <a href='/Boas-praticas-de-ecommerce/'>Boas práticas de eCommerce</a>
 ---
 
 # Nivel 1
