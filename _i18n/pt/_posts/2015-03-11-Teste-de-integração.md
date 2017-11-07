@@ -16,15 +16,7 @@ language_tabs:
 
 11111111111111111111
 
-<aside class="request">Teste de GET<span class="method GET">
 
-<aside class="request">Teste de PUT<span class="method PUT">
-
-<aside class="request">Teste de POST<span class="method POST">
-
-<aside class="notice">Valor do *NOTICE*</aside>
-
-<aside class="warning">Valor do *Warning*</aside>
 
 ## Nivel 2
 
@@ -167,5 +159,12 @@ Conteudo Tipo *C*
 
 Conteudo Tipo *D*
 
+<aside class="request">Teste de GET<span class="method GET">
 
+<aside class="request">Teste de PUT<span class="method PUT">
 
+<aside class="request">Teste de POST<span class="method POST">
+
+<aside class="notice">Valor do *NOTICE*</aside>
+
+<aside class="warning">Valor do *Warning*</aside>
