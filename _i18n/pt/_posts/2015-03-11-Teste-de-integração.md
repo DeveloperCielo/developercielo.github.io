@@ -121,12 +121,6 @@ curl
 
 <aside class="notice"><strong>Atenção:</strong> Aviso de algo importante.</aside>
 
-<aside class="warning">Aviso de Alerta<aside>
-
-> **ATENÇÃO** - Teste de Alerta
-
-> **ATENÇÃO** - Teste de Alerta
-
-> **ATENÇÃO** - Teste de Alerta
+<aside class="warning">Aviso de Alerta</aside>
 
 > **ATENÇÃO** - Teste de Alerta
