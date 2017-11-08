@@ -59,5 +59,3 @@ Destaque de código `Código`
 |**Tela transacional**|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
 |`Tela.tela`|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
 |`Tela.V1`|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
-
-
