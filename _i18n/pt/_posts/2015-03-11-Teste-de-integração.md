@@ -101,9 +101,11 @@ curl
 
 ### Endpoints
 
-<aside class="request"><span class="method GET">GET</span> <span class="endpoint">/1/sales/</span></aside>
-<aside class="request"><span class="method PUT">PUT</span> <span class="endpoint">/1/sales/</span></aside>
-<aside class="request"><span class="method POST">POST</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method GET">GET</span><span class="endpoint">/1/sales/</span></aside>
+
+<aside class="request"><span class="method PUT">PUT</span><span class="endpoint">/1/sales/</span></aside>
+
+<aside class="request"><span class="method POST">POST</span><span class="endpoint">/1/sales/</span></aside>
 
 ### Alertas
 
