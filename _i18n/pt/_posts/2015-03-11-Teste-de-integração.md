@@ -36,12 +36,16 @@ Destaque de código `Código`
 |Funcionalidade|Descrição|
 |---|---|
 |**Tela transacional**|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
-|`Tela transacional`|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
-|`Tela transacional`|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
+|`Tela.tela`|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
+|`Tela.V1`|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
 
-# Nível A
+# Tipos de Integração
+
+## Intgração Via Botão
 
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+## Intgração Via API
 
 ```json
 {
@@ -94,3 +98,14 @@ curl
 }
 --verbose
 ```
+
+### Endpoints
+
+<aside class="request"><span class="method GET">GET</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method PUT">PUT</span> <span class="endpoint">/1/sales/</span></aside>
+<aside class="request"><span class="method POST">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+### Alertas
+
+<aside class="warning">Aviso de Alerta<aside>
+<aside class="notice"><strong>Atenção:</strong> Aviso de algo importante.</aside>
