@@ -107,5 +107,9 @@ curl
 
 ### Alertas
 
-<aside class="warning">Aviso de Alerta<aside>
 <aside class="notice"><strong>Atenção:</strong> Aviso de algo importante.</aside>
+
+<aside class="warning">Aviso de Alerta<aside>
+
+> **ATENÇÃO** - Teste de Alerta
+
