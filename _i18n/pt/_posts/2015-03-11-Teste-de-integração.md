@@ -13,6 +13,22 @@ language_tabs:
 
 ---
 
+# Pagamentos
+
+## Cartão de Crédito
+
+### Padrão
+
+### Autenticavel
+
+### Lorem Ipsum
+
+#### Dolor Sit Amet
+
+#### Ipsum Dolor
+
+#### Amet Sit
+
 # Nível 1
 
 11111111111111111111
@@ -44,78 +60,4 @@ Destaque de código `Código`
 |`Tela.tela`|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
 |`Tela.V1`|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
 
-# Tipos de Integração
 
-## Integração Via Botão
-
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
-## Integração Via API
-
-```json
-{
-   "MerchantOrderId":"2014111703",
-   "Customer":{
-      "Name":"Comprador crédito simples"
-   },
-   "Payment":{
-     "Type":"CreditCard",
-     "Amount":15700,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-     }
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2014111703",
-   "Customer":{  
-      "Name":"Comprador crédito simples"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":15700,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardNumber":"4551870000000183",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-     }
-   }
-}
---verbose
-```
-
-### Endpoints
-
-<aside class="request"><span class="method GET">GET</span><span class="endpoint">/1/sales/</span></aside>
-
-<aside class="request"><span class="method PUT">PUT</span><span class="endpoint">/1/sales/</span></aside>
-
-<aside class="request"><span class="method POST">POST</span><span class="endpoint">/1/sales/</span></aside>
-
-### Alertas
-
-<aside class="notice"><strong>Atenção:</strong> Aviso de algo importante.</aside>
-
-<aside class="warning">Aviso de Alerta</aside>
-
-> **ATENÇÃO** - Teste de Alerta
