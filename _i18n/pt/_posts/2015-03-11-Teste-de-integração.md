@@ -41,11 +41,11 @@ Destaque de código `Código`
 
 # Tipos de Integração
 
-## Intgração Via Botão
+## Integração Via Botão
 
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
-## Intgração Via API
+## Integração Via API
 
 ```json
 {
