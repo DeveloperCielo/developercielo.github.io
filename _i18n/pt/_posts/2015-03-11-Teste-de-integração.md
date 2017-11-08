@@ -35,7 +35,13 @@ Destaque de código `Código`
 
 |Funcionalidade|Descrição|
 |---|---|
-|**Tela transacional**|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`<br>|
+|**Tela transacional**|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
+|`Tela transacional`|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
+|`Tela transacional`|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. `Código`|
+
+# Nível A
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 ```json
 {
