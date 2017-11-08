@@ -1227,6 +1227,20 @@ div:empty {
     top: -120px;
 }
 
+/* Offseting Anchors */
+
+/* Menu Items */
+
+.tocify-header.nav > ul.tocify-subheader.nav {
+    background-color: #f5f5f5;
+}
+
+.tocify-header.nav > ul.tocify-subheader.nav > ul.tocify-subheader {
+    background-color: #FAFAFA;
+}
+
+/* Menu Items */
+
 
 /* Queries */
 
