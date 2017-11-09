@@ -71,7 +71,6 @@ h4 {
 
 .post table {
     width: 100%;
-    font-weight: lighter;
 }
 
 .post table thead tr th {
@@ -659,7 +658,6 @@ header.logo img {
 }
 
 .toc-contact div {
-    border-top: 1px solid #ddd;
     padding-top: 15px;
 }
 
@@ -1273,9 +1271,6 @@ div:empty {
 
 /* Menu Items */
 
-.tocify {
-    font-weight: bold;
-}
 
 .tocify-header.nav > ul.tocify-subheader.nav {
     background-color: #f5f5f5;
@@ -1287,6 +1282,13 @@ div:empty {
 
 ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subheader li a {
     font-weight: normal;
+}
+
+.fixed-footer {
+    position: absolute;
+    bottom: 0;
+    border-top: 1px dashed #cccccc;
+    width: 100%;
 }
 
 /* Menu Items */
