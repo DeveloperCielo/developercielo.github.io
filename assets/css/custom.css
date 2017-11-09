@@ -1240,6 +1240,7 @@ a.hide-btn .fa {
     background-color: #32aeef;
     color: #fff;
     text-decoration: none;
+    cursor: pointer;
 }
 }
 
