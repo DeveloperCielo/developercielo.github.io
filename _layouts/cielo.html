@@ -79,13 +79,13 @@
           </div>
     </div>
 
-      
+
     </div>
 
     {% if page.language_tabs %}
     <div class="content-container">
       <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
-      <ul class="languages-buttons">
+      <ul class="language-buttons">
           {% for lang in page.language_tabs %}
           <li>
               <a data-language-name='{{ lang[0] }}'>{{ lang[1] }}</a>
@@ -185,6 +185,11 @@
       {% endfor %}
 
       $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+
+      $('.hide-btn').click(function() {
+        $('.content-container').toggleClass('no-dark-box');
+        $('.dark-box').toggle();
+      });
     </script>
     {% if page.language_tabs %}
     <script src="{{ site.baseurl }}/assets/js/lang.js"></script>

@@ -420,7 +420,6 @@ code {
 
 .content-container.no-dark-box {
     width: 100%;
-    padding-left: 400px;
     padding-right: 80px;
 }
 
@@ -1162,7 +1161,7 @@ a.hide-btn:hover {
 
 a.hide-btn .fa {
     margin-right: 10px;
-}   
+}
 }
 
 
@@ -1206,7 +1205,7 @@ a.hide-btn .fa {
 }
 
 @media(min-width: 1660px) {
-    ul.languages-buttons {
+    ul.language-buttons {
     position: fixed;
     top: 60px;
     width: 25%;
@@ -1228,15 +1227,15 @@ a.hide-btn .fa {
     transition: .3s ease all;
 }
 
-.languages-buttons li:first-child a {
+.language-buttons li:first-child a {
     margin: 0;
 }
 
-.languages-buttons a.active {
+.language-buttons a.active {
     background-color: #32aeef;
 }
 
-.languages-buttons a:hover {
+.language-buttons a:hover {
     background-color: #32aeef;
     color: #fff;
     text-decoration: none;
