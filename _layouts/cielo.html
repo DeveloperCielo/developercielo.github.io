@@ -4,12 +4,11 @@
   <body>
     {% if page.language_tabs %}
     <div class="content-container">
-      <a class="code-menu">
-        <i class="fa fa-code code-hamb" aria-hidden="true"></i>
-      </a>
-      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>{% t global.toggle %}</a>
-      <div class="dark-box">
-      </div>
+        <div class="language-tabs">
+            <a class="code-menu"><i class="fa fa-code code-hamb" aria-hidden="true"></i></a>
+            <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>{% t global.toggle %}</a>
+        </div>
+        <div class="dark-box"></div>
     {% else %}
     <div class="content-container no-dark-box">
     {% endif %}
@@ -84,14 +83,16 @@
 
     {% if page.language_tabs %}
     <div class="content-container">
-      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>{% t global.toggle %}</a>
-      <ul class="language-buttons">
-          {% for lang in page.language_tabs %}
-          <li>
-              <a data-language-name='{{ lang[0] }}'>{{ lang[1] }}</a>
-          </li>
-          {% endfor %}
-      </ul>
+        <div class="language-tabs">
+            <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>{% t global.toggle %}</a>
+            <ul class="language-buttons">
+                {% for lang in page.language_tabs %}
+                <li>
+                    <a data-language-name='{{ lang[0] }}'>{{ lang[1] }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
         <div class="dark-box">
         </div>
     {% else %}
