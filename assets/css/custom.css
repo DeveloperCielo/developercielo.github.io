@@ -419,12 +419,13 @@ code {
 
 .content-container.no-dark-box {
     width: 100%;
-    padding-right: 40px;
+
 }
 
 .content-container {
     padding-left: 340px;
-    padding-right: 600px;
+    padding-right: 40px;
+    width: 75%;
 }
 
 
@@ -1379,7 +1380,11 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
   #submenu .submenu-container {
     padding-left: 400px;
     width: 100%;
-    padding-right: 80px;
+    padding-right: 40px;
+  }
+
+  .language-tabs {
+      display: none;
   }
 }
 
@@ -1387,7 +1392,7 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
   .content-container.no-dark-box,
   .content-container,
   #submenu .submenu-container {
-    padding-left: 300px;
+    padding-left: 284px;
   }
 
 
