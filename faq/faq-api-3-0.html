@@ -88,7 +88,7 @@
           </div>
     </div>
 
-      
+
     </div>
 
     
@@ -635,6 +635,11 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       
 
       $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+
+      $('.hide-btn').click(function() {
+        $('.content-container').toggleClass('no-dark-box');
+        $('.dark-box').toggle();
+      });
     </script>
     
   </body>
