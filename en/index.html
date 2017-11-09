@@ -38,24 +38,37 @@
   <body>
     <div class="default">
         <header class="logo">
-  <a href="/en/">
-    <img src="/en/assets/images/logo.png" alt="Documentações e tutoriais">
-  </a>
+    <div class="home-header-container">
+        <a href="#" class="help">Help</a>
+        <a href="/en/">
+            <img src="/en/assets/images/logo.png" alt="Documentações e tutoriais">
+        </a>
+        
+            <div class="search">
+                <input type="text" class="search" id="input-search">
+            </div>
+            <div class="submenu-row results">
+                <div class="search-results-container">
+                    <ul class="search-results"></ul>
+                </div>
+            </div>
+        
+    </div>
 </header>
 
 
 
-<div class="post-list">
+<div class="post-list home">
     <ul class="product-list">
     
         <li class="product">
             <h2>API Cielo</h2>
             
 
-            <ul class="post">
+            <ul class="doc">
             
-                <li class="post-title">
-                    <a class="btn" href="/en/manual/api-cielo-ecommerce">API Integration 3.0</a>
+                <li class="doc-title">
+                    <a href="/en/manual/api-cielo-ecommerce">API Integration 3.0</a>
                 </li>
             
             </ul>
@@ -65,10 +78,10 @@
             <h2>Checkout Cielo</h2>
             
 
-            <ul class="post">
+            <ul class="doc">
             
-                <li class="post-title">
-                    <a class="btn" href="/en/manual/checkout-cielo">Manual Checkout Cielo</a>
+                <li class="doc-title">
+                    <a href="/en/manual/checkout-cielo">Manual Checkout Cielo</a>
                 </li>
             
             </ul>
@@ -78,10 +91,10 @@
             <h2>Webservice 1.5</h2>
             
 
-            <ul class="post">
+            <ul class="doc">
             
-                <li class="post-title">
-                    <a class="btn" href="/en/manual/webservice-1-5">Integração Webservice 1.5</a>
+                <li class="doc-title">
+                    <a href="/en/manual/webservice-1-5">Integração Webservice 1.5</a>
                 </li>
             
             </ul>
@@ -89,6 +102,20 @@
     
     </ul>
 </div>
+
+<div class="home-footer">
+    <div class="footer-conteudo">
+        <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+        </div>
+        <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+            <h2>Precisa de ajuda?</h2>
+            <p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
+        </div>
+    </div>
+</div>
+
+
 
     </div>
     <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
