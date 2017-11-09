@@ -419,9 +419,9 @@ code {
 }
 
 .content-container.no-dark-box {
-    width: 80%;
+    width: 100%;
     padding-left: 400px;
-    padding-right: 0;
+    padding-right: 80px;
 }
 
 .content-container {
@@ -977,6 +977,10 @@ a.help {
       width: 25%;
 }
 
+.sidebar-closed #submenu .submenu-container {
+    padding-left: 140px;
+}
+
 /* Footer Dúvidas */
 
 .footer-conteudo {
@@ -1199,6 +1203,44 @@ a.hide-btn .fa {
 
 .highlighter-rouge {
     width: 100%;
+}
+
+@media(min-width: 1660px) {
+    ul.languages-buttons {
+    position: fixed;
+    top: 60px;
+    width: 25%;
+    z-index: 100;
+    right: 0;
+    list-style: none;
+    background-color: #202125;
+    display: flex;
+    padding: 20px;
+}
+
+.languages-buttons a {
+    padding: 70px 25px;
+    background-color: #2f3033;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    margin: 0 10px;
+    transition: .3s ease all;
+}
+
+.languages-buttons li:first-child a {
+    margin: 0;
+}
+
+.languages-buttons a.active {
+    background-color: #32aeef;
+}
+
+.languages-buttons a:hover {
+    background-color: #32aeef;
+    color: #fff;
+    text-decoration: none;
+}
 }
 
 /* Trocar Linguagem */
