@@ -7,7 +7,7 @@
       <a class="code-menu">
         <i class="fa fa-code code-hamb" aria-hidden="true"></i>
       </a>
-      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>{% t global.toggle %}</a>
       <div class="dark-box">
       </div>
     {% else %}
@@ -84,7 +84,7 @@
 
     {% if page.language_tabs %}
     <div class="content-container">
-      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
+      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>{% t global.toggle %}</a>
       <ul class="language-buttons">
           {% for lang in page.language_tabs %}
           <li>
@@ -196,7 +196,6 @@
     <script>
     $(function() {
         setupLanguages([ {% for lang in page.language_tabs %} "{{ lang[0] }}", {% endfor %}]);
-
     });
     </script>
     {% endif %}
