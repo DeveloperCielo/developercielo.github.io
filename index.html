@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Home
-search: true
 ---
 <header class="logo">
     <div class="home-header-container">
@@ -9,16 +8,6 @@ search: true
         <a href="{{ site.baseurl }}/">
             <img src="{{ site.baseurl }}/assets/images/logo.png" alt="{{ site.title }}">
         </a>
-        {% if page.search %}
-            <div class="search">
-                <input type="text" class="search" id="input-search">
-            </div>
-            <div class="submenu-row results">
-                <div class="search-results-container">
-                    <ul class="search-results"></ul>
-                </div>
-            </div>
-        {% endif %}
     </div>
 </header>
 
