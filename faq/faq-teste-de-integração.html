@@ -11,7 +11,7 @@
 
     <title>
         
-        Teste de Integração &middot; Documentações e tutoriais
+        FAQ &middot; Documentações e tutoriais
         
     </title>
 
@@ -37,13 +37,7 @@
 
   <body>
     
-    <div class="content-container">
-      <a class="code-menu">
-        <i class="fa fa-code code-hamb" aria-hidden="true"></i>
-      </a>
-      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
-      <div class="dark-box">
-      </div>
+    <div class="content-container no-dark-box">
     
     <div id="submenu">
       <div class="submenu-container">
@@ -55,13 +49,13 @@
               <span>Idiomas</span>
             
             
-              <a href="/manual/faq-teste-de-integra%C3%A7%C3%A3o">
+              <a href="/faq/faq-teste-de-integra%C3%A7%C3%A3o">
             
                 <img alt="Português" src="/assets/images/pt.png"/>
               </a>
               
             
-              <a href="/en/manual/faq-teste-de-integra%C3%A7%C3%A3o">
+              <a href="/en/faq/faq-teste-de-integra%C3%A7%C3%A3o">
             
                 <img alt="English" src="/assets/images/en.png"/>
               </a>
@@ -102,7 +96,7 @@
                     
                         
                             
-                            <li class="active">&gt; <a href="/manual/faq-teste-de-integra%C3%A7%C3%A3o">Teste de Integração</a></li>
+                            <li class="active">&gt; <a href="/faq/faq-teste-de-integra%C3%A7%C3%A3o">FAQ</a></li>
                             
                         
                     
@@ -115,10 +109,7 @@
     </div>
 
     
-    <div class="content-container">
-      <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
-        <div class="dark-box">
-        </div>
+    <div class="content-container no-dark-box">
     
 
         <div class="post">
@@ -251,7 +242,7 @@
     $(function() {
         $("#toc").tocify({
             
-            selectors: "h1,h2,h3,h4,h5,h6",
+            selectors: "h1",
             
             hashGenerator: "pretty",
             ignoreSelector: ".no-toc"
@@ -302,28 +293,8 @@
       let activeLang = '';
 
       
-      langs += "<a data-language-name='json'>JSON</a>";
-
-      if (activeLang == '') {
-          activeLang = 'json';
-      }
-      
-      langs += "<a data-language-name='shell'>cURL</a>";
-
-      if (activeLang == '') {
-          activeLang = 'shell';
-      }
-      
 
       $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
-    </script>
-    
-    <script src="/assets/js/lang.js"></script>
-    <script>
-    $(function() {
-        setupLanguages([  "json",  "shell", ]);
-
-    });
     </script>
     
   </body>
