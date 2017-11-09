@@ -70,7 +70,7 @@ h4 {
 
 
 .post table {
-    width: calc(100% - 70px);
+    width: 100%;
     font-weight: lighter;
 }
 
@@ -420,7 +420,7 @@ code {
 
 .content-container.no-dark-box {
     width: 100%;
-    padding-right: 80px;
+    padding-right: 40px;
 }
 
 .content-container {
@@ -977,7 +977,7 @@ a.help {
 }
 
 .sidebar-closed #submenu .submenu-container {
-    padding-left: 140px;
+    padding-left: 90px;
 }
 
 /* Footer Dúvidas */
@@ -1141,7 +1141,7 @@ a.expand-btn:hover {
 }
 
 @media(min-width: 1660px) {
- a.hide-btn {
+a.hide-btn {
     position: fixed;
     top: 0;
     right: 0;
@@ -1151,6 +1151,10 @@ a.expand-btn:hover {
     color: #fff;
     padding: 20px;
     font-size: 13px;
+}
+
+.content-container.no-dark-box a.hide-btn {
+    width: auto;
 }
 
 a.hide-btn:hover {
@@ -1205,7 +1209,7 @@ a.hide-btn .fa {
 }
 
 @media(min-width: 1660px) {
-    ul.language-buttons {
+    .content-container:not(.no-dark-box) ul.language-buttons {
     position: fixed;
     top: 60px;
     width: 25%;
@@ -1217,7 +1221,7 @@ a.hide-btn .fa {
     padding: 20px;
 }
 
-.languages-buttons a {
+.content-container:not(.no-dark-box) .language-buttons a {
     padding: 7px 25px;
     background-color: #2f3033;
     text-decoration: none;
@@ -1227,15 +1231,15 @@ a.hide-btn .fa {
     transition: .3s ease all;
 }
 
-.language-buttons li:first-child a {
+.content-container:not(.no-dark-box) .language-buttons li:first-child a {
     margin: 0;
 }
 
-.language-buttons a.active {
+.content-container:not(.no-dark-box) .language-buttons a.active {
     background-color: #32aeef;
 }
 
-.language-buttons a:hover {
+.content-container:not(.no-dark-box) .language-buttons a:hover {
     background-color: #32aeef;
     color: #fff;
     text-decoration: none;
@@ -1322,7 +1326,7 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
 }
 
 @media (min-width: 1660px) {
-    div.highlighter-rouge {
+    .content-container:not(.no-dark-box) div.highlighter-rouge {
         position: absolute;
         right: 0;
         width: 25%;
@@ -1337,7 +1341,7 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
         text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
     }
 
-    .language-buttons {
+    .content-container:not(.no-dark-box) .language-buttons {
         position: absolute;
         right: 0;
         width: 25%;
@@ -1347,11 +1351,11 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
         box-sizing: border-box;
     }
 
-    a.expand-btn {
+    .content-container:not(.no-dark-box) a.expand-btn {
         display: none;
     }
 
-    .highlighter-rouge pre.highlight {
+    .content-container:not(.no-dark-box) .highlighter-rouge pre.highlight {
         border: none;
         border-radius: 0;
         background-color: transparent;
@@ -1360,7 +1364,7 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
         z-index: 10;
     }
 
-    .code-menu-closed .highlighter-rouge pre.highlight {
+    .content-container:not(.no-dark-box) .code-menu-closed .highlighter-rouge pre.highlight {
         position: relative;
     }
 
