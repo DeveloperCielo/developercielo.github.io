@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de Integraçaõ
+title: Manual de Integração
 description:
 search: true
 translated: true
