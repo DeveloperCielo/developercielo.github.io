@@ -85,6 +85,13 @@
     {% if page.language_tabs %}
     <div class="content-container">
       <a class='hide-btn' id="hide-button"><i class="fa fa-chevron-left" aria-hidden="true"></i>Ocultar</a>
+      <ul class="languages-buttons">
+          {% for lang in page.language_tabs %}
+          <li>
+              <a data-language-name='{{ lang[0] }}'>{{ lang[1] }}</a>
+          </li>
+          {% endfor %}
+      </ul>
         <div class="dark-box">
         </div>
     {% else %}
