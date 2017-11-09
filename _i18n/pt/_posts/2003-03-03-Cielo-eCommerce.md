@@ -1,12 +1,12 @@
 ---
 layout: manual
-title: Manual API Cielo eCommerce
+title: Manual de integração
 description: Manual integração técnica via API
 search: true
 translated: true
 categories: manual
 tags:
-  - API Cielo
+  - API e-Commerce Cielo
 language_tabs:
   json: JSON
   shell: cURL
