@@ -1296,14 +1296,10 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
 /* New Home */
 
 .home-header-container {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
     height: 100%;
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    justify-content: space-between;
     padding: 0 30px;
 }
 
@@ -1314,6 +1310,11 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
 }
 
 .home-header-container a.help {
+     padding-right: 20px;
+    float: left;
+    display: block;
+    position: absolute;
+    top: 25px;
     border: none;
 }
 
