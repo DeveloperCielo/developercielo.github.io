@@ -11,20 +11,20 @@ title: Home
 {% assign sorted = site.tags | sort %}
 
 <div class="post-list">
+    <ul class="product-list">
     {% for tag in sorted %}
-    <section class="product">
-        <h1>{{tag[0]}}</h1>
-        {% assign pages_list = tag[1] | sort %}
+        <li class="product">
+            <h2>{{tag[0]}}</h2>
+            {% assign pages_list = tag[1] | sort %}
 
-        <ul class="post">
-        {% for post in pages_list %}
-            <li class="post-title">
-                <h2 class="no-toc">{{ post.title }}</h2>
-                <p>{{ post.description | truncatewords:75 }}</p>
-                <a class="btn" href="{{ site.baseurl }}{{ post.url }}">Ver Conteúdo</a>
-            </li>
-        {% endfor %}
-        </ul>
-    </section>
+            <ul class="post">
+            {% for post in pages_list %}
+                <li class="post-title">
+                    <a class="btn" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </li>
     {% endfor %}
+    </ul>
 </div>
