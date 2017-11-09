@@ -1,11 +1,11 @@
 ---
 layout: tutorial
-title:  "Backoffice API 3.0 Cielo"
+title:  Tutoriais
 description: O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.
 search: true
 categories: tutorial
 tags:
-  - API Cielo
+  - API e-Commerce Cielo
 toc_footers:
   - <a href='/Webservice-3.0/'>Integração API Cielo eCommerce</a>
   - <a href='/Checkout-FAQ/'>Perguntas Frequentes</a>
