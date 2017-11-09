@@ -1,7 +1,7 @@
 ---
 layout: manual
 title: Teste de Integração
-description: MD criado para testar regras e possibilidades de edição do novo manual
+description:
 search: true
 translated: true
 categories: manual
