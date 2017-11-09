@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Teste de Integração
+title: Manual de Integraçaõ
 description:
 search: true
 translated: true
