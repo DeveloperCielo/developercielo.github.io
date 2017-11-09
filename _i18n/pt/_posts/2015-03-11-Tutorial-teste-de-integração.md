@@ -1,16 +1,12 @@
 ---
-layout: manual
-title: Teste de Integração
-description: MD criado para testar regras e possibilidades de edição do novo manual
+layout: tutorial
+title: Tutoriais
+description:
 search: true
 translated: true
-categories: manual
+categories: tutorial
 tags:
   - Documentos Teste
-language_tabs:
-  json: JSON
-  shell: cURL
-
 ---
 
 # Pagamentos
