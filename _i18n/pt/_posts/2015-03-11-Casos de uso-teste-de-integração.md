@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Tutoriais
+title: Casos de Uso
 description:
 search: true
 translated: true
