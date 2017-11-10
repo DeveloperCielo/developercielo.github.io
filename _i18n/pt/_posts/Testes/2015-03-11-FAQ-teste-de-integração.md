@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: FAQ
+title: FAQ Teste
 description: 
 search: true
 translated: true
