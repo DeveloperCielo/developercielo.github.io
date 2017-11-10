@@ -1417,6 +1417,7 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
 
 @media (min-width: 1660px) {
     .content-container:not(.no-dark-box) div.highlighter-rouge {
+        display: none;
         position: absolute;
         right: 0;
         width: 25%;
