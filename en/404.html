@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+    <head>
     <link href="http://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -35,66 +35,69 @@
     <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
-  <body>
-    
-    <div class="content-container no-dark-box">
-    
-    <div id="submenu">
-      <div class="submenu-container">
-          <div class="submenu-row sub-items">
-            <div class="submenu-itens">
-              <a href="#" class="help">Help</a>
-              
-          </div>
-            
-          </div>
-          
-            <div class="submenu-row breads">
-                <ol class="breadcrumb">
-                    
-                    <li><a href="/en/">Home</a></li>
-                    
-                    
-                    
-                    
-                        
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div class="overlay"></div>
+
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="#" class="help">Help</a>
+
                             
-                            <li class="active">&gt; <a href="/en/404.html">404: Page not found</a></li>
-                            
+                        </div>
+
                         
-                    
-                </ol>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="/en/404.html">404: Page not found</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
             </div>
-          </div>
-    </div>
+        </div>
 
-
-    </div>
-
-    
-    <div class="content-container no-dark-box">
-    
-
-        <div class="page">
+        
+        <div class="content-container no-dark-box">
+        
+            <div class="page">
   <h1 class="page-title">404: Page not found</h1>
   <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="/en">Head back home</a> to try finding it again.</p>
 </div>
 
-    </div>
+        </div>
 
-    <div class="content-container">
-      <div class="footer-conteudo">
-						<div id="footer-conteudo-img" class="col-lg-1 col-md-1">
-							<img src="/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
-						</div>
-						<div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-							<h2>Precisa de ajuda?</h2>
-							<p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
-						</div>
-				</div>
-    </div>
+        <div class="content-container">
+            <div class="footer-conteudo">
+                <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+                    <img src="/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+                </div>
 
-    <div class="sidebar">
+                <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+                    <h2>Precisa de ajuda?</h2>
+                    <p>Se você não conseguiu encontrar sua resposta acima, <a href="#">entre em contato conosco</a> ou <a href="#">consulte nosso FAQ.</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
       <a title="Toggle left column" class="hamburger">
@@ -129,70 +132,48 @@
 </div>
 
 
-    <script src="/en/assets/js/jquery-1.8.3.min.js"></script>
-    <script src="/en/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-    <script src="/en/assets/js/bootstrap.js"></script>
-    <script src="/en/assets/js/jquery.tocify.js"></script>
-    <script src="/en/assets/js/prettify.js"></script>
-    <script>
-    $(function() {
-        $("#toc").tocify({
-            
-            selectors: "h1,h2,h3,h4,h5,h6",
-            
-            hashGenerator: "pretty",
-            ignoreSelector: ".no-toc"
-        }).data("toc-tocify");
+        <script src="/en/assets/js/jquery.min.js"></script>
+        <script src="/en/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/en/assets/js/bootstrap.js"></script>
+        <script src="/en/assets/js/jquery.tocify.js"></script>
+        <script src="/en/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
 
-        $('ul').prev('li').addClass('has-subitens');
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc"
+            }).data("toc-tocify");
 
-           var openedHeader = null;
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
 
-           $(window).scroll(function () {
-               if ($('li.active').closest('.tocify-header') !== openedHeader) {
-                   $('li.is-open').removeClass('is-open');
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
 
-                   openedHeader = $('li.active').closest('.tocify-header');
-               }
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
 
-               openedHeader.find('ul:visible').prev('li').addClass('is-open');
-           });
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
 
-           $('.hamburger').click(function() {
-              $('body').toggleClass('sidebar-closed');
-           });
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
 
-           $('.code-menu').click(function() {
-               $('body').toggleClass('code-menu-closed');
-           });
+            prettyPrint();
+        });
+        </script>
 
-        prettyPrint();
+        
 
-
-    });
-    </script>
-
-    
-    <script>
-      $( 'div.highlight' ).append( '<a class=expand-btn id=expand-button><i class=fa fa-arrows-alt aria-hidden=true></i>Expandir</a>' );
-      $('.highlighter-rouge pre').parent().each(function (index) {
-          if($(this).next().hasClass('highlighter-rouge')) {
-              $(this).next().andSelf().wrapAll('<div class="language-group"></div>');
-          }
-      });
-
-      let langs = '';
-      let activeLang = '';
-
-      
-
-      $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
-
-      $('.hide-btn').click(function() {
-        $('.content-container').toggleClass('no-dark-box');
-        $('.dark-box').toggle();
-      });
-    </script>
-    
-  </body>
+        
+    </body>
 </html>

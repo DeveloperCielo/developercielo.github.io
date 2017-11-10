@@ -813,6 +813,7 @@ code {
     margin-bottom: 0;
     border-radius: 0;
     font-size: 11px;
+    height: 100%;
 }
 
 .content table {
@@ -1119,7 +1120,7 @@ div.highlight {
 }
 
 a.expand-btn {
-    position: absolute;
+    float: right;
     top: 15px;
     right: 15px;
     color: #fff;
@@ -1127,6 +1128,7 @@ a.expand-btn {
     font-size: 13px;
     background-color: #3e3f42;
     padding: 5px 15px;
+    cursor: pointer;
 }
 
 a.expand-btn:hover {
@@ -1259,13 +1261,13 @@ blockquote {
 /* Blockquotes */
 
 /* Offseting Anchors */
-
+/*
 div:empty {
     position: relative;
     content: "";
     display: block;
     top: -120px;
-}
+}*/
 
 /* Offseting Anchors */
 
@@ -1507,4 +1509,38 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
         clear: both;
         display: block
     }
+}
+
+.language-group .highlighter-rouge {
+    display: none;
+}
+
+.code-fullscreen.opened {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 10;
+    width: calc(100% - 149px);
+}
+
+.overlay.opened {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9;
+}
+
+.code-fullscreen.opened .language-group {
+    height: calc(100vh - 40px);
+    margin: 0;
+}
+
+.code-fullscreen.opened pre {
+    font-size: 1.2em;
 }
