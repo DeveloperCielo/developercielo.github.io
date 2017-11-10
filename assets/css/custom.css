@@ -1129,6 +1129,8 @@ a.expand-btn {
     background-color: #3e3f42;
     padding: 5px 15px;
     cursor: pointer;
+    position: relative;
+    z-index: 1000;
 }
 
 a.expand-btn:hover {
@@ -1543,4 +1545,5 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
 
 .code-fullscreen.opened pre {
     font-size: 1.2em;
+    height: calc(100vh - 40px);
 }
