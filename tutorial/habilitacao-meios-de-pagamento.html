@@ -422,7 +422,10 @@
                 selectors: "h1,h2,h3,h4,h5,h6",
                 
                 hashGenerator: "pretty",
-                ignoreSelector: ".no-toc"
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
