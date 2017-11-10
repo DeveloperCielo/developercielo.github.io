@@ -14592,34 +14592,32 @@ id=‹merchant id›‹session ID›" type="text/javascript"›
 
         
         <script>
-        $(function() {
-            let langs = '';
+        let langs = '';
 
-            $('div.highlighter-rouge').each(function (index) {
-                if(!$(this).parent().hasClass('language-group')) {
-                    $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
-                }
-            });
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
 
-            
-            langs += "<a data-language-name='json'>JSON</a>";
-            
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
 
-            $('.language-group .highlighter-rouge').prepend( '<a class="expand-btn"><i class=fa fa-arrows-alt aria-hidden=true></i>Comutar</a>' );
-            $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        $('.language-group .highlighter-rouge').prepend( '<a class="expand-btn"><i class=fa fa-arrows-alt aria-hidden=true></i>Comutar</a>' );
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
 
-            $('.hide-btn').click(function() {
-                $('.content-container').toggleClass('no-dark-box');
-                $('.dark-box').toggle();
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
 
-                $('.overlay').removeClass('opened');
-                $('.code-fullscreen').removeClass('opened');
-            });
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
 
-            $('.expand-btn').click(function() {
-                $('.overlay').toggleClass('opened');
-                $(this).parent().parent().parent().toggleClass('opened');
-            });
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
         });
         </script>
 
