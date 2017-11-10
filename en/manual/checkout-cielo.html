@@ -3219,10 +3219,24 @@ It’s possible to select one or more options of shipping. They are presented to
         <script>
         let langs = '';
 
+        $('div.highlighter-rouge').prepend( '<a class="expand-btn"><i class=fa fa-arrows-alt aria-hidden=true></i>Toggle</a>' );
         $('div.highlighter-rouge').each(function (index) {
             if(!$(this).parent().hasClass('language-group')) {
                 $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
             }
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
         });
 
         
@@ -3241,21 +3255,7 @@ It’s possible to select one or more options of shipping. They are presented to
         langs += "<a data-language-name='csharp'>C#</a>";
         
 
-        $('.language-group .highlighter-rouge').prepend( '<a class="expand-btn"><i class=fa fa-arrows-alt aria-hidden=true></i>Toggle</a>' );
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
-
-        $('.hide-btn').click(function() {
-            $('.content-container').toggleClass('no-dark-box');
-            $('.dark-box').toggle();
-
-            $('.overlay').removeClass('opened');
-            $('.code-fullscreen').removeClass('opened');
-        });
-
-        $('.expand-btn').click(function() {
-            $('.overlay').toggleClass('opened');
-            $(this).parent().parent().parent().toggleClass('opened');
-        });
         </script>
 
         <script src="/en/assets/js/lang.js"></script>

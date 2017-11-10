@@ -3612,18 +3612,12 @@ seguintes informações, que irão completar o cadastro:
         <script>
         let langs = '';
 
+        $('div.highlighter-rouge').prepend( '<a class="expand-btn"><i class=fa fa-arrows-alt aria-hidden=true></i>Comutar</a>' );
         $('div.highlighter-rouge').each(function (index) {
             if(!$(this).parent().hasClass('language-group')) {
                 $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
             }
         });
-
-        
-        langs += "<a data-language-name=''></a>";
-        
-
-        $('.language-group .highlighter-rouge').prepend( '<a class="expand-btn"><i class=fa fa-arrows-alt aria-hidden=true></i>Comutar</a>' );
-        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
 
         $('.hide-btn').click(function() {
             $('.content-container').toggleClass('no-dark-box');
@@ -3637,6 +3631,12 @@ seguintes informações, que irão completar o cadastro:
             $('.overlay').toggleClass('opened');
             $(this).parent().parent().parent().toggleClass('opened');
         });
+
+        
+        langs += "<a data-language-name=''></a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
         </script>
 
         <script src="/assets/js/lang.js"></script>
