@@ -1521,8 +1521,8 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
     left: 20px;
     right: 20px;
     bottom: 20px;
-    z-index: 10;
-    width: calc(100% - 149px);
+    z-index: 1001;
+    width: auto;
 }
 
 .overlay.opened {
@@ -1533,7 +1533,7 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.6);
-    z-index: 9;
+    z-index: 1000;
 }
 
 .code-fullscreen.opened .language-group {
