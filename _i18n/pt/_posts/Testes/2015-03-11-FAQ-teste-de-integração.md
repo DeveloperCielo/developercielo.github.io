@@ -1,16 +1,12 @@
 ---
-layout: manual
-title: Manual de Integração
-description:
+layout: faq
+title: FAQ Teste
+description: 
 search: true
 translated: true
-categories: manual
+categories: FAQ
 tags:
   - Documentos Teste
-language_tabs:
-  json: JSON
-  shell: cURL
-
 ---
 
 # Pagamentos

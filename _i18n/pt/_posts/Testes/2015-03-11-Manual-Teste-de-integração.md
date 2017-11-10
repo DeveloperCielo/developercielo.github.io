@@ -1,13 +1,21 @@
 ---
-layout: faq
-title: FAQ
-description: 
+layout: manual
+title: Manual de Integração
+description:
 search: true
 translated: true
-categories: FAQ
+categories: manual
 tags:
   - Documentos Teste
+language_tabs:
+  json: JSON
+  shell: cURL
+
 ---
+
+# Agendamentos
+
+# Cancelamentos
 
 # Pagamentos
 
