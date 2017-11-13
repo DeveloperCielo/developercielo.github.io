@@ -27,12 +27,15 @@ A terceira grande diferença entre as duas soluções está no AVS; como a API 3
 
 Além dessas diferenças, as requisições HTTP também são feitas em ambientes diferentes utilizado métodos HTTP específicos para cada tipo de requisição; são eles:
 
-* Ambiente Produção
-    * Requisição de transação: https://api.cieloeCommerce.cielo.com.br/
-    * Consulta transação: https://apiquery.cieloeCommerce.cielo.com.br/
-* Ambiente Sandbox
-    * Requisição de transação: https://apisandbox.cieloeCommerce.cielo.com.br
-    * Consulta transação: https://apiquerysandbox.cieloeCommerce.cielo.com.br
+**Ambiente Produção**
+
+* Requisição de transação: https://api.cieloeCommerce.cielo.com.br/
+* Consulta transação: https://apiquery.cieloeCommerce.cielo.com.br/
+
+**Ambiente Sandbox**
+
+* Requisição de transação: https://apisandbox.cieloeCommerce.cielo.com.br
+* Consulta transação: https://apiquerysandbox.cieloeCommerce.cielo.com.br
 
 ### Métodos HTTP da 3.0
 
