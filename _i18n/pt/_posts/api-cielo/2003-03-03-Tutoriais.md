@@ -54,9 +54,9 @@ Clique no link destacado abaixo:
 
 Você será redirecionado para <https://www.cielo.com.br/desenvolvedores/>
 
-# Pesquisando e editando transações
+## Pesquisando e editando transações
 
-## Pesquisar Transações
+### Pesquisar Transações
 
 Ao acessar a opção abaixo:
 
@@ -85,7 +85,7 @@ Sobre os Filtros:
 
 Os filtros podem ser combinados para realizar uma pesquisa personalizada.
 
-## Capturando ou Cancelando Transações
+### Capturando ou Cancelando Transações
 
 Ao realizar uma pesquisa, é possível realizar a captura ou cancelamento de transações. Ao identificar a transação que deseje cancelar ou capturar:
 
@@ -100,7 +100,7 @@ Basta realizar o cancelamento ou a Captura (O botão apresentado depende do stat
 Confirme o valor a ser capturado ou cancelado.
 **OBS:** Alterar o valor no menu acima, define o comportamento do Cancelamento/Captura Parcial.
 
-## Capturando ou cancelando Transações em bloco.
+### Capturando ou cancelando Transações em bloco.
 
 Ao realizar uma pesquisa, é possível realizar a captura ou cancelamento de transações em bloco. Basta selecionar quais serão modificadas e clique em “Opções”:
 
@@ -114,7 +114,7 @@ Ao selecionar a opção desejada, você será direcionado a uma tela onde poder�
 
 ![bloco de transações]({{ site.baseurl_root }}/images/i12.png)
 
-# Utilizando o Extrato
+## Utilizando o Extrato
 
 O Extrato de cobrança permite visualizar o valor a ser cobrado pela utilização das funcionalidades da API Cielo Ecommerce. Basta selecionar o mês e ano que se deseja exibir.
 
@@ -129,7 +129,7 @@ Para maiores informações a respeito dos serviços cobrados, entre em contato c
   * Opção 2 – Credenciamento eCommerce.
 * Email: cieloeCommerce@cielo.com.br
 
-# Configurando a Recorrência
+## Configurando a Recorrência
 
 A área de configuração da recorrência permite modificar o número e o intervalo das tentativas de transações. Essas tentativas ocorrem quando uma transação (dentro de uma recorrência) é negada. A API Cielo Ecommerce possui a inteligência para identificar esse cenário, e executar uma nova transação.
 
