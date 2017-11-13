@@ -18,7 +18,7 @@ title: Home
     {% for tag in sorted %}
         <li class="product">
             <h2>{{tag[0]}}</h2>
-            {% assign pages_list = tag[1] | sort %}
+            {% assign pages_list = tag[1] | sort: 'title' | sort: 'sort_order' %}
 
             <ul class="doc">
             {% for post in pages_list %}
@@ -43,5 +43,3 @@ title: Home
         </div>
     </div>
 </div>
-
-
