@@ -46,6 +46,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 #### Request
 
 ```json
+JSON
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -124,6 +125,13 @@ curl
 #### Response
 
 ```json
+JSON
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
 {
     "MerchantOrderId": "2014111706",
     "Customer": {
