@@ -1114,11 +1114,6 @@ ul.search-results {
 
 /* Expandir */
 
-div.highlight {
-    position: relative;
-    margin-bottom: 0;
-}
-
 a.expand-btn {
     float: right;
     color: #fff;
