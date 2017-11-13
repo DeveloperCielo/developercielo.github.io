@@ -199,11 +199,6 @@
       <td> </td>
     </tr>
     <tr>
-      <td>Status da Transação</td>
-      <td><strong>Cancelado</strong> - Transação cancelada pelo lojista<br /><strong>Estornado</strong> - Transações canceladas com menos de 24 horas<br /><strong>Não Autorizado</strong> - Transações negadas pelo Autorizador Cielo<br /><strong>Não Pago</strong> - Transações autorizadas, mas não capturadas<br /><strong>Pago</strong> - Transações capturadas<br /></td>
-      <td> </td>
-    </tr>
-    <tr>
       <td>Tipos de meio de pagamento</td>
       <td>Grupo de meios de pagamento como Boletos ou cartão de crédito. Não diferencia</td>
       <td>bandeira ou banco.</td>
@@ -216,6 +211,11 @@
     <tr>
       <td>Análise de Fraude</td>
       <td>Qual o status de antifraude da transação no momento da pesquisa</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Status da Transação</td>
+      <td><strong>Cancelado</strong> - Transação cancelada pelo lojista<br /><strong>Estornado</strong> - Transações canceladas com menos de 24 horas<br /><strong>Não Autorizado</strong> - Transações negadas pelo Autorizador Cielo<br /><strong>Não Pago</strong> - Transações autorizadas, mas não capturadas<br /><strong>Pago</strong> - Transações capturadas<br /></td>
       <td> </td>
     </tr>
   </tbody>
@@ -290,6 +290,8 @@
   <li><strong>Quantidades de tentativas:</strong> Número de vezes a API vai realizar uma nova transação em caso de não autorização dentro de uma recorrência. Limitada a 4 tentativas</li>
   <li><strong>Intervalo de tentativas:</strong> Espaço de tempo entre a execução de cada nova tentativa de autorização de uma transação dentro de uma recorrência. Limitado a 4 dias entre cada tentativa.</li>
 </ul>
+
+<h1>—–</h1>
 
 </div>
 
