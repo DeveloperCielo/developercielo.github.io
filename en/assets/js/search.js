@@ -27,11 +27,12 @@
   }
 
   function bind() {
-    content = $('.content');
+    content = $('.content-container .post');
     darkBox = $('.dark-box');
     searchResults = $('.search-results');
 
     $('#input-search').on('keyup', search);
+    $('#input-search').on('click', search);
   }
 
   function search(event) {
@@ -60,6 +61,12 @@
       unhighlight();
       searchResults.removeClass('visible');
     }
+
+    $('.search-results a').click(function() {
+        unhighlight();
+        searchResults.removeClass('visible');
+    });
+
   }
 
   function highlight() {
