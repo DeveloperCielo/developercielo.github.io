@@ -120,7 +120,7 @@ Para solicitar o Boleto Banco do Brasil, você precisa:
   * **Vencimento** (contado em dias):
   * **Carteira**: 18 - SEM REGISTRO
 
-<aside class="notice">Validade do Boleto – Caso o boleto expire em um dia não útil, como sábado, ele será válido até o próximo dia útil</aside>
+<aside class="notice">**Validade do Boleto** – Caso o boleto expire em um dia não útil, como sábado, ele será válido até o próximo dia útil</aside>
 
 # Débito online
 
