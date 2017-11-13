@@ -426,9 +426,10 @@ O Checkout Cielo aceita as principais bandeiras de cartão de débito do mercado
 
 * **E-mail**: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)
 * **Telefones**:
-    * **Capitais**: (sem DDD) 4002.9700
-    * **Demais Localidades**: 0800.570.1700
-    * **Do exterior**: +55 (11) 2860.1348
+
+**Capitais**: (sem DDD) 4002.9700
+**Demais Localidades**: 0800.570.1700
+**Do exterior**: +55 (11) 2860.1348
 
 A autenticação da transação garantirá uma segurança extra ao lojista contra contestações dos consumidores (chargeback). O produto débito obrigatoriamente exige uma transação autenticada, caso contrário, a transação não é autorizada. A autenticação é obrigatória para transações de débito e opcional para o crédito.
 
