@@ -48,11 +48,11 @@ O Backoffice é formado por 6 paginas diferentes de administração do Checkout 
 5. [Manuais](#maniais) - Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.
 6. [Configurações](#configurações) - Pagina onde é possivel fazer alterações nas configurações da Loja , dos seus dados cadastrais e Alterar sua Senha.
 
-# DashBoard
+## DashBoard
 
 Pagina inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações que sua loja vem realizando via o Checkout Cielo.
 
-## Tipos de informações
+### Tipos de informações
 
 Nessa tela você encontra 2 tipos de informações.
 
@@ -61,7 +61,7 @@ Nessa tela você encontra 2 tipos de informações.
 
 ![DashBoard](/images/checkout-dashboard.png)
 
-# Pedidos
+## Pedidos
 
 Nessa pagina fica contida toda a listagem de transações realizadas por um determinado periodo de tempo no Checkout Cielo. Nessa pagina é possivel pesquisar um determinado pedido , via a colocação de um determinado parametro de busca nos campos la existentes ou desmarcando os “checkbox” dos “Meios de pagamento” ou “Status de pagamento” e apertando o botão “Buscar”.
 
@@ -69,13 +69,13 @@ O resultado da pesquisa é exposta em forma de uma listagem  de operações. Ess
 
 ![Pedidos](/images/checkout-pedidos.png)
 
-# Produtos
+## Produtos
 
 Nessa pagina são listados todos os produtos cadastrados no Checkout Cielo. Tambem é possivel fazer uma busca pelo nome do produto nesta pagina.  A lista de produtos pode ser exportada no formato Excel.
 
 No menu Produtos, há também outras duas áreas: **Cadastrar de produtos** e **Listar Produtos Cadastrados**.
 
-## Listar Produtos Cadastrados
+### Listar Produtos Cadastrados
 
 ![Produtos cadastrados](/images/checkout-listar-produtos.png)
 
@@ -83,7 +83,7 @@ Clicando no Titulo ou SKU do produto, você será redirecionado a página de inf
 
 ![Detalhes do produto](/images/checkout-detalhes-produto.png)
 
-## Cadastrar de Produtos
+### Cadastrar de Produtos
 
 Nessa pagina é possivel cadastrar seus produtos com base no tipo de produto em si. O Checkout Cielo considera 3 tipos de produtos: Material Fisico, Digital e  Serviço.
 
@@ -101,17 +101,17 @@ Nessa pagina é possivel cadastrar seus produtos com base no tipo de produto em 
 
 <aside class="notice">O cadastro de produtos não é obrigatório para lojistas que utilizem a integração via carrinho</aside>
 
-# Relatórios
+## Relatórios
 
 Nesta pagina é possível gerar 05 tipos de relatórios:  “Relatório financeiro”, “Detalhado de vendas”, “Listagem de clientes”, “Extrato de Cobrança” e “Relatório de Recorrência”.
 
-## Relatorio Financeiro
+### Relatorio Financeiro
 
 Esse relatorio apresenta as vendas pagas em um determinado periodo de tempo, sendo separadas por meio de pagamento. Selecionando o periodo e  tipo de pagamento, após pressionar “Buscar” o resultado será apresentado.
 
 ![Relatório financeiro](/images/checkout-relatorio-financeiro.png)
 
-## Relatório detalhado de vendas.
+### Relatório detalhado de vendas.
 
 Esse relatorio informa o valor de cada pedido assim como dados sobre o produto e o comprador. O relatorio somente informa dados dos pedidos considerados com status “PAGO”.
 
@@ -119,11 +119,11 @@ Esse relatorio informa o valor de cada pedido assim como dados sobre o produto e
 
 ![Relatório detalhado de vendas](/images/checkout-relatorio-detalhado-vendas.png)
 
-## Listagem de clientes
+### Listagem de clientes
 
 A listagem de clientes gera um arquivo excel contendo os dados dos clientes que realizaram compras  em sua loja.
 
-### Os dados apresentados são:
+#### Os dados apresentados são:
 
 1. Nome
 2. E-mail
@@ -137,13 +137,13 @@ A listagem de clientes gera um arquivo excel contendo os dados dos clientes que 
 10. Estado
 11. CEP
 
-## Extrato de cobrança
+### Extrato de cobrança
 
 A lista do valor cobrado pelos serviços oferecidos pela Cielo será apresentada neste relatório. Todos os dados dos planos e custos transacionais serão apresentados aqui:
 
 ![Extrato de cobrança](/images/checkout-extrato-cobranca.png)
 
-## Relatório de Recorrência
+### Relatório de Recorrência
 
 Nesse relatório é possível pesquisar o conjunto de recorrência e suas transações com base em seu ID ou por Status / Intervalo de ocorrência.
 
@@ -155,7 +155,7 @@ Ao clicar no “+” é aberto a tela de Detalhes da recorrência:
 
 Os Detalhes da recorrência informam o carrinho e o histórico de transações agendadas. Ao clicar em “+Detalhes” o lojista é direcionado a tela de detalhes de Pedidos (Ver item “PEDIDOS”)
 
-# Manuais
+## Manuais
 
 Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.
 
@@ -167,11 +167,11 @@ Nessa pagina é possivel entrar em contato a respeito de duvidas Operacionais, t
 * **Tutorial do Lojista** – Principal fonte de informação sobre a utilização do Checkout Cielo do ponto de vista do Lojista
 * **FAQ** – Perguntas mais comuns a respeito do Checkout Cielo. Contem informações sobre questões Comerciais, Técnicas, Operacionais e sobre o Modo de teste.
 
-# Configurações da Loja
+## Configurações da Loja
 
 Nesta pagina é possivel fazer configurações em diferentes mecanismos dentro do Checkout Cielo. Essa área é dividida em 4 partes diferentes: Exibição, Pagamentos, Antifraude, Frete de Correios & serviços.
 
-## Exibição
+### Exibição
 
 Aqui é possivel alterar o logo do meio de pagamento disponível em sua loja e a cor de fundo do site via o uso da caixa de opções ou digitando o código relativo a cor escolhida (As cores estão no padrão RGB).
 
@@ -179,7 +179,7 @@ Aqui é possivel alterar o logo do meio de pagamento disponível em sua loja e a
 
 <aside class="notice">O logo de sua loja será exibido na tela de Checkout centralizado.</aside>
 
-## Pagamentos
+### Pagamentos
 
 Nesta tela é possivel alterar as configurações dos meios de pagamento disponiveis em sua loja , os definindo como ativos ou não, e configurar a URL de retorno, notificação e Mudança de Status.
 
