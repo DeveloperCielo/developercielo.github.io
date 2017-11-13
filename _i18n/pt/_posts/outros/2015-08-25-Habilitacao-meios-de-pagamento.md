@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title:  "Contratando Boletos e Débito Online"
+title:  "Configurando Boletos e Débito Online"
 description: 
 search: true
 categories: tutorial
@@ -12,17 +12,25 @@ tags:
 
 ## Sobre este Manual
 
-Este manual tem como objetivo orientar o LOJISTA nas contratações dos meios de pagamento BOLETO e DÉBITO ONLINE disponíveis no CHECKOUT CIELO e na API 3.0.
+Este manual tem como objetivo orientar o **LOJISTA** na contratação e configuração do BOLETOs e DÉBITOs ONLINE disponíveis no **CHECKOUT CIELO** e na **API Cielo Ecommerce**
 
-## Boleto
+## Sobre Boletos e Cielo
 
-O lojista pode aceitar pagamentos com boletos emitidos pelos bancos: Bradesco e Banco do Brasil.
+As soluções e-commerce Cielo suportam 2 tipos de Boletos dos Bancos **Bradesco** e **Banco do Brasil**:
 
-## Débito online 
+| Tipo de boleto            | Banco                      | Descrição                                                                                            | Solução Cielo                         |
+|---------------------------|----------------------------|------------------------------------------------------------------------------------------------------|---------------------------------------|
+| **Boleto Registrado**     | Banco do Brasil X Bradesco | São boleto emitidos dentro do ambiente Bancario. A Cielo enviará as informações para o banco emissor. É necessario ter as credenciais fornecidas pelo Banco para utilização da funcionalidade | Api Cielo E-commerce & Checkout Cielo |
+| **Boleto Não registrado** | Banco do Brasil X Bradesco | São boletos gerados em Ambiente Cielo. Todos os bancos deixaram de gerar esses boletos até 2020 | Api Cielo E-commerce & Checkout Cielo |
 
-Neste meio de pagamento os dados do consumidor são digitados diretamente no ambiente do Banco, todos os Bancos possuem a política de que está transação seja redirecionada para seu ambiente, assim tornando a transação mais segura.
+## Sobre Débito online e Cielo 
 
-# Habilitação Boleto
+O Débito Online é uma transferência eletronica que ocorre dentro do Ambiente Bancario.
+O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferência para a conta da loja onde a transação ocorre.
+
+Para utilizar o Débito Online, é necessario que o banco do lojista permita tal operação para a conta do lojista.
+
+# Boletos
 
 ## Bradesco
 
@@ -114,7 +122,7 @@ Para solicitar o Boleto Banco do Brasil, você precisa:
 
 <aside class="notice">Validade do Boleto – Caso o boleto expire em um dia não útil, como sábado, ele será válido até o próximo dia útil</aside>
 
-# Habilitação Débito online
+# Débito online
 
 ## Bradesco
 
@@ -123,7 +131,9 @@ Para solicitar o Boleto Banco do Brasil, você precisa:
   * **login**: dm_cm132
   * **senha**: 12345678
   * **Assinatura**: `8EA7657E-6373-667D-0229-A82E842A3A1A`
+
 2. Ao receber estas informações o lojista deverá Solicitar a habilitação do meio de pagamento para Cielo.
+
 3. Cadastrar no MUP Teste (sistema do Bradesco, o e-mail de com os dados do Bradesco virá com a URL para acesso). Cadastrar as informações abaixo:
   * **Endereço IP da loja**: 209.134.48.121
   * Em “*Página de confirmação de compra*” e “*Página de falha no pagamento*”: https://www.pagador.com.br/pagador/recebe.asp
@@ -133,27 +143,31 @@ Para solicitar o Boleto Banco do Brasil, você precisa:
   * Em “*URL de entrada na loja*”: endereço do site
   * Em “*URL do gerenciador da loja*”: https://www.pagador.com.br/admin/login.asp
   * Na última opção:  `capture now (1001)`.
+
 4. Enviar o e-mail abaixo para a Scopus solicitando a homologação
   * **Para**: [homologacao@scopus.com.br](mailto:homologacao@scopus.com.br); [kit@scopus.com.br](mailto:kit@scopus.com.br)
   * **Assunto**: Dados do ambiente de produção Débito SPS
   * **Corpo do email**:<br />Prezados,<br /><br />Favor liberar o cliente abaixo no ambiente de produção:<br /><br />Razão Social: XXXXX<br />CNPJ: XXXX<br />Nome da loja: XXXXX<br />Número da loja: XXXXX<br />Manager: XXXXX<br />Senha: XXXXXXX<br />URL da Loja: https://www.XXXXXXXXX<br />Meio de Pagamento para Homologar: Débito em Conta<br />
+
 5. Receber os dados de produção:
   * A afiliação será enviada pelo Bradesco no padrão:
         * **Convênio de Produção**: 101xx1
         * **login**: dm_cm132
         * **senha**: 12345678
         * **URL para teste**: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX
+
 6. Cadastrar no MUP Produção, as mesmas informações do Passo 3.
+
 7. Solicitar à Cielo para atualizar o número de Convênio para número de produção que recebeu no passo 5.
 
 ## Banco do Brasil
 
-Solicite ao seu gerente do banco a liberação do convênio do débito online via internet (Comércio eletrônico Banco do Brasil - BBPAG) e o cadastramento da URL de comunicação com a Cielo.
+Solicite ao seu gerente do banco a liberação do convênio do débito online via internet (**Comércio eletrônico Banco do Brasil - BBPAG**) e o cadastramento da URL de comunicação com a Cielo.
 
 * **URL de Comunicação**: [https://www.pagador.com.br/](https://www.pagador.com.br/)
 
-Essa URL deve ser cadastrada pelo Gerente no ato da liberação do convênio.
+A URL deve ser cadastrada pelo **Gerente no ato da liberação do convênio**.
 
-<aside class="warning">Se não cadastrar não funcionará.</aside>
+<aside class="warning">Se o cadastro não ocorre, a transação não será viavel.</aside>
 
 * **Exemplo de convênio**: Convênio: 000000
