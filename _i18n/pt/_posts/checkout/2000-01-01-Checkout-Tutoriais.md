@@ -10,7 +10,7 @@ toc_footers:
   - <a href='/Checkout-Cielo/'>Integração com Checkout Cielo</a>
 ---
 
-# Backoffice Cielo
+# Tutorial Backoffice 
 
 O objetivo deste documento é orientar o lojista sobre como vender com o Checkout Cielo. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.
 
@@ -48,7 +48,7 @@ O Backoffice é formado por 6 paginas diferentes de administração do Checkout 
 5. [Manuais](#maniais) - Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.
 6. [Configurações](#configurações) - Pagina onde é possivel fazer alterações nas configurações da Loja , dos seus dados cadastrais e Alterar sua Senha.
 
-## DashBoard
+## Aba DashBoard
 
 Pagina inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações que sua loja vem realizando via o Checkout Cielo.
 
@@ -61,7 +61,7 @@ Nessa tela você encontra 2 tipos de informações.
 
 ![DashBoard](/images/checkout-dashboard.png)
 
-## Pedidos
+## Aba Pedidos
 
 Nessa pagina fica contida toda a listagem de transações realizadas por um determinado periodo de tempo no Checkout Cielo. Nessa pagina é possivel pesquisar um determinado pedido , via a colocação de um determinado parametro de busca nos campos la existentes ou desmarcando os “checkbox” dos “Meios de pagamento” ou “Status de pagamento” e apertando o botão “Buscar”.
 
@@ -69,7 +69,7 @@ O resultado da pesquisa é exposta em forma de uma listagem  de operações. Ess
 
 ![Pedidos](/images/checkout-pedidos.png)
 
-## Produtos
+## Aba Produtos
 
 Nessa pagina são listados todos os produtos cadastrados no Checkout Cielo. Tambem é possivel fazer uma busca pelo nome do produto nesta pagina.  A lista de produtos pode ser exportada no formato Excel.
 
@@ -101,7 +101,7 @@ Nessa pagina é possivel cadastrar seus produtos com base no tipo de produto em 
 
 <aside class="notice">O cadastro de produtos não é obrigatório para lojistas que utilizem a integração via carrinho</aside>
 
-## Relatórios
+## Aba Relatórios
 
 Nesta pagina é possível gerar 05 tipos de relatórios:  “Relatório financeiro”, “Detalhado de vendas”, “Listagem de clientes”, “Extrato de Cobrança” e “Relatório de Recorrência”.
 
@@ -155,7 +155,7 @@ Ao clicar no “+” é aberto a tela de Detalhes da recorrência:
 
 Os Detalhes da recorrência informam o carrinho e o histórico de transações agendadas. Ao clicar em “+Detalhes” o lojista é direcionado a tela de detalhes de Pedidos (Ver item “PEDIDOS”)
 
-## Manuais
+## Aba Manuais
 
 Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.
 
@@ -167,7 +167,7 @@ Nessa pagina é possivel entrar em contato a respeito de duvidas Operacionais, t
 * **Tutorial do Lojista** – Principal fonte de informação sobre a utilização do Checkout Cielo do ponto de vista do Lojista
 * **FAQ** – Perguntas mais comuns a respeito do Checkout Cielo. Contem informações sobre questões Comerciais, Técnicas, Operacionais e sobre o Modo de teste.
 
-## Configurações da Loja
+## Aba Configurações da Loja
 
 Nesta pagina é possivel fazer configurações em diferentes mecanismos dentro do Checkout Cielo. Essa área é dividida em 4 partes diferentes: Exibição, Pagamentos, Antifraude, Frete de Correios & serviços.
 
@@ -276,7 +276,7 @@ Aqui é possivel alterar a senha de acesso ao Checkout Cielo.
 
 ![Alterar senha](/images/checkout-alterar-senha.png)
 
-# Uso do botão Checkout Cielo Comprar
+# Tutorial Botão Checkout Cielo 
 
 Integração via Botão é um método de compra usada sempre que não houver um “carrinho de compras” em sua loja ou quando se deseja associar uma compra rápida direta a um produto, como uma promoção numa homepage pulando a etapa do carrinho.
 
@@ -293,7 +293,7 @@ Para utilizar este recurso, é necessário cadastrar o produto que deseja vender
 
 Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do Backoffice, e valerão os dados do cadastro.
 
-# Meios de Pagamento
+# Tutorial Meios de Pagamento
 
 Nesta seção são explicados os meios de pagamento utilizados pelo Checkout Cielo, assim como esses funcionam e a maneira como esses são controlados no backoffice.
 
