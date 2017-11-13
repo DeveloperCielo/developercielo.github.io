@@ -1,42 +1,24 @@
 ---
 layout: tutorial
-title:  "Tutorial Boleto e Débito Online"
-description: Como configurar o Boleto e o Débito online em seu banco
+title:  "Contratando Boletos e Débito Online"
+description: 
 search: true
 categories: tutorial
 tags:
   - Documentos Adicionais
-toc_footers:
-  - <a href='/Checkout-Cielo/'>Manual Checkout Cielo</a>
-  - <a href='/Webservice-3.0'>Manual API 3.0</a>
-  - <a href='/Checkout-FAQ/'>Perguntas Frequêntes</a>
 ---
 
-# Habilitação dos Meios de Pagamento
+# Meios de Pagamento
 
 ## Sobre este Manual
 
 Este manual tem como objetivo orientar o LOJISTA nas contratações dos meios de pagamento BOLETO e DÉBITO ONLINE disponíveis no CHECKOUT CIELO e na API 3.0.
 
-## Histórico de versões
-
-* **1.4** - 06/08/2015
-  * Inclusão do Boleto SPS Bradesco.
-* **1.3** - 24/03/2015
-  * Inclusão do campo assinatura no Débito Online Bradesco.
-* **1.2** - 09/01/2015
-  * Revisão dos itens necessários para geração de boleto
-  * Atualização do nome Solução integrada passa a ser Checkout Cielo
-* **1.1** - 20/08/2014
-  * Atualização de dados do Boleto Bradesco (IP) e URL de débito (BB)
-* **1.0** - 07/08/2014
-  * Versão inicial
-
 ## Boleto
 
 O lojista pode aceitar pagamentos com boletos emitidos pelos bancos: Bradesco e Banco do Brasil.
 
-## Débito online (Transferência Eletrônica)
+## Débito online 
 
 Neste meio de pagamento os dados do consumidor são digitados diretamente no ambiente do Banco, todos os Bancos possuem a política de que está transação seja redirecionada para seu ambiente, assim tornando a transação mais segura.
 
@@ -94,7 +76,7 @@ Para configurar o Boleto:
 
 **3.** Clique no botão "**Gravar todas as configurações realizadas**"
 
-### Concluída essa etapa, você deve:
+**Concluída essa etapa, você deve:**
 
 **1.** Encaminhar um e-mail para Cielo e-Commerce [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br) com os seguintes dados:
 
