@@ -3331,6 +3331,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
         $('.expand-btn').click(function() {
             $('.overlay').toggleClass('opened');
             $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
         });
 
         

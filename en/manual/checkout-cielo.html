@@ -3240,6 +3240,7 @@ It’s possible to select one or more options of shipping. They are presented to
         $('.expand-btn').click(function() {
             $('.overlay').toggleClass('opened');
             $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
         });
 
         
