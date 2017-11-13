@@ -11,7 +11,7 @@
 
     <title>
         
-        Contratando Boletos e Débito Online &middot; Documentações e tutoriais
+        Configurando Boletos e Débito Online &middot; Documentações e tutoriais
         
     </title>
 
@@ -84,7 +84,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="/tutorial/habilitacao-meios-de-pagamento">Contratando Boletos e Débito Online</a></li>
+                                    <li class="active">&gt; <a href="/tutorial/habilitacao-meios-de-pagamento">Configurando Boletos e Débito Online</a></li>
                                     
                                 
                             
@@ -102,17 +102,45 @@
 
 <h2 id="sobre-este-manual">Sobre este Manual</h2>
 
-<p>Este manual tem como objetivo orientar o LOJISTA nas contratações dos meios de pagamento BOLETO e DÉBITO ONLINE disponíveis no CHECKOUT CIELO e na API 3.0.</p>
+<p>Este manual tem como objetivo orientar o <strong>LOJISTA</strong> na contratação e configuração do BOLETOs e DÉBITOs ONLINE disponíveis no <strong>CHECKOUT CIELO</strong> e na <strong>API Cielo Ecommerce</strong></p>
 
-<h2 id="boleto">Boleto</h2>
+<h2 id="sobre-boletos-e-cielo">Sobre Boletos e Cielo</h2>
 
-<p>O lojista pode aceitar pagamentos com boletos emitidos pelos bancos: Bradesco e Banco do Brasil.</p>
+<p>As soluções e-commerce Cielo suportam 2 tipos de Boletos dos Bancos <strong>Bradesco</strong> e <strong>Banco do Brasil</strong>:</p>
 
-<h2 id="débito-online">Débito online</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de boleto</th>
+      <th>Banco</th>
+      <th>Descrição</th>
+      <th>Solução Cielo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Boleto Registrado</strong></td>
+      <td>Banco do Brasil X Bradesco</td>
+      <td>São boleto emitidos dentro do ambiente Bancario. A Cielo enviará as informações para o banco emissor. É necessario ter as credenciais fornecidas pelo Banco para utilização da funcionalidade</td>
+      <td>Api Cielo E-commerce &amp; Checkout Cielo</td>
+    </tr>
+    <tr>
+      <td><strong>Boleto Não registrado</strong></td>
+      <td>Banco do Brasil X Bradesco</td>
+      <td>São boletos gerados em Ambiente Cielo. Todos os bancos deixaram de gerar esses boletos até 2020</td>
+      <td>Api Cielo E-commerce &amp; Checkout Cielo</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Neste meio de pagamento os dados do consumidor são digitados diretamente no ambiente do Banco, todos os Bancos possuem a política de que está transação seja redirecionada para seu ambiente, assim tornando a transação mais segura.</p>
+<h2 id="sobre-débito-online-e-cielo">Sobre Débito online e Cielo</h2>
 
-<h1 id="habilitação-boleto">Habilitação Boleto</h1>
+<p>O Débito Online é uma transferência eletronica que ocorre dentro do Ambiente Bancario.
+O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferência para a conta da loja onde a transação ocorre.</p>
+
+<p>Para utilizar o Débito Online, é necessario que o banco do lojista permita tal operação para a conta do lojista.</p>
+
+<h1 id="boletos">Boletos</h1>
 
 <h2 id="bradesco">Bradesco</h2>
 
@@ -244,7 +272,7 @@
 
 <aside class="notice">Validade do Boleto – Caso o boleto expire em um dia não útil, como sábado, ele será válido até o próximo dia útil</aside>
 
-<h1 id="habilitação-débito-online">Habilitação Débito online</h1>
+<h1 id="débito-online">Débito online</h1>
 
 <h2 id="bradesco-1">Bradesco</h2>
 
@@ -257,7 +285,9 @@
       <li><strong>Assinatura</strong>: <code class="highlighter-rouge">8EA7657E-6373-667D-0229-A82E842A3A1A</code></li>
     </ul>
   </li>
-  <li>Ao receber estas informações o lojista deverá Solicitar a habilitação do meio de pagamento para Cielo.</li>
+  <li>
+    <p>Ao receber estas informações o lojista deverá Solicitar a habilitação do meio de pagamento para Cielo.</p>
+  </li>
   <li>Cadastrar no MUP Teste (sistema do Bradesco, o e-mail de com os dados do Bradesco virá com a URL para acesso). Cadastrar as informações abaixo:
     <ul>
       <li><strong>Endereço IP da loja</strong>: 209.134.48.121</li>
@@ -292,21 +322,23 @@
       </li>
     </ul>
   </li>
-  <li>Cadastrar no MUP Produção, as mesmas informações do Passo 3.</li>
+  <li>
+    <p>Cadastrar no MUP Produção, as mesmas informações do Passo 3.</p>
+  </li>
   <li>Solicitar à Cielo para atualizar o número de Convênio para número de produção que recebeu no passo 5.</li>
 </ol>
 
 <h2 id="banco-do-brasil-1">Banco do Brasil</h2>
 
-<p>Solicite ao seu gerente do banco a liberação do convênio do débito online via internet (Comércio eletrônico Banco do Brasil - BBPAG) e o cadastramento da URL de comunicação com a Cielo.</p>
+<p>Solicite ao seu gerente do banco a liberação do convênio do débito online via internet (<strong>Comércio eletrônico Banco do Brasil - BBPAG</strong>) e o cadastramento da URL de comunicação com a Cielo.</p>
 
 <ul>
   <li><strong>URL de Comunicação</strong>: <a href="https://www.pagador.com.br/">https://www.pagador.com.br/</a></li>
 </ul>
 
-<p>Essa URL deve ser cadastrada pelo Gerente no ato da liberação do convênio.</p>
+<p>A URL deve ser cadastrada pelo <strong>Gerente no ato da liberação do convênio</strong>.</p>
 
-<aside class="warning">Se não cadastrar não funcionará.</aside>
+<aside class="warning">Se o cadastro não ocorre, a transação não será viavel.</aside>
 
 <ul>
   <li><strong>Exemplo de convênio</strong>: Convênio: 000000</li>
