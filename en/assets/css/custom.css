@@ -1121,16 +1121,14 @@ div.highlight {
 
 a.expand-btn {
     float: right;
-    top: 15px;
-    right: 15px;
     color: #fff;
     text-decoration: none;
     font-size: 13px;
     background-color: #3e3f42;
     padding: 5px 15px;
+    margin-top: 15px;
+    margin-right: 15px;
     cursor: pointer;
-    position: relative;
-    z-index: 1000;
 }
 
 a.expand-btn:hover {
@@ -1540,9 +1538,19 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
 .code-fullscreen.opened .language-group {
     height: calc(100vh - 40px);
     margin: 0;
+    width: 100%;
+    background: #28292d;
 }
 
 .code-fullscreen.opened pre {
     font-size: 1.2em;
     height: calc(100vh - 40px);
+}
+
+.code-fullscreen.opened pre code {
+    display: block;
+    margin-top: 35px;
+    width: 100%;
+    height: calc(100vh - 115px);
+    overflow-y: auto;
 }
