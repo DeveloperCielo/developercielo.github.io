@@ -1139,7 +1139,6 @@ a.expand-btn:hover {
 }
 
 .expand-btn .fa {
-    margin-right: 5px;
 }
 
 @media(min-width: 1660px) {
@@ -1166,7 +1165,6 @@ a.hide-btn:hover {
 }
 
 a.hide-btn .fa {
-    margin-right: 10px;
 }
 }
 

@@ -4,7 +4,9 @@ global:
   contact: Contact
   languages: Languages
   support: Help
-  toggle: Toggle
+  toggle_code: Toggle
+  toggle_right: Toggle
+  toggle_left: Toggle
   sidebar: left column
   darkbox: right column
   complementary: Complementary materials
