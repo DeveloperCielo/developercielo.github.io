@@ -32,24 +32,6 @@ Caso o site principal da Cielo não esteja disponível, basta acessar a URL [htt
 
 [!Checkout Cielo](/images/checkout-cielo.png)
 
-## Histórico de versões
-
-* **1.5** - 27/08/2015
-    * Atualizações: Botão Recorrente, tela de login, informações sobre parcelas.
-    * Inclusão do relatório de recorrência
-* **1.4** - 21/07/2015
-    * Inclusão da Recorrência em “Meios de pagamentos”
-* **1.3** - 28/01/2015
-    * Atualização da captura automática
-    * Atualização das informações de PEDIDOS
-    * Atualização Valor Mínimo Anti-fraude.
-* **1.2** - 21/01/2015
-    * Alteração de nome – Solução integrada passa a ser Checkout Cielo
-* **1.1** - 16/12/2014
-    * Atualização das telas de “Configurações” e da tela “Minhas compras”.
-* **1.0** - 21/11/2014
-    * Versão inicial
-
 ## Páginas do Backoffice Cielo
 
 O Backoffice é formado por 6 paginas diferentes de administração do Checkout Cielo. Elas são:
@@ -386,10 +368,14 @@ Transações recorrentes são ideais para modelos de negócios que envolvam o co
 Diferença entre transações recorrentes e parceladas:
 
 * **Parceladas**: Se trata de uma transação dividida em “N” meses. O valor integração da transação ocupa o limite de crédito do comprador independente do valor da parcela inicial (ver exemplo). O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.
-    * **EX01**: Venda de R$1000, parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido em janeiro é o integral, R$1000,00. Se o limite do cartão for inferior a R$1000,00 a transação será negada
+
+**EX01**: Venda de R$1000, parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido em janeiro é o integral, R$1000,00. Se o limite do cartão for inferior a R$1000,00 a transação será negada
+<BR>
 * **Recorrentes**: São transações diferentes realizadas no mesmo cartão em momentos previamente agendados. A primeira transação agenda as futuras vendas a partir de um intervalo X (ver exemplo).  A cada “X” intervalos haverá a cobrança no cartão de crédito. Uma venda pode ser dividida em “N” Recorrências de maneira a não ocupar o limite de crédito de um comprador (ver exemplo 02)
-    * **EX02**: Venda de R$1000 em 15/01/2015, com recorrência Mensal e data final em 01/06/2015. Todos no dia 15/02 haverá uma nova cobrança de R$1000, no cartão do comprador, se repetindo até 15/05, ultima data valida antes da data final.
-    * **EX03**: Venda de R$1000 em 15/01/2015, com recorrência Mensal com pagamentos de em “2 vezes”.  A loja pode ter a inteligência de mandar ao Checkout uma transação de R$500,00 em janeiro com intervalo mensal data de encerramento 15/02/2015. Nessa situação, o limite ocupado no cartão do comprador será de R$500,00 fatura inicial, evitando o risco apresentado no Exemplo 01  
+
+<BR>
+**EX02**: Venda de R$1000 em 15/01/2015, com recorrência Mensal e data final em 01/06/2015. Todos no dia 15/02 haverá uma nova cobrança de R$1000, no cartão do comprador, se repetindo até 15/05, ultima data valida antes da data final.
+**EX03**: Venda de R$1000 em 15/01/2015, com recorrência Mensal com pagamentos de em “2 vezes”.  A loja pode ter a inteligência de mandar ao Checkout uma transação de R$500,00 em janeiro com intervalo mensal data de encerramento 15/02/2015. Nessa situação, o limite ocupado no cartão do comprador será de R$500,00 fatura inicial, evitando o risco apresentado no Exemplo 01  
 
 Uma transação de recorrência no Checkout Cielo possui duas configurações: “Intervalo” e “Data de encerramento”.
 
