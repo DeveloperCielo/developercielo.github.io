@@ -191,6 +191,7 @@
         $('.expand-btn').click(function() {
             $('.overlay').toggleClass('opened');
             $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
         });
 
         {% for lang in page.language_tabs %}
