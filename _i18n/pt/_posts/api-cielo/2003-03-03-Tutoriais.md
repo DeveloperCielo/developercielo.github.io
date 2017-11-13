@@ -78,10 +78,10 @@ Sobre os Filtros:
 |Número do Pedido|Número do pedido enviado pelo lojista|
 |NSU|Identificação da autorização. Enviado via response|
 |Código de Erro|Código retornado caso uma transação gere um erro.|
-|Status da Transação|**Cancelado** - Transação cancelada pelo lojista<br>**Estornado** - Transações canceladas com menos de 24 horas<br>**Não Autorizado** - Transações negadas pelo Autorizador Cielo<br>**Não Pago** - Transações autorizadas, mas não capturadas<br>**Pago** - Transações capturadas<br>|
 |Tipos de meio de pagamento|Grupo de meios de pagamento como Boletos ou cartão de crédito. Não diferencia|bandeira ou banco.|
 |Meios de pagamento|Meio de pagamento especifico usado na transação (EX: Boleto Bradesco)|
 |Análise de Fraude|Qual o status de antifraude da transação no momento da pesquisa|
+|Status da Transação|**Cancelado** - Transação cancelada pelo lojista<br>**Estornado** - Transações canceladas com menos de 24 horas<br>**Não Autorizado** - Transações negadas pelo Autorizador Cielo<br>**Não Pago** - Transações autorizadas, mas não capturadas<br>**Pago** - Transações capturadas<br>|
 
 Os filtros podem ser combinados para realizar uma pesquisa personalizada.
 
@@ -145,5 +145,5 @@ Nessa tela é possível alterar:
 
 * **Quantidades de tentativas:** Número de vezes a API vai realizar uma nova transação em caso de não autorização dentro de uma recorrência. Limitada a 4 tentativas
 * **Intervalo de tentativas:** Espaço de tempo entre a execução de cada nova tentativa de autorização de uma transação dentro de uma recorrência. Limitado a 4 dias entre cada tentativa.
- 
-# -
+
+# -----
