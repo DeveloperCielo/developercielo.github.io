@@ -295,7 +295,45 @@ Cada botão possui um código único que só permite comprar aquele determinado 
 
 # Tutorial Meios de Pagamento
 
-Nesta seção são explicados os meios de pagamento utilizados pelo Checkout Cielo, assim como esses funcionam e a maneira como esses são controlados no backoffice.
+Nesta seção são explicados os meios de pagamento utilizados pelo Checkout Cielo.
+Versão atual do Checkout Cielo possui suporte aos seguintes meios de pagamento:
+ 
+**Cartão de Crédito**
+ 
+|Bandeira|Crédito à vista|Crédito parcelado Loja|Débito|Voucher|
+|---|---|---|---|---|
+|Visa|Sim|Sim|Sim|Não|
+|MasterCard|Sim|Sim|Sim|Não|
+|American Express|Sim|Sim|Não|Não|
+|Elo|Sim|Sim|Não|Não|
+|Diners Club|Sim|Sim|Não|Não|
+|Discover|Sim|Não|Não|Não|
+|JCB|Sim|Sim|Não|Não|
+|Aura|Sim|Sim|Não|Não|
+ 
+**OBS**: Limite maximo de parcelas do Checkout Cielo é 12X.
+ 
+**Cartão de Débito**
+ 
+|Bandeira|Banco|
+|---|---|
+|Visa|Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil<br>|
+|Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank<br>|
+ 
+**Boleto**
+ 
+|Banco|Tipo|
+|---|---|
+|Bradesco|Não registrado|
+|Bradesco|Registrado SPS|
+|Banco do Brasil|Não registrado|
+ 
+**Débito Online**
+ 
+|Banco|
+|---|
+|Bradesco|
+|Banco do Brasil|
 
 ## Boleto
 
