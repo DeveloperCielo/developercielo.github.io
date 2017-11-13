@@ -1170,6 +1170,7 @@ a.hide-btn .fa {
     display: flex;
     margin: 2em 0;
     width: 100%;
+    background: #28292d;
 }
 
 .language-buttons {
