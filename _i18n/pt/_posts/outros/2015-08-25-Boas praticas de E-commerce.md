@@ -12,166 +12,114 @@ toc_footers:
   - <a href='/Checkout-FAQ/'>Perguntas Frequêntes</a>
 ---
 
-# Habilitação dos Meios de Pagamento
+# Boas Práticas eCommerce
 
-## Sobre este Manual
+Seja por curiosidade, seja por necessidade, você já deve ter se perguntado sobre como é definido o número de um cartão de crédito. Algumas pessoas chegam a achar que são números aleatórios, ou sequênciais, atribuídos pelas bandeiras ou pelos bancos emissores, mas a realidade é que o número do cartão segue um padrão especificado e que é possível saber qual é a bandeira, tipo do cartão e a conta do portador, apenas observando o número do cartão; em alguns casos, de fato, é possível saber até o país de origem do cartão, apenas observando seu número.
 
-Este manual tem como objetivo orientar o LOJISTA nas contratações dos meios de pagamento BOLETO e DÉBITO ONLINE disponíveis no CHECKOUT CIELO e na API 3.0.
+Com o objetivo de contribuir para a redução as transações negadas pelo código 14 – cartão inválido, a Cielo recomenda o uso do algoritmo de Luhn para verificação da sequência de números dos cartões de credito e débito utilizados na sua loja. A partir desta medida, o lojista conseguirá evitar que uma transação com o cartão digitado incorretamente seja enviado para processamento.
 
-## Histórico de versões
+Por isso, a Cielo recomenda que, no momento que o portador digitar o número do cartão e o algoritmo de Luhn detectar que a digitação está incorreta, o lojista deverá exibir a informação clara para o portador, solicitando que o cartão seja digitado novamente ou tente outro cartão”
 
-* **1.4** - 06/08/2015
-  * Inclusão do Boleto SPS Bradesco.
-* **1.3** - 24/03/2015
-  * Inclusão do campo assinatura no Débito Online Bradesco.
-* **1.2** - 09/01/2015
-  * Revisão dos itens necessários para geração de boleto
-  * Atualização do nome Solução integrada passa a ser Checkout Cielo
-* **1.1** - 20/08/2014
-  * Atualização de dados do Boleto Bradesco (IP) e URL de débito (BB)
-* **1.0** - 07/08/2014
-  * Versão inicial
+## Números de cartões
 
-## Boleto
+![Cartão Visa](images/cartao.png)
 
-O lojista pode aceitar pagamentos com boletos emitidos pelos bancos: Bradesco e Banco do Brasil.
+Basicamente, o número do cartão é composto por três partes:
 
-## Débito online (Transferência Eletrônica)
+1. **Bin ou Inn** - Bank identification number, ou Issuer identification number, é o número que identifica o banco emissor das bandeiras Visa, Mastercard, Amex, entre outras, por meio dos primeiros dígitos do cartão. No caso do cartão de exemplo acima, o Bin é 4, que é o identificador da Visa.
+2. **Conta do cliente** - Após o bin, os próximos dígitos identificam o número da conta do portador no banco emissor. Logo após o Bin, os próximos 14 dúgitos são o identificador da conta do cliente: **012 0010 3714 111**.
+3. **Dígito de verificação** - Esse último dígito é utilizado para verificar se o número do cartão de crédito é válido. Para se chegar no dígito verificador é utilizado um algorítimo chamado Luhn. No caso do cartão de exemplo acima, o dígito verificador é **2**.
 
-Neste meio de pagamento os dados do consumidor são digitados diretamente no ambiente do Banco, todos os Bancos possuem a política de que está transação seja redirecionada para seu ambiente, assim tornando a transação mais segura.
+## Informações de cartões
 
-# Habilitação Boleto
+Após validar que o número do cartão é válido através do dígito verificador obtido através do algoritmo Luhn, podemos verificar se o número do cartão está correto segundo a bandeira escolhida. A Cielo não recomenda que se faça uma validação de bandeiras através do BIN - primeiros dígitos do cartão; essa recomendação é importante porque pode haver colisão de mesmo número de BINs para bandeiras diferentes. Algumas bandeiras possuem 13, 15 ou 16 dígitos e o CVV possui 3 ou 4 dígitos. A tabela abaixo mostra a quantidade de dígitos de cada bandeira e seus respectivos CVV. Utilize essa informação em conjunto com o algoritmo Luhn para uma validação completa do número do cartão do cliente.
 
-## Bradesco
+|Bandeira|Número de dígitos|Dígitos do CVV|
+|---|---|---|---|
+|Visa|13 ou 16 dígitos|3 dígitos|
+|Mastercard|16 dígitos|3 dígitos|
+|Amex|15 dígitos|4 dígitos|
+|Diners Club International|14 dígitos|3 dígitos|
+|JCB|16 dígitos|3 dígitos|
+|ELO|16 dígitos|3 dígitos|
 
-Os critérios para utilizar o Boleto Bradesco Com. Eletrônico são:
+# Validação dos números do cartão
 
-* Ser correntista Bradesco Pessoa Jurídica;
-* Contatar o gerente de conta Bradesco para assinar contrato específico do Comércio Eletrônico.
+<aside class="warning">A Cielo não realiza suporte ou se responsabiliza pelo atendimento desse tipo de implementação. Esse tutorial é meramente informativo, com o propósito de ajudar o lojista a diminuir o número de transações negadas com o código 14.</aside>
 
-Para solicitar/configurar o Boleto Bradesco, você precisa:
+## Validação dos números do cartão
 
-1. Contatar o banco/agência e fazer a solicitação de boleto com registro carteira 26. Esse passo envolve assinatura de contrato com o Banco.
-2. Receber um e-mail do Banco (Kit Scopus) com URL do gerenciador, e-mail de login e senha de acesso ao ambiente Bradesco.  Você deve acessar o ambiente Bradesco pela URL do gerenciador. Veja os exemplos enviados no email (Kit Scopus):
-  * **URL do gerenciador** - (https://meiosdepagamentobradesco.com.br/gerenciador/login.jsp)
-  * **E-mail de Login**
-  * **Senha de acesso**
+A validação do número de cartão da maioria das bandeiras em todo o mundo é feita através de um algorítimo chamado Luhn, também conhecido como módulo 10. Vamos supor que o cliente tenha informado o seguinte número de cartão de crédito: 4012001037141112.
 
-Para configurar o Boleto:
+O primeiro passo é remover temporariamente o último dígito, no caso o dígito 2. O novo número vai ficar assim: 401200103714111.
 
-**1.** No ambiente Bradesco, acesse as abas CONFIGURAÇÕES > MEIOS DE PAGAMENTO > BOLETO e preencha os seguintes dados:
+|Posição|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|Número do cartão|4|0|1|2|0|0|1|0|3|7|1|4|1|1|1|*x*|
 
-* **Habilitar "frase" do boleto**: Inativo
-* **Habilitar "referência" do boleto**: Ativo
-* **Apresentar Agência e Conta**: Inativo
-* **Vencimento**: 5 dias
+O segundo passo é multiplicar, iniciando do primeiro dígito, todos os dígitos que estão em posição par por 2 e todos os dígitos em posição impar por 1:
 
-![Boleto Bradesco]({{ site.baseurl_root }}/images/boleto-bradesco-passo-2.png)
+|Posição|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|Número do cartão|4|0|1|2|0|0|1|0|3|7|1|4|1|1|1|-|
+|Multiplicações|x2|x1|x2|x1|x2|x1|x2|x1|x2|x1|x2|x1|x2|x1|x2||-|
+|Resultados|8|0|2|2|0|0|2|0|6|7|2|4|2|1|2||-|
 
-<aside class="notice"><strong>Obs:</strong> O vencimento deverá ser o mesmo configurado no Checkout Cielo.</aside>
+O terceiro passo é pegar os resultados das multiplicações e somar todos os dígitos:
 
-* **URL de notificação**: https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost
-* No campo **Chave de Segurança** clique em "**Gerar chave de segurança**"
-* **Endereço de IP da loja**  (numérico)
-* Para os campos de **URL de resposta, URL de falha e URL de redirecionamento**, inserir o seguinte link: `https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost`
+|Dígitos|Cálculo|Resultado|
+|---|---|---|
+|802200206724212|8+0+2+2+0+0+2+0+6+7+2+4+2+1+2|38|
 
-![Boleto Bradesco]({{ site.baseurl_root }}/images/boleto-bradesco-passo-3.png)
+O quarto passo é obter o resto da divisão euclidiana do resultado do terceiro passo por 10: 38 / 10 = 3, com resto 8. O quinto passo é subtrair o resto de 10: 10 - 8 = 2.
 
-**2.** Em cada um dos três Paramêtros a seguir, preencher com o Parâmetro de Comunicação abaixo:
+|Cálculo IV|Quociente|Resto|Cálculo V|Resultado|
+|---|---|---|---|---|
+|38/10|3|8|10-8|2|
 
-* **Parâmetro de notificação**:
-  * `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`
-* **Parâmetro de confirmação**:
-  * `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`
-* **Parâmetro de falha**:
-  * `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`
-* **Paramêtro de Comunicação**
-  * `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`
+O número 2 é o dígito de verificação; se o resultado da subtração no passo 4 for 10, então o dígito de verificação será 0. Para verificar se o número do cartão informado pelo cliente é válido, basta verificar o número do primeiro passo + o dígito de verificação é igual ao número de cartão informado pelo cliente.
 
-![Boleto Bradesco]({{ site.baseurl_root }}/images/boleto-bradesco-passo-4.png)
+Um outro exemplo do cálculo, dessa vez com um cartão Martercard:
 
-<aside class="notice"><strong>Obs:</strong> Não podem existir espaços ou quebras de texto nos parâmetros expostos acima.</aside>
+|Cartão|5|4|5|3|0|1|0|0|0|0|0|6|6|1|6|7|Resultado|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|Passo 1|5|4|5|3|0|1|0|0|0|0|0|6|6|1|6|||
+|Passo 2|10|4|10|3|0|1|0|0|0|0|0|6|12|1|12|||
+|Passo 3|1+0|4|1+0|3|0|1|0|0|0|0|0|6|1+2|1|1+2||23|
+|Passo 4||||||||||||||||23%10|3|
+|Passo 5||||||||||||||||10-3|**7**|
 
-**3.** Clique no botão "**Gravar todas as configurações realizadas**"
+## Validação no backend
 
-### Concluída essa etapa, você deve:
+Porém, mesmo tendo o plugin verificador no frontend, é fundamental, até por considerações de segurança, que uma validação de fato ocorra no backend. Para isso, a função abaixo irá ajudá-lo a fazer essa validação:
 
-**1.** Encaminhar um e-mail para Cielo e-Commerce [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br) com os seguintes dados:
+```php
+<?php
+function cardIsValid($cardNumber)
+{
+    $number = substr($cardNumber, 0, -1);
+    $doubles = [];
 
-* **Agência**: 0000
-* **Conta**: 0000000 (7 dígitos sem o dígito verificador, mantendo os zeros à esquerda conforme exemplo: 0001111
-* **Convênio**: 000000
-* **Carteira**: 26 – COM REGISTRO
-* **Vencimento** (contado em dias):
-* **Conciliação** (Afiliação do Bradesco):
-  * Exemplo de Conciliação: 004601478
-* **Chave de Segurança** (Bradesco):
-  * Exemplo de Chave de Segurança: `ZDE50B48D41D59BDD1562CC2A48546454ZC149308CBD283E0E49210C57958A6A38A068A3ZZA8B075095A1B9E1DEAZB64BF1682C5610ZC8285DC8630FA6E300FA00B9D43054C84ACA958ZCFB435CF5A27ZC440637777EBAFEED1BCZDCA82D5778B266B3BB4E90774302D56A0C7EDZZ1A532A51F7A889DA83AEFA08CA4E91A08Z2`
+    for ($i = 0, $t = strlen($number); $i < $t; ++$i) {
+        $doubles[] = substr($number, $i, 1) * ($i % 2 == 0? 2: 1);
+    }
 
-<aside class="notice"><strong>Obs:</strong> A afiliação do Bradesco está localizada no topo do gerenciador web.</aside>
+    $sum = 0;
 
-![Boleto Bradesco]({{ site.baseurl_root }}/images/boleto-bradesco-passo-5.png)
+    foreach ($doubles as $double) {
+        for ($i = 0, $t = strlen($double); $i < $t; ++$i) {
+            $sum += (int) substr($double, $i, 1);
+        }
+    }
 
-**2.** O Cielo e-Commerce confirmará, em até 3 dias, a inclusão do boleto como forma de pagamento da sua loja online.
+    return substr($cardNumber, -1, 1) == (10-$sum%10)%10;
+}
+```
 
-## Banco do Brasil
+Para utilizá-la, basta testar o número do cartão enviado pelo cliente:
 
-Os critérios para habilitar a opção de Boleto Banco do Brasil são:
-
-* Ser correntista Banco do Brasil Pessoa Jurídica;
-
-Para solicitar o Boleto Banco do Brasil, você precisa:
-
-1. Contatar o banco/agência e fazer a solicitação de boleto sem registro carteira 18. Esse passo envolve assinatura de contrato com o Banco
-2. Encaminhar um e-mail para Cielo e-Commerce [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br) com os seguintes dados:
-  * **Agência**: 0000
-  * **Conta Corrente**: 00000-0
-  * **Convênio**: 0000000
-  * **Vencimento** (contado em dias):
-  * **Carteira**: 18 - SEM REGISTRO
-
-<aside class="notice">Validade do Boleto – Caso o boleto expire em um dia não útil, como sábado, ele será válido até o próximo dia útil</aside>
-
-# Habilitação Débito online
-
-## Bradesco
-
-1. Solicitar ao seu gerente a liberação do débito online do Bradesco (SPS Bradesco). A afiliação será enviada pelo Bradesco no padrão:
-  * **Convênio de homologação**: 101xx1
-  * **login**: dm_cm132
-  * **senha**: 12345678
-  * **Assinatura**: `8EA7657E-6373-667D-0229-A82E842A3A1A`
-2. Ao receber estas informações o lojista deverá Solicitar a habilitação do meio de pagamento para Cielo.
-3. Cadastrar no MUP Teste (sistema do Bradesco, o e-mail de com os dados do Bradesco virá com a URL para acesso). Cadastrar as informações abaixo:
-  * **Endereço IP da loja**: 209.134.48.121
-  * Em “*Página de confirmação de compra*” e “*Página de falha no pagamento*”: https://www.pagador.com.br/pagador/recebe.asp
-  * Em “*URL para notificação p/ Cartões Bradesco*”: https://www.pagador.com.br/pagador/bradesco/setTransacao.asp
-  * Nos Campos “*Post a ser enviado para a loja na notificação*”, “*Post a ser enviado para a loja na confirmação de compra*” e “*Post a ser enviado para a loja na falha da autorização*”:
-        * **Adicionar**: `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&tipopagto=[%tipopagto%]&assinatura=[%assinatura%]`
-  * Em “*URL de entrada na loja*”: endereço do site
-  * Em “*URL do gerenciador da loja*”: https://www.pagador.com.br/admin/login.asp
-  * Na última opção:  `capture now (1001)`.
-4. Enviar o e-mail abaixo para a Scopus solicitando a homologação
-  * **Para**: [homologacao@scopus.com.br](mailto:homologacao@scopus.com.br); [kit@scopus.com.br](mailto:kit@scopus.com.br)
-  * **Assunto**: Dados do ambiente de produção Débito SPS
-  * **Corpo do email**:<br />Prezados,<br /><br />Favor liberar o cliente abaixo no ambiente de produção:<br /><br />Razão Social: XXXXX<br />CNPJ: XXXX<br />Nome da loja: XXXXX<br />Número da loja: XXXXX<br />Manager: XXXXX<br />Senha: XXXXXXX<br />URL da Loja: https://www.XXXXXXXXX<br />Meio de Pagamento para Homologar: Débito em Conta<br />
-5. Receber os dados de produção:
-  * A afiliação será enviada pelo Bradesco no padrão:
-        * **Convênio de Produção**: 101xx1
-        * **login**: dm_cm132
-        * **senha**: 12345678
-        * **URL para teste**: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX
-6. Cadastrar no MUP Produção, as mesmas informações do Passo 3.
-7. Solicitar à Cielo para atualizar o número de Convênio para número de produção que recebeu no passo 5.
-
-## Banco do Brasil
-
-Solicite ao seu gerente do banco a liberação do convênio do débito online via internet (Comércio eletrônico Banco do Brasil - BBPAG) e o cadastramento da URL de comunicação com a Cielo.
-
-* **URL de Comunicação**: [https://www.pagador.com.br/](https://www.pagador.com.br/)
-
-Essa URL deve ser cadastrada pelo Gerente no ato da liberação do convênio.
-
-<aside class="warning">Se não cadastrar não funcionará.</aside>
-
-* **Exemplo de convênio**: Convênio: 000000
+```php
+if (cardIsValid($customerCardNumber)) {
+  // o cartão é válido e podemos dar andamento na integração
+}
+```
