@@ -22,7 +22,7 @@ Para acessar o Backoffice do Checkout Cielo, é necessário que o lojista **[rea
 
 Em seguida é necessário incluir sua Senha:
 
-![Senha Backoffice Cielo](/Public/images/bkocheckout/checkout-login-senha.png)
+![Senha Backoffice Cielo](/images/checkout-login-senha.png)
 
 Na área de “Vendas Online” basta clicar em Checkout Cielo.
 
@@ -36,17 +36,14 @@ Caso o site principal da Cielo não esteja disponível, basta acessar a URL [htt
 
 O Backoffice é formado por 6 paginas diferentes de administração do Checkout Cielo. Elas são:
 
-1. [DashBoard](#dashboard) - Pagina inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações que sua loja vem realizando via o Checkout Cielo.
-2. [Pedidos](#pedidos) - Nessa pagina fica contida toda a listagem de transações realizadas por um determinado periodo de tempo no Checkout Cielo. Nessa pagina é possivel pesquisar um determinado pedido , via a colocação de um determinado parametro de busca nos campos la existentes ou desmarcando os “checkbox” dos **“Meios de pagamento”** ou **“Status de pagamento”** e apertando o botão **“Buscar”**.
-3. [Produtos](#produtos) - Nessa pagina são listados todos os produtos cadastrados no Checkout Cielo. Tambem é possivel fazer uma busca pelo nome do produto nesta pagina.  A lista de produtos pode ser exportada no formato Excel.
-4. [Relatórios](#relatórios) - Nesta pagina é possível gerar 05 tipos de relatórios:
-    * “Relatório financeiro”,
-    * “Detalhado de vendas”,
-    * “Listagem de clientes”,
-    * “Extrato de Cobrança” e
-    * “Relatório de Recorrência”.
-5. [Manuais](#maniais) - Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.
-6. [Configurações](#configurações) - Pagina onde é possivel fazer alterações nas configurações da Loja , dos seus dados cadastrais e Alterar sua Senha.
+|Aba|Descrição|
+|---|---------|
+|**DashBoard**|Pagina inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações que sua loja vem realizando via o Checkout Cielo.|
+|**Pedidos**|Nessa pagina fica contida toda a listagem de transações realizadas por um determinado periodo de tempo no Checkout Cielo. Nessa pagina é possivel pesquisar um determinado pedido , via a colocação de um determinado parametro de busca nos campos la existentes ou desmarcando os “checkbox” dos **“Meios de pagamento”** ou **“Status de pagamento”** e apertando o botão **“Buscar”**.|
+|*Produtos*|Nessa pagina são listados todos os produtos cadastrados no Checkout Cielo. Tambem é possivel fazer uma busca pelo nome do produto nesta pagina.  A lista de produtos pode ser exportada no formato Excel.|
+|**Relatórios**|Nesta pagina é possível gerar 05 tipos de relatórios: <BR> “Relatório financeiro"<BR>“Detalhado de vendas”<BR>“Listagem de clientes”<BR>* “Extrato de Cobrança”<BR>“Relatório de Recorrência”<BR>|
+|**Manuais**| Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.|
+|**Configurações**| Pagina onde é possivel fazer alterações nas configurações da Loja , dos seus dados cadastrais e Alterar sua Senha.|
 
 ## Aba DashBoard
 
