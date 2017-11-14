@@ -36,14 +36,14 @@ Caso o site principal da Cielo não esteja disponível, basta acessar a URL [htt
 
 O Backoffice é formado por 6 Abas diferentes de administração do Checkout Cielo. Elas são:
 
-| Aba                  | Descrição                                                                                                                                                                                        |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **DashBoard**        | Pagina inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações realizadas em sua loja.                                                                 |
-| **Pedidos**          | Nessa pagina fica contida toda a listagem de transações realizadas no Checkout Cielo. Aqui é possivel pesquisar um determinado pedido ou transação.                                              |
-| *Link de Pagamentos* | Nessa pagina são listados todos os Botões/Links cadastrados no Checkout Cielo                                                                                                                    |
-| **Relatórios**       | Nesta pagina é possível gerar 05 tipos de relatórios: <BR>“Relatório financeiro"<BR>“Detalhado de vendas”<BR>“Listagem de clientes”<BR>* “Extrato de Cobrança”<BR>“Relatório de Recorrência”<BR> |
-| **Manuais**          | Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.                      |
-| **Configurações**    | Pagina onde é possivel fazer alterações nas configurações da Loja , dos seus dados cadastrais e Alterar sua Senha.                                                                               |
+| Aba                    | Descrição                                                                                                                                                                                        |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **DashBoard**          | Pagina inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações realizadas em sua loja.                                                                 |
+| **Pedidos**            | Nessa pagina fica contida toda a listagem de transações realizadas no Checkout Cielo. Aqui é possivel pesquisar um determinado pedido ou transação.                                              |
+| **Link de Pagamentos** | Nessa pagina são listados todos os Botões/Links cadastrados no Checkout Cielo                                                                                                                    |
+| **Relatórios**         | Nesta pagina é possível gerar 05 tipos de relatórios: <BR>“Relatório financeiro"<BR>“Detalhado de vendas”<BR>“Listagem de clientes”<BR>* “Extrato de Cobrança”<BR>“Relatório de Recorrência”<BR> |
+| **Manuais**            | Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.                      |
+| **Configurações**      | Pagina onde é possivel fazer alterações nas configurações da Loja , dos seus dados cadastrais e Alterar sua Senha.                                                                               |
 
 ## Aba DashBoard
 
