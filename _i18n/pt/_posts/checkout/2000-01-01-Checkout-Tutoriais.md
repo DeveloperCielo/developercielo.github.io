@@ -94,8 +94,10 @@ Nessa pagina é possivel cadastrar seus produtos com base no tipo de produto em 
 * **Material Fisico** – Produtos Fisicos que necessitam ser enviados pelos lojistas. Ex: Roupas, Brinquedos, etc.
 * **Digital** –  Bens digitais vendidos pela internet. Ex: Software, Jogos, Musicas, etc.
 * **Serviço** – Serviços a serem prestados. Ex:  Entrega delivery, projetos e orçamentos.
+* **Recorrência** - Transações que se repetem em um determinado intervalo de tempo EX: Assinaturas, mensalidades etc
+* **Pagamentos** - Pagamentos unicos ou transferência de valores Ex: quitação de dividas etc
 
-![Cadastrar produtos](/images/Checkout/TutorialCheckout/checkout-cadastrar-produtos.png)
+![Cadastrar Link de pagamentos](/images/Checkout/TutorialCheckout/checkout-cadastrar-link-de-pagamentos.png)
 
 <aside class="notice">Material Fisico exige que um <strong>tipo de frete</strong> seja cadastrado. </aside>
 
