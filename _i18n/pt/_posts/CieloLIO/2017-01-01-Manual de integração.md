@@ -19,7 +19,7 @@ O objetivo dessa documentação é facilitar o processo de desenvolvimento e int
 
 Caso você deseje ser cliente Cielo e possuir uma de nossas soluções de pagamento, acesse https://www.cielo.com.br/seja-nosso-cliente/ e escolha a solução ideal para você vender muito mais.
 
-##Arquitetura
+## Arquitetura
 
 A plataforma Cielo LIO consiste em:
 
@@ -42,3 +42,17 @@ Conjunto de APIs que permitem que o cliente continue utilizando sua solução de
 **Integração Local | Cielo LIO Order Manager SDK**
 
 A Cielo disponibiliza um SDK com base na Cielo LIO Order Manager API que permite ao desenvolvedor e parceiro Cielo LIO integrar em sua aplicação as funcionalidades de pagamento do Order Manager da Cielo LIO
+
+### Funcionalidades nativas da Cielo LIO
+
+A Cielo LIO possui algumas funcionalidades que são nativas da plataforma:
+
+* Calculadora integrada
+* Pagamentos parciais
+* Relatório de vendas
+* Comprovantes digitais
+* Catálogo de produtos e serviços
+* Gerenciador de pedidos
+* Loja de aplicativos (Cielo Store)
+* Comprovantes físicos (LIO V2)
+* Pagamento com NFC (LIO V2)
