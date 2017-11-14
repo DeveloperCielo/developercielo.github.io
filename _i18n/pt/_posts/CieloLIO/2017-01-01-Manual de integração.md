@@ -34,7 +34,7 @@ O objetivo da Cielo LIO é fornecer uma plataforma de controle e gestão de neg�
 
 Quer conhecer mais sobre o produto Cielo LIO? Acesse: *[http://cielolio.com.br](http://cielolio.com.br)*
 
-###Modelos de integração com a plataforma Cielo LIO
+### Modelos de integração com a plataforma Cielo LIO
 
 **Integração Remota | Cielo LIO Order Manager**
 
