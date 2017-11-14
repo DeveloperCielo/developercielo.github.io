@@ -1,17 +1,14 @@
 ---
 title: Integration API Cielo eCommerce
-
 language_tabs:
   - json: JSON
   - shell: cURL
-
 toc_footers:
   - <a href='/Guia-de-migracao-1.5x3.0/'>Migration Guide from API 1.5 to API Cielo eCommerce</a>
   - <a href='/API-3.0-FAQ/'>Answers to frequently asked questions</a>
   - <a href='/Tutorial-Backoffice-3.0/'>Backoffice Tutorial 3.0</a>
   - <a href='/Habilitacao-meios-de-pagamento/'>Manual of Bank slip and online debit</a>
   - <a href='/Boas-praticas-de-ecommerce/'>eCommerce Good Practice</a>
-
 search: true
 ---
 
@@ -83,6 +80,7 @@ In order to facilitate the understanding, we have listed below a short glossary 
 |**VBV (Verified by Visa)**|Visa international program that enables buyer authentication at the time of purchase in eCommerce environment.|
 
 ## Products and Supported Issuers
+
 The current version of Cielo Webservice supports the following issuers and products:
 
 |Issuer|Demand credit|Installment credit Store|Debit|Voucher|
@@ -229,13 +227,13 @@ Repeat the same procedure for the 3 sent files.
 # Sandbox and Tools
 
 ## About Sandbox
+
 To facilitate testing during integration, Cielo offers a Sandbox environment that is composed by two areas:
 
 1. Test account register
 2. Transactional Endpoints
-
-    * **Request**: https://apisandbox.cieloecommerce.cielo.com.br
-    * **Query**: https://apiquerysandbox.cieloecommerce.cielo.com.br
+  * **Request**: https://apisandbox.cieloecommerce.cielo.com.br
+  * **Query**: https://apiquerysandbox.cieloecommerce.cielo.com.br
 
 **Advantages of using the Sandbox**
 
@@ -350,6 +348,7 @@ If not returned the **HTTP Status Code 200 OK**,  more **two** Notification Post
    "ChangeType": "2"
 }
 ```
+
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
 |`RecurrentPaymentId`|Identifier that represents the Recurring order (applicable only to ChangeType 2 or 4)|GUID|36|No|
@@ -399,7 +398,7 @@ To create a transaction that will use a credit card, it is necessary to send a r
      "Amount":15700,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-	 "CreditCard":{
+  "CreditCard":{
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -428,7 +427,7 @@ curl
      "Amount":15700,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-	 "CreditCard":{
+  "CreditCard":{
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -623,7 +622,7 @@ To create a transaction that will use a credit card, it is necessary to send a r
      "Capture":true,
      "Authenticate":false,
      "SoftDescriptor":"123456789ABCD",
-	 "CreditCard":{  
+  "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -905,28 +904,28 @@ To create a transaction with authentication that will use a credit card, it is n
 
 ```json
 {
-	"MerchantOrderId":"2014111903",
-	"Customer":
-	{
-		"Name":"Comprador crédito autenticação"
-	},
-	"Payment":
-	{
-	    "Type":"CreditCard",
-	    "Amount":15700,
-	    "Installments":1,
-	    "Authenticate":true,
-		"SoftDescriptor":"123456789ABCD",
-		"ReturnUrl":"https://www.cielo.com.br",
-	    "CreditCard":
-	    {
-		    "CardNumber":"1234123412341231",
-		    "Holder":"Teste Holder",
-		    "ExpirationDate":"12/2030",
-		    "SecurityCode":"123",
-		    "Brand":"Visa"
-	    }
-	}
+ "MerchantOrderId":"2014111903",
+ "Customer":
+ {
+  "Name":"Comprador crédito autenticação"
+ },
+ "Payment":
+ {
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Installments":1,
+     "Authenticate":true,
+  "SoftDescriptor":"123456789ABCD",
+  "ReturnUrl":"https://www.cielo.com.br",
+     "CreditCard":
+     {
+      "CardNumber":"1234123412341231",
+      "Holder":"Teste Holder",
+      "ExpirationDate":"12/2030",
+      "SecurityCode":"123",
+      "Brand":"Visa"
+     }
+ }
 }
 ```
 
@@ -985,46 +984,46 @@ curl
 
 ```json
 {
-	"MerchantOrderId":"2014111903",
-	"Customer":
-	{
-		"Name":"Comprador crédito autenticação"
-	},
-	"Payment":
-	{
-		"ServiceTaxAmount":0,
-		"Installments":1,
-		"Interest":"ByMerchant",
-		"Capture":false,
-		"Authenticate":true,
-		"CreditCard":
-		{
-			"CardNumber":"123412******1112",
-			"Holder":"Teste Holder",
-			"ExpirationDate":"12/2030",
-			"SaveCard":false,
-			"Brand":"Visa"
-		},
-		"AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
+ "MerchantOrderId":"2014111903",
+ "Customer":
+ {
+  "Name":"Comprador crédito autenticação"
+ },
+ "Payment":
+ {
+  "ServiceTaxAmount":0,
+  "Installments":1,
+  "Interest":"ByMerchant",
+  "Capture":false,
+  "Authenticate":true,
+  "CreditCard":
+  {
+   "CardNumber":"123412******1112",
+   "Holder":"Teste Holder",
+   "ExpirationDate":"12/2030",
+   "SaveCard":false,
+   "Brand":"Visa"
+  },
+  "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
         "Tid": "1006993069257E521001",
         "SoftDescriptor":"123456789ABCD",
-		"PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-		"Type":"CreditCard",
-		"Amount":15700,
-		"Currency":"BRL",
-		"Country":"BRA",
-		"ExtraDataCollection":[],
-		"Status":0,
+  "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
+  "Type":"CreditCard",
+  "Amount":15700,
+  "Currency":"BRL",
+  "Country":"BRA",
+  "ExtraDataCollection":[],
+  "Status":0,
         "ReturnCode": "0",
-		"Links":
-		[
-			{
-				"Method":"GET",
-				"Rel":"self",
-				"Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-			}
-		]
-	}
+  "Links":
+  [
+   {
+    "Method":"GET",
+    "Rel":"self",
+    "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
+   }
+  ]
+ }
 }
 ```
 
@@ -1033,46 +1032,46 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-	"MerchantOrderId":"2014111903",
-	"Customer":
-	{
-		"Name":"Comprador crédito autenticação"
-	},
-	"Payment":
-	{
-		"ServiceTaxAmount":0,
-		"Installments":1,
-		"Interest":"ByMerchant",
-		"Capture":false,
-		"Authenticate":true,
-		"CreditCard":
-		{
-			"CardNumber":"123412******1112",
-			"Holder":"Teste Holder",
-			"ExpirationDate":"12/2030",
-			"SaveCard":false,
-			"Brand":"Visa"
-		},
-		"AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
+ "MerchantOrderId":"2014111903",
+ "Customer":
+ {
+  "Name":"Comprador crédito autenticação"
+ },
+ "Payment":
+ {
+  "ServiceTaxAmount":0,
+  "Installments":1,
+  "Interest":"ByMerchant",
+  "Capture":false,
+  "Authenticate":true,
+  "CreditCard":
+  {
+   "CardNumber":"123412******1112",
+   "Holder":"Teste Holder",
+   "ExpirationDate":"12/2030",
+   "SaveCard":false,
+   "Brand":"Visa"
+  },
+  "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
         "Tid": "1006993069257E521001",
         "SoftDescriptor":"123456789ABCD",
-		"PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-		"Type":"CreditCard",
-		"Amount":15700,
-		"Currency":"BRL",
-		"Country":"BRA",
-		"ExtraDataCollection":[],
-		"Status":0,
+  "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
+  "Type":"CreditCard",
+  "Amount":15700,
+  "Currency":"BRL",
+  "Country":"BRA",
+  "ExtraDataCollection":[],
+  "Status":0,
         "ReturnCode": "0",
-		"Links":
-		[
-			{
-				"Method":"GET",
-				"Rel":"self",
-				"Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-			}
-		]
-	}
+  "Links":
+  [
+   {
+    "Method":"GET",
+    "Rel":"self",
+    "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
+   }
+  ]
+ }
 }
 ```
 
@@ -1129,7 +1128,7 @@ To create a sale with credit card and fraud analysis, it is necessary to submit 
      "Country":"BRA",
      "ServiceTaxAmount":0,
      "Installments":1,
-	 "SoftDescriptor":"123456789ABCD",
+  "SoftDescriptor":"123456789ABCD",
      "Interest":"ByMerchant",
      "Capture":false,
      "Authenticate":false,
@@ -1143,14 +1142,14 @@ To create a sale with credit card and fraud analysis, it is necessary to submit 
      "FraudAnalysis":{
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"Always",
-	   "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
-	   "Browser":{
-		 "CookiesAccepted":false,
-		 "Email":"compradorteste@live.com",
-		 "HostName":"Teste",
-		 "IpAddress":"200.190.150.350",
-		 "Type":"Chrome"
-		},
+    "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+    "Browser":{
+   "CookiesAccepted":false,
+   "Email":"compradorteste@live.com",
+   "HostName":"Teste",
+   "IpAddress":"200.190.150.350",
+   "Type":"Chrome"
+  },
        "Cart":{
          "IsGift":false,
          "ReturnsAccepted":true,
@@ -1164,38 +1163,38 @@ To create a sale with credit card and fraud analysis, it is necessary to submit 
            "Quantity":1,
            "Sku":"201411170235134521346",
            "UnitPrice":123,
-		   "Risk":"High",
-		   "TimeHedge":"Normal",
-		   "Type":"AdultContent",
-		   "VelocityHedge":"High",
-		   "Passenger":{
-			 "Email":"compradorteste@live.com",
-			 "Identity":"1234567890",
-			 "Name":"Comprador accept",
-			 "Rating":"Adult",
-			 "Phone":"999994444",
-			 "Status":"Accepted"
-			}
+     "Risk":"High",
+     "TimeHedge":"Normal",
+     "Type":"AdultContent",
+     "VelocityHedge":"High",
+     "Passenger":{
+    "Email":"compradorteste@live.com",
+    "Identity":"1234567890",
+    "Name":"Comprador accept",
+    "Rating":"Adult",
+    "Phone":"999994444",
+    "Status":"Accepted"
+   }
            }]
        },
-	   "MerchantDefinedFields":[{
-			"Id":95,
-			"Value":"Eu defini isso"
-		}],
-		"Shipping":{
-			"Addressee":"Sr Comprador Teste",
-			"Method":"LowCost",
-			"Phone":"21114740"
-		},
-		"Travel":{
-			"DepartureTime":"2010-01-02",
-			"JourneyType":"Ida",
-			"Route":"MAO-RJO",
+    "MerchantDefinedFields":[{
+   "Id":95,
+   "Value":"Eu defini isso"
+  }],
+  "Shipping":{
+   "Addressee":"Sr Comprador Teste",
+   "Method":"LowCost",
+   "Phone":"21114740"
+  },
+  "Travel":{
+   "DepartureTime":"2010-01-02",
+   "JourneyType":"Ida",
+   "Route":"MAO-RJO",
           "Legs":[{
-				"Destination":"GYN",
-				"Origin":"VCP"
+    "Destination":"GYN",
+    "Origin":"VCP"
           }]
-		}
+  }
      }
   }
 }
@@ -1240,7 +1239,7 @@ curl
      "Country":"BRA",
      "ServiceTaxAmount":0,
      "Installments":1,
-	 "SoftDescriptor":"123456789ABCD",
+  "SoftDescriptor":"123456789ABCD",
      "Interest":"ByMerchant",
      "Capture":false,
      "Authenticate":false,
@@ -1255,14 +1254,14 @@ curl
      "FraudAnalysis":{
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"Always",
-	   "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
-	   "Browser":{
-		 "CookiesAccepted":false,
-		 "Email":"compradorteste@live.com",
-		 "HostName":"Teste",
-		 "IpAddress":"200.190.150.350",
-		 "Type":"Chrome"
-		},
+    "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+    "Browser":{
+   "CookiesAccepted":false,
+   "Email":"compradorteste@live.com",
+   "HostName":"Teste",
+   "IpAddress":"200.190.150.350",
+   "Type":"Chrome"
+  },
        "Cart":{
          "IsGift":false,
          "ReturnsAccepted":true,
@@ -1276,38 +1275,38 @@ curl
            "Quantity":1,
            "Sku":"201411170235134521346",
            "UnitPrice":123,
-		   "Risk":"High",
-		   "TimeHedge":"Normal",
-		   "Type":"AdultContent",
-		   "VelocityHedge":"High",
-		   "Passenger":{
-			 "Email":"compradorteste@live.com",
-			 "Identity":"1234567890",
-			 "Name":"Comprador accept",
-			 "Rating":"Adult",
-			 "Phone":"999994444",
-			 "Status":"Accepted"
-			}
+     "Risk":"High",
+     "TimeHedge":"Normal",
+     "Type":"AdultContent",
+     "VelocityHedge":"High",
+     "Passenger":{
+    "Email":"compradorteste@live.com",
+    "Identity":"1234567890",
+    "Name":"Comprador accept",
+    "Rating":"Adult",
+    "Phone":"999994444",
+    "Status":"Accepted"
+   }
            }]
        },
-	   "MerchantDefinedFields":[{
-			"Id":95,
-			"Value":"Eu defini isso"
-		}],
-		"Shipping":{
-			"Addressee":"Sr Comprador Teste",
-			"Method":"LowCost",
-			"Phone":"21114740"
-		},
-		"Travel":{
-			"DepartureTime":"2010-01-02",
-			"JourneyType":"Ida",
-			"Route":"MAO-RJO",
+    "MerchantDefinedFields":[{
+   "Id":95,
+   "Value":"Eu defini isso"
+  }],
+  "Shipping":{
+   "Addressee":"Sr Comprador Teste",
+   "Method":"LowCost",
+   "Phone":"21114740"
+  },
+  "Travel":{
+   "DepartureTime":"2010-01-02",
+   "JourneyType":"Ida",
+   "Route":"MAO-RJO",
           "Legs":[{
-				"Destination":"GYN",
-				"Origin":"VCP"
+    "Destination":"GYN",
+    "Origin":"VCP"
           }]
-		}
+  }
      }
   }
 }
@@ -1802,6 +1801,7 @@ curl
 |`DebitCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
 |`DebitCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
 |`DebitCard.Brand`|Card issuer.|Text|10|Yes|
+
 ### Response
 
 ```json
@@ -2032,8 +2032,6 @@ For all text fields, including the instructions field and the ones related with 
    **Incorrect examples**: D'EL - REI<br><br>
 * At most one blank space between words
 
-
-
 ### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
@@ -2048,7 +2046,7 @@ For all text fields, including the instructions field and the ones related with 
         "Address":
         {
           "Street": "Avenida Marechal Câmara",
-          "Number": "160",	
+          "Number": "160", 
           "Complement": "Sala 934",
           "ZipCode" : "22750012",
           "District": "Centro",
@@ -2071,7 +2069,8 @@ For all text fields, including the instructions field and the ones related with 
         "Instructions": "Aceitar somente até a data de vencimento, após essa data juros de 1% dia."
     }
 }
-```
+```
+
 ```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
@@ -2089,7 +2088,7 @@ curl
         "Address":
         {
           "Street": "Avenida Marechal Câmara",
-          "Number": "160",	
+          "Number": "160", 
           "Complement": "Sala 934",
           "ZipCode" : "22750012",
           "District": "Centro",
@@ -2150,15 +2149,15 @@ curl
     {
         "Name": "Comprador Boleto Completo",
         "Address":
-		{
-		"Street": "Av Marechal Camara",
-		"Number": "160",
-		"ZipCode": "22750012",
-		"City": "Rio de Janeiro",
-		"State": "RJ",
-		"Country": "BRA",
-		"District": "Centro"
-		}
+  {
+  "Street": "Av Marechal Camara",
+  "Number": "160",
+  "ZipCode": "22750012",
+  "City": "Rio de Janeiro",
+  "State": "RJ",
+  "Country": "BRA",
+  "District": "Centro"
+  }
     },
     "Payment":
     {
@@ -2299,7 +2298,6 @@ In all instances, the scheduled recurrence is a standard transaction for Cielo, 
 
 **Parameter:** `Payment.Recurrent`= `True`
 
-
 #### Use case
 
 This is an example of how the API Cielo Ecommerce allows the use of external systems of recurrence in their transactions
@@ -2319,7 +2317,6 @@ As a highly customized model, CleverFit has its own recurrence system, using the
 1. **Tokenized Card** - CleverFit keeps your cards secure via tokenization, reducing the risk of securing transactional data in your system.
 
 CleverFit sends the transaction every fifteen days to the API Cielo Ecommerce, using the Tokens saved in the API itself and opting for Own Recurrence, which changes the authorization rule to suit its charge model
-
 
 ### Scheduled Recurrence
 
@@ -2346,6 +2343,7 @@ The Scheduled Recurrence is formed by a simple transactional structure. The Merc
        "Interval":"SemiAnnual"
 }
 ```
+
 Onde podemos definir os dados como:
 
 |Parameters|Description|
@@ -2410,11 +2408,11 @@ When creating a transaction, Musicfy informs that the order in question must be 
 What are the advantages of using scheduled recurrence for MusicFy?:
 
 1. **Facility:** Monthly charge is automatic, so MusicFy does not have to worry about building a billing system.
-	
+ 
 2. **Usability:** The subscription value can be updated without the need to redo the transaction. A month can be canceled or the recurrence can have a delay (the 30-day free model) with only one setting.
-	
+ 
 3. **Safety:** It is not necessary to store sensitive card and buyer data at the store.
-	
+ 
 4. **Conversion:** The scheduled recurrence of Cielo has an automatic retentative system. If one of the transactions is denied, it will be retried up to 4 times, seeking to obtain the authorization.
 
 ## Creating an OWN RECURRENCE
@@ -2438,7 +2436,7 @@ The `Payment.Recurrent` parameter must be `true`, otherwise the transaction will
      "Amount":1500,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-	 "Recurrent": true,
+  "Recurrent": true,
      "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -2652,8 +2650,8 @@ curl
 To create a recurring sale whose first recurrence is authorized with the form of payment as credit card, just do a POST as the example.
 
 <aside class="notice"><strong>Warning:</strong> In this recurrence mode, the first transaction must be 
-	
-	of. All subsequent transactions will be automatically captured.</aside>
+ 
+ of. All subsequent transactions will be automatically captured.</aside>
 
 ### Request
 
@@ -3676,7 +3674,7 @@ curl
     "SoftDescriptor": "123456789ABCD",
     "Provider": "Cielo",
     "Eci": "0",
-	"NewCard": {
+ "NewCard": {
        "CardNumber": "40000000000000000",
        "ExpirationDate": "10/2020",
        "SaveCard": false,
@@ -3742,7 +3740,7 @@ curl
     "SoftDescriptor": "123456789ABCD",
     "Provider": "Cielo",
     "Eci": "0",
-	"NewCard": {
+ "NewCard": {
        "CardNumber": "40000000000000000",
        "ExpirationDate": "10/2020",
        "SaveCard": false,
@@ -4581,6 +4579,7 @@ curl
     ]
 }
 ```
+
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
@@ -4598,6 +4597,7 @@ Access our [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-
 # Canceling a sale
 
 ## Canceling a sale via API
+
 Cancellation process via API is available only for credit and debit card. 
 
 Each means of payment suffer different impacts when a cancellation order (VOID) is executed.
@@ -4606,7 +4606,6 @@ Each means of payment suffer different impacts when a cancellation order (VOID) 
 |---|---|---|---|
 |Credit card|Cielo returns the value via bank credit|300 days after authorization|Yes|
 |Debit card|Cancellation only in API. The return of the value is made by the merchant himself|300 days after authorization|No|
-
 
 NOTE: Partial cancellations are only available for Credit Card.
 
@@ -4688,7 +4687,6 @@ curl
 The **partial cancellation** is the act of canceling a value less than the total authorized/captured value. This cancellation model can occur countless times, until the total value of the transaction is canceled. 
 
  Just do a `POST` sending the value to be canceled.
-
  
 <aside class="notice"><strong>Warning:</strong> Partial cancellation available only for *CAPTURED* credit transactions</aside>
 
@@ -4768,6 +4766,7 @@ curl
     ]
 }
 ```
+
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
@@ -4794,7 +4793,6 @@ Effects on the means of payment
 |Bank slip|Cancellation only in API. The return of the value is made by the merchant himself|Defined by the merchant|No|
 |Electronic Transfer|Cancellation only in API. The return of the value is made by the merchant himself|Defined by the merchant|No|
 
-
 Access our [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  for more informations
 
 # Tokenization of cards
@@ -4819,7 +4817,8 @@ To save a card without authorizing it, just perform a post with the card data.
     "ExpirationDate":"12/2030",
     "Brand":"Visa"
 }
-```
+```
+
 ```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/card/"
@@ -4837,6 +4836,7 @@ curl
 }
 --verbose
 ```
+
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`Name`|Text|255|Yes|Buyer's name.|
@@ -4855,7 +4855,8 @@ curl
     "Rel": "self",
     "Href": "https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"}
 }
-```
+```
+
 ```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4917,7 +4918,7 @@ To save a card by creating its token, just send a sales creation standard reques
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":false,
-	 "SoftDescriptor":"123456789ABCD",
+  "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -4928,7 +4929,8 @@ To save a card by creating its token, just send a sales creation standard reques
      }
    }
 }
-```
+```
+
 ```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
@@ -5070,7 +5072,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": true,
-			"CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
+   "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
             "Brand": "Visa"
         },
         "ProofOfSale": "674532",
@@ -5144,7 +5146,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": true,
-			"CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
+   "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
             "Brand": "Visa"
         },
         "ProofOfSale": "674532",
@@ -5403,8 +5405,8 @@ For use in Sandbox, it is possible to simulate authorized or denied transactions
      "Amount":100,
      "Installments":1,
      "CreditCard":{  
-    	"CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-    	"Brand":"Visa"
+     "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+     "Brand":"Visa"
      }
    }
 }
@@ -5428,8 +5430,8 @@ curl
      "Amount":100,
      "Installments":1,
      "CreditCard":{  
-    	"CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-    	"Brand":"Visa"
+     "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+     "Brand":"Visa"
      }
    }
 }
@@ -5645,8 +5647,8 @@ curl
      "Wallet":{
          "Type":"VisaCheckout",
          "WalletKey":"1140814777695873901"
-		}
-	 }
+  }
+  }
 }
 
 --verbose
@@ -5791,8 +5793,8 @@ curl
       "Installments":1,
       "SoftDescriptor":"123456789ABCD",
       "Wallet":{  
-    	 "Type":"VisaCheckout"
-	},
+      "Type":"VisaCheckout"
+ },
       "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -5822,8 +5824,8 @@ curl
       "Installments":1,
       "SoftDescriptor":"123456789ABCD",
       "Wallet":{  
-    	 "Type":"VisaCheckout"
-	},
+      "Type":"VisaCheckout"
+ },
       "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -6577,19 +6579,17 @@ The table below lists all possible codes to be sent in the MerchantDefinedData p
 
 ## Fraud Analysis Values
 
-
 ### FraudAnalysis.status
 
-| Field         | Description                                                   |
-|---------------|-------------------------------------------------------------|
-| Started       | Transaction received by Cielo.                              |
-| Accept        | Transaction accepted after fraud analysis.                    |
-| Review        | Transaction under review after fraud analysis.                |
-| Reject        | Transaction rejected after fraud analysis.                 |
-| Unfinished    | Transaction not finalized due to some internal error in the system. |
-| Pendent       | Transaction waiting for analysis                                 |
-| ProviderError | Transaction with error in antifraud provider.               |
-
+|Field|Description|
+|---|---|
+|Started|Transaction received by Cielo.|
+|Accept|Transaction accepted after fraud analysis.|
+|Review|Transaction under review after fraud analysis.|
+|Reject|Transaction rejected after fraud analysis.|
+|Unfinished|Transaction not finalized due to some internal error in the system.|
+|Pendent|Transaction waiting for analysis|
+|ProviderError|Transaction with error in antifraud provider.|
 
 ### FraudAnalysis.Items.GiftCategory
 
