@@ -79,7 +79,7 @@ Nessa Aba são listados todos os produtos cadastrados no Checkout Cielo. Tambem 
 
 No menu Produtos, há também outras duas áreas: **Cadastrar de produtos** e **Listar Produtos Cadastrados**.
 
-### Listar Produtos Cadastrados
+### Listar Link de pagamentos Cadastrados
 
 ![Produtos cadastrados](/images/Checkout/TutorialCheckout/checkout-listar-link-de-pagamentos.png)
 
@@ -87,7 +87,7 @@ Clicando no Titulo ou SKU do produto, você será redirecionado a página de inf
 
 ![Detalhes do produto](/images/Checkout/TutorialCheckout/checkout-detalhes-Link-de-pagamentos.png)
 
-### Cadastrar de Produtos
+### Cadastrar de Link de Pagamentos
 
 Nessa pagina é possivel cadastrar seus produtos com base no tipo de produto em si. O Checkout Cielo considera 3 tipos de produtos: Material Fisico, Digital e  Serviço.
 
