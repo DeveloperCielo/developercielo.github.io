@@ -307,21 +307,7 @@ O resultado da pesquisa é exposto em forma de uma listagem de transações que 
 
 <p><img src="/images/Checkout/TutorialCheckout/checkout-configuracoes-pagamento.png" alt="Configuração Exibição" /></p>
 
-<h3 id="cartões-de-crédito-e-parcelamento">Cartões de crédito e Parcelamento</h3>
-
-<p>Basta marcar a caixa de seleção do cartão que deseja disponibilizar no momento do pagamento. Para desabilita-lo, basta desmarcar a caixa de seleção.</p>
-
-<p>O parcelamento é definido por bandeira de cartão. O numero de parcelas maximas disponibilizadas para cada cartão passa a ser definida pelo Lojista. O Checkout Cielo permite parcelamento até 12 vezes sem juros. Há a opção de definir um valor minimo de parcelamento. O valor definido faz com que independentemente do valor da compra, o comprador somente possa fazer parcelamentos com valor acima do Valor Minimo</p>
-
-<p><strong>Exemplo</strong>: Caso o valor minimo de parcelamento seja de R$10,00, uma compra de R$100,00 poderá ser parcelada máximo em 10x, mesmo que na configuração da loja o parcelamento em 12x esteja habilitado.</p>
-
-<aside class="warning">O numero máximo de parcelamento da loja depende do limite definido na Afiliação. Por padrão toda afiliação é liberada com limite de 12 parcelas.</aside>
-
-<aside class="warning">O Valor mínimo de parcelamento é obrigatoriamente R$5,00.</aside>
-
-<aside class="warning">A autenticação de cartões de crédito ocorre somente para cartões Visa e Mastercard. Essa função deve estar habilitada em sua afiliação.</aside>
-
-<h3 id="urls-principais-do-checkout-cielo">URLs principais do Checkout Cielo</h3>
+<h4 id="urls-principais-do-checkout-cielo">URLs principais do Checkout Cielo</h4>
 
 <p>As URL’s devem ser cadastradas pelo próprio lojista no seu Backoffice, na aba “configurações  Configurações da loja”.</p>
 
@@ -337,7 +323,23 @@ O resultado da pesquisa é exposto em forma de uma listagem de transações que 
 
 <aside class="notice">Os Lojistas da “Loja Virtual Terra Cielo” possuem URL’s de notificação, mudança de Status e Retorno atualizadas automaticamente. Para esses lojistas, não é necessário alterar as URL’s citadas.</aside>
 
-<h3 id="desconto-para-boletos-e-débito-online">Desconto para Boletos e débito online</h3>
+<h3 id="meus-meios-de-pagamento-ativos">Meus meios de pagamento ativos</h3>
+
+<h4 id="cartões-de-crédito-e-parcelamento">Cartões de crédito e Parcelamento</h4>
+
+<p>Basta marcar a caixa de seleção do cartão que deseja disponibilizar no momento do pagamento. Para desabilita-lo, basta desmarcar a caixa de seleção.</p>
+
+<p>O parcelamento é definido por bandeira de cartão. O numero de parcelas maximas disponibilizadas para cada cartão passa a ser definida pelo Lojista. O Checkout Cielo permite parcelamento até 12 vezes sem juros. Há a opção de definir um valor minimo de parcelamento. O valor definido faz com que independentemente do valor da compra, o comprador somente possa fazer parcelamentos com valor acima do Valor Minimo</p>
+
+<p><strong>Exemplo</strong>: Caso o valor minimo de parcelamento seja de R$10,00, uma compra de R$100,00 poderá ser parcelada máximo em 10x, mesmo que na configuração da loja o parcelamento em 12x esteja habilitado.</p>
+
+<aside class="warning">O numero máximo de parcelamento da loja depende do limite definido na Afiliação. Por padrão toda afiliação é liberada com limite de 12 parcelas.</aside>
+
+<aside class="warning">O Valor mínimo de parcelamento é obrigatoriamente R$5,00.</aside>
+
+<aside class="warning">A autenticação de cartões de crédito ocorre somente para cartões Visa e Mastercard. Essa função deve estar habilitada em sua afiliação.</aside>
+
+<h4 id="desconto-para-boletos-e-débito-online">Desconto para Boletos e débito online</h4>
 
 <p>É possivel realizar oferecer descontos nos meios de pagamento boleto e débito online. Esse desconto pode ser definido de duas maneiras.</p>
 
@@ -346,7 +348,7 @@ O resultado da pesquisa é exposto em forma de uma listagem de transações que 
   <li><strong>Via POST</strong>: é possivel enviar o no POST do carrinho um parametro contendo o desconto (%)  que o meio de pagamento virá a oferecer.</li>
 </ul>
 
-<h3 id="valor-minimo-de-boleto">Valor Minimo de boleto</h3>
+<h4 id="valor-minimo-de-boleto">Valor Minimo de boleto</h4>
 
 <p>É possivel definir um valor minimo para que o boleto seja apresentado. <strong>Compras em valor inferior ao definido não tem o boleto disponibilizado na tela de checkout</strong>.</p>
 
@@ -354,7 +356,7 @@ O resultado da pesquisa é exposto em forma de uma listagem de transações que 
 
 <aside class="warning">O valor minimo do boleto não funciona em caso de descontos definidos pelo lojista. Caso o lojista defina valor minimo de boleto de R$100,00 e um desconto de 10%,  será gerado um boleto de R$90,00 (inferior ao minimo)</aside>
 
-<h3 id="antifraude">Antifraude</h3>
+<h3 id="antifraude-e-captura-automática">Antifraude e Captura Automática</h3>
 
 <p>Aqui é possivel definir a automação dos processos de captura e cancelamento de pedidos com base no resultado da analise de antifraude e definir o valor mínimo inicial que uma transação deve ter para ser analisada.</p>
 
