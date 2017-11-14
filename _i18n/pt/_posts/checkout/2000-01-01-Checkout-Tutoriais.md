@@ -241,13 +241,28 @@ Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente
 |---|---|
 |![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/Checkout/tmbackoffice.png)|![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/Checkout/tmtransacional.png)|
 
+#### Tipos de Notificação
+
+ Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar de acordo com suas necessidades:
+ 
+|Tipo|Descrição|
+|---|---|
+|`POST`|Notificação onde o lojista é passivo. Dois `POST HTTP` são disparados, um informando dados da venda e outra mudança de Status da transação|
+|`JSON`|Notificação onde o lojista realiza uma consulta. Um `POST` contendo informações para a realização de uma consulta (`GET`) as transações checkout|
+ 
+Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a `URL de NOTIFICAÇÃO` quando a `URL de MUDANÇA de STATUS`.
+
+Para mais informações sobre o modelo de notificação visite o **[Manual de integração](https://developercielo.github.io/manual/checkout-cielo#notificações-de-pagamento)**
+
 
 #### URLs principais do Checkout Cielo
 
-As URL’s devem ser cadastradas pelo próprio lojista no seu Backoffice, na aba “configurações  Configurações da loja”.
+As URL’s descritas nesta área da aba tem a função de meios de comunicação entre o Checkout e o sistema do lojista integrando. Abaixo a descrição de cada uma das URLs
 
 * **URL de Retorno** - Ao finalizar a transação o comprador final poderá ser redirecionado para a URL de retorno. Ao clicar no botão “VOLTAR”  na tela de comprovante de vendas, o comprador será direcionando para a URL de retorno previamente cadastrada no BackOffice.
+
 * **URL de Notificação** - Ao finalizar uma transação é enviado um post com todos os dados da venda para a URL de Notificação, previamente cadastrada no BackOffice. O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do status da transação.
+
 * **URL de Mudança de Status** - Quando um pedido tiver seu status alterado, será enviando um post para a URL de Mudança de Status, previamente cadastrada no BackOffice. O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido.
 
 Na tela de pedidos, dentro de cada transação, há a opção de reenvio do POST de mudança de status.  Basta clicar nos botões azuis, marcados na imagem abaixo:
@@ -256,7 +271,28 @@ Na tela de pedidos, dentro de cada transação, há a opção de reenvio do POST
 
 <aside class="notice">Os Lojistas da “Loja Virtual Terra Cielo” possuem URL’s de notificação, mudança de Status e Retorno atualizadas automaticamente. Para esses lojistas, não é necessário alterar as URL’s citadas.</aside>
 
-### Meus meios de pagamento ativos
+Para mais informações sobre as URLs de notificação do Checkout visite o **[Manual de integração](https://developercielo.github.io/manual/checkout-cielo#notificações-de-pagamento)**
+
+####  Valores Mínimos e Descontos
+
+Nesta parte da aba de configurações é possível configurar 4 valores mínimos e descontos por meios de pagamento:
+
+![Valor minimo parcela](/images/Checkout/TutorialCheckout/checkout-Configurações-de-valores-Minimos.png)
+
+| Tipo | Descrição|
+|-----|------|
+|Valor minimo parcela| Define qual o valor minimo que uma parcela deve ter para que a opção de |
+|Valor mínimo para pagamento com boleto||
+|Desconto para pagamento com boleto||
+|Desconto para pagamento com débito online||
+
+#### Valor Minimo de boleto
+
+É possivel definir um valor minimo para que o boleto seja apresentado. **Compras em valor inferior ao definido não tem o boleto disponibilizado na tela de checkout**.
+
+<aside class="warning">Se valor da compra for inferior, caso não haja outro meio de pagamento disponivel, não haverá opção para o comprador, obrigando-o a retornar a loja criar um carrinho com o valor acima do minimo. Para evitar essa situação sugerimos:<br /><ul><li>Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor minimo do boleto.</li><li>Adquira outros meios de pagamento como Cartões de crédito (procedimento realizado pelo Checkout Cielo) ou débito online.</li></ul></aside>
+
+<aside class="warning">O valor minimo do boleto não funciona em caso de descontos definidos pelo lojista. Caso o lojista defina valor minimo de boleto de R$100,00 e um desconto de 10%,  será gerado um boleto de R$90,00 (inferior ao minimo)</aside>
 
 #### Cartões de crédito e Parcelamento
 
@@ -272,20 +308,7 @@ O parcelamento é definido por bandeira de cartão. O numero de parcelas maximas
 
 <aside class="warning">A autenticação de cartões de crédito ocorre somente para cartões Visa e Mastercard. Essa função deve estar habilitada em sua afiliação.</aside>
 
-#### Desconto para Boletos e débito online
 
-É possivel realizar oferecer descontos nos meios de pagamento boleto e débito online. Esse desconto pode ser definido de duas maneiras.
-
-* **Via Backoffice**: Basta selecionar o valor em (%) que o meio de pagamento virá a oferecer.
-* **Via POST**: é possivel enviar o no POST do carrinho um parametro contendo o desconto (%)  que o meio de pagamento virá a oferecer.
-
-#### Valor Minimo de boleto
-
-É possivel definir um valor minimo para que o boleto seja apresentado. **Compras em valor inferior ao definido não tem o boleto disponibilizado na tela de checkout**.
-
-<aside class="warning">Se valor da compra for inferior, caso não haja outro meio de pagamento disponivel, não haverá opção para o comprador, obrigando-o a retornar a loja criar um carrinho com o valor acima do minimo. Para evitar essa situação sugerimos:<br /><ul><li>Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor minimo do boleto.</li><li>Adquira outros meios de pagamento como Cartões de crédito (procedimento realizado pelo Checkout Cielo) ou débito online.</li></ul></aside>
-
-<aside class="warning">O valor minimo do boleto não funciona em caso de descontos definidos pelo lojista. Caso o lojista defina valor minimo de boleto de R$100,00 e um desconto de 10%,  será gerado um boleto de R$90,00 (inferior ao minimo)</aside>
 
 ### Antifraude e Captura Automática
 
