@@ -47,7 +47,7 @@ O Backoffice é formado por 6 Abas diferentes de administração do Checkout Cie
 
 ## Aba DashBoard
 
-Pagina inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações que sua loja vem realizando via o Checkout Cielo.
+Aba inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações que sua loja vem realizando via o Checkout Cielo.
 
 ### Tipos de informações
 
@@ -56,21 +56,26 @@ Nessa tela você encontra 2 tipos de informações.
 * **Alertas** – Indica se há pedidos a expirar na data presente.
 * **Volume financeiro e transacional** - São gráficos interativos que demonstram em porcentagem e em valores totais, qual a participação de cada meio de pagamento no total de transações realizadas e o volume total de acordo com o status das transações.
 
-<aside class="warning">Por padrão, o valor .</aside>
+<aside class="warning">Por padrão, transações de crédito expiram em 15 dias. Após esse perido, elas não podem ser capturadas.</aside>
 
 ![DashBoard](/images/Checkout/TutorialCheckout/checkout-dashboard.png)
 
 ## Aba Pedidos
 
-Nessa pagina fica contida toda a listagem de transações realizadas por um determinado periodo de tempo no Checkout Cielo. Nessa pagina é possivel pesquisar um determinado pedido , via a colocação de um determinado parametro de busca nos campos la existentes ou desmarcando os “checkbox” dos “Meios de pagamento” ou “Status de pagamento” e apertando o botão “Buscar”.
+Nessa aba fica contida toda a listagem de transações realizadas no Checkout Cielo. Aqui é possivel pesquisar um determinado pedido, via um determinado parametro de busca nos campos ou desmarcando os “checkbox” dos “Meios de pagamento” ou “Status de pagamento” e apertando o botão “Buscar”.
+O resultado da pesquisa é exposto em forma de uma listagem de transações que pode ser exportada como uma planilha de Excel.
 
-O resultado da pesquisa é exposta em forma de uma listagem  de operações. Essa listagem pode ser exportada como forma de excel.
+Listagem de Pedidos
 
 ![Pedidos](/images/Checkout/TutorialCheckout/checkout-pedidos.png)
 
-## Aba Produtos
+Detalhes dos Pedidos
 
-Nessa pagina são listados todos os produtos cadastrados no Checkout Cielo. Tambem é possivel fazer uma busca pelo nome do produto nesta pagina.  A lista de produtos pode ser exportada no formato Excel.
+![Detalhes do Pedido](/images/Checkout/TutorialCheckout/checkout-pedidos-detalhes.png)
+
+## Aba Link de Pagamento
+
+Nessa Aba são listados todos os produtos cadastrados no Checkout Cielo. Tambem é possivel fazer uma busca pelo nome do produto nesta pagina.  A lista de produtos pode ser exportada no formato Excel.
 
 No menu Produtos, há também outras duas áreas: **Cadastrar de produtos** e **Listar Produtos Cadastrados**.
 
