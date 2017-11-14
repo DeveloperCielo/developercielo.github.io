@@ -1,15 +1,21 @@
 ---
-title: Integration API Cielo eCommerce
+layout: manual
+title: API Cielo eCommerce
+description: The purpose of this documentation is to guide the developer on how to integrate with Cielo's API Cielo eCommerce.
+search: true
+translated: true
+categories: manual
+tags:
+  - API e-Commerce Cielo
 language_tabs:
-  - json: JSON
-  - shell: cURL
+  json: JSON
+  shell: cURL
 toc_footers:
   - <a href='/Guia-de-migracao-1.5x3.0/'>Migration Guide from API 1.5 to API Cielo eCommerce</a>
   - <a href='/API-3.0-FAQ/'>Answers to frequently asked questions</a>
   - <a href='/Tutorial-Backoffice-3.0/'>Backoffice Tutorial 3.0</a>
   - <a href='/Habilitacao-meios-de-pagamento/'>Manual of Bank slip and online debit</a>
   - <a href='/Boas-praticas-de-ecommerce/'>eCommerce Good Practice</a>
-search: true
 ---
 
 # Overview - API Cielo eCommerce
@@ -257,7 +263,7 @@ The Simulated is a configuration that emulates the use of payments with Credit C
 With this means of payment it is possible to simulate the flows of:
 
 * Authorization
-* Capture 
+* Capture
 * Cancellation.
 
 For best use of the Simulated Payment Means, we are providing **test cards** in the table below.
@@ -332,7 +338,7 @@ The events that can be notified are:
 
 An `URL Status Payment` must be registered by Cielo Support, so that the notification POST is executed.
 
-Features of the `URL Status Payment` 
+Features of the `URL Status Payment`
 
 * Must be **static**
 * 255 characters limit.
@@ -2025,7 +2031,7 @@ To create a sale whose form of payment is bank slip, just do a POST as the examp
 
 In the **Banco do Brasil Registered Bank slip**, the digitable line will not be returned in the response of the request. This information will be available after conciliation.
 
-For all text fields, including the instructions field and the ones related with address, these are accepted as valid characters: 
+For all text fields, including the instructions field and the ones related with address, these are accepted as valid characters:
 * The letters from A to Z (CAPITAL LETTERS)
 * Special characters of conjunction:  **hyphen (-)** / **apostrophe (')** / When used it can not contain spaces between the letters: <br><br>
    **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA<br>
@@ -2046,7 +2052,7 @@ For all text fields, including the instructions field and the ones related with 
         "Address":
         {
           "Street": "Avenida Marechal Câmara",
-          "Number": "160", 
+          "Number": "160",
           "Complement": "Sala 934",
           "ZipCode" : "22750012",
           "District": "Centro",
@@ -2088,7 +2094,7 @@ curl
         "Address":
         {
           "Street": "Avenida Marechal Câmara",
-          "Number": "160", 
+          "Number": "160",
           "Complement": "Sala 934",
           "ZipCode" : "22750012",
           "District": "Centro",
@@ -2302,7 +2308,7 @@ In all instances, the scheduled recurrence is a standard transaction for Cielo, 
 
 This is an example of how the API Cielo Ecommerce allows the use of external systems of recurrence in their transactions
 
-The own recurrence is a configuration of the API Cielo Ecommerce that allows a merchant to use an internal recurrence system specific to their business needs. 
+The own recurrence is a configuration of the API Cielo Ecommerce that allows a merchant to use an internal recurrence system specific to their business needs.
 In this model, the merchant' system is in charge of defining the period, the transactional data, and when necessary, send us the sale of recurrence.
 
 **See an example in use:**
@@ -2396,10 +2402,10 @@ The Musicfy company offers an online subscription service where their customers 
 
 To capture the maximum of customers, they offer 2 ways of payment:
 
-* Monthly for R$19,90 
-* Annual (with discount) for R$180,00 
+* Monthly for R$19,90
+* Annual (with discount) for R$180,00
 
-How do they perform the monthly or annual billing of their customers? 
+How do they perform the monthly or annual billing of their customers?
 
 MusicFy uses API Cielo Ecommerce Scheduled Recurrence.
 
@@ -2408,11 +2414,11 @@ When creating a transaction, Musicfy informs that the order in question must be 
 What are the advantages of using scheduled recurrence for MusicFy?:
 
 1. **Facility:** Monthly charge is automatic, so MusicFy does not have to worry about building a billing system.
- 
+
 2. **Usability:** The subscription value can be updated without the need to redo the transaction. A month can be canceled or the recurrence can have a delay (the 30-day free model) with only one setting.
- 
+
 3. **Safety:** It is not necessary to store sensitive card and buyer data at the store.
- 
+
 4. **Conversion:** The scheduled recurrence of Cielo has an automatic retentative system. If one of the transactions is denied, it will be retried up to 4 times, seeking to obtain the authorization.
 
 ## Creating an OWN RECURRENCE
@@ -2649,8 +2655,8 @@ curl
 
 To create a recurring sale whose first recurrence is authorized with the form of payment as credit card, just do a POST as the example.
 
-<aside class="notice"><strong>Warning:</strong> In this recurrence mode, the first transaction must be 
- 
+<aside class="notice"><strong>Warning:</strong> In this recurrence mode, the first transaction must be
+
  of. All subsequent transactions will be automatically captured.</aside>
 
 ### Request
@@ -4425,7 +4431,7 @@ curl
 
 ## Partial Capture
 
-The **partial Capture** is the act of capturing a value less than the authorized value. This capture model can occur only once per transaction. 
+The **partial Capture** is the act of capturing a value less than the authorized value. This capture model can occur only once per transaction.
 
 **After capture, it is not possible to make additional captures in the same order.**
 
@@ -4598,7 +4604,7 @@ Access our [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-
 
 ## Canceling a sale via API
 
-Cancellation process via API is available only for credit and debit card. 
+Cancellation process via API is available only for credit and debit card.
 
 Each means of payment suffer different impacts when a cancellation order (VOID) is executed.
 
@@ -4684,10 +4690,10 @@ curl
 
 ## Partial cancellation
 
-The **partial cancellation** is the act of canceling a value less than the total authorized/captured value. This cancellation model can occur countless times, until the total value of the transaction is canceled. 
+The **partial cancellation** is the act of canceling a value less than the total authorized/captured value. This cancellation model can occur countless times, until the total value of the transaction is canceled.
 
  Just do a `POST` sending the value to be canceled.
- 
+
 <aside class="notice"><strong>Warning:</strong> Partial cancellation available only for *CAPTURED* credit transactions</aside>
 
 <aside class="notice"><strong>Warning:</strong> The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
@@ -5982,7 +5988,7 @@ curl
 ## How to perform transaction with MasterPass
 
 To use Masterpass it is necessary to contact directly with the Mastercard site: https://masterpass.com/pt-br/ e solicitar as credenciais.
-More information and complete integration, you can find in the link: https://developer.mastercard.com/product/masterpass “ 
+More information and complete integration, you can find in the link: https://developer.mastercard.com/product/masterpass “
 
 ### Request
 
@@ -6699,7 +6705,7 @@ The table below lists all possible codes to be sent in the MerchantDefinedData p
 
 * *e.g.*: In an airline ticket sale of R$200,00 with boarding fee of R$25,00, the field `Payment.ServiceTaxAmount` must be sent as 2500
 
-**Rules** 
+**Rules**
 
 * Available only for Visa, Mastercard and Amex issuers.
 * The value of the boarding fee is not added to the value of the authorization, i.e. it is only informative.
@@ -6710,9 +6716,9 @@ There are specific rules for the requisition of capture with boarding fee, avail
 
 It allows the merchant to send a supplementary text that will be printed on the buyer's invoice along with the identification of the store name that appears in Cielo register.
 
-**Rules** 
+**Rules**
 * Maximum field size: 13 characters.
-* Available only for Visa and MasterCard issuers. 
+* Available only for Visa and MasterCard issuers.
 * Can not contain special characters.
 
 To know and/or change the name of the store that is registered, contact the Cielo relationship center.
@@ -6726,4 +6732,3 @@ If you have any questions or any other technical information, contact Cielo e-Co
 * **Other Cities:** 0800 570 1700
 
 Opening hours: 24 hours a day, 7 days a week.
-
