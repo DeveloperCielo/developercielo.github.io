@@ -5,6 +5,7 @@ description: Integração técnica via API
 search: true
 translated: true
 categories: manual
+Order: 1
 tags:
   - Checkout Cielo
 language_tabs:
