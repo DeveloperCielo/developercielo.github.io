@@ -271,7 +271,7 @@ Na tela de pedidos, dentro de cada transação, há a opção de reenvio do POST
 
 Para mais informações sobre as URLs de notificação do Checkout visite o **[Manual de integração](https://developercielo.github.io/manual/checkout-cielo#notificações-de-pagamento)**
 
-#### Valores Mínimos e Descontos
+####  Valores Mínimos e Descontos
 
 Nesta parte da aba de configurações é possível configurar 4 valores mínimos e descontos por meios de pagamento:
 
@@ -279,16 +279,12 @@ Nesta parte da aba de configurações é possível configurar 4 valores mínimos
 
 | Tipo | Descrição|
 |-----|------|
-|Valor minimo parcela| Define qual o valor minimo que uma parcela deve ter para que a opção de |
-|Valor mínimo para pagamento com boleto||
-|Desconto para pagamento com boleto||
-|Desconto para pagamento com débito online||
+|**Valor minimo parcela**| Caso o valor da parcela da compra seja inferior ao minimo, o Checkout exibirá apenas a parcela superior ao minimo <br><br> **EX:** Parcela minima de R$5,00, Em uma compra de R$10, não será exibida a opção de parcelamento em 3X, apenas em 2X|
+|**Valor mínimo para pagamento com boleto**|Valor minimo para que a opção de pagamento em boleto seja Exibida|
+|**Desconto para pagamento com boleto**| Define um valor % para desconto caso o Boleto seja o meio de pagamento escolhido|
+|**Desconto para pagamento com débito online**|Define um valor % para desconto caso o Débito online seja o meio de pagamento escolhido|
 
-#### Valor Minimo de boleto
-
-É possivel definir um valor minimo para que o boleto seja apresentado. **Compras em valor inferior ao definido não tem o boleto disponibilizado na tela de checkout**.
-
-<aside class="warning">Se valor da compra for inferior, caso não haja outro meio de pagamento disponivel, não haverá opção para o comprador, obrigando-o a retornar a loja criar um carrinho com o valor acima do minimo. Para evitar essa situação sugerimos:<br /><ul><li>Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor minimo do boleto.</li><li>Adquira outros meios de pagamento como Cartões de crédito (procedimento realizado pelo Checkout Cielo) ou débito online.</li></ul></aside>
+<aside class="warning">Se valor da compra for inferior, caso não haja outro meio de pagamento disponivel, não haverá opção para o comprador, obrigando-o a retornar a loja criar um carrinho com o valor acima do minimo. Para evitar essa situação sugerimos:<br /><br><ul><li>Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor minimo do boleto.</li><li>Adquira outros meios de pagamento como Cartões de crédito (procedimento realizado pelo Checkout Cielo) ou débito online.</li></ul></aside>
 
 <aside class="warning">O valor minimo do boleto não funciona em caso de descontos definidos pelo lojista. Caso o lojista defina valor minimo de boleto de R$100,00 e um desconto de 10%,  será gerado um boleto de R$90,00 (inferior ao minimo)</aside>
 
@@ -354,4 +350,4 @@ Aqui é possivel alterar a senha de acesso ao Checkout Cielo.
 
 ![Alterar senha](/images/Checkout/TutorialCheckout/checkout-alterar-senha.png)
 
-# Tutorial - Link de Pagamentos
+#Tutorial - Link de Pagamentos
