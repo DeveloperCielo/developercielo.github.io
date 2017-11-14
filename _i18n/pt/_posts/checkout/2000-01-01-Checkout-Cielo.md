@@ -1300,7 +1300,7 @@ Uma transação de recorrência no Checkout Cielo possui duas configurações: `
 Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.
  
 Exceto o objeto `Payment` que contém um novo elemento específico para a recorrência chamado `RecurrentPayment`, todos os outros objetos são iguais à integração com o Carrinho.
-  
+
 ### Request
 
 ```json
