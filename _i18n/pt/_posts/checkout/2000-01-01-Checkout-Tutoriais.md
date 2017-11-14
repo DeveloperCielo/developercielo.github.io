@@ -159,7 +159,7 @@ Esse relatorio informa o valor de cada pedido assim como dados sobre o produto e
 
 A listagem de clientes gera um arquivo excel contendo os dados dos clientes que realizaram compras  em sua loja.
 
-####Os dados apresentados são:
+#### Os dados apresentados são:
 
 | Dados do Comprador | Dados de entrega ou Billing|
 |:------------------:|:--------------------------:|
