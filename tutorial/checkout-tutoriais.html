@@ -94,7 +94,7 @@
             </div>
 
             <div class="post">
-    <h1 id="tutorial-backoffice">Tutorial Backoffice</h1>
+    <h1 id="tutorial---backoffice">Tutorial - Backoffice</h1>
 
 <p>O objetivo deste documento é orientar o lojista sobre como acessar a manipular o Backoffice do Checkout Cielo.</p>
 
@@ -607,6 +607,204 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 <h1 id="tutorial---link-de-pagamentos">Tutorial - Link de Pagamentos</h1>
 
+<h2 id="sobre-o-link-de-pagamento">Sobre o Link de Pagamento</h2>
+
+<p><strong>O Botão, QR CODE ou LINK</strong> é um método de compra usada sempre que não houver um “carrinho de compras” em sua loja. 
+Esse tipo de integração é realizado via o cadastro de um conjunto de itens a ser vendido on backoffice do Checkout Cielo.</p>
+
+<p>O botão gera um do 3 tipos diferentes de métodos de acesso a <strong>mesma tela transacional</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Método</th>
+      <th style="text-align: center">Nome</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="/images/Checkout/botao.png" alt="Botão" /></td>
+      <td style="text-align: center"><strong>Botão</strong></td>
+      <td>É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em <strong>hotSites</strong> ou <strong>E-mail Marketing</strong></td>
+    </tr>
+    <tr>
+      <td><img src="/images/Checkout/qrcode.png" alt="QRCODE" /></td>
+      <td style="text-align: center"><strong>QRCODE</strong></td>
+      <td>Código interpretável por Smartphones e Tablets - Ideal para uso em <strong>Marketing impressos</strong> ou <strong>Digital</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td style="text-align: center"><strong>LINK</strong></td>
+      <td>é um link compartilhável, ideal para uso em <strong>Redes Sociais</strong> ou <strong>Messengers Mobile</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Este modelo de integração é utilizado para:</p>
+
+<ul>
+  <li>Associar uma compra rápida direta a um produto como uma promoção numa homepage pulando a etapa do carrinho.</li>
+  <li>Enviar um e-mail marketing, ou uma cobrança via e-mail.</li>
+  <li>Adicionar o botão (HTML) referente ao produto/serviço a ser comprado/pago.</li>
+  <li>Realizar envio de pagamentos por aplicativos mobile</li>
+  <li>Sempre que se deseja disponibilizar uma venda rápida.</li>
+</ul>
+
+<p>Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão.</p>
+
+<h2 id="características-do-botão">Características do Botão</h2>
+
+<p>Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro no Backoffice Cielo Checkout.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Característica</th>
+      <th>Explicação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**Específico **</td>
+      <td>Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br /><br /><strong>Exemplo:</strong> Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas</td>
+    </tr>
+    <tr>
+      <td><strong>número do Pedido do Checkout</strong></td>
+      <td>O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um <code class="highlighter-rouge">GUID</code>) único. O Lojista receberá esse número de pedido como link a venda realizada</td>
+    </tr>
+    <tr>
+      <td><strong>Criação de pedidos</strong></td>
+      <td>Um botão gera vários pedidos independentes, ou seja, não é possível limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fluxo do Link de Pagamento</strong></p>
+
+<p><img src="/images/Checkout/intbt.png" alt="Fluxo de integração Checkout Cielo Botão" /></p>
+
+<h2 id="criando-um-link-de-pagamentos">Criando Um Link de pagamentos</h2>
+
+<p>Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do <a href="https://developercielo.github.io/tutorial/checkout-tutoriais#cadastrar-de-link-de-pagamentos">Backoffice Cielo Checkout</a>, no menu de Produtos/Cadastrar Produto.</p>
+
+<p>É possivel criar 5 tipos diferentes de link de Pagamentos:</p>
+
+<ul>
+  <li><strong>Material Fisico</strong> – Produtos Fisicos que necessitam ser enviados pelos lojistas. Ex: Roupas, Brinquedos, etc.</li>
+  <li><strong>Digital</strong> –  Bens digitais vendidos pela internet. Ex: Software, Jogos, Musicas, etc.</li>
+  <li><strong>Serviço</strong> – Serviços a serem prestados. Ex:  Entrega delivery, projetos e orçamentos.</li>
+  <li><strong>Recorrência</strong> - Transações que se repetem em um determinado intervalo de tempo EX: Assinaturas, mensalidades etc</li>
+  <li><strong>Pagamentos</strong> - Pagamentos unicos ou transferência de valores Ex: quitação de dividas etc</li>
+</ul>
+
+<p><strong>Tela de Cadastro:</strong></p>
+
+<p><img src="/images/Checkout/btcadastro.png" alt="Cadastro de Botão" /></p>
+
+<p><strong>Botão Cadastrado:</strong></p>
+
+<p><img src="/images/Checkout/btcadastro2.png" alt="Cadastro de Botão" /></p>
+
+<p>Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campos</th>
+      <th>Descrição</th>
+      <th>Tamanho Min.</th>
+      <th>Tamanho Máx.</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Tipo do Produto</code></td>
+      <td>Indique se está vendendo um bem Material, um Serviço ou um bem Digital. Para bens Digitais, não será apresentada a opção de tipo de Frete.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SKU</code></td>
+      <td>Código de identificação do produto</td>
+      <td>1</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Título</code></td>
+      <td>Titulo do Produto</td>
+      <td>1</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Descrição</code></td>
+      <td>Descrição do Produto</td>
+      <td>1</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Preço</code></td>
+      <td>Valor total do pedido <strong>em centavos</strong> (ex.: R$1,00 =100).</td>
+      <td>11</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Frete</code></td>
+      <td>Escolher dentre uma das opções de Frete (Correios, Frete Fixo, Frete Grátis, Retirar na loja, Sem Cobrança).</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CEP de Origem</code></td>
+      <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete.</td>
+      <td>9</td>
+      <td>9</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Peso(kg)</code></td>
+      <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Valor do Frete</code></td>
+      <td>Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Método de envio</code></td>
+      <td>Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">URL</code></td>
+      <td>Esse campo só aparece para Tipo Produto igual a Digital.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Adicionando o botão na sua página, você deve copiar o código HTML do botão criado e inclui-lo no HTML de seu site, conforme o exemplo abaixo.</p>
+
+<aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
+
+<p>Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a>, e valerão os dados do cadastro.</p>
+
 </div>
 
 
@@ -642,7 +840,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
       <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
       <ul class="toc-footer">
         
-        <li><a href='/Checkout-Cielo/'>Integração com Checkout Cielo</a></li>
+        <li><a href='https://developercielo.github.io/manual/checkout-cielo'>Integração com Checkout Cielo</a></li>
         
       </ul>
     </div>
