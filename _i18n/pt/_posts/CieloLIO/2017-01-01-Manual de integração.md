@@ -5,7 +5,6 @@ description: Integração técnica via API
 search: true
 translated: true
 categories: manual
-Order: 1
 tags:
   - Cielo LIO
 language_tabs:
