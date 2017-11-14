@@ -347,3 +347,86 @@ Nesta área você configura as opções de frete disponiveis em sua Loja. Na se�
 ![Frete Correios](/images/Checkout/TutorialCheckout/checkout-frete-correios.png)
 
 # Tutorial - Link de Pagamentos
+
+## Sobre o Link de Pagamento
+
+**O Botão, QR CODE ou LINK** é um método de compra usada sempre que não houver um “carrinho de compras” em sua loja. 
+Esse tipo de integração é realizado via o cadastro de um conjunto de itens a ser vendido on backoffice do Checkout Cielo.
+ 
+O botão gera um do 3 tipos diferentes de métodos de acesso a **mesma tela transacional**:
+ 
+|Método|Nome|Descrição|
+|---|:--:|---|
+|![Botão]({{ site.baseurl_root }}/images/Checkout/botao.png)|**Botão**|É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em **hotSites** ou **E-mail Marketing**|
+|![QRCODE]({{ site.baseurl_root }}/images/Checkout/qrcode.png)|**QRCODE**|Código interpretável por Smartphones e Tablets - Ideal para uso em **Marketing impressos** ou **Digital**|
+|`http://bit.ly/2tRkSxZ`|**LINK**|é um link compartilhável, ideal para uso em **Redes Sociais** ou **Messengers Mobile**|
+ 
+Este modelo de integração é utilizado para:
+ 
+* Associar uma compra rápida direta a um produto como uma promoção numa homepage pulando a etapa do carrinho.
+* Enviar um e-mail marketing, ou uma cobrança via e-mail. 
+* Adicionar o botão (HTML) referente ao produto/serviço a ser comprado/pago. 
+* Realizar envio de pagamentos por aplicativos mobile
+* Sempre que se deseja disponibilizar uma venda rápida.
+  
+Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. 
+
+## Características do Botão
+
+Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro no Backoffice Cielo Checkout.
+  
+|Característica|Explicação|
+|---|---|
+|**Específico **|Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <BR><BR>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
+|**número do Pedido do Checkout**|O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada|
+|**Criação de pedidos**|Um botão gera vários pedidos independentes, ou seja, não é possível limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido|
+ 
+#### Fluxo do Link de Pagamento
+ 
+![Fluxo de integração Checkout Cielo Botão]({{ site.baseurl_root }}/images/Checkout/intbt.png)
+
+## Criando Um Link de pagamentos
+
+Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do [Backoffice Cielo Checkout](https://developercielo.github.io/tutorial/checkout-tutoriais#cadastrar-de-link-de-pagamentos), no menu de Produtos/Cadastrar Produto.
+
+É possivel criar 5 tipos diferentes de link de Pagamentos:
+
+* **Material Fisico** – Produtos Fisicos que necessitam ser enviados pelos lojistas. Ex: Roupas, Brinquedos, etc.
+* **Digital** –  Bens digitais vendidos pela internet. Ex: Software, Jogos, Musicas, etc.
+* **Serviço** – Serviços a serem prestados. Ex:  Entrega delivery, projetos e orçamentos.
+* **Recorrência** - Transações que se repetem em um determinado intervalo de tempo EX: Assinaturas, mensalidades etc
+* **Pagamentos** - Pagamentos unicos ou transferência de valores Ex: quitação de dividas etc
+
+**Tela de Cadastro:**
+
+![Cadastro de Botão]({{ site.baseurl_root }}/images/Checkout/btcadastro.png)
+  
+**Botão Cadastrado:**
+ 
+![Cadastro de Botão]({{ site.baseurl_root }}/images/Checkout/btcadastro2.png)
+  
+Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
+  
+| Campos            | Descrição                                                                                                                                      | Tamanho Min. | Tamanho Máx. | Obrigatório |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------|-------------|
+| `Tipo do Produto` | Indique se está vendendo um bem Material, um Serviço ou um bem Digital. Para bens Digitais, não será apresentada a opção de tipo de Frete.     | n/a          | n/a          | Sim         |
+| `SKU`             | Código de identificação do produto                                                                                                             | 1            | 50           | Não         |
+| `Título`          | Titulo do Produto                                                                                                                              | 1            | 50           | Sim         |
+| `Descrição`       | Descrição do Produto                                                                                                                           | 1            | 255          | Sim         |
+| `Preço`           | Valor total do pedido **em centavos** (ex.: R$1,00 =100).                                                                                      | 11           | 14           | Sim         |
+| `Frete`           | Escolher dentre uma das opções de Frete (Correios, Frete Fixo, Frete Grátis, Retirar na loja, Sem Cobrança).                                   | n/a          | n/a          | Sim         |
+| `CEP de Origem`   | Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete. | 9            | 9            | Sim         |
+| `Peso(kg)`        | Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete                | n/a          | n/a          | Sim         |
+| `Valor do Frete`  | Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.            | n/a          | n/a          | Sim         |
+| `Método de envio` | Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.                                            | n/a          | n/a          | Sim         |
+| `URL`             | Esse campo só aparece para Tipo Produto igual a Digital.                                                                                       | n/a          | n/a          | Sim         |
+
+
+Adicionando o botão na sua página, você deve copiar o código HTML do botão criado e inclui-lo no HTML de seu site, conforme o exemplo abaixo.
+ 
+<aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
+ 
+Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/), e valerão os dados do cadastro.
+
+
+
