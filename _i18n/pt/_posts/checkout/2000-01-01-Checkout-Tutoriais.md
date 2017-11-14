@@ -58,8 +58,6 @@ Nessa tela você encontra 2 tipos de informações.
 
 <aside class="warning">Por padrão, o valor .</aside>
 
-
-
 ![DashBoard](/images/Checkout/TutorialCheckout/checkout-dashboard.png)
 
 ## Aba Pedidos
