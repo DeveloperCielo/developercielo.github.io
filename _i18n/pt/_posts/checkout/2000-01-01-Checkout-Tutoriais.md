@@ -10,7 +10,7 @@ toc_footers:
   - <a href='/Checkout-Cielo/'>Integração com Checkout Cielo</a>
 ---
 
-# Tutorial Backoffice
+# Tutorial - Backoffice
 
 O objetivo deste documento é orientar o lojista sobre como acessar a manipular o Backoffice do Checkout Cielo. 
 
