@@ -288,11 +288,7 @@ Nesta parte da aba de configurações é possível configurar 4 valores mínimos
 
 <aside class="warning">O valor minimo do boleto não funciona em caso de descontos definidos pelo lojista. Caso o lojista defina valor minimo de boleto de R$100,00 e um desconto de 10%,  será gerado um boleto de R$90,00 (inferior ao minimo)</aside>
 
-#### Cartões de crédito e Parcelamento
-
-Basta marcar a caixa de seleção do cartão que deseja disponibilizar no momento do pagamento. Para desabilita-lo, basta desmarcar a caixa de seleção.
-
-O parcelamento é definido por bandeira de cartão. O numero de parcelas maximas disponibilizadas para cada cartão passa a ser definida pelo Lojista. O Checkout Cielo permite parcelamento até 12 vezes sem juros. Há a opção de definir um valor minimo de parcelamento. O valor definido faz com que independentemente do valor da compra, o comprador somente possa fazer parcelamentos com valor acima do Valor Minimo
+**Sobre Valor Minimo:**
 
 **Exemplo**: Caso o valor minimo de parcelamento seja de R$10,00, uma compra de R$100,00 poderá ser parcelada máximo em 10x, mesmo que na configuração da loja o parcelamento em 12x esteja habilitado.
 
@@ -301,6 +297,19 @@ O parcelamento é definido por bandeira de cartão. O numero de parcelas maximas
 <aside class="warning">O Valor mínimo de parcelamento é obrigatoriamente R$5,00.</aside>
 
 <aside class="warning">A autenticação de cartões de crédito ocorre somente para cartões Visa e Mastercard. Essa função deve estar habilitada em sua afiliação.</aside>
+
+
+#### Meios de pagamentos Ativos
+
+Basta marcar a caixa de seleção do cartão que deseja disponibilizar no momento do pagamento. Para desabilita-lo, basta desmarcar a caixa de seleção.
+
+![Configurando meios de pagamento](/images/Checkout/TutorialCheckout/checkout-cards.png)
+
+O parcelamento é definido por bandeira de cartão. O numero de parcelas maximas disponibilizadas para cada cartão passa a ser definida pelo Lojista. 
+
+O Checkout Cielo permite parcelamento até 12 vezes sem juros. O numero de parcelas exibidas no transacional depende do valor minimo para parcelamento configurado pela Loja
+
+<aside class="warning">**Sobre Autenticação de transações**: O checkbox obriga todos os cartões Visa e Master a serem direcionados ao ambiente bancário para validação de segurança,. Só deve ser ativado caso a Afiliação Cielo esteja preparada para realizar esse fluxo, caso contrario as transações serão negadas automaticamente</aside>
 
 ### Antifraude e Captura Automática
 
@@ -337,17 +346,5 @@ Você pode visualizar o status do antifraude acessando o detalhe da compra, na a
 Nesta área você configura as opções de frete disponiveis em sua Loja. Na seção [Informações sobre Frete](#informações-sobre-frete) há uma explicação mais detalhada sobre os tipos de fretes disponiveis no Checkout Cielo. Há tambem na área de fretes de Correiros, uma calculadora de frete para consultas (essa calculadora dá o valor de frete de cada tipo de frete cadastrado para um determinado peso e localidade)
 
 ![Frete Correios](/images/Checkout/TutorialCheckout/checkout-frete-correios.png)
-
-### Dados Cadastrais
-
-Nesta seção, ficam listados os dados da loja cadastrada e do Lojista.
-
-![Dados cadastrais](/images/Checkout/TutorialCheckout/checkout-dados-cadastrais.png)
-
-### Alterar sua Senha
-
-Aqui é possivel alterar a senha de acesso ao Checkout Cielo.
-
-![Alterar senha](/images/Checkout/TutorialCheckout/checkout-alterar-senha.png)
 
 # Tutorial - Link de Pagamentos
