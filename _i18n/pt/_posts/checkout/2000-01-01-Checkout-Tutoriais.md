@@ -298,7 +298,6 @@ Nesta parte da aba de configurações é possível configurar 4 valores mínimos
 
 <aside class="warning">A autenticação de cartões de crédito ocorre somente para cartões Visa e Mastercard. Essa função deve estar habilitada em sua afiliação.</aside>
 
-
 #### Meios de pagamentos Ativos
 
 Basta marcar a caixa de seleção do cartão que deseja disponibilizar no momento do pagamento. Para desabilita-lo, basta desmarcar a caixa de seleção.
