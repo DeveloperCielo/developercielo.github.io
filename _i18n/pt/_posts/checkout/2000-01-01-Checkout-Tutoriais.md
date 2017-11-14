@@ -81,11 +81,11 @@ No menu Produtos, há também outras duas áreas: **Cadastrar de produtos** e **
 
 ### Listar Produtos Cadastrados
 
-![Produtos cadastrados](/images/Checkout/TutorialCheckout/checkout-listar-produtos.png)
+![Produtos cadastrados](/images/Checkout/TutorialCheckout/checkout-listar-link-de-pagamentos.png)
 
 Clicando no Titulo ou SKU do produto, você será redirecionado a página de informações de Produto, onde todas as caracteristicas do produto são informadas e onde você pode definir o padrão do Botão (caso a sua integração seja com base no Botão Checkout Cielo) a ser usado na venda desse produto. A integração via Botão é melhor explicada no item [Uso do botão Checkout Cielo “Comprar“](#uso-do-botão-checkout-cielo-comprar).
 
-![Detalhes do produto](/images/Checkout/TutorialCheckout/checkout-detalhes-produto.png)
+![Detalhes do produto](/images/Checkout/TutorialCheckout/checkout-detalhes-Link-de-pagamentos.png)
 
 ### Cadastrar de Produtos
 
