@@ -271,7 +271,7 @@ Na tela de pedidos, dentro de cada transação, há a opção de reenvio do POST
 
 Para mais informações sobre as URLs de notificação do Checkout visite o **[Manual de integração](https://developercielo.github.io/manual/checkout-cielo#notificações-de-pagamento)**
 
-####  Valores Mínimos e Descontos
+#### Valores Mínimos e Descontos
 
 Nesta parte da aba de configurações é possível configurar 4 valores mínimos e descontos por meios de pagamento:
 
@@ -354,4 +354,4 @@ Aqui é possivel alterar a senha de acesso ao Checkout Cielo.
 
 ![Alterar senha](/images/Checkout/TutorialCheckout/checkout-alterar-senha.png)
 
-#Tutorial - Link de Pagamentos
+# Tutorial - Link de Pagamentos
