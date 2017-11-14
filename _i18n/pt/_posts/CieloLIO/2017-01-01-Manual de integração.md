@@ -56,3 +56,13 @@ A Cielo LIO possui algumas funcionalidades que são nativas da plataforma:
 * Loja de aplicativos (Cielo Store)
 * Comprovantes físicos (LIO V2)
 * Pagamento com NFC (LIO V2)
+
+# Desenvolva um APP
+
+# Integração remota
+
+# Integração Local
+
+# Cielo Store
+
+# Referências
