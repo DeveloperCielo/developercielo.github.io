@@ -1301,7 +1301,7 @@ Os dados do cartão de crédito do comprador ficam armazenados de forma segura d
  
 Exceto o objeto `Payment` que contém um novo elemento específico para a recorrência chamado `RecurrentPayment`, todos os outros objetos são iguais à integração com o Carrinho.
   
-**Requisição**
+### Request
 
 ```json
 {
