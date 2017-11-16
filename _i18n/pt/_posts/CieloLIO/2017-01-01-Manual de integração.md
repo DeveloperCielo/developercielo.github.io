@@ -82,7 +82,7 @@ Impressoras Bluetooth (normalmente utilizadas para realizar a impressão de reci
 Já existem parceiros que estão utilizando impressoras Bluetooth das marcas Zebra, Datex, Leopardo e outras para se Integrar com a Cielo LIO!
 Todos os protocolos de comunicação e pareamento ficam sob responsabilidade do aplicativo do parceiro.
 
-### Guia para desenvolvedores
+## Guia para desenvolvedores
 
 O guia abaixo fornece as informações necessárias para ajudar os desenvolvedores a integrar ou desenvolver seus aplicativos na plataforma Cielo LIO da melhor maneira possível, de modo a oferecer uma experiência excelente para os estabelecimentos comerciais.
 
