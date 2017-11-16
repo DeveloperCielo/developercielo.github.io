@@ -69,9 +69,10 @@ A LIO V2 foi concebida com um tamanho maior do que a LIO V1 e com isso leva aos 
 
 A LIO V2 possui todas as funcionalidades presentes na LIO V1 e também:
 
-Impressora térmica
+**Impressora térmica**
 Com a LIO V2, o cliente poderá ter a 1ª e 2ª via impressa após o pagamento realizado. Além disso, as aplicações parceiras poderão utilizar os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente.
-NFC
+
+**NFC**
 Na LIO V2 colocamos o NFC como uma outra alternativa de pagamento. Portanto pagamentos poderão ser feitos utilizando cartão ou via contactless.
 
 ### Serviços periféricos
