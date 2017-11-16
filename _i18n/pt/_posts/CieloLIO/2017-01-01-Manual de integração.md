@@ -11,8 +11,6 @@ language_tabs:
   json: JSON
 ---
 
-
-
 # Bem-vindo a Cielo!
 
 Nessa documentação você tem acesso a todas as informações sobre as plataformas de desenvolvimento da Cielo bem como suas principais funcionalidades para integrar com seu negócio.
