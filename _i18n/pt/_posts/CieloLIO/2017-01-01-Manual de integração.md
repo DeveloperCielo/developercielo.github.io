@@ -181,7 +181,7 @@ Se o seu aplicativo incluir um componente voltado para o cliente, seu projeto re
 
 ### Publicação
 
-**Detalhes da aplicação | Envio para certificação**
+**Detalhes da aplicação - Envio para certificação**
 
 As seguintes informações são necessárias no momento de enviar seu aplicativo para certificação:
 
