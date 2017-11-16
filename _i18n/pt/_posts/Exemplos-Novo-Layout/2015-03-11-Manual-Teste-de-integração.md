@@ -52,7 +52,6 @@ Este é o Quarto nivel de informação. Foque este nivel exemplos ou pontos a se
 3. Recorrencia
 4. Request/Response
 
-
 # Tipos de destaque de texto:
 
 No novo layout existem mais tipos de destaque de texto do que na versão anterior. Abaixo exemplos de como esses destaques funcionam e seus códigos
