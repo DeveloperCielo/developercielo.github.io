@@ -90,6 +90,7 @@ A Cielo oferece a plataforma Cielo LIO com o próprio software baseado em Androi
 
 Confira abaixo a tabela com as especificações técnicas da Cielo LIO:
 **Especificações Técnicas**
+
 | Versão               | LIO v1                                      | LIO v2                                      |
 |----------------------|---------------------------------------------|---------------------------------------------|
 | Sistema operacional  | Android OS Cielo 5.1.1                      | Android OS Cielo 6.0 (Marshmallow)          |
@@ -106,11 +107,11 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:
 | Flash                | Flash LED                                   | Flash LED                                   |
 | USB                  | USB 2.0 Micro-B (Micro-USB) Somente Energia | USB 2.0 Micro-B (Micro-USB) Somente Energia |
 | Bluetooth            | Versão 4.0 com A2DP                         | Versão 4.0 com A2DP/LE                      |
-| WiFi           | 802.11 a/b/g/n                           | 802.11 b/g/n                             |
-| Memória        | 2GB LPDDR3                               | 1GB LPDDR3                               |
-| GPS            | A-GPS, GeoTagging                        | A-GPS                                    |
-| Sensores       | Acelerômetro, Proximidade e Luminosidade | Acelerômetro, Proximidade e Luminosidade |
-| Saída de áudio | Audio Jack 3,5mm                         | Audio Jack 3,5mm                         |
+| WiFi                 | 802.11 a/b/g/n                              | 802.11 b/g/n                                |
+| Memória              | 2GB LPDDR3                                  | 1GB LPDDR3                                  |
+| GPS                  | A-GPS, GeoTagging                           | A-GPS                                       |
+| Sensores             | Acelerômetro, Proximidade e Luminosidade    | Acelerômetro, Proximidade e Luminosidade    |
+| Saída de áudio       | Audio Jack 3,5mm                            | Audio Jack 3,5mm                            |
 
 ### Práticas gerais recomendadas
 
