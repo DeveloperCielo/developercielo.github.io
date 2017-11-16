@@ -1545,6 +1545,12 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
     overflow-y: auto;
 }
 
+.page {
+    margin: 100px auto 0;
+    max-width: 1000px;
+    padding: 0 30px;
+}
+
 #toc a {
     text-indent: 0;
 }
@@ -1554,17 +1560,17 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
 }
 
 #toc ul ul li a {
-    padding-left: 30px !important;
+    padding-left: 40px !important;
 }
 
 #toc ul ul ul li a {
-    padding-left: 45px !important;
+    padding-left: 65px !important;
 }
 
 #toc ul ul ul ul li a {
-    padding-left: 60px !important;
+    padding-left: 90px !important;
 }
 
 #toc ul ul ul ul ul li a {
-    padding-left: 75px !important;
+    padding-left: 115px !important;
 }
