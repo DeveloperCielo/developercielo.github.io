@@ -413,7 +413,6 @@ code {
 
 .content-container.no-dark-box {
     width: 100%;
-
 }
 
 .content-container {
@@ -1402,15 +1401,47 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
 }
 
 @media (min-width: 1660px) {
+
+    .content-container .post {
+        margin-top: 120px;
+        width: 70%;
+        padding-right: 45px;
+    }
+
+    .content-container {
+        padding-left: 340px;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    .code-fullscreen {
+        right: -49.5%;
+        display: block;
+        z-index: 10;
+        width: 45%;
+        top: 0;
+        margin: 0;
+        float: right;
+        position: relative;
+        background-color: #272822;
+        padding: 2em 28px;
+    }
+
+    .language-buttons {
+        display: none;
+    }
+
+    .highlight {
+        margin-bottom: 0;
+    }
+
     .content-container:not(.no-dark-box) div.highlighter-rouge {
         display: none;
-        position: absolute;
+        position: relative;
         right: 0;
-        width: 25%;
-
+        width: 100%;
         background-color: #28292d;
         color: #fff;
-        padding: 2em 28px;
         margin: 0;
         float: right;
         clear: right;
@@ -1437,7 +1468,7 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
         border-radius: 0;
         background-color: transparent;
         padding: 0;
-        position: absolute;
+        position: relative;
         z-index: 10;
     }
 
