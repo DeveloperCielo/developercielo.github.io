@@ -198,3 +198,6 @@ As seguintes informações são necessárias no momento de enviar seu aplicativo
 * Screenshots das telas do app.
 
 Certifique-se de que seu aplicativo não infringe os direitos de propriedade intelectual de terceiros, incluindo a marca Cielo, por exemplo. Não use Cielo ou qualquer outra marca registrada no nome do seu aplicativo para implicar a propriedade ou incluir a marca Cielo no domínio do seu site de ajuda.
+
+# Integração Remota
+
