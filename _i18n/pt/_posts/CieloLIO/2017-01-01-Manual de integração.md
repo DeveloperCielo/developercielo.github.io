@@ -346,15 +346,15 @@ O construtor do OrderManager recebe 2 parâmetros:
 Com este método – Bind –, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO
 
     ServiceBindListener serviceBindListener = new ServiceBindListener() {
-	@Override
-	public void onServiceBound() {
-		// O serviço está vinculado 
-	} 
-
-	@Override
-	public void onServiceUnbound() {
-		// O serviço foi desvinculado
-	}
+        @Override
+        public void onServiceBound() {
+                // O serviço está vinculado 
+        } 
+    
+        @Override
+        public void onServiceUnbound() {
+                // O serviço foi desvinculado
+        }
     }; 
     orderManager.bind(contextActivity, serviceBindListener);
 
@@ -407,24 +407,24 @@ Iniciar processo de pagamento
 Este método permite iniciar o processo de pagamento na Cielo LIO.
 
     PaymentListener paymentListener = new PaymentListener() {
-    		@Override
-    		public void onStart() {
-    		Log.d("MinhaApp", "O pagamento começou.");
-    		}
-
-    		@Override
-    		public void onPayment(@NotNull Order order) {
-    		Log.d("MinhaApp", "Um pagamento foi realizado.");
-    		} 
-    
-    		@Override public void onCancel() {
-    		Log.d("MinhaApp", "A operação foi cancelada.");
-    		} 
-    
-    		@Override public void onError(@NotNull PaymentError paymentError) {
-    		Log.d("MinhaApp", "Houve um erro no pagamento.");
-    		}
-    	}; 
+                @Override
+                public void onStart() {
+                Log.d("MinhaApp", "O pagamento começou.");
+                }
+                
+                @Override
+                public void onPayment(@NotNull Order order) {
+                Log.d("MinhaApp", "Um pagamento foi realizado.");
+                } 
+                
+                @Override public void onCancel() {
+                Log.d("MinhaApp", "A operação foi cancelada.");
+                } 
+                
+                @Override public void onError(@NotNull PaymentError paymentError) {
+                Log.d("MinhaApp", "Houve um erro no pagamento.");
+                }
+    }; 
     
     String orderId = order.getId();
     
