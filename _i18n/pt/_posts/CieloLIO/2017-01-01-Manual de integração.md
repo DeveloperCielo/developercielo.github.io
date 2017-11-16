@@ -58,13 +58,13 @@ A Cielo LIO possui algumas funcionalidades que são nativas da plataforma:
 * Pagamento com NFC (LIO V2)
 
 ### Diferenças LIO V1 e LIO V2
- 
+
 A Cielo LIO V2, foi um hardware também desenvolvido pela Cielo pensando em atender as necessidades específicas de alguns clientes.
 
 A LIO V2 foi concebida com um tamanho maior do que a LIO V1 e com isso leva aos nossos clientes um design recomendado para utilização em balcões de forma mais estática e com algumas funcionalidades adicionais à LIO V1.
 
 ### Funcionalidades exclusivas LIO V2
- 
+
 A LIO V2 possui todas as funcionalidades presentes na LIO V1 e também:
 
 Impressora térmica
@@ -73,7 +73,7 @@ NFC
 Na LIO V2 colocamos o NFC como uma outra alternativa de pagamento. Portanto pagamentos poderão ser feitos utilizando cartão ou via contactless.
 
 ### Serviços periféricos
- 
+
 A Cielo LIO também se integra com os seguintes periféricos de hardware:
 
 Impressoras Bluetooth (normalmente utilizadas para realizar a impressão de recibos).
@@ -81,11 +81,11 @@ Já existem parceiros que estão utilizando impressoras Bluetooth das marcas Zeb
 Todos os protocolos de comunicação e pareamento ficam sob responsabilidade do aplicativo do parceiro.
 
 ### Guia para desenvolvedores
- 
+
 O guia abaixo fornece as informações necessárias para ajudar os desenvolvedores a integrar ou desenvolver seus aplicativos na plataforma Cielo LIO da melhor maneira possível, de modo a oferecer uma experiência excelente para os estabelecimentos comerciais.
 
 ### Hardware
- 
+
 A Cielo oferece a plataforma Cielo LIO com o próprio software baseado em Android..
 
 Confira abaixo a tabela com as especificações técnicas da Cielo LIO:
