@@ -113,7 +113,7 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:
 | Saída de áudio | Audio Jack 3,5mm                         | Audio Jack 3,5mm                         |
 
 ### Práticas gerais recomendadas
- 
+
 * Crie uma conta no Portal de Desenvolvedores e acesse a documentação de acordo com a necessidade do seu desenvolvimento de integração com a plataforma da Cielo LIO.
 * Se estiver desenvolvendo um aplicativo para a Cielo LIO, ao término do desenvolvimento e/ou integração com o SDK Order Manager, crie uma conta na Cielo Store para submeter seu apk para certificação e, na sequência, disponibilizá-lo na Cielo LIO. Leia e aceite nossos Termos de Uso para fazer o envio do seu aplicativo.
 * O aplicativo deve atender às necessidades dos estabelecimentos comerciais da Cielo.
