@@ -57,12 +57,14 @@ A Cielo LIO possui algumas funcionalidades que são nativas da plataforma:
 * Comprovantes físicos (LIO V2)
 * Pagamento com NFC (LIO V2)
 
-###Diferenças LIO V1 e LIO V2
+### Diferenças LIO V1 e LIO V2
+ 
 A Cielo LIO V2, foi um hardware também desenvolvido pela Cielo pensando em atender as necessidades específicas de alguns clientes.
 
 A LIO V2 foi concebida com um tamanho maior do que a LIO V1 e com isso leva aos nossos clientes um design recomendado para utilização em balcões de forma mais estática e com algumas funcionalidades adicionais à LIO V1.
 
-###Funcionalidades exclusivas LIO V2
+### Funcionalidades exclusivas LIO V2
+ 
 A LIO V2 possui todas as funcionalidades presentes na LIO V1 e também:
 
 Impressora térmica
@@ -70,17 +72,20 @@ Com a LIO V2, o cliente poderá ter a 1ª e 2ª via impressa após o pagamento r
 NFC
 Na LIO V2 colocamos o NFC como uma outra alternativa de pagamento. Portanto pagamentos poderão ser feitos utilizando cartão ou via contactless.
 
-###Serviços periféricos
+### Serviços periféricos
+ 
 A Cielo LIO também se integra com os seguintes periféricos de hardware:
 
 Impressoras Bluetooth (normalmente utilizadas para realizar a impressão de recibos).
 Já existem parceiros que estão utilizando impressoras Bluetooth das marcas Zebra, Datex, Leopardo e outras para se Integrar com a Cielo LIO!
 Todos os protocolos de comunicação e pareamento ficam sob responsabilidade do aplicativo do parceiro.
 
-###Guia para desenvolvedores
+### Guia para desenvolvedores
+ 
 O guia abaixo fornece as informações necessárias para ajudar os desenvolvedores a integrar ou desenvolver seus aplicativos na plataforma Cielo LIO da melhor maneira possível, de modo a oferecer uma experiência excelente para os estabelecimentos comerciais.
 
-###Hardware
+### Hardware
+ 
 A Cielo oferece a plataforma Cielo LIO com o próprio software baseado em Android..
 
 Confira abaixo a tabela com as especificações técnicas da Cielo LIO:
@@ -107,7 +112,8 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:
 | Sensores       | Acelerômetro, Proximidade e Luminosidade | Acelerômetro, Proximidade e Luminosidade |
 | Saída de áudio | Audio Jack 3,5mm                         | Audio Jack 3,5mm                         |
 
-###Práticas gerais recomendadas
+### Práticas gerais recomendadas
+ 
 * Crie uma conta no Portal de Desenvolvedores e acesse a documentação de acordo com a necessidade do seu desenvolvimento de integração com a plataforma da Cielo LIO.
 * Se estiver desenvolvendo um aplicativo para a Cielo LIO, ao término do desenvolvimento e/ou integração com o SDK Order Manager, crie uma conta na Cielo Store para submeter seu apk para certificação e, na sequência, disponibilizá-lo na Cielo LIO. Leia e aceite nossos Termos de Uso para fazer o envio do seu aplicativo.
 * O aplicativo deve atender às necessidades dos estabelecimentos comerciais da Cielo.
@@ -116,7 +122,8 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:
 * Seu aplicativo deve ter uma boa experiência de ponta a ponta. Aplicativos que não têm uma quantidade significativa e razoável de funcionalidade podem ser rejeitados durante o processo de revisão.
 * O aplicativo em produção deve se autenticar com a Cielo LIO utilizando os tokens de acesso (Client-Id e Access-Tokens), ambos gerados no Portal de Desenvolvedores.
 
-###Uso da API
+### Uso da API
+
 **Segurança**
 
 Proteja os dados confidenciais de clientes e funcionários. Não exponha publicamente nomes, endereços ou números de telefone.
@@ -132,7 +139,7 @@ As solicitações da Automação Comercial ou PDV devem ser escalonadas o máxim
 Não crie multithread com chamadas POST, pois esse comportamento pode criar atrasos sistêmicos devido a deadlocks.
 Minimize o uso de dados. Os comerciantes podem estar utilizando conexão com dados móveis limitados.
 
-###Android (Cielo OS)
+### Android (Cielo OS)
 
 **Melhores práticas**
 
@@ -154,7 +161,7 @@ O recurso de rotação de exibição na Cielo LIO (ambas versões) é desativado
 
 Pode ser utilizado o método setRequestedOrientation passando a orientação desejada para alterar a orientação, e o getRequestedOrientation() para obter a orientação atual da tela.
 
-###Design
+### Design
 
 **Recursos de imagem**
 
@@ -171,7 +178,8 @@ Se o seu aplicativo incluir um componente voltado para o cliente, seu projeto re
 * O design deve enfatizar clareza e acessibilidade – alto contraste, fontes legíveis, texto grande e entradas.
 * Se você estiver adaptando um aplicativo desenvolvido para outra plataforma, verifique se ele só inclui recursos e botões relevantes para o usuário da Cielo LIO.
 
-###Publicação
+### Publicação
+
 **Detalhes da aplicação | Envio para certificação**
 
 As seguintes informações são necessárias no momento de enviar seu aplicativo para certificação:
