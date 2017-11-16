@@ -12,6 +12,8 @@ global:
   complementary: Materiais complementares
   search: Busca
   home: Início
+  need_help_title: Precisa de ajuda?
+  need_help_description: Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact">entre em contato conosco</a>
 langs:
   en: English
   pt: Português

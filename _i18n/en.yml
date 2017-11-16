@@ -12,6 +12,8 @@ global:
   complementary: Complementary materials
   search: Search
   home: Home
+  need_help_title: Need Help?
+  need_help_description: If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact">send us a message</a>
 langs:
   en: English
   pt: Português
