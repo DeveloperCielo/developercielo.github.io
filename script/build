@@ -10,7 +10,7 @@ fi
 set -e
 
 # lint for markdown
-bundle exec mdl --rules MD002,MD003,MD004,MD006,MD007,MD010,MD011,MD012,MD018,MD019,MD022,MD025,MD027,MD028,MD029="ordered",MD030,MD031,MD040 _i18n/
+bundle exec mdl --rules ${RULES} _i18n/
 
 # cleanup "_site"
 rm -rf _site
@@ -27,5 +27,5 @@ cd _site
 git config user.email "neto.joaobatista@gmail.com"
 git config user.name "João Batista Neto"
 git add --all
-git commit -a -m "Travis #$TRAVIS_BUILD_NUMBER"
+git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
 git push --force origin master
