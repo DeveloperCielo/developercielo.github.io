@@ -37,11 +37,11 @@ Quer conhecer mais sobre o produto Cielo LIO? Acesse: *[http://cielolio.com.br](
 
 ### Modelos de integração com a plataforma Cielo LIO
 
-**Integração Remota | Cielo LIO Order Manager**
+**Integração Remota - Cielo LIO Order Manager**
 
 Conjunto de APIs que permitem que o cliente continue utilizando sua solução de PDV/Automação Comercial com todas as funcionalidades. No momento de realizar o pagamento, ocorre a integração com o gerenciador de pedidos (Order Manager) da Cielo LIO, de forma rápida, simples e segura.
 
-**Integração Local | Cielo LIO Order Manager SDK**
+**Integração Local - Cielo LIO Order Manager SDK**
 
 A Cielo disponibiliza um SDK com base na Cielo LIO Order Manager API que permite ao desenvolvedor e parceiro Cielo LIO integrar em sua aplicação as funcionalidades de pagamento do Order Manager da Cielo LIO
 
