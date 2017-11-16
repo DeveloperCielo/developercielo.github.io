@@ -1414,7 +1414,7 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
         width: 100%;
     }
 
-    .code-fullscreen {
+    .content-container:not(.no-dark-box) .code-fullscreen {
         right: -49.5%;
         display: block;
         z-index: 10;
