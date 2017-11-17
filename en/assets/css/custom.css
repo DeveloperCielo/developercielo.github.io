@@ -419,6 +419,7 @@ code {
     padding-left: 340px;
     padding-right: 40px;
     width: 75%;
+    overflow-x: hidden;
 }
 
 
@@ -752,7 +753,7 @@ header.logo img {
 .tocify {
   overflow-y: auto;
   width: auto;
-  max-height: calc(100vh - 332px);
+  max-height: calc(100vh - 370px);
 }
 
 .tocify li {
