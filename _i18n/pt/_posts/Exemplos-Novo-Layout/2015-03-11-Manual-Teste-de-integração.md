@@ -74,7 +74,6 @@ Como eles são apresentados
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/</span></aside> 
 
-
 ## Destaque de TEXTOS
 
 O novo layout contem os mesmo tipos de destque de texto providos nas versões anteriores,todos baseados em Markdown
