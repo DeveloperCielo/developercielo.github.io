@@ -41,7 +41,7 @@ Este é o Terceiro nivel de informação. Foque este nivel em explicações dire
 2. Cartão de Crédito
 3. Recorrencia
 
-### Nivel 4
+#### Nivel 4
 
 Este é o Quarto nivel de informação. Foque este nivel exemplos ou pontos a ser destacado
 
@@ -56,6 +56,20 @@ Este é o Quarto nivel de informação. Foque este nivel exemplos ou pontos a se
 
 No novo layout existem mais tipos de destaque de texto do que na versão anterior. Abaixo exemplos de como esses destaques funcionam e seus códigos
 
-|Efeito|Código|
-|------|------|
-|<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>|`<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>`|
+## Destaque de ENDPOINT
+
+Cada tipo de ENDPOINT é destacavél por um `<ASIDE>`
+
+|Tipo    |Código                                                                                                          |
+|--------|----------------------------------------------------------------------------------------------------------------|
+|**POST**| `<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>` |
+|**GET** | `<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/</span></aside>`   |
+|**PUT** | `<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/</span></aside>`   |
+
+Como eles são apresentados
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/</span></aside>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/</span></aside> 
