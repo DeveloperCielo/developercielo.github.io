@@ -73,3 +73,19 @@ Como eles são apresentados
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/</span></aside>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/</span></aside> 
+
+
+## Destaque de TEXTOS
+
+O novo layout contem os mesmo tipos de destque de texto providos nas versões anteriores,todos baseados em Markdown
+Abaixo alguns exemplos e indicações de Regras:
+
+|Tipo    |Descrição | OBS                                                                                                         |
+|--------|----------|----------------------------------------------------------------------------------------------------------------|
+|**Markdown**|Este documento utiliza o Markdown baseado na versão GITHUB| XXXXXX|
+|**Notice** |Este exemplo cria uma caixa de texto azul. Markdown não funciona em seu interior| `<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/</span></aside>`   |
+|**Warning** Este exemplo cria uma caixa de texto Vermelha. Markdown não funciona em seu interior| `<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/</span></aside>`   |
+
+
+
+
