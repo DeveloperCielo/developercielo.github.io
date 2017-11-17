@@ -159,7 +159,7 @@ Evite criar varios topicos neste nivel para que o menu lateral não gere um Roll
   <li>Recorrencia</li>
 </ol>
 
-<h3 id="nivel-4">Nivel 4</h3>
+<h4 id="nivel-4">Nivel 4</h4>
 
 <p>Este é o Quarto nivel de informação. Foque este nivel exemplos ou pontos a ser destacado</p>
 
@@ -176,20 +176,40 @@ Evite criar varios topicos neste nivel para que o menu lateral não gere um Roll
 
 <p>No novo layout existem mais tipos de destaque de texto do que na versão anterior. Abaixo exemplos de como esses destaques funcionam e seus códigos</p>
 
+<h2 id="destaque-de-endpoint">Destaque de ENDPOINT</h2>
+
+<p>Cada tipo de ENDPOINT é destacavél por um <code class="highlighter-rouge">&lt;ASIDE&gt;</code></p>
+
 <table>
   <thead>
     <tr>
-      <th>Efeito</th>
+      <th>Tipo</th>
       <th>Código</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>&lt;aside class="request"&gt;<span class="method post">POST</span> <span class="endpoint">/1/sales/</span>&lt;/aside&gt;</td>
+      <td><strong>POST</strong></td>
       <td><code class="highlighter-rouge">&lt;aside class="request"&gt;&lt;span class="method post"&gt;POST&lt;/span&gt; &lt;span class="endpoint"&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;</code></td>
+    </tr>
+    <tr>
+      <td><strong>GET</strong></td>
+      <td><code class="highlighter-rouge">&lt;aside class="request"&gt;&lt;span class="method get"&gt;GET&lt;/span&gt; &lt;span class="endpoint"&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;</code></td>
+    </tr>
+    <tr>
+      <td><strong>PUT</strong></td>
+      <td><code class="highlighter-rouge">&lt;aside class="request"&gt;&lt;span class="method put"&gt;PUT&lt;/span&gt; &lt;span class="endpoint"&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;</code></td>
     </tr>
   </tbody>
 </table>
+
+<p>Como eles são apresentados</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/</span></aside>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/</span></aside>
 
 </div>
 
