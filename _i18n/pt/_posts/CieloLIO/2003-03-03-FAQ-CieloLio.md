@@ -9,7 +9,7 @@ tags:
 search: true
 ---
 
-#  Dúvidas Plataforma LIO
+# Dúvidas Plataforma LIO
 
 ## Se o estabelecimento comercial trocar a LIO v1 pela LIO v2, o que ele precisa fazer para ter o aplicativo na nova máquina?
 
@@ -66,3 +66,16 @@ Entre em contato com a Central de Atendimento e verifique o status de entrega de
 
 * 4002 5472 - Todas as localidades
 * 0800 570 8472 - Exceto capitais e ligações pelo celular
+
+# Dúvidas Integração Local
+
+
+
+
+
+
+
+
+
+
+
