@@ -507,6 +507,73 @@ O recurso de rotação de exibição na Cielo LIO (ambas versões) é desativado
 
 <h3 id="http-status-code">HTTP Status Code</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Erro</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>Operação realizada com sucesso.</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>A solicitação foi realizada, resultando na criação de um novo recurso.</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>Empty</td>
+      <td>Operação realizada com sucesso, mas nenhuma resposta foi retornada.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Bad Request</td>
+      <td>A requisição possui parâmetro(s) inválido(s).</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>O token de acesso não foi informado ou não possui acesso às APIs.</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>O acesso ao recurso foi negado.</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>O recurso informado no request não foi encontrado.</td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td>Request is to Large</td>
+      <td>A requisição está ultrapassando o limite permitido para o perfil do seu token de acesso.</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Unprocessable Entity</td>
+      <td>A requisição possui parâmetros obrigatórios não informados.</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>Too Many Requests</td>
+      <td>O consumidor estourou o limite de requisições por tempo.</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Internal Server Error</td>
+      <td>Erro não esperado; algo está quebrado na API</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="integração-local">Integração Local</h1>
 
 <h2 id="apresentação-1">Apresentação</h2>
