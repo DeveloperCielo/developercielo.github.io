@@ -110,7 +110,7 @@ Download do Emulador:
 
 > https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk
 
-# Integração Remota
+# Dúvidas Integração Remota
 
 ## Preciso me cadastrar para realizar testes?
 
@@ -120,7 +120,7 @@ Sim, é fundamental o cadastro no portal para que você possa obter os tokens de
 
 Se você já realizou todos os testes em Sandbox e deseja enviar pedidos para a Cielo LIO, entre em contato através do formulário do Portal de Desenvolvedores da Cielo com o assunto “Integração Remota Cielo LIO - Tokens e informações para Produção” e preencha os dados necessários para receber os tokens de produção
 
-# Cielo Store
+# Dúvidas Cielo Store
 
 ## O que é a Cielo Store?
 
