@@ -193,3 +193,23 @@ No próprio Dev Console, assim que a certificação for aprovada, o desenvolvedo
 ## Como faço para mudar o nome do meu aplicativo?
 
 É necessário criar um novo aplicativo com package name diferente e seguir o processo normal de upload de aplicativo na Cielo Store.
+
+## É possível editar as informações do meu aplicativo já publicado na Cielo Store?
+
+Sim! Basta enviar um e-mail pelo nosso suporte do Portal de Desenvolvedores em "Envie a sua pergunta", solicitando a edição das informações de seu aplicativo.
+
+## Como faço para baixar aplicativos na Cielo LIO?
+
+Na Cielo LIO clique na aba Ajuda -> Sobre Cielo LIO -> Atualizar Aplicativos Cielo LIO.
+
+A partir desse momento todos os aplicativos disponibilizados para essa LIO serão baixados e instalados na Cielo LIO e ficarão visíveis na aba Apps.
+
+## Qual o limite máximo de tamanho do aplicativo para upload Cielo Store?
+
+O aplicativo deve possuir no máximo 100Mb para que o upload na Cielo Store seja realizado com sucesso.
+
+## Qual a diferença entre Loja Pública e Loja Privada?
+
+Na Loja Pública, o aplicativo ficara disponível na Cielo Store para todos os clientes que possuem LIO.
+
+Na Loja Privada o modelo de distribuição consiste em um desenvolvedor (ou grupo de desenvolvedores), estando relacionado a uma loja privada. Esse modelo visa a distribuição seletiva do aplicativo, dado que ele só é instalado em LIOs cadastradas para aquela loja específica. O aplicativo que está na Loja Privada não estará disponível na Loja Pública.
