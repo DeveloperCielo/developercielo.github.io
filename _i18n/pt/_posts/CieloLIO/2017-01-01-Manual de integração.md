@@ -229,6 +229,10 @@ Clique na imagem acima, para acessar o vídeo.
 
 O código do exemplo da Automação Comercial integrada com a API Order Manager da Cielo LIO encontra-se disponível no [GitHub](https://github.com/cielolabsbr/SampleAutomacaoComercial1.2).
 
+## Fluxo para Integração
+
+![fluxo integração remota](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-remote-new.png)
+
 # Integração Local
 
 ## Apresentação
