@@ -1,7 +1,7 @@
 ---
 layout: faq
 title: FAQ
-description: Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com a API Cielo.
+description: Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com a Cielo LIO.
 search: true
 categories: faq
 tags:
@@ -69,13 +69,43 @@ Entre em contato com a Central de Atendimento e verifique o status de entrega de
 
 # Dúvidas Integração Local
 
+## O que eu preciso para colocar meu aplicativo em produção?
 
+Se seu aplicativo já foi certificado, você deve promovê-lo Produção no Dev Console.
 
+A partir desse momento ele estará disponível para todas as LIOs vinculadas à Loja Privada, em caso de Aplicativo Privado; ou em caso de Aplicativo Público ele estará disponível para download na LIO Store.
 
+## Existe algum aplicativo de exemplo disponível?
 
+Disponibilizamos no GitHub um aplicativo Sample de forma que o desenvolvedor consiga ver como funciona as chamadas para utilização do SDK. 
 
+Download do aplicativo Sample: 
 
+> https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local.
 
+## Preciso me cadastrar para realizar testes?
 
+Sim, é fundamental o cadastro no portal para que você possa obter os tokens de acesso e testar as suas aplicações.
 
+## É necessário colocar todos os itens do pedido na order?
 
+A Cielo LIO funciona com o conceito de Pedido (Order). Assim, o procedimento deve ser sempre o exemplificado no SDK:
+
+1. Criar uma ordem com status draft
+2. Adicionar itens à ordem
+3. Preparar a ordem para pagamento (place order)
+4. Executar o checkout.
+
+<BR>
+
+Se você tem uma variedade de produtos, é interessante criar itens separados para status de relatório na Cielo LIO do lojista.
+
+## Preciso de uma máquina Cielo LIO para realizar os testes de integração local?
+
+Não é necessário ter uma máquina Cielo LIO para realizar os testes.
+
+A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualquer dispositivo Android, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.
+
+Download do Emulador: 
+
+> https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk
