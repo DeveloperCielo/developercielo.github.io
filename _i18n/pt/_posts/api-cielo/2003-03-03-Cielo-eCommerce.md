@@ -6541,9 +6541,9 @@ A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório ofici
 
 |SDK                                                                |
 |-------------------------------------------------------------------|
-|[**Android**] (https://github.com/DeveloperCielo/API-3.0-Android)  |
-|[**iOS**] (https://github.com/DeveloperCielo/API-3.0-iOS)          |
-|[**PHP**] (https://github.com/DeveloperCielo/API-3.0-PHP)          |
-|[**JAVA**] (https://github.com/DeveloperCielo/API-3.0-Java)        |
-|[**Python**] (https://github.com/DeveloperCielo/API-3.0-Python)    |
-|[**Ruby**] (https://github.com/DeveloperCielo/API-3.0-Ruby)        |
+|[**Android**](https://github.com/DeveloperCielo/API-3.0-Android)  |
+|[**iOS**](https://github.com/DeveloperCielo/API-3.0-iOS)          |
+|[**PHP**](https://github.com/DeveloperCielo/API-3.0-PHP)          |
+|[**JAVA**](https://github.com/DeveloperCielo/API-3.0-Java)        |
+|[**Python**](https://github.com/DeveloperCielo/API-3.0-Python)    |
+|[**Ruby**](https://github.com/DeveloperCielo/API-3.0-Ruby)        |
