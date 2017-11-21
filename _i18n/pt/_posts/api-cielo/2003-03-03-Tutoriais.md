@@ -145,5 +145,3 @@ Nessa tela é possível alterar:
 
 * **Quantidades de tentativas:** Número de vezes a API vai realizar uma nova transação em caso de não autorização dentro de uma recorrência. Limitada a 4 tentativas
 * **Intervalo de tentativas:** Espaço de tempo entre a execução de cada nova tentativa de autorização de uma transação dentro de uma recorrência. Limitado a 4 dias entre cada tentativa.
-
-# -----
