@@ -109,3 +109,87 @@ A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualqu
 Download do Emulador: 
 
 > https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk
+
+# Integração Remota
+
+## Preciso me cadastrar para realizar testes?
+
+Sim, é fundamental o cadastro no portal para que você possa obter os tokens de acesso e testar as suas aplicações.
+
+## O que eu preciso para colocar a integração em produção?
+
+Se você já realizou todos os testes em Sandbox e deseja enviar pedidos para a Cielo LIO, entre em contato através do formulário do Portal de Desenvolvedores da Cielo com o assunto “Integração Remota Cielo LIO - Tokens e informações para Produção” e preencha os dados necessários para receber os tokens de produção
+
+# Cielo Store
+
+## O que é a Cielo Store?
+
+É o marketplace - a loja de aplicativos da Cielo LIO. Na loja, os clientes poderão acessar a Cielo Store por meio da Cielo LIO e fazer download dos aplicativos que melhor atendem seu modelo de negócio e que têm por objetivo facilitar a gestão e controle de suas vendas, melhorar o relacionamento deles com seus clientes e impulsionar suas vendas.
+
+Para acessar e realizar o upload de aplicativos na Cielo Store, acesse:
+
+> https://www.cieloliostore.com.br
+
+## Fiz meu cadastro! O que devo fazer agora?
+
+O desenvolvedor deverá escolher de acordo com o propósito de distribuição de seu aplicativo entre:
+
+* Aplicativo Privado na Loja Privada
+* Aplicativo Público na Cielo Store
+
+<BR>
+
+Caso decida por Aplicativo Privado na Loja Privada, envie um ticket no Portal de Desenvolvedores e escolha no assunto: “Criação Loja Privada” e preenche os campos necessários.
+Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o upload do aplicativo e enviá-lo para Certificação.
+
+## Quais são os Browsers/Navegadores recomendados para Upload de aplicativo na Cielo Store?
+
+Recomendamos utilizar o Google Chrome ou Mozilla Firefox preferencialmente para realizar o upload de aplicativos na Cielo Store.
+
+## Como faço para me cadastrar como um EC na Cielo?
+
+Após a aprovação da certificação do aplicativo, quando você envia-lo para produção no Dev Console, haverá um formulário que deverá ser preenchido e automaticamente você se tornará um EC.
+
+## Preciso ser cadastrado na Cielo para receber o pagamento dos aplicativos?
+
+Sim! Como o pagamento é realizado em agenda financeira, você precisa se cadastrar como um estabelecimento comercial (EC).
+
+## Como recebo o pagamento dos aplicativos?
+
+O pagamento será feito em agenda financeira.
+
+## Caso meu aplicativo não seja gratuito, a Cielo Store fica com parte do valor de venda?
+
+Sim! A Cielo Store atua com o modelo de cobrança 70/30, ou seja, 70% do valor de venda ou mensalidade do aplicativo é direcionado para o desenvolvedor e 30% para Cielo.
+
+## Tenho algum custo para colocar meu aplicativo na Cielo Store?
+
+Não! A integração com a Cielo LIO é gratuita.
+
+## Quais as etapas existentes na Cielo Store para meu publicar meu aplicativo?
+
+### 1.Etapa de Desenvolvimento
+
+Nessa etapa ocorre a integração do aplicativo com a Cielo LIO e o desenvolvedor é responsável por realizar essa integração para que seu aplicativo consuma as funcionalidades da plataforma Cielo LIO. Caso seu aplicativo não precise estar integrado as funcionalidades da plataforma, basta seguir para a etapa de publicação.
+
+### 2.Etapa de Testes
+
+A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualquer dispositivo Android, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO. O download do Emulador é feito acessando a documentação da Integração Local no Portal de Desenvolvedores.
+
+### 3.Etapa de Publicação
+
+Crie sua conta na Cielo Store (Dev Console) e faça a publicação do aplicativo (arquivo apk) na Cielo Store.
+
+A Cielo recomenda que o desenvolvedor faça a geração do arquivo apk utilizando o Android Studio para garantir sucesso no upload do aplicativo na Cielo Store.
+
+### 4.Etapa de Certificação
+
+No próprio Dev Console, o aplicativo publicado poderá ser promovido para certificação. O time de certificação realizará testes de segurança, funcionais e validações de negócio para garantir a integridade nos fluxos do aplicativo.
+
+### 5.Etapa de Produção
+
+No próprio Dev Console, assim que a certificação for aprovada, o desenvolvedor será notificado e poderá promover o aplicativo para o status de produção.
+
+## Como faço para mudar o nome do meu aplicativo?
+
+É necessário criar um novo aplicativo com package name diferente e seguir o processo normal de upload de aplicativo na Cielo Store.
