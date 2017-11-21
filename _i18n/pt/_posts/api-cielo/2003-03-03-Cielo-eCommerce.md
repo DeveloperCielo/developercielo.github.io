@@ -6534,3 +6534,14 @@ Caso não seja retornado o **HTTP Status Code 200 OK**,  ocorrerão mais **dois*
 |3|Mudança de status do Antifraude|
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|cancelamento negado|
+
+# SDKs
+
+A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:
+
+[Android] (https://github.com/DeveloperCielo/API-3.0-Android)
+[iOS] (https://github.com/DeveloperCielo/API-3.0-iOS)
+[PHP] (https://github.com/DeveloperCielo/API-3.0-PHP)
+[JAVA] (https://github.com/DeveloperCielo/API-3.0-Java)
+[Python] (https://github.com/DeveloperCielo/API-3.0-Python)
+[Ruby] (https://github.com/DeveloperCielo/API-3.0-Ruby)
