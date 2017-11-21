@@ -458,7 +458,7 @@ O recurso de rotação de exibição na Cielo LIO (ambas versões) é desativado
 
 <p>Todas as chamadas devem ser executadas utilizando as respectivas credenciais dos ambientes de sandbox e produção.</p>
 
-<h3 id="sandbox">Sandbox</h3>
+<h4 id="sandbox">Sandbox</h4>
 
 <p>O ambiente de sandbox é destinado à realização de testes com parceiros da Cielo. Esse ambiente usa simuladores de integração. Assim, as operações não são executadas em ambiente produtivo.</p>
 
@@ -470,7 +470,7 @@ O recurso de rotação de exibição na Cielo LIO (ambas versões) é desativado
   <p>https://api.cielo.com.br/sandbox-lio/order-management/v1</p>
 </blockquote>
 
-<h3 id="produção">Produção</h3>
+<h4 id="produção">Produção</h4>
 
 <p>O ambiente de produção é o ambiente transacional integrado ao ambiente da Cielo. As operações realizadas nesse ambiente não podem ser desfeitas.</p>
 
@@ -487,6 +487,23 @@ O recurso de rotação de exibição na Cielo LIO (ambas versões) é desativado
 <p>Clique em <a href="https://desenvolvedores.cielo.com.br/api-portal/content/solicitar-tokens-para-producao">Solicitar Tokens</a> ou acesse o menu “Desenvolvedor” no Portal de Desenvolvedores e escolha a opção “Solicitar tokens”.</p>
 
 <p>É necessário estar logado!</p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Todas as chamadas da API Integração Remota</td>
+      <td>Cielo LIO Order Manager necessitam que as informações abaixo estejam presentes no Header na requisição:</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Client-Id</strong>: Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna “Client ID”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”.</p>
+
+<p><strong>Access-Token</strong>:Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em “detalhes” na coluna “Access Tokens”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”.</p>
+
+<p><strong>Merchant-Id</strong>: Token que identifica o estabelecimento comercial dentro do servidor Order Manager da Cielo LIO. Sua geração ocorre durante o processo de cadastro do Client ID. Seu valor pode ser visualizado na coluna “Merchant ID”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”.</p>
 
 <h1 id="integração-local">Integração Local</h1>
 
