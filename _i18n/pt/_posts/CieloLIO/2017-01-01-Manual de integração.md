@@ -208,14 +208,14 @@ O objetivo da Integração Remota da Cielo LIO é permitir que o lojista continu
 
 Dessa forma, toda a gestão do estabelecimento comercial fica sob responsabilidade da Automação Comercial e, no momento de realizar o pagamento, a Cielo LIO é utilizada.
 
-imagem
+![integração remota](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/diagrama-overview.jpg)
 
 A API Order Manager da Cielo LIO possui as seguintes características:
 
-Recursos REST, de forma que seja possível acessar por meio de semântica HTTP padrão.
-Códigos de status HTTP para comunicar o sucesso/erro nas chamadas.
-Todas as requisições e respostas encontram-se no formato JSON.
-As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.
+* Recursos REST, de forma que seja possível acessar por meio de semântica HTTP padrão.
+* Códigos de status HTTP para comunicar o sucesso/erro nas chamadas.
+* Todas as requisições e respostas encontram-se no formato JSON.
+* As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.
 
 # Integração Local
 
