@@ -6,9 +6,6 @@ search: true
 categories: faq
 tags:
   - Checkout Cielo
-toc_footers:
-  - <a href='/Checkout-Cielo/'>Integração com Checkout Cielo</a>
-  - <a href='/Checkout-Backoffice/'>Backoffice Cielo</a>
 ---
 
 # Dúvidas de Integração
