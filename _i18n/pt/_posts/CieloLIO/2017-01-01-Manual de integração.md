@@ -225,7 +225,7 @@ No vídeo abaixo é possível ver um exemplo de Automação Comercial integrada 
 
 ### Code Sample
 
-O código do exemplo da Automação Comercial integrada com a API Order Manager da Cielo LIO encontra-se disponível no [GitHub](https://github.com/cielolabsbr/SampleAutomacaoComercial1.2).
+O código do exemplo da Automação Comercial integrada com a API Order Manager da Cielo LIO encontra-se disponível no [GitHub](https://github.com/cielolabsbr/SampleAutomacaoComercial1.2). testes 
 
 # Integração Local
 
