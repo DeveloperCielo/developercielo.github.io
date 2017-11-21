@@ -94,7 +94,9 @@
             </div>
 
             <div class="post">
-  <h1 id="qual-a-diferença-entre-o-tipo-de-integração-usada-no-checkout-cielo">Qual a diferença entre o tipo de Integração usada no CHECKOUT CIELO?</h1>
+  <h1 id="dúvidas-de-integração">Dúvidas de Integração</h1>
+
+<h2 id="qual-a-diferença-entre-o-tipo-de-integração-usada-no-checkout-cielo">Qual a diferença entre o tipo de Integração usada no CHECKOUT CIELO?</h2>
 
 <p>O CHECKOUT CIELO utiliza integração via POST e é possível configurá-la de duas formas:</p>
 
@@ -103,11 +105,11 @@
   <li><strong>Integração via Botão</strong> - usada sempre que não houver um “carrinho de compras” em sua loja ou quando se deseja associar uma compra rápida/direta a um produto. Cada produto cadastrado gera um “botão de compra” único que permite personalização. Exemplo: um hotsite uma promoção que leva o comprador diretamente para a etapa de pagamento (página do Checkout Cielo).</li>
 </ul>
 
-<h1 id="como-eu-crio-o-botão">Como eu crio o Botão?</h1>
+<h2 id="como-eu-crio-o-botão">Como eu crio o Botão?</h2>
 
 <p>O Botão é criado no momento de inclusão de um novo produto. Para isso, acesse o <a href="/Checkout-Backoffice/">Backoffice Checkout Cielo</a>, no menu Produtos/Cadastrar Produtos.</p>
 
-<h1 id="quais-informações-eu-preciso-para-montar-o-post">Quais informações eu preciso para montar o POST?</h1>
+<h2 id="quais-informações-eu-preciso-para-montar-o-post">Quais informações eu preciso para montar o POST?</h2>
 
 <p>Os dados a serem preenchidos no POST são:</p>
 
@@ -120,40 +122,43 @@
 
 <p>Todas as informações para auxiliar nesse processo, encontram-se no Manual de Integração Checkout Cielo.</p>
 
-<h1 id="posso-enviar-um-e-mail-marketing-como-forma-de-cobrança">Posso enviar um e-mail marketing como forma de cobrança?</h1>
+<h2 id="posso-enviar-um-e-mail-marketing-como-forma-de-cobrança">Posso enviar um e-mail marketing como forma de cobrança?</h2>
 
 <p>Sim, por meio da Integração via Botão é possível enviar um e-mail marketing, ou uma cobrança por e-mail, adicionando ao HTML do e-mail, o botão referente ao produto/serviço ofertado.</p>
 
-<h1 id="para-que-serve-a-url-de-retorno">Para que serve a URL de retorno?</h1>
+<h2 id="para-que-serve-a-url-de-retorno">Para que serve a URL de retorno?</h2>
 
 <p>Ao finalizar a compra, o consumidor tem a opção de voltar ao site do lojista ou ser direcionado para a página que o lojista desejar.  A função dessas URL é conduzir automaticamente o consumidor para a página definida nesta opção.</p>
 
-<h1 id="para-que-serve-a-url-de-notificação">Para que serve a URL de Notificação?</h1>
+<h1 id="dúvidas-sobre-notificação">Dúvidas sobre Notificação</h1>
+
+<h2 id="para-que-serve-a-url-de-notificação">Para que serve a URL de Notificação?</h2>
 
 <p>Ao finalizar uma transação, é enviado um POST com todos os dados da venda para a URL de Notificação, previamente cadastrada no BackOffice. O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houver alteração do status da transação.</p>
 
 <p>Dessa maneira os dados do pedido ficam atualizados no <a href="/Checkout-Backoffice/">Backoffice Checkout Cielo</a> e também no backoffice da loja/plataforma.</p>
 
-<h1 id="para-que-serve-a-url-de-mudança-de-status">Para que serve a URL de Mudança de Status?</h1>
+<h2 id="para-que-serve-a-url-de-mudança-de-status">Para que serve a URL de Mudança de Status?</h2>
 
 <p>Ela define para onde será enviado o POST indicando a alteração de status de uma transação, ou seja, quando um pedido tiver seu status alterado, será enviando um POST para a URL de Mudança de Status, previamente cadastrada no BackOffice. O POST de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.</p>
 
-<h1 id="onde-é-feito-o-cadastro-dessas-urls">Onde é feito o cadastro dessas URLs?</h1>
+<h2 id="onde-é-feito-o-cadastro-dessas-urls">Onde é feito o cadastro dessas URLs?</h2>
 
 <p>No <a href="/Checkout-Backoffice/">Backoffice Checkout Cielo</a>, no menu Configurações/Configurações da loja.</p>
 
-<h1 id="qual-a-diferença-entre-o--erro-opsss-antes-e-depois-da-exibição-da-tela-do-checkout-cielo">Qual a diferença entre o  Erro OPSSS antes e depois da exibição da tela do Checkout Cielo?</h1>
+<h2 id="qual-a-diferença-entre-o--erro-opsss-antes-e-depois-da-exibição-da-tela-do-checkout-cielo">Qual a diferença entre o  Erro OPSSS antes e depois da exibição da tela do Checkout Cielo?</h2>
+
+<p><strong>Antes da exibição da tela de Checkout</strong> - significa que houve algum dado errado no envio da transação. Dados obrigatórios podem estar faltando ou o formato é invalido. Aqui o lojista sempre vai receber um e-mail informando o motivo do erro.</p>
 
 <ul>
-  <li><strong>Antes da exibição da tela de Checkout</strong> - significa que houve algum dado errado no envio da transação. Dados obrigatórios podem estar faltando ou o formato é invalido. Aqui o lojista sempre vai receber um e-mail informando o motivo do erro.
-    <ul>
-      <li>Para esses, é exibido um código (os mesmos dos manuais) dentro do pedido no Backoffice Checkout Cielo.</li>
-    </ul>
-  </li>
-  <li><strong>Depois da Exibição da tela de Checkout (quando a venda é finalizada)</strong> - significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout.</li>
+  <li>Para esses, é exibido um código (os mesmos dos manuais) dentro do pedido no Backoffice Checkout Cielo.</li>
 </ul>
 
-<h1 id="qual-a-relação-entre-os-tipos-de-produtos-e-os-tipos-de-fretes">Qual a relação entre os tipos de produtos e os tipos de fretes?</h1>
+<p><strong>Depois da Exibição da tela de Checkout (quando a venda é finalizada)</strong> - significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout.</p>
+
+<h1 id="dúvidas-sobre-frete">Dúvidas sobre Frete</h1>
+
+<h2 id="qual-a-relação-entre-os-tipos-de-produtos-e-os-tipos-de-fretes">Qual a relação entre os tipos de produtos e os tipos de fretes?</h2>
 
 <p>O tipo de produto a ser vendido no Checkout Cielo influencia diretamente o tipo de frete e a informação a ser enviada para o processamento da transação.</p>
 
@@ -181,7 +186,7 @@
 
 <p>Para compreender a diferença entre os parâmetros do POST em relação a frete e tipos de produtos, compare os exemplos de post abaixo. Para mais informações, acesse o <a href="/Checkout-Cielo/">Manual de Integração Checkout Cielo</a>.</p>
 
-<h2 id="parâmetros-obrigatórios">Parâmetros obrigatórios</h2>
+<h3 id="parâmetros-obrigatórios">Parâmetros obrigatórios</h3>
 
 <table>
   <thead>
@@ -242,17 +247,19 @@
   </tbody>
 </table>
 
-<h1 id="o-que-é-o-modo-de-teste-checkout-cielo">O que é o modo de teste CHECKOUT CIELO?</h1>
+<h1 id="dúvidas-sobre-o-modo-de-teste">Dúvidas sobre o Modo de teste</h1>
+
+<h2 id="o-que-é-o-modo-de-teste-checkout-cielo">O que é o modo de teste CHECKOUT CIELO?</h2>
 
 <p>É um ambiente de testes, onde é possível simular todas as ações sem precisar alterar sua integração. É um ambiente de teste onde é possível simular vendas e outras ações de teste (como cancelamentos, capturas e chargebacks).</p>
 
-<h1 id="como-é-ativado-o-modo-de-teste-checkout-cielo">Como é ativado o modo de teste Checkout Cielo?</h1>
+<h2 id="como-é-ativado-o-modo-de-teste-checkout-cielo">Como é ativado o modo de teste Checkout Cielo?</h2>
 
 <p>No Backoffice Cielo Checkout, aba Configurações Pagamentos Modo de Teste é possível habilitar ou desabilitado o Modo de teste. Quando esse modo estiver ativo, uma grande faixa vermelha será exibida na parte superior de todas as telas do Checkout Cielo (Backoffice Checkout e Tela de pagamento).</p>
 
 <p>No Modo de teste o lojista ou desenvolvedor pode realizar testes de transações e de integração.</p>
 
-<h1 id="o-modo-de-teste-tem-algum-custo-adicional">O modo de teste tem algum custo adicional?</h1>
+<h2 id="o-modo-de-teste-tem-algum-custo-adicional">O modo de teste tem algum custo adicional?</h2>
 
 <p>Não, para utiliza-lo não há taxas. O modo de teste é disponibilizado no momento da liberação da sua conta.</p>
 
