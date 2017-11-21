@@ -160,6 +160,52 @@ O Bluetooth da Cielo LIO pode ser utilizado para realizar a comunicação e a tr
 
 <h1 id="dúvidas-integração-local">Dúvidas Integração Local</h1>
 
+<h2 id="o-que-eu-preciso-para-colocar-meu-aplicativo-em-produção">O que eu preciso para colocar meu aplicativo em produção?</h2>
+
+<p>Se seu aplicativo já foi certificado, você deve promovê-lo Produção no Dev Console.</p>
+
+<p>A partir desse momento ele estará disponível para todas as LIOs vinculadas à Loja Privada, em caso de Aplicativo Privado; ou em caso de Aplicativo Público ele estará disponível para download na LIO Store.</p>
+
+<h2 id="existe-algum-aplicativo-de-exemplo-disponível">Existe algum aplicativo de exemplo disponível?</h2>
+
+<p>Disponibilizamos no GitHub um aplicativo Sample de forma que o desenvolvedor consiga ver como funciona as chamadas para utilização do SDK.</p>
+
+<p>Download do aplicativo Sample:</p>
+
+<blockquote>
+  <p>https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local.</p>
+</blockquote>
+
+<h2 id="preciso-me-cadastrar-para-realizar-testes">Preciso me cadastrar para realizar testes?</h2>
+
+<p>Sim, é fundamental o cadastro no portal para que você possa obter os tokens de acesso e testar as suas aplicações.</p>
+
+<h2 id="É-necessário-colocar-todos-os-itens-do-pedido-na-order">É necessário colocar todos os itens do pedido na order?</h2>
+
+<p>A Cielo LIO funciona com o conceito de Pedido (Order). Assim, o procedimento deve ser sempre o exemplificado no SDK:</p>
+
+<ol>
+  <li>Criar uma ordem com status draft</li>
+  <li>Adicionar itens à ordem</li>
+  <li>Preparar a ordem para pagamento (place order)</li>
+  <li>Executar o checkout.</li>
+</ol>
+
+<p><br /></p>
+
+<p>Se você tem uma variedade de produtos, é interessante criar itens separados para status de relatório na Cielo LIO do lojista.</p>
+
+<h2 id="preciso-de-uma-máquina-cielo-lio-para-realizar-os-testes-de-integração-local">Preciso de uma máquina Cielo LIO para realizar os testes de integração local?</h2>
+
+<p>Não é necessário ter uma máquina Cielo LIO para realizar os testes.</p>
+
+<p>A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualquer dispositivo Android, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.</p>
+
+<p>Download do Emulador:</p>
+
+<blockquote>
+  <p>https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk</p>
+</blockquote>
 
 </div>
 
