@@ -377,7 +377,7 @@ Cada botão possui um código único que só permite comprar aquele determinado 
   
 |Característica|Explicação|
 |---|---|
-|**Específico **|Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <BR><BR>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
+|**Específico**|Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <BR><BR>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
 |**número do Pedido do Checkout**|O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada|
 |**Criação de pedidos**|Um botão gera vários pedidos independentes, ou seja, não é possível limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido|
 
@@ -397,7 +397,9 @@ Para utilizar este recurso, é necessário cadastrar o produto que se deseja ven
 * **Recorrência** - Transações que se repetem em um determinado intervalo de tempo EX: Assinaturas, mensalidades etc
 * **Pagamentos** - Pagamentos unicos ou transferência de valores Ex: quitação de dividas etc
 
-**Tela de Cadastro:**
+<BR>
+
+**Tela de Cadastro**
 
 ![Cadastro de Botão]({{ site.baseurl_root }}/images/Checkout/btcadastro.png)
   
@@ -421,11 +423,11 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 | `Método de envio` | Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.                                            | n/a          | n/a          | Sim         |
 | `URL`             | Esse campo só aparece para Tipo Produto igual a Digital.                                                                                       | n/a          | n/a          | Sim         |
 
-Adicionando o botão na sua página, você deve copiar o código HTML do botão criado e inclui-lo no HTML de seu site, conforme o exemplo abaixo.
+**Adicionando o botão na sua página, você deve copiar o código HTML do botão criado e inclui-lo no HTML de seu site, conforme o exemplo abaixo.**
  
 <aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
  
-Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/), e valerão os dados do cadastro.
+Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do Backoffice Cielo Checkout, e valerão os dados do cadastro.
 
 
 
