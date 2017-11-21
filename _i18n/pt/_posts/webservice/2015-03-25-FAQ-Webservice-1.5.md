@@ -10,7 +10,7 @@ tags:
 search: true
 ---
 
-# Perguntas frequentes
+# Dúvidas frequentes
 
 ## Como funciona a solução do Webservice 1.5 da Cielo?
 
@@ -27,6 +27,8 @@ A integração é realizada através de serviços disponibilizados como Web Serv
 ## Como o Webservice da Cielo sabe que a requisição é da minha loja?
 
 Todas as requisições a Web Service da Cielo **devem conter o nó de autenticação do lojista**, composto pelo número de credenciamento e chave de acesso fornecidos pela Cielo no momento da afiliação.
+
+# Dúvidas sobre Integração
 
 ## O que é uma transação?
 
