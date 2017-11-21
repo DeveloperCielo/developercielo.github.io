@@ -5,7 +5,7 @@ description: Respostas para perguntas frequentes feitas pelos desenvolvedores du
 search: true
 categories: faq
 tags:
-  - Cielo Lio
+  - Cielo LIO
 search: true
 ---
 
