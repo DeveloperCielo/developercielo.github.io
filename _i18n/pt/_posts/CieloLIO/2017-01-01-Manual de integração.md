@@ -221,11 +221,13 @@ A API Order Manager da Cielo LIO possui as seguintes características:
 
 No vídeo abaixo é possível ver um exemplo de Automação Comercial integrada com a API Order Manager da Cielo LIO.
 
-[![Vídeo Demo](https://www.youtube.com/watch?v=QxfTkJEN1Qs)]
+[![Vídeo Demo](https://img.youtube.com/vi/QxfTkJEN1Qs/0.jpg)](https://www.youtube.com/watch?v=QxfTkJEN1Qs)
+
+Clique na imagem acima, para acessar o vídeo.
 
 ### Code Sample
 
-O código do exemplo da Automação Comercial integrada com a API Order Manager da Cielo LIO encontra-se disponível no [GitHub](https://github.com/cielolabsbr/SampleAutomacaoComercial1.2). testes 
+O código do exemplo da Automação Comercial integrada com a API Order Manager da Cielo LIO encontra-se disponível no [GitHub](https://github.com/cielolabsbr/SampleAutomacaoComercial1.2).
 
 # Integração Local
 
