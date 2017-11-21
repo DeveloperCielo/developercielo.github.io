@@ -105,11 +105,11 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 ![Cadastrar Link de pagamentos](/images/Checkout/TutorialCheckout/checkout-cadastrar-link-de-pagamentos.png)
 
-<aside class="notice">Material Físico exige que um **tipo de frete** seja cadastrado. </aside>
+<aside class="notice">Material Físico exige que um tipo de frete seja cadastrado. </aside>
 
-<aside class="notice">O campo **“SoftDescriptor”** permite que lojista insira uma mensagem que será exibida na fatura do cartão de crédito do comprador. Essa funcionalidade é indicada para lojas que tem o nome fantasia muito diferente em relação a Razão social.</aside>
+<aside class="notice">O campo “SoftDescriptor” permite que lojista insira uma mensagem que será exibida na fatura do cartão de crédito do comprador. Essa funcionalidade é indicada para lojas que tem o nome fantasia muito diferente em relação a Razão social.</aside>
 
-<aside class="notice">A mensagem inclusa no campo **“SoftDescriptor”** deve ser limitada a *13 letras *e não pode conter espaços.</aside>
+<aside class="notice">A mensagem inclusa no campo “SoftDescriptor” deve ser limitada a *13 letras *e não pode conter espaços.</aside>
 
 <aside class="notice">O cadastro de produtos não é obrigatório para lojistas que utilizem a integração via carrinho</aside>
 
@@ -151,7 +151,7 @@ Esse relatorio apresenta as vendas pagas em um determinado periodo de tempo, sen
 
 Esse relatorio informa o valor de cada pedido assim como dados sobre o produto e o comprador. O relatorio somente informa dados dos pedidos considerados com status **“PAGO”**.
 
-<aside class="notice">Pedidos realizados no **Modo de teste** não são apresentados nesse relatório, mesmo que estejam com o status **“PAGO”**</aside>
+<aside class="notice">Pedidos realizados no Modo de teste não são apresentados nesse relatório, mesmo que estejam com o status “PAGO”</aside>
 
 ![Relatório detalhado de vendas](/images/Checkout/TutorialCheckout/checkout-relatorio-detalhado-vendas.png)
 
@@ -308,7 +308,7 @@ O parcelamento é definido por bandeira de cartão. O numero de parcelas maximas
 
 O Checkout Cielo permite parcelamento até 12 vezes sem juros. O numero de parcelas exibidas no transacional depende do valor minimo para parcelamento configurado pela Loja
 
-<aside class="warning">**Sobre Autenticação de transações**: O checkbox obriga todos os cartões Visa e Master a serem direcionados ao ambiente bancário para validação de segurança,. Só deve ser ativado caso a Afiliação Cielo esteja preparada para realizar esse fluxo, caso contrario as transações serão negadas automaticamente</aside>
+<aside class="warning"><b>Sobre Autenticação de transações:</b> O checkbox obriga todos os cartões Visa e Master a serem direcionados ao ambiente bancário para validação de segurança,. Só deve ser ativado caso a Afiliação Cielo esteja preparada para realizar esse fluxo, caso contrario as transações serão negadas automaticamente</aside>
 
 ### Antifraude e Captura Automática
 
