@@ -428,6 +428,3 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 <aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
  
 Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do Backoffice Cielo Checkout, e valerão os dados do cadastro.
-
-
-
