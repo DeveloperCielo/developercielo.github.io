@@ -14,8 +14,7 @@ language_tabs:
 
 # Teste
 
-```
-java
+```Json
     PaymentListener paymentListener = new PaymentListener() {
                 @Override
                 public void onStart() {
