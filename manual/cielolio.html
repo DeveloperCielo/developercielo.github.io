@@ -919,6 +919,108 @@ Ex.: À Vista, Parcelado, etc.</p>
   </tbody>
 </table>
 
+<h3 id="recursos">Recursos</h3>
+
+<h4 id="post">POST</h4>
+
+<p><strong>Criar um pedido</strong></p>
+
+<p>Esse recurso realiza a criação de um pedido no servidor do Order Manager.</p>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>POST</strong> <em>/orders</em></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>order</td>
+      <td>Order</td>
+      <td>Informações do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0992f1d5cee540d9a9648f4d6a9e4aa6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PEDIDO #1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DRAFT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2f5fb9a5542406e8b7917892329cda8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b2j4bn6j93461385r5n90453407hjk0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">550</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55329cda842406e8cv2f5gdf96985152d"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2005</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesa 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">9155</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>body</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2e1d7b07-dcee-4a09-8d09-3bb02d94169d"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <h1 id="integração-local">Integração Local</h1>
 
 <h2 id="apresentação-1">Apresentação</h2>
