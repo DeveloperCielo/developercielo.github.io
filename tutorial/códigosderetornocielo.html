@@ -1,0 +1,1990 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Códigos de Retorno Cielo &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="/assets/css/poole.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <link rel="stylesheet" href="/assets/css/hyde.css">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/css/prettify.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/cielo.css">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div class="overlay"></div>
+
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="/tutorial/c%C3%B3digosderetornocielo">Códigos de Retorno Cielo</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+    <h1 id="códigos-da-api">Códigos da API</h1>
+
+<h2 id="sobre-os-códigos">Sobre os códigos</h2>
+
+<p>A Api Cielo e-commerce possui 4 tipos de códigos retornados que representam diferentes momentos da transação.</p>
+
+<p>Abaixo vamos explica-los na ordem em que podem ocorrem:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>HTTP Status Code</strong></td>
+      <td>São códigos do padrão HTTP. Eles informam se as informações enviadas a API estão de <strong>fato obtendo sucesso ao atingir nossos ENDPOINTs</strong>. Se valores diferentes de 200 ou 201 estejam aparecendo, há algum empecilho com a comunicação com a API<br /><br /> <em>Retornado no momento da requisição a API</em></td>
+    </tr>
+    <tr>
+      <td><strong>Erros da API</strong></td>
+      <td>Esses códigos são respostas a <strong>validação do conteúdo dos dados enviados</strong>. Se eles estão sendo exibidos, as chamadas a nossa API foram identificadas e estão sendo validadas. Se esse código for exibido, a requisição contem erros (EX: tamanho/condições/erros de cadastro) que impedem a criação da transação<br /><br /><em>Retornado no momento da requisição a API</em></td>
+    </tr>
+    <tr>
+      <td><strong>Status</strong></td>
+      <td>Depois de criada a transação, esses códigos serão retornados, informando como se encontra a transação no momento (EX: <code class="highlighter-rouge">Autorizada</code> &gt; <code class="highlighter-rouge">Capturada</code> &gt; <code class="highlighter-rouge">Cancelada</code>)<br /><br />*Retornado no campo <code class="highlighter-rouge">Status</code> *</td>
+    </tr>
+    <tr>
+      <td><strong>Retorno das Vendas</strong></td>
+      <td>Formado por um <strong>código de Retorno</strong> e uma <strong>mensagem</strong>, esses códigos indicam o <strong>motivo</strong> de um determinado <code class="highlighter-rouge">Status</code> dentro de uma transação. Eles indicam, por exemplo, se uma transação com <code class="highlighter-rouge">status</code> negada não foi autorizada devido saldo negativo no banco emissor. <br /><br /><em>Retornados nos campos <code class="highlighter-rouge">ReturnCode</code> e <code class="highlighter-rouge">ReturnMessage</code></em><br /> <em>Ocorrem somente em Cartões de crédito e Débito</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>OBS</strong>: No  antigo <strong>Webservice 1.5 Cielo</strong>, o <code class="highlighter-rouge">ReturnCode</code> era considerado como <em>Status da transação</em>. Na <strong>API CIELO ECOMMERCE</strong>, o campo <code class="highlighter-rouge">Status</code> possui códigos próprios, sendo assim, o <strong>campo a ser considerado como base de identificação do status de uma transação</strong></p>
+
+<h1 id="webservice-15">Webservice 1.5</h1>
+
+<h2 id="status">Status</h2>
+
+<h1 id="api-cielo-e-commerce">Api Cielo e-commerce</h1>
+
+<h2 id="http-status-code">HTTP Status Code</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status Code</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Bad Request</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Resource Not Found</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Internal Server Error</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="status-1">Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Status do Pagamento</th>
+      <th>Meio de pagamento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>NotFinished</td>
+      <td>Todos</td>
+      <td>Falha ao processar o pagamento</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Authorized</td>
+      <td>Todos</td>
+      <td>Meio de pagamento apto a ser capturado ou pago(Boleto</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>PaymentConfirmed</td>
+      <td>Todos</td>
+      <td>Pagamento confirmado e finalizado</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Denied</td>
+      <td>Cartão de Crédito e Débito / Transferência eletrônica</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="códigos-de-erros-da-api">Códigos de Erros da API</h2>
+
+<p>Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Mensagem</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Internal error</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>RequestId is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>MerchantId is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Payment Type is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>Payment Type can only contain letters</td>
+      <td>Caracteres especiais não permitidos</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>Customer Identity is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>Customer Name is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>106</td>
+      <td>Transaction ID is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>107</td>
+      <td>OrderId is invalid or does not exists</td>
+      <td>Campo enviado excede o tamanho ou contem caracteres especiais</td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>Amount must be greater or equal to zero</td>
+      <td>Valor da transação deve ser maior que “0”</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>Payment Currency is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>110</td>
+      <td>Invalid Payment Currency</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>111</td>
+      <td>Payment Country is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td>Invalid Payment Country</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>113</td>
+      <td>Invalid Payment Code</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>The provided MerchantId is not in correct format</td>
+      <td>O MerchantId enviado não é um GUID</td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>The provided MerchantId was not found</td>
+      <td>O MerchantID não existe ou pertence a outro ambiente (EX: Sandbox)</td>
+    </tr>
+    <tr>
+      <td>116</td>
+      <td>The provided MerchantId is blocked</td>
+      <td>Loja bloqueada, entre em contato com o suporte Cielo</td>
+    </tr>
+    <tr>
+      <td>117</td>
+      <td>Credit Card Holder is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>118</td>
+      <td>Credit Card Number is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>119</td>
+      <td>At least one Payment is required</td>
+      <td>Nó “Payment” não enviado</td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td>Request IP not allowed. Check your IP White List</td>
+      <td>IP bloqueado por questões de segurança</td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>Customer is required</td>
+      <td>Nó “Customer” não enviado</td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>MerchantOrderId is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>Installments must be greater or equal to one</td>
+      <td>Numero de parcelas deve ser superior a 1</td>
+    </tr>
+    <tr>
+      <td>124</td>
+      <td>Credit Card is Required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>Credit Card Expiration Date is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>126</td>
+      <td>Credit Card Expiration Date is invalid</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>You must provide CreditCard Number</td>
+      <td>Numero do cartão de crédito é obrigatório</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>Card Number length exceeded</td>
+      <td>Numero do cartão superiro a 16 digitos</td>
+    </tr>
+    <tr>
+      <td>129</td>
+      <td>Affiliation not found</td>
+      <td>Meio de pagamento não vinculado a loja ou Provider invalido</td>
+    </tr>
+    <tr>
+      <td>130</td>
+      <td>Could not get Credit Card</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>131</td>
+      <td>MerchantKey is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>132</td>
+      <td>MerchantKey is invalid</td>
+      <td>O Merchantkey enviado não é um válido</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>Provider is not supported for this Payment Type</td>
+      <td>Provider enviado não existe</td>
+    </tr>
+    <tr>
+      <td>134</td>
+      <td>FingerPrint length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>135</td>
+      <td>MerchantDefinedFieldValue length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>136</td>
+      <td>ItemDataName length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>137</td>
+      <td>ItemDataSKU length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>138</td>
+      <td>PassengerDataName length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>139</td>
+      <td>PassengerDataStatus length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>PassengerDataEmail length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>141</td>
+      <td>PassengerDataPhone length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>142</td>
+      <td>TravelDataRoute length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>143</td>
+      <td>TravelDataJourneyType length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>144</td>
+      <td>TravelLegDataDestination length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>145</td>
+      <td>TravelLegDataOrigin length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>SecurityCode length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>147</td>
+      <td>Address Street length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>148</td>
+      <td>Address Number length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>149</td>
+      <td>Address Complement length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>Address ZipCode length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>151</td>
+      <td>Address City length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>152</td>
+      <td>Address State length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>153</td>
+      <td>Address Country length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>154</td>
+      <td>Address District length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>155</td>
+      <td>Customer Name length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>156</td>
+      <td>Customer Identity length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>157</td>
+      <td>Customer IdentityType length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>158</td>
+      <td>Customer Email length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>159</td>
+      <td>ExtraData Name length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>160</td>
+      <td>ExtraData Value length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>Boleto Instructions length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>Boleto Demostrative length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>163</td>
+      <td>Return Url is required</td>
+      <td>URL de retorno não é valida - Não é aceito paginação ou extenções (EX .PHP) na URL de retorno</td>
+    </tr>
+    <tr>
+      <td>166</td>
+      <td>AuthorizeNow is required</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>167</td>
+      <td>Antifraud not configured</td>
+      <td>Antifraude não vinculado ao cadastro do lojista</td>
+    </tr>
+    <tr>
+      <td>168</td>
+      <td>Recurrent Payment not found</td>
+      <td>Recorrencia não encontrada</td>
+    </tr>
+    <tr>
+      <td>169</td>
+      <td>Recurrent Payment is not active</td>
+      <td>Recorrencia não está ativa. Execução paralizada</td>
+    </tr>
+    <tr>
+      <td>170</td>
+      <td>Cartão Protegido not configured</td>
+      <td>Cartão protegido não vinculado ao cadastro do lojista</td>
+    </tr>
+    <tr>
+      <td>171</td>
+      <td>Affiliation data not sent</td>
+      <td>Falha no processamento do pedido - Entre em contato com o suporte Cielo</td>
+    </tr>
+    <tr>
+      <td>172</td>
+      <td>Credential Code is required</td>
+      <td>Falha na validação das credenciadas enviadas</td>
+    </tr>
+    <tr>
+      <td>173</td>
+      <td>Payment method is not enabled</td>
+      <td>Meio de pagamento não vinculado ao cadastro do lojista</td>
+    </tr>
+    <tr>
+      <td>174</td>
+      <td>Card Number is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>175</td>
+      <td>EAN is required</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>176</td>
+      <td>Payment Currency is not supported</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>177</td>
+      <td>Card Number is invalid</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>178</td>
+      <td>EAN is invalid</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>179</td>
+      <td>The max number of installments allowed for recurring payment is 1</td>
+      <td>Campo enviado está vazio ou invalido</td>
+    </tr>
+    <tr>
+      <td>180</td>
+      <td>The provided Card PaymentToken was not found</td>
+      <td>Token do Cartão protegido não encontrado</td>
+    </tr>
+    <tr>
+      <td>181</td>
+      <td>The MerchantIdJustClick is not configured</td>
+      <td>Token do Cartão protegido bloqueado</td>
+    </tr>
+    <tr>
+      <td>182</td>
+      <td>Brand is required</td>
+      <td>Bandeira do cartão não enviado</td>
+    </tr>
+    <tr>
+      <td>183</td>
+      <td>Invalid customer bithdate</td>
+      <td>Data de nascimento invalida ou futura</td>
+    </tr>
+    <tr>
+      <td>184</td>
+      <td>Request could not be empty</td>
+      <td>Falha no formado ta requisição. Verifique o código enviado</td>
+    </tr>
+    <tr>
+      <td>185</td>
+      <td>Brand is not supported by selected provider</td>
+      <td>Bandeira não suportada pela API Cielo</td>
+    </tr>
+    <tr>
+      <td>186</td>
+      <td>The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)</td>
+      <td>Meio de pagamento não suporta o comando enviado</td>
+    </tr>
+    <tr>
+      <td>187</td>
+      <td>ExtraData Collection contains one or more duplicated names</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>188</td>
+      <td>Avs with CPF invalid</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>189</td>
+      <td>Avs with length of street exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>190</td>
+      <td>Avs with length of number exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>190</td>
+      <td>Avs with length of complement exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>191</td>
+      <td>Avs with length of district exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>192</td>
+      <td>Avs with zip code invalid</td>
+      <td>CEP enviado é invalido</td>
+    </tr>
+    <tr>
+      <td>193</td>
+      <td>Split Amount must be greater than zero</td>
+      <td>Valor para realização do SPLIT deve ser superior a 0</td>
+    </tr>
+    <tr>
+      <td>194</td>
+      <td>Split Establishment is Required</td>
+      <td>SPLIT não habilitado para o cadastro da loja</td>
+    </tr>
+    <tr>
+      <td>195</td>
+      <td>The PlataformId is required</td>
+      <td>Validados de plataformas não enviado</td>
+    </tr>
+    <tr>
+      <td>196</td>
+      <td>DeliveryAddress is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>197</td>
+      <td>Street is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>198</td>
+      <td>Number is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>199</td>
+      <td>ZipCode is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>City is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>State is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>202</td>
+      <td>District is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>203</td>
+      <td>Cart item Name is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>Cart item Quantity is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>205</td>
+      <td>Cart item type is required</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>206</td>
+      <td>Cart item name length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>207</td>
+      <td>Cart item description length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>208</td>
+      <td>Cart item sku length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>209</td>
+      <td>Shipping addressee sku length exceeded</td>
+      <td>Dado enviado excede o tamanho do campo</td>
+    </tr>
+    <tr>
+      <td>210</td>
+      <td>Shipping data cannot be null</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>211</td>
+      <td>WalletKey is invalid</td>
+      <td>Dados da Visa Checkout invalidos</td>
+    </tr>
+    <tr>
+      <td>212</td>
+      <td>Merchant Wallet Configuration not found</td>
+      <td>Dado de Wallet enviado não é valido</td>
+    </tr>
+    <tr>
+      <td>213</td>
+      <td>Credit Card Number is invalid</td>
+      <td>Cartão de crédito enviado é invalido</td>
+    </tr>
+    <tr>
+      <td>214</td>
+      <td>Credit Card Holder Must Have Only Letters</td>
+      <td>Portador do cartão não deve conter caracteres especiais</td>
+    </tr>
+    <tr>
+      <td>215</td>
+      <td>Agency is required in Boleto Credential</td>
+      <td>Campo obrigatório não enviado</td>
+    </tr>
+    <tr>
+      <td>216</td>
+      <td>Customer IP address is invalid</td>
+      <td>IP bloqueado por questões de segurança</td>
+    </tr>
+    <tr>
+      <td>300</td>
+      <td>MerchantId was not found</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>301</td>
+      <td>Request IP is not allowed</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>302</td>
+      <td>Sent MerchantOrderId is duplicated</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>303</td>
+      <td>Sent OrderId does not exist</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>304</td>
+      <td>Customer Identity is required</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>306</td>
+      <td>Merchant is blocked</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>307</td>
+      <td>Transaction not found</td>
+      <td>Transação não encontrada ou não existente no ambiente.</td>
+    </tr>
+    <tr>
+      <td>308</td>
+      <td>Transaction not available to capture</td>
+      <td>Transação não pode ser capturada - Entre em contato com o suporte Cielo</td>
+    </tr>
+    <tr>
+      <td>309</td>
+      <td>Transaction not available to void</td>
+      <td>Transação não pode ser Cancelada - Entre em contato com o suporte Cielo</td>
+    </tr>
+    <tr>
+      <td>310</td>
+      <td>Payment method doest not support this operation</td>
+      <td>Comando enviado não suportado pelo meio de pagamento</td>
+    </tr>
+    <tr>
+      <td>311</td>
+      <td>Refund is not enabled for this merchant</td>
+      <td>Cancelamento após 24 horas não liberado para o lojista</td>
+    </tr>
+    <tr>
+      <td>312</td>
+      <td>Transaction not available to refund</td>
+      <td>Transação não permite cancelamento após 24 horas</td>
+    </tr>
+    <tr>
+      <td>313</td>
+      <td>Recurrent Payment not found</td>
+      <td>Transação recorrente não encontrada ou não disponivel no ambiente</td>
+    </tr>
+    <tr>
+      <td>314</td>
+      <td>Invalid Integration</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>315</td>
+      <td>Cannot change NextRecurrency with pending payment</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>316</td>
+      <td>Cannot set NextRecurrency to past date</td>
+      <td>Não é permitido alterada dada da recorrencia para uma data passada</td>
+    </tr>
+    <tr>
+      <td>317</td>
+      <td>Invalid Recurrency Day</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>318</td>
+      <td>No transaction found</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>319</td>
+      <td>Smart recurrency is not enabled</td>
+      <td>Recorrencia não vinculada ao cadastro do lojista</td>
+    </tr>
+    <tr>
+      <td>320</td>
+      <td>Can not Update Affiliation Because this Recurrency not Affiliation saved</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>321</td>
+      <td>Can not set EndDate to before next recurrency.</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>322</td>
+      <td>Zero Dollar Auth is not enabled</td>
+      <td>Zero Dollar não vinculado ao cadastro do lojista</td>
+    </tr>
+    <tr>
+      <td>323</td>
+      <td>Bin Query is not enabled</td>
+      <td>Consulta de Bins não vinculada ao cadastro do lojista</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="códigos-de-retorno">Códigos de Retorno</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código Resposta</th>
+      <th>Definição</th>
+      <th>Significado</th>
+      <th>Ação</th>
+      <th>Permite Retentativa</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Criada</td>
+      <td>Transação criada</td>
+      <td>N/A</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Em andamento</td>
+      <td>Processamento em andamento</td>
+      <td>N/A</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Autenticada</td>
+      <td>Confirmação de autenticação</td>
+      <td>N/A</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Não Autenticada</td>
+      <td>Transação não autenticavel</td>
+      <td>N/A</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Autorizada</td>
+      <td>Confirmação de autorização</td>
+      <td>Captura ou Cancelamento</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Não Autorizada</td>
+      <td>Confirmação de não autorização</td>
+      <td>N/A</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Capturada</td>
+      <td>Confirmação de captura</td>
+      <td>N/A ou cancelamento</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Cancelada</td>
+      <td>Confirmação de cancelamento</td>
+      <td>N/A</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Em autenticação</td>
+      <td>Processamento de autenticação</td>
+      <td>N/A</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Em cancelamento</td>
+      <td>Processamento para cancelamento</td>
+      <td>N/A</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>00</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>000</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Transação não autorizada. Transação referida.</td>
+      <td>Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Transação não autorizada. Transação referida.</td>
+      <td>Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Transação não permitida. Erro no cadastramento do código do estabelecimento no arquivo de configuração do TEF</td>
+      <td>Transação não permitida. Estabelecimento inválido. Entre com contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Entre com contato com a Loja Virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Transação não autorizada. Cartão bloqueado pelo banco emissor.</td>
+      <td>Transação não autorizada. Cartão bloqueado pelo banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>Transação não autorizada. Cartão inadimplente (Do not honor).</td>
+      <td>Transação não autorizada. Não foi possível processar a transação. Questão relacionada a segurança, inadimplencia ou limite do portador.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Transação não autorizada. Cartão cancelado.</td>
+      <td>Transação não autorizada. Não foi possível processar a transação. Cartão cancelado permanentemente pelo banco emissor.</td>
+      <td>Não foi possível processar a transação. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>Transação negada. Reter cartão condição especial</td>
+      <td>Transação não autorizada por regras do banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>08</td>
+      <td>Transação não autorizada. Código de segurança inválido.</td>
+      <td>Transação não autorizada. Código de segurança inválido. Oriente o portador a corrigir os dados e tentar novamente.</td>
+      <td>Transação não autorizada. Dados incorretos. Reveja os dados e informe novamente.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Transação autorizada com sucesso para cartão emitido no exterior</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Transação inválida, erro no cartão.</td>
+      <td>Não foi possível processar a transação. Solicite ao portador que verifique os dados do cartão e tente novamente.</td>
+      <td>Não foi possível processar a transação. reveja os dados informados e tente novamente. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Transação não permitida. Valor da transação Inválido.</td>
+      <td>Transação não permitida. Valor inválido. Solicite ao portador que reveja os dados e novamente. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Transação não autorizada. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Transação não autorizada. Cartão Inválido</td>
+      <td>Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor, dados incorretos ou tentativas de testes de cartão. Use o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo. Consulte www.cielo.com.br/desenvolvedores para implantar o Algoritmo de Lhum.</td>
+      <td>Não foi possível processar a transação. reveja os dados informados e tente novamente. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Banco emissor indisponível ou inexistente.</td>
+      <td>Transação não autorizada. Banco emissor indisponível.</td>
+      <td>Não foi possível processar a transação. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Refaça a transação ou tente novamente mais tarde.</td>
+      <td>Não foi possível processar a transação. Refaça a transação ou tente novamente mais tarde. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Refaça a transação ou tente novamente mais tarde. Se o erro persistir entre em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Cancelamento não efetuado. Transação não localizada.</td>
+      <td>Não foi possível processar o cancelamento. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar o cancelamento. Tente novamente mais tarde. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Parcelamento inválido. Número de parcelas inválidas.</td>
+      <td>Não foi possível processar a transação. Número de parcelas inválidas. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Transação não autorizada. Valor da prestação inválido.</td>
+      <td>Não foi possível processar a transação. Valor da prestação inválido. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Valor da prestação inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Quantidade de parcelas inválido.</td>
+      <td>Não foi possível processar a transação. Quantidade de parcelas inválido. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Quantidade de parcelas inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Pedido de autorização não enviou número do cartão</td>
+      <td>Não foi possível processar a transação. Solicitação de autorização não enviou o número do cartão. Se o erro persistir, verifique a comunicação entre loja virtual e Cielo.</td>
+      <td>Não foi possível processar a transação. reveja os dados informados e tente novamente. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Arquivo temporariamente indisponível.</td>
+      <td>Não foi possível processar a transação. Arquivo temporariamente indisponível. Reveja a comunicação entre Loja Virtual e Cielo. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Entre com contato com a Loja Virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Transação não autorizada. Decline Message</td>
+      <td>Não foi possível processar a transação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação com a Cielo esta sendo feita corretamente</td>
+      <td>Não foi possível processar a transação. Reveja os dados e tente novamente. Se o erro persistir, entre em contato com a loja</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Transação não autorizada. Erro no banco emissor.</td>
+      <td>Transação não autorizada. Erro no banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Transação não autorizada. Cartão bloqueado por perda.</td>
+      <td>Transação não autorizada. Cartão bloqueado por perda.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>Transação não autorizada. Cartão bloqueado por roubo.</td>
+      <td>Transação não autorizada. Cartão bloqueado por roubo.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Cartão com dígito de controle inválido.</td>
+      <td>Não foi possível processar a transação. Cartão com dígito de controle inválido.</td>
+      <td>Transação não autorizada. Reveja os dados informados e tente novamente.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Transação não permitida. Cartão poupança inválido</td>
+      <td>Transação não permitida. Cartão poupança inválido.</td>
+      <td>Não foi possível processar a transação. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Transação não autorizada. Cartão vencido</td>
+      <td>Transação não autorizada. Cartão vencido.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>Transação não autorizada. Senha inválida</td>
+      <td>Transação não autorizada. Senha inválida.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>Transação não permitida para o cartão</td>
+      <td>Transação não autorizada. Transação não permitida para o cartão.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Transação não permitida. Opção de pagamento inválida.</td>
+      <td>Transação não permitida. Opção de pagamento inválida. Reveja se a opção de pagamento escolhida está habilitada no cadastro</td>
+      <td>Transação não autorizada. Entre em contato com sua loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Transação não autorizada. Suspeita de fraude.</td>
+      <td>Transação não autorizada. Suspeita de fraude.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Transação não autorizada.</td>
+      <td>Transação não autorizada. Tente novamente. Se o erro persistir o portador deve entrar em contato com o banco emissor.</td>
+      <td>Não foi possível processar a transação. Tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>Banco emissor indisponível.</td>
+      <td>Transação não autorizada. Banco emissor indisponível.</td>
+      <td>Transação não autorizada. Tente novamente. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>Transação não autorizada. Cartão restrito para uso doméstico</td>
+      <td>Transação não autorizada. Cartão restrito para uso doméstico.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>Transação não autorizada. Violação de segurança</td>
+      <td>Transação não autorizada. Violação de segurança.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>Transação não autorizada. Valor abaixo do mínimo exigido pelo banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Transação não autorizada. Valor abaixo do mínimo exigido pelo banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>Transação não autorizada. Excedida a quantidade de transações para o cartão.</td>
+      <td>Transação não autorizada. Excedida a quantidade de transações para o cartão.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>Transação não autorizada. Cartão bloqueado para compras hoje.</td>
+      <td>Transação não autorizada. Cartão bloqueado para compras hoje. Bloqueio pode ter ocorrido por excesso de tentativas inválidas. O cartão será desbloqueado automaticamente à meia noite.</td>
+      <td>Transação não autorizada. Cartão bloqueado temporariamente. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente.</td>
+      <td>Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Cancelamento não efetuado. Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>Transação não autorizada. A senha está vencida.</td>
+      <td>Transação não autorizada. A senha está vencida.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>Senha bloqueada. Excedeu tentativas de cartão.</td>
+      <td>Transação não autorizada.</td>
+      <td>Sua Transação não pode ser processada. Entre em contato com o Emissor do seu cartão.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>Cancelamento não efetuado. Banco emissor não localizou a transação original</td>
+      <td>Cancelamento não efetuado. Banco emissor não localizou a transação original</td>
+      <td>Cancelamento não efetuado. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>Cancelamento não efetuado. Não foi localizado a transação original</td>
+      <td>Cancelamento não efetuado. Não foi localizado a transação original</td>
+      <td>Cancelamento não efetuado. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>Transação não autorizada. Cartão bloqueado primeiro uso.</td>
+      <td>Transação não autorizada. Cartão bloqueado primeiro uso. Solicite ao portador que desbloqueie o cartão diretamente com seu banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor e solicite o desbloqueio do cartão.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
+      <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>Transação não autorizada. Cartão inválido.</td>
+      <td>Transação não autorizada. Cartão Inválido. Solicite ao portador que reveja os dados e tente novamente.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>Transação não autorizada. Erro no controle de senhas</td>
+      <td>Transação não autorizada. Erro no controle de senhas</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>Erro na transação.</td>
+      <td>Transação não autorizada. Erro na transação. O portador deve tentar novamente e se o erro persistir, entrar em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Erro na transação. Tente novamente e se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>Transação não autorizada. Banco emissor temporariamente indisponível.</td>
+      <td>Transação não autorizada. Banco emissor temporariamente indisponível.</td>
+      <td>Transação não autorizada. Banco emissor temporariamente indisponível. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>92</td>
+      <td>Transação não autorizada. Tempo de comunicação excedido.</td>
+      <td>Transação não autorizada. Tempo de comunicação excedido.</td>
+      <td>Transação não autorizada. Comunicação temporariamente indisponível. Entre em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>93</td>
+      <td>Transação não autorizada. Violação de regra - Possível erro no cadastro.</td>
+      <td>Transação não autorizada. Violação de regra - Possível erro no cadastro.</td>
+      <td>Sua transação não pode ser processada. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>Falha no processamento.</td>
+      <td>Não foi possível processar a transação. Falha no sistema da Cielo. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>Valor não permitido para essa transação.</td>
+      <td>Transação não autorizada. Valor não permitido para essa transação.</td>
+      <td>Transação não autorizada. Valor não permitido para essa transação.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>Sistema/comunicação indisponível.</td>
+      <td>Transação não autorizada. Sistema do emissor sem comunicação. Se for geral, verificar SITEF, GATEWAY e/ou Conectividade.</td>
+      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Sistema/comunicação indisponível.</td>
+      <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !</td>
+      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>999</td>
+      <td>Sistema/comunicação indisponível.</td>
+      <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !</td>
+      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AA</td>
+      <td>Tempo Excedido</td>
+      <td>Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.</td>
+      <td>Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AC</td>
+      <td>Transação não permitida. Cartão de débito sendo usado com crédito. Use a função débito.</td>
+      <td>Transação não permitida. Cartão de débito sendo usado com crédito. Solicite ao portador que selecione a opção de pagamento Cartão de Débito.</td>
+      <td>Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de débito.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AE</td>
+      <td>Tente Mais Tarde</td>
+      <td>Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.</td>
+      <td>Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AF</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AG</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AH</td>
+      <td>Transação não permitida. Cartão de crédito sendo usado com débito. Use a função crédito.</td>
+      <td>Transação não permitida. Cartão de crédito sendo usado com débito. Solicite ao portador que selecione a opção de pagamento Cartão de Crédito.</td>
+      <td>Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de crédito.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AI</td>
+      <td>Transação não autorizada. Autenticação não foi realizada.</td>
+      <td>Transação não autorizada. Autenticação não foi realizada. O portador não concluiu a autenticação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir, entre em contato com a Cielo informando o BIN (6 primeiros dígitos do cartão)</td>
+      <td>Transação não autorizada. Autenticação não foi realizada com sucesso. Tente novamente e informe corretamente os dados solicitado. Se o erro persistir, entre em contato com o lojista.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AJ</td>
+      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente selecionando a opção Private Label.</td>
+      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Solicite ao portador que tente novamente selecionando a opção Private Label. Caso não disponibilize a opção Private Label verifique na Cielo se o seu estabelecimento permite essa operação.</td>
+      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente e selecione a opção Private Label. Em caso de um novo erro entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AV</td>
+      <td>Transação não autorizada. Dados Inválidos</td>
+      <td>Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.</td>
+      <td>Falha na validação dos dados. Reveja os dados informados e tente novamente.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BD</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BL</td>
+      <td>Transação não autorizada. Limite diário excedido.</td>
+      <td>Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.</td>
+      <td>Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BM</td>
+      <td>Transação não autorizada. Cartão Inválido</td>
+      <td>Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor ou dados incorretos. Tente usar o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo.</td>
+      <td>Transação não autorizada. Cartão inválido.  Refaça a transação confirmando os dados informados.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BN</td>
+      <td>Transação não autorizada. Cartão ou conta bloqueado.</td>
+      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com  seu banco emissor.</td>
+      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com  seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BO</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.</td>
+      <td>Transação não permitida. Houve um erro no processamento. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BP</td>
+      <td>Transação não autorizada. Conta corrente inexistente.</td>
+      <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BV</td>
+      <td>Transação não autorizada. Cartão vencido</td>
+      <td>Transação não autorizada. Cartão vencido.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CF</td>
+      <td>Transação não autorizada.C79:J79 Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CG</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DA</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DF</td>
+      <td>Transação não permitida. Falha no cartão ou cartão inválido.</td>
+      <td>Transação não permitida. Falha no cartão ou cartão inválido. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco</td>
+      <td>Transação não permitida. Falha no cartão ou cartão inválido. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DM</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DQ</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>DS</td>
+      <td>Transação não permitida para o cartão</td>
+      <td>Transação não autorizada. Transação não permitida para o cartão.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>EB</td>
+      <td>Transação não autorizada. Limite diário excedido.</td>
+      <td>Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.</td>
+      <td>Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>EE</td>
+      <td>Transação não permitida. Valor da parcela inferior ao mínimo permitido.</td>
+      <td>Transação não permitida. Valor da parcela inferior ao mínimo permitido. Não é permitido parcelas inferiores a R$ 5,00. Necessário rever calculo para parcelas.</td>
+      <td>Transação não permitida. O valor da parcela está abaixo do mínimo permitido. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>EK</td>
+      <td>Transação não permitida para o cartão</td>
+      <td>Transação não autorizada. Transação não permitida para o cartão.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FA</td>
+      <td>Transação não autorizada.</td>
+      <td>Transação não autorizada AmEx.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FC</td>
+      <td>Transação não autorizada. Ligue Emissor</td>
+      <td>Transação não autorizada. Oriente o portador a entrar em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FD</td>
+      <td>Transação negada. Reter cartão condição especial</td>
+      <td>Transação não autorizada por regras do banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FE</td>
+      <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
+      <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FF</td>
+      <td>Cancelamento OK</td>
+      <td>Transação de cancelamento autorizada com sucesso. ATENÇÂO: Esse retorno é para casos de cancelamentos e não para casos de autorizações.</td>
+      <td>Transação de cancelamento autorizada com sucesso</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FG</td>
+      <td>Transação não autorizada. Ligue AmEx.</td>
+      <td>Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.</td>
+      <td>Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FG</td>
+      <td>Ligue 08007285090</td>
+      <td>Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.</td>
+      <td>Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>GA</td>
+      <td>Aguarde Contato</td>
+      <td>Transação não autorizada. Referida pelo Lynx Online de forma preventiva. A Cielo entrará em contato com o lojista sobre esse caso.</td>
+      <td>Transação não autorizada. Entre em contato com o lojista.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>HJ</td>
+      <td>Transação não permitida. Código da operação inválido.</td>
+      <td>Transação não permitida. Código da operação Coban inválido.</td>
+      <td>Transação não permitida. Código da operação Coban inválido. Entre em contato com o lojista.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>IA</td>
+      <td>Transação não permitida. Indicador da operação inválido.</td>
+      <td>Transação não permitida. Indicador da operação Coban inválido.</td>
+      <td>Transação não permitida. Indicador da operação Coban inválido. Entre em contato com o lojista.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>JB</td>
+      <td>Transação não permitida. Valor da operação inválido.</td>
+      <td>Transação não permitida. Valor da operação Coban inválido.</td>
+      <td>Transação não permitida. Valor da operação Coban inválido. Entre em contato com o lojista.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>KA</td>
+      <td>Transação não permitida. Falha na validação dos dados.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>KB</td>
+      <td>Transação não permitida. Selecionado a opção incorrente.</td>
+      <td>Transação não permitida. Selecionado a opção incorreta. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir deve ser verificado a comunicação entre loja virtual e Cielo.</td>
+      <td>Transação não permitida. Selecionado a opção incorreta. Tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>KE</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Verifique as opções disponíveis para o portador.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>N7</td>
+      <td>Transação não autorizada. Código de segurança inválido.</td>
+      <td>Transação não autorizada. Código de segurança inválido. Oriente o portador corrigir os dados e tentar novamente.</td>
+      <td>Transação não autorizada. Reveja os dados e informe novamente.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>R1</td>
+      <td>Transação não autorizada. Cartão inadimplente (Do not honor).</td>
+      <td>Transação não autorizada. Não foi possível processar a transação. Questão relacionada a segurança, inadimplencia ou limite do portador.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>U3</td>
+      <td>Transação não permitida. Falha na validação dos dados.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>GD</td>
+      <td>Transação não permitida</td>
+      <td>Transação não permitida</td>
+      <td>Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes.</td>
+      <td>Transação não permitida. Entre em contato com a loja virtual</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Atenção</strong>: Existem códigos de retorno semelhantes, porem com significados diferentes como o “<strong>6</strong> - Capturada” e o “<strong>06</strong> - Cartão Cancelado”. Esses códigos são apenas informativos do sistema de processamento. <strong>Apenas o campo <code class="highlighter-rouge">STATUS</code> deve ser considerado como situação atual da transação</strong></p>
+
+</div>
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="/">
+        <img src="/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+    
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="/assets/js/bootstrap.js"></script>
+        <script src="/assets/js/jquery.tocify.js"></script>
+        <script src="/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="/assets/js/jquery.highlight.js"></script>
+        <script src="/assets/js/lunr.js"></script>
+        <script src="/assets/js/search.js"></script>
+        
+
+        
+    </body>
+</html>
