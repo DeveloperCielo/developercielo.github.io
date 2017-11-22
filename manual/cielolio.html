@@ -573,6 +573,91 @@ O recurso de rotação de exibição na Cielo LIO (ambas versões) é desativado
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/diagrama-lifecycle-new.png" alt="status do pedido" /></p>
 
+<h3 id="entidades">Entidades</h3>
+
+<h4 id="order">Order</h4>
+
+<p>A Order é uma representação de um pedido para a venda de um ou mais produtos e/ou serviços. É fundamental que exista uma Order para que um pagamento seja realizado na Cielo LIO.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Texto</td>
+      <td>UUID que identifica unicamente o pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>number</td>
+      <td>Texto</td>
+      <td>Número do pedido. Geralmente, esse número representa o identificador do pedido em um sistema externo através da integração com parceiros.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>reference</td>
+      <td>Texto</td>
+      <td>Referência do pedido. Utilizada para facilitar o acesso ou a localização do mesmo.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>Texto</td>
+      <td>Status do pedido (ENTERED, RE-ENTERED, PAID, CANCELED e CLOSED).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>Texto</td>
+      <td>Data de criação do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>Texto</td>
+      <td>Data da última atualização do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>items</td>
+      <td>Lista (Order Item)</td>
+      <td>Lista de itens contidos no pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>notes</td>
+      <td>Texto</td>
+      <td>Campo disponível para uso do Merchant para comunicação.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>transactions</td>
+      <td>Lista (Transaction)</td>
+      <td>Lista de transações de pagamento (ou outros tipos) efetuadas no pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>price</td>
+      <td>Número</td>
+      <td>Valor total do pedido. Exemplo: O valor de R$ 10,00 é representado como 1000.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>remaining</td>
+      <td>Número</td>
+      <td>Valor restante do pagamento do pedido. Exemplo: O valor de R$ 10,00 é representado como 1000.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="integração-local">Integração Local</h1>
 
 <h2 id="apresentação-1">Apresentação</h2>
