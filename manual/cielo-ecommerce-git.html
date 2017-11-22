@@ -126,31 +126,32 @@
             <div class="post">
   <h1 id="teste">Teste</h1>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
-                <span class="nd">@Override</span>
-                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
-                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"O pagamento começou."</span><span class="o">);</span>
-                <span class="o">}</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java
+    PaymentListener paymentListener = new PaymentListener() {
+                @Override
+                public void onStart() {
+                Log.d("MinhaApp", "O pagamento começou.");
+                }
                 
-                <span class="nd">@Override</span>
-                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPayment</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">Order</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"Um pagamento foi realizado."</span><span class="o">);</span>
-                <span class="o">}</span> 
+                @Override
+                public void onPayment(@NotNull Order order) {
+                Log.d("MinhaApp", "Um pagamento foi realizado.");
+                } 
                 
-                <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
-                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
-                <span class="o">}</span> 
+                @Override public void onCancel() {
+                Log.d("MinhaApp", "A operação foi cancelada.");
+                } 
                 
-                <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
-                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"Houve um erro no pagamento."</span><span class="o">);</span>
-                <span class="o">}</span>
-    <span class="o">};</span> 
+                @Override public void onError(@NotNull PaymentError paymentError) {
+                Log.d("MinhaApp", "Houve um erro no pagamento.");
+                }
+    }; 
     
-    <span class="n">String</span> <span class="n">orderId</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+    String orderId = order.getId();
     
-    <span class="kt">long</span> <span class="n">value</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">getPrice</span><span class="o">();</span>
+    long value = order.getPrice();
     
-    <span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+    orderManager.checkoutOrder(orderId, value, paymentListener);
 </code></pre></div></div>
 
 </div>
