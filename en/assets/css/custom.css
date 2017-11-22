@@ -420,6 +420,7 @@ code {
     padding-right: 40px;
     width: 75%;
     overflow-x: hidden;
+
 }
 
 
@@ -1402,45 +1403,12 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
 }
 
 @media (min-width: 1660px) {
-
-    .content-container .post {
-        margin-top: 120px;
-        width: 70%;
-        padding-right: 45px;
-    }
-
-    .content-container {
-        padding-left: 340px;
-        padding-right: 0;
-        width: 100%;
-    }
-
-    .content-container:not(.no-dark-box) .code-fullscreen {
-        right: -49.5%;
-        display: block;
-        z-index: 10;
-        width: 45%;
-        top: 0;
-        margin: 0;
-        float: right;
-        position: relative;
-        background-color: #272822;
-        padding: 2em 28px;
-    }
-
-    .language-buttons {
-        display: none;
-    }
-
-    .highlight {
-        margin-bottom: 0;
-    }
-
     .content-container:not(.no-dark-box) div.highlighter-rouge {
         display: none;
-        position: relative;
+        position: absolute;
         right: 0;
-        width: 100%;
+        width: 25%;
+        padding: 2em 28px;
         background-color: #28292d;
         color: #fff;
         margin: 0;
@@ -1448,6 +1416,7 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
         clear: right;
         box-sizing: border-box;
         text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+        z-index: 11;
     }
 
     .content-container:not(.no-dark-box) .language-buttons {
@@ -1469,7 +1438,7 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
         border-radius: 0;
         background-color: transparent;
         padding: 0;
-        position: relative;
+        position: absollute;
         z-index: 10;
     }
 
@@ -1605,4 +1574,8 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
 
 #toc ul ul ul ul ul li a {
     padding-left: 115px !important;
+}
+
+.content-container.no-dark-box div.table-wrap {
+    min-height: 0px !important;
 }

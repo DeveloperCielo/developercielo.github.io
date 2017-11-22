@@ -49,9 +49,8 @@
                 </ul>
             </div>
             <div class="dark-box"></div>
-        
             <div class="overlay"></div>
-
+        
             <div id="submenu">
                 <div class="submenu-container">
                     <div class="submenu-row sub-items">
@@ -1336,6 +1335,12 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
             if(!$(this).parent().hasClass('language-group')) {
                 $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
             }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
         });
 
         $('.hide-btn').click(function() {
