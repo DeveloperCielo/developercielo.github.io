@@ -658,6 +658,77 @@ O recurso de rotação de exibição na Cielo LIO (ambas versões) é desativado
   </tbody>
 </table>
 
+<h4 id="order-item">Order Item</h4>
+
+<p>O Order Item é uma representação dos itens presentes em uma Order. É obrigatória a existência de, no mínimo, um Item para uma Order.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sku</td>
+      <td>Texto</td>
+      <td>SKU do produto. Exemplo: c2f5fb9a-5542-406e-8b79-17892329cda8.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Texto</td>
+      <td>Nome do produto.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Texto</td>
+      <td>Descrição do produto.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>unit_price</td>
+      <td>Número</td>
+      <td>Valor unitário do produto. Exemplo: O valor de R$ 10,00 é representado como 1000.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>quantity</td>
+      <td>Número</td>
+      <td>Quantidade de itens. Caso não seja informado, será considerado o valor 1.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>unit_of_measure</td>
+      <td>Texto</td>
+      <td>Unidade de medida (EACH, HOURS, DAYS, SECONDS, CRATE_OF_12, SIX_PACK, GALLON e LITRE).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>details</td>
+      <td>Texto</td>
+      <td>Detalhes do produto.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>Texto</td>
+      <td>Data de criação do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>Texto</td>
+      <td>Data de última atualização do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="integração-local">Integração Local</h1>
 
 <h2 id="apresentação-1">Apresentação</h2>
