@@ -126,8 +126,7 @@
             <div class="post">
   <h1 id="teste">Teste</h1>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java
-    PaymentListener paymentListener = new PaymentListener() {
+<pre><code class="language-Json">    PaymentListener paymentListener = new PaymentListener() {
                 @Override
                 public void onStart() {
                 Log.d("MinhaApp", "O pagamento começou.");
@@ -152,7 +151,7 @@
     long value = order.getPrice();
     
     orderManager.checkoutOrder(orderId, value, paymentListener);
-</code></pre></div></div>
+</code></pre>
 
 </div>
 <script>
