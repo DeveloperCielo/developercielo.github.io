@@ -1339,13 +1339,13 @@ Ex.: À Vista, Parcelado, etc.</p>
 
 <p>Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:</p>
 
-<pre><code class="language-android">    // Criação das credenciais. Não se esquecer de substituir
-    // Client-Id e Access-Token por suas credenciais. 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// Criação das credenciais. Não se esquecer de substituir</span>
+    <span class="c1">// Client-Id e Access-Token por suas credenciais. </span>
     
-    Credentials credentials = new Credentials("Client-Id", "Access-Token"); 
+    <span class="n">Credentials</span> <span class="n">credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Credentials</span><span class="o">(</span><span class="s">"Client-Id"</span><span class="o">,</span> <span class="s">"Access-Token"</span><span class="o">);</span> 
     
-    orderManager = new OrderManager(credentials, context);
-</code></pre>
+    <span class="n">orderManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OrderManager</span><span class="o">(</span><span class="n">credentials</span><span class="o">,</span> <span class="n">context</span><span class="o">);</span>
+</code></pre></div></div>
 
 <ul>
   <li>Client-Id
@@ -1415,8 +1415,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Tudo começa com a criação do OrderManager!</p>
 
-<pre><code class="language-android">orderManager = new OrderManager(credentials, context);
-</code></pre>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OrderManager</span><span class="o">(</span><span class="n">credentials</span><span class="o">,</span> <span class="n">context</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>O construtor do OrderManager recebe 2 parâmetros:</p>
 
@@ -1450,19 +1450,19 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Com este método – Bind –, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
 
-<pre><code class="language-android">    ServiceBindListener serviceBindListener = new ServiceBindListener() {
-        @Override
-        public void onServiceBound() {
-                // O serviço está vinculado 
-        } 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">ServiceBindListener</span> <span class="n">serviceBindListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceBindListener</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceBound</span><span class="o">()</span> <span class="o">{</span>
+                <span class="c1">// O serviço está vinculado </span>
+        <span class="o">}</span> 
     
-        @Override
-        public void onServiceUnbound() {
-                // O serviço foi desvinculado
-        }
-    }; 
-    orderManager.bind(contextActivity, serviceBindListener);
-</code></pre>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceUnbound</span><span class="o">()</span> <span class="o">{</span>
+                <span class="c1">// O serviço foi desvinculado</span>
+        <span class="o">}</span>
+    <span class="o">};</span> 
+    <span class="n">orderManager</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="n">contextActivity</span><span class="o">,</span> <span class="n">serviceBindListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>O método Bind recebe dois parâmetros:</p>
 
@@ -1483,8 +1483,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:</p>
 
-<pre><code class="language-android">Order order = orderManager.createDraftOrder("REFERÊNCIA_DO_PEDIDO");
-</code></pre>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">createDraftOrder</span><span class="o">(</span><span class="s">"REFERÊNCIA_DO_PEDIDO"</span><span class="o">);</span>
+</code></pre></div></div>
 
 <h3 id="adicionar-itens-em-um-pedido">Adicionar itens em um pedido</h3>
 
@@ -1494,26 +1494,26 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
   <p><strong>Atenção:</strong> É necessário adicionar no mínimo um item a um pedido para que seja possível dar continuidade ao pagamento.</p>
 </blockquote>
 
-<pre><code class="language-android">    // Identificação do produto (Stock Keeping Unit)
-    String sku = "2891820317391823";
-    String name = "Coca-cola lata";
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1">// Identificação do produto (Stock Keeping Unit)</span>
+    <span class="n">String</span> <span class="n">sku</span> <span class="o">=</span> <span class="s">"2891820317391823"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Coca-cola lata"</span><span class="o">;</span>
     
-    // Preço unitário em centavos
-    int unitPrice = 550;
-    int quantity = 3;
+    <span class="c1">// Preço unitário em centavos</span>
+    <span class="kt">int</span> <span class="n">unitPrice</span> <span class="o">=</span> <span class="mi">550</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">quantity</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
     
-    // Unidade de medida do produto String
-    unityOfMeasure = "UNIDADE";
+    <span class="c1">// Unidade de medida do produto String</span>
+    <span class="n">unityOfMeasure</span> <span class="o">=</span> <span class="s">"UNIDADE"</span><span class="o">;</span>
     
-    order.addItem(sku, name, unitPrice, quantity, unityOfMeasure);
-</code></pre>
+    <span class="n">order</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">sku</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">unitPrice</span><span class="o">,</span> <span class="n">quantity</span><span class="o">,</span> <span class="n">unityOfMeasure</span><span class="o">);</span>
+</code></pre></div></div>
 
 <h3 id="liberar-pedido-para-pagamento">Liberar pedido para pagamento</h3>
 
 <p>Este método permite atualizar o status de um pedido e liberá-lo para pagamento. O objetivo é utilizar este método depois de adicionar todos os itens no pedido.</p>
 
-<pre><code class="language-android">orderManager.placeOrder(order);
-</code></pre>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">placeOrder</span><span class="o">(</span><span class="n">order</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>Após a execução desse método, o status da Order irá trocar de DRAFT para ENTERED, permitindo que a mesma seja paga.</p>
 
@@ -1524,32 +1524,32 @@ Iniciar processo de pagamento</p>
 
 <p>Este método permite iniciar o processo de pagamento na Cielo LIO.</p>
 
-<pre><code class="language-android">    PaymentListener paymentListener = new PaymentListener() {
-                @Override
-                public void onStart() {
-                Log.d("MinhaApp", "O pagamento começou.");
-                }
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"O pagamento começou."</span><span class="o">);</span>
+                <span class="o">}</span>
                 
-                @Override
-                public void onPayment(@NotNull Order order) {
-                Log.d("MinhaApp", "Um pagamento foi realizado.");
-                } 
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPayment</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">Order</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"Um pagamento foi realizado."</span><span class="o">);</span>
+                <span class="o">}</span> 
                 
-                @Override public void onCancel() {
-                Log.d("MinhaApp", "A operação foi cancelada.");
-                } 
+                <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
+                <span class="o">}</span> 
                 
-                @Override public void onError(@NotNull PaymentError paymentError) {
-                Log.d("MinhaApp", "Houve um erro no pagamento.");
-                }
-    }; 
+                <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"Houve um erro no pagamento."</span><span class="o">);</span>
+                <span class="o">}</span>
+    <span class="o">};</span> 
     
-    String orderId = order.getId();
+    <span class="n">String</span> <span class="n">orderId</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
     
-    long value = order.getPrice();
+    <span class="kt">long</span> <span class="n">value</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">getPrice</span><span class="o">();</span>
     
-    orderManager.checkoutOrder(orderId, value, paymentListener);
-</code></pre>
+    <span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <h2 id="processo-de-pagamento">Processo de Pagamento</h2>
 
