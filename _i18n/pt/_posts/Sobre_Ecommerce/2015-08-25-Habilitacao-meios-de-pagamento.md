@@ -5,7 +5,7 @@ description:
 search: true
 categories: tutorial
 tags:
-  - Documentos Adicionais
+  - Sobre E-commerce
 ---
 
 # Meios de Pagamento
