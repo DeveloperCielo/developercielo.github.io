@@ -729,6 +729,95 @@ O recurso de rotação de exibição na Cielo LIO (ambas versões) é desativado
   </tbody>
 </table>
 
+<h4 id="transaction">Transaction</h4>
+
+<p>A Transaction é uma representação com todos os pagamentos que foram realizados em uma Order. O objetivo é utilizá-la para consultar os pagamentos (transactions) que foram efetuados em uma Order.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Texto</td>
+      <td>“UUID que identifica unicamente a transação.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>transaction_type</td>
+      <td>Texto</td>
+      <td>Tipo da transação (PAYMENT e CANCELLATION).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>Texto</td>
+      <td>Status da transação (CONFIRMED, PENDING e CANCELLED).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Texto</td>
+      <td>Descrição da transação.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>terminal_number</td>
+      <td>Número</td>
+      <td>Número do terminal da Cielo LIO em que o pagamento foi realizado.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>card</td>
+      <td>Card (Card)</td>
+      <td>Informações sobre o cartão utilizado na transação.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>number</td>
+      <td>Número</td>
+      <td>Número Sequencial Único (NSU) da transação.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>authorization_code</td>
+      <td>Número</td>
+      <td>Código de autorização da transação.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>payment_product</td>
+      <td>Payment Product (Payment Product)</td>
+      <td>Informações sobre o produto de pagamento utilizado.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>amount</td>
+      <td>Número</td>
+      <td>Valor da transação. Exemplo: O valor de R$ 10,00 é representado como 1000.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>Texto</td>
+      <td>Data de criação do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>Texto</td>
+      <td>Data de última atualização do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="integração-local">Integração Local</h1>
 
 <h2 id="apresentação-1">Apresentação</h2>
