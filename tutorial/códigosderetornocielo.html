@@ -133,7 +133,54 @@
 
 <h1 id="webservice-15">Webservice 1.5</h1>
 
-<h2 id="status">Status</h2>
+<h2 id="status-das-transações">Status das Transações</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Código</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Transação Criada</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Transação em Andamento</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Transação Autenticada</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Transação não Autenticada</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Transação Autorizada</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Transação não Autorizada</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Transação Capturada</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Transação Cancelada</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>Transação em Autenticação</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="api-cielo-e-commerce">Api Cielo e-commerce</h1>
 
@@ -166,13 +213,13 @@
   </tbody>
 </table>
 
-<h2 id="status-1">Status</h2>
+<h2 id="status-das-transações-1">Status das Transações</h2>
 
 <table>
   <thead>
     <tr>
       <th>Código</th>
-      <th>Status do Pagamento</th>
+      <th>Status</th>
       <th>Meio de pagamento</th>
       <th>Descrição</th>
     </tr>
@@ -181,26 +228,56 @@
     <tr>
       <td>0</td>
       <td>NotFinished</td>
-      <td>Todos</td>
-      <td>Falha ao processar o pagamento</td>
+      <td>ALL</td>
+      <td>Aguardando atualização de status</td>
     </tr>
     <tr>
       <td>1</td>
       <td>Authorized</td>
-      <td>Todos</td>
-      <td>Meio de pagamento apto a ser capturado ou pago(Boleto</td>
+      <td>ALL</td>
+      <td>Pagamento apto a ser capturado ou definido como pago</td>
     </tr>
     <tr>
       <td>2</td>
       <td>PaymentConfirmed</td>
-      <td>Todos</td>
+      <td>ALL</td>
       <td>Pagamento confirmado e finalizado</td>
     </tr>
     <tr>
       <td>3</td>
       <td>Denied</td>
-      <td>Cartão de Crédito e Débito / Transferência eletrônica</td>
-      <td>-</td>
+      <td>CC + CD + TF</td>
+      <td>Pagamento negado por Autorizador</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Voided</td>
+      <td>ALL</td>
+      <td>Pagamento cancelado</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Refunded</td>
+      <td>CC + CD</td>
+      <td>Pagamento cancelado após 23:59 do dia de autorização</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Pending</td>
+      <td>ALL</td>
+      <td>Aguardando Status de instituição financeira</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Aborted</td>
+      <td>ALL</td>
+      <td>Pagamento cancelado por falha no processamento</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Scheduled</td>
+      <td>CC</td>
+      <td>Recorrência agendada</td>
     </tr>
   </tbody>
 </table>
