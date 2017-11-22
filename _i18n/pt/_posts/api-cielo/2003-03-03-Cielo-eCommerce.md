@@ -10,15 +10,9 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
-toc_footers:
-  - <a href='/Guia-D-migracao-1.5x3.0/'>Guia de migração API 1.5</a>
-  - <a href='/API-3.0-FAQ/'>FAQ API CIELO</a>
-  - <a href='/Tutorial-Backoffice-3.0/'>Tutorial Backoffice 3.0</a>
-  - <a href='/Habilitacao-meios-de-pagamento/'>Tutorial Boleto / Débito online</a>
-  - <a href='/Boas-praticas-de-ecommerce/'>Boas práticas de eCommerce</a>
 ---
 
-# Visão geral
+# Visão geral - API Cielo eCommerce
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Cielo eCommerce da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
 
@@ -38,7 +32,7 @@ Ambiente Sandbox
 
 Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
 
-## Características
+## Características da solução
 
 A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.
 
@@ -86,7 +80,6 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 |**VBV (Verified by Visa)**|Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.|
 
 ## Produtos e Bandeiras suportadas
-
 A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
 |Bandeira|Crédito à vista|Crédito parcelado Loja|Débito|Voucher|
@@ -110,15 +103,15 @@ Empresas especializadas são responsáveis por fazer a validação do domínio e
 
 ### Internet Explorer:
 
-![Certificado EV Internet Explorer]({{ site.baseurl_root }}/images/certificado-ie.jpg)
+![Certificado EV Internet Explorer](./images/certificado-ie.jpg)
 
 ### Firefox
 
-![Certificado EV Firefox]({{ site.baseurl_root }}/images/certificado-firefox.jpg)
+![Certificado EV Firefox](./images/certificado-firefox.jpg)
 
 ### Google Chrome
 
-![Certificado EV Google Chrome]({{ site.baseurl_root }}/images/certificado-chrome.jpg)
+![Certificado EV Google Chrome](./images/certificado-chrome.jpg)
 
 ## O que é Certificado EV SSL?
 
@@ -130,10 +123,9 @@ Trata-se de um certificado de maior confiança e quando o https for acessado a b
 
 Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.
 
-* [Certificado Raiz](./attachment/Root.crt)
-* [Certificado Intermediária 1](./attachment/Intermediate1.crt)
-* [Certificado Intermediária 2](./attachment/Intermediate2.crt)
-* [Certificado E-Commerce Cielo](./attachment/ServerCertificate.crt)
+* [Certificado Raiz](./attachment/root.crt)
+* [Certificado Intermediária](./attachment/intermediaria.crt)
+* [Certificado E-Commerce Cielo](./attachment/ecommerce.cielo.com.br.crt)
 
 ## Passo a Passo para a Instalação
 
@@ -147,111 +139,100 @@ O passo a passo para a instalação do Certificado EV deverá ser contatado o su
 
 Normalmente, o browser faz a atualização do Certificado automaticamente, caso não o faça e o cliente entre em contato deverá ser informado os seguintes passos:
 
-**1o Passo:**
+#### 1o Passo:
 
 Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:
 
-* [Certificado Raiz](./attachment/Root.crt)
-* [Certificado Intermediária 1](./attachment/Intermediate1.crt)
-* [Certificado Intermediária 2](./attachment/Intermediate2.crt)
-* [Certificado E-Commerce Cielo](./attachment/ServerCertificate.crt)
+* [Certificado Raiz](./attachment/root.crt)
+* [Certificado Intermediária](./attachment/intermediaria.crt)
+* [Certificado E-Commerce Cielo](./attachment/ecommerce.cielo.com.br.crt)
 
-**2o Passo:**
+#### 2o Passo:
 
 No “Internet Explorer”, clique no menu “Ferramentas” e acesse as “Opções da Internet”:
 
-![Instalar IE]({{ site.baseurl_root }}/images/certificado-instalar-ie-1.jpg)
+![Instalar IE](./images/certificado-instalar-ie-1.jpg)
 
 No “Firefox”, clique no menu “Abrir Menu” e acesse “Avançado” e “Opções”:
 
-![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-1.jpg)
+![Instalar FF](./images/certificado-instalar-ff-1.jpg)
 
 No “Chrome”, clique no “Personalizar e Controlar o Google Chrome” e acesse “Configurações” e “Mostrar configurações avançadas... “Alterar Configurações de Proxy e “Conteúdo” e Certificados:
 
-![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-1.jpg)
+![Instalar GC](./images/certificado-instalar-gc-1.jpg)
 
-**3o Passo:**
+#### 3o Passo:
 
 No Internet Explorer, em “Certificados”, clique em “Importar”.
 
-![Instalar IE]({{ site.baseurl_root }}/images/certificado-instalar-ie-2.jpg)
+![Instalar IE](./images/certificado-instalar-ie-2.jpg)
 
 No Firefox clique em “Ver Certificados”, clique em “Importar”
 
-![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-2.jpg)
+![Instalar FF](./images/certificado-instalar-ff-2.jpg)
 
 No Chrome clique em “Gerenciar Certificados”, clique em “Importar”
 
-![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-2.jpg)
+![Instalar GC](./images/certificado-instalar-gc-2.jpg)
 
-**4o Passo:**
+#### 4o Passo:
 
 No Internet Explorer e Chrome “Assistente para Importação de Certificados”, clique em “Avançar”.
 
-![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-3.jpg)
+![Instalar IE e GC](./images/certificado-instalar-ie-gc-3.jpg)
 
-![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-4.jpg)
+![Instalar IE e GC](./images/certificado-instalar-ie-gc-4.jpg)
 
 No Firefox “Aba Servidores ”, clique em “Importar”
 
-![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-3.jpg)
+![Instalar FF](./images/certificado-instalar-ff-3.jpg)
 
-**5o Passo:**
+#### 5o Passo:
 
 No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “cieloecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.
 
-![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-5.jpg)
+![Instalar IE e GC](./images/certificado-instalar-ie-gc-5.jpg)
 
-![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-6.jpg)
+![Instalar IE e GC](./images/certificado-instalar-ie-gc-6.jpg)
 
-**6o Passo:**
+#### 6o Passo:
 
 Selecionar a opção desejada: adicionar o Certificado em uma pasta padrão ou procurar a pasta de sua escolha.
 
-![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-7.jpg)
+![Instalar IE e GC](./images/certificado-instalar-ie-gc-7.jpg)
 
-**7o Passo:**
+#### 7o Passo:
 
 Clique em “Concluir”.
 
-![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-8.jpg)
+![Instalar IE e GC](./images/certificado-instalar-ie-gc-8.jpg)
 
-**8o Passo:**
+#### 8o Passo:
 
 Clique em “Ok” para concluir a importação.
 
-![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-9.jpg)
+![Instalar IE e GC](./images/certificado-instalar-ie-gc-9.jpg)
 
 <aside class="notice">No Firefox não consta a mensagem de Importação com Êxito, apenas conclui a importação.</aside>
 
 O Certificado poderá ser visualizado na aba padrão “Outras Pessoas” ou na escolhida pelo cliente.
 
-![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-10.jpg)
+![Instalar IE e GC](./images/certificado-instalar-ie-gc-10.jpg)
 
-**9o Passo:**
+#### 9o Passo:
 
 Repita o mesmo procedimento para os 3 arquivos enviados.
-
-## Dúvidas
-
-Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:
-
-* Email: [cieloeCommerce@cielo.com.br](mailto:cieloeCommerce@cielo.com.br)
-* Capitais: 4002-9700
-* Demais Cidades: 0800 570 1700
-
-Horário de atendimento: 24h por dia, 7 dias por semana.
 
 # Sandbox e Ferramentas
 
 ## Sobre o Sandbox
-
 Para facilitar os testes durante a integração, a Cielo oferece um ambiente Sandbox que é composto por duas áreas:
 
 1. Cadastro de conta de testes
 2. Endpoints transacionais
-  * **Requisição**: https://apisandbox.cieloecommerce.cielo.com.br
-  * **Consulta**: https://apiquerysandbox.cieloecommerce.cielo.com.br/
+
+    * **Requisição**: https://apisandbox.cieloecommerce.cielo.com.br
+    * **Consulta**: https://apiquerysandbox.cieloecommerce.cielo.com.br
 
 **Vantagens de utilizar o Sandbox**
 
@@ -271,27 +252,27 @@ Sugerimos que desenvolvedores acessem nosso [**Tutorial**](https://developerciel
 
 No sandbox, é necessario utilizar o `Provider` seja utilizado como **SIMULADO**
 
-O Simulado é uma configuração que emula a utilização de pagamentos com Cartão de Crédito.
+O Simulado é uma configuração que emula a utilização de pagamentos com Cartão de Crédito. 
 Com esse meio de pagamento é possível simular os fluxos de:
 
 * Autorização
-* Captura
+* Captura 
 * Cancelamento.
 
 Para melhor utilização do Meio de Pagamento Simulado, estamos disponibilizando **cartões de testes** na tabela abaixo.
 
-**Os `status` das transações são definidos pelos FINAIS de cada cartão, assim como o `ReturnCode` .**
+<aside class="notice">Os <code>status</code> das transações são definidos pelos FINAIS de cada cartão, assim como o <code>ReturnCode</code>.</aside>
 
 |Status da Transação|Final do Cartão|Código de Retorno|Mensagem de Retorno|
 |---|---|---|---|
-|Autorizado|0000.0000.0000.0001<br>0000.0000.0000.0004|4|Operação realizada com sucesso|
-|Não Autorizado|0000.0000.0000.0002|2|Não Autorizada|
-|Autorização Aleatória|0000.0000.0000.0009|4 / 99|Operation Successful / Time Out|
+|Autorizado|0000.0000.0000.0001<br>0000.0000.0000.0004|4/6|Operação realizada com sucesso|
+|Não Autorizado|0000.0000.0000.0002|05|Não Autorizada|
+|Não Autorizado|0000.0000.0000.0003|57|Cartão Expirado|
+|Não Autorizado|0000.0000.0000.0005|78|Cartão Bloqueado|
+|Não Autorizado|0000.0000.0000.0006|99|Time Out|
 |Não Autorizado|0000.0000.0000.0007|77|Cartão Cancelado|
 |Não Autorizado|0000.0000.0000.0008|70|Problemas com o Cartão de Crédito|
-|Não Autorizado|0000.0000.0000.0005|78|Cartão Bloqueado|
-|Não Autorizado|0000.0000.0000.0003|57|Cartão Expirado|
-|Não Autorizado|0000.0000.0000.0006|99|Time Out|
+|Autorização Aleatória|0000.0000.0000.0009|99|Operation Successful / Time Out|
 
 Exemplo de um Cartão de teste - 4024.0071.5376.3191
 
@@ -301,6 +282,20 @@ As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, 
 
 <aside class="notice"><strong>Tokenização:</strong> Transações em ambiente de Sandbox envolvendo tokenização não funcionaram com base nos cartões de teste. Todo cartão salvo no tokenização é tratado como um cartão real, logo ele não é utilizado no processo de simulação</aside>
 
+## Cartão de débito - Sandbox
+
+Cartões de débito não possuem cartões ou dados específicos simulados, como no caso do cartão de crédito. 
+
+O fluxo transacional do cartão de Débito funciona com o Response da transação retornando uma *URL DE AUTENTICAÇÃO* . Na tela de autenticação a opção escolhida define o status da transação.
+
+|Opção|Status|
+|---|---|
+|Autenticado|Autorizado|
+|Não Autenticado|Negado|
+|Não usar a URL|Não Finalizado|
+
+<aside class="notice"><strong>Transferência Online:</strong> O mesmo comportamento do Cartão de débito em Sanbox é valido para cartão de débito</aside>
+
 ## Outros meios de pagamento - Sandbox
 
 Outros meios de pagamento não possuem cartões ou dados específicos simulados, como no caso do cartão de crédito.
@@ -308,26 +303,83 @@ Abaixo especificamos qualquer diferença existente:
 
 |Meio de pagamento|Diferenças|
 |---|---|
-|Boleto|Não há diferenças de integração.|
+|Boleto|Não há validação bancaria. O boleto se comporta como um boleto sem registro|
 |Cartão de débito|O `provider` utilizado deve ser **SIMULADO** <br><br> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação|
 |Transferência online|O `provider` utilizado deve ser **SIMULADO** <br><br> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação|
+
+## Post de Notificação
+
+O Post de notificação é enviado com base em uma seleção de eventos a ser feita no cadastro da API Cielo E-commerce.
+
+Os eventos passiveis de notificação são:
+
+|Meio de Pagamento|Evento|
+|---|---|
+|Cartão de Crédito|Captura|
+|Cartão de Crédito|Cancelamento|
+|Cartão de Crédito|Sondagem|
+|Boleto|Conciliação|
+|Boleto|Cancelamento Manual|
+|Transferência eletrônica|Confirmadas|
+|Recorrência|Desabilitado ao atingir número máximo de tentativas (transações negadas)|
+|Recorrência|Aguardando conciliação de boleto|
+|Recorrência|Reabilitação - Após pagamento de boleto|
+|Recorrência|Finalizado - Data de finalização atingida|
+|Recorrência|Desativação|
+
+<aside class="notice"><strong>Cartão de débito:</strong> Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um `GET` seja executado, buscando informações do pedido na API Cielo</aside>
+
+Uma `URL Status Pagamento` deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado. 
+
+Características da `URL Status Pagamento` 
+
+* Deve ser **estática**
+* Limite de 255  carácteres.
+
+A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 200 OK**
+
+Caso não seja retornado o **HTTP Status Code 200 OK**,  ocorrerão mais **dois** envios do Post de Notificação. 
+
+```json
+{
+   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "ChangeType": "2"
+}
+```
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)|GUID|36|Não|
+|`PaymentId`|Identificador que representa a transação|GUID|36|Sim|
+|`ChangeType`|Especifica o tipo de notificação. Vide tabela abaixo|Número|1|Sim|
+
+|ChangeType|Descrição|
+|---|---|
+|1|Mudança de status do pagamento|
+|2|Recorrência criada|
+|3|Mudança de status do Antifraude|
+|4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
+|5|cancelamento negado|
 
 # Pagamentos com Cartão de Crédito
 
 Para que você possa disfrutar de todos os recursos disponíveis em nossa API, é importante que antes você conheça os conceitos envolvidos no processamento de uma transação de cartão de crédito.
 
-* **Autorização**: A autorização (ou pré-autorização) é a principal operação no eCommerce, pois através dela é que uma venda pode ser concretizada. A pré-autorização apenas sensibiliza o limite do cliente, mas ainda não gera cobrança para o consumidor.
-* **Captura**: Ao realizar uma pré-autorização, é necessário a confirmação desta para que a cobrança seja efetivada ao portador do cartão. Através desta operação que se efetiva uma pré-autorização, podendo esta ser executada, em normalmente, em até 5 dias após a data da pré-autorização.
-* **Cancelamento**: O cancelamento é necessário quando, por algum motivo, não se quer mais efetivar uma venda.
-* **Autenticação**: O processo de autenticação possibilita realizar uma venda a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude.
-* **Cartão protegido**: É uma plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de "token”, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como "Compra com 1 clique” e "Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.
-* **Antifraude**: É uma plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Cada transação é submetida a mais de 260 regras, além das regras específicas de cada segmento, e geram uma recomendação de risco em aproximadamente dois segundos. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.
-* **Recorrente**: A Recorrência Inteligente é um recurso indispensável para estabelicimentos que precisam cobrar regularmente por seus produtos/serviços.
-É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Os lojistas contarão com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, pois toda parametrização é configurável, tais como: periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.
+|Conceito|Descrição|
+|---|---|
+|**Autorização**|A autorização (ou pré-autorização) é a principal operação no eCommerce, pois através dela é que uma venda pode ser concretizada. A pré-autorização apenas sensibiliza o limite do cliente, mas ainda não gera cobrança para o consumidor.|
+|**Captura**|Ao realizar uma pré-autorização, é necessário a confirmação desta para que a cobrança seja efetivada ao portador do cartão. Através desta operação que se efetiva uma pré-autorização, podendo esta ser executada, em normalmente, em até 5 dias após a data da pré-autorização.|
+|**Cancelamento**|O cancelamento é necessário quando, por algum motivo, não se quer mais efetivar uma venda.|
+|**Autenticação**|O processo de autenticação possibilita realizar uma venda a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude.|
+|**Cartão protegido**|É uma plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de "token”, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como "Compra com 1 clique” e "Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.|
+|**Antifraude**|É uma plataforma de prevenção à fraude que fornece uma análise de risco detalhada das compras on-line. Cada transação é submetida a mais de 260 regras, além das regras específicas de cada segmento, e geram uma recomendação de risco em aproximadamente dois segundos. Este processo é totalmente transparente para o portador do cartão. De acordo com os critérios preestabelecidos, o pedido pode ser automaticamente aceito, recusado ou encaminhado para análise manual.|
+|**Recorrente**|A Recorrência Inteligente é um recurso indispensável para estabelicimentos que precisam cobrar regularmente por seus produtos/serviços. É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Os lojistas contarão com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, pois toda parametrização é configurável, tais como: periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.|
 
 ## Criando uma transação simples
 
 Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
+
+<aside class="notice"><strong>Atenção:</strong> Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
 
 ### Requisição
 
@@ -344,7 +396,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
      "Amount":15700,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{
+	 "CreditCard":{
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -363,18 +415,18 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{  
+{
    "MerchantOrderId":"2014111703",
-   "Customer":{  
+   "Customer":{
       "Name":"Comprador crédito simples"
    },
-   "Payment":{  
+   "Payment":{
      "Type":"CreditCard",
      "Amount":15700,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardNumber":"4551870000000183",
+	 "CreditCard":{
+         "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
@@ -392,11 +444,10 @@ curl
 |`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
+|`Payment.SoftDescriptor`|Texto|13|Não|Texto impresso na fatura bancaria comprador - Exclusivo para VISA/MASTER - não permite caracteres especiais - Ver Anexo|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
@@ -514,10 +565,10 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
-|`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
+|`SoftDescriptor`|Texto impresso na fatura bancaria comprador - Exclusivo para VISA/MASTER - não permite caracteres especiais - Ver Anexo|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
 |`Status`|Status da Transação.|Byte|---|2|
@@ -569,7 +620,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
      "Capture":true,
      "Authenticate":false,
      "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
+	 "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -669,7 +720,8 @@ curl
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
 |`Payment.Country`|Texto|3|Não|Pais na qual o pagamento será feito.|
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.ServiceTaxAmount`|Número|15|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
+|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/Webservice-3.0/#anexos)|
+|`Payment.SoftDescriptor`|Texto|13|Não|Texto impresso na fatura bancaria comprador - Exclusivo para VISA/MASTER - não permite caracteres especiais - Ver Anexo|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
@@ -828,9 +880,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
@@ -850,28 +902,28 @@ Para criar uma transação com autenticação que utilizará cartão de crédito
 
 ```json
 {
-    "MerchantOrderId":"2014111903",
-    "Customer":
-    {
-        "Name":"Comprador crédito autenticação"
-    },
-    "Payment":
-    {
-        "Type":"CreditCard",
-        "Amount":15700,
-        "Installments":1,
-        "Authenticate":true,
-        "SoftDescriptor":"123456789ABCD",
-        "ReturnUrl":"https://www.cielo.com.br",
-        "CreditCard":
-        {
-            "CardNumber":"1234123412341231",
-            "Holder":"Teste Holder",
-            "ExpirationDate":"12/2030",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-        }
-    }
+	"MerchantOrderId":"2014111903",
+	"Customer":
+	{
+		"Name":"Comprador crédito autenticação"
+	},
+	"Payment":
+	{
+	    "Type":"CreditCard",
+	    "Amount":15700,
+	    "Installments":1,
+	    "Authenticate":true,
+		"SoftDescriptor":"123456789ABCD",
+		"ReturnUrl":"https://www.cielo.com.br",
+	    "CreditCard":
+	    {
+		    "CardNumber":"1234123412341231",
+		    "Holder":"Teste Holder",
+		    "ExpirationDate":"12/2030",
+		    "SecurityCode":"123",
+		    "Brand":"Visa"
+	    }
+	}
 }
 ```
 
@@ -930,46 +982,46 @@ curl
 
 ```json
 {
-    "MerchantOrderId":"2014111903",
-    "Customer":
-    {
-        "Name":"Comprador crédito autenticação"
-    },
-    "Payment":
-    {
-        "ServiceTaxAmount":0,
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":false,
-        "Authenticate":true,
-        "CreditCard":
-        {
-            "CardNumber":"123412******1112",
-            "Holder":"Teste Holder",
-            "ExpirationDate":"12/2030",
-            "SaveCard":false,
-            "Brand":"Visa"
-        },
-        "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
+	"MerchantOrderId":"2014111903",
+	"Customer":
+	{
+		"Name":"Comprador crédito autenticação"
+	},
+	"Payment":
+	{
+		"ServiceTaxAmount":0,
+		"Installments":1,
+		"Interest":"ByMerchant",
+		"Capture":false,
+		"Authenticate":true,
+		"CreditCard":
+		{
+			"CardNumber":"123412******1112",
+			"Holder":"Teste Holder",
+			"ExpirationDate":"12/2030",
+			"SaveCard":false,
+			"Brand":"Visa"
+		},
+		"AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
         "Tid": "1006993069257E521001",
         "SoftDescriptor":"123456789ABCD",
-        "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-        "Type":"CreditCard",
-        "Amount":15700,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "ExtraDataCollection":[],
-        "Status":0,
+		"PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
+		"Type":"CreditCard",
+		"Amount":15700,
+		"Currency":"BRL",
+		"Country":"BRA",
+		"ExtraDataCollection":[],
+		"Status":0,
         "ReturnCode": "0",
-        "Links":
-        [
-            {
-                "Method":"GET",
-                "Rel":"self",
-                "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-            }
-        ]
-    }
+		"Links":
+		[
+			{
+				"Method":"GET",
+				"Rel":"self",
+				"Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
+			}
+		]
+	}
 }
 ```
 
@@ -978,54 +1030,54 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "MerchantOrderId":"2014111903",
-    "Customer":
-    {
-        "Name":"Comprador crédito autenticação"
-    },
-    "Payment":
-    {
-        "ServiceTaxAmount":0,
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":false,
-        "Authenticate":true,
-        "CreditCard":
-        {
-            "CardNumber":"123412******1112",
-            "Holder":"Teste Holder",
-            "ExpirationDate":"12/2030",
-            "SaveCard":false,
-            "Brand":"Visa"
-        },
-        "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
+	"MerchantOrderId":"2014111903",
+	"Customer":
+	{
+		"Name":"Comprador crédito autenticação"
+	},
+	"Payment":
+	{
+		"ServiceTaxAmount":0,
+		"Installments":1,
+		"Interest":"ByMerchant",
+		"Capture":false,
+		"Authenticate":true,
+		"CreditCard":
+		{
+			"CardNumber":"123412******1112",
+			"Holder":"Teste Holder",
+			"ExpirationDate":"12/2030",
+			"SaveCard":false,
+			"Brand":"Visa"
+		},
+		"AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
         "Tid": "1006993069257E521001",
         "SoftDescriptor":"123456789ABCD",
-        "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-        "Type":"CreditCard",
-        "Amount":15700,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "ExtraDataCollection":[],
-        "Status":0,
+		"PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
+		"Type":"CreditCard",
+		"Amount":15700,
+		"Currency":"BRL",
+		"Country":"BRA",
+		"ExtraDataCollection":[],
+		"Status":0,
         "ReturnCode": "0",
-        "Links":
-        [
-            {
-                "Method":"GET",
-                "Rel":"self",
-                "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-            }
-        ]
-    }
+		"Links":
+		[
+			{
+				"Method":"GET",
+				"Rel":"self",
+				"Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
+			}
+		]
+	}
 }
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
@@ -1074,7 +1126,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
      "Country":"BRA",
      "ServiceTaxAmount":0,
      "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
+	 "SoftDescriptor":"123456789ABCD",
      "Interest":"ByMerchant",
      "Capture":false,
      "Authenticate":false,
@@ -1088,14 +1140,14 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
      "FraudAnalysis":{
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"Always",
-       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
-       "Browser":{
-         "CookiesAccepted":false,
-         "Email":"compradorteste@live.com",
-         "HostName":"Teste",
-         "IpAddress":"200.190.150.350",
-         "Type":"Chrome"
-        },
+	   "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+	   "Browser":{
+		 "CookiesAccepted":false,
+		 "Email":"compradorteste@live.com",
+		 "HostName":"Teste",
+		 "IpAddress":"200.190.150.350",
+		 "Type":"Chrome"
+		},
        "Cart":{
          "IsGift":false,
          "ReturnsAccepted":true,
@@ -1109,38 +1161,38 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
            "Quantity":1,
            "Sku":"201411170235134521346",
            "UnitPrice":123,
-           "Risk":"High",
-           "TimeHedge":"Normal",
-           "Type":"AdultContent",
-           "VelocityHedge":"High",
-           "Passenger":{
-             "Email":"compradorteste@live.com",
-             "Identity":"1234567890",
-             "Name":"Comprador accept",
-             "Rating":"Adult",
-             "Phone":"999994444",
-             "Status":"Accepted"
-            }
+		   "Risk":"High",
+		   "TimeHedge":"Normal",
+		   "Type":"AdultContent",
+		   "VelocityHedge":"High",
+		   "Passenger":{
+			 "Email":"compradorteste@live.com",
+			 "Identity":"1234567890",
+			 "Name":"Comprador accept",
+			 "Rating":"Adult",
+			 "Phone":"999994444",
+			 "Status":"Accepted"
+			}
            }]
        },
-       "MerchantDefinedFields":[{
-            "Id":95,
-            "Value":"Eu defini isso"
-        }],
-        "Shipping":{
-            "Addressee":"Sr Comprador Teste",
-            "Method":"LowCost",
-            "Phone":"21114740"
-        },
-        "Travel":{
-            "DepartureTime":"2010-01-02",
-            "JourneyType":"Ida",
-            "Route":"MAO-RJO",
+	   "MerchantDefinedFields":[{
+			"Id":95,
+			"Value":"Eu defini isso"
+		}],
+		"Shipping":{
+			"Addressee":"Sr Comprador Teste",
+			"Method":"LowCost",
+			"Phone":"21114740"
+		},
+		"Travel":{
+			"DepartureTime":"2010-01-02",
+			"JourneyType":"Ida",
+			"Route":"MAO-RJO",
           "Legs":[{
-                "Destination":"GYN",
-                "Origin":"VCP"
+				"Destination":"GYN",
+				"Origin":"VCP"
           }]
-        }
+		}
      }
   }
 }
@@ -1185,7 +1237,7 @@ curl
      "Country":"BRA",
      "ServiceTaxAmount":0,
      "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
+	 "SoftDescriptor":"123456789ABCD",
      "Interest":"ByMerchant",
      "Capture":false,
      "Authenticate":false,
@@ -1200,14 +1252,14 @@ curl
      "FraudAnalysis":{
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"Always",
-       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
-       "Browser":{
-         "CookiesAccepted":false,
-         "Email":"compradorteste@live.com",
-         "HostName":"Teste",
-         "IpAddress":"200.190.150.350",
-         "Type":"Chrome"
-        },
+	   "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+	   "Browser":{
+		 "CookiesAccepted":false,
+		 "Email":"compradorteste@live.com",
+		 "HostName":"Teste",
+		 "IpAddress":"200.190.150.350",
+		 "Type":"Chrome"
+		},
        "Cart":{
          "IsGift":false,
          "ReturnsAccepted":true,
@@ -1221,38 +1273,38 @@ curl
            "Quantity":1,
            "Sku":"201411170235134521346",
            "UnitPrice":123,
-           "Risk":"High",
-           "TimeHedge":"Normal",
-           "Type":"AdultContent",
-           "VelocityHedge":"High",
-           "Passenger":{
-             "Email":"compradorteste@live.com",
-             "Identity":"1234567890",
-             "Name":"Comprador accept",
-             "Rating":"Adult",
-             "Phone":"999994444",
-             "Status":"Accepted"
-            }
+		   "Risk":"High",
+		   "TimeHedge":"Normal",
+		   "Type":"AdultContent",
+		   "VelocityHedge":"High",
+		   "Passenger":{
+			 "Email":"compradorteste@live.com",
+			 "Identity":"1234567890",
+			 "Name":"Comprador accept",
+			 "Rating":"Adult",
+			 "Phone":"999994444",
+			 "Status":"Accepted"
+			}
            }]
        },
-       "MerchantDefinedFields":[{
-            "Id":95,
-            "Value":"Eu defini isso"
-        }],
-        "Shipping":{
-            "Addressee":"Sr Comprador Teste",
-            "Method":"LowCost",
-            "Phone":"21114740"
-        },
-        "Travel":{
-            "DepartureTime":"2010-01-02",
-            "JourneyType":"Ida",
-            "Route":"MAO-RJO",
+	   "MerchantDefinedFields":[{
+			"Id":95,
+			"Value":"Eu defini isso"
+		}],
+		"Shipping":{
+			"Addressee":"Sr Comprador Teste",
+			"Method":"LowCost",
+			"Phone":"21114740"
+		},
+		"Travel":{
+			"DepartureTime":"2010-01-02",
+			"JourneyType":"Ida",
+			"Route":"MAO-RJO",
           "Legs":[{
-                "Destination":"GYN",
-                "Origin":"VCP"
+				"Destination":"GYN",
+				"Origin":"VCP"
           }]
-        }
+		}
      }
   }
 }
@@ -1288,7 +1340,7 @@ curl
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
 |`Payment.Country`|Texto|3|Não|Pais na qual o pagamento será feito.|
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.ServiceTaxAmount`|Número|15|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
+|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/Webservice-3.0/#anexos)|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
@@ -1648,9 +1700,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Id`|Indentificação da Transação no Antifraud.|Texto|300|Texto alfanumérico|
@@ -1669,562 +1721,6 @@ curl
 |`CasePriority`|Caso o lojista seja assinante do Enhanced Case Management, ele recebe este valor com o nível de prioridade, sendo 1 o mais alto e 5 o mais baixo.|Número|---|3|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-
-## Criando uma venda com Card Token
-
-Para criar uma venda de cartão de crédito com token do cartão protegido, é necessário fazer um POST para o recurso Payment conforme o exemplo.
-
-### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014111706",
-   "Customer":{  
-      "Name":"Comprador CardToken"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":100,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardToken":"6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
-         "SecurityCode":"262",
-         "Brand":"Visa"
-     }
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2014111706",
-   "Customer":{  
-      "Name":"Comprador CardToken"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":100,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardToken":"6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
-         "SecurityCode":"262",
-         "Brand":"Visa"
-     }
-   }
-}
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
-|`Customer.Status`|Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude|Texto|255|Não|
-|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.Installments`|Número de Parcelas.|Número|2|Sim|
-|`Payment.SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais|Texto|13|Não|
-|`Payment.ReturnUrl`|URI para onde o usuário será redirecionado após o fim do pagamento|Texto|1024|Sim quando Authenticate = true|
-|`CreditCard.CardToken`|Token de identificação do Cartão.|Guid|36|Sim|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-
-### Resposta
-
-```json
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador CardToken"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "SaveCard": false,
-            "CardToken": "6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "5036294",
-        "Tid": "0310025036294",
-        "AuthorizationCode": "319285",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId": "c3ec8ec4-1ed5-4f8d-afc3-19b18e5962a8",
-        "Type": "CreditCard",
-        "Amount": 100,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-        {
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador CardToken"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "SaveCard": true,
-            "CardToken": "6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "5036294",
-        "Tid": "0310025036294",
-        "AuthorizationCode": "319285",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId": "c3ec8ec4-1ed5-4f8d-afc3-19b18e5962a8",
-        "Type": "CreditCard",
-        "Amount": 100,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
-|`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-
-## Capturando uma venda
-
-Para captura uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
-
-### Requisição
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
-
-```json
-
-PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture
-
-```
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
-|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
-|`ServiceTaxAmount`|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
-
-### Resposta
-
-```json
-{
-    "Status": 2,
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-        }
-    ]
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
-
-### Captura parcial
-
-A **captura parcial** é o ato de capturar um valor menor que o valor autorizado.Esse modelo de captura pode ocorrer apenas 1 vez por transação.
-
-**Após a captura, não é possível realizar capturas adicionais no mesmo pedido.**
-
-Métodos de captura parcial:
-
-1. **Via API** - Basta realizar um `POST` enviando o valor a ser capturado.
-2. **Via Backoffice** - Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
-
-<aside class="notice"><strong>Atenção:</strong> Captura parcial disponível apenas para transações de crédito</aside>
-
-### Requisição - Captura Parcial
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
-
-```json
-
-PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}
-
-```
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
-|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
-|`ServiceTaxAmount`|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
-
-### Resposta
-
-```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
-        }
-    ]
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
-|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
-|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
-
-## Cancelando uma venda
-
-Para cancelar uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment. É possível realizar o cancelamento via PaymentID ou MerchantOrderId (numero do pedido).
-
-<aside class="notice"><strong>Atenção:</strong> O cancelamento por MerchantOrderId afeta sempre a transação mais nova, ou seja, caso haja pedidos com o numero do pedido duplicado, somente o mais atual será cancelado. O pedido anterior não poderá ser cancelado por esse método</aside>
-
-### Requisição
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
-
-ou
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/OrderId/{MerchantOrderId}/void?amount=xxx</span></aside>
-
-```json
-
-PUT https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void
-
-```
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
-|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
-
-### Resposta
-
-```json
-{
-    "Status": 10,
-    "ReturnCode": "9",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 10,
-    "ReturnCode": "9",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        }
-    ]
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
-
-### Cancelamento parcial
-
-O **cancelamento  parcial** é o ato de cancelar um valor menor que o valor total autorizado/capturado. Esse modelo de captura pode ocorrer inumeras vezes, até que o valor total da transação seja cancelado.
-
-Métodos de cancelamento parcial:
-
-1. **Via API** - Basta realizar um `POST` enviando o valor a ser capturado.
-2. **Via Backoffice** - Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
-
-<aside class="notice"><strong>Atenção:</strong> Cancelamento parcial disponível apenas para transações de crédito *CAPTURADAS*</aside>
-
-<aside class="notice"><strong>Atenção:</strong> O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
-
-### Requisição - cancelamento parcial
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
-
-```json
-
-PUT https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount=XXX
-
-```
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount=XXX"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
-|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
-
-### Resposta
-
-```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
-|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
-|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
 
 # Pagamentos com Cartão de Débito
 
@@ -2303,7 +1799,6 @@ curl
 |`DebitCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-
 ### Resposta
 
 ```json
@@ -2382,7 +1877,7 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`AuthenticationUrl`|URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Débito.|Texto|56|Url de Autenticação|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReturnUrl`|Url de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.|Texto|1024|http://www.urllogista.com.br|
 |`Status`|Status da Transação.|Byte|---|0|
@@ -2450,7 +1945,7 @@ curl
 |`Customer.Status`|Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude|Texto|255|Não|
 |`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.Provider`|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|---|
+|`Payment.Provider`|Define comportamento do meio de pagamento ([Veja Anexo](https://developercielo.github.io/Webservice-3.0/#anexos))/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|---|
 
 ### Resposta
 
@@ -2525,6 +2020,17 @@ Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST co
 
 **OBS:** A API suporta boletos registrados e não registrados, sendo o provider o diferenciador entre eles. Sugerimos que valide com seu banco qual o tipo de boleto suportado por sua carteira. A API Aceita apenas boletos **Bradesco** e **Banco do Brasil**
 
+No **Boleto Registrado Banco do Brasil**, a linha digitável não será retornado no response da requisição. Esta informação ficará disponível após conciliação.
+
+Para todos os campos texto, inclusive o campo de instruções e relacionados ao endereço, são aceitos como caracteres válidos: 
+* As letras de A a Z (MAIÚSCULAS)
+* Caracteres especiais de conjunção:  **hífen (-)** / **apóstrofo (')** / Quando utilizados não pode conter espaços entre as letras: <br><br>
+   **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA<br>
+   **Exemplos incorretos**: D'EL - REI<br><br>
+* Até um espaço em branco entre palavras
+
+
+
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
@@ -2539,7 +2045,7 @@ Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST co
         "Address":
         {
           "Street": "Avenida Marechal Câmara",
-          "Number": "160",
+          "Number": "160",	
           "Complement": "Sala 934",
           "ZipCode" : "22750012",
           "District": "Centro",
@@ -2563,7 +2069,6 @@ Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST co
     }
 }
 ```
-
 ```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
@@ -2581,7 +2086,7 @@ curl
         "Address":
         {
           "Street": "Avenida Marechal Câmara",
-          "Number": "160",
+          "Number": "160",	
           "Complement": "Sala 934",
           "ZipCode" : "22750012",
           "District": "Centro",
@@ -2642,15 +2147,15 @@ curl
     {
         "Name": "Comprador Boleto Completo",
         "Address":
-        {
-        "Street": "Av Marechal Camara",
-        "Number": "160",
-        "ZipCode": "22750012",
-        "City": "Rio de Janeiro",
-        "State": "RJ",
-        "Country": "BRA",
-        "District": "Centro"
-        }
+		{
+		"Street": "Av Marechal Camara",
+		"Number": "160",
+		"ZipCode": "22750012",
+		"City": "Rio de Janeiro",
+		"State": "RJ",
+		"Country": "BRA",
+		"District": "Centro"
+		}
     },
     "Payment":
     {
@@ -2737,13 +2242,415 @@ curl
 |`Identification`|Documento de identificação do Cedente.|Texto|14|CPF ou CNPJ do Cedente sem os caracteres especiais (., /, -)|
 |`Status`|Status da Transação.|Byte|---|1|
 
+## Regras Adicionais
+
+Quantidade de caracteres por campo e Provider:
+
+|Propriedade|Observações|Bradesco|Banco do Brasil|
+|---|---|---|---|
+|`Provider`|N/A|Bradesco2|BancoDoBrasil2|
+|`MerchantOrderId`|OBS 1|27|50|
+|`Payment.BoletoNumber`|OBS 2|11|9|
+|`Customer.Name`|OBS 3|34|60|
+|`Customer.Address.Street`|OBS 4|70|Ver comentário|
+|`Customer.Address.Number`|OBS 4|10|Ver comentário|
+|`Customer.Address.Complement`|OBS 4|20|Ver comentário|
+|`Customer.Address.District`|OBS 4|50|Ver comentário|
+|`Customer.Address.City`||50 - OBS 4|18 - OBS 3|
+|`Payment.Instructions`|N/A|450|450|
+|`Payment.Demonstrative`|N/A|255|Não é enviado ao banco do Brasil|
+
+> **Comentário Banco Do Brasil**: Os campos `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` devem totalizar até 60 caracteres.
+
+|Observações|Bradesco|Banco do Brasil|
+|---|---|---|
+|**OBS 1:**|Apenas Letras, números e caracteres como "_" e "$"|Não é enviado ao banco|
+|**OBS 2:**|O valor é persistido no banco|Quando enviado acima de 9 posições, a API Cielo trunca automaticamente, considerando os últimos 9 dígitos|
+|**OBS 3:**|A API Cielo trunca automaticamente|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras|
+|**OBS 4:**|O valor é persistido na API Cielo|N/A|
+
 # Pagamentos Recorrentes
 
-## Autorizando a primeira recorrência programada
+Pagamentos recorrentes são transações que devem se repetir após um determinado periodo de tempo.
+
+São pagamentos normalmente encontrados em **assinaturas**, onde o comprador deseja ser cobrado automaticamente, mas não quer informar novamente os dados do cartão de crédito.
+
+## Tipos de recorrências
+
+A API Cielo Ecommerce funciona com dois tipos de Recorrencia que possuem comportamentos diferentes.
+
+* **Recorrência Própria** - Quando a inteligência da repetição e dados do cartão da recorrência ficam sobre responsabilidade do lojista
+* **Recorrência Programada** - Quando a inteligência da repetição e dados do cartão da recorrência ficam sobre responsabilidade da **Cielo**
+
+### Recorrência Própria
+
+Nesse modelo, o lojista é responsavel por criar a inteligência necessaria para:
+
+|Inteligência|Descrição|
+|---|---|
+|**Salvar os dados da transação**|A loja precisará armazenar a transação e dados do pagamento|
+|**Criar repetição transacional**|A loja deverá enviar uma nova transação sempre que necessitar de uma Autorização|
+|**Comportamento para transação negada**|Caso uma das transações seja negada, caberá a loja a decisão de "retentar" uma nova autorização|
+
+Em todas as instancias, a recorrencia programada é uma transação padrão para a Cielo, sendo sua unica diferença a necessidade de enviar um a parametro adicional que a define como **Recorrência Própria**
+
+**Paramêtro:** `Payment.Recurrent`= `True`
+
+
+#### Caso de Uso
+
+Este é um exemplo de como a API Cielo Ecommerce permite a utilização de sistemas externos de recorrência em suas transações
+
+A recorrência própria é uma configuração da API Cielo Ecommerce que permite um lojista utilizar um sistema de recorrência interno especifico as suas necessidades de negócio. 
+Nesse modelo, o sistema do lojista é encarregado por definir o período, os dados transacionais, e quando necessário, nos enviar a venda de recorrência.
+
+**Veja um exemplo em uso:**
+
+* Recorrência própria + Cartão Tokenizado
+
+A academia CleverFit possui um sistema de cobrança diferenciado, onde a matricula é cobrada quinzenalmente, mas nunca nos fins de semana.
+
+Por ser um modelo altamente customizado, a CleverFit possui um sistema de recorrência própria, utilizando a API Cielo Ecommerce via dois mecanismos:
+
+1. **Recorrência Própria** - A CleverFit envia os dados da transação como uma venda normal, mas a API identifica que é uma recorrência e aplica regras de autorização diferenciada ao pedido.
+1. **Cartão Tokenizado** - A CleverFit mantem os cartões salvos via a tokenização, diminuindo o risco de assegurar os dados  transacionais em seu sistema.
+
+A CleverFit envia a transação quinzenalmente a API Cielo Ecommerce, usando os Tokens salvos na própria API e optando pela Recorrência Própria, que altera a regra de autorização para se adequar a seu modelo de cobrança
+
+
+### Recorrência Programada
+
+Nesse modelo, a Cielo é responsavel pela inteligência necessaria para executar uma recorrência de maneira automatica.
+
+A **Recorrência Programada** permite que o lojista crie uma transação base, que ao ser enviada para a API Cielo Ecommerce, será salva e executada seguindo as regras definidas pelo lojista. 
+
+Nesse modelo, a API realiza e permite:
+
+|Vantagens|Descrição|
+|---|---|
+|**Salva dados transacionais**|Salva dados da transação, criando assim um modelo de como serão as proximas Recorrências|
+|**Automatiza a recorrência**|Sem atuação da loja, a API cria as transações futuras de acordo com as definições do lojista|
+|**Permite atualização de dados**|Caso necessario, a API permite modificações das informações da transação ou do ciclo de recorrência|
+
+A Recorrencia Programada é formada por uma estrutura transacional simples. O Lojista deverá informa na transação os seguintes dados:
+
+```
+"RecurrentPayment":
+{
+       "AuthorizeNow":"False",
+       "StartDate":"2019-06-01"
+       "EndDate":"2019-12-01",
+       "Interval":"SemiAnnual"
+}
+```
+Onde podemos definir os dados como:
+
+|Paramêtros|Descrição|
+|---|---|
+|`AuthorizeNow`|Define que qual o momento que uma recorrencia será criada. Se for enviado como `True`, ela é criada no momento da autorização, se `False`, a recorrencia ficará suspensaaté a data escolhida para ser iniciada.|
+|`StartDate`|Define a data que transação da Recorrência Programada será autorizada|
+|`EndDate`|Define a data que a Recorrência Programada será encerrada. Se não for enviada, a Recorrência será executada até ser cancelada pelo lojista|
+|`Interval`|Intervalo da recorrência.<br /><ul><li>Monthly - Mensal </li><li>Bimonthly - Bimestral </li><li>Quarterly - Trimestral </li><li>SemiAnnual - Semestral </li><li>Annual - Anual </li></ul>|
+
+Quando uma transação é enviada a API Cielo Ecommerce com o nó de Recorrência Programada, o processo de recorrencia passa a ser efetivo quando a transação é considerada **AUTORIZADA**.
+
+Desse ponto em diante, ela passará a ocorre dentro do intervalo definido pelo lojista.
+
+Caracteristicas importantes da **Recorrência Programada**:
+
+|Informação|Descrição|
+|---|---|
+|**Criação**|A primeira transação é chamada de **"Transação de agendamento"**, todas as transações posteriores serão cópias dessa primeira transação. Ela não precisa ser capturada para que a recorrencia seja criada, basta ser **AUTORIZADA**|
+|**Captura**|Transações de Recorrência Programada não precisam ser capturadas. Após a primeira transação, todas as transações de recorrencia são capturadas automaticamente pela API|
+|**Identificação**|Transações de Recorrência Programada geram dois tipos de identificação:<br><br>**PAYMENTID**: Identifica 1 transação. É o mesmo identificador das outras transações na API    <br><br>**RECURRENTPAYMENTID**: Identifica Pedido de recorrencia. Um RecurrentPaymentID possui inumeros PaymentID vinculados a ela. Essa é a variavel usada para Cancelar uma Recorrencia Programada|
+|**Consultando**|Para consultar, basta usar um dos dois tipos de identificação:<br><br>**PAYMENTID**: Utilizada para consultar UMA TRANSAÇÃO DENTRO DA RECORRÊNCIA    <br><br>**RECURRENTPAYMENTID**: Utilizado para consultar A RECORRÊNCIA.|
+|**Cancelamento**|Uma Recorrencia Programada pode ser cancelada de duas maneiras: <br><br>**Lojista**: Solicita o cancelamento da recorrencia. Não cancela transações ja finalizadas antes da ordem de cancelamento da recorrência.  <br><br>**Por cartão invalido**: Caso a API identifique que um cartão salvo está invalido (EX: Expirado) a recorrência será cancelada e não se repetirá, até que o lojista atualize o meio de pagamento. <br><br> **OBS:** Cancelamento de transações dentro da recorrência não encerra o agendamento de transações futuras. Somente o Cancelamento usando o **RecurrentPaymentID** encerra agendamentos futuros.
+
+**Estrutura de um RecurrentPaymentID**
+
+![](./images/RECpaymentID.PNG)
+
+**Fluxo de uma Recorrência Programada**
+
+![](./images/FluxosRECPROG.PNG)
+
+#### Caso de uso
+
+Este é um exemplo de como usar as recorrências da API Cielo Ecommerce para elevar suas vendas:
+
+A recorrência é o processo de salvar uma transação e repeti-la em um intervalo de tempo predefinido. Ideal para modelo de assinaturas.
+
+A recorrência programada cielo tem as seguintes características:
+
+* **Intervalos programados:** Mensal, bimestral, trimestral semestral e anual
+* **Data de validade:** Permite definir se a recorrência vai se encerrar
+* **Retentativa:** se uma transação for negada, vamos retentar a transação até 4x
+* **Atualização:** Permite alterar dados da recorrência, como valor, intervalo.
+
+Veja um exemplo em uso:
+
+* **Recorrência Mensal e anual**
+
+A empresa Musicfy oferece um serviço de assinatura de online onde seus clientes pagam para poderem acessar uma biblioteca de músicas e ouvi-las via streaming.
+
+Para captar o máximo de clientes, eles oferecem 2 maneiras de pagamento:
+
+* Mensal por R$19,90 
+* Anual (com desconto) de R$180,00 
+
+Como eles executam a cobrança mensal ou anual de seus clientes? 
+
+A MusicFy utiliza a Recorrência programada da API Cielo Ecommerce.
+
+Ao criar uma transação, o Musicfy informa que o pedido em questão deve ser repetir mensalmente ou anualmente e que não há data de termino para a cobrança.
+
+Quais as vantagens de usar a recorrência programada para o MusicFy:
+
+1. **Facilidade:** A cobrança de mensalidade é automática, logo o MusicFy não precisa se preocupar em construir um sistema de cobrança.
+	
+2. **Usabilidade:** O valor das assinaturas pode ser atualizado sem a necessidade de refazer a transação. Um mês pode ser cancelado ou a recorrência pode ter um delay ( o modelo de 30 dias gratuito) com apenas uma configuração.
+	
+3. **Segurança:** Não é necessário armazenar dados sensíveis do cartão e do comprador junto a loja.
+	
+4. **Conversão:** A recorrência programada cielo possui um sistema de retentativa automática. Caso uma das transações seja negada, ela será retentada até 4 vezes, buscando atingir a autorização.
+
+## Criando uma RECORRÊNCIA PRÓPRIA
+
+Para criar uma venda recorrente cuja o processo de recorrência e intervalo serão executados pela propria loja, basta fazer um POST conforme o exemplo.
+
+O paramêtro `Payment.Recurrent`deve ser `true`, caso contrario, a transação será negada.
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014113245231706",
+   "Customer":{  
+      "Name":"Comprador rec propria"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":1500,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+	 "Recurrent": true,
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"262",
+         "SaveCard":"false",
+         "Brand":"Visa"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+    {
+   "MerchantOrderId":"2014113245231706",
+   "Customer":{  
+      "Name":"Comprador rec propria"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":1500,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "Recurrent": true,
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"262",
+         "SaveCard":"false",
+         "Brand":"Visa"
+     }
+   }
+}
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|6|Sim|
+|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
+|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
+|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
+|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
+|`Payment.Installments`|Número de Parcelas.|Número|2|Sim|
+|`Payment.SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais|Texto|13|Não|
+|`Payment.Recurrent`|marcação de uma transação de recorrencia não programada|boolean|5|Não|
+|`CreditCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
+|`CreditCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
+|`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+
+### Resposta
+
+```json
+{
+    "MerchantOrderId": "2014113245231706",
+    "Customer": {
+        "Name": "Comprador rec propria"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": true,
+        "CreditCard": {
+            "CardNumber": "123412******1231",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "3827556",
+        "Tid": "0504043827555",
+        "AuthorizationCode": "149867",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "737a8d9a-88fe-4f74-931f-acf81149f4a0",
+        "Type": "CreditCard",
+        "Amount": 1500,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Provider": "Simulado",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "ReturnCode": "4",
+        "ReturnMessage": "Operation Successful",
+        "Link": {
+                "Method": "GET",
+                "Rel": "recurrentPayment",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
+            },
+            "AuthorizeNow": true
+        },
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2014113245231706",
+    "Customer": {
+        "Name": "Comprador rec propria"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": true,
+        "CreditCard": {
+            "CardNumber": "123412******1231",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "3827556",
+        "Tid": "0504043827555",
+        "AuthorizationCode": "149867",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "737a8d9a-88fe-4f74-931f-acf81149f4a0",
+        "Type": "CreditCard",
+        "Amount": 1500,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "ReturnCode": "4",
+        "ReturnMessage": "Operation Successful",
+        "Link": {
+                "Method": "GET",
+                "Rel": "recurrentPayment",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
+            },
+            "AuthorizeNow": true
+        },
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|6|Sim|
+|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
+|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
+|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
+|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
+|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
+|`Payment.Installments`|Número de Parcelas.|Número|2|Sim|
+|`Payment.SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais|Texto|13|Não|
+|`Payment.Recurrent`|marcação de uma transação de recorrencia não programada|boolean|5|Não|
+|`CreditCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
+|`CreditCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
+|`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
+|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+
+## Criando uma RECORRÊNCIA PROGRAMADA
 
 Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.
 
-<aside class="notice"><strong>Atenção:</strong> Nessa modalidade de recorrência, a primeira transação deve ser capturada. Todas as transções posteriores serão capturadas automaticamente.</aside>
+<aside class="notice"><strong>Atenção:</strong> Nessa modalidade de recorrência, a primeira transação deve ser 
+	
+	da. Todas as transções posteriores serão capturadas automaticamente.</aside>
 
 ### Requisição
 
@@ -2979,7 +2886,7 @@ curl
 |`Interval`|Intervalo entre as recorrência.|Texto|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não.|Booleano|---|true ou false|
 
-## Agendamento de uma recorrência programada de crédito
+## Agendando uma Recorrência Programada
 
 Para criar uma venda recorrente cuja a primeira recorrência não será autorizada na mesma data com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.
 
@@ -3183,236 +3090,6 @@ curl
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`Interval`|Intervalo entre as recorrência.|Texto|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não.|Booleano|---|true ou false|
-
-## Autorizando uma recorrência própria / não programada
-
-Para criar uma venda recorrente cuja o processo de recorrencia e intervalo serão executados pela propria loja, basta fazer um POST conforme o exemplo.
-
-<aside class="notice"><strong>Atenção:</strong> Nessa modalidade de recorrencia, cabe ao lojista a inteligencia de realizar transações no mesmo formato de acordo com intervalo que desejar. A API não realizará transações automaticamente.</aside>
-
-### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014113245231706",
-   "Customer":{  
-      "Name":"Comprador rec propria"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":1500,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "Recurrent": true,
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"262",
-         "SaveCard":"false",
-         "Brand":"Visa"
-     }
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-    {
-   "MerchantOrderId":"2014113245231706",
-   "Customer":{  
-      "Name":"Comprador rec propria"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":1500,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "Recurrent": true,
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"262",
-         "SaveCard":"false",
-         "Brand":"Visa"
-     }
-   }
-}
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|6|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
-|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.Installments`|Número de Parcelas.|Número|2|Sim|
-|`Payment.SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais|Texto|13|Não|
-|`Payment.Recurrent`|marcação de uma transação de recorrencia não programada|boolean|5|Não|
-|`CreditCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
-|`CreditCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
-|`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-
-### Resposta
-
-```json
-{
-    "MerchantOrderId": "2014113245231706",
-    "Customer": {
-        "Name": "Comprador rec propria"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "Recurrent": true,
-        "CreditCard": {
-            "CardNumber": "123412******1231",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "3827556",
-        "Tid": "0504043827555",
-        "AuthorizationCode": "149867",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId": "737a8d9a-88fe-4f74-931f-acf81149f4a0",
-        "Type": "CreditCard",
-        "Amount": 1500,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Simulado",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "ReturnCode": "4",
-        "ReturnMessage": "Operation Successful",
-        "Link": {
-                "Method": "GET",
-                "Rel": "recurrentPayment",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
-            },
-            "AuthorizeNow": true
-        },
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2014113245231706",
-    "Customer": {
-        "Name": "Comprador rec propria"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "Recurrent": true,
-        "CreditCard": {
-            "CardNumber": "123412******1231",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "3827556",
-        "Tid": "0504043827555",
-        "AuthorizationCode": "149867",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId": "737a8d9a-88fe-4f74-931f-acf81149f4a0",
-        "Type": "CreditCard",
-        "Amount": 1500,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "ReturnCode": "4",
-        "ReturnMessage": "Operation Successful",
-        "Link": {
-                "Method": "GET",
-                "Rel": "recurrentPayment",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
-            },
-            "AuthorizeNow": true
-        },
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|6|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
-|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.Installments`|Número de Parcelas.|Número|2|Sim|
-|`Payment.SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais|Texto|13|Não|
-|`Payment.Recurrent`|marcação de uma transação de recorrencia não programada|boolean|5|Não|
-|`CreditCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
-|`CreditCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
-|`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
 ## Modificando dados do comprador
 
@@ -3996,7 +3673,7 @@ curl
     "SoftDescriptor": "123456789ABCD",
     "Provider": "Cielo",
     "Eci": "0",
-    "NewCard": {
+	"NewCard": {
        "CardNumber": "40000000000000000",
        "ExpirationDate": "10/2020",
        "SaveCard": false,
@@ -4062,7 +3739,7 @@ curl
     "SoftDescriptor": "123456789ABCD",
     "Provider": "Cielo",
     "Eci": "0",
-    "NewCard": {
+	"NewCard": {
        "CardNumber": "40000000000000000",
        "ExpirationDate": "10/2020",
        "SaveCard": false,
@@ -4250,8 +3927,8 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status da Transação.|Byte|---|2|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
@@ -4508,13 +4185,13 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 `SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Id`|Indentificação da Transação no Antifraud.|Texto|300|Texto alfanumérico|
-|`Status`|Status da Transação.|Byte|---|2|
+|`Status`|Status da Transação.|Byte|---|Ver anexos|
 |`FraudAnalysis.ReasonCode`|Resultado da análise.|Byte|---|Número:<br /><ul><li>100 - Operação bem sucedida.</li><li>101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.</li><li>102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.</li><li>150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.</li><li>202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.</li><li>400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.</li><li>480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.</li><li>481 - O pedido foi rejeitado pelo Gerenciador de Decisão</li></ul>|
 |`FraudAnalysis.FactorCode`|Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^.|Texto|100|Ex: B^D^R^Z<br /><ul><li>A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.</li><li>B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.</li><li>C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.</li><li>D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.</li><li>E - Lista positiva. O cliente está na sua lista positiva.</li><li>F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.</li><li>G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.</li><li>H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.</li><li>I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.</li><li>N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.</li><li>O - Obscenidades. Dados do cliente contém palavras obscenas.</li><li>P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.</li><li>Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.</li><li>R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.</li><li>T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.</li><li>U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.</li><li>V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.</li><li>W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.</li><li>Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.</li><li>Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</li></ul>|
 |`FraudAnalysis.Score`|Score total calculado para o pedido.|Número|---|Número|
@@ -4525,7 +4202,7 @@ curl
 
 Para consultar uma Recorrência de cartão de crédito, é necessário fazer um `GET`  conforme o exemplo.
 
-**A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não trazem dados sobre as transações em si. Para isso, deve ser realizado um `GET` na transação (Diponivel em "Consultanto vendas"
+**A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um `GET` na transação (Disponivel em "Consultanto vendas
 
 ### Requisição
 
@@ -4553,23 +4230,38 @@ curl
 
 ```json
 {
-    "Customer":
-    {
-        "Name": "Comprador accept"
+    "Customer": {
+        "Name": "Fulano da Silva"
     },
     "RecurrentPayment": {
-        "RecurrentPaymentId": "6716406f-1cba-4c7a-8054-7e8988032b17",
-        "NextRecurrency": "2015-11-05",
-        "StartDate": "2015-05-05",
-        "EndDate": "2019-12-01",
-        "Interval": "SemiAnnual",
+        "RecurrentPaymentId": "c30f5c78-fca2-459c-9f3c-9c4b41b09048",
+        "NextRecurrency": "2017-06-07",
+        "StartDate": "2017-04-07",
+        "EndDate": "2017-02-27",
+        "Interval": "Bimonthly",
+        "Amount": 15000,
+        "Country": "BRA",
+        "CreateDate": "2017-04-07T00:00:00",
+        "Currency": "BRL",
+        "CurrentRecurrencyTry": 1,
+        "Provider": "Simulado",
+        "RecurrencyDay": 7,
+        "SuccessfulRecurrences": 0,
         "Links": [
             {
                 "Method": "GET",
                 "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"
             }
-        ]
+        ],
+        "RecurrentTransactions": [
+            {
+                "PaymentId": "f70948a8-f1dd-4b93-a4ad-90428bcbdb84",
+                "PaymentNumber": 0,
+                "TryNumber": 1
+            }
+        ],
+        "Status": 1
     }
 }
 ```
@@ -4579,23 +4271,38 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "Customer":
-    {
-        "Name": "Comprador accept"
+    "Customer": {
+        "Name": "Fulano da Silva"
     },
     "RecurrentPayment": {
-        "RecurrentPaymentId": "6716406f-1cba-4c7a-8054-7e8988032b17",
-        "NextRecurrency": "2015-11-05",
-        "StartDate": "2015-05-05",
-        "EndDate": "2019-12-01",
-        "Interval": "SemiAnnual",
+        "RecurrentPaymentId": "c30f5c78-fca2-459c-9f3c-9c4b41b09048",
+        "NextRecurrency": "2017-06-07",
+        "StartDate": "2017-04-07",
+        "EndDate": "2017-02-27",
+        "Interval": "Bimonthly",
+        "Amount": 15000,
+        "Country": "BRA",
+        "CreateDate": "2017-04-07T00:00:00",
+        "Currency": "BRL",
+        "CurrentRecurrencyTry": 1,
+        "Provider": "Simulado",
+        "RecurrencyDay": 7,
+        "SuccessfulRecurrences": 0,
         "Links": [
             {
                 "Method": "GET",
                 "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"
             }
-        ]
+        ],
+        "RecurrentTransactions": [
+            {
+                "PaymentId": "f70948a8-f1dd-4b93-a4ad-90428bcbdb84",
+                "PaymentNumber": 0,
+                "TryNumber": 1
+            }
+        ],
+        "Status": 1
     }
 }
 ```
@@ -4607,6 +4314,485 @@ curl
 |`StartDate`|Data do inicio da recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`Interval`|Intervalo entre as recorrência.|Texto|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`CurrentRecurrencyTry `|Indica o número de tentativa da recorrência atual|Número|1|1|
+|`OrderNumber`|Identificado do Pedido na loja|Texto|50|2017051101|
+|`Status`|Status do pedido recorrente|Número|1|<br>*1* - Ativo <br>*2* - Finalizado <br>*3*- Desativada pelo Lojista <br> *4* - Desativada por numero de retentativas <BR> *5* - Desativada por cartão de crédito vencido|
+|`RecurrencyDay`|O dia da recorrência|Número|2|22|
+|`SuccessfulRecurrences`|Quantidade de recorrência realizada com sucesso|Número|2|5|
+|`RecurrentTransactions.RecurrentPaymentId`|Id da Recorrência|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RecurrentTransactions.TransactionId`|Payment ID da transação gerada na recorrência|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RecurrentTransactions.PaymentNumber`|Número da Recorrência. A primeira é zero|Número|2|3|
+|`RecurrentTransactions.TryNumber`|Número da tentativa atual na recorrência específica|Número|2|1|
+
+# Capturando uma venda
+
+A **Captura** é passo exclusivo para transações de Cartões de Crédito.
+
+Ao realizar uma captura, o lojita confirma que o valor autorizado no cartão poderá ser cobrado pela insituição financeira emissora do cartão.
+
+O que a captura gera:
+
+* Ela executa a cobrança do cartão
+* Ela inclui o valor da venda na fatura do comprador
+* Somente transações capturadas são pagas pela Cielo ao lojista
+
+<aside class="notice"><strong>Atenção:</strong> A captura é um processo com prazo de execução. Verifique em sem cadastro cielo qual o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a Captura da transação</aside>
+
+## Captura total
+
+Para captura uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
+
+```json
+
+https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture
+
+```
+
+```shell
+curl
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
+|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
+|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
+|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
+|`ServiceTaxAmount`|[Veja Anexo](https://developercielo.github.io/Webservice-3.0/#anexos)|Número|15|Não|
+
+### Resposta
+
+```json
+{
+    "Status": 2,
+    "ReturnCode": "6",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Status": 2,
+    "ReturnCode": "6",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`Status`|Status da Transação.|Byte|---|2|
+|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
+
+## Captura parcial
+
+A **captura parcial** é o ato de capturar um valor menor que o valor autorizado.Esse modelo de captura pode ocorrer apenas 1 vez por transação. 
+
+**Após a captura, não é possível realizar capturas adicionais no mesmo pedido.**
+
+Basta realizar um `POST` enviando o valor a ser capturado.
+
+<aside class="notice"><strong>Atenção:</strong> Captura parcial disponível apenas para transações de crédito</aside>
+
+### Requisição - Captura Parcial
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
+
+```json
+
+https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}
+
+```
+
+```shell
+curl
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
+|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
+|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
+|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
+|`ServiceTaxAmount`|[Veja Anexo](https://developercielo.github.io/Webservice-3.0/#anexos)|Número|15|Não|
+
+### Resposta
+
+```json
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "6",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "6",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
+        }
+    ]
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`Status`|Status da Transação.|Byte|---|2|
+|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
+|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
+|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
+
+<aside class="notice"><strong>Captura de Taxa de embarque</strong> Para realizar a captura da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser capturado</aside>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
+
+### Resposta
+
+```json
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
+        }
+    ]
+}
+```
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`Status`|Status da Transação.|Byte|---|2|
+|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
+|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
+|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
+
+## Captura Via Backoffice
+
+É possivel realizar tanto a captura total quanto a Captura parcial via O Backoffice Cielo.
+
+Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
+
+# Cancelando uma venda
+
+## Cancelando uma venda via API
+O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito. 
+
+Cada meio de pagamento sofre impactos diferentes quando uma ordem de cancelamento (VOID) é executada.
+
+|Meio de pagamento|Descrição|Prazo|Participação Cielo|
+|---|---|---|---|
+|Cartão de crédito|A Cielo devolve o valor via crédito bancario|300 dias pós autorização|Sim|
+|Cartão de Débito|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|300 dias pós autorização|Não|
+
+
+OBS: Cancelamentos parciais são disponiveis apenas para Cartão de Crédito.
+
+## Cancelamento total
+
+Para cancelar uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment. É possível realizar o cancelamento via PaymentID ou MerchantOrderId (numero do pedido).
+
+<aside class="notice"><strong>Atenção:</strong> O cancelamento por MerchantOrderId afeta sempre a transação mais nova, ou seja, caso haja pedidos com o numero do pedido duplicado, somente o mais atual será cancelado. O pedido anterior não poderá ser cancelado por esse método</aside>
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+ou
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/OrderId/{MerchantOrderId}/void?amount=xxx</span></aside>
+
+```shell
+curl
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
+|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
+|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
+|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
+
+### Resposta
+
+```json
+{
+    "Status": 10,
+    "ReturnCode": "9",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Status": 10,
+    "ReturnCode": "9",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        }
+    ]
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`Status`|Status da Transação.|Byte|---|2|
+|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
+
+## Cancelamento parcial
+
+O **cancelamento  parcial** é o ato de cancelar um valor menor que o valor total autorizado/capturado. Esse modelo de cancelamento pode ocorrer inumeras vezes, até que o valor total da transação seja cancelado. 
+
+ Basta realizar um `POST` enviando o valor a ser cancelado.
+
+ 
+<aside class="notice"><strong>Atenção:</strong> Cancelamento parcial disponível apenas para transações de crédito *CAPTURADAS*</aside>
+
+<aside class="notice"><strong>Atenção:</strong> O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
+
+### Requisição - cancelamento parcial
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
+
+```shell
+curl
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount=XXX"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
+|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
+|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
+|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
+
+### Resposta
+
+```json
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
+        }
+    ]
+}
+```
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`Status`|Status da Transação.|Byte|---|2|
+|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
+|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
+|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
+
+<aside class="notice"><strong>Cancelamento de Taxa de embarque</strong> Para realizar o cancelamento da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser cancelado</aside>
+
+```
+https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
+```
+
+## Cancelamento via Backoffice
+
+O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de transações de boletos e Débito Online.
+É possivel realizar tanto o cancelamento total quanto o Cancelamento parcial via O Backoffice Cielo.
+
+Efeitos sobre o meio de pagamento
+
+|Meio de pagamento|Descrição|Prazo|Participação Cielo|
+|---|---|---|---|
+|Boleto|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|Definido pelo lojista|Não|
+|Transferência Eletrônica|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|Definido pelo lojista|Não|
+
+
+Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
 
 # Tokenização de cartões
 
@@ -4631,7 +4817,6 @@ Para salvar um cartão sem autoriza-lo, basta realizar um posto com os dados do 
     "Brand":"Visa"
 }
 ```
-
 ```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/card/"
@@ -4649,7 +4834,6 @@ curl
 }
 --verbose
 ```
-
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`Name`|Texto|255|Sim|Nome do Comprador.|
@@ -4669,7 +4853,6 @@ curl
     "Href": "https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"}
 }
 ```
-
 ```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4731,7 +4914,7 @@ Para salvar um cartão, criando seu token, basta enviar uma requisição padrão
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":false,
-     "SoftDescriptor":"123456789ABCD",
+	 "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -4743,7 +4926,6 @@ Para salvar um cartão, criando seu token, basta enviar uma requisição padrão
    }
 }
 ```
-
 ```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
@@ -4832,11 +5014,11 @@ curl
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
 |`Payment.Country`|Texto|3|Não|Pais na qual o pagamento será feito.|
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.ServiceTaxAmount`|Número|15|Não|Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
 |`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
+|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/Webservice-3.0/#anexos)|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
@@ -4885,7 +5067,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": true,
-            "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
+			"CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
             "Brand": "Visa"
         },
         "ProofOfSale": "674532",
@@ -4959,7 +5141,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": true,
-            "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
+			"CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
             "Brand": "Visa"
         },
         "ProofOfSale": "674532",
@@ -4993,9 +5175,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 `SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
@@ -5182,9 +5364,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 `SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
@@ -5218,8 +5400,8 @@ Para uso em Sandbox, é possivel simular transações autorizadas ou negadas via
      "Amount":100,
      "Installments":1,
      "CreditCard":{  
-        "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-        "Brand":"Visa"
+    	"CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+    	"Brand":"Visa"
      }
    }
 }
@@ -5243,8 +5425,8 @@ curl
      "Amount":100,
      "Installments":1,
      "CreditCard":{  
-        "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-        "Brand":"Visa"
+    	"CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+    	"Brand":"Visa"
      }
    }
 }
@@ -5377,9 +5559,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 `SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
@@ -5460,8 +5642,8 @@ curl
      "Wallet":{
          "Type":"VisaCheckout",
          "WalletKey":"1140814777695873901"
-        }
-     }
+		}
+	 }
 }
 
 --verbose
@@ -5578,9 +5760,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
@@ -5595,27 +5777,26 @@ curl
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 ```json
-
 {  
    "MerchantOrderId":"2014111703",
    "Customer":{  
-      "Name":"Comprador Visa Checkout"
+      "Name":"Comprador Teste"
    },
    "Payment":{  
       "Type":"CreditCard",
       "Amount":15700,
       "Installments":1,
       "SoftDescriptor":"123456789ABCD",
+      "Wallet":{  
+    	 "Type":"VisaCheckout"
+	},
       "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "Brand":"Visa"
-      }
-   },
-   "Wallet":{  
-      "Type":"VisaCheckout"
-   }
+    },
+  },
 }
 ```
 
@@ -5630,23 +5811,23 @@ curl
 {  
    "MerchantOrderId":"2014111703",
    "Customer":{  
-      "Name":"Comprador Visa Checkout"
+      "Name":"Comprador Teste"
    },
    "Payment":{  
       "Type":"CreditCard",
       "Amount":15700,
       "Installments":1,
       "SoftDescriptor":"123456789ABCD",
+      "Wallet":{  
+    	 "Type":"VisaCheckout"
+	},
       "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "Brand":"Visa"
-      }
-   },
-   "Wallet":{  
-      "Type":"VisaCheckout"
-   }
+    },
+  },
 }
 --verbose
 ```
@@ -5782,9 +5963,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
@@ -5794,6 +5975,9 @@ curl
 |`Type`|indica qual o tipo de carteira: "VisaCheckout" ou "Masterpass"|Texto|255|Sim|
 
 ## Como realizar transação com MasterPass
+
+Para utilizar o Masterpass é necessário entrar em contato diretamente com a Mastercard pelo site: https://masterpass.com/pt-br/ e solicitar as credenciais.
+Mais informações e integração completa, você encontra no link: https://developer.mastercard.com/product/masterpass “ 
 
 ### Requisição
 
@@ -5981,9 +6165,9 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
@@ -6021,12 +6205,27 @@ Abaixo vamos explica-los na ordem em que podem ocorrem:
 
 ## Status
 
-|Código|Status do Pagamento|Meio de pagamento|Descrição|
+|Código|Status|Meio de pagamento|Descrição|
 |---|---|---|---|
-|0|NotFinished|Todos|Falha ao processar o pagamento|
-|1|Authorized|Todos|Meio de pagamento apto a ser capturado ou pago(Boleto|
-|2|PaymentConfirmed|Todos|Pagamento confirmado e finalizado|
-|3|Denied|Cartão de Crédito e Débito / Transferência eletrônica|-|
+|0|NotFinished|ALL|Aguardando atualização de status|
+|1|Authorized|ALL|Pagamento apto a ser capturado ou definido como pago|
+|2|PaymentConfirmed|ALL|Pagamento confirmado e finalizado|
+|3|Denied|CC + CD + TF|Pagamento negado por Autorizador|
+|10|Voided|ALL|Pagamento cancelado|
+|11|Refunded|CC + CD|Pagamento cancelado após 23:59 do dia de autorização|
+|12|Pending|ALL|Aguardando Status de instituição financeira|
+|13|Aborted|ALL|Pagamento cancelado por falha no processamento|
+|20|Scheduled|CC|Recorrência agendada|
+
+-
+
+|Meio de pagamento|Descrição|
+|---|---|
+|**ALL**|Todos|
+|**CC**|Cartão de Crédito|
+|**CD**|Cartão de Débito|
+|**TF**|Transferencia Eletrônica|
+|**BOL**|Boleto|
 
 ## Códigos de Erros da API
 
@@ -6179,16 +6378,6 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 
 |Código Resposta|Definição|Significado|Ação|Permite Retentativa|
 |---|---|---|---|---|
-|0|Criada|Transação criada|N/A|Não|
-|1|Em andamento|Processamento em andamento|N/A|Não|
-|2|Autenticada|Confirmação de autenticação|N/A|Não|
-|3|Não Autenticada|Transação não autenticavel|N/A|Não|
-|4|Autorizada|Confirmação de autorização|Captura ou Cancelamento|Não|
-|5|Não Autorizada|Confirmação de não autorização|N/A|Não|
-|6|Capturada|Confirmação de captura|N/A ou cancelamento|Não|
-|9|Cancelada|Confirmação de cancelamento|N/A|Não|
-|10|Em autenticação|Processamento de autenticação|N/A|Não|
-|12|Em cancelamento|Processamento para cancelamento|N/A|Não|
 |00|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Não|
 |000|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Não|
 |01|Transação não autorizada. Transação referida.|Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
@@ -6249,7 +6438,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |93|Transação não autorizada. Violação de regra - Possível erro no cadastro.|Transação não autorizada. Violação de regra - Possível erro no cadastro.|Sua transação não pode ser processada. Entre em contato com a loja virtual.|Não|
 |96|Falha no processamento.|Não foi possível processar a transação. Falha no sistema da Cielo. Se o erro persistir, entre em contato com a Cielo.|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|Apenas 4 vezes em 16 dias.|
 |97|Valor não permitido para essa transação.|Transação não autorizada. Valor não permitido para essa transação.|Transação não autorizada. Valor não permitido para essa transação.|Não|
-|98|Sistema/comunicação indisponível.|Transação não autorizada. Sistema do emissor sem comunicação. Se for geral, verificar SITEF, GATEWAY e/ou Conectividade.|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|Apenas 4 vezes em 16 dias.|
+|98|Sistema/comunicação indisponível.|Não houve resposta da solicitação dentro do tempo estabelecido.|A transação pode ter sido processada. Para confirmar, consultar a transação pelo número do pedido da loja e avaliar se de fato ela foi processada.|Retentar apenas após consultar a transação original pelo número do pedido e confirmar que não foi processada.|
 |99|Sistema/comunicação indisponível.|Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
 |999|Sistema/comunicação indisponível.|Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
 |AA|Tempo Excedido|Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.|Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.|Apenas 4 vezes em 16 dias.|
@@ -6335,55 +6524,69 @@ Alguns tipos de transação exigem que sua Afiliação esteja configurada corret
 A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro MerchantDefinedData e respectivos tipo de informação que deve ser preenchida.
 
 |ID|Dado|Descrição|Tipo|
-|:--:|---|---|---|
+|---|---|---|---|
 |1|Cliente efetuou Log In|Se o cliente final logou no site para comprar, enviar: o login dele. Se fez compra como visitante, enviar: "Guest". Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|String|
 |2|Cliente do estabelecimento há: #dias|Quantidade de dias|Número|
 |3|Compra Efetuada em (parcelas)|Número de Parcelas|Número|
-|4|Canal de Venda|Valores: "Call Center" = portador comprando pelo telefone "Web" = portador comprando pela web "Portal" = um agente fazendo a compra para o cliente "Quiosque" = Compras em quisques "Movel" = Compras feitas em smartphone ou tablets|String|
+|4|Canal de Venda|Valores: "Call Center" = compra pelo telefone <BR> "Web" = compra pela web <BR> "Portal" = um agente fazendo a compra para o cliente <BR> "Quiosque" = Compras em quisques <BR> "Movel" = Compras feitas em smartphone ou tablets|String|
 |5|Código do Cupom/Desconto|Se o comprador for usar cupom, enviar o código do cupom|String|
-|6|Última compra efetuada|MM/DD/AAAA|Data|
+|6|Última compra efetuada|MM DD AAAA|Data|
 |7|Afiliação|Nome ou código de revendedor ou intermediador|String|
-|8|Tentativas de Compra|Nr de vezes que tentou fazer o pagamento do pedido. Cartões de creditos diferentes tentados e/ou outros meios de pagamentos tentados. Para o mesmo pedido.|Número|
-|9|Cliente vai retirar o produto em uma Loja|Valores: "SIM", "NAO" No caso de agência, se vai retirar algum voucher e/ou ticket fisicamente|String|
-|10|Pagamento efetuado por 3º|Valores: "SIM", "NAO" Se o pagador está ou não presente na viagem/pacote|String|
+|8|Tentativas de Compra|Nr de vezes que tentou fazer o pagamento do pedido. Cartões de creditos diferentes tentados e-ou outros meios de pagamentos tentados. Para o mesmo pedido.|Número|
+|9|Cliente vai retirar o produto em uma Loja|Valores: "SIM", "NAO" No caso de agência, se vai retirar algum voucher e-ou ticket fisicamente|String|
+|10|Pagamento efetuado por 3º|Valores: "SIM", "NAO" Se o pagador está ou não presente na viagem ou pacote|String|
 |11|Categoria do Hotel|Valores: 1, 2, 3, 4, 5 Quantas estrelas tem o hotel|Número|
-|12|Hotel data do Check in|MM/DD/AAAA|Data|
-|13|Hotel data do Check out|MM/DD/AAAA|Data|
+|12|Hotel data do Check in|MM DD AAAA|Data|
+|13|Hotel data do Check out|MM DD AAAA|Data|
 |14|Viagem/Pacote|Valores: "Nacional", "Internacional", "Nacional/Internacional"|String|
 |15|Nome da Cia. Aérea / Locadora de Carro / Hotel|Enviar o nome de cada uma das empresas, separado por "/"|String|
 |16|PNR|Enviar o numero do PNR da reserva. Quando houver uma alteração da reserva para este PNR com antecipação da data de voo, é importante fazer uma nova análise de fraude enviando este PNR novamente.|String|
 |17|Houve antecipação de reserva?|Valores: "SIM", "NAO" Indicar se houve remarcação do voo para uma data anterior à original. É fundamental o envio também do campo PNR|String|
-|18|(reservado)|
-|19|(reservado)|
-|20|(reservado)|
-|21|(reservado)|
-|22|(reservado)|
-|23|(reservado)|
-|24|(reservado)|
-|25|(reservado)|
+|18|(reservado)|||
+|19|(reservado)|||
+|20|(reservado)|||
+|21|(reservado)|||
+|22|(reservado)|||
+|23|(reservado)|||
+|24|(reservado)|||
+|25|(reservado)|||
 |26|Bin do Cartão de Crédito|Enviar o bin - 6 primeiros digitos do cartão|String|
-|27|(reservado)|
-|28|(reservado)|
-|29|(reservado)|
-|30|(reservado)|
+|27|(reservado)|||
+|28|(reservado)|||
+|29|(reservado)|||
+|30|(reservado)|||
 |31|Nr de trocas de Cartões de crédito|Nr de vezes que o comprador trocou o cartão de crédito para fazer o pagamento do pedido|Número|
 |32|Email colado ou digitado|Valores: "Digitado", "Colado" Informar se o endereço de e-mail foi digitado ou colado no campo|String|
 |33|Nr Cartao colado ou digitado|Valores: "Digitado", "Colado" Informar se o nr do cartão de crédito foi digitado ou colado no campo|String|
 |34|E-mail confirmado|Se existe rotina de confirmação de e-mail para ativação de conta. Valores: "SIM". Em caso negativo não enviar o MDD|String|
-|35|Tipo de cliente (local/turista)|Valores: "Local", "Turista". Não enviar o MDD no caso de não ter essa informação|String|
+|35|Tipo de cliente (local ou turista)|Valores: "Local", "Turista". Não enviar o MDD no caso de não ter essa informação|String|
 |36|Utiliza cartao presente na compra ($)|Informar se foi utilizado Cartao Presente (Gift Card) na compra. Valores: "SIM". Em caso negativo não enviar o MDD|String|
 |37|Metodo de Envio|Valores: "Sedex", "Sedex 10", "1 Dia", "2 Dias", "Motoboy", "Mesmo Dia", etc. Se não tiver envio, não enviar o MDD|String|
 |38|Numero da Bina|Informar o nr de telefone indentificado, com DDD|String|
-|39|(reservado)|
-|40|(reservado)|
+|39|(reservado)|||
+|40|(reservado)|||
 |41 a 95|Campo Livre|Os campos são reservados para envio de dados de lojista, conforme a regra de negócio.|String|
-|96|(reservado)|
-|97|(reservado)|
-|98|(reservado)|
-|99|(reservado)|
+|96|(reservado)|||
+|97|(reservado)|||
+|98|(reservado)|||
+|99|(reservado)|||
 |100|Documento|Documento (CPG, RG, etc.)|String|
 
 ## Valores da Análise de Fraude
+
+
+### FraudAnalysis.status
+
+| Campo         | Descrição                                                   |
+|---------------|-------------------------------------------------------------|
+| Started       | Transação recebida pela Cielo.                              |
+| Accept        | Transação aceita após análise de fraude.                    |
+| Review        | Transação em revisão após análise de fraude.                |
+| Reject        | Transação rejeitada após análise de fraude.                 |
+| Unfinished    | Transação não finalizada por algum erro interno no sistema. |
+| Pendent       | Transação esperando analise                                 |
+| ProviderError | Transação com erro no provedor de antifraude.               |
+
 
 ### FraudAnalysis.Items.GiftCategory
 
@@ -6487,63 +6690,37 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 |Pickup|
 |Other|
 
-## Post de Notificação
+## Service Tax Amount - TAXA DE EMBARQUE
 
-O Post de notificação é enviado com base em uma seleção de eventos a ser feita no cadastro da API Cielo E-commerce.
+**A taxa de embarque** (servicetaxamount) é um campo informativo que define o montante do total da transação  que deve ser destinado ao pagamento da taxa à Infraero. O valor da taxa de embarque não é acumulado ao valor da autorização.
 
-Os eventos passiveis de notificação são:
+* *EX*: Em uma venda de passagem aérea de R$ 200,00 com taxa de embarque de R$ 25,00 deve-se enviar o campo `Payment.ServiceTaxAmount` como 2500
 
-|Meio de Pagamento|Evento|
-|---|---|
-|Cartão de Crédito/Débito|Captura|
-|Cartão de Crédito/Débito|Cancelamento|
-|Cartão de Crédito/Débito|Sondagem|
-|Boleto|Conciliação|
-|Boleto|Cancelamento Manual|
-|Transferência eletrônica|Confirmadas|
+**Regras** 
 
-Uma `URL Status Pagamento` deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado.
+* Disponível apenas para as bandeiras Visa, Mastercard e Amex.
+* O valor da taxa de embarque não é somado ao valor da autorização, ou seja, é apenas informativo.
 
-Características da `URL Status Pagamento`
+Existem regras específicas para a requisição de captura com taxa de embarque, disponíveis no item Captura Total e Parcial.
 
-* Deve ser **estática**
-* Limite de 255  carácteres.
+## Soft Descriptor
 
-A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 200 OK**
+Permite que o lojista envie um texto complementar que será impresso na fatura do comprador junto com a identificação do nome da loja que consta no cadastro Cielo.
 
-Caso não seja retornado o **HTTP Status Code 200 OK**,  ocorrerão mais **dois** envios do Post de Notificação.
+**Regras** 
+* Tamanho máximo do campo: 13 caracteres.
+* Disponível apenas para as bandeiras Visa e MasterCard. 
+* Não pode conter caracteres especiais.
 
-```json
-{
-   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": "2"
-}
-```
+Para conhecer e/ou alterar o nome da loja que esta cadastrado entre em contato com a central de relacionamento Cielo.
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4|GUID|36|Não|
-|`PaymentId`|Identificador que representa a transação|GUID|36|Sim|
-|`ChangeType`|Especifica o tipo de notificação. Vide tabela abaixo|Número|1|Sim|
+# Dúvidas e Suporte
 
-|ChangeType|Descrição|
-|---|---|
-|1|Mudança de status do pagamento|
-|2|Recorrência criada|
-|3|Mudança de status do Antifraude|
-|4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
-|5|cancelamento negado|
+Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:
 
-# SDKs
+* **Email:** [cieloeCommerce@cielo.com.br](mailto:cieloeCommerce@cielo.com.br)
+* **Capitais:** 4002-9700
+* **Demais Cidades:** 0800 570 1700
 
-A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:
+Horário de atendimento: 24h por dia, 7 dias por semana.
 
-|SDK                                                                |
-|-------------------------------------------------------------------|
-|[**Android**](https://github.com/DeveloperCielo/API-3.0-Android)  |
-|[**iOS**](https://github.com/DeveloperCielo/API-3.0-iOS)          |
-|[**PHP**](https://github.com/DeveloperCielo/API-3.0-PHP)          |
-|[**JAVA**](https://github.com/DeveloperCielo/API-3.0-Java)        |
-|[**Python**](https://github.com/DeveloperCielo/API-3.0-Python)    |
-|[**Ruby**](https://github.com/DeveloperCielo/API-3.0-Ruby)        |
