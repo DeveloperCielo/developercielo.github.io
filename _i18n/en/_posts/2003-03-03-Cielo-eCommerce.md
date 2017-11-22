@@ -146,7 +146,7 @@ The step-by-step of the EV Certificate installation must contact your server ven
 
 Normally, the browser automatically updates the Certificate. If it does not and the client contacts, the following steps must be informed:
 
-#### Step 1:
+**Step 1:**
 
 Save the three files below into a new folder, or into a folder that can be easily remembered, as it will be used later:
 
@@ -154,7 +154,7 @@ Save the three files below into a new folder, or into a folder that can be easil
 * [Intermediate Certificate](./attachment/intermediaria.crt)
 * [E-Commerce Cielo Certificate](./attachment/ecommerce.cielo.com.br.crt)
 
-#### Step 2o:
+**Step 2:**
 
 In “Internet Explorer”, click on “Tools” menu and go to “Internet Options”:
 
@@ -168,7 +168,7 @@ Control Google Chrome” and go to “Settings” and “Show advanced settings.
 
 ![Install GC](./images/certificado-instalar-gc-1.jpg)
 
-#### Step 3:
+**Step 3:**
 
 In Internet Explorer, under “Certificates”, click on “Import.”
 
@@ -182,7 +182,7 @@ In Chrome, click on “Manage Certificates”, click on “Import”v
 
 ![Install GC](./images/certificado-instalar-gc-2.jpg)
 
-#### Step 4:
+**Step 4:**
 
 In Internet Explorer and Chrome “Certificate Import Wizard”, click on “Next”.
 
@@ -194,7 +194,7 @@ In Firefox “Servers Tab”, click on “Import”
 
 ![Install FF](./images/certificado-instalar-ff-3.jpg)
 
-#### Step 5:
+**Step 5:**
 
 In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.
 
@@ -202,19 +202,19 @@ In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Sea
 
 ![Install IE and GC](./images/certificado-instalar-ie-gc-6.jpg)
 
-#### Step 6:
+**Step 6:**
 
 Select the desired option: add the Certificate in a default folder or search for the folder of your choice.
 
 ![Install IE and GC](./images/certificado-instalar-ie-gc-7.jpg)
 
-#### Step 7:
+**Step 7:**
 
 Click on “Finish”.
 
 ![Install IE and GC](./images/certificado-instalar-ie-gc-8.jpg)
 
-#### Step 8:
+**Step 8:**
 
 Click on “Ok” to complete the import.
 
@@ -226,7 +226,7 @@ The Certificate may be viewed in the default tab “Other People” or at the on
 
 ![Install IE and GC](./images/certificado-instalar-ie-gc-10.jpg)
 
-#### Step 9:
+**Step 9:**
 
 Repeat the same procedure for the 3 sent files.
 
