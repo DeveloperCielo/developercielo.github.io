@@ -1550,6 +1550,85 @@ Ex.: À Vista, Parcelado, etc.</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
+<h4 id="put-1">PUT</h4>
+
+<p><strong>Alterar um item em um pedido</strong></p>
+
+<p>Esse recurso permite alterar informações de um item de um pedido. O id do pedido e o id_item são utilizados para realizar a chamada.</p>
+
+<blockquote>
+  <p>Somente os pedidos com status <strong>DRAFT</strong> podem ter itens alterados.</p>
+
+  <p>Endpoint:</p>
+
+  <p><strong>PUT</strong> */orders/<id>/items/<id_item>*</id_item></id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>id_item</td>
+      <td>path parameter</td>
+      <td>Identificador do item do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>PUT</strong> <em>https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7
+/items/8484df74-eca6-4850-8e4c-35653af0bd31</em></p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N/A</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O retorno 200 dessa operação representa sucesso na requisição.</p>
+
 <h1 id="integração-local">Integração Local</h1>
 
 <h2 id="apresentação-1">Apresentação</h2>
