@@ -1672,6 +1672,101 @@ Ex.: À Vista, Parcelado, etc.</p>
 
 <p>O retorno 200 dessa operação representa sucesso na requisição.</p>
 
+<h4 id="post---adicionar-uma-transação">POST-  Adicionar uma Transação</h4>
+
+<blockquote>
+  <p>Recurso utilizado somente para <strong>Ambiente de Sandbox</strong></p>
+</blockquote>
+
+<p>Esse recurso permite que o desenvolvedor simule as transações financeiras, adicionando-as manualmente, sendo possível entender o funcionamento em uma Order.</p>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>POST</strong> */orders/<id>/transactions&gt;*</id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Transactions</td>
+      <td>Lista (Transaction)</td>
+      <td>Informações da Transação</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>POST</strong> <em>https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7/transactions</em></p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77102XXX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"490172"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7897"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234589"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22388292"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5151</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>number</td>
+      <td>Identificador da Transação</td>
+      <td>SIM</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"00219dd0-1c13-46da-91e5-1c313f0d2e83"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Em ambiente de Sandbox, onde não há necessidade de ter uma Cielo LIO, e consequentemente não é necessário possuir o número do estabelecimento, faz total sentido fazer essa chamada deste recurso.</p>
+
+<p>Já em ambiente de Produção quem irá criar as transactions é a própria Cielo LIO conforme os pagamentos forem efetuados.</p>
+
 <h1 id="integração-local">Integração Local</h1>
 
 <h2 id="apresentação-1">Apresentação</h2>
