@@ -1239,6 +1239,96 @@ Ex.: À Vista, Parcelado, etc.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h4 id="put">PUT</h4>
+
+<p><strong>Alterar status de um pedido</strong></p>
+
+<p>Esse recurso realiza a alteração do status de um pedido criado. O id do pedido é utilizado para realizar a chamada.</p>
+
+<p>As possíveis alterações de status são:</p>
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>place (Liberar um pedido para pagamento</td>
+          <td>Exibir pedido na Cielo LIO)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>pay (Alterar um pedido para pago)</li>
+  <li>close (Fechar um pedido)</li>
+  <li>canceled (cancelar pedido)</li>
+</ul>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>PUT</strong> */orders/<id>?operation=<operation>*</operation></id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>operation</td>
+      <td>query parameter</td>
+      <td>Operação que deve ser executada. As possíveis operações são: place (Liberar um pedido para pagamento), pay (deixar um pedido como pago) e close (Fechar um pedido).</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>PUT</strong>  https://api.cielo.com.br/order-management/v1/orders/db815e66-e5b6-497c-8444-2120cc87d33a?operation=PLACE</p>
+</blockquote>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N/A</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">N/A</span><span class="w">
+</span></code></pre></div></div>
+
+<p>O retorno 200 dessa operação representa sucesso na requisição. teste.</p>
+
 <h1 id="integração-local">Integração Local</h1>
 
 <h2 id="apresentação-1">Apresentação</h2>
