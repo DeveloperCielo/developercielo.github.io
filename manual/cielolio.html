@@ -927,7 +927,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 <blockquote>
   <p>Endpoint:</p>
 
-  <p><strong>POST</strong> <em>/orders</em></p>
+  <p><strong>POST</strong> /orders</p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1025,7 +1025,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 <blockquote>
   <p>Endpoint:</p>
 
-  <p><strong>GET</strong> */orders<id>*</id></p>
+  <p><strong>GET</strong> /orders<id></id></p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1133,7 +1133,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 <blockquote>
   <p>Endpoint:</p>
 
-  <p><strong>GET</strong> <em>/orders/</em></p>
+  <p><strong>GET</strong> /orders/</p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1248,7 +1248,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 <blockquote>
   <p>Endpoint:</p>
 
-  <p><strong>PUT</strong> */orders/<id>?operation=<operation>*</operation></id></p>
+  <p><strong>PUT</strong> /orders/<id>?operation=<operation></operation></id></p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1321,7 +1321,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 
   <p>Endpoint:</p>
 
-  <p><strong>DELETE</strong> */orders/<id>*</id></p>
+  <p><strong>DELETE</strong> /orders/<id></id></p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1388,7 +1388,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 
   <p>Endpoint:</p>
 
-  <p><strong>POST</strong> */orders/<id>/items*</id></p>
+  <p><strong>POST</strong> /orders/<id>/items</id></p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1457,7 +1457,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 <blockquote>
   <p>Endpoint:</p>
 
-  <p><strong>GET</strong> */orders/<id>/items*</id></p>
+  <p><strong>GET</strong> /orders/<id>/items</id></p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1484,7 +1484,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 <p>Exemplo de requisição:</p>
 
 <blockquote>
-  <p><strong>GET</strong> <em>https://api.cielo.com.br/order-management/v1/orders/c393ce9f-3741-413f-8ad5-2f142eaed51f/items</em></p>
+  <p><strong>GET</strong> https://api.cielo.com.br/order-management/v1/orders/c393ce9f-3741-413f-8ad5-2f142eaed51f/items</p>
 </blockquote>
 
 <p>Dados de saída:</p>
@@ -1536,7 +1536,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 
   <p>Endpoint:</p>
 
-  <p><strong>PUT</strong> */orders/<id>/items/<id_item>*</id_item></id></p>
+  <p><strong>PUT</strong> /orders/<id>/items/<id_item></id_item></id></p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1569,8 +1569,8 @@ Ex.: À Vista, Parcelado, etc.</p>
 <p>Exemplo de requisição:</p>
 
 <blockquote>
-  <p><strong>PUT</strong> <em>https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7
-/items/8484df74-eca6-4850-8e4c-35653af0bd31</em></p>
+  <p><strong>PUT</strong> https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7
+/items/8484df74-eca6-4850-8e4c-35653af0bd31</p>
 </blockquote>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -1613,7 +1613,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 
   <p>Endpoint:</p>
 
-  <p><strong>DELETE</strong> */orders/<id>/items/<id_item>*</id_item></id></p>
+  <p><strong>DELETE</strong> /orders/<id>/items/<id_item></id_item></id></p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1646,7 +1646,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 <p>Exemplo de requisição:</p>
 
 <blockquote>
-  <p><strong>DELETE</strong> <em>https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7/items/8484df74-eca6-4850-8e4c-35653af0bd31</em></p>
+  <p><strong>DELETE</strong> https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7/items/8484df74-eca6-4850-8e4c-35653af0bd31</p>
 </blockquote>
 
 <p>Dados de saída:</p>
@@ -1683,7 +1683,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 <blockquote>
   <p>Endpoint:</p>
 
-  <p><strong>POST</strong> */orders/<id>/transactions&gt;*</id></p>
+  <p><strong>POST</strong> /orders/<id>/transactions</id></p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1710,7 +1710,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 <p>Exemplo de requisição:</p>
 
 <blockquote>
-  <p><strong>POST</strong> <em>https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7/transactions</em></p>
+  <p><strong>POST</strong> https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7/transactions</p>
 </blockquote>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -1775,7 +1775,7 @@ Em ambiente de produção, uma vez que um pagamento for realizado na Cielo LIO a
 <blockquote>
   <p>Endpoint:</p>
 
-  <p><strong>GET</strong> */orders/<id>/transactions*</id></p>
+  <p><strong>GET</strong> /orders/<id>/transactions</id></p>
 </blockquote>
 
 <p>Dados de entrada:</p>
@@ -1802,7 +1802,7 @@ Em ambiente de produção, uma vez que um pagamento for realizado na Cielo LIO a
 <p>Exemplo de requisição:</p>
 
 <blockquote>
-  <p><strong>GET</strong> <em>https://api.cielo.com.br/order-management/v1/orders/c393ce9f-3741-413f-8ad5-2f142eaed51f/transactions</em></p>
+  <p><strong>GET</strong> https://api.cielo.com.br/order-management/v1/orders/c393ce9f-3741-413f-8ad5-2f142eaed51f/transactions</p>
 </blockquote>
 
 <p>Dados de saída:</p>
@@ -1853,6 +1853,85 @@ Em ambiente de produção, uma vez que um pagamento for realizado na Cielo LIO a
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20151020T13:13:29.000Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20151022T12:13:29.000Z"</span><span class="w">
 </span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="fluxo-básico-utilização-api-order-manager-cielo-lio">Fluxo Básico Utilização API Order manager Cielo LIO</h3>
+
+<p>Abaixo você encontra um fluxo básico para enviar um pedido para a Cielo LIO utilizando a Integração Remota:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-order-manager-slim.png" alt="fluxo_basico" /></p>
+
+<h3 id="notificações-de-mudanças-na-order">Notificações de Mudanças na Order</h3>
+
+<p>O maior motivo da disponibilização da API RESTful do Order Manager é permitir que aplicações parceiras se integrem à plataforma da Cielo na cloud. Porém, uma vez que as aplicações parceiras submetem pedidos, estes devem ser pagos localmente na própria Cielo LIO. Sendo assim, as aplicações parceiras precisam de uma forma de receber notificações de mudanças do status e das transações realizadas na Order.</p>
+
+<p>Para tal, é necessário que o parceiro disponibilize um Backend RESTful, que irá receber as notificações seguindo o formato abaixo. Uma vez recebidas as informações, o Backend tem a liberdade de ser utilizado da forma mais adequada ao modelo de negócio.</p>
+
+<h4 id="put---notificação-de-mudança-de-status">PUT - Notificação de Mudança de Status</h4>
+
+<p>A cada modificação de status em um pedido, o servidor do Order Manager envia, via comando, as informações para o Backend do parceiro.</p>
+
+<p>Requisição do Order Manager</p>
+
+<blockquote>
+  <p><strong>PUT</strong> <url_cadastrada_pelo_parceiro></url_cadastrada_pelo_parceiro></p>
+</blockquote>
+
+<p>Exemplo de informação enviada pelo Order Manager</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f9a9e3c0d31445f7ac419642651f0a52"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STATUS_CHANGED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"old"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENTERED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"new_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAID"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="put---notificação-de-transação-realizada">PUT - Notificação de Transação Realizada</h4>
+
+<p>A cada transação/pagamento realizada em um pedido, o servidor do Order Manager envia, via comando, as informações para o Backend do parceiro.</p>
+
+<p>Requisição do Order Manager</p>
+
+<blockquote>
+  <p><strong>PUT</strong> <url_cadastrada_pelo_parceiro></url_cadastrada_pelo_parceiro></p>
+</blockquote>
+
+<p>Exemplo de informação enviada pelo Order Manager</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c7b1dfc39f59436fbc55db8b4e360a96"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_ADDED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928273921"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"490172"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7897"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234589"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22388292"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"payment_product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20151020T13:13:29.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20151022T12:13:29.000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <h1 id="integração-local">Integração Local</h1>
