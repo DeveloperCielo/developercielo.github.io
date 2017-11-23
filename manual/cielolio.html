@@ -1327,7 +1327,75 @@ Ex.: À Vista, Parcelado, etc.</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">N/A</span><span class="w">
 </span></code></pre></div></div>
 
-<p>O retorno 200 dessa operação representa sucesso na requisição. teste.</p>
+<p>O retorno 200 dessa operação representa sucesso na requisição.</p>
+
+<h4 id="delete">DELETE</h4>
+
+<p><strong>Excluir um pedido</strong></p>
+
+<p>Esse recurso é utilizado para excluir um pedido do servidor do Order Manager. O id do pedido é utilizado para realizar a chamada.</p>
+
+<blockquote>
+  <p>Somente os pedidos com status <strong>DRAFT</strong> podem ser excluídos.
+Endpoint:</p>
+
+  <p><strong>DELETE</strong> */orders/<id>*</id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>DELETE</strong> https://api.cielo.com.br/order-management/v1/orders/db815e66-e5b6-497c-8444-2120cc87d33a</p>
+</blockquote>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N/A</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">N/A</span><span class="w">
+</span></code></pre></div></div>
+
+<p>O retorno 200 dessa operação representa sucesso na requisição.</p>
 
 <h1 id="integração-local">Integração Local</h1>
 
