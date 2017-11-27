@@ -2239,32 +2239,32 @@ Iniciar processo de pagamento</p>
 
 <p>Este método permite iniciar o processo de pagamento na Cielo LIO.</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">PaymentListener</span><span class="w"> </span><span class="err">paymentListener</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">PaymentListener()</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="err">@Override</span><span class="w">
-                </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onStart()</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"O pagamento começou."</span><span class="err">);</span><span class="w">
-                </span><span class="p">}</span><span class="w">
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"O pagamento começou."</span><span class="o">);</span>
+                <span class="o">}</span>
                 
-                </span><span class="err">@Override</span><span class="w">
-                </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onPayment(@NotNull</span><span class="w"> </span><span class="err">Order</span><span class="w"> </span><span class="err">order)</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Um pagamento foi realizado."</span><span class="err">);</span><span class="w">
-                </span><span class="p">}</span><span class="w"> 
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPayment</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">Order</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"Um pagamento foi realizado."</span><span class="o">);</span>
+                <span class="o">}</span> 
                 
-                </span><span class="err">@Override</span><span class="w"> </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onCancel()</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"A operação foi cancelada."</span><span class="err">);</span><span class="w">
-                </span><span class="p">}</span><span class="w"> 
+                <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
+                <span class="o">}</span> 
                 
-                </span><span class="err">@Override</span><span class="w"> </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onError(@NotNull</span><span class="w"> </span><span class="err">PaymentError</span><span class="w"> </span><span class="err">paymentError)</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Houve um erro no pagamento."</span><span class="err">);</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="err">;</span><span class="w"> 
+                <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"Houve um erro no pagamento."</span><span class="o">);</span>
+                <span class="o">}</span>
+    <span class="o">};</span> 
     
-    </span><span class="err">String</span><span class="w"> </span><span class="err">orderId</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">order.getId();</span><span class="w">
+    <span class="n">String</span> <span class="n">orderId</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
     
-    </span><span class="err">long</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">order.getPrice();</span><span class="w">
+    <span class="kt">long</span> <span class="n">value</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">getPrice</span><span class="o">();</span>
     
-    </span><span class="err">orderManager.checkoutOrder(orderId</span><span class="p">,</span><span class="w"> </span><span class="err">value</span><span class="p">,</span><span class="w"> </span><span class="err">paymentListener);</span><span class="w">
-</span></code></pre></div></div>
+    <span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <h2 id="processo-de-pagamento">Processo de Pagamento</h2>
 
