@@ -694,7 +694,7 @@ The errors that may appear in the XML message through the TAG '<error>' are arra
 ### Table integration errors
 
 |Code|Message|Description|Action|
-|------|--------|---------|----|
+|---|---|---|---|
 |1|Invalid message|The XML message is off the format specified by ecommerce.xsd file|Review the information sent in front XML message specifications|
 |2|Invalid Credentials|Inability to authenticate a virtual store request.|Check if the number of accreditation and the key are correct|
 |3|Nonexistent transaction|There is no transaction to the informed identifier|Reviewing the application|
@@ -746,7 +746,7 @@ The errors that may appear in the XML message through the TAG '<error>' are arra
 ## Status of transactions
 
 |Status|Code|
-|------|------|
+|---|---|
 |Built Transaction|0|
 |Transaction in Progress|1|
 |Transaction Authenticated|2|
@@ -761,7 +761,7 @@ The errors that may appear in the XML message through the TAG '<error>' are arra
 ## ECI
 
 |Log Results|Visa|Mastercard|Aura|Other|
-|-------------------------|----|----------|----|-----|
+|---|---|---|---|---|
 |Successfully authenticated carrier.|5|2|n / a|n / a|
 |Carrier not authenticated because the issuer didn’t provide authentication mechanisms.|6|1|n / a|n / a|
 |Carrier not authenticated successfully as an unexpected technical error.|7|1|n / a|n / a|

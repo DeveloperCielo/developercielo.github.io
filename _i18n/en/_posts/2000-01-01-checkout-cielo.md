@@ -49,39 +49,39 @@ The current version of Checkout Cielo supports the following payment means:
  
 **Credit card**
  
-| Issuer         | Credit card cash payment | Installment credit Store | Debit | Voucher |
-|------------------|-----------------|------------------------|--------|---------|
-| Visa             | Yes             | Yes                    | Yes    | No      |
-| MasterCard       | Yes             | Yes                    | Yes    | No      |
-| American Express | Yes             | Yes                    | No     | No      |
-| Elo              | Yes             | Yes                    | No     | No      |
-| Diners Club      | Yes             | Yes                    | No     | No      |
-| Discover         | Yes             | No                      | No     | No      |
-| JCB              | Yes             | Yes                    | No     | No      |
-| Aura             | Yes             | Yes                    | No     | No      |
+|Issuer|Credit card cash payment|Installment credit Store|Debit|Voucher|
+|---|---|---|---|---|
+|Visa|Yes|Yes|Yes|No|
+|MasterCard|Yes|Yes|Yes|No|
+|American Express|Yes|Yes|No|No|
+|Elo|Yes|Yes|No|No|
+|Diners Club|Yes|Yes|No|No|
+|Discover|Yes|No|No|No|
+|JCB|Yes|Yes|No|No|
+|Aura|Yes|Yes|No|No|
  
 **NOTE**: Checkout Cielo maximum limit of installments is 12X.
  
 **Debit card**
  
-| Issuer   | Bank                                                                                                                                                                     |
-|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Visa       | Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil<br> |
-| Mastercard | Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank<br>                                                                                       |
+|Issuer|Bank|
+|---|---|
+|Visa|Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil<br>|
+|Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank<br>|
  
 **Bank slip**
  
-| Bank           | Type           |
-|-----------------|----------------|
-| Bradesco        | Not registered |
-| Bradesco        | SPS registered |
-| Banco do Brasil | Not registered |
+|Bank|Type|
+|---|---|
+|Bradesco|Not registered|
+|Bradesco|SPS registered|
+|Banco do Brasil|Not registered|
  
 **Online Debit**
  
-|Bank          |
-|---------------|
-|Bradesco       |
+|Bank|
+|---|
+|Bradesco|
 |Banco do Brasil|
 
 ## Prerequisites for Integration.
@@ -97,13 +97,13 @@ Below we list points that must be ready before integration:
  
 4. The Checkout works efficiently only in supported browsers:
  
-| Browser           | Version               |
-|-------------------|----------------------|
-| Chrome            | V40.0 or later       |
-| FireFox           | V34.0.5 or later     |
-| Internet Explorer | 10 or higher         |
-| Safari (MAC/iOS)  | 7 or later           |
-| Opera             | V26 or later         |
+|Browser|Version|
+|---|---|
+|Chrome|V40.0 or later|
+|FireFox|V34.0.5 or later|
+|Internet Explorer|10 or higher|
+|Safari (MAC/iOS)|7 or later|
+|Opera|V26 or later|
  
 **NOTE**: For buyers and merchants to get the best experience from Checkout Cielo, we recommend downloading the latest version of the browsers mentioned above.
  
@@ -259,9 +259,9 @@ This documentation describes all the features of the API Checkout Cielo integrat
  
 There are two ways to achieve integration:
  
-|Type       |Description|
-|-----------|---------|
-|`API`    |An Integration via API allows the merchant to send the web site **"Shopping cart"** with all the data that he wants to display on the transactional screen. <br> In this type of integration the merchant has more control over how the order will be generated.|
+|Type|Description|
+|---|---|
+|`API`|An Integration via API allows the merchant to send the web site **"Shopping cart"** with all the data that he wants to display on the transactional screen. <br> In this type of integration the merchant has more control over how the order will be generated.|
 |`Botão / QR Code / Link`|Within the Checkout Cielo Backoffice, it is possible to register a product or group of products that will generate a Link capable of creating multiple payment screens. This template is used for payments by social networks, promotional campaigns or Sales via QR Code. In this category the merchant has less control over how the orders will be presented or generated on the transactional screen|
 
 ## Integration flow
@@ -301,9 +301,9 @@ When the option is saved, a red stripe appears at the top of the screen. It will
  
 This stripe indicates that your Checkout Cielo store is now operating in a test environment, i.e. any transaction performed in that mode will be considered as a test.
  
-| Backoffice                                                       | Transacional                                                         |
-|------------------------------------------------------------------|----------------------------------------------------------------------|
-| ![Red stripe - Backoffice](images/Checkout/tmbackoffice.png)  |  ![Red stripe - Transacional](images/Checkout/tmtransacional.png) |
+|Backoffice|Transacional|
+|---|---|
+|![Red stripe - Backoffice](images/Checkout/tmbackoffice.png)|![Red stripe - Transacional](images/Checkout/tmtransacional.png)|
 
 ### How to transact in Test Mode.
 
@@ -317,15 +317,15 @@ To test credit cards it is necessary for two important data to be defined, the a
  
 **Credit Card Authorization Status**
  
-| Transaction Status   | Cards for conducting tests        | Return Code | Return message               |
-|-----------------------|-------------------------------------------|-------------------|-----------------------------------|
-| Authorized            | 0000.0000.0000.0001 / 0000.0000.0000.0004 | 4                 | Operation performed successfully    |
-| Not Authorized        | 0000.0000.0000.0002                       | 2                 | Not Authorized                    |
-| Not Authorized        | 0000.0000.0000.0007                       | 77                | Canceled Card                  |
-| Not Authorized        | 0000.0000.0000.0008                       | 70                | Problems with Credit Card |
-| Not Authorized        | 0000.0000.0000.0005                       | 78                | Locked Card                  |
-| Not Authorized        | 0000.0000.0000.0003                       | 57                | Expired Card                   |
-| Not Authorized        | 0000.0000.0000.0006                       | 99                | Time Out                          |
+|Transaction Status|Cards for conducting tests|Return Code|Return message|
+|---|---|---|---|
+|Authorized|0000.0000.0000.0001 / 0000.0000.0000.0004|4|Operation performed successfully|
+|Not Authorized|0000.0000.0000.0002|2|Not Authorized|
+|Not Authorized|0000.0000.0000.0007|77|Canceled Card|
+|Not Authorized|0000.0000.0000.0008|70|Problems with Credit Card|
+|Not Authorized|0000.0000.0000.0005|78|Locked Card|
+|Not Authorized|0000.0000.0000.0003|57|Expired Card|
+|Not Authorized|0000.0000.0000.0006|99|Time Out|
  
 **Example:** 540443424293010 **7** = **Authorized**
  
@@ -340,10 +340,10 @@ It is necessary to inform the status of online Debit transaction to be returned 
  
 **Debit Status**
  
-| Customer last name    | Status         |
-|-----------------------|----------------|
-| Paid                  | Paid           |
-| Any name.             | Not authorized |
+|Customer last name|Status|
+|---|---|
+|Paid|Paid|
+|Any name.|Not authorized|
  
 * **Example:** Unauthorized Status.
 * **Customer name:** Maria Pereira
@@ -389,13 +389,13 @@ Below, it is demonstrated how the purchase flow occurs in the integration via AP
 In integration via API, the transactional screen is "assembled" with bases in sent data that form a **Shopping cart**.
 These data are separated into the following "main nodes":
  
-| Node         | Description                                                                                                                                                 |
-|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Cart`     | Contains data of the products to be sold.                                                                                                               |
-| `Shipping` | Contains data of the type of freight to be charged. Is influenced by the `Cart` node                                                                              |
-| `Payment`  | Contains information that influences the amount charged. **Does not contain information about payment means**                                                   |
-| `Customer` | Has buyer's data. Not required in the integration, but required on the payments screen. We suggest it to be sent to expedite the purchase process |
-| `Options`  | Controls Checkout optional features. Node not required                                                                                              |
+|Node|Description|
+|---|---|
+|`Cart`|Contains data of the products to be sold.|
+|`Shipping`|Contains data of the type of freight to be charged. Is influenced by the `Cart` node|
+|`Payment`|Contains information that influences the amount charged. **Does not contain information about payment means**|
+|`Customer`|Has buyer's data. Not required in the integration, but required on the payments screen. We suggest it to be sent to expedite the purchase process|
+|`Options`|Controls Checkout optional features. Node not required|
  
 After sending cart data, Checkout will send a Response containing one **LINK to the payment screen**
  
@@ -479,38 +479,38 @@ Endpoint is the URL to where requests with the cart data will be sent. All reque
 
 **Header**
  
-| Field          | Type         | Required | Size | Description                                                                      |
-|----------------|--------------|-------------|---------|--------------------------------------------------------------------------------|
-| `MerchantId`   | Guid         | Yes         | 36      | Unique store identifier. **Format:** 00000000-0000-0000-0000-000000000000 |
-| `Content-type` | Alphanumeric | Yes         | n/a     | Type of message content to be sent. **Use:** "application/json"   |
+|Field|Type|Required|Size|Description|
+|---|---|---|---|---|
+|`MerchantId`|Guid|Yes|36|Unique store identifier. **Format:** 00000000-0000-0000-0000-000000000000|
+|`Content-type`|Alphanumeric|Yes|n/a|Type of message content to be sent. **Use:** "application/json"|
  
 **Header and Authentication** - All requests sent to Cielo must be authenticated by the store. Authentication consists of sending `MerchantID`, which is the unique store identifier provided by Cielo after store affiliation. Store authentication should be done by sending the `MerchandId` HTTP header field, as shown below and beside:
  
 **Body - Detailed**
 
-| Field                      | Type         | Required | Size | Description                                                                                           | Conditional                                                     |
-|----------------------------|--------------|-------------|---------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| `OrderNumber`              | Alphanumeric | Optional    | 64      | Store order number.                                                                           |                                                                 |
-| `SoftDescriptor`           | Alphanumeric | Optional    | 13      | Text displayed on buyer's invoice. No special characters or spaces. e.g.: `Loja_ABC_1234`      |                                                                 |
-| `Cart.Discount.Type`       | Alphanumeric | Conditional | 255     | Discount type to be applied: `Amount` or `Percent`.                                             | Required in case of Cart.Discount.Value is greater than or equal to zero. |
-| `Cart.Discount.Value`      | Numeric      | Condicional | 18      | Discount amount to be applied: Value or Percentage                                               | Required in case of Cart.Discount.Type is `Amount` or `Percent`.  |
-| `Cart.Items.Name`          | Alphanumeric | Yes         | 128     | Item name in cart.                                                                           |                                                                 |
-| `Cart.Items.Description`   | Alphanumeric | Optional    | 256     | Item description in cart.                                                                      |                                                                 |
-| `Cart.Items.UnitPrice`     | Numeric      | Yes         | 18      | Unit price of the product in cents. e.g.: R$ 1,00 = 100                                            |                                                                 |
-| `Cart.Items.Quantity`      | Numeric      | Yes         | 9       | Item quantity in cart.                                                                     |                                                                 |
-| `Cart.Items.Type`          | Alphanumeric | Yes         | 255     | Item type in cart: <BR>`Asset`<BR>`Digital`<BR>`Service`<BR>`Payment`<BR>                    |                                                                 |
-| `Cart.Items.Sku`           | Alphanumeric | Optional    | 32      | Item Sku in cart.                                                                            |                                                                 |
-| `Cart.Items.Weight`        | Numeric      | Conditional | 9       | Weight in grams of item in cart.                                                                 | Required in case of Shipping.Type is "Post office".                   |
-| `Payment.BoletoDiscount`   | Numeric      | Conditional | 3       | Discount, in percentage, for payments to be performed with bank slip.                            |                                                                 |
-| `Payment.DebitDiscount`    | Numeric      | Conditional | 3       | Discount, in percentage, for payments to be perfomed with online debit.                     |                                                                 |
-| `FirstInstallmentDiscount` | Numeric      | Conditional | 3       | Discount, in percentage, for payments to be performed with credit card cash payment.                   |                                                                 |
-| `MaxNumberOfInstallments`  | Numeric      | Conditional | 2       | Sets maximum value of installments displayed in transactional, ignoring Backoffice setup  |                                                                 |
-| `Customer.Identity`        | Numeric      | Conditional | 14      | buyer's CPF or CNPJ.                                                                           | Not required in API, but mandatory in the transactional screen    |
-| `Customer.FullName`        | Alphanumeric | Conditional | 288     | Buyer full name.                                                                         | Not required in API, but mandatory in the transactional screen    |
-| `Customer.Email`           | Alphanumeric | Conditional | 64      | Buyer's e-mail.                                                                                 | Not required in API, but mandatory in the transactional screen    |
-| `Customer.Phone`           | Numeric      | Conditional | 11      | Buyer's phone number.                                                                              | Not required in API, but mandatory in the transactional screen    |
-| `Options.AntifraudEnabled` | Boolean      | Conditional | n/a     | Enable or not the fraud analysis for the order: true or false.                                  |                                                                 |
-| `Options.ReturnUrl`        | Strin        | Conditional | 255     | Sets to which url the buyer will be sent after completing the purchase.                              | A fixed URL can be registered in Backoffice Checkout         |  
+|Field|Type|Required|Size|Description|Conditional|
+|---|---|---|---|---|---|
+|`OrderNumber`|Alphanumeric|Optional|64|Store order number.||
+|`SoftDescriptor`|Alphanumeric|Optional|13|Text displayed on buyer's invoice. No special characters or spaces. e.g.: `Loja_ABC_1234`||
+|`Cart.Discount.Type`|Alphanumeric|Conditional|255|Discount type to be applied: `Amount` or `Percent`.|Required in case of Cart.Discount.Value is greater than or equal to zero.|
+|`Cart.Discount.Value`|Numeric|Condicional|18|Discount amount to be applied: Value or Percentage|Required in case of Cart.Discount.Type is `Amount` or `Percent`.|
+|`Cart.Items.Name`|Alphanumeric|Yes|128|Item name in cart.||
+|`Cart.Items.Description`|Alphanumeric|Optional|256|Item description in cart.||
+|`Cart.Items.UnitPrice`|Numeric|Yes|18|Unit price of the product in cents. e.g.: R$ 1,00 = 100||
+|`Cart.Items.Quantity`|Numeric|Yes|9|Item quantity in cart.||
+|`Cart.Items.Type`|Alphanumeric|Yes|255|Item type in cart: <BR>`Asset`<BR>`Digital`<BR>`Service`<BR>`Payment`<BR>||
+|`Cart.Items.Sku`|Alphanumeric|Optional|32|Item Sku in cart.||
+|`Cart.Items.Weight`|Numeric|Conditional|9|Weight in grams of item in cart.|Required in case of Shipping.Type is "Post office".|
+|`Payment.BoletoDiscount`|Numeric|Conditional|3|Discount, in percentage, for payments to be performed with bank slip.||
+|`Payment.DebitDiscount`|Numeric|Conditional|3|Discount, in percentage, for payments to be perfomed with online debit.||
+|`FirstInstallmentDiscount`|Numeric|Conditional|3|Discount, in percentage, for payments to be performed with credit card cash payment.||
+|`MaxNumberOfInstallments`|Numeric|Conditional|2|Sets maximum value of installments displayed in transactional, ignoring Backoffice setup||
+|`Customer.Identity`|Numeric|Conditional|14|buyer's CPF or CNPJ.|Not required in API, but mandatory in the transactional screen|
+|`Customer.FullName`|Alphanumeric|Conditional|288|Buyer full name.|Not required in API, but mandatory in the transactional screen|
+|`Customer.Email`|Alphanumeric|Conditional|64|Buyer's e-mail.|Not required in API, but mandatory in the transactional screen|
+|`Customer.Phone`|Numeric|Conditional|11|Buyer's phone number.|Not required in API, but mandatory in the transactional screen|
+|`Options.AntifraudEnabled`|Boolean|Conditional|n/a|Enable or not the fraud analysis for the order: true or false.||
+|`Options.ReturnUrl`|Strin|Conditional|255|Sets to which url the buyer will be sent after completing the purchase.|A fixed URL can be registered in Backoffice Checkout|
 
 ### Responses
 
@@ -540,11 +540,11 @@ In case of success, the response will be the content of the Request plus the Lin
 }
 ```
 
-| Field         | Type   | Required | Size | Description                                                                                                 |
-|---------------|--------|-------------|---------|-----------------------------------------------------------------------------------------------------------|
-| `CheckoutUrl` | String | Yes         | 255     | Transactional screen URL. The Buyer **must be directed to this environment to finalize the transaction** |
-| `Profile`     | String | Yes         | 16      | Merchant profile: “CheckoutCielo” fixed.                                                                  |
-| `Version`     | String | Yes         | 1       | Order creation service version (version: 1).                                                       |
+|Field|Type|Required|Size|Description|
+|---|---|---|---|---|
+|`CheckoutUrl`|String|Yes|255|Transactional screen URL. The Buyer **must be directed to this environment to finalize the transaction**|
+|`Profile`|String|Yes|16|Merchant profile: “CheckoutCielo” fixed.|
+|`Version`|String|Yes|1|Order creation service version (version: 1).|
   
 **Error**:
 In case of error, the message below will be returned.
@@ -557,9 +557,9 @@ In case of error, the message below will be returned.
 }
 ```
 
-| Field     | Type   | Required | Size | Description                   |
-|-----------|--------|-------------|---------|-----------------------------|
-| `Message` | String | Yes         | 254     | Error descriptive message |
+|Field|Type|Required|Size|Description|
+|---|---|---|---|---|
+|`Message`|String|Yes|254|Error descriptive message|
   
 **Important** - Checkout Cielo has no numbered errors, just a generic message. See the section "Identifying Integration Errors" for more information.
 
@@ -575,12 +575,12 @@ In the following items, the behavior of some of the API integration features wil
 Checkout Cielo allows the merchant to apply specific discounts for both cart and payment means.
 The discounts available at Checkout Cielo are:
  
-| Discount        | Application        | Description                                                                                             |
-|-----------------|------------------|-------------------------------------------------------------------------------------------------------|
-| `Cart`      | API              | When sent, it applies the discount on the entire cart, regardless of the means of payment            |
-| `Bank slip`        | API and Backoffice | When sent, the discount is applied only if the Bank slip is the chosen payment means        |
-| `Online Debit` | API and Backoffice | When sent, the discount is applied only if the Online debit is the chosen payment means |
-| `Cash payment`       | API              | When sent, the discount is applied when cash payment on Credit Card is the chosen payment means|
+|Discount|Application|Description|
+|---|---|---|
+|`Cart`|API|When sent, it applies the discount on the entire cart, regardless of the means of payment|
+|`Bank slip`|API and Backoffice|When sent, the discount is applied only if the Bank slip is the chosen payment means|
+|`Online Debit`|API and Backoffice|When sent, the discount is applied only if the Online debit is the chosen payment means|
+|`Cash payment`|API|When sent, the discount is applied when cash payment on Credit Card is the chosen payment means|
  
 <aside class="notice">discounts can be sent in the API or defined in the Backoffice. If a Discount Value is sent in the API, this value will be considered, even if the Backoffice has another registered value </aside>
  
@@ -597,15 +597,15 @@ To send a Discount on the `Cart` just send the node below inside the `Cart` node
       }
 ```
 
-| Field                 | Type         | Required | Size | Description                                               | Conditional                                                     |
-|-----------------------|--------------|-------------|---------|---------------------------------------------------------|-----------------------------------------------------------------|
-| `Cart.Discount.Type`  | Alphanumeric | Conditional | 255     | Discount type to be applied: `Amount` or `Percent`. | Required in case of Cart.Discount.Value is greater than or equal to zero. |
-| `Cart.Discount.Value` | Numeric      | Conditional | 18      | Discount amount to be applied: Value or Percentage   | Required in case of Cart.Discount.Type is `Amount` or `Percent`.  |
+|Field|Type|Required|Size|Description|Conditional|
+|---|---|---|---|---|---|
+|`Cart.Discount.Type`|Alphanumeric|Conditional|255|Discount type to be applied: `Amount` or `Percent`.|Required in case of Cart.Discount.Value is greater than or equal to zero.|
+|`Cart.Discount.Value`|Numeric|Conditional|18|Discount amount to be applied: Value or Percentage|Required in case of Cart.Discount.Type is `Amount` or `Percent`.|
  
 Below, how the effect of the discount is displayed in the Cart:
   
 |Percentage|Value|
-|----------|-----|
+|---|---|
 |![Percentage](images/Checkout/checkout-discount-percent.png)|![Value](images/Checkout/checkout-discount-amount.png)|
   
 **Bank slip & Online Debit**
@@ -622,39 +622,39 @@ To send a Discount on the `Bank slip` and `Online debit` just send inside the Pa
       }
 ```
 
-| Field                             | Type         | Required | Size | Description                                                                                               | 
-|-----------------------------------|--------------|-------------|---------|---------------------------------------------------------------------------------------------------------|
-| `Payment.BoletoDiscount`          | Numeric      | Conditional | 3       | Discount, in percentage, for payments to be performed with bank slip.                                | 
-| `Payment.DebitDiscount`           | Numeric      | Conditional | 3       | Discount, in percentage, for payments to be perfomed with online debit.                         |
-| `Payment.FirstInstallmentDiscount`| Numeric      | Conditional | 3       | Discount, in percent, for cash payments on credit card                                  |
+|Field|Type|Required|Size|Description|
+|---|---|---|---|---|
+|`Payment.BoletoDiscount`|Numeric|Conditional|3|Discount, in percentage, for payments to be performed with bank slip.|
+|`Payment.DebitDiscount`|Numeric|Conditional|3|Discount, in percentage, for payments to be perfomed with online debit.|
+|`Payment.FirstInstallmentDiscount`|Numeric|Conditional|3|Discount, in percent, for cash payments on credit card|
   
 Below, how the effect of the discount is displayed in the Cart:
   
 |Transactional screen|
-|-----------------|
+|---|
 |![Means of payment](images/Checkout/checkout-discount-mp.png)|
 
 #### Types of "Freight"
 
 Checkout Cielo has different types of freight.
 
-| Field                   | Description                                                                                     |
-|-------------------------|-----------------------------------------------------------------------------------------------|
-| `FixedAmount`           | Fixed value sent by the merchant. Used if the Merchant has a delivery method of his own |
-| `Free`                  | Do not perform freight calculation and displays on the transactional screen "Free Shipping"                      |
-| `WithoutShippingPickUp` | Considered "Withdrawal at the store"                                                                |
-| `WithoutShipping`       | No freight charge (applicable for digital products and services).                          |
-| `Post office` | Uses the post office API to perform the cost calculation. The value of the calculation will depend on the used contract (Chosen in the Backoffice of the checkout) and on the type of integration for calculation: **Shipping with Volume** or **Shipping without Volume** |
+|Field|Description|
+|---|---|
+|`FixedAmount`|Fixed value sent by the merchant. Used if the Merchant has a delivery method of his own|
+|`Free`|Do not perform freight calculation and displays on the transactional screen "Free Shipping"|
+|`WithoutShippingPickUp`|Considered "Withdrawal at the store"|
+|`WithoutShipping`|No freight charge (applicable for digital products and services).|
+|`Post office`|Uses the post office API to perform the cost calculation. The value of the calculation will depend on the used contract (Chosen in the Backoffice of the checkout) and on the type of integration for calculation: **Shipping with Volume** or **Shipping without Volume**|
  
  Below, how each option is demonstrated on the transactional screen
  
-| Type of freight           | Transactional                                                        |
-|:-----------------------:|:-------------------------------------------------------------------:|
-| `FixedAmount`           | ![FixedAmount](images/Checkout/fixedamount.png)                     |
-| `Free`                  | ![Free](images/Checkout/free.png)                                   |
-| `WithoutShippingPickUp` | ![WithoutShippingPickUp](images/Checkout/withoutshippingpickup.png) |
-| `WithoutShipping`       | ![WithoutShipping](images/Checkout/withoutshippingpickup.png)       |
-| `Post office`              | ![Post office](images/Checkout/correios.png)                           |
+|Type of freight|Transactional|
+|---|---|
+|`FixedAmount`|![FixedAmount](images/Checkout/fixedamount.png)|
+|`Free`|![Free](images/Checkout/free.png)|
+|`WithoutShippingPickUp`|![WithoutShippingPickUp](images/Checkout/withoutshippingpickup.png)|
+|`WithoutShipping`|![WithoutShipping](images/Checkout/withoutshippingpickup.png)|
+|`Post office`|![Post office](images/Checkout/correios.png)|
 
  **NOTE:** The options for multiple freights in the category `Post office` should be selected within the Backoffice Cielo.        
  
@@ -662,30 +662,30 @@ The nodes that compound the freight information below:
  
 * **Shipping** - Base node. It is equired on integration via API. It defines the types of freight to be used
  
-| Field                         | Type         | Required | Size | Description                                                                                                    | Conditional                                                     |
-|-------------------------------|--------------|-------------|---------|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| `Shipping.Type`               | Alphanumeric | Yes         | 255     | Freight type: <BR>`Post office`<BR>`FixedAmount`<BR>`Free`<BR>`WithoutShippingPickUp`<BR>`WithoutShipping`<BR> |                                                                 |
-| `Shipping.SourceZipCode`      | Numeric      | Conditional | 8       | Shopping cart origin zip code.                                                                        | Obrigatório caso Shipping.Type for "Correios".                  |
-| `Shipping.TargetZipCode`      | Numeric      | Optional    | 8       | Buyer's delivery address zip code.                                                                     |                                                                 |
+|Field|Type|Required|Size|Description|Conditional|
+|---|---|---|---|---|---|
+|`Shipping.Type`|Alphanumeric|Yes|255|Freight type: <BR>`Post office`<BR>`FixedAmount`<BR>`Free`<BR>`WithoutShippingPickUp`<BR>`WithoutShipping`<BR>||
+|`Shipping.SourceZipCode`|Numeric|Conditional|8|Shopping cart origin zip code.|Obrigatório caso Shipping.Type for "Correios".|
+|`Shipping.TargetZipCode`|Numeric|Optional|8|Buyer's delivery address zip code.||
 
 **Shipping.Address** - Delivery address information. **Not required in API contract, but mandatory on transactional screen**. We suggest this data to be sent, if it has already been collected within the store environment.
  
-| Field                        | Type         | Required | Size | Description                                                        |
-|------------------------------|--------------|-------------|---------|------------------------------------------------------------------|
-| `Shipping.Address.Street`    | Alphanumeric | Yes         | 256     | Street, avenue, lane, etc., from buyer's delivery address.|
-| `Shipping.Address.Number`    | Alphanumeric | Yes         | 8       | Buyer's delivery address number.                      |                       
-| `Shipping.Address.Complement`| Alphanumeric | Optional    | 256     | Buyer's delivery address complement.                 |                      
-| `Shipping.Address.District`  | Alphanumeric | Yes         | 64      | Buyer's delivery address neighborhood.                      |
-| `Shipping.Address.City`      | Alphanumeric | Yes         | 64      | Buyer's delivery address city.                      |                       
-| `Shipping.Address.State`     | Alphanumeric | Yes         | 2       | Buyer's delivery address state (UF).                 |  
+|Field|Type|Required|Size|Description|
+|---|---|---|---|---|
+|`Shipping.Address.Street`|Alphanumeric|Yes|256|Street, avenue, lane, etc., from buyer's delivery address.|
+|`Shipping.Address.Number`|Alphanumeric|Yes|8|Buyer's delivery address number.|
+|`Shipping.Address.Complement`|Alphanumeric|Optional|256|Buyer's delivery address complement.|
+|`Shipping.Address.District`|Alphanumeric|Yes|64|Buyer's delivery address neighborhood.|
+|`Shipping.Address.City`|Alphanumeric|Yes|64|Buyer's delivery address city.|
+|`Shipping.Address.State`|Alphanumeric|Yes|2|Buyer's delivery address state (UF).|
 
 **Shipping.Services**
 
-| Field                       | Type         | Required | Size | Description                                                                                                    | 
-|-----------------------------|--------------|-------------|---------|--------------------------------------------------------------------------------------------------------------|
-`Shipping.Services.Name`      | Alphanumeric | Yes         | 128     | Freight service name.                                                                                    |                       
-`Shipping.Services.Price`     | Numeric      | Yes         | 18      | Price of freight service in cents. e.g.: R$ 1,00 = 100.                                                    |                    
-`Shipping.Services.Deadline`  | Numeric      | Conditional | 9       | Delivery time (in days).                                                                                  |                         
+|Field|Type|Required|Size|Description|
+|---|---|---|---|---|
+`Shipping.Services.Name`|Alphanumeric|Yes|128|Freight service name.|
+`Shipping.Services.Price`|Numeric|Yes|18|Price of freight service in cents. e.g.: R$ 1,00 = 100.|
+`Shipping.Services.Deadline`|Numeric|Conditional|9|Delivery time (in days).|
  
 The Post Office Freight can be calculated in 2 ways: 
  
@@ -696,13 +696,13 @@ To use volumetric freight, just send the `Shipping.Measures` node, following the
  
 **Shipping.Measures**
  
-| Field                         | Type         | Required | Size | Description                                                                                                    | Conditional                                                     |
-|-------------------------------|--------------|-------------|---------|--------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| `Shipping.Package`            | Alphanumeric | Required | Integer | Type of package: <BR>`BOX`- Box <BR> `ROL` - Cylinder or ENVELOPE                                           |                                                                 |
-| `Shipping.Lenght`             | Numeric      | Required | Integer | Package length                                                                                        |                                                                 |
-| `Shipping.Height`             | Numeric      | Conditional | Integer |  Package height                                                                                     | Required in case of Shipping.Package as BOX                      |
-| `Shipping.Width`              | Numeric      | Conditional | Integer | Package width.                                                                                           | Required in case of Shipping.Package as BOX or ENVELOPE          |
-| `Shipping.Diameter`           | Numeric      | Conditional | Integer | Package diameter.                                                                                          | Required in case of Shipping.Package as ROL                      |
+|Field|Type|Required|Size|Description|Conditional|
+|---|---|---|---|---|---|
+|`Shipping.Package`|Alphanumeric|Required|Integer|Type of package: <BR>`BOX`- Box <BR> `ROL` - Cylinder or ENVELOPE||
+|`Shipping.Lenght`|Numeric|Required|Integer|Package length||
+|`Shipping.Height`|Numeric|Conditional|Integer|Package height|Required in case of Shipping.Package as BOX|
+|`Shipping.Width`|Numeric|Conditional|Integer|Package width.|Required in case of Shipping.Package as BOX or ENVELOPE|
+|`Shipping.Diameter`|Numeric|Conditional|Integer|Package diameter.|Required in case of Shipping.Package as ROL|
  
 To carry out the calculation of freight via Post Office, it is necessary to respect the measures defined by the contract used by the merchant. For more information on dimensions and weights allowed, we suggest that you validate the store agreement at the link below:
  
@@ -714,10 +714,10 @@ Due to the Cielo checkout structure, where the buyer is redirected to a separate
 During integration it is important to 
 There are two types of errors that may occur during the integration process with Checkout Cielo. They are:
   
-| Type of freight                 | Transactional                                                                                                                                                                                          |
-|:-----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Transactional pre-screen**   | It means that there was some wrong data in sending the transaction. Required data may be missing or in invalid format. Here the merchant will always receive an e-mail stating what went wrong |
-| **Transactional post-screen**   | It means that there is some register impediment that limits the sale. Things like membership blocked, error in data saved in the register or even problems in the checkout itself                            |
+|Type of freight|Transactional|
+|---|---|
+|**Transactional pre-screen**|It means that there was some wrong data in sending the transaction. Required data may be missing or in invalid format. Here the merchant will always receive an e-mail stating what went wrong|
+|**Transactional post-screen**|It means that there is some register impediment that limits the sale. Things like membership blocked, error in data saved in the register or even problems in the checkout itself|
  
 If any errors occur after the transaction is completed, contact Cielo Support.
 
@@ -728,10 +728,10 @@ This type of integration is accomplished through the registration of a set of it
  
 The generates one of the 3 different types of access methods to the **same transactional screen**:
  
-| Method    |Name| Description|
-|-----------|:--:|----------|
-|![Button](images/Checkout/botao.png)|**Button**|It is an HTML code that when pasted into a website, will direct the buyer to the transactional screen - Ideal for use in **hotSites** or **Marketing E-mail** |
-|![QRCODE](images/Checkout/qrcode.png)   |**QRCODE**|Code interpretable by Smartphones and Tablets - Ideal for use in **Printed Marketing** or **Digital**|
+|Method|Name|Description|
+|---|:--:|---|
+|![Button](images/Checkout/botao.png)|**Button**|It is an HTML code that when pasted into a website, will direct the buyer to the transactional screen - Ideal for use in **hotSites** or **Marketing E-mail**|
+|![QRCODE](images/Checkout/qrcode.png)|**QRCODE**|Code interpretable by Smartphones and Tablets - Ideal for use in **Printed Marketing** or **Digital**|
 |`http://bit.ly/2tRkSxZ`|**LINK**|is a shareable link, ideal for use in **Social networks** or **Messengers Mobile**|
  
 This integration model is used to:
@@ -748,11 +748,11 @@ To use this feature, it is necessary to register the product you want to sell, t
 
 Each button has a unique code that only allows to buy that particular product in the conditions of price and registered freight. Therefore, a fraudster can not change any of this information when submitting to the purchase, because Checkout Cielo will collect all the product data in the register of the [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/), and will be worth the register data.
   
-| Feature | Explanation |
-|:--------------:|------------|
-|**Specific**| Each generated button only suits for a particular product or group of products. The quantity and volume of products sold is defined in the Button register, and it is not possible to change the quantity in the transactional screen <BR><BR>**Example:** It will be necessary to create a button to sell 1 shirt. If the buyer desires 3 shirts, he will need to use the button 2X or The merchant should create a button with 2 shirts|
-|**Checkout Order Number**| The button does not allow the register of the Merchant's order number. Since Cielo will trigger its own Checkout, a unique order number (a `GUID`) will be generated. The Merchant will receive this order number as a link to the performed sale|
-|**Creation of orders**|One button generates multiple independent orders, i.e. it is not possible to limit the number of orders generated by a button, QRCODE or created Link. Button is a method of calling the API Checkout. Each time it is triggered, a new request is performed to the API, thus creating a new order| 
+|Feature|Explanation|
+|---|---|
+|**Specific**|Each generated button only suits for a particular product or group of products. The quantity and volume of products sold is defined in the Button register, and it is not possible to change the quantity in the transactional screen <BR><BR>**Example:** It will be necessary to create a button to sell 1 shirt. If the buyer desires 3 shirts, he will need to use the button 2X or The merchant should create a button with 2 shirts|
+|**Checkout Order Number**|The button does not allow the register of the Merchant's order number. Since Cielo will trigger its own Checkout, a unique order number (a `GUID`) will be generated. The Merchant will receive this order number as a link to the performed sale|
+|**Creation of orders**|One button generates multiple independent orders, i.e. it is not possible to limit the number of orders generated by a button, QRCODE or created Link. Button is a method of calling the API Checkout. Each time it is triggered, a new request is performed to the API, thus creating a new order|
  
  **Below, the payment flow via Button:**
  
@@ -772,19 +772,19 @@ To use this feature, it is necessary to register the product you want to sell, t
   
 Below the list of items that must be registered for the button creation:
   
-| Fields          | Description                                                                                                                                      | Minimum Size | Maximum size | Required |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------|-------------|
-|`Product Type` | Indicate whether you are selling a Material, a Service or a Digital Good. For Digital goods, the Freight type option will not be displayed.     | n/a          | n/a          | Yes         |
-|`SKU`             | Product identification code                                                                                                             | 1            | 50           | No         |
-|`Title`          | Product Title                                                                                                                              | 1            | 50           | Yes         |
-|`Description`       | Product description                                                                                                                           | 1            | 255          | Yes         |
-|`Price`           | Order total value **in cents** (e.g.: R$1,00 =100).                                                                                      | 11           | 14           | Yes         |
-|`Freight`           | Choose from one of the Freight options (Post Office, Fixed Freight, Free Shipping, Store Pickup, No Charge).                                   | n/a          | n/a          | Yes         |
-|`Zip Code of Origin`   | This field only appears for Post Office Freight type, must be filled with the Zip Code from where the goods will be shipped for freight calculation purposes. | 9            | 9            | Yes         |
-|`Weight(kg)`        | This field only appears for Post Office Freight type, must be filled with the product weight in kg for freight calculation purposes                | n/a          | n/a          | Yes         |
-|`Cost of Freight`  | This field only appears for Fixed Freight freight type, and must be filled with the amount that the merchant specifies for their products.            | n/a          | n/a          | Yes         |
-|`Shipping method` | This field only appears for Product Type equal to Physical Material and Type of Freight equal to Fixed Freight.                                            | n/a          | n/a          | Yes         |
-|`URL`             | This field only appears for Product Type equal to Digital.                                                                                       | n/a          | n/a          | Yes         |
+|Fields|Description|Minimum Size|Maximum size|Required|
+|---|---|---|---|---|
+|`Product Type`|Indicate whether you are selling a Material, a Service or a Digital Good. For Digital goods, the Freight type option will not be displayed.|n/a|n/a|Yes|
+|`SKU`|Product identification code|1|50|No|
+|`Title`|Product Title|1|50|Yes|
+|`Description`|Product description|1|255|Yes|
+|`Price`|Order total value **in cents** (e.g.: R$1,00 =100).|11|14|Yes|
+|`Freight`|Choose from one of the Freight options (Post Office, Fixed Freight, Free Shipping, Store Pickup, No Charge).|n/a|n/a|Yes|
+|`Zip Code of Origin`|This field only appears for Post Office Freight type, must be filled with the Zip Code from where the goods will be shipped for freight calculation purposes.|9|9|Yes|
+|`Weight(kg)`|This field only appears for Post Office Freight type, must be filled with the product weight in kg for freight calculation purposes|n/a|n/a|Yes|
+|`Cost of Freight`|This field only appears for Fixed Freight freight type, and must be filled with the amount that the merchant specifies for their products.|n/a|n/a|Yes|
+|`Shipping method`|This field only appears for Product Type equal to Physical Material and Type of Freight equal to Fixed Freight.|n/a|n/a|Yes|
+|`URL`|This field only appears for Product Type equal to Digital.|n/a|n/a|Yes|
 
 ### Example of Button:
 
@@ -803,9 +803,9 @@ Below it is possible to see how the registration of a button generates the 3 met
  
 * **QR CODE AND LINK** - The link and the QRCODE has the same behavior as the button, leading to the same transactional screen.
  
-|QR Code|Link  |
-|:-----:|:----:|
-|<img src='data:image/jpeg;base64,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'>| `http://bit.ly/2tRkSxZ`|
+|QR Code|Link|
+|---|---|
+|<img src='data:image/jpeg;base64,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'>|`http://bit.ly/2tRkSxZ`|
   
 Adding the button to your HTML page you should copy the HTML code of the created button and put it in on the HTML code of your web site, as shown in the example below.
  
@@ -854,13 +854,13 @@ Credit card transactions will be included in the [Backoffice Cielo Checkout](htt
  
 **Credit Card** Order of Status:
  
-| Order | Status                  | Explanation                                                                                                                                                                                   |
-|-------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | **PENDING**            | Original status. The transaction is occurring, awaiting response from the authorization process                                                                                                   |
-| 2     | **AUTHORIZED / DENIED** | Result of the authorization process. <BR><BR>**AUTHORIZED** - Credit was reserved for purchase <BR> **DENIED** - Card not authorized by the issuer to continue the transaction              |
-| 3     | **PAID**                | It occurs after capture. Indicates that the credit booked on the card will be deposited in the merchant's account                                                                                             |
-| N/A   | **EXPIRED**            | Occurs if the transaction is not captured within 15 days after authorization. In this situation the transaction is lost.                                                                                 |
-| N/A   | **CHARGEBACK**          | Not automatic status. If the merchant is notified of ChargeBack, he can mark this transaction as lost.<br> This Status is only a markup, not affecting payment processes |
+|Order|Status|Explanation|
+|---|---|---|
+|1|**PENDING**|Original status. The transaction is occurring, awaiting response from the authorization process|
+|2|**AUTHORIZED / DENIED**|Result of the authorization process. <BR><BR>**AUTHORIZED** - Credit was reserved for purchase <BR> **DENIED** - Card not authorized by the issuer to continue the transaction|
+|3|**PAID**|It occurs after capture. Indicates that the credit booked on the card will be deposited in the merchant's account|
+|N/A|**EXPIRED**|Occurs if the transaction is not captured within 15 days after authorization. In this situation the transaction is lost.|
+|N/A|**CHARGEBACK**|Not automatic status. If the merchant is notified of ChargeBack, he can mark this transaction as lost.<br> This Status is only a markup, not affecting payment processes|
   
 **Warning - International Cards:** Checkout Cielo accepts cards issued outside Brazil, however these cards do not have the ability to pay installment sales. This is a limitation imposed by the issuing bank.
  
@@ -873,18 +873,18 @@ Anti-Fraud has the concept of `Status` and `SubStatus`, where the first represen
 The analysis shall indicate a degree of *RISK**, specified by the `Status`, for the sale in question. 
 This degree of risk is what should guide the merchant's decision to capture or cancel the sale. 
  
-| Anti-Fraud Status | Substatus                | description                                                                                                       |
-|-------------------|--------------------------|-----------------------------------------------------------------------------------------------------------------|
-| `Low risk`     | Low risk              | Low risk of being a fraudulent transaction                                                                    |
-| `Medium Risk`     | Medium Risk              | Medium risk of being a fraudulent transaction                                                                    |
-| `High risk`      | High risk               | High risk of being a fraudulent transaction                                                                     |
-| `Not finished`  | Not finished           | Could not complete the query                                                                           |
-| `N/A`             | Authenticated              | Transactions authenticated by the bank - **They are not analyzable by AF**                                            |
-| `N/A`             | AF Not hired        | Anti-fraud not allowed in merchant's plan - **They are not analyzable by AF**                                 |
-| `N/A`             | AF Dispensed            | Anti-fraud dispensed via contract or lower than the minimum value of antifrade parameterized backoffice in the merchant |
-| `N/A`             | Not applicable            | Non-analyzable means of payment such as debit cards, bank slip and online debit                                 |
-| `N/A`             | Recurrence transaction | credit transaction is later than the scheduled transaction. **Only Scheduling is analyzed**           |
-| `N/A`             | Transaction denied         | Credit sale has been denied - **They are not analyzable by AF**                                                    |
+|Anti-Fraud Status|Substatus|description|
+|---|---|---|
+|`Low risk`|Low risk|Low risk of being a fraudulent transaction|
+|`Medium Risk`|Medium Risk|Medium risk of being a fraudulent transaction|
+|`High risk`|High risk|High risk of being a fraudulent transaction|
+|`Not finished`|Not finished|Could not complete the query|
+|`N/A`|Authenticated|Transactions authenticated by the bank - **They are not analyzable by AF**|
+|`N/A`|AF Not hired|Anti-fraud not allowed in merchant's plan - **They are not analyzable by AF**|
+|`N/A`|AF Dispensed|Anti-fraud dispensed via contract or lower than the minimum value of antifrade parameterized backoffice in the merchant|
+|`N/A`|Not applicable|Non-analyzable means of payment such as debit cards, bank slip and online debit|
+|`N/A`|Recurrence transaction|credit transaction is later than the scheduled transaction. **Only Scheduling is analyzed**|
+|`N/A`|Transaction denied|Credit sale has been denied - **They are not analyzable by AF**|
   
 The analysis will be displayed in the “Order Details”, as below:
  
@@ -900,16 +900,16 @@ Checkout Cielo allows the use of MasterCard and Visa Debit cards. This means of 
  
 Supported Banks:
  
-| Mastercard      | Visa            |
-|-----------------|-----------------|
-| Bradesco        | Bradesco        |
-| Banco do Brasil | Banco do Brasil |
-| Santander       | Santander       |
-| Itaú            | Itaú            |
-| CitiBank        | CitiBank        |
-| BRB             |       N/A       |
-| Caixa           |       N/A       |                 
-| BancooB         |       N/A       |                 
+|Mastercard|Visa|
+|---|---|
+|Bradesco|Bradesco|
+|Banco do Brasil|Banco do Brasil|
+|Santander|Santander|
+|Itaú|Itaú|
+|CitiBank|CitiBank|
+|BRB|N/A|
+|Caixa|N/A|
+|BancooB|N/A|
  
 **NOTE:** Cards not belonging to these banks will have their authorizations denied.
  
@@ -933,16 +933,16 @@ This means of payment must be registered by Cielo Support to be made available i
  
 Supported Banks:
  
-| Mastercard      | Visa            |
-|-----------------|-----------------|
-| Bradesco        | Bradesco        |
-| Banco do Brasil | Banco do Brasil |
-| Santander       | Santander       |
-| Itaú            | Itaú            |
-| CitiBank        | CitiBank        |
-| BRB             |       N/A       |
-| Caixa           |       N/A       |                 
-| BancooB         |       N/A       |                 
+|Mastercard|Visa|
+|---|---|
+|Bradesco|Bradesco|
+|Banco do Brasil|Banco do Brasil|
+|Santander|Santander|
+|Itaú|Itaú|
+|CitiBank|CitiBank|
+|BRB|N/A|
+|Caixa|N/A|
+|BancooB|N/A|
  
 **NOTE:** Cards not belonging to these banks will have their authorizations denied.
  
@@ -987,9 +987,9 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
 Checkout Cielo has two types of notifications that the merchant can use according to their needs:
  
 |Type|Description|
-|----|---------|
-|`POST`| Notification where the merchant is passive. Two `POST HTTP` are triggered, one informing sales data and another the change of Transaction Status|
-|`JSON`| Notification where the merchant performs a query. One `POST` containing information for conducting a query (`GET`) the checkout transactions |
+|---|---|
+|`POST`|Notification where the merchant is passive. Two `POST HTTP` are triggered, one informing sales data and another the change of Transaction Status|
+|`JSON`|Notification where the merchant performs a query. One `POST` containing information for conducting a query (`GET`) the checkout transactions|
  
 To use both models, the merchant will need to access Cielo Backoffice and configure both the `NOTIFICATION URL` and the `STATUS CHANGE URL`.
 
@@ -998,9 +998,9 @@ To use both models, the merchant will need to access Cielo Backoffice and config
 Checkout has 3 types of URLs that can impact the notification process.
  
 |Type|Description|Note|
-|----|---------|----------|
-|`Return URL` | Web page to where the buyer will be redirected at the end of the purchase. <BR><BR>No data is exchanged or sent to this URL.<BR><BR> This URL only takes the buyer, after completing the purchase, to a page set by the store.| If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo <BR><BR> Can be sent via API - See "Integration via API"  |
-|`Notification URL`|At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL.<BR><BR> The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed**| Used in the Notification via `POST` and` JSON`|
+|---|---|---|
+|`Return URL`|Web page to where the buyer will be redirected at the end of the purchase. <BR><BR>No data is exchanged or sent to this URL.<BR><BR> This URL only takes the buyer, after completing the purchase, to a page set by the store.|If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo <BR><BR> Can be sent via API - See "Integration via API"|
+|`Notification URL`|At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL.<BR><BR> The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed**|Used in the Notification via `POST` and` JSON`|
 |`Status Change URL`|When an order has its status changed, a HTTP post will be sent to the Status Change URL.<BR><BR> The status change POST does not contain cart data, only order identification data|Used only in Notification via `POST`|
  
 **NOTE:** If a `Return URL` is sent to the API, it will have priority over the URL registered in the Backoffice / In the integration Cielo `via Button`, you can only use the return URL option via backoffice.
@@ -1062,11 +1062,11 @@ Below the Flow of a JSON Notification (Transaction Creation + Status Change)
  
 **JSON NOTIFICATION POST content:**
  
-| Parameter             | Description                                                                                                              | Field Type       |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------|---------------------|
-| `URL`                 | URL with the data needed to perform the transaction data search.                                             | String              |
-| `MerchantId`          | Store identifier at Checkout Cielo; in the Backoffice in the Setup/Register Data menu.                   | Alphanumeric (GUID) |
-| `MerchantOrderNumber` | Store order number; if it is not sent, Checkout Cielo will generate a number, which will be viewed by the Customer. | Alphanumeric        |
+|Parameter|Description|Field Type|
+|---|---|---|
+|`URL`|URL with the data needed to perform the transaction data search.|String|
+|`MerchantId`|Store identifier at Checkout Cielo; in the Backoffice in the Setup/Register Data menu.|Alphanumeric (GUID)|
+|`MerchantOrderNumber`|Store order number; if it is not sent, Checkout Cielo will generate a number, which will be viewed by the Customer.|Alphanumeric|
  
 **Example of a query:**
  
@@ -1128,110 +1128,110 @@ Below are described all the returned fields, as well as their definitions and si
  
 **NOTIFICATION POST content:**
  
-| Parameter                      | Description                                                                                                    | Field Type | Maximum size |
-|--------------------------------|--------------------------------------------------------------------------------------------------------------|---------------|----------------|
-| `checkout_cielo_order_number`  | Unique identifier generated by CHECKOUT CIELO                                                               | Alphanumeric  | 32             |
-| `amount`                       | Unit price of the product, in cents (e.g.: R$ 1,00 = 100)                                                   | Numeric      | 10             |
-| `order_number`                 | Order number sent by store                                                                           | Alphanumeric  | 32             |
-| `created_date`                 | Date of order creation - `dd/MM/yyyy HH:mm:ss`                                                            | Alphanumeric  | 20             |
-| `customer_name`                | Name of the customer. If sent, this value is already filled in the CHECKOUT CIELO screen                       | Alphanumeric  | 289            |
-| `customer_identity`            | Customer identification (CPF or CNPJ) If sent, this value is already filled in the CHECKOUT CIELO screen | Alphanumeric  | 14             |
-| `customer_email`               | Customer e-mail. If sent, this value is already filled in the CHECKOUT CIELO screen                     | Alphanumeric  | 64             |
-| `customer_phone`               | Customer phone number. If sent, this value is already filled in the CHECKOUT CIELO screen                   | Numeric      | 11             |
-| `discount_amount`              | Discount amount provided (sent only if there was a discount)                                             | Numeric      | 10             |
-| `shipping_type`                | Freight mode                                                                                          | Numeric      | 1              |
-| `shipping_name`                | Freight name                                                                                                | Alphanumeric  | 128            |
-| `shipping_price`               | Value of the freight service, in cents (e.g.: R$ 10,00 = 1000)                                                 | Numeric      | 10             |
-| `shipping_address_zipcode`     | Delivery address zip code                                                                                   | Numeric      | 8              |
-| `shipping_address_district`    | Delivery address neighborhood                                                                                | Text         | 64             |
-| `shipping_address_city`        | Delivery address city                                                                                | Alphanumeric  | 64             |
-| `shipping_address_state`       | Delivery address state                                                                                | Alphanumeric  | 64             |
-| `shipping_address_line1`       | Delivery address                                                                                          | Alphanumeric  | 256            |
-| `shipping_address_line2`       | Delivery address complement                                                                           | Alphanumeric  | 256            |
-| `shipping_address_number`      | Delivery address number                                                                                | Numeric      | 8              |
-| `payment_method_type`          | Payment means type code                                                                            | Numeric      | 1              |
-| `payment_method_brand`         | Issuer (only for transactions with credit card payment means)                                   | Numeric      | 1              | 
-| `payment_method_bank`          | Issuer bank (For Automatic Debit and Bank slip transactions)                                                | Numeric      | 1              | 
-| `payment_maskedcredicard`      | Masked Card (Only for transactions with credit card payment means)                           | Alphanumeric  | 20             | 
-| `payment_installments`         | Number of installments                                                                                           | Numeric      | 1              | 
-| `payment_antifrauderesult`     | Status of Credit Card Transactions in Anti-Fraud                                                     | Numeric      | 1              | 
-| `payment_boletonumber`         | Number of bank slip generated                                                                                      | String        | 1              | 
-| `payment_boletoexpirationdate` | Due date for transactions made with bank slip                                            | Numeric      | 10             |
-| `payment_status`               | Transaction status                                                                                          | Numeric      | 1              | 
-| `tid`                          | TID Cielo generated at the time of transaction authorization                                                      | Alphanumeric  | 32             |
-| `test_transaction`             | Indicates whether the transaction was generated with 'Test Mode' enabled                                               | Boolean       | 32             |
+|Parameter|Description|Field Type|Maximum size|
+|---|---|---|---|
+|`checkout_cielo_order_number`|Unique identifier generated by CHECKOUT CIELO|Alphanumeric|32|
+|`amount`|Unit price of the product, in cents (e.g.: R$ 1,00 = 100)|Numeric|10|
+|`order_number`|Order number sent by store|Alphanumeric|32|
+|`created_date`|Date of order creation - `dd/MM/yyyy HH:mm:ss`|Alphanumeric|20|
+|`customer_name`|Name of the customer. If sent, this value is already filled in the CHECKOUT CIELO screen|Alphanumeric|289|
+|`customer_identity`|Customer identification (CPF or CNPJ) If sent, this value is already filled in the CHECKOUT CIELO screen|Alphanumeric|14|
+|`customer_email`|Customer e-mail. If sent, this value is already filled in the CHECKOUT CIELO screen|Alphanumeric|64|
+|`customer_phone`|Customer phone number. If sent, this value is already filled in the CHECKOUT CIELO screen|Numeric|11|
+|`discount_amount`|Discount amount provided (sent only if there was a discount)|Numeric|10|
+|`shipping_type`|Freight mode|Numeric|1|
+|`shipping_name`|Freight name|Alphanumeric|128|
+|`shipping_price`|Value of the freight service, in cents (e.g.: R$ 10,00 = 1000)|Numeric|10|
+|`shipping_address_zipcode`|Delivery address zip code|Numeric|8|
+|`shipping_address_district`|Delivery address neighborhood|Text|64|
+|`shipping_address_city`|Delivery address city|Alphanumeric|64|
+|`shipping_address_state`|Delivery address state|Alphanumeric|64|
+|`shipping_address_line1`|Delivery address|Alphanumeric|256|
+|`shipping_address_line2`|Delivery address complement|Alphanumeric|256|
+|`shipping_address_number`|Delivery address number|Numeric|8|
+|`payment_method_type`|Payment means type code|Numeric|1|
+|`payment_method_brand`|Issuer (only for transactions with credit card payment means)|Numeric|1|
+|`payment_method_bank`|Issuer bank (For Automatic Debit and Bank slip transactions)|Numeric|1|
+|`payment_maskedcredicard`|Masked Card (Only for transactions with credit card payment means)|Alphanumeric|20|
+|`payment_installments`|Number of installments|Numeric|1|
+|`payment_antifrauderesult`|Status of Credit Card Transactions in Anti-Fraud|Numeric|1|
+|`payment_boletonumber`|Number of bank slip generated|String|1|
+|`payment_boletoexpirationdate`|Due date for transactions made with bank slip|Numeric|10|
+|`payment_status`|Transaction status|Numeric|1|
+|`tid`|TID Cielo generated at the time of transaction authorization|Alphanumeric|32|
+|`test_transaction`|Indicates whether the transaction was generated with 'Test Mode' enabled|Boolean|32|
  
 **Payment_status** 
  
 Checkout has a status of its own, different from the CIELO WEB SITE or the API Cielo e-Commerce. See below the complete list.
  
-| Value | Transaction status | Means of Payment               | Description                                                                                                                     |
-|:-----:|---------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| 1     | `Pending`          | For all means of payment | Indicates payment is still being processed; NOTE: Bank slip - Indicates that the bank slip did not have status changed by the merchant |
-| 2     | `Paid`              | For all means of payment | Transaction captured and money will be deposited into account.                                                                    |
-| 3     | `Denied`            | Credit Card only      | Transaction not authorized by the party responsible for the payment means                                                                |
-| 4     | `Expired`          | Credit Cards and Bank slip      | Transaction no longer valid for capture - **15 days post Authorization**                                                      |
-| 5     | `Canceled`         | For credit cards          | Transaction was canceled by the merchant                                                                                          |
-| 6     | `Not Finished`    | All means of payment      | Payment waiting Status - May indicate error or processing failure. Contact Cielo Support                |
-| 7     | `Authorized`        | Credit Card only   | Transaction authorized by the card issuer. Must be captured for money to be deposited into account                  |
-| 8     | `Chargeback`        | Credit Card only   | Transaction canceled by the customer with the card issuer. Money will not be deposited into account.                      |
+|Value|Transaction status|Means of Payment|Description|
+|---|---|---|---|
+|1|`Pending`|For all means of payment|Indicates payment is still being processed; NOTE: Bank slip - Indicates that the bank slip did not have status changed by the merchant|
+|2|`Paid`|For all means of payment|Transaction captured and money will be deposited into account.|
+|3|`Denied`|Credit Card only|Transaction not authorized by the party responsible for the payment means|
+|4|`Expired`|Credit Cards and Bank slip|Transaction no longer valid for capture - **15 days post Authorization**|
+|5|`Canceled`|For credit cards|Transaction was canceled by the merchant|
+|6|`Not Finished`|All means of payment|Payment waiting Status - May indicate error or processing failure. Contact Cielo Support|
+|7|`Authorized`|Credit Card only|Transaction authorized by the card issuer. Must be captured for money to be deposited into account|
+|8|`Chargeback`|Credit Card only|Transaction canceled by the customer with the card issuer. Money will not be deposited into account.|
  
 **Payment_antifrauderesult** 
  
 Antifraud has the concept of `Status` and `SubStatus`, where the first represents the level of risk that a transaction has to be a fraud, and the second, an additional information about the transaction.
  
-| Value | Anti-Fraud Status | Substatus                | description                                                                                                       |
-|:-----:|-------------------|--------------------------|-----------------------------------------------------------------------------------------------------------------|
-|   1   | `Low risk`     | Low risk              | Low risk of being a fraudulent transaction                                                                    |
-|   3   | `Medium Risk`     | Medium Risk              | Medium risk of being a fraudulent transaction                                                                    |
-|   2   | `High risk`      | High risk               | High risk of being a fraudulent transaction                                                                     |
-|   4   | `Not finished`  | Not finished           | Could not end query                                                                           |
-|  N/A  | `N/A`             | Authenticated              | Transactions authenticated by the bank - **Not analyzable by AF**                                            |
-|  N/A  | `N/A`             | AF Not hired        | Anti-Fraud not enabled on the merchant's plan - **Not analyzable by AF**                                 |
-|  N/A  | `N/A`             | AF Dispensed            | Anti-fraud dispensed via contract or lower than the minimum value of anti-fraud parameterized backoffice in the merchant |
-|  N/A  | `N/A`             | Not applicable            | Non-analyzable payment means such as debit cards, bank slip and online debit                                 |
-|  N/A  | `N/A`             | Recurrence transaction | Credit transaction is after than the scheduled transaction. **Only Scheduling is analyzed**           |
-|  N/A  | `N/A`             | Transaction denied         | Sale by credit was denied - **Not analyzable by AF**                                                    |
+|Value|Anti-Fraud Status|Substatus|description|
+|---|---|---|---|
+|1|`Low risk`|Low risk|Low risk of being a fraudulent transaction|
+|3|`Medium Risk`|Medium Risk|Medium risk of being a fraudulent transaction|
+|2|`High risk`|High risk|High risk of being a fraudulent transaction|
+|4|`Not finished`|Not finished|Could not end query|
+|N/A|`N/A`|Authenticated|Transactions authenticated by the bank - **Not analyzable by AF**|
+|N/A|`N/A`|AF Not hired|Anti-Fraud not enabled on the merchant's plan - **Not analyzable by AF**|
+|N/A|`N/A`|AF Dispensed|Anti-fraud dispensed via contract or lower than the minimum value of anti-fraud parameterized backoffice in the merchant|
+|N/A|`N/A`|Not applicable|Non-analyzable payment means such as debit cards, bank slip and online debit|
+|N/A|`N/A`|Recurrence transaction|Credit transaction is after than the scheduled transaction. **Only Scheduling is analyzed**|
+|N/A|`N/A`|Transaction denied|Sale by credit was denied - **Not analyzable by AF**|
 
 **Payment_method_type**
  
 Checkout allows only one type of `Bank slip` or `Online Debit` per merchant, so it is not returned if the method used is Bradesco or Banco do Brasil, since only one of them will be activated in the affiliation. 
  
-| Value | Description       |
-|:-----:|-------------------|
-| 1     | Credit card       |
-| 2     | Bank slip         |
-| 3     | Online Debit      |
-| 4     | Debit card        |
+|Value|Description|
+|---|---|
+|1|Credit card|
+|2|Bank slip|
+|3|Online Debit|
+|4|Debit card|
  
 **Payment_method_brand**
  
-| Value | Description       |
-|:-----:|-----------------|
-| 1     | Visa            |
-| 2     | Mastercad       |
-| 3     | AmericanExpress |
-| 4     | Diners          |
-| 5     | Elo             |
-| 6     | Aura            |
-| 7     | JCB             |
+|Value|Description|
+|---|---|
+|1|Visa|
+|2|Mastercad|
+|3|AmericanExpress|
+|4|Diners|
+|5|Elo|
+|6|Aura|
+|7|JCB|
  
 **Payment_method_bank**
  
-| Value | Description       |
-|:-----:|-----------------|
-| 1     | Banco do Brasil |
-| 2     | Bradesco        |
+|Value|Description|
+|---|---|
+|1|Banco do Brasil|
+|2|Bradesco|
  
 **Shipping_type**
  
-| Value | Description                                             |
-|:-----:|-------------------------------------------------------|
-| 1     | Post office                                            |
-| 2     | Fixed freight                                          |
-| 3     | Free shipping                                          |
-| 4     | Withdraw in store                                      |
-| 5     | No freight charge (digital services or products) |
+|Value|Description|
+|---|---|
+|1|Post office|
+|2|Fixed freight|
+|3|Free shipping|
+|4|Withdraw in store|
+|5|No freight charge (digital services or products)|
 
 # Checkout Cielo installments
 
@@ -1283,9 +1283,9 @@ Below is an example of the Node
 }
 ```
 
-| Field                         | Type         | Required | Size | Description                                                                                               |
-|-------------------------------|--------------|-------------|---------|---------------------------------------------------------------------------------------------------------|
-| `MaxNumberOfInstallments`     | Numeric      | Conditional | 2       | Sets maximum value of installments displayed in transactional, ignoring Backoffice configuration      |
+|Field|Type|Required|Size|Description|
+|---|---|---|---|---|
+|`MaxNumberOfInstallments`|Numeric|Conditional|2|Sets maximum value of installments displayed in transactional, ignoring Backoffice configuration|
 
 # Checkout Cielo Recurrence
 
@@ -1325,18 +1325,18 @@ A recurring transaction in Checkout Cielo has two settings: `Interval` and `Clos
 
 **Payment.RecurrentPayment**
  
-| Field                                | Type         | Required | Size | Description                                                                                               | 
-|--------------------------------------|--------------|-------------|---------|---------------------------------------------------------------------------------------------------------|
-| `Payment.RecurrentPayment.Interval`  | Alphanumeric | Yes         | 10      | Interval between each recurrence transaction                                                           |                  
-| `Payment.RecurrentPayment.EndDate`   | YYYY-MM-DD   | No         | 255     | Date where the Recurrence will end; If not sent the recurrence ends only if canceled      |                                                              
+|Field|Type|Required|Size|Description|
+|---|---|---|---|---|
+|`Payment.RecurrentPayment.Interval`|Alphanumeric|Yes|10|Interval between each recurrence transaction|
+|`Payment.RecurrentPayment.EndDate`|YYYY-MM-DD|No|255|Date where the Recurrence will end; If not sent the recurrence ends only if canceled|
  
-| Interval     |Description |
-|--------------|------------|
-| `Monthly`    | Monthly    |
-| `Bimonthly`  | Bimonthly  |
-| `Quarterly`  | Quarterly  |
-| `SemiAnnual` | SemiAnnual |
-| `Annual`     | Annual     |
+|Interval|Description|
+|---|---|
+|`Monthly`|Monthly|
+|`Bimonthly`|Bimonthly|
+|`Quarterly`|Quarterly|
+|`SemiAnnual`|SemiAnnual|
+|`Annual`|Annual|
   
 The buyer's credit card data is securely stored within Checkout Cielo, allowing it to be re-used in a recurring transaction. This data is not accessed by the merchant and this intelligence is controlled by Checkout Cielo.
  
