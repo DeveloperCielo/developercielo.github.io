@@ -20,7 +20,7 @@ mkdir _site
 git clone https://${GH_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
 # build with Jekyll into "_site"
-bundle exec jekyll build
+bundle exec jekyll build -b ${HOST}
 
 # push
 cd _site

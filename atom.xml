@@ -5,12 +5,12 @@ layout: null
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>{{ site.title }}</title>
-    <link href="{{ site.url }}/atom.xml" rel="self"/>
-    <link href="{{ site.url }}/"/>
-    <logo>{{ site.url }}/assets/images/logo.png</logo>
-    <icon>{{ site.url }}/assets/favicon.ico</icon>
+    <link href="{{ site.baseurl }}/atom.xml" rel="self"/>
+    <link href="{{ site.baseurl }}/"/>
+    <logo>{{ site.baseurl }}/assets/images/logo.png</logo>
+    <icon>{{ site.baseurl }}/assets/favicon.ico</icon>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
-    <id>{{ site.url }}</id>
+    <id>{{ site.baseurl }}</id>
     <author>
         <name>{{ site.author.name }}</name>
         <email>{{ site.author.email }}</email>
@@ -19,9 +19,9 @@ layout: null
     <entry>
         <title>{{ post.title }}</title>
         <category term="{{ post.categories }}" />
-        <link href="{{ site.url }}{{ post.url }}"/>
+        <link href="{{ site.baseurl }}{{ post.url }}"/>
         <updated>{{ post.date | date_to_xmlschema }}</updated>
-        <id>{{ site.url }}{{ post.id }}</id>
+        <id>{{ site.baseurl }}{{ post.id }}</id>
         <content type="html">{{ post.content | xml_escape }}</content>
     </entry>
     {% endfor %}

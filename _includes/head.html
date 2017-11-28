@@ -34,9 +34,9 @@
 
     {% for lang in site.languages %}
         {% if lang == site.default_lang %}
-            <link rel="alternate" hreflang="{{lang}}" href="{{ site.url }}{{page.url}}" />
+            <link rel="alternate" hreflang="{{lang}}" href="{{ site.baseurl }}{{page.url}}" />
         {% else %}
-            <link rel="alternate" hreflang="{{lang}}" href="{{ site.url }}/{{lang}}{{page.url}}" />
+            <link rel="alternate" hreflang="{{lang}}" href="{{ site.baseurl }}/{{lang}}{{page.url}}" />
         {% endif %}
     {% endfor %}
 
