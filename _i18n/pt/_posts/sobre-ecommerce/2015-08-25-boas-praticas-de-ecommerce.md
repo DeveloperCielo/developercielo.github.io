@@ -1,8 +1,9 @@
 ---
 layout: tutorial
 title:  Boas Práticas eCommerce
-description: 
+description:
 search: true
+toc_footers: true
 categories: tutorial
 tags:
   - Sobre E-commerce

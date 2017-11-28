@@ -1,20 +1,15 @@
 ---
 layout: manual
-title: Integração Webservice 1.5
+title: Manual Webservice 1.5
 description: Integração Técnica via XML
 search: true
 translated: true
+toc_footers: true
 categories: manual
 tags:
   - Webservice 1.5
 language_tabs:
   - xml: XML
-toc_footers:
-  - <a href='/Guia-de-migracao-1.5x3.0/'>Guia de migração da API 1.5 para a 3.0</a>
-  - <a href='/Boas-praticas-de-ecommerce/'>Boas práticas de eCommerce</a>
-  - <a href='/Webservice-1.5-FAQ'>Perguntas frequentes</a>
-  - <a href='/Webservice-1.5-Processamento-em-lote/'>Processamento em lote</a>
-search: true
 ---
 
 # Integração Webservice 1.5

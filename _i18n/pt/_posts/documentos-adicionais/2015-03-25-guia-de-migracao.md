@@ -1,11 +1,12 @@
 ---
 layout: tutorial
 title:  Guia de Migração
-description: 
 search: true
+toc_footers: true
 categories: tutorial
 tags:
   - Webservice 1.5
+  - API e-Commerce Cielo
 ---
 
 # Guia de migração Cielo
@@ -63,7 +64,7 @@ Caso sua integração atual utilize a solução Webservice 1.5 e você queira fa
 
 ## Tabela da Requisição de Crédito
 
-Nessa seção você poderá analisar, campo a campo, cada especificidade das soluções no cenário de uma requisição de venda por crédito. 
+Nessa seção você poderá analisar, campo a campo, cada especificidade das soluções no cenário de uma requisição de venda por crédito.
 
 | solução 3.0                           | solução 1.5                     | Observações                                                                                                             |
 |---------------------------------------|---------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -124,7 +125,7 @@ Nessa seção você poderá analisar, campo a campo, cada especificidade das sol
 
 ## Tabela da Resposta de Crédito
 
-Nessa seção você poderá analisar, campo a campo, cada especificidade das soluções no cenário da resposta de uma requisição de venda por crédito. 
+Nessa seção você poderá analisar, campo a campo, cada especificidade das soluções no cenário da resposta de uma requisição de venda por crédito.
 
 | solução 3.0                           | solução 1.5                | Observações                                            |
 |---------------------------------------|----------------------------|--------------------------------------------------------|
@@ -202,7 +203,7 @@ Nessa seção você poderá analisar, campo a campo, cada especificidade das sol
 
 ## Tabela da Requisição de Débito
 
-Nessa seção você poderá analisar, campo a campo, cada especificidade das soluções no cenário de uma requisição de venda por débito. 
+Nessa seção você poderá analisar, campo a campo, cada especificidade das soluções no cenário de uma requisição de venda por débito.
 
 |Guiar por|solução 3.0|   |Guiar por|solução 1.5|Observações|
 |-------|-------------------|---|-------|----------------|-----------|

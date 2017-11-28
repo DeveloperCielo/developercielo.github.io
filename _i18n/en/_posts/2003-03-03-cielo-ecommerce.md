@@ -10,12 +10,6 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
-toc_footers:
-  - <a href='/Guia-de-migracao-1.5x3.0/'>Migration Guide from API 1.5 to API Cielo eCommerce</a>
-  - <a href='/API-3.0-FAQ/'>Answers to frequently asked questions</a>
-  - <a href='/Tutorial-Backoffice-3.0/'>Backoffice Tutorial 3.0</a>
-  - <a href='/Habilitacao-meios-de-pagamento/'>Manual of Bank slip and online debit</a>
-  - <a href='/Boas-praticas-de-ecommerce/'>eCommerce Good Practice</a>
 ---
 
 # Overview - API Cielo eCommerce

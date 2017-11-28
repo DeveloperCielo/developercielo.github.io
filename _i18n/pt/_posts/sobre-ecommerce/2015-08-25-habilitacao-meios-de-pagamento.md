@@ -1,8 +1,8 @@
 ---
 layout: tutorial
-title:  "Configurando Boletos e Débito Online"
-description: 
+title:  Configurando Boletos e Débito Online
 search: true
+toc_footers: true
 categories: tutorial
 tags:
   - Sobre E-commerce
@@ -23,7 +23,7 @@ As soluções e-commerce Cielo suportam 2 tipos de Boletos dos Bancos **Bradesco
 | **Boleto Registrado**     | Banco do Brasil X Bradesco | São boleto emitidos dentro do ambiente Bancario. A Cielo enviará as informações para o banco emissor. É necessario ter as credenciais fornecidas pelo Banco para utilização da funcionalidade | Api Cielo E-commerce & Checkout Cielo |
 | **Boleto Não registrado** | Banco do Brasil X Bradesco | São boletos gerados em Ambiente Cielo. Todos os bancos deixaram de gerar esses boletos até 2020 | Api Cielo E-commerce & Checkout Cielo |
 
-## Sobre Débito online e Cielo 
+## Sobre Débito online e Cielo
 
 O Débito Online é uma transferência eletronica que ocorre dentro do Ambiente Bancario.
 O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferência para a conta da loja onde a transação ocorre.

@@ -1,13 +1,12 @@
 ---
 layout: faq
-title: FAQ
+title: FAQ Webservice 1.5
 description: Respostas para dúvidas comuns sobre Webservice 1.5
 search: true
-translated: true
+toc_footers: true
 categories: faq
 tags:
   - Webservice 1.5
-search: true
 ---
 
 # Dúvidas frequentes
@@ -93,4 +92,3 @@ Para a Visa, esse programa é o conhecido como AIS (Account Information Security
 Para a Mastercard o programa de segurança é o SDP (Site Data Protection) PCI. Para maiores informações acesse: [http://www.mastercard.com/us/sdp/index.html](http://www.mastercard.com/us/sdp/index.html), ou entre em contato conosco.
 
 Ademais, atendidos os requisitos, no momento do credenciamento E-commerce deve ser mencionada a escolha por leitura do cartão na própria loja.
-
