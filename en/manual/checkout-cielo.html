@@ -688,7 +688,7 @@ See the flow below:</p>
 
 <p><strong>B - Bank slip</strong></p>
 
-<p>Just carry out the purchase process normally with no change in procedure. 
+<p>Just carry out the purchase process normally with no change in procedure.
 The bank slip generated in test mode will always be a simulated bank slip.</p>
 
 <p><strong>C - Online debit</strong></p>
@@ -1646,7 +1646,7 @@ The discounts available at Checkout Cielo are:</p>
 <h3 id="identifying-integration-errors">Identifying Integration Errors</h3>
 
 <p>Due to the Cielo checkout structure, where the buyer is redirected to a separate environment to complete the transaction, there are possibilities for errors and integration failures at different times of the payment flow.
-During integration it is important to 
+During integration it is important to
 There are two types of errors that may occur during the integration process with Checkout Cielo. They are:</p>
 
 <table>
@@ -1672,7 +1672,7 @@ There are two types of errors that may occur during the integration process with
 
 <h2 id="integration-by-button">Integration by BUTTON</h2>
 
-<p><strong>Integration via Button, QR CODE or LINK</strong> is a purchase method used whenever there is no “shopping cart” in your store. 
+<p><strong>Integration via Button, QR CODE or LINK</strong> is a purchase method used whenever there is no “shopping cart” in your store.
 This type of integration is accomplished through the registration of a set of items to be sold on the backoffice of Checkout Cielo.</p>
 
 <p>The generates one of the 3 different types of access methods to the <strong>same transactional screen</strong>:</p>
@@ -1981,9 +1981,9 @@ Just follow the path below:</p>
 
 <h3 id="fraud-analysis">Fraud Analysis</h3>
 
-<p>Credit transactions <strong>“AUTHORIZED”</strong> will be sent for analysis of the anti-fraud tool if the <code class="highlighter-rouge">Options.AntifraudEnabled</code> parameter is defined as <code class="highlighter-rouge">TRUE</code>. 
+<p>Credit transactions <strong>“AUTHORIZED”</strong> will be sent for analysis of the anti-fraud tool if the <code class="highlighter-rouge">Options.AntifraudEnabled</code> parameter is defined as <code class="highlighter-rouge">TRUE</code>.
 Anti-Fraud has the concept of <code class="highlighter-rouge">Status</code> and <code class="highlighter-rouge">SubStatus</code>, where the first represents the level of risk that a transaction has to be a fraud, and the second, additional information about the transaction.
-The analysis shall indicate a degree of *RISK**, specified by the <code class="highlighter-rouge">Status</code>, for the sale in question. 
+The analysis shall indicate a degree of *RISK**, specified by the <code class="highlighter-rouge">Status</code>, for the sale in question.
 This degree of risk is what should guide the merchant’s decision to capture or cancel the sale.</p>
 
 <table>
@@ -2124,7 +2124,7 @@ This degree of risk is what should guide the merchant’s decision to capture or
 
 <h3 id="bank-slip">Bank slip</h3>
 
-<p>Checkout Cielo allows the use of Bradesco (Wallet 26 and SPS) and Banco do Brasil Bank slips (Wallet 18). 
+<p>Checkout Cielo allows the use of Bradesco (Wallet 26 and SPS) and Banco do Brasil Bank slips (Wallet 18).
 This means of payment must be registered by Cielo Support to be made available in Backoffice Checkout.</p>
 
 <p>Supported Banks:</p>
@@ -2402,7 +2402,7 @@ This notification mode is based on a <code class="highlighter-rouge">POST JSON</
     </span><span class="s2">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10447480686J51OH8BPB"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
 </span><span class="p">}</span><span class="w">
- 
+
 </span></code></pre></div></div>
 
 <p>See description of notification items in the session <strong>“NOTIFICATION POST content”</strong></p>
@@ -2417,7 +2417,7 @@ This notification mode is based on a <code class="highlighter-rouge">POST JSON</
 
 <h2 id="notification-content">Notification Content</h2>
 
-<p>In either HTTP POST or JSON POST Notification, the content of the returned data is the same. 
+<p>In either HTTP POST or JSON POST Notification, the content of the returned data is the same.
 Below are described all the returned fields, as well as their definitions and sizes:</p>
 
 <p><strong>NOTIFICATION POST content:</strong></p>
@@ -2887,7 +2887,7 @@ Below are described all the returned fields, as well as their definitions and si
 
 <h2 id="type-of-installment">Type of Installment</h2>
 
-<p>Checkout Cielo allows the merchant to carry out credit transactions by installments up to 12 times. 
+<p>Checkout Cielo allows the merchant to carry out credit transactions by installments up to 12 times.
 There are two methods of installment:</p>
 
 <ul>
@@ -2965,7 +2965,7 @@ Below is an example of the Node</p>
 
 <aside class="notice">If one of the transactions is not authorized, Checkout Cielo performs the retentative automatically; for details on automatic retentative, see section <a href="#retentativa">Retentativa</a>.</aside>
 
-<p>Recurrent transactions are ideal for business models that involve the <strong>concept of subscription, plan or monthly fee</strong> in its form of <strong>charge</strong>. 
+<p>Recurrent transactions are ideal for business models that involve the <strong>concept of subscription, plan or monthly fee</strong> in its form of <strong>charge</strong>.
 Some business examples are:</p>
 
 <ul>
@@ -3143,7 +3143,7 @@ Some business examples are:</p>
 
 <p><strong>Example</strong>: Physical goods</p>
 
-<p>If the product type is <code class="highlighter-rouge">Physical Goods</code>, the <strong>API requires the sending of the type of freight</strong>. 
+<p>If the product type is <code class="highlighter-rouge">Physical Goods</code>, the <strong>API requires the sending of the type of freight</strong>.
 If there is a recurrence node in the technical contract, the <code class="highlighter-rouge">WithoutShipping</code> type is mandatory, otherwise the following response will be displayed:</p>
 
 <blockquote>
@@ -3257,16 +3257,7 @@ If there is a recurrence node in the technical contract, the <code class="highli
 </ul>
 
 </div>
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+
 
             <div class="footer-conteudo">
     <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
@@ -3296,20 +3287,8 @@ If there is a recurrence node in the technical contract, the <code class="highli
     <div id="toc"></div>
 
     <div class="fixed-footer">
-    
-    <div class="toc-footer">
-      <h2 class="no-toc toc-footer-title">Complementary materials</h2>
-      <ul class="toc-footer">
         
-        <li><a href='/Habilitacao-meios-de-pagamento/'>Manual de Boleto e débito online</a></li>
-        
-        <li><a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a></li>
-        
-        <li><a href='/Checkout-FAQ/'>FAQ</a></li>
-        
-      </ul>
-    </div>
-    
+
     <div class="toc-contact">
       <div class="contact">
         <a title="Contact" href="#">

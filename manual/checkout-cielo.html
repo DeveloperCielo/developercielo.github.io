@@ -11,7 +11,7 @@
 
     <title>
         
-        Manual de integração &middot; Documentações e tutoriais
+        Manual Checkout Cielo &middot; Documentações e tutoriais
         
     </title>
 
@@ -112,7 +112,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="/manual/checkout-cielo">Manual de integração</a></li>
+                                    <li class="active">&gt; <a href="/manual/checkout-cielo">Manual Checkout Cielo</a></li>
                                     
                                 
                             
@@ -689,7 +689,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
 
 <p><strong>B - Boleto Bancário</strong></p>
 
-<p>Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento. 
+<p>Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento.
 O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 
 <p><strong>C - Debito online</strong></p>
@@ -1639,7 +1639,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
 <h3 id="identificando-erros-de-integração">Identificando Erros de integração</h3>
 
 <p>Devido a estrutura do checkout Cielo, onde o comprador é redirecionado para um ambiente separado para completa a transação, existem possibilidades de erros e falhas de integração em diferentes momentos do fluxo de pagamento.
-Durante a integração é importante 
+Durante a integração é importante
 Há dois tipos de erro que poderão ocorrer durante o processo de integração com o Checkout Cielo. São eles:</p>
 
 <table>
@@ -1665,7 +1665,7 @@ Há dois tipos de erro que poderão ocorrer durante o processo de integração c
 
 <h2 id="integração-por-botÃo">Integração por BOTÃO</h2>
 
-<p><strong>Integração via Botão, QR CODE ou LINK</strong> é um método de compra usada sempre que não houver um “carrinho de compras” em sua loja. 
+<p><strong>Integração via Botão, QR CODE ou LINK</strong> é um método de compra usada sempre que não houver um “carrinho de compras” em sua loja.
 Esse tipo de integração é realizado via o cadastro de um conjunto de itens a ser vendido on backoffice do Checkout Cielo.</p>
 
 <p>O botão gera um do 3 tipos diferentes de métodos de acesso a <strong>mesma tela transacional</strong>:</p>
@@ -1940,9 +1940,9 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 <h3 id="análise-de-fraude">Análise de Fraude</h3>
 
-<p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude caso o parametro <code class="highlighter-rouge">Options.AntifraudEnabled</code> esteja definido como <code class="highlighter-rouge">TRUE</code>. 
+<p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude caso o parametro <code class="highlighter-rouge">Options.AntifraudEnabled</code> esteja definido como <code class="highlighter-rouge">TRUE</code>.
 O Antifraude possui o conceito de <code class="highlighter-rouge">Status</code> e <code class="highlighter-rouge">SubStatus</code>, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
-A análise indicará um grau de *RISCO**, especificado pelo <code class="highlighter-rouge">Status</code>, para a venda em questão. 
+A análise indicará um grau de *RISCO**, especificado pelo <code class="highlighter-rouge">Status</code>, para a venda em questão.
 Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.</p>
 
 <p>Para que as transações sejam analisadas pelo antifraude, é necessario que a loja Checkout possua:</p>
@@ -2089,7 +2089,7 @@ Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou canc
 
 <h3 id="boleto">Boleto</h3>
 
-<p>O Checkout Cielo permite a utilização de Boletos do Bradesco (Carteira 26 e SPS) e Banco do Brasil (Carteira 18). 
+<p>O Checkout Cielo permite a utilização de Boletos do Bradesco (Carteira 26 e SPS) e Banco do Brasil (Carteira 18).
 Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja disponibilizado no Backoffice Checkout.</p>
 
 <p>Bancos Suportados:</p>
@@ -2337,7 +2337,7 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
     </span><span class="s2">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10447480686J51OH8BPB"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
 </span><span class="p">}</span><span class="w">
- 
+
 </span></code></pre></div></div>
 
 <p>Veja a descrição dos itens de notificação na sessão <strong>“Conteúdo do POST de NOTIFICAÇÃO”</strong></p>
@@ -2352,7 +2352,7 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
 
 <h2 id="conteúdo-da-notificação">Conteúdo da Notificação</h2>
 
-<p>Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo. 
+<p>Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
 Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:</p>
 
 <p><strong>Conteúdo do POST de NOTIFICAÇÃO:</strong></p>
@@ -2822,7 +2822,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 
 <h2 id="tipo-de-parcelamento">Tipo de Parcelamento</h2>
 
-<p>O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes. 
+<p>O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes.
 Existem dois métodos de parcelamento:</p>
 
 <ul>
@@ -2900,7 +2900,7 @@ Abaixo, um exemplo do Nó</p>
 
 <aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção <a href="#retentativa">Retentativa</a>.</aside>
 
-<p>Transações recorrentes são ideais para modelos de negócios que envolvam o <strong>conceito de assinatura, plano ou mensalidade</strong> na sua forma de <strong>cobrança</strong>. 
+<p>Transações recorrentes são ideais para modelos de negócios que envolvam o <strong>conceito de assinatura, plano ou mensalidade</strong> na sua forma de <strong>cobrança</strong>.
 Alguns exemplos de negócios são:</p>
 
 <ul>
@@ -3076,7 +3076,7 @@ Alguns exemplos de negócios são:</p>
 
 <p><strong>Exemplo</strong>: Bem Físico</p>
 
-<p>Se o tipo de produto for <code class="highlighter-rouge">Bem Físico</code>, a <strong>API obriga o envio do tipo de frete</strong>. 
+<p>Se o tipo de produto for <code class="highlighter-rouge">Bem Físico</code>, a <strong>API obriga o envio do tipo de frete</strong>.
 Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo <code class="highlighter-rouge">WithoutShipping</code>, caso contrário, a seguinte resposta será apresentada:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -3186,16 +3186,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 </ul>
 
 </div>
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+
 
             <div class="footer-conteudo">
     <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
@@ -3225,20 +3216,33 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
     <div id="toc"></div>
 
     <div class="fixed-footer">
-    
-    <div class="toc-footer">
-      <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
-      <ul class="toc-footer">
         
-        <li><a href='/Habilitacao-meios-de-pagamento/'>Manual de Boleto e débito online</a></li>
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+                    
+                    <li><a href="/faq/checkout-faq" title="Respostas para dúvidas comuns sobre o Checkout">FAQ Checkout Cielo</a></li>
+                
+            
+                
+            
+                
+                    
+                    <li><a href="/tutorial/checkout-tutoriais" >Tutoriais Checkout Cielo</a></li>
+                
+            
+            </ul>
+        </div>
         
-        <li><a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a></li>
-        
-        <li><a href='/Checkout-FAQ/'>FAQ</a></li>
-        
-      </ul>
-    </div>
-    
+
     <div class="toc-contact">
       <div class="contact">
         <a title="Contato" href="#">

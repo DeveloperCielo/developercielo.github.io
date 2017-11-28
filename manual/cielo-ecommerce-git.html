@@ -131,39 +131,30 @@
                 public void onStart() {
                 Log.d("MinhaApp", "O pagamento começou.");
                 }
-                
+
                 @Override
                 public void onPayment(@NotNull Order order) {
                 Log.d("MinhaApp", "Um pagamento foi realizado.");
-                } 
-                
+                }
+
                 @Override public void onCancel() {
                 Log.d("MinhaApp", "A operação foi cancelada.");
-                } 
-                
+                }
+
                 @Override public void onError(@NotNull PaymentError paymentError) {
                 Log.d("MinhaApp", "Houve um erro no pagamento.");
                 }
-    }; 
-    
+    };
+
     String orderId = order.getId();
-    
+
     long value = order.getPrice();
-    
+
     orderManager.checkoutOrder(orderId, value, paymentListener);
 </code></pre>
 
 </div>
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+
 
             <div class="footer-conteudo">
     <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
@@ -193,7 +184,45 @@
     <div id="toc"></div>
 
     <div class="fixed-footer">
-    
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+                    
+                    <li><a href="/faq/faq-api-3-0" title="Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com a API Cielo.">FAQ API e-Commerce Cielo</a></li>
+                
+            
+                
+                    
+                    <li><a href="/tutorial/guia-de-migracao" >Guia de Migração</a></li>
+                
+            
+                
+                    
+                    <li><a href="/manual/cielo-ecommerce" title="Manual integração técnica via API">Manual API e-Commerce Cielo</a></li>
+                
+            
+                
+                    
+                    <li><a href="/manual/split" title="Manual integração técnica via API Split">Split API e-Commerce Cielo</a></li>
+                
+            
+                
+            
+                
+            
+            </ul>
+        </div>
+        
+
     <div class="toc-contact">
       <div class="contact">
         <a title="Contato" href="#">
