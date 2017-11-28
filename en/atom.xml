@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Documentações e tutoriais</title>
-    <link href="/atom.xml" rel="self"/>
-    <link href="/"/>
-    <logo>/assets/images/logo.png</logo>
-    <icon>/assets/favicon.ico</icon>
-    <updated>2017-11-28T15:14:30+00:00</updated>
-    <id></id>
+    <link href="https://developercielo.github.io/en/atom.xml" rel="self"/>
+    <link href="https://developercielo.github.io/en/"/>
+    <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
+    <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
+    <updated>2017-11-28T15:39:09+00:00</updated>
+    <id>https://developercielo.github.io/en</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
@@ -15,9 +15,9 @@
     <entry>
         <title>Integração Webservice 1.5</title>
         <category term="manual" />
-        <link href="/manual/webservice-1-5"/>
+        <link href="https://developercielo.github.io/en/manual/webservice-1-5"/>
         <updated>2015-03-25T00:00:00+00:00</updated>
-        <id>/manual/webservice-1.5</id>
+        <id>https://developercielo.github.io/en/manual/webservice-1.5</id>
         <content type="html">&lt;h1 id=&quot;webservice-integration-15&quot;&gt;Webservice integration 1.5&lt;/h1&gt;
 
 &lt;p&gt;The purpose of this documentation is to orientate the developer about how integrate with Cielo Webservice, describing its functionalities, the methods to be used, list information to be sent and received and provide examples.&lt;/p&gt;
@@ -163,15 +163,15 @@
 
 &lt;h3 id=&quot;internet-explorer&quot;&gt;Internet Explorer:&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-ie.jpg&quot; alt=&quot;Certificado EV Internet Explorer&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-ie.jpg&quot; alt=&quot;Certificado EV Internet Explorer&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;firefox&quot;&gt;Firefox&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-firefox.jpg&quot; alt=&quot;Certificado EV Firefox&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-firefox.jpg&quot; alt=&quot;Certificado EV Firefox&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;google-chrome&quot;&gt;Google Chrome&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-chrome.jpg&quot; alt=&quot;Certificado EV Google Chrome&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-chrome.jpg&quot; alt=&quot;Certificado EV Google Chrome&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;how-to-install-the-extended-validation-certificate-on-the-store-server&quot;&gt;How to install the Extended Validation Certificate on the Store server?&lt;/h2&gt;
 
@@ -209,67 +209,67 @@
 
 &lt;p&gt;In the “Internet Explorer”, click on “Tools” menu and access the “Internet Options”:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ie-1.jpg&quot; alt=&quot;Instalar IE&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-1.jpg&quot; alt=&quot;Instalar IE&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In the “Firefox” browser, click on “Open Menu” and go to “Advanced” and “Options”:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ff-1.jpg&quot; alt=&quot;Instalar FF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ff-1.jpg&quot; alt=&quot;Instalar FF&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In “Chrome”, click on  “Customize and control Google Chrome” and go to “Settings” and “Show advanced settings …” “Change Proxy Settings” and “Content” and Certificates:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-gc-1.jpg&quot; alt=&quot;Instalar GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-gc-1.jpg&quot; alt=&quot;Instalar GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;3rd-step&quot;&gt;3rd STEP:&lt;/h4&gt;
 
 &lt;p&gt;In Internet Explorer, on “Certificates”, click “Import”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ie-2.jpg&quot; alt=&quot;Instalar IE&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-2.jpg&quot; alt=&quot;Instalar IE&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Firefox click “View Certificates”, click “Import”&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ff-2.jpg&quot; alt=&quot;Instalar FF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ff-2.jpg&quot; alt=&quot;Instalar FF&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Chrome click “Manage Certificates”, click “Import”&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-gc-2.jpg&quot; alt=&quot;Instalar GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-gc-2.jpg&quot; alt=&quot;Instalar GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;4th-step&quot;&gt;4th STEP:&lt;/h4&gt;
 
 &lt;p&gt;In Internet Explorer and in Chrome, “Certificate import wizard”, click “Next”&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ie-gc-3.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-3.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ie-gc-4.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-4.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Firefox “Abba servers,” click “Import”&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ff-3.jpg&quot; alt=&quot;Instalar FF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ff-3.jpg&quot; alt=&quot;Instalar FF&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;5th-step&quot;&gt;5th STEP:&lt;/h4&gt;
 
 &lt;p&gt;In Chrome and Internet Explorer “Certificate Import Assistent”, click “Browse”, find the folder where the files are and select the file “ecommerce.cielo.com.br.crt, click” Open “and then” Advance”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ie-gc-5.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-5.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ie-gc-6.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-6.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;6th-step&quot;&gt;6th STEP:&lt;/h4&gt;
 
 &lt;p&gt;Select the desired option: add the certificate in a default folder or browse to the folder of your choice.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ie-gc-7.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-7.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;7th-step&quot;&gt;7th STEP:&lt;/h4&gt;
 
 &lt;p&gt;Click “Finish”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ie-gc-8.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-8.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;8th-step&quot;&gt;8th STEP:&lt;/h4&gt;
 
 &lt;p&gt;Click “Ok” to complete the import.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-instalar-ie-gc-9.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-9.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;At Firefox does not appear the message “Import Successfully”, it just completes the import.&lt;/aside&gt;
 
@@ -353,7 +353,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;p&gt;From transaction creation, it can assume the following status:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/status.png&quot; alt=&quot;status transações&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/status.png&quot; alt=&quot;status transações&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The transition of status can be realized through the message exchange between the store and Cielo, or automatically, for example, when an authorized transaction capture deadline expires.&lt;/p&gt;
 
@@ -711,13 +711,13 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;p&gt;The diagram below makes easier the view of complete flux of browsing:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/fluxo.png&quot; alt=&quot;fluxo&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/fluxo.png&quot; alt=&quot;fluxo&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Generally, the URL of return follow this format: https://minhaloja.com.br/pedido?id=12345678. This page must use the order number to internally search TID that was returned by Cielo. With this information, the page must realize a request of Consult via TID to Cielo's Web Service and interpret the result to show to customer.&lt;/aside&gt;
 
 &lt;p&gt;In the other hand, when there is no authentication, doesn’t exist the context exchange or redirections and the integration is more simple:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/fluxo-simples.png&quot; alt=&quot;fluxo-simples&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/fluxo-simples.png&quot; alt=&quot;fluxo-simples&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;return-types&quot;&gt;Return types&lt;/h2&gt;
 
@@ -842,7 +842,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;p&gt;When there is authentication, the flux to execute an authorization happens in two steps, according to the diagram below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/fluxo-autenticacao.png&quot; alt=&quot;fluxo-autenticacao&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/fluxo-autenticacao.png&quot; alt=&quot;fluxo-autenticacao&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;finishOrder() - it happens when a cardholder finishes the order and starts the payment purchase.&lt;/li&gt;
@@ -2369,7 +2369,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
   &lt;li&gt;If the recurrent transaction has been send through a card, the authorization will be denied and it will returned the data of new card, according to the diagram below:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/remova-facil.png&quot; alt=&quot;remova fácil&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/remova-facil.png&quot; alt=&quot;remova fácil&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;The &quot;Renova Fácil&quot; (Easy Renew) is only available on recurrent transactions. The Easy Renew effectiveness depends of correct usage of recurrent transactions properly signalized. Consult banks and card issuers participants with Cielo E-commerce Web Support.&lt;/aside&gt;
 
@@ -2675,7 +2675,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
   &lt;li&gt;In case of recurrent transaction had been sent through a token, the authorization will denied and a new token will return to be used, according to the diagram below:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/remova-facil-token.png&quot; alt=&quot;remova fácil com token&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/remova-facil-token.png&quot; alt=&quot;remova fácil com token&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;creating-token&quot;&gt;Creating TOKEN&lt;/h3&gt;
 
@@ -3234,7 +3234,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;p&gt;After conclude the development, the Homologation step will ensure that the implementation was appropriate and the customer solution is ready to interact with production environment of Cielo. It’s always happens after the development has been finished and tested. It’s composed by the next steps:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/fluxo-testes.png&quot; alt=&quot;fluxo testes&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/fluxo-testes.png&quot; alt=&quot;fluxo testes&quot; /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Conclusion of Registration: at this stage, the customer must send an email to &lt;a href=&quot;mailto:cieloecommerce@cielo.com.br&quot;&gt;cieloecommerce@cielo.com.br&lt;/a&gt;, requesting a production key. The message will contain the next information, that will complete the registration:
@@ -3291,15 +3291,15 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;p&gt;&lt;strong&gt;Google Chrome&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-chrome.png&quot; alt=&quot;Certificado no Google Chrome&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-chrome.png&quot; alt=&quot;Certificado no Google Chrome&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Mozilla Firefox&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-firefox.png&quot; alt=&quot;Certificado no Mozilla Firefox&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-firefox.png&quot; alt=&quot;Certificado no Mozilla Firefox&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Internet Explorer&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/certificado-ie.png&quot; alt=&quot;Certificado no Internet Explorer&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-ie.png&quot; alt=&quot;Certificado no Internet Explorer&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Verified Program by Visa (Visa)&lt;/p&gt;
 
@@ -3314,9 +3314,9 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
     <entry>
         <title>API Cielo eCommerce</title>
         <category term="manual" />
-        <link href="/manual/cielo-ecommerce"/>
+        <link href="https://developercielo.github.io/en/manual/cielo-ecommerce"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>/manual/cielo-ecommerce</id>
+        <id>https://developercielo.github.io/en/manual/cielo-ecommerce</id>
         <content type="html">&lt;h1 id=&quot;overview---api-cielo-ecommerce&quot;&gt;Overview - API Cielo eCommerce&lt;/h1&gt;
 
 &lt;p&gt;The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce, describing the features, methods to be used, listing information to be sent and received, and providing examples.&lt;/p&gt;
@@ -17546,9 +17546,9 @@ More information and complete integration, you can find in the link: https://dev
     <entry>
         <title>Manual de integração</title>
         <category term="manual" />
-        <link href="/manual/checkout-cielo"/>
+        <link href="https://developercielo.github.io/en/manual/checkout-cielo"/>
         <updated>2000-01-01T00:00:00+00:00</updated>
-        <id>/manual/checkout-cielo</id>
+        <id>https://developercielo.github.io/en/manual/checkout-cielo</id>
         <content type="html">&lt;h1 id=&quot;about-checkout-cielo&quot;&gt;About Checkout Cielo.&lt;/h1&gt;
 
 &lt;p&gt;&lt;strong&gt;Checkout Cielo&lt;/strong&gt; is a solution that aggregates multiple payment processing services in which the consumer is directed to a secure online payment page from Cielo.
@@ -18184,7 +18184,7 @@ Just access our &lt;a href=&quot;https://developercielo.github.io/Tutorial//Post
 
 &lt;p&gt;Below, it is demonstrated how the purchase flow occurs in the integration via API:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/intapi.png&quot; alt=&quot;Integration Via API&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.ioimages/Checkout/intapi.png&quot; alt=&quot;Integration Via API&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;creating-the-cart&quot;&gt;Creating the Cart&lt;/h3&gt;
 
