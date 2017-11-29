@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: FAQ Webservice 1.5
+title: FAQ
 description: Respostas para dúvidas comuns sobre Webservice 1.5
 search: true
 toc_footers: true
