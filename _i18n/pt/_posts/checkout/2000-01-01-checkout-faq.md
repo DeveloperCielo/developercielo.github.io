@@ -1,6 +1,6 @@
 ---
 layout: faq
-title: FAQ Checkout Cielo
+title: FAQ
 description: Respostas para dúvidas comuns sobre o Checkout
 search: true
 toc_footers: true
