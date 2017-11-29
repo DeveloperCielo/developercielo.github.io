@@ -15,7 +15,6 @@ language_tabs:
   csharp: c#
   javascript: javascript
 ---
-
 # Visão geral
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Credenciamento da Cielo, descrevendo as funcionalidades, fluxo de execução e métodos a serem utilizados.
