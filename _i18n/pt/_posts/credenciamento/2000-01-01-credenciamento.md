@@ -11,7 +11,9 @@ tags:
   - API Credenciamento Cielo
 ---
 
+
 # Visão Geral
+
 
 A API de credenciamento permite que novos canais (websites / apps / aplicações híbridas) sejam utilizados para realizar o credenciamento de novos estabelecimentos utilizando a API de credenciamento da Cielo.
 
