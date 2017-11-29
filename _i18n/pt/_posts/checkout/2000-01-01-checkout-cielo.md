@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual Checkout Cielo
+title: Manual de integração
 description: Integração técnica via API
 search: true
 translated: true
