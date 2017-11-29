@@ -24,7 +24,7 @@ Nesse manual você encontrará a referência sobre todas as operações disponí
 
 ## O que é
 
-Credenciamento é o processo de afiliação de novo cliente na Cielo (Estabelecimento Comercial).
+Credenciamento é o processo de afiliação de novo cliente na Cielo (8Estabelecimento Comercial8).
 
 ## Como funciona
 
