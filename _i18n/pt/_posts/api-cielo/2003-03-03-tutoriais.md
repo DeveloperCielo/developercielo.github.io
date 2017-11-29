@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title:  Tutoriais Backoffice API Cielo
+title:  Tutoriais
 description: O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.
 search: true
 toc_footers: true
