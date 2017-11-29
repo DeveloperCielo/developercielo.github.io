@@ -1,0 +1,850 @@
+<h1 id="visão-geral">Visão geral</h1>
+
+<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Credenciamento da Cielo, descrevendo as funcionalidades, fluxo de execução e métodos a serem utilizados</p>
+
+<p>Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST de Credenciamento Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:</p>
+
+<h2 id="o-que-é">O que é</h2>
+
+<p>Credenciamento é o processo de afiliação de novo cliente na Cielo (8Estabelecimento Comercial8)</p>
+
+<h2 id="como-funciona">Como funciona</h2>
+
+<p>A integração é realizada através de serviços disponibilizados como Web Services O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT Cada tipo de mensagem deve ser enviada para um recurso identificado através do path</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Método</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>POST</strong></td>
+      <td>O método HTTP <code class="highlighter-rouge">POST</code> é utilizado na criação dos recursos ou no envio de informações que serão processadas Por exemplo, criação de uma transação</td>
+    </tr>
+    <tr>
+      <td><strong>PUT</strong></td>
+      <td>O método HTTP <code class="highlighter-rouge">PUT</code> é utilizado para atualização de um recurso já existente Por exemplo, captura ou cancelamento de uma transação previamente autorizada</td>
+    </tr>
+    <tr>
+      <td><strong>GET</strong></td>
+      <td>O método HTTP <code class="highlighter-rouge">GET</code> é utilizado para consultas de recursos já existentes Por exemplo, consulta de transações</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="público-alvo">Público-alvo</h2>
+
+<p>Integradores que desejam criar novos canais de credenciamento, seja de forma online através da web ou aplicativos mobile</p>
+
+<h2 id="diagrama-de-utilização-demostrando-o-funcionamento-da-solução">Diagrama de utilização demostrando o funcionamento da solução</h2>
+
+<h2 id="diagrama-de-utilização-demostrando-os-passos-para-o-uso-da-api">Diagrama de utilização demostrando os passos para o uso da API</h2>
+
+<h2 id="documentação-técnica">Documentação Técnica</h2>
+
+<h3 id="swagger-20">Swagger 20</h3>
+
+<p>Acesse o swagger através do link: aqui!!!</p>
+
+<h2 id="api-docs">API Docs</h2>
+
+<h3 id="endpoints-sandbox-e-produção">Endpoints (Sandbox e Produção)</h3>
+
+<p>Ambiente Produção</p>
+
+<ul>
+  <li><a href="https://apicielocombr/affiliate">https://apicielocombr/affiliate</a></li>
+</ul>
+
+<p>Ambiente Sandbox</p>
+
+<ul>
+  <li><a href="https://apicielocombr/sandbox/affiliate">https://apicielocombr/sandbox/affiliate</a></li>
+</ul>
+
+<h3 id="instruções-para-uso-realizar-chamadas-autenticação">Instruções para uso: realizar chamadas, autenticação</h3>
+
+<h3 id="http-header">HTTP Header</h3>
+
+<p>Todas as chamadas da API de Credenciamento necessitam que as informações abaixo estejam presentes no Header na requisição:</p>
+
+<p><strong>Client-Id</strong>: Identificação de acesso Sua geração ocorre no momento da criação pelo painel do desenvolvedor Seu valor pode ser visualizado na coluna “Client ID”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”</p>
+
+<p><strong>Access-Token</strong>:Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor Seu valor pode ser visualizado clicando em “detalhes” na coluna “Access Tokens”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”</p>
+
+<p><strong>Merchant-Id</strong>: Token que identifica o estabelecimento comercial dentro do servidor Order Manager da Cielo LIO Sua geração ocorre durante o processo de cadastro do Client ID Seu valor pode ser visualizado na coluna “Merchant ID”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”</p>
+
+<h3 id="http-status-code">HTTP Status Code</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Erro</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>Operação realizada com sucesso</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>A solicitação foi realizada, resultando na criação de um novo recurso</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>Empty</td>
+      <td>Operação realizada com sucesso, mas nenhuma resposta foi retornada</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Bad Request</td>
+      <td>A requisição possui parâmetro(s) inválido(s)</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>O token de acesso não foi informado ou não possui acesso às APIs</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>O acesso ao recurso foi negado</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>O recurso informado no request não foi encontrado</td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td>Request is to Large</td>
+      <td>A requisição está ultrapassando o limite permitido para o perfil do seu token de acesso</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Unprocessable Entity</td>
+      <td>A requisição possui parâmetros obrigatórios não informados</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>Too Many Requests</td>
+      <td>O consumidor estourou o limite de requisições por tempo</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Internal Server Error</td>
+      <td>Erro não esperado; algo está quebrado na API</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="recursos">Recursos</h3>
+
+<h4 id="merchants">Merchants</h4>
+
+<p>Merchants é a representação da entidade de estabelecimento comercial para a execução do fluxo de credenciamento de um novo cliente</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/merchants</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
+  https://apicielocombr/sandbox/affiliate/v1/merchants <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'client_id: LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "agribusiness": false,
+    "solutions": {
+        "code": 18,
+        "numberOfEquipaments": 1,
+        "ecommercePlan": 0,
+        "telephoneCompanies": "VIVO"
+    },
+    "customer": {
+        "documentType": "F",
+        "documentNumber": 35947512017,
+        "name": "nome",
+        "companyName": "nome",
+        "mei": false,
+        "stateEnrollment": 0,
+        "mcc": 8021,
+        "accounts": {
+            "bankCode": 341,
+            "bankBranch": "1475",
+            "accountNumber": "132997",
+            "type": "CHECKING_ACCOUNT_CIELO"
+        },
+        "tradingName": "Vendinha 47599041079",
+        "contactName": "Cliente teste",
+        "contactEmail": "teste_47599041079@testecombr",
+        "phoneNumbers": {
+            "type": "CELL_PHONE",
+            "ddd": 11,
+            "number": 988995623
+        },
+        "addresses": {
+            "type": "COMMERCIAL_ADDRESS",
+            "postalCode": 13327371,
+            "address": "Rua Santa Luzia",
+            "number": "52",
+            "add": "casa",
+            "neighborhood": "Nova Era",
+            "city": "Salto",
+            "state": "SP",
+            "country": "Brasil"
+        },
+        "owners": {
+            "name": "Cliente 14452619010",
+            "documentNumber": 11264316488,
+            "birthDate": "1989-02-08",
+            "phoneNumbers": {
+                "type": "CELL_PHONE",
+                "ddd": 11,
+                "number": 998561234
+            },
+            "affiliatorCode": "123456789",
+            "averageRevenue": 150,
+            "cieloPlanCode": 1,
+            "amountOfDaysForliquidation": 1
+        }
+    }
+}
+</span></code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"agribusiness"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"solutions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"numberOfEquipaments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ecommercePlan"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"telephoneCompanies"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VIVO"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"documentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"documentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">35947512017</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nome"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"companyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nome"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mei"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stateEnrollment"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mcc"</span><span class="p">:</span><span class="w"> </span><span class="mi">8021</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"bankCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">341</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bankBranch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1475"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132997"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHECKING_ACCOUNT_CIELO"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"tradingName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vendinha 47599041079"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contactName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cliente teste"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contactEmail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste_47599041079@testecombr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CELL_PHONE"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ddd"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">988995623</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMMERCIAL_ADDRESS"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">13327371</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Santa Luzia"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"52"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"add"</span><span class="p">:</span><span class="w"> </span><span class="s2">"casa"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nova Era"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Salto"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brasil"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"owners"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cliente 14452619010"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"documentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">11264316488</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1989-02-08"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"phoneNumbers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CELL_PHONE"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"ddd"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">998561234</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"affiliatorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"averageRevenue"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"cieloPlanCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amountOfDaysForliquidation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+
+<span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaTypeparse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBodycreate</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\r\n\t\"agribusiness\": false,\r\n\t\"solutions\": {\r\n\t\t\"code\": 18,\r\n\t\t\"numberOfEquipaments\": 1,\r\n\t\t\"ecommercePlan\": 0,\r\n\t\t\"telephoneCompanies\": \"VIVO\"\r\n\t},\r\n\t\"customer\": {\r\n\t\t\"documentType\": \"F\",\r\n\t\t\"documentNumber\": 35947512017,\r\n\t\t\"name\": \"nome\",\r\n\t\t\"companyName\": \"nome\",\r\n\t\t\"mei\": false,\r\n\t\t\"stateEnrollment\": 0,\r\n\t\t\"mcc\": 8021,\r\n\t\t\"accounts\": {\r\n\t\t\t\"bankCode\": 341,\r\n\t\t\t\"bankBranch\": \"1475\",\r\n\t\t\t\"accountNumber\": \"132997\",\r\n\t\t\t\"type\": \"CHECKING_ACCOUNT_CIELO\"\r\n\t\t},\r\n\t\t\"tradingName\": \"Vendinha 47599041079\",\r\n\t\t\"contactName\": \"Cliente teste\",\r\n\t\t\"contactEmail\": \"teste_47599041079@testecombr\",\r\n\t\t\"phoneNumbers\": {\r\n\t\t\t\"type\": \"CELL_PHONE\",\r\n\t\t\t\"ddd\": 11,\r\n\t\t\t\"number\": 988995623\r\n\t\t},\r\n\t\t\"addresses\": {\r\n\t\t\t\"type\": \"COMMERCIAL_ADDRESS\",\r\n\t\t\t\"postalCode\": 13327371,\r\n\t\t\t\"address\": \"Rua Santa Luzia\",\r\n\t\t\t\"number\": \"52\",\r\n\t\t\t\"add\": \"casa\",\r\n\t\t\t\"neighborhood\": \"Nova Era\",\r\n\t\t\t\"city\": \"Salto\",\r\n\t\t\t\"state\": \"SP\",\r\n\t\t\t\"country\": \"Brasil\"\r\n\t\t},\r\n\t\t\"owners\": {\r\n\t\t\t\"name\": \"Cliente 14452619010\",\r\n\t\t\t\"documentNumber\": 11264316488,\r\n\t\t\t\"birthDate\": \"1989-02-08\",\r\n\t\t\t\"phoneNumbers\": {\r\n\t\t\t\t\"type\": \"CELL_PHONE\",\r\n\t\t\t\t\"ddd\": 11,\r\n\t\t\t\t\"number\": 998561234\r\n\t\t\t},\r\n\t\t\t\"affiliatorCode\": \"123456789\",\r\n\t\t\t\"averageRevenue\": 150,\r\n\t\t\t\"cieloPlanCode\": 1,\r\n\t\t\t\"amountOfDaysForliquidation\": 1\r\n\t\t}\r\n\t}\r\n}"</span><span class="o">);</span>
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RequestBuilder</span><span class="o">()</span>
+  <span class="n">url</span><span class="o">(</span><span class="s">"https://apidevcielocombr/sandbox/affiliate/v1/merchants"</span><span class="o">)</span>
+  <span class="n">post</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
+  <span class="n">addHeader</span><span class="o">(</span><span class="s">"content-type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="n">addHeader</span><span class="o">(</span><span class="s">"client_id"</span><span class="o">,</span> <span class="s">"LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ"</span><span class="o">)</span>
+  <span class="n">build</span><span class="o">();</span>
+
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">clientnewCall</span><span class="o">(</span><span class="n">request</span><span class="o">)</span><span class="n">execute</span><span class="o">();</span>
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://apidevcielocombr/sandbox/affiliate/v1/merchants'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_POST</span><span class="p">);</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'client_id'</span> <span class="o">=&gt;</span> <span class="s1">'LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ'</span><span class="p">,</span>
+  <span class="s1">'content-type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+<span class="p">));</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setBody</span><span class="p">(</span><span class="s1">'{
+    "agribusiness": false,
+    "solutions": {
+        "code": 18,
+        "numberOfEquipaments": 1,
+        "ecommercePlan": 0,
+        "telephoneCompanies": "VIVO"
+    },
+    "customer": {
+        "documentType": "F",
+        "documentNumber": 35947512017,
+        "name": "nome",
+        "companyName": "nome",
+        "mei": false,
+        "stateEnrollment": 0,
+        "mcc": 8021,
+        "accounts": {
+            "bankCode": 341,
+            "bankBranch": "1475",
+            "accountNumber": "132997",
+            "type": "CHECKING_ACCOUNT_CIELO"
+        },
+        "tradingName": "Vendinha 47599041079",
+        "contactName": "Cliente teste",
+        "contactEmail": "teste_47599041079@testecombr",
+        "phoneNumbers": {
+            "type": "CELL_PHONE",
+            "ddd": 11,
+            "number": 988995623
+        },
+        "addresses": {
+            "type": "COMMERCIAL_ADDRESS",
+            "postalCode": 13327371,
+            "address": "Rua Santa Luzia",
+            "number": "52",
+            "add": "casa",
+            "neighborhood": "Nova Era",
+            "city": "Salto",
+            "state": "SP",
+            "country": "Brasil"
+        },
+        "owners": {
+            "name": "Cliente 14452619010",
+            "documentNumber": 11264316488,
+            "birthDate": "1989-02-08",
+            "phoneNumbers": {
+                "type": "CELL_PHONE",
+                "ddd": 11,
+                "number": 998561234
+            },
+            "affiliatorCode": "123456789",
+            "averageRevenue": 150,
+            "cieloPlanCode": 1,
+            "amountOfDaysForliquidation": 1
+        }
+    }
+}'</span><span class="p">);</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+
+  <span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">HttpException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$ex</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://apidevcielocombr/sandbox/affiliate/v1/merchants"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">MethodPOST</span><span class="p">);</span>
+<span class="nf">requestAddHeader</span><span class="p">(</span><span class="s">"client_id"</span><span class="p">,</span> <span class="s">"LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ"</span><span class="p">);</span>
+<span class="nf">requestAddHeader</span><span class="p">(</span><span class="s">"content-type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
+<span class="nf">requestAddParameter</span><span class="p">(</span><span class="s">"application/json"</span><span class="p">,</span> <span class="s">"{\r\n\t\"agribusiness\": false,\r\n\t\"solutions\": {\r\n\t\t\"code\": 18,\r\n\t\t\"numberOfEquipaments\": 1,\r\n\t\t\"ecommercePlan\": 0,\r\n\t\t\"telephoneCompanies\": \"VIVO\"\r\n\t},\r\n\t\"customer\": {\r\n\t\t\"documentType\": \"F\",\r\n\t\t\"documentNumber\": 35947512017,\r\n\t\t\"name\": \"nome\",\r\n\t\t\"companyName\": \"nome\",\r\n\t\t\"mei\": false,\r\n\t\t\"stateEnrollment\": 0,\r\n\t\t\"mcc\": 8021,\r\n\t\t\"accounts\": {\r\n\t\t\t\"bankCode\": 341,\r\n\t\t\t\"bankBranch\": \"1475\",\r\n\t\t\t\"accountNumber\": \"132997\",\r\n\t\t\t\"type\": \"CHECKING_ACCOUNT_CIELO\"\r\n\t\t},\r\n\t\t\"tradingName\": \"Vendinha 47599041079\",\r\n\t\t\"contactName\": \"Cliente teste\",\r\n\t\t\"contactEmail\": \"teste_47599041079@testecombr\",\r\n\t\t\"phoneNumbers\": {\r\n\t\t\t\"type\": \"CELL_PHONE\",\r\n\t\t\t\"ddd\": 11,\r\n\t\t\t\"number\": 988995623\r\n\t\t},\r\n\t\t\"addresses\": {\r\n\t\t\t\"type\": \"COMMERCIAL_ADDRESS\",\r\n\t\t\t\"postalCode\": 13327371,\r\n\t\t\t\"address\": \"Rua Santa Luzia\",\r\n\t\t\t\"number\": \"52\",\r\n\t\t\t\"add\": \"casa\",\r\n\t\t\t\"neighborhood\": \"Nova Era\",\r\n\t\t\t\"city\": \"Salto\",\r\n\t\t\t\"state\": \"SP\",\r\n\t\t\t\"country\": \"Brasil\"\r\n\t\t},\r\n\t\t\"owners\": {\r\n\t\t\t\"name\": \"Cliente 14452619010\",\r\n\t\t\t\"documentNumber\": 11264316488,\r\n\t\t\t\"birthDate\": \"1989-02-08\",\r\n\t\t\t\"phoneNumbers\": {\r\n\t\t\t\t\"type\": \"CELL_PHONE\",\r\n\t\t\t\t\"ddd\": 11,\r\n\t\t\t\t\"number\": 998561234\r\n\t\t\t},\r\n\t\t\t\"affiliatorCode\": \"123456789\",\r\n\t\t\t\"averageRevenue\": 150,\r\n\t\t\t\"cieloPlanCode\": 1,\r\n\t\t\t\"amountOfDaysForliquidation\": 1\r\n\t\t}\r\n\t}\r\n}"</span><span class="p">,</span> <span class="n">ParameterTypeRequestBody</span><span class="p">);</span>
+<span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="nf">clientExecute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://apidevcielocombr/sandbox/affiliate/v1/merchants'</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span>
+   <span class="p">{</span> <span class="na">client_id</span><span class="p">:</span> <span class="s1">'LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ'</span><span class="p">,</span>
+     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span> <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span>
+   <span class="p">{</span> <span class="na">agribusiness</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+     <span class="na">solutions</span><span class="p">:</span>
+      <span class="p">{</span> <span class="na">code</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+        <span class="na">numberOfEquipaments</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="na">ecommercePlan</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">telephoneCompanies</span><span class="p">:</span> <span class="s1">'VIVO'</span> <span class="p">},</span>
+     <span class="na">customer</span><span class="p">:</span>
+      <span class="p">{</span> <span class="na">documentType</span><span class="p">:</span> <span class="s1">'F'</span><span class="p">,</span>
+        <span class="na">documentNumber</span><span class="p">:</span> <span class="mi">35947512017</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'nome'</span><span class="p">,</span>
+        <span class="na">companyName</span><span class="p">:</span> <span class="s1">'nome'</span><span class="p">,</span>
+        <span class="na">mei</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">stateEnrollment</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">mcc</span><span class="p">:</span> <span class="mi">8021</span><span class="p">,</span>
+        <span class="na">accounts</span><span class="p">:</span>
+         <span class="p">{</span> <span class="na">bankCode</span><span class="p">:</span> <span class="mi">341</span><span class="p">,</span>
+           <span class="na">bankBranch</span><span class="p">:</span> <span class="s1">'1475'</span><span class="p">,</span>
+           <span class="na">accountNumber</span><span class="p">:</span> <span class="s1">'132997'</span><span class="p">,</span>
+           <span class="na">type</span><span class="p">:</span> <span class="s1">'CHECKING_ACCOUNT_CIELO'</span> <span class="p">},</span>
+        <span class="na">tradingName</span><span class="p">:</span> <span class="s1">'Vendinha 47599041079'</span><span class="p">,</span>
+        <span class="na">contactName</span><span class="p">:</span> <span class="s1">'Cliente teste'</span><span class="p">,</span>
+        <span class="na">contactEmail</span><span class="p">:</span> <span class="s1">'teste_47599041079@testecombr'</span><span class="p">,</span>
+        <span class="na">phoneNumbers</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="s1">'CELL_PHONE'</span><span class="p">,</span> <span class="na">ddd</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="na">number</span><span class="p">:</span> <span class="mi">988995623</span> <span class="p">},</span>
+        <span class="na">addresses</span><span class="p">:</span>
+         <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="s1">'COMMERCIAL_ADDRESS'</span><span class="p">,</span>
+           <span class="na">postalCode</span><span class="p">:</span> <span class="mi">13327371</span><span class="p">,</span>
+           <span class="na">address</span><span class="p">:</span> <span class="s1">'Rua Santa Luzia'</span><span class="p">,</span>
+           <span class="na">number</span><span class="p">:</span> <span class="s1">'52'</span><span class="p">,</span>
+           <span class="na">add</span><span class="p">:</span> <span class="s1">'casa'</span><span class="p">,</span>
+           <span class="na">neighborhood</span><span class="p">:</span> <span class="s1">'Nova Era'</span><span class="p">,</span>
+           <span class="na">city</span><span class="p">:</span> <span class="s1">'Salto'</span><span class="p">,</span>
+           <span class="na">state</span><span class="p">:</span> <span class="s1">'SP'</span><span class="p">,</span>
+           <span class="na">country</span><span class="p">:</span> <span class="s1">'Brasil'</span> <span class="p">},</span>
+        <span class="na">owners</span><span class="p">:</span>
+         <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'Cliente 14452619010'</span><span class="p">,</span>
+           <span class="na">documentNumber</span><span class="p">:</span> <span class="mi">11264316488</span><span class="p">,</span>
+           <span class="na">birthDate</span><span class="p">:</span> <span class="s1">'1989-02-08'</span><span class="p">,</span>
+           <span class="na">phoneNumbers</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="s1">'CELL_PHONE'</span><span class="p">,</span> <span class="na">ddd</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="na">number</span><span class="p">:</span> <span class="mi">998561234</span> <span class="p">},</span>
+           <span class="na">affiliatorCode</span><span class="p">:</span> <span class="s1">'123456789'</span><span class="p">,</span>
+           <span class="na">averageRevenue</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+           <span class="na">cieloPlanCode</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+           <span class="na">amountOfDaysForliquidation</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="na">json</span><span class="p">:</span> <span class="kc">true</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+
+  <span class="nx">consolelog</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h4 id="request">Request</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Valores</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">agribusiness</code></td>
+      <td>Boolean</td>
+      <td>true, false</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">username</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>Nome do usuário</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Terminalscode</code></td>
+      <td>Texto</td>
+      <td>ENUM: POS_PORTABLE, POS_DIALED_LINE, POS_BROADBAND, MOBILE_WITH_SCANNER, MOBILE_WITHOUT_SCANNER, ECOMMERCE_CHECKOUT, ECOMMERCE_V3, LIO_BASIC, LIO_PLUS, LIO_BASIC_V2, LIO_PLUS_V2, POS_WIFI</td>
+      <td>Identificador do terminal solicitado para o credenciamento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TerminalsnumberOfEquipaments</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Quantidade de equipamentos</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TerminalsecommercePlan</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número do plano para um credenciamento ecommerce</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TerminalspaymentByLink</code></td>
+      <td>Boolean</td>
+      <td>true, false</td>
+      <td>Credenciamento será feito para pagamento utilizando link online</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TerminalstelephoneCompanies</code></td>
+      <td>Texto</td>
+      <td>“VIVO”, “CLARO”, “TIM”, “OI”</td>
+      <td>Companhia de telefonia escolhida para compor o equipamento POS</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TerminalsbusinessHours</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>Horário comercial</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">TerminalsautoService</code></td>
+      <td>Boolean</td>
+      <td>true, false</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerdocumentType</code></td>
+      <td>Texto</td>
+      <td>F, J</td>
+      <td>Indicador do tipo de documento (F - física / J - jurídica)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerdocumentNumber</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número do documento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customername</code></td>
+      <td>Text</td>
+      <td>any</td>
+      <td>Nome do cliente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomercompanyName</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>Nome da empresa</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customermei</code></td>
+      <td>Boolean</td>
+      <td>true, false</td>
+      <td>Indicador se é pessoa jurídica MEI (Micro empreendedor individual)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerstateEnrollment</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customermcc</code></td>
+      <td>Texto</td>
+      <td>Sim</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomeraccountsbankCode</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Código do banco</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomeraccountsbankBranch</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número da agência</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomeraccountsaccountNumber</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número da conta corrente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customeraccountstype</code></td>
+      <td>Número</td>
+      <td>ENUM: CHECKING_ACCOUNT_CIELO, CHECKING_ACCOUNT, SAVINGS_ACCOUNT, PREPAID_CARD</td>
+      <td>Tipo da conta corrente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomertradingName</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomercontactName</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>Nome do contato</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomercontactEmail</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>E-mail do contato</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerphoneNumberstype</code></td>
+      <td>Texto</td>
+      <td>ENUM: HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX</td>
+      <td>Tipo do telefone</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerphoneNumbersddd</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Código DDD</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerphoneNumbersnumber</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número do telefone</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customeraddressestype</code></td>
+      <td>Texto</td>
+      <td>ENUM: HOME_ADDRESS, COMMERCIAL_ADDRESS, MAIL_ADDRESS, SUPPLY_ADDRESS</td>
+      <td>Tipo do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomeraddressespostalCode</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número do CEP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customeraddressesaddress</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>Endereço (Rua/Avenida/Travessa/etc)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customeraddressesnumber</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customeraddressesadd</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customeraddressesneighborhood</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>Bairro</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customeraddressescity</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>Cidade</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customeraddressesstate</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>Estado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customeraddressescountry</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>País</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customerownersname</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>Nome do proprietário</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerownersdocumentNumber</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número do documento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerownersbirthDate</code></td>
+      <td>Data</td>
+      <td>any</td>
+      <td>Data de aniversário</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerownersphoneNumberstype</code></td>
+      <td>Texto</td>
+      <td>ENUM: HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX</td>
+      <td>Tipo do telefone</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerownersphoneNumbersddd</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Código DDD</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerownersphoneNumbersnumber</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número do telefone</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomeraffiliatorCode</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Código de afiliação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomeraverageRevenue</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomercieloPlanCode</code></td>
+      <td>Número</td>
+      <td>ENUM: DEFAULT, CONTROL</td>
+      <td>Código de plano cielo (comercial)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomeramountOfDaysForliquidation</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Quantidade de dias para liquidação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerpaymentType</code></td>
+      <td>Texto</td>
+      <td>ENUM: IN_CASH, FINANCED</td>
+      <td>Tipo de pagamento</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CustomerarvTax</code></td>
+      <td>Texto</td>
+      <td>any</td>
+      <td>Taxa de antecipação</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response">Response</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Valores</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">merchantNumber</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número do EC (Estabelecimento comercial)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">proposalNumber</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número da proposta comercial que foi criada</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="terminals">Terminals</h4>
+
+<p>Terminal referencia a solução captura que retorna a identificação do terminal lógico quando associado a um estabelecimento comercial</p>
+
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">/v1/terminals</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="se">\</span>
+  <span class="s1">'https://apidevcielocombr/sandbox/affiliate/v1/terminals?proposalNumber=12345'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'client_id: LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'content-type: application/json'</span>
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
+<span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RequestBuilder</span><span class="o">()</span>
+  <span class="n">url</span><span class="o">(</span><span class="s">"https://apidevcielocombr/sandbox/affiliate/v1/terminals?proposalNumber=12345"</span><span class="o">)</span>
+  <span class="n">get</span><span class="o">()</span>
+  <span class="n">addHeader</span><span class="o">(</span><span class="s">"content-type"</span><span class="o">,</span> <span class="s">"application/json"</span><span class="o">)</span>
+  <span class="n">addHeader</span><span class="o">(</span><span class="s">"client_id"</span><span class="o">,</span> <span class="s">"LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ"</span><span class="o">)</span>
+  <span class="n">build</span><span class="o">();</span>
+
+<span class="n">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">clientnewCall</span><span class="o">(</span><span class="n">request</span><span class="o">)</span><span class="n">execute</span><span class="o">();</span>
+</code></pre></div></div>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$request</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HttpRequest</span><span class="p">();</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setUrl</span><span class="p">(</span><span class="s1">'https://apidevcielocombr/sandbox/affiliate/v1/terminals'</span><span class="p">);</span>
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setMethod</span><span class="p">(</span><span class="nx">HTTP_METH_GET</span><span class="p">);</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setQueryData</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'proposalNumber'</span> <span class="o">=&gt;</span> <span class="s1">'12345'</span>
+<span class="p">));</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">setHeaders</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+  <span class="s1">'client_id'</span> <span class="o">=&gt;</span> <span class="s1">'LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ'</span><span class="p">,</span>
+  <span class="s1">'content-type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
+<span class="p">));</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+
+  <span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">HttpException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">echo</span> <span class="nv">$ex</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestClient</span><span class="p">(</span><span class="s">"https://apidevcielocombr/sandbox/affiliate/v1/terminals?proposalNumber=12345"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">RestRequest</span><span class="p">(</span><span class="n">MethodGET</span><span class="p">);</span>
+<span class="nf">requestAddHeader</span><span class="p">(</span><span class="s">"client_id"</span><span class="p">,</span> <span class="s">"LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ"</span><span class="p">);</span>
+<span class="nf">requestAddHeader</span><span class="p">(</span><span class="s">"content-type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
+<span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="nf">clientExecute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"request"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="s1">'https://apidevcielocombr/sandbox/affiliate/v1/terminals'</span><span class="p">,</span>
+  <span class="na">qs</span><span class="p">:</span> <span class="p">{</span> <span class="na">proposalNumber</span><span class="p">:</span> <span class="s1">'12345'</span> <span class="p">},</span>
+  <span class="na">headers</span><span class="p">:</span>
+   <span class="p">{</span> <span class="na">client_id</span><span class="p">:</span> <span class="s1">'LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ'</span><span class="p">,</span>
+     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span> <span class="p">}</span> <span class="p">};</span>
+
+<span class="nx">request</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+  <span class="nx">consolelog</span><span class="p">(</span><span class="nx">body</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h5 id="requisição">Requisição</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Valores</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">proposalNumber</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número da proposta comercial que foi criada</td>
+    </tr>
+  </tbody>
+</table>
+
+<h5 id="resposta">Resposta</h5>
