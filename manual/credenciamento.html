@@ -125,11 +125,13 @@
 
 <h2 id="o-que-é">O que é</h2>
 
-<p>Credenciamento é o processo de afiliação de novo cliente na Cielo (8Estabelecimento Comercial8)</p>
+<p>Credenciamento é o processo de afiliação de novos clientes, que serão conhecidos como Estabelecimentos Comerciais e poderão se afiliar à Cielo e solicitar um equipamente lógico (POS / Terminal Lógico) ou site web (ecommerce) ou até mesmo através do cielo app (mobile), permitindo que os mesmos iniciem suas transações de pagamento.</p>
 
 <h2 id="como-funciona">Como funciona</h2>
 
-<p>A integração é realizada através de serviços disponibilizados como Web Services O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT Cada tipo de mensagem deve ser enviada para um recurso identificado através do path</p>
+<p>A integração é realizada através da operação de POST para o recurso /merchants. Para executar o post corretamente, deve seguir o padrão REST enviando todos os necessários (listados posteriormente).</p>
+
+<p>É possível realizar consultas, através do método GET para obter informações necessárias que irão auxiliar e informar resultados da operação de POST.</p>
 
 <table>
   <thead>
@@ -142,10 +144,6 @@
     <tr>
       <td><strong>POST</strong></td>
       <td>O método HTTP <code class="highlighter-rouge">POST</code> é utilizado na criação dos recursos ou no envio de informações que serão processadas Por exemplo, criação de uma transação</td>
-    </tr>
-    <tr>
-      <td><strong>PUT</strong></td>
-      <td>O método HTTP <code class="highlighter-rouge">PUT</code> é utilizado para atualização de um recurso já existente Por exemplo, captura ou cancelamento de uma transação previamente autorizada</td>
     </tr>
     <tr>
       <td><strong>GET</strong></td>
@@ -163,10 +161,6 @@
 <h2 id="diagrama-de-utilização-demostrando-os-passos-para-o-uso-da-api">Diagrama de utilização demostrando os passos para o uso da API</h2>
 
 <h2 id="documentação-técnica">Documentação Técnica</h2>
-
-<h3 id="swagger-20">Swagger 20</h3>
-
-<p>Acesse o swagger através do link: aqui!!!</p>
 
 <h2 id="api-docs">API Docs</h2>
 
@@ -755,6 +749,31 @@
 </table>
 
 <h5 id="resposta">Resposta</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Valores</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">code</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Número do terminal lógico que foi associado ao credenciado (Estabelecimento Comercial)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">digit</code></td>
+      <td>Número</td>
+      <td>any</td>
+      <td>Digito validado do terminal lógico</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 

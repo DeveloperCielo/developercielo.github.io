@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-29T19:17:01+00:00</updated>
+    <updated>2017-11-29T19:48:07+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24161,11 +24161,13 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
 
 &lt;h2 id=&quot;o-que-é&quot;&gt;O que é&lt;/h2&gt;
 
-&lt;p&gt;Credenciamento é o processo de afiliação de novo cliente na Cielo (8Estabelecimento Comercial8)&lt;/p&gt;
+&lt;p&gt;Credenciamento é o processo de afiliação de novos clientes, que serão conhecidos como Estabelecimentos Comerciais e poderão se afiliar à Cielo e solicitar um equipamente lógico (POS / Terminal Lógico) ou site web (ecommerce) ou até mesmo através do cielo app (mobile), permitindo que os mesmos iniciem suas transações de pagamento.&lt;/p&gt;
 
 &lt;h2 id=&quot;como-funciona&quot;&gt;Como funciona&lt;/h2&gt;
 
-&lt;p&gt;A integração é realizada através de serviços disponibilizados como Web Services O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT Cada tipo de mensagem deve ser enviada para um recurso identificado através do path&lt;/p&gt;
+&lt;p&gt;A integração é realizada através da operação de POST para o recurso /merchants. Para executar o post corretamente, deve seguir o padrão REST enviando todos os necessários (listados posteriormente).&lt;/p&gt;
+
+&lt;p&gt;É possível realizar consultas, através do método GET para obter informações necessárias que irão auxiliar e informar resultados da operação de POST.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -24178,10 +24180,6 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;O método HTTP &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; é utilizado na criação dos recursos ou no envio de informações que serão processadas Por exemplo, criação de uma transação&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;PUT&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;O método HTTP &lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt; é utilizado para atualização de um recurso já existente Por exemplo, captura ou cancelamento de uma transação previamente autorizada&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
@@ -24199,10 +24197,6 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
 &lt;h2 id=&quot;diagrama-de-utilização-demostrando-os-passos-para-o-uso-da-api&quot;&gt;Diagrama de utilização demostrando os passos para o uso da API&lt;/h2&gt;
 
 &lt;h2 id=&quot;documentação-técnica&quot;&gt;Documentação Técnica&lt;/h2&gt;
-
-&lt;h3 id=&quot;swagger-20&quot;&gt;Swagger 20&lt;/h3&gt;
-
-&lt;p&gt;Acesse o swagger através do link: aqui!!!&lt;/p&gt;
 
 &lt;h2 id=&quot;api-docs&quot;&gt;API Docs&lt;/h2&gt;
 
@@ -24791,6 +24785,31 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
 &lt;/table&gt;
 
 &lt;h5 id=&quot;resposta&quot;&gt;Resposta&lt;/h5&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Valores&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;code&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;any&lt;/td&gt;
+      &lt;td&gt;Número do terminal lógico que foi associado ao credenciado (Estabelecimento Comercial)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;digit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;any&lt;/td&gt;
+      &lt;td&gt;Digito validado do terminal lógico&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     
