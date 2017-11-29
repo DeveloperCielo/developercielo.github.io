@@ -22,11 +22,9 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST de Credenciamento. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
 
-
 ## O que é
 
 Credenciamento é o processo de afiliação de novo cliente na Cielo (8Estabelecimento Comercial8).
-
 
 ## Como funciona
 
@@ -38,28 +36,21 @@ A integração é realizada através de serviços disponibilizados como Web Serv
 |**PUT**|O método HTTP `PUT` é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.|
 |**GET**|O método HTTP `GET` é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.|
 
-
 ## Público-alvo
 
 Integradores que desejam criar novos canais de credenciamento, seja de forma online através da web ou aplicativos mobile.
 
-
 # Diagrama de utilização demostrando o funcionamento da solução
-
 
 # Diagrama de utilização demostrando os passos para o uso da API
 
-
 # Documentação Técnica
-
 
 ## Swagger 2.0
 
 Acesse o swagger através do link: aqui!!!
 
-
 ## API Docs
-
 
 ### Endpoints (Sandbox e Produção)
 
@@ -71,9 +62,7 @@ Ambiente Sandbox
 
 * https://api.cielo.com.br/sandbox/affiliate
 
-
 ### Instruções para uso: realizar chamadas, autenticação.
-
 
 ### HTTP Header
 
@@ -84,7 +73,6 @@ Todas as chamadas da API de Credenciamento necessitam que as informações abaix
 **Access-Token**:Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em “detalhes” na coluna “Access Tokens”, dentro do menu “Desenvolvedor” -> “Client ID Cadastrados”.
 
 **Merchant-Id**: Token que identifica o estabelecimento comercial dentro do servidor Order Manager da Cielo LIO. Sua geração ocorre durante o processo de cadastro do Client ID. Seu valor pode ser visualizado na coluna “Merchant ID”, dentro do menu “Desenvolvedor” -> “Client ID Cadastrados”.
-
 
 ### HTTP Status Code
 
@@ -102,9 +90,7 @@ Todas as chamadas da API de Credenciamento necessitam que as informações abaix
 | 429    | Too Many Requests     | O consumidor estourou o limite de requisições por tempo.                                 |
 | 500    | Internal Server Error | Erro não esperado; algo está quebrado na API                                             |
 
-
 ### Recursos
-
 
 #### Merchants
 
@@ -462,7 +448,6 @@ request(options, function (error, response, body) {
 | `Customer.paymentType`                | Texto   | ENUM: IN_CASH, FINANCED                  | Tipo de pagamento.                       |
 | `Customer.arvTax`                     | Texto   | any                                      | Taxa de antecipação.                     |
 
-
 #### Response
 
 | Propriedade      | Tipo   | Valores | Descrição                                |
@@ -559,6 +544,5 @@ request(options, function (error, response, body) {
 | Propriedade      | Tipo   | Valores | Descrição                                |
 | ---------------- | ------ | ------- | ---------------------------------------- |
 | `proposalNumber` | Número | any     | Número da proposta comercial que foi criada. |
-
 
 ##### Resposta
