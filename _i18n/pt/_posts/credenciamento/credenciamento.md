@@ -1,4 +1,4 @@
-﻿---
+---
 layout: manual
 title: Manual de integração
 description: Manual integração técnica via API
