@@ -99,6 +99,7 @@ Merchants é a representação da entidade de estabelecimento comercial para a e
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/merchants</span></aside>
 
 ```shell
+
 curl -X POST \
   https://api.cielo.com.br/sandbox/affiliate/v1/merchants \
   -H 'cache-control: no-cache' \
@@ -160,10 +161,12 @@ curl -X POST \
             "amountOfDaysForliquidation": 1
         }
     }
-}'
+}
+
 ```
 
 ```json
+
 {
     "agribusiness": false,
     "solutions": {
@@ -221,9 +224,11 @@ curl -X POST \
         }
     }
 }
+
 ```
 
 ```java
+
 OkHttpClient client = new OkHttpClient();
 
 MediaType mediaType = MediaType.parse("application/json");
@@ -236,9 +241,11 @@ Request request = new Request.Builder()
   .build();
 
 Response response = client.newCall(request).execute();
+
 ```
 
 ```php
+
 $request = new HttpRequest();
 $request->setUrl('https://apidev.cielo.com.br/sandbox/affiliate/v1/merchants');
 $request->setMethod(HTTP_METH_POST);
@@ -313,15 +320,18 @@ try {
 } catch (HttpException $ex) {
   echo $ex;
 }
+
 ```
 
 ```csharp
+
 var client = new RestClient("https://apidev.cielo.com.br/sandbox/affiliate/v1/merchants");
 var request = new RestRequest(Method.POST);
 request.AddHeader("client_id", "LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ");
 request.AddHeader("content-type", "application/json");
 request.AddParameter("application/json", "{\r\n\t\"agribusiness\": false,\r\n\t\"solutions\": {\r\n\t\t\"code\": 18,\r\n\t\t\"numberOfEquipaments\": 1,\r\n\t\t\"ecommercePlan\": 0,\r\n\t\t\"telephoneCompanies\": \"VIVO\"\r\n\t},\r\n\t\"customer\": {\r\n\t\t\"documentType\": \"F\",\r\n\t\t\"documentNumber\": 35947512017,\r\n\t\t\"name\": \"nome\",\r\n\t\t\"companyName\": \"nome\",\r\n\t\t\"mei\": false,\r\n\t\t\"stateEnrollment\": 0,\r\n\t\t\"mcc\": 8021,\r\n\t\t\"accounts\": {\r\n\t\t\t\"bankCode\": 341,\r\n\t\t\t\"bankBranch\": \"1475\",\r\n\t\t\t\"accountNumber\": \"132997\",\r\n\t\t\t\"type\": \"CHECKING_ACCOUNT_CIELO\"\r\n\t\t},\r\n\t\t\"tradingName\": \"Vendinha 47599041079\",\r\n\t\t\"contactName\": \"Cliente teste\",\r\n\t\t\"contactEmail\": \"teste_47599041079@teste.com.br\",\r\n\t\t\"phoneNumbers\": {\r\n\t\t\t\"type\": \"CELL_PHONE\",\r\n\t\t\t\"ddd\": 11,\r\n\t\t\t\"number\": 988995623\r\n\t\t},\r\n\t\t\"addresses\": {\r\n\t\t\t\"type\": \"COMMERCIAL_ADDRESS\",\r\n\t\t\t\"postalCode\": 13327371,\r\n\t\t\t\"address\": \"Rua Santa Luzia\",\r\n\t\t\t\"number\": \"52\",\r\n\t\t\t\"add\": \"casa\",\r\n\t\t\t\"neighborhood\": \"Nova Era\",\r\n\t\t\t\"city\": \"Salto\",\r\n\t\t\t\"state\": \"SP\",\r\n\t\t\t\"country\": \"Brasil\"\r\n\t\t},\r\n\t\t\"owners\": {\r\n\t\t\t\"name\": \"Cliente 14452619010\",\r\n\t\t\t\"documentNumber\": 11264316488,\r\n\t\t\t\"birthDate\": \"1989-02-08\",\r\n\t\t\t\"phoneNumbers\": {\r\n\t\t\t\t\"type\": \"CELL_PHONE\",\r\n\t\t\t\t\"ddd\": 11,\r\n\t\t\t\t\"number\": 998561234\r\n\t\t\t},\r\n\t\t\t\"affiliatorCode\": \"123456789\",\r\n\t\t\t\"averageRevenue\": 150,\r\n\t\t\t\"cieloPlanCode\": 1,\r\n\t\t\t\"amountOfDaysForliquidation\": 1\r\n\t\t}\r\n\t}\r\n}", ParameterType.RequestBody);
 IRestResponse response = client.Execute(request);
+
 ```
 
 ```javascript
@@ -384,6 +394,7 @@ request(options, function (error, response, body) {
 });
 
 ```
+
 #### Request
 
 #### Response
@@ -395,16 +406,18 @@ Terminal referencia a solução captura que retorna a identificação do termina
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">/v1/terminals</span></aside>
 
 ```shell
+
 curl -X GET \
   'https://apidev.cielo.com.br/sandbox/affiliate/v1/terminals?proposalNumber=12345' \
   -H 'cache-control: no-cache' \
   -H 'client_id: LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ' \
   -H 'content-type: application/json'
+
 ```
 
 ```java
-OkHttpClient client = new OkHttpClient();
 
+OkHttpClient client = new OkHttpClient();
 Request request = new Request.Builder()
   .url("https://apidev.cielo.com.br/sandbox/affiliate/v1/terminals?proposalNumber=12345")
   .get()
@@ -413,9 +426,11 @@ Request request = new Request.Builder()
   .build();
 
 Response response = client.newCall(request).execute();
+
 ```
 
 ```php
+
 $request = new HttpRequest();
 $request->setUrl('https://apidev.cielo.com.br/sandbox/affiliate/v1/terminals');
 $request->setMethod(HTTP_METH_GET);
@@ -436,17 +451,21 @@ try {
 } catch (HttpException $ex) {
   echo $ex;
 }
+
 ```
 
 ```csharp
+
 var client = new RestClient("https://apidev.cielo.com.br/sandbox/affiliate/v1/terminals?proposalNumber=12345");
 var request = new RestRequest(Method.GET);
 request.AddHeader("client_id", "LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ");
 request.AddHeader("content-type", "application/json");
 IRestResponse response = client.Execute(request);
+
 ```
 
 ```javascript
+
 var request = require("request");
 
 var options = { method: 'GET',
