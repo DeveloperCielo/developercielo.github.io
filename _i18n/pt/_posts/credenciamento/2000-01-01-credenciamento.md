@@ -5,6 +5,7 @@ description: Integracao Cielo Credenciamento
 search: true
 toc_footers: true
 categories: manual
+sort_order: 1
 tags:
   - API credenciamento Cielo
 language_tabs:
@@ -20,16 +21,17 @@ Nesse manual você encontrará a referência sobre todas as operações disponí
 
 ## O que é
 
-Credenciamento é o processo de afiliação de novo cliente na Cielo (8Estabelecimento Comercial8)
+Credenciamento é o processo de afiliação de novos clientes, que serão conhecidos como Estabelecimentos Comerciais e poderão se afiliar à Cielo e solicitar um equipamente lógico (POS / Terminal Lógico) ou site web (ecommerce) ou até mesmo através do cielo app (mobile), permitindo que os mesmos iniciem suas transações de pagamento.
 
 ## Como funciona
 
-A integração é realizada através de serviços disponibilizados como Web Services O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT Cada tipo de mensagem deve ser enviada para um recurso identificado através do path
+A integração é realizada através da operação de POST para o recurso /merchants. Para executar o post corretamente, deve seguir o padrão REST enviando todos os necessários (listados posteriormente).
+
+É possível realizar consultas, através do método GET para obter informações necessárias que irão auxiliar e informar resultados da operação de POST.
 
 |Método|Descrição|
 |---|---|
 |**POST**|O método HTTP `POST` é utilizado na criação dos recursos ou no envio de informações que serão processadas Por exemplo, criação de uma transação|
-|**PUT**|O método HTTP `PUT` é utilizado para atualização de um recurso já existente Por exemplo, captura ou cancelamento de uma transação previamente autorizada|
 |**GET**|O método HTTP `GET` é utilizado para consultas de recursos já existentes Por exemplo, consulta de transações|
 
 ## Público-alvo
@@ -41,10 +43,6 @@ Integradores que desejam criar novos canais de credenciamento, seja de forma onl
 ## Diagrama de utilização demostrando os passos para o uso da API
 
 ## Documentação Técnica
-
-### Swagger 20
-
-Acesse o swagger através do link: aqui!!!
 
 ## API Docs
 
@@ -299,3 +297,8 @@ curl -X GET \
 | `proposalNumber` | Número | any     | Número da proposta comercial que foi criada |
 
 ##### Resposta
+
+| Propriedade      | Tipo   | Valores | Descrição                                |
+| ---------------- | ------ | ------- | ---------------------------------------- |
+| `code` | Número | any     | Número do terminal lógico que foi associado ao credenciado (Estabelecimento Comercial) |
+| `digit` | Número | any     | Digito validado do terminal lógico |
