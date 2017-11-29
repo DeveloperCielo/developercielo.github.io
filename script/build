@@ -1,10 +1,16 @@
 #!/bin/bash
 
 # skip if build is triggered by pull request
-if [ $TRAVIS_PULL_REQUEST == "true" ]; then
+if [ "$TRAVIS_PULL_REQUEST" == "true" ]; then
   echo "this is PR, exiting"
   exit 0
 fi
+
+# check for filenams format
+for file in $(find _i18n/ -iname "*.md" -not -regex "_i18n/\w+/_posts/[a-z0-9\.\-]+\(/[a-z0-9\.\-]*\)*\(\.md\)?"); do
+  echo "Filenames must match [a-z0-9\.\-] expression. Filename '$file' is invalid"
+  exit 1
+done
 
 # enable error reporting to the console
 set -e
@@ -12,20 +18,22 @@ set -e
 # lint for markdown
 bundle exec mdl --rules ${RULES} _i18n/
 
-# cleanup "_site"
-rm -rf _site
-mkdir _site
+if [ -n "$GH_TOKEN" ]; then
+  # cleanup "_site"
+  rm -rf _site
+  mkdir _site
 
-# clone remote repo to "_site"
-git clone https://${GH_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
+  # clone remote repo to "_site"
+  git clone https://${GH_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
-# build with Jekyll into "_site"
-bundle exec jekyll build -b ${HOST}
+  # build with Jekyll into "_site"
+  bundle exec jekyll build -b ${HOST}
 
-# push
-cd _site
-git config user.email "neto.joaobatista@gmail.com"
-git config user.name "João Batista Neto"
-git add --all
-git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
-git push --force origin master
+  # push
+  cd _site
+  git config user.email "neto.joaobatista@gmail.com"
+  git config user.name "João Batista Neto"
+  git add --all
+  git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
+  git push --force origin master
+fi
