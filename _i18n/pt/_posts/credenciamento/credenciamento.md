@@ -108,118 +108,118 @@ curl -X POST \
     "agribusiness": false,
     "solutions": {
         "code": 18,
-		"numberOfEquipaments": 1,
-		"ecommercePlan": 0,
-		"telephoneCompanies": "VIVO"
-	},
-	"customer": {
-		"documentType": "F",
-		"documentNumber": 35947512017,
-		"name": "nome",
-		"companyName": "nome",
-		"mei": false,
-		"stateEnrollment": 0,
-		"mcc": 8021,
-		"accounts": {
-			"bankCode": 341,
-			"bankBranch": "1475",
-			"accountNumber": "132997",
-			"type": "CHECKING_ACCOUNT_CIELO"
-		},
-		"tradingName": "Vendinha 47599041079",
-		"contactName": "Cliente teste",
-		"contactEmail": "teste_47599041079@teste.com.br",
-		"phoneNumbers": {
-			"type": "CELL_PHONE",
-			"ddd": 11,
-			"number": 988995623
-		},
-		"addresses": {
-			"type": "COMMERCIAL_ADDRESS",
-			"postalCode": 13327371,
-			"address": "Rua Santa Luzia",
-			"number": "52",
-			"add": "casa",
-			"neighborhood": "Nova Era",
-			"city": "Salto",
-			"state": "SP",
-			"country": "Brasil"
-		},
-		"owners": {
-			"name": "Cliente 14452619010",
-			"documentNumber": 11264316488,
-			"birthDate": "1989-02-08",
-			"phoneNumbers": {
-				"type": "CELL_PHONE",
-				"ddd": 11,
-				"number": 998561234
-			},
-			"affiliatorCode": "123456789",
-			"averageRevenue": 150,
-			"cieloPlanCode": 1,
-			"amountOfDaysForliquidation": 1
-		}
-	}
+        "numberOfEquipaments": 1,
+        "ecommercePlan": 0,
+        "telephoneCompanies": "VIVO"
+    },
+    "customer": {
+        "documentType": "F",
+        "documentNumber": 35947512017,
+        "name": "nome",
+        "companyName": "nome",
+        "mei": false,
+        "stateEnrollment": 0,
+        "mcc": 8021,
+        "accounts": {
+            "bankCode": 341,
+            "bankBranch": "1475",
+            "accountNumber": "132997",
+            "type": "CHECKING_ACCOUNT_CIELO"
+        },
+        "tradingName": "Vendinha 47599041079",
+        "contactName": "Cliente teste",
+        "contactEmail": "teste_47599041079@teste.com.br",
+        "phoneNumbers": {
+            "type": "CELL_PHONE",
+            "ddd": 11,
+            "number": 988995623
+        },
+        "addresses": {
+            "type": "COMMERCIAL_ADDRESS",
+            "postalCode": 13327371,
+            "address": "Rua Santa Luzia",
+            "number": "52",
+            "add": "casa",
+            "neighborhood": "Nova Era",
+            "city": "Salto",
+            "state": "SP",
+            "country": "Brasil"
+        },
+        "owners": {
+            "name": "Cliente 14452619010",
+            "documentNumber": 11264316488,
+            "birthDate": "1989-02-08",
+            "phoneNumbers": {
+                "type": "CELL_PHONE",
+                "ddd": 11,
+                "number": 998561234
+            },
+            "affiliatorCode": "123456789",
+            "averageRevenue": 150,
+            "cieloPlanCode": 1,
+            "amountOfDaysForliquidation": 1
+        }
+    }
 }'
 ```
 
 ```json
 {
-	"agribusiness": false,
-	"solutions": {
-		"code": 18,
-		"numberOfEquipaments": 1,
-		"ecommercePlan": 0,
-		"telephoneCompanies": "VIVO"
-	},
-	"customer": {
-		"documentType": "F",
-		"documentNumber": 35947512017,
-		"name": "nome",
-		"companyName": "nome",
-		"mei": false,
-		"stateEnrollment": 0,
-		"mcc": 8021,
-		"accounts": {
-			"bankCode": 341,
-			"bankBranch": "1475",
-			"accountNumber": "132997",
-			"type": "CHECKING_ACCOUNT_CIELO"
-		},
-		"tradingName": "Vendinha 47599041079",
-		"contactName": "Cliente teste",
-		"contactEmail": "teste_47599041079@teste.com.br",
-		"phoneNumbers": {
-			"type": "CELL_PHONE",
-			"ddd": 11,
-			"number": 988995623
-		},
-		"addresses": {
-			"type": "COMMERCIAL_ADDRESS",
-			"postalCode": 13327371,
-			"address": "Rua Santa Luzia",
-			"number": "52",
-			"add": "casa",
-			"neighborhood": "Nova Era",
-			"city": "Salto",
-			"state": "SP",
-			"country": "Brasil"
-		},
-		"owners": {
-			"name": "Cliente 14452619010",
-			"documentNumber": 11264316488,
-			"birthDate": "1989-02-08",
-			"phoneNumbers": {
-				"type": "CELL_PHONE",
-				"ddd": 11,
-				"number": 998561234
-			},
-			"affiliatorCode": "123456789",
-			"averageRevenue": 150,
-			"cieloPlanCode": 1,
-			"amountOfDaysForliquidation": 1
-		}
-	}
+    "agribusiness": false,
+    "solutions": {
+        "code": 18,
+        "numberOfEquipaments": 1,
+        "ecommercePlan": 0,
+        "telephoneCompanies": "VIVO"
+    },
+    "customer": {
+        "documentType": "F",
+        "documentNumber": 35947512017,
+        "name": "nome",
+        "companyName": "nome",
+        "mei": false,
+        "stateEnrollment": 0,
+        "mcc": 8021,
+        "accounts": {
+            "bankCode": 341,
+            "bankBranch": "1475",
+            "accountNumber": "132997",
+            "type": "CHECKING_ACCOUNT_CIELO"
+        },
+        "tradingName": "Vendinha 47599041079",
+        "contactName": "Cliente teste",
+        "contactEmail": "teste_47599041079@teste.com.br",
+        "phoneNumbers": {
+            "type": "CELL_PHONE",
+            "ddd": 11,
+            "number": 988995623
+        },
+        "addresses": {
+            "type": "COMMERCIAL_ADDRESS",
+            "postalCode": 13327371,
+            "address": "Rua Santa Luzia",
+            "number": "52",
+            "add": "casa",
+            "neighborhood": "Nova Era",
+            "city": "Salto",
+            "state": "SP",
+            "country": "Brasil"
+        },
+        "owners": {
+            "name": "Cliente 14452619010",
+            "documentNumber": 11264316488,
+            "birthDate": "1989-02-08",
+            "phoneNumbers": {
+                "type": "CELL_PHONE",
+                "ddd": 11,
+                "number": 998561234
+            },
+            "affiliatorCode": "123456789",
+            "averageRevenue": 150,
+            "cieloPlanCode": 1,
+            "amountOfDaysForliquidation": 1
+        }
+    }
 }
 ```
 
@@ -249,61 +249,61 @@ $request->setHeaders(array(
 ));
 
 $request->setBody('{
-	"agribusiness": false,
-	"solutions": {
-		"code": 18,
-		"numberOfEquipaments": 1,
-		"ecommercePlan": 0,
-		"telephoneCompanies": "VIVO"
-	},
-	"customer": {
-		"documentType": "F",
-		"documentNumber": 35947512017,
-		"name": "nome",
-		"companyName": "nome",
-		"mei": false,
-		"stateEnrollment": 0,
-		"mcc": 8021,
-		"accounts": {
-			"bankCode": 341,
-			"bankBranch": "1475",
-			"accountNumber": "132997",
-			"type": "CHECKING_ACCOUNT_CIELO"
-		},
-		"tradingName": "Vendinha 47599041079",
-		"contactName": "Cliente teste",
-		"contactEmail": "teste_47599041079@teste.com.br",
-		"phoneNumbers": {
-			"type": "CELL_PHONE",
-			"ddd": 11,
-			"number": 988995623
-		},
-		"addresses": {
-			"type": "COMMERCIAL_ADDRESS",
-			"postalCode": 13327371,
-			"address": "Rua Santa Luzia",
-			"number": "52",
-			"add": "casa",
-			"neighborhood": "Nova Era",
-			"city": "Salto",
-			"state": "SP",
-			"country": "Brasil"
-		},
-		"owners": {
-			"name": "Cliente 14452619010",
-			"documentNumber": 11264316488,
-			"birthDate": "1989-02-08",
-			"phoneNumbers": {
-				"type": "CELL_PHONE",
-				"ddd": 11,
-				"number": 998561234
-			},
-			"affiliatorCode": "123456789",
-			"averageRevenue": 150,
-			"cieloPlanCode": 1,
-			"amountOfDaysForliquidation": 1
-		}
-	}
+    "agribusiness": false,
+    "solutions": {
+        "code": 18,
+        "numberOfEquipaments": 1,
+        "ecommercePlan": 0,
+        "telephoneCompanies": "VIVO"
+    },
+    "customer": {
+        "documentType": "F",
+        "documentNumber": 35947512017,
+        "name": "nome",
+        "companyName": "nome",
+        "mei": false,
+        "stateEnrollment": 0,
+        "mcc": 8021,
+        "accounts": {
+            "bankCode": 341,
+            "bankBranch": "1475",
+            "accountNumber": "132997",
+            "type": "CHECKING_ACCOUNT_CIELO"
+        },
+        "tradingName": "Vendinha 47599041079",
+        "contactName": "Cliente teste",
+        "contactEmail": "teste_47599041079@teste.com.br",
+        "phoneNumbers": {
+            "type": "CELL_PHONE",
+            "ddd": 11,
+            "number": 988995623
+        },
+        "addresses": {
+            "type": "COMMERCIAL_ADDRESS",
+            "postalCode": 13327371,
+            "address": "Rua Santa Luzia",
+            "number": "52",
+            "add": "casa",
+            "neighborhood": "Nova Era",
+            "city": "Salto",
+            "state": "SP",
+            "country": "Brasil"
+        },
+        "owners": {
+            "name": "Cliente 14452619010",
+            "documentNumber": 11264316488,
+            "birthDate": "1989-02-08",
+            "phoneNumbers": {
+                "type": "CELL_PHONE",
+                "ddd": 11,
+                "number": 998561234
+            },
+            "affiliatorCode": "123456789",
+            "averageRevenue": 150,
+            "cieloPlanCode": 1,
+            "amountOfDaysForliquidation": 1
+        }
+    }
 }');
 
 try {
