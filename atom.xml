@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-28T15:46:17+00:00</updated>
+    <updated>2017-11-29T11:44:35+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8524,7 +8524,7 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
     </entry>
     
     <entry>
-        <title>Tutoriais Backoffice API Cielo</title>
+        <title>Tutoriais</title>
         <category term="tutorial" />
         <link href="https://developercielo.github.io/tutorial/tutoriais"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
@@ -8725,7 +8725,7 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
     </entry>
     
     <entry>
-        <title>Split API e-Commerce Cielo</title>
+        <title>Split de pagamentos</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/manual/split"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
@@ -9826,7 +9826,7 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
     </entry>
     
     <entry>
-        <title>FAQ API e-Commerce Cielo</title>
+        <title>FAQ</title>
         <category term="faq" />
         <link href="https://developercielo.github.io/faq/faq-api-3-0"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
@@ -10323,7 +10323,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
     </entry>
     
     <entry>
-        <title>Manual API e-Commerce Cielo</title>
+        <title>Manual de Integração</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/manual/cielo-ecommerce"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
@@ -24139,44 +24139,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
     </entry>
     
     <entry>
-        <title>Teste</title>
-        <category term="manual" />
-        <link href="https://developercielo.github.io/manual/cielo-ecommerce-git"/>
-        <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/cielo-ecommerce-git</id>
-        <content type="html">&lt;h1 id=&quot;teste&quot;&gt;Teste&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-Json&quot;&gt;    PaymentListener paymentListener = new PaymentListener() {
-                @Override
-                public void onStart() {
-                Log.d(&quot;MinhaApp&quot;, &quot;O pagamento começou.&quot;);
-                }
-
-                @Override
-                public void onPayment(@NotNull Order order) {
-                Log.d(&quot;MinhaApp&quot;, &quot;Um pagamento foi realizado.&quot;);
-                }
-
-                @Override public void onCancel() {
-                Log.d(&quot;MinhaApp&quot;, &quot;A operação foi cancelada.&quot;);
-                }
-
-                @Override public void onError(@NotNull PaymentError paymentError) {
-                Log.d(&quot;MinhaApp&quot;, &quot;Houve um erro no pagamento.&quot;);
-                }
-    };
-
-    String orderId = order.getId();
-
-    long value = order.getPrice();
-
-    orderManager.checkoutOrder(orderId, value, paymentListener);
-&lt;/code&gt;&lt;/pre&gt;
-</content>
-    </entry>
-    
-    <entry>
-        <title>Tutoriais Checkout Cielo</title>
+        <title>Tutoriais</title>
         <category term="tutorial" />
         <link href="https://developercielo.github.io/tutorial/checkout-tutoriais"/>
         <updated>2000-01-01T00:00:00+00:00</updated>
@@ -24897,7 +24860,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
     </entry>
     
     <entry>
-        <title>FAQ Checkout Cielo</title>
+        <title>FAQ</title>
         <category term="faq" />
         <link href="https://developercielo.github.io/faq/checkout-faq"/>
         <updated>2000-01-01T00:00:00+00:00</updated>
@@ -25074,7 +25037,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
     </entry>
     
     <entry>
-        <title>Manual Checkout Cielo</title>
+        <title>Manual de integração</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/manual/checkout-cielo"/>
         <updated>2000-01-01T00:00:00+00:00</updated>
