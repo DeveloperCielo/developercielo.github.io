@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-29T12:03:06+00:00</updated>
+    <updated>2017-11-29T12:06:12+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6501,7 +6501,7 @@ seguintes informações, que irão completar o cadastro:
 
 &lt;h2 id=&quot;como-funciona-a-solução-do-webservice-15-da-cielo&quot;&gt;Como funciona a solução do Webservice 1.5 da Cielo?&lt;/h2&gt;
 
-&lt;p&gt;A solução Webservice da plataforma Cielo E-commerce foi desenvolvida com tecnologia XML, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.&lt;/p&gt;
+&lt;p&gt;A solução &lt;strong&gt;Webservice&lt;/strong&gt; da plataforma Cielo E-commerce foi desenvolvida com tecnologia XML, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.&lt;/p&gt;
 
 &lt;h2 id=&quot;É-preciso-algum-software-proprietário-como-dlls-para-fazer-a-integração&quot;&gt;É preciso algum software proprietário, como DLLs, para fazer a integração?&lt;/h2&gt;
 
