@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual Webservice 1.5
+title: Manual
 description: Integração Técnica via XML
 search: true
 translated: true
