@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title: Tutoriais Checkout Cielo
+title: Tutoriais
 description:
 search: true
 toc_footers: true
