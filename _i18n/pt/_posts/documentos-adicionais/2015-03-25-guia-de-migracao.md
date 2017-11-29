@@ -5,8 +5,7 @@ search: true
 toc_footers: true
 categories: tutorial
 tags:
-  - Webservice 1.5
-  - API e-Commerce Cielo
+  - Documentos Adicionais
 ---
 
 # Guia de migração Cielo
