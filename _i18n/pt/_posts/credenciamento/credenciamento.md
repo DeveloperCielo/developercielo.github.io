@@ -42,7 +42,6 @@ Integradores que desejam criar novos canais de credenciamento, seja de forma onl
 
 # Diagrama de utilização demostrando o funcionamento da solução
 
-
 # Diagrama de utilização demostrando os passos para o uso da API
 
 # Documentação Técnica
