@@ -1101,6 +1101,9 @@ Ex.: À Vista, Parcelado, etc.</p>
     </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">5250</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010920335960001"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4QeQD63ZeKsz"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0687f00a-0aea-48f7-85d0-64bc31977734"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000001"</span><span class="p">,</span><span class="w">
@@ -1208,6 +1211,9 @@ Ex.: À Vista, Parcelado, etc.</p>
     </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">5250</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010920335960001"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4QeQD63ZeKsz"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0687f00a-0aea-48f7-85d0-64bc31977734"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000001"</span><span class="p">,</span><span class="w">
@@ -1252,10 +1258,9 @@ Ex.: À Vista, Parcelado, etc.</p>
 
 <p>As possíveis alterações de status são:</p>
 <ul>
-  <li>place (Liberar um pedido para pagamento, exibir pedido na Cielo LIO)</li>
-  <li>pay (Alterar um pedido para pago)</li>
-  <li>close (Fechar um pedido)</li>
-  <li>canceled (cancelar pedido)</li>
+  <li>PLACE (Liberar um pedido para pagamento, exibir pedido na Cielo LIO)</li>
+  <li>PAY (Alterar um pedido para pago)</li>
+  <li>CLOSE (Fechar um pedido)</li>
 </ul>
 
 <blockquote>
@@ -1429,6 +1434,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="w">
     </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
     </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
@@ -1526,6 +1532,7 @@ Ex.: À Vista, Parcelado, etc.</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="w">
         </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
         </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
         </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
@@ -1533,6 +1540,7 @@ Ex.: À Vista, Parcelado, etc.</p>
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
         </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2f5fb9a5542406e8b7917892329cda8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="w">
         </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
         </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
         </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
@@ -1843,6 +1851,7 @@ Em ambiente de produção, uma vez que um pagamento for realizado na Cielo LIO a
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40578a65-939e-4613-b8c1-9e7358c6c256"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928273921"</span><span class="p">,</span><span class="w">
