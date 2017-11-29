@@ -9,13 +9,10 @@ categories: manual
 sort_order: 1
 tags:
   - API Credenciamento Cielo
-language_tabs:
-  json: JSON
-  shell: cURL
 ---
 
-# Visão geral
+# Visão Geral
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Credenciamento da Cielo, descrevendo as funcionalidades, fluxo de execução e métodos a serem utilizados.
+A API de credenciamento permite que novos canais (websites / apps / aplicações híbridas) sejam utilizados para realizar o credenciamento de novos estabelecimentos utilizando a API de credenciamento da Cielo.
 
-Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST de Credenciamento. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes.
+As operações aqui listadas, devem ser executadas através do merchant_id e merchant_key obtidos após liberação do time Cielo para que sua conta tenha possibilidade de realizar chamadas utilizando nossa API Rest.
