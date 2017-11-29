@@ -22,9 +22,11 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como integrar 
 
 Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST de Credenciamento. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
 
+
 ## O que é
 
 Credenciamento é o processo de afiliação de novo cliente na Cielo (8Estabelecimento Comercial8).
+
 
 ## Como funciona
 
@@ -36,21 +38,28 @@ A integração é realizada através de serviços disponibilizados como Web Serv
 |**PUT**|O método HTTP `PUT` é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.|
 |**GET**|O método HTTP `GET` é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.|
 
+
 ## Público-alvo
 
 Integradores que desejam criar novos canais de credenciamento, seja de forma online através da web ou aplicativos mobile.
 
+
 # Diagrama de utilização demostrando o funcionamento da solução
+
 
 # Diagrama de utilização demostrando os passos para o uso da API
 
+
 # Documentação Técnica
+
 
 ## Swagger 2.0
 
 Acesse o swagger através do link: aqui!!!
 
+
 ## API Docs
+
 
 ### Endpoints (Sandbox e Produção)
 
@@ -62,7 +71,9 @@ Ambiente Sandbox
 
 * https://api.cielo.com.br/sandbox/affiliate
 
+
 ### Instruções para uso: realizar chamadas, autenticação.
+
 
 ### HTTP Header
 
@@ -73,6 +84,7 @@ Todas as chamadas da API de Credenciamento necessitam que as informações abaix
 **Access-Token**:Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em “detalhes” na coluna “Access Tokens”, dentro do menu “Desenvolvedor” -> “Client ID Cadastrados”.
 
 **Merchant-Id**: Token que identifica o estabelecimento comercial dentro do servidor Order Manager da Cielo LIO. Sua geração ocorre durante o processo de cadastro do Client ID. Seu valor pode ser visualizado na coluna “Merchant ID”, dentro do menu “Desenvolvedor” -> “Client ID Cadastrados”.
+
 
 ### HTTP Status Code
 
@@ -90,7 +102,9 @@ Todas as chamadas da API de Credenciamento necessitam que as informações abaix
 | 429    | Too Many Requests     | O consumidor estourou o limite de requisições por tempo.                                 |
 | 500    | Internal Server Error | Erro não esperado; algo está quebrado na API                                             |
 
+
 ### Recursos
+
 
 #### Merchants
 
@@ -398,7 +412,63 @@ request(options, function (error, response, body) {
 
 #### Request
 
+| Propriedade                           | Tipo    | Valores                                  | Descrição                                |
+| ------------------------------------- | ------- | ---------------------------------------- | ---------------------------------------- |
+| `agribusiness`                        | Boolean | true, false                              | ?                                        |
+| `username`                            | Texto   | any                                      | Nome do usuário.                         |
+| `Terminals.code`                      | Texto   | ENUM: POS_PORTABLE, POS_DIALED_LINE, POS_BROADBAND, MOBILE_WITH_SCANNER, MOBILE_WITHOUT_SCANNER, ECOMMERCE_CHECKOUT, ECOMMERCE_V3, LIO_BASIC, LIO_PLUS, LIO_BASIC_V2, LIO_PLUS_V2, POS_WIFI | Identificador do terminal solicitado para o credenciamento. |
+| `Terminals.numberOfEquipaments`       | Número  | any                                      | Quantidade de equipamentos.              |
+| `Terminals.ecommercePlan`             | Número  | any                                      | Número do plano para um credenciamento ecommerce. |
+| `Terminals.paymentByLink`             | Boolean | true, false                              | Credenciamento será feito para pagamento utilizando link online. |
+| `Terminals.telephoneCompanies`        | Texto   | "VIVO", "CLARO", "TIM", "OI"             | Companhia de telefonia escolhida para compor o equipamento POS. |
+| `Terminals.businessHours`             | Texto   | any                                      | Horário comercial                        |
+| `Terminals.autoService`               | Boolean | true, false                              | ?                                        |
+| `Customer.documentType`               | Texto   | F, J                                     | Indicador do tipo de documento (F - física / J - jurídica) |
+| `Customer.documentNumber`             | Número  | any                                      | Número do documento.                     |
+| `Customer.name`                       | Text    | any                                      | Nome do cliente.                         |
+| `Customer.companyName`                | Texto   | any                                      | Nome da empresa.                         |
+| `Customer.mei`                        | Boolean | true, false                              | Indicador se é pessoa jurídica MEI (Micro empreendedor individual). |
+| `Customer.stateEnrollment`            | Texto   | any                                      | ?                                        |
+| `Customer.mcc`                        | Texto   | Sim                                      | ?                                        |
+| `Customer.accounts.bankCode`          | Número  | any                                      | Código do banco                          |
+| `Customer.accounts.bankBranch`        | Número  | any                                      | Número da agência.                       |
+| `Customer.accounts.accountNumber`     | Número  | any                                      | Número da conta corrente.                |
+| `Customer.accounts.type`              | Número  | ENUM: CHECKING_ACCOUNT_CIELO, CHECKING_ACCOUNT, SAVINGS_ACCOUNT, PREPAID_CARD | Tipo da conta corrente.                  |
+| `Customer.tradingName`                | Texto   | any                                      | ?                                        |
+| `Customer.contactName`                | Texto   | any                                      | Nome do contato.                         |
+| `Customer.contactEmail`               | Texto   | any                                      | E-mail do contato.                       |
+| `Customer.phoneNumbers.type`          | Texto   | ENUM: HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX | Tipo do telefone.                        |
+| `Customer.phoneNumbers.ddd`           | Número  | any                                      | Código DDD.                              |
+| `Customer.phoneNumbers.number`        | Número  | any                                      | Número do telefone.                      |
+| `Customer.addresses.type`             | Texto   | ENUM: HOME_ADDRESS, COMMERCIAL_ADDRESS, MAIL_ADDRESS, SUPPLY_ADDRESS | Tipo do endereço.                        |
+| `Customer.addresses.postalCode`       | Número  | any                                      | Número do CEP.                           |
+| `Customer.addresses.address`          | Texto   | any                                      | Endereço (Rua/Avenida/Travessa/etc).     |
+| `Customer.addresses.number`           | Número  | any                                      | Número.                                  |
+| `Customer.addresses.add`              | Texto   | any                                      | ?                                        |
+| `Customer.addresses.neighborhood`     | Texto   | any                                      | Bairro.                                  |
+| `Customer.addresses.city`             | Texto   | any                                      | Cidade.                                  |
+| `Customer.addresses.state`            | Texto   | any                                      | Estado.                                  |
+| `Customer.addresses.country`          | Texto   | any                                      | País.                                    |
+| `Customer.owners.name`                | Texto   | any                                      | Nome do proprietário.                    |
+| `Customer.owners.documentNumber`      | Número  | any                                      | Número do documento.                     |
+| `Customer.owners.birthDate`           | Data    | any                                      | Data de aniversário.                     |
+| `Customer.owners.phoneNumbers.type`   | Texto   | ENUM: HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX | Tipo do telefone.                        |
+| `Customer.owners.phoneNumbers.ddd`    | Número  | any                                      | Código DDD.                              |
+| `Customer.owners.phoneNumbers.number` | Número  | any                                      | Número do telefone.                      |
+| `Customer.affiliatorCode`             | Número  | any                                      | Código de afiliação.                     |
+| `Customer.averageRevenue`             | Número  | any                                      | ?                                        |
+| `Customer.cieloPlanCode`              | Número  | ENUM: DEFAULT, CONTROL                   | Código de plano cielo (comercial).       |
+| `Customer.amountOfDaysForliquidation` | Número  | any                                      | Quantidade de dias para liquidação.      |
+| `Customer.paymentType`                | Texto   | ENUM: IN_CASH, FINANCED                  | Tipo de pagamento.                       |
+| `Customer.arvTax`                     | Texto   | any                                      | Taxa de antecipação.                     |
+
+
 #### Response
+
+| Propriedade      | Tipo   | Valores | Descrição                                |
+| ---------------- | ------ | ------- | ---------------------------------------- |
+| `merchantNumber` | Número | any     | Número do EC (Estabelecimento comercial) |
+| `proposalNumber` | Número | any     | Número da proposta comercial que foi criada. |
 
 #### Terminals
 
@@ -484,8 +554,11 @@ request(options, function (error, response, body) {
 
 ```
 
-# SDKs (Opcional)
+##### Requisição
 
-# Vídeo demonstrando utilização da API(Opcional)
+| Propriedade      | Tipo   | Valores | Descrição                                |
+| ---------------- | ------ | ------- | ---------------------------------------- |
+| `proposalNumber` | Número | any     | Número da proposta comercial que foi criada. |
 
-# Cases com parceiros (Opcional)
+
+##### Resposta
