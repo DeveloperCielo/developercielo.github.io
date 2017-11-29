@@ -93,6 +93,7 @@ Todas as chamadas da API de Credenciamento necessitam que as informações abaix
 ### Recursos
 
 #### Merchants
+
 Merchants é a representação da entidade de estabelecimento comercial para a execução do fluxo de credenciamento de um novo cliente.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/merchants</span></aside>
@@ -387,6 +388,7 @@ request(options, function (error, response, body) {
 #### Response
 
 #### Terminals
+
 Terminal referencia a solução captura que retorna a identificação do terminal lógico quando associado a um estabelecimento comercial.
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">/v1/terminals</span></aside>
@@ -458,8 +460,11 @@ request(options, function (error, response, body) {
 
   console.log(body);
 });
+
 ```
 
 # SDKs (Opcional)
+
 # Vídeo demonstrando utilização da API(Opcional)
+
 # Cases com parceiros (Opcional)
