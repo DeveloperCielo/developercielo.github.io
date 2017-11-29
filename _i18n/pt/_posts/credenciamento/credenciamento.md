@@ -105,9 +105,9 @@ curl -X POST \
   -H 'client_id: LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ' \
   -H 'content-type: application/json' \
   -d '{
-	"agribusiness": false,
-	"solutions": {
-		"code": 18,
+    "agribusiness": false,
+    "solutions": {
+        "code": 18,
 		"numberOfEquipaments": 1,
 		"ecommercePlan": 0,
 		"telephoneCompanies": "VIVO"
