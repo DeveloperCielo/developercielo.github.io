@@ -16,9 +16,9 @@ language_tabs:
   javascript: javascript
 ---
 
-## Visão geral
+# Visão geral
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a **API de Credenciamento da Cielo**, descrevendo as funcionalidades, fluxo de execução e métodos a serem utilizados.
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Credenciamento da Cielo, descrevendo as funcionalidades, fluxo de execução e métodos a serem utilizados.
 
 Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST de Credenciamento. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
 
@@ -76,19 +76,19 @@ Todas as chamadas da API de Credenciamento necessitam que as informações abaix
 
 ### HTTP Status Code
 
-| Código  | Erro  | Descrição  |
-|---|---|---|
-| 200 |  OK | Operação realizada com sucesso.  |
-| 201 | Created  | A solicitação foi realizada, resultando na criação de um novo recurso.  |
-| 204 | Empty  |  Operação realizada com sucesso, mas nenhuma resposta foi retornada. |
-| 400  | Bad Request  |  A requisição possui parâmetro(s) inválido(s). |
-| 401  | Unauthorized  | O token de acesso não foi informado ou não possui acesso às APIs.  |
-| 403  | Forbidden  | O acesso ao recurso foi negado.  |
-| 404  | Not Found  | O recurso informado no request não foi encontrado.  |
-| 413  | Request is to Large  |  A requisição está ultrapassando o limite permitido para o perfil do seu token de acesso. |
-| 422  | Unprocessable Entity  | A requisição possui parâmetros obrigatórios não informados.  |
-| 429  | Too Many Requests  | O consumidor estourou o limite de requisições por tempo.  |
-| 500  | Internal Server Error  | Erro não esperado; algo está quebrado na API  |
+| Código | Erro                  | Descrição                                                                                |
+|--------|-----------------------|------------------------------------------------------------------------------------------|
+| 200    | OK                    | Operação realizada com sucesso.                                                          |
+| 201    | Created               | A solicitação foi realizada, resultando na criação de um novo recurso.                   |
+| 204    | Empty                 | Operação realizada com sucesso, mas nenhuma resposta foi retornada.                      |
+| 400    | Bad Request           | A requisição possui parâmetro(s) inválido(s).                                            |
+| 401    | Unauthorized          | O token de acesso não foi informado ou não possui acesso às APIs.                        |
+| 403    | Forbidden             | O acesso ao recurso foi negado.                                                          |
+| 404    | Not Found             | O recurso informado no request não foi encontrado.                                       |
+| 413    | Request is to Large   | A requisição está ultrapassando o limite permitido para o perfil do seu token de acesso. |
+| 422    | Unprocessable Entity  | A requisição possui parâmetros obrigatórios não informados.                              |
+| 429    | Too Many Requests     | O consumidor estourou o limite de requisições por tempo.                                 |
+| 500    | Internal Server Error | Erro não esperado; algo está quebrado na API                                             |
 
 ### Recursos
 
@@ -463,4 +463,3 @@ request(options, function (error, response, body) {
 # SDKs (Opcional)
 # Vídeo demonstrando utilização da API(Opcional)
 # Cases com parceiros (Opcional)
-
