@@ -1,3 +1,17 @@
+---
+layout: manual
+title: Cielo Credenciamento
+description: Integracao Cielo Credenciamento
+search: true
+toc_footers: true
+categories: manual
+tags:
+  - API credenciamento Cielo
+language_tabs:
+  json: JSON
+  shell: cURL
+---
+
 # Visão geral
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Credenciamento da Cielo, descrevendo as funcionalidades, fluxo de execução e métodos a serem utilizados
@@ -205,167 +219,6 @@ curl -X POST \
 }
 ```
 
-```java
-OkHttpClient client = new OkHttpClient();
-
-MediaType mediaType = MediaTypeparse("application/json");
-RequestBody body = RequestBodycreate(mediaType, "{\r\n\t\"agribusiness\": false,\r\n\t\"solutions\": {\r\n\t\t\"code\": 18,\r\n\t\t\"numberOfEquipaments\": 1,\r\n\t\t\"ecommercePlan\": 0,\r\n\t\t\"telephoneCompanies\": \"VIVO\"\r\n\t},\r\n\t\"customer\": {\r\n\t\t\"documentType\": \"F\",\r\n\t\t\"documentNumber\": 35947512017,\r\n\t\t\"name\": \"nome\",\r\n\t\t\"companyName\": \"nome\",\r\n\t\t\"mei\": false,\r\n\t\t\"stateEnrollment\": 0,\r\n\t\t\"mcc\": 8021,\r\n\t\t\"accounts\": {\r\n\t\t\t\"bankCode\": 341,\r\n\t\t\t\"bankBranch\": \"1475\",\r\n\t\t\t\"accountNumber\": \"132997\",\r\n\t\t\t\"type\": \"CHECKING_ACCOUNT_CIELO\"\r\n\t\t},\r\n\t\t\"tradingName\": \"Vendinha 47599041079\",\r\n\t\t\"contactName\": \"Cliente teste\",\r\n\t\t\"contactEmail\": \"teste_47599041079@testecombr\",\r\n\t\t\"phoneNumbers\": {\r\n\t\t\t\"type\": \"CELL_PHONE\",\r\n\t\t\t\"ddd\": 11,\r\n\t\t\t\"number\": 988995623\r\n\t\t},\r\n\t\t\"addresses\": {\r\n\t\t\t\"type\": \"COMMERCIAL_ADDRESS\",\r\n\t\t\t\"postalCode\": 13327371,\r\n\t\t\t\"address\": \"Rua Santa Luzia\",\r\n\t\t\t\"number\": \"52\",\r\n\t\t\t\"add\": \"casa\",\r\n\t\t\t\"neighborhood\": \"Nova Era\",\r\n\t\t\t\"city\": \"Salto\",\r\n\t\t\t\"state\": \"SP\",\r\n\t\t\t\"country\": \"Brasil\"\r\n\t\t},\r\n\t\t\"owners\": {\r\n\t\t\t\"name\": \"Cliente 14452619010\",\r\n\t\t\t\"documentNumber\": 11264316488,\r\n\t\t\t\"birthDate\": \"1989-02-08\",\r\n\t\t\t\"phoneNumbers\": {\r\n\t\t\t\t\"type\": \"CELL_PHONE\",\r\n\t\t\t\t\"ddd\": 11,\r\n\t\t\t\t\"number\": 998561234\r\n\t\t\t},\r\n\t\t\t\"affiliatorCode\": \"123456789\",\r\n\t\t\t\"averageRevenue\": 150,\r\n\t\t\t\"cieloPlanCode\": 1,\r\n\t\t\t\"amountOfDaysForliquidation\": 1\r\n\t\t}\r\n\t}\r\n}");
-Request request = new RequestBuilder()
-  url("https://apidevcielocombr/sandbox/affiliate/v1/merchants")
-  post(body)
-  addHeader("content-type", "application/json")
-  addHeader("client_id", "LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ")
-  build();
-
-Response response = clientnewCall(request)execute();
-```
-
-```php
-$request = new HttpRequest();
-$request->setUrl('https://apidevcielocombr/sandbox/affiliate/v1/merchants');
-$request->setMethod(HTTP_METH_POST);
-
-$request->setHeaders(array(
-  'client_id' => 'LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ',
-  'content-type' => 'application/json'
-));
-
-$request->setBody('{
-    "agribusiness": false,
-    "solutions": {
-        "code": 18,
-        "numberOfEquipaments": 1,
-        "ecommercePlan": 0,
-        "telephoneCompanies": "VIVO"
-    },
-    "customer": {
-        "documentType": "F",
-        "documentNumber": 35947512017,
-        "name": "nome",
-        "companyName": "nome",
-        "mei": false,
-        "stateEnrollment": 0,
-        "mcc": 8021,
-        "accounts": {
-            "bankCode": 341,
-            "bankBranch": "1475",
-            "accountNumber": "132997",
-            "type": "CHECKING_ACCOUNT_CIELO"
-        },
-        "tradingName": "Vendinha 47599041079",
-        "contactName": "Cliente teste",
-        "contactEmail": "teste_47599041079@testecombr",
-        "phoneNumbers": {
-            "type": "CELL_PHONE",
-            "ddd": 11,
-            "number": 988995623
-        },
-        "addresses": {
-            "type": "COMMERCIAL_ADDRESS",
-            "postalCode": 13327371,
-            "address": "Rua Santa Luzia",
-            "number": "52",
-            "add": "casa",
-            "neighborhood": "Nova Era",
-            "city": "Salto",
-            "state": "SP",
-            "country": "Brasil"
-        },
-        "owners": {
-            "name": "Cliente 14452619010",
-            "documentNumber": 11264316488,
-            "birthDate": "1989-02-08",
-            "phoneNumbers": {
-                "type": "CELL_PHONE",
-                "ddd": 11,
-                "number": 998561234
-            },
-            "affiliatorCode": "123456789",
-            "averageRevenue": 150,
-            "cieloPlanCode": 1,
-            "amountOfDaysForliquidation": 1
-        }
-    }
-}');
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
-}
-```
-
-```csharp
-var client = new RestClient("https://apidevcielocombr/sandbox/affiliate/v1/merchants");
-var request = new RestRequest(MethodPOST);
-requestAddHeader("client_id", "LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ");
-requestAddHeader("content-type", "application/json");
-requestAddParameter("application/json", "{\r\n\t\"agribusiness\": false,\r\n\t\"solutions\": {\r\n\t\t\"code\": 18,\r\n\t\t\"numberOfEquipaments\": 1,\r\n\t\t\"ecommercePlan\": 0,\r\n\t\t\"telephoneCompanies\": \"VIVO\"\r\n\t},\r\n\t\"customer\": {\r\n\t\t\"documentType\": \"F\",\r\n\t\t\"documentNumber\": 35947512017,\r\n\t\t\"name\": \"nome\",\r\n\t\t\"companyName\": \"nome\",\r\n\t\t\"mei\": false,\r\n\t\t\"stateEnrollment\": 0,\r\n\t\t\"mcc\": 8021,\r\n\t\t\"accounts\": {\r\n\t\t\t\"bankCode\": 341,\r\n\t\t\t\"bankBranch\": \"1475\",\r\n\t\t\t\"accountNumber\": \"132997\",\r\n\t\t\t\"type\": \"CHECKING_ACCOUNT_CIELO\"\r\n\t\t},\r\n\t\t\"tradingName\": \"Vendinha 47599041079\",\r\n\t\t\"contactName\": \"Cliente teste\",\r\n\t\t\"contactEmail\": \"teste_47599041079@testecombr\",\r\n\t\t\"phoneNumbers\": {\r\n\t\t\t\"type\": \"CELL_PHONE\",\r\n\t\t\t\"ddd\": 11,\r\n\t\t\t\"number\": 988995623\r\n\t\t},\r\n\t\t\"addresses\": {\r\n\t\t\t\"type\": \"COMMERCIAL_ADDRESS\",\r\n\t\t\t\"postalCode\": 13327371,\r\n\t\t\t\"address\": \"Rua Santa Luzia\",\r\n\t\t\t\"number\": \"52\",\r\n\t\t\t\"add\": \"casa\",\r\n\t\t\t\"neighborhood\": \"Nova Era\",\r\n\t\t\t\"city\": \"Salto\",\r\n\t\t\t\"state\": \"SP\",\r\n\t\t\t\"country\": \"Brasil\"\r\n\t\t},\r\n\t\t\"owners\": {\r\n\t\t\t\"name\": \"Cliente 14452619010\",\r\n\t\t\t\"documentNumber\": 11264316488,\r\n\t\t\t\"birthDate\": \"1989-02-08\",\r\n\t\t\t\"phoneNumbers\": {\r\n\t\t\t\t\"type\": \"CELL_PHONE\",\r\n\t\t\t\t\"ddd\": 11,\r\n\t\t\t\t\"number\": 998561234\r\n\t\t\t},\r\n\t\t\t\"affiliatorCode\": \"123456789\",\r\n\t\t\t\"averageRevenue\": 150,\r\n\t\t\t\"cieloPlanCode\": 1,\r\n\t\t\t\"amountOfDaysForliquidation\": 1\r\n\t\t}\r\n\t}\r\n}", ParameterTypeRequestBody);
-IRestResponse response = clientExecute(request);
-```
-
-```javascript
-var request = require("request");
-
-var options = { method: 'POST',
-  url: 'https://apidevcielocombr/sandbox/affiliate/v1/merchants',
-  headers:
-   { client_id: 'LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ',
-     'content-type': 'application/json' },
-  body:
-   { agribusiness: false,
-     solutions:
-      { code: 18,
-        numberOfEquipaments: 1,
-        ecommercePlan: 0,
-        telephoneCompanies: 'VIVO' },
-     customer:
-      { documentType: 'F',
-        documentNumber: 35947512017,
-        name: 'nome',
-        companyName: 'nome',
-        mei: false,
-        stateEnrollment: 0,
-        mcc: 8021,
-        accounts:
-         { bankCode: 341,
-           bankBranch: '1475',
-           accountNumber: '132997',
-           type: 'CHECKING_ACCOUNT_CIELO' },
-        tradingName: 'Vendinha 47599041079',
-        contactName: 'Cliente teste',
-        contactEmail: 'teste_47599041079@testecombr',
-        phoneNumbers: { type: 'CELL_PHONE', ddd: 11, number: 988995623 },
-        addresses:
-         { type: 'COMMERCIAL_ADDRESS',
-           postalCode: 13327371,
-           address: 'Rua Santa Luzia',
-           number: '52',
-           add: 'casa',
-           neighborhood: 'Nova Era',
-           city: 'Salto',
-           state: 'SP',
-           country: 'Brasil' },
-        owners:
-         { name: 'Cliente 14452619010',
-           documentNumber: 11264316488,
-           birthDate: '1989-02-08',
-           phoneNumbers: { type: 'CELL_PHONE', ddd: 11, number: 998561234 },
-           affiliatorCode: '123456789',
-           averageRevenue: 150,
-           cieloPlanCode: 1,
-           amountOfDaysForliquidation: 1 } } },
-  json: true };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-
-  consolelog(body);
-});
-```
-
 #### Request
 
 | Propriedade                           | Tipo    | Valores                                  | Descrição                                |
@@ -437,65 +290,6 @@ curl -X GET \
   -H 'cache-control: no-cache' \
   -H 'client_id: LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ' \
   -H 'content-type: application/json'
-```
-
-```java
-OkHttpClient client = new OkHttpClient();
-Request request = new RequestBuilder()
-  url("https://apidevcielocombr/sandbox/affiliate/v1/terminals?proposalNumber=12345")
-  get()
-  addHeader("content-type", "application/json")
-  addHeader("client_id", "LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ")
-  build();
-
-Response response = clientnewCall(request)execute();
-```
-
-```php
-$request = new HttpRequest();
-$request->setUrl('https://apidevcielocombr/sandbox/affiliate/v1/terminals');
-$request->setMethod(HTTP_METH_GET);
-
-$request->setQueryData(array(
-  'proposalNumber' => '12345'
-));
-
-$request->setHeaders(array(
-  'client_id' => 'LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ',
-  'content-type' => 'application/json'
-));
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
-}
-```
-
-```csharp
-var client = new RestClient("https://apidevcielocombr/sandbox/affiliate/v1/terminals?proposalNumber=12345");
-var request = new RestRequest(MethodGET);
-requestAddHeader("client_id", "LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ");
-requestAddHeader("content-type", "application/json");
-IRestResponse response = clientExecute(request);
-```
-
-```javascript
-var request = require("request");
-
-var options = { method: 'GET',
-  url: 'https://apidevcielocombr/sandbox/affiliate/v1/terminals',
-  qs: { proposalNumber: '12345' },
-  headers:
-   { client_id: 'LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ',
-     'content-type': 'application/json' } };
-
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
-  consolelog(body);
-});
 ```
 
 ##### Requisição
