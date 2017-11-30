@@ -6,6 +6,7 @@ search: true
 translated: true
 toc_footers: true
 categories: manual
+sort_order: 1
 tags:
   - Webservice 1.5
 language_tabs:
