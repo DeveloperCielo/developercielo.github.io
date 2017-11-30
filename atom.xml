@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T15:19:26+00:00</updated>
+    <updated>2017-11-30T15:20:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6590,7 +6590,7 @@ seguintes informações, que irão completar o cadastro:
 
 &lt;p&gt;A leitura dos dados do cartão no ambiente próprio é controlada por regras definidas pelo programa de segurança imposto pelas bandeiras de cartões.&lt;/p&gt;
 
-&lt;p&gt;Para a Visa, esse programa é o conhecido como AIS (Account Information Security) PCI. Para maiores informações acesse: &lt;a href=&quot;www.cielo.com.br&quot;&gt;www.cielo.com.br&lt;/a&gt; &amp;gt; Serviços &amp;gt; Serviços de Segurança &amp;gt; AIS – Programa de Segurança da Informação , ou entre em contato conosco.&lt;/p&gt;
+&lt;p&gt;Para a Visa, esse programa é o conhecido como AIS (Account Information Security) PCI. Para maiores informações acesse: &lt;a href=&quot;https://www.cielo.com.br&quot;&gt;https://www.cielo.com.br&lt;/a&gt; &amp;gt; Serviços &amp;gt; Serviços de Segurança &amp;gt; AIS – Programa de Segurança da Informação , ou entre em contato conosco.&lt;/p&gt;
 
 &lt;p&gt;Para a Mastercard o programa de segurança é o SDP (Site Data Protection) PCI. Para maiores informações acesse: &lt;a href=&quot;http://www.mastercard.com/us/sdp/index.html&quot;&gt;http://www.mastercard.com/us/sdp/index.html&lt;/a&gt;, ou entre em contato conosco.&lt;/p&gt;
 
