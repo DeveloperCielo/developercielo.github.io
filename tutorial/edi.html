@@ -218,7 +218,7 @@
   <li>A Cielo retorna o arquivo ao cliente em até 2 dias, com o resultado do processamento de todas as transações (aprovadas ou negadas com seus motivos).</li>
 </ul>
 
-<h1 id="considerações-gerais">Considerações Gerais</h1>
+<h2 id="considerações-gerais">Considerações Gerais</h2>
 
 <ul>
   <li>O arquivo de retorno estará disponível para o Estabelecimento em até 48 horas, utilizando o mesmo layout.</li>
@@ -257,11 +257,13 @@
   <li>O arquivo deve ser formatado com 1 único lote (RO) de vendas parceladas por maquineta e 1 lote de venda (RO) à vista por maquineta.</li>
 </ul>
 
-<h1 id="arquivos-para-remessa-eou-retorno-de-vendas">Arquivos para Remessa e/ou Retorno de Vendas</h1>
+<h1 id="arquivos">Arquivos</h1>
+
+<h2 id="arquivos-para-remessa-eou-retorno-de-vendas">Arquivos para Remessa e/ou Retorno de Vendas</h2>
 
 <p>Layout de Arquivos para Remessa e/ou Retorno de Vendas</p>
 
-<h2 id="registro-header">Registro Header</h2>
+<h3 id="registro-header">Registro Header</h3>
 
 <table>
   <thead>
@@ -378,7 +380,7 @@
   </tbody>
 </table>
 
-<h3 id="legenda">Legenda</h3>
+<h4 id="legenda">Legenda</h4>
 
 <ul>
   <li><strong>POS</strong> = Posição inicial do Campo no Arquivo;</li>
@@ -390,7 +392,7 @@
   <p><strong>N</strong> = Numérico / <strong>X</strong> = Alfanumérico</p>
 </blockquote>
 
-<h2 id="registro-detalhe">Registro Detalhe</h2>
+<h3 id="registro-detalhe">Registro Detalhe</h3>
 
 <table>
   <thead>
@@ -651,7 +653,7 @@
   </tbody>
 </table>
 
-<h2 id="registro-trailler">Registro Trailler</h2>
+<h3 id="registro-trailler">Registro Trailler</h3>
 
 <table>
   <thead>
@@ -734,26 +736,7 @@
 
 <aside class="notice">( * ) - Estes campos devem ser considerados com 2 (duas) casas decimais, sem vírgulas, pontos ou qualquer outro caractere para separar números.</aside>
 
-<h1 id="demais-regras-sobre-cancelamento-de-vendas">Demais regras sobre cancelamento de vendas</h1>
-
-<p>O cancelamento de qualquer transação só será aceito se houver saldo disponível na Agenda Financeira do Estabelecimento Comercial para cobrir o valor do cancelamento solicitado.</p>
-
-<ul>
-  <li>O cancelamento pode ser solicitado até 365 dias da data de autorização.</li>
-  <li>Para cancelamentos de vendas, os campos 004, 005, 006, 007 e 008 da linha de Detalhe devem ser preenchidos com as mesmas informações da venda, respeitando o horário e data de Autorização e Captura do Brasil.</li>
-  <li>É permitido o cancelamento Total ou Parcial da venda.</li>
-  <li>Cancelamentos parciais podem ser enviados até o valor total da transação, obedecendo as seguintes condições:</li>
-</ul>
-
-<blockquote>
-  <p><strong>Transações a Vista</strong>: podem ser enviados mais de um cancelamento parcial da mesma transação no mesmo dia, desde que sejam enviadas em Lotes diferentes / <strong>Transações Parcelado Loja</strong>: não permite cancelamento parcial da mesma transação no mesmo dia.</p>
-</blockquote>
-
-<ul>
-  <li>Cancelamentos de transações autorizadas por meio do canal EDI, só podem ser solicitados após o recebimento do arquivo retorno da transação de autorização (até 48 horas após o envio do arquivo).</li>
-</ul>
-
-<h1 id="arquivos-de-remessa-e-retorno-de-cancelamentos">Arquivos de Remessa e Retorno de Cancelamentos</h1>
+<h2 id="arquivos-de-remessa-e-retorno-de-cancelamentos">Arquivos de Remessa e Retorno de Cancelamentos</h2>
 
 <p>Layout de Arquivos de Remessa e Retorno de Cancelamentos ( Não PCI ) utilizado para cancelamentos de transações por meio do canal EDI, por exemplo: transações recorrentes.</p>
 
@@ -767,7 +750,7 @@
   <li>Autorização da transação original;</li>
 </ul>
 
-<h2 id="registro-header-1">Registro Header</h2>
+<h3 id="registro-header-1">Registro Header</h3>
 
 <table>
   <thead>
@@ -884,7 +867,7 @@
   </tbody>
 </table>
 
-<h2 id="registro-detalhe-1">Registro Detalhe</h2>
+<h3 id="registro-detalhe-1">Registro Detalhe</h3>
 
 <table>
   <thead>
@@ -1145,7 +1128,7 @@
   </tbody>
 </table>
 
-<h2 id="registro-trailler-1">Registro Trailler</h2>
+<h3 id="registro-trailler-1">Registro Trailler</h3>
 
 <table>
   <thead>
@@ -1227,6 +1210,25 @@
 </table>
 
 <aside class="notice">( * ) - Estes campos devem ser considerados com 2 (duas) casas decimais, sem vírgulas, pontos ou qualquer outro caractere para separar números.</aside>
+
+<h1 id="regras---cancelamento-de-vendas">Regras - cancelamento de vendas</h1>
+
+<p>O cancelamento de qualquer transação só será aceito se houver saldo disponível na Agenda Financeira do Estabelecimento Comercial para cobrir o valor do cancelamento solicitado.</p>
+
+<ul>
+  <li>O cancelamento pode ser solicitado até 365 dias da data de autorização.</li>
+  <li>Para cancelamentos de vendas, os campos 004, 005, 006, 007 e 008 da linha de Detalhe devem ser preenchidos com as mesmas informações da venda, respeitando o horário e data de Autorização e Captura do Brasil.</li>
+  <li>É permitido o cancelamento Total ou Parcial da venda.</li>
+  <li>Cancelamentos parciais podem ser enviados até o valor total da transação, obedecendo as seguintes condições:</li>
+</ul>
+
+<blockquote>
+  <p><strong>Transações a Vista</strong>: podem ser enviados mais de um cancelamento parcial da mesma transação no mesmo dia, desde que sejam enviadas em Lotes diferentes / <strong>Transações Parcelado Loja</strong>: não permite cancelamento parcial da mesma transação no mesmo dia.</p>
+</blockquote>
+
+<ul>
+  <li>Cancelamentos de transações autorizadas por meio do canal EDI, só podem ser solicitados após o recebimento do arquivo retorno da transação de autorização (até 48 horas após o envio do arquivo).</li>
+</ul>
 
 <h1 id="anexos">Anexos</h1>
 
