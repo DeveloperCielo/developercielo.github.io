@@ -357,7 +357,7 @@ Below we list points that must be ready before integration:</p>
     <p>A suitable <strong>timeout</strong> must be defined in the HTTP requests with Cielo; we recommend 30 seconds.</p>
   </li>
   <li>
-    <p>The Root certificate of the certifying entity (CA) of our Web Service must be registered in the Truststore to be used. Because our certifier is widely accepted in the market, it is likely that it is already registered in the Truststore of the operating system itself. See the section <a href="#certificado-extended-validation">Certificado Extended Validation</a> for more information.</p>
+    <p>The Root certificate of the certifying entity (CA) of our Web Service must be registered in the Truststore to be used. Because our certifier is widely accepted in the market, it is likely that it is already registered in the Truststore of the operating system itself. See the section <a href="#extended-validation-certificate">Extended Validation Certificate</a> for more information.</p>
   </li>
   <li>
     <p>The Checkout works efficiently only in supported browsers:</p>
@@ -408,7 +408,7 @@ Below we list points that must be ready before integration:</p>
   <li>If you use Internet Explorer, try disabling compatibility mode.</li>
 </ul>
 
-<p>If you have tried these solutions but still experience problems, please contact us at <a href="#suporte-cielo">Cielo Support</a> and provide the following information:</p>
+<p>If you have tried these solutions but still experience problems, please contact us at <a href="#cielo-support">Cielo Support</a> and provide the following information:</p>
 
 <ul>
   <li>A general explanation of the problem.</li>
@@ -595,7 +595,7 @@ See the flow below:</p>
   <li>The Cielo API returns the <strong>CheckoutURL</strong>, which is the URL of the transactional screen assembled based on the data sent by the Merchant/Button.</li>
   <li>The store redirects the customer to the URL returned by Cielo. The screen shown is part of the <strong>Cielo safe payment environment</strong>.</li>
   <li>The carrier chooses: Means of payment , freight type and delivery address on the transactional screen</li>
-  <li>Checkout Cielo redirects the customer to the <strong>Return URL</strong> chosen by the store, configured in <a href="/Checkout-Backoffice/">Backoffice Checkout Cielo</a> or sent by the integration via API.</li>
+  <li>Checkout Cielo redirects the customer to the <strong>Return URL</strong> chosen by the store, configured in Backoffice Checkout Cielo or sent by the integration via API.</li>
   <li>If the store has a <strong>notification URL</strong>, it will be notified about the status of the transaction.</li>
   <li>The store notifies the customer that the process has been completed and that he will receive more information about the purchase and payment by e-mail.</li>
   <li>The store processes the purchase order using the notification POST data and, if the transaction is authorized, releases the order.</li>
@@ -613,7 +613,7 @@ See the flow below:</p>
 
 <p><img src="https://developercielo.github.io/en/images/Checkout/tm01.png" alt="Activating test mode" /></p>
 
-<p>When the option is saved, a red stripe appears at the top of the screen. It will be displayed on all the screens of the <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> and on the Checkout Cielo transaction screen.</p>
+<p>When the option is saved, a red stripe appears at the top of the screen. It will be displayed on all the screens of the Backoffice Cielo Checkout and on the Checkout Cielo transaction screen.</p>
 
 <p>This stripe indicates that your Checkout Cielo store is now operating in a test environment, i.e. any transaction performed in that mode will be considered as a test.</p>
 
@@ -634,7 +634,7 @@ See the flow below:</p>
 
 <h3 id="how-to-transact-in-test-mode">How to transact in Test Mode.</h3>
 
-<p>Performing transactions in test mode occurs normally. Transaction information is sent via POST or API, using the parameters as described in the <a href="#integração-carrinho-de-compras">Integração com carrinho</a> topic, however, the payment means to be used are simulated media.</p>
+<p>Performing transactions in test mode occurs normally. Transaction information is sent via POST or API, using the parameters as described in the <a href="#integration-by-api">Integration by API</a> topic, however, the payment means to be used are simulated media.</p>
 
 <p>To perform test transactions with different payment means, follow these rules:</p>
 
@@ -1729,11 +1729,11 @@ This type of integration is accomplished through the registration of a set of it
   <li>Whenever you want to provide a quick sale.</li>
 </ul>
 
-<p>To use this feature, it is necessary to register the product you want to sell, their information, and then just copy the source code generated for this button. The inclusion of products is done within the <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a>, in the Products/Register Product menu.</p>
+<p>To use this feature, it is necessary to register the product you want to sell, their information, and then just copy the source code generated for this button. The inclusion of products is done within the Backoffice Cielo Checkout, in the Products/Register Product menu.</p>
 
 <h3 id="button-features">Button Features</h3>
 
-<p>Each button has a unique code that only allows to buy that particular product in the conditions of price and registered freight. Therefore, a fraudster can not change any of this information when submitting to the purchase, because Checkout Cielo will collect all the product data in the register of the <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a>, and will be worth the register data.</p>
+<p>Each button has a unique code that only allows to buy that particular product in the conditions of price and registered freight. Therefore, a fraudster can not change any of this information when submitting to the purchase, because Checkout Cielo will collect all the product data in the register of the Backoffice Cielo Checkout, and will be worth the register data.</p>
 
 <table>
   <thead>
@@ -1764,7 +1764,7 @@ This type of integration is accomplished through the registration of a set of it
 
 <h3 id="creating-the-button">Creating the Button</h3>
 
-<p>To use this feature, it is necessary to register the product you want to sell, their information, and then just copy the source code generated for this button. The inclusion of products is done within the <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a>, in the Products/Register Product menu.</p>
+<p>To use this feature, it is necessary to register the product you want to sell, their information, and then just copy the source code generated for this button. The inclusion of products is done within the Backoffice Cielo Checkout, in the Products/Register Product menu.</p>
 
 <p><strong>Registration Screen:</strong></p>
 
@@ -1906,7 +1906,7 @@ This type of integration is accomplished through the registration of a set of it
 
 <aside class="notice">The code must be inserted within the appropriate area in your HTML.</aside>
 
-<p>Each button has a unique code that only allows to buy that particular product in the conditions of price and registered freight. Therefore, a fraudster can not change any of this information when submitting the purchase, because Checkout Cielo will collect all product data in the register of the <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a>, and the register data will be valid.</p>
+<p>Each button has a unique code that only allows to buy that particular product in the conditions of price and registered freight. Therefore, a fraudster can not change any of this information when submitting the purchase, because Checkout Cielo will collect all product data in the register of the Backoffice Cielo Checkout, and the register data will be valid.</p>
 
 <h4 id="use-case">Use case</h4>
 
@@ -1949,7 +1949,7 @@ Just follow the path below:</p>
 
 <p>Checkout Cielo allows the use of Credit Cards of the main national and international issuers. This means of payment is automatically released with Cielo affiliation, and can be used initially with the Checkout integration.</p>
 
-<p>Credit card transactions will be included in the <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> as PENDING, AUTHORIZED, PAID, DENIED, EXPIRED OR CHARGEBACK depending on the result of the authorization with the Bank.</p>
+<p>Credit card transactions will be included in the Backoffice Cielo Checkout as PENDING, AUTHORIZED, PAID, DENIED, EXPIRED OR CHARGEBACK depending on the result of the authorization with the Bank.</p>
 
 <p><strong>Credit Card</strong> Order of Status:</p>
 
@@ -2124,7 +2124,7 @@ This degree of risk is what should guide the merchant’s decision to capture or
 
 <p>Upon accessing the transaction screen, the buyer will obtain by the payment via Debit Card, and will be redirected to the banking environment for Authentication and Authorization.</p>
 
-<p>Debit card transactions will be included in the <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> as PENDING, PAID, UNAUTHORIZED or NOT FINISHED, depending on the result of the authorization with the Bank.</p>
+<p>Debit card transactions will be included in the Backoffice Cielo Checkout as PENDING, PAID, UNAUTHORIZED or NOT FINISHED, depending on the result of the authorization with the Bank.</p>
 
 <p><strong>Debit card</strong> - Order of Status</p>
 
@@ -2191,7 +2191,7 @@ This means of payment must be registered by Cielo Support to be made available i
 
 <p>Upon accessing the transaction screen, the buyer will obtain by the payment via Debit Card, and will be redirected to the banking environment for Authentication and Authorization.</p>
 
-<p>Debit card transactions will be included in the <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> as PENDING, PAID, UNAUTHORIZED or NOT FINISHED, depending on the result of the authorization with the Bank.</p>
+<p>Debit card transactions will be included in the Backoffice Cielo Checkout as PENDING, PAID, UNAUTHORIZED or NOT FINISHED, depending on the result of the authorization with the Bank.</p>
 
 <p><strong>Debit card</strong> - Order of Status</p>
 
@@ -2211,7 +2211,7 @@ This means of payment is released via registration with Support Cielo.</p>
 
 <p>Upon accessing the transaction screen, the buyer will obtain by the payment via Online debit, and will be redirected to the banking environment for Authentication and Authorization.</p>
 
-<p>Online debit transactions will be included in the <a href="http://developercielo.github.io/Checkout-Backoffice/">Backoffice Cielo Checkout</a> as PENDING, PAID, UNAUTHORIZED or NOT FINISHED, depending on the result of the authorization with the Bank.</p>
+<p>Online debit transactions will be included in the Backoffice Cielo Checkout as PENDING, PAID, UNAUTHORIZED or NOT FINISHED, depending on the result of the authorization with the Bank.</p>
 
 <p><strong>Online debit</strong> - Order of Status</p>
 
@@ -2978,7 +2978,7 @@ Below is an example of the Node</p>
 
 <p>Recurrence is a process of automatic scheduling of credit transactions, that is, it is a transaction that will be repeated automatically, without the need of the buyer to access the transactional screen, according to the rules defined at the time of the scheduling.</p>
 
-<aside class="notice">If one of the transactions is not authorized, Checkout Cielo performs the retentative automatically; for details on automatic retentative, see section <a href="#retentativa">Retentativa</a>.</aside>
+<aside class="notice">If one of the transactions is not authorized, Checkout Cielo performs the retentative automatically; for details on automatic retentative, see section <a href="#retry-of-recurrences">Retry of Recurrences</a>.</aside>
 
 <p>Recurrent transactions are ideal for business models that involve the <strong>concept of subscription, plan or monthly fee</strong> in its form of <strong>charge</strong>.
 Some business examples are:</p>
@@ -3253,7 +3253,7 @@ If there is a recurrence node in the technical contract, the <code class="highli
   <li><strong>Occurrence day</strong> - It is possible to modify the execution date of the recurring transaction.</li>
 </ul>
 
-<p>The update is done exclusively via Backoffice Cielo. Access the <a href="https://developercielo.github.io/Checkout-Backoffice/"><strong>Backoffice Checkout Cielo Tutorial</strong></a> for more information.</p>
+<p>The update is done exclusively via Backoffice Cielo.</p>
 
 <h1 id="cielo-support">Cielo Support</h1>
 
