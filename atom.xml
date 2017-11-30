@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T11:27:55+00:00</updated>
+    <updated>2017-11-30T11:34:16+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -28174,13 +28174,13 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 &lt;p&gt;Ambiente Produção&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://apicielocombr/affiliate&quot;&gt;https://apicielocombr/affiliate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://api.cielo.com.br/affiliate&quot;&gt;https://api.cielo.com.br/affiliate&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Ambiente Sandbox&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://apicielocombr/sandbox/affiliate&quot;&gt;https://apicielocombr/sandbox/affiliate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://api.cielo.com.br/sandbox/affiliate&quot;&gt;https://api.cielo.com.br/sandbox/affiliate&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;instruções-para-uso-realizar-chamadas-autenticação&quot;&gt;Instruções para uso: realizar chamadas, autenticação&lt;/h3&gt;
