@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T14:52:57+00:00</updated>
+    <updated>2017-11-30T15:02:09+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3135,7 +3135,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 &lt;p&gt;Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à Cielo
 para iniciar a operação no ambiente de produção.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Veja a seção &lt;a href=&quot;#Homologacao&quot;&gt;Homologação&lt;/a&gt; para instruções sobre o processo de homologação&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Veja a seção &lt;a href=&quot;#testes-e-homologação&quot;&gt;Homologação&lt;/a&gt; para instruções sobre o processo de homologação&lt;/aside&gt;
 
 &lt;h2 id=&quot;suporte-cielo&quot;&gt;Suporte Cielo&lt;/h2&gt;
 
@@ -4213,7 +4213,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
     &lt;tr&gt;
       &lt;td&gt;14&lt;/td&gt;
       &lt;td&gt;Transação não autorizada. Cartão Inválido&lt;/td&gt;
-      &lt;td&gt;Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor, dados incorretos ou tentativas de testes de cartão. Use o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo. Consulte www.cielo.com.br/desenvolvedores para implantar o Algoritmo de Lhum.&lt;/td&gt;
+      &lt;td&gt;Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor, dados incorretos ou tentativas de testes de cartão. Use o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo. Consulte https://www.cielo.com.br/desenvolvedores para implantar o Algoritmo de Lhum.&lt;/td&gt;
       &lt;td&gt;Não foi possível processar a transação. reveja os dados informados e tente novamente. Se o erro persistir, entre em contato com seu banco emissor.&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
@@ -6457,7 +6457,7 @@ seguintes informações, que irão completar o cadastro:
 
 &lt;p&gt;A leitura dos dados do cartão no ambiente próprio é controlada por regras definidas pelo programa de segurança imposto pelas bandeiras de cartões.&lt;/p&gt;
 
-&lt;p&gt;Para a Visa, esse programa é o conhecido como AIS (Account Information Security) PCI. Para maiores informações acesse: &lt;a href=&quot;www.cielo.com.br&quot;&gt;www.cielo.com.br&lt;/a&gt; &amp;gt; Serviços &amp;gt; Serviços de Segurança &amp;gt; AIS – Programa de Segurança da Informação , ou entre em contato conosco.&lt;/p&gt;
+&lt;p&gt;Para a Visa, esse programa é o conhecido como AIS (Account Information Security) PCI. Para maiores informações acesse: &lt;a href=&quot;https://www.cielo.com.br&quot;&gt;https://www.cielo.com.br&lt;/a&gt; &amp;gt; Serviços &amp;gt; Serviços de Segurança &amp;gt; AIS – Programa de Segurança da Informação , ou entre em contato conosco.&lt;/p&gt;
 
 &lt;p&gt;Para a Mastercard o programa de segurança é o SDP (Site Data Protection) PCI. Para maiores informações acesse: &lt;a href=&quot;http://www.mastercard.com/us/sdp/index.html&quot;&gt;http://www.mastercard.com/us/sdp/index.html&lt;/a&gt;, ou entre em contato conosco.&lt;/p&gt;
 
@@ -23677,7 +23677,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;h3 id=&quot;frete-de-correios--serviços&quot;&gt;Frete de Correios &amp;amp; Serviços&lt;/h3&gt;
 
-&lt;p&gt;Nesta área você configura as opções de frete disponiveis em sua Loja. Na seção &lt;a href=&quot;#informações-sobre-frete&quot;&gt;Informações sobre Frete&lt;/a&gt; há uma explicação mais detalhada sobre os tipos de fretes disponiveis no Checkout Cielo. Há tambem na área de fretes de Correiros, uma calculadora de frete para consultas (essa calculadora dá o valor de frete de cada tipo de frete cadastrado para um determinado peso e localidade)&lt;/p&gt;
+&lt;p&gt;Nesta área você configura as opções de frete disponiveis em sua Loja. Na seção Informações sobre Frete há uma explicação mais detalhada sobre os tipos de fretes disponiveis no Checkout Cielo. Há tambem na área de fretes de Correiros, uma calculadora de frete para consultas (essa calculadora dá o valor de frete de cada tipo de frete cadastrado para um determinado peso e localidade)&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-frete-correios.png&quot; alt=&quot;Frete Correios&quot; /&gt;&lt;/p&gt;
 
