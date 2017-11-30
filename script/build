@@ -26,6 +26,9 @@ for file in $(find images -not -regex "images\(/[a-z0-9\.\-]+\(/[a-z0-9\.\-]*\)*
   exit 1
 done
 
+# restore system defaults
+export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
+
 # lint for markdown
 bundle exec mdl --rules ${RULES} _i18n/
 
@@ -49,6 +52,3 @@ if [ -n "$GH_TOKEN" ]; then
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
   git push --force origin master
 fi
-
-# restore system defaults
-export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
