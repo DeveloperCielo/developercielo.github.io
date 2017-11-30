@@ -18,19 +18,19 @@ O objetivo deste documento é orientar o lojista sobre como acessar a manipular 
 
 Para acessar o Backoffice do Checkout Cielo, é necessário que o lojista **[realize login no Site Cielo](https://www.cielo.com.br/minha-conta)**, inserindo sua Afiliação (Nº de estabelecimento) e Usuário:
 
-![Login Backoffice Cielo](/images/Checkout/TutorialCheckout/checkout-login.png)
+![Login Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-login.png)
 
 Em seguida é necessário incluir sua Senha:
 
-![Senha Backoffice Cielo](/images/Checkout/TutorialCheckout/checkout-login-senha.png)
+![Senha Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-login-senha.png)
 
 Na área de “Vendas Online” basta clicar em Checkout Cielo.
 
-![Vendas online](/images/Checkout/TutorialCheckout/checkout-vendas-online.png)
+![Vendas online]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-vendas-online.png)
 
 Caso o site principal da Cielo não esteja disponível, basta acessar a URL [https://cieloecommerce.cielo.com.br/backoffice](https://cieloecommerce.cielo.com.br/backoffice) e inserir seu e-mail de cadastro e senha.
 
-[!Checkout Cielo](/images/Checkout/TutorialCheckout/checkout-cielo.png)
+[!Checkout Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-cielo.png)
 
 ## Abas do Backoffice Checkout Cielo
 
@@ -58,7 +58,7 @@ Nessa tela você encontra 2 tipos de informações.
 
 <aside class="warning">Por padrão, transações de crédito expiram em 15 dias. Após esse perido, elas não podem ser capturadas.</aside>
 
-![DashBoard](/images/Checkout/TutorialCheckout/checkout-dashboard.png)
+![DashBoard]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-dashboard.png)
 
 ## Aba Pedidos
 
@@ -67,11 +67,11 @@ O resultado da pesquisa é exposto em forma de uma listagem de transações que 
 
 Listagem de Pedidos
 
-![Pedidos](/images/Checkout/TutorialCheckout/checkout-pedidos.png)
+![Pedidos]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-pedidos.png)
 
 Detalhes dos Pedidos
 
-![Detalhes do Pedido](/images/Checkout/TutorialCheckout/checkout-pedidos-detalhes.png)
+![Detalhes do Pedido]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-pedidos-detalhes.png)
 
 ## Aba Link de Pagamento
 
@@ -86,7 +86,7 @@ No menu Link de Pagamentos, existem as áreas: **Cadastrar de Link de Pagamentos
 
 ### Listar Link de pagamentos Cadastrados
 
-![Produtos cadastrados](/images/Checkout/TutorialCheckout/checkout-listar-link-de-pagamentos.png)
+![Produtos cadastrados]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-listar-link-de-pagamentos.png)
 
 Clicando no Titulo ou SKU do produto, você será redirecionado a página de informações de Produto, onde todas as características do produto são informadas e onde você pode definir o padrão do Botão (caso a sua integração seja com base no Botão Checkout Cielo) a ser usado na venda desse produto.
 
@@ -103,7 +103,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 * **Recorrência** - Transações que se repetem em um determinado intervalo de tempo EX: Assinaturas, mensalidades etc
 * **Pagamentos** - Pagamentos unicos ou transferência de valores Ex: quitação de dividas etc
 
-![Cadastrar Link de pagamentos](/images/Checkout/TutorialCheckout/checkout-cadastrar-link-de-pagamentos.png)
+![Cadastrar Link de pagamentos]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-cadastrar-link-de-pagamentos.png)
 
 <aside class="notice">Material Físico exige que um tipo de frete seja cadastrado. </aside>
 
@@ -115,7 +115,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 Após realizar o cadastro do produto/Link de pagamento, a seguinte loja será exibida:
 
-![Detalhes do produto](/images/Checkout/TutorialCheckout/checkout-detalhes-Link-de-pagamentos.png)
+![Detalhes do produto]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-detalhes-link-de-pagamentos.png)
 
 O Link de pagamentos é exibido de **3 maneiras:**
 
@@ -145,7 +145,7 @@ Nesta pagina é possível gerar 05 tipos de relatórios:  “Relatório financei
 
 Esse relatorio apresenta as vendas pagas em um determinado periodo de tempo, sendo separadas por meio de pagamento. Selecionando o periodo e  tipo de pagamento, após pressionar “Buscar” o resultado será apresentado.
 
-![Relatório financeiro](/images/Checkout/TutorialCheckout/checkout-relatorio-financeiro.png)
+![Relatório financeiro]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-relatorio-financeiro.png)
 
 ### Relatório detalhado de vendas.
 
@@ -153,7 +153,7 @@ Esse relatorio informa o valor de cada pedido assim como dados sobre o produto e
 
 <aside class="notice">Pedidos realizados no Modo de teste não são apresentados nesse relatório, mesmo que estejam com o status “PAGO”</aside>
 
-![Relatório detalhado de vendas](/images/Checkout/TutorialCheckout/checkout-relatorio-detalhado-vendas.png)
+![Relatório detalhado de vendas]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-relatorio-detalhado-vendas.png)
 
 ### Listagem de clientes
 
@@ -175,17 +175,17 @@ A listagem de clientes gera um arquivo excel contendo os dados dos clientes que 
 
 A lista do valor cobrado pelos serviços oferecidos pela Cielo será apresentada neste relatório. Todos os dados dos planos e custos transacionais serão apresentados aqui:
 
-![Extrato de cobrança](/images/Checkout/TutorialCheckout/checkout-extrato-cobranca.png)
+![Extrato de cobrança]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-extrato-cobranca.png)
 
 ### Relatório de Recorrência
 
 Nesse relatório é possível pesquisar o conjunto de recorrência e suas transações com base em seu ID ou por Status e Intervalo de ocorrência.
 
-![Relatório de Recorrências](/images/Checkout/TutorialCheckout/checkout-relatorio-recorrencia.png)
+![Relatório de Recorrências]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-relatorio-recorrencia.png)
 
 Ao clicar no “+” é aberto a tela de Detalhes da recorrência:
 
-![Detalhes da Recorrência](/images/Checkout/TutorialCheckout/checkout-detalhes-da-recorrencia.png)
+![Detalhes da Recorrência]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-detalhes-da-recorrencia.png)
 
 Os Detalhes da recorrência informam o carrinho e o histórico de transações agendadas. Ao clicar em “+Detalhes” o lojista é direcionado a tela de detalhes de Pedidos (Ver item “PEDIDOS”)
 
@@ -199,7 +199,7 @@ Tambem é possível realizar 3 tipos de modificações na recorrência:
 
 Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.
 
-![Dúvidas](/images/Checkout/TutorialCheckout/checkout-suporte.png)
+![Dúvidas]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-suporte.png)
 
 Nessa pagina é possivel entrar em contato a respeito de duvidas Operacionais, tecnicas e Comerciais  e ter acesso aos documentos técnicos e de suporte do Checkout Cielo.
 
@@ -214,7 +214,7 @@ Nesta pagina é possivel fazer configurações em diferentes mecanismos dentro d
 
 Aqui é possivel alterar o logo do meio de pagamento disponível em sua loja e a cor de fundo do site via o uso da caixa de opções ou digitando o código relativo a cor escolhida (As cores estão no padrão RGB).
 
-![Configuração Exibição](/images/Checkout/TutorialCheckout/checkout-configuracoes-loja.png)
+![Configuração Exibição]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-configuracoes-loja.png)
 
 <aside class="notice">O logo de sua loja será exibido na tela de Checkout centralizado.</aside>
 
@@ -222,7 +222,7 @@ Aqui é possivel alterar o logo do meio de pagamento disponível em sua loja e a
 
 Nesta tela é possível alterar as configurações dos meios de pagamento disponíveis em sua loja, os definindo como ativos ou não, e configurar a URL de retorno, notificação e Mudança de Status.
 
-![Configuração Exibição](/images/Checkout/TutorialCheckout/checkout-configuracoes-pagamento.png)
+![Configuração Exibição]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-configuracoes-pagamento.png)
 
 #### Modo de Teste Checkout Cielo
 
@@ -230,7 +230,7 @@ O modo de teste Checkout Cielo é uma ferramenta que permite testar a integraç�
 
 O modo de teste pode ser ativado marcando a caixa de seleção:
 
-![Ativando Modo de teste]({{ site.baseurl_root }}/images/Checkout/tm01.png)
+![Ativando Modo de teste]({{ site.baseurl_root }}/images/checkout/tm01.png)
 
 Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Backoffice e na tela transacional do Checkout Cielo.
 
@@ -238,7 +238,7 @@ Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente
 
 |Backoffice|Transacional|
 |---|---|
-|![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/Checkout/tmbackoffice.png)|![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/Checkout/tmtransacional.png)|
+|![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png)|![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png)|
 
 #### Tipos de Notificação
 
@@ -265,7 +265,7 @@ As URL’s descritas nesta área da aba tem a função de meios de comunicação
 
 Na tela de pedidos, dentro de cada transação, há a opção de reenvio do POST de mudança de status.  Basta clicar nos botões azuis, marcados na imagem abaixo:
 
-![Detalhes do pedido](/images/Checkout/TutorialCheckout/checkout-detalhe-pedidos.png)
+![Detalhes do pedido]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-detalhe-pedidos.png)
 
 <aside class="notice">Os Lojistas da “Loja Virtual Terra Cielo” possuem URL’s de notificação, mudança de Status e Retorno atualizadas automaticamente. Para esses lojistas, não é necessário alterar as URL’s citadas.</aside>
 
@@ -275,7 +275,7 @@ Para mais informações sobre as URLs de notificação do Checkout visite o **[M
 
 Nesta parte da aba de configurações é possível configurar 4 valores mínimos e descontos por meios de pagamento:
 
-![Valor minimo parcela](/images/Checkout/TutorialCheckout/checkout-Configurações-de-valores-Minimos.png)
+![Valor minimo parcela]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-configuracoes-de-valores-minimos.png)
 
 | Tipo | Descrição|
 |-----|------|
@@ -302,7 +302,7 @@ Nesta parte da aba de configurações é possível configurar 4 valores mínimos
 
 Basta marcar a caixa de seleção do cartão que deseja disponibilizar no momento do pagamento. Para desabilita-lo, basta desmarcar a caixa de seleção.
 
-![Configurando meios de pagamento](/images/Checkout/TutorialCheckout/checkout-cards.png)
+![Configurando meios de pagamento]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-cards.png)
 
 O parcelamento é definido por bandeira de cartão. O numero de parcelas maximas disponibilizadas para cada cartão passa a ser definida pelo Lojista.
 
@@ -316,11 +316,11 @@ Aqui é possivel definir a automação dos processos de captura e cancelamento d
 
 <aside class="notice">Se o lojista não tem habilitado o antifraude em seu contrato junto a Cielo ou não enviar no POST a solicitação de analise de fraude, a captura automática não será executada caso esteja configurada para ser efetuada com base no status da analise de risco. Caberá ao lojista a captura manual do pedido.</aside>
 
-![Anti fraude](/images/Checkout/TutorialCheckout/checkout-anti-fraude.png)
+![Anti fraude]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-anti-fraude.png)
 
 Campo valor mínimo de analise AF:
 
-![Valor mínimo anti fraude](/images/Checkout/TutorialCheckout/checkout-anti-fraude-valor-minimo.png)
+![Valor mínimo anti fraude]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-anti-fraude-valor-minimo.png)
 
 #### Tabela de status do Antifraude
 
@@ -338,13 +338,13 @@ Campo valor mínimo de analise AF:
 
 Você pode visualizar o status do antifraude acessando o detalhe da compra, na aba Pedidos e clicando no (+)
 
-![Status Antifraude](/images/Checkout/TutorialCheckout/checkout-status-antifraude.png)
+![Status Antifraude]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-status-antifraude.png)
 
 ### Frete de Correios & Serviços
 
 Nesta área você configura as opções de frete disponiveis em sua Loja. Na seção [Informações sobre Frete](#informações-sobre-frete) há uma explicação mais detalhada sobre os tipos de fretes disponiveis no Checkout Cielo. Há tambem na área de fretes de Correiros, uma calculadora de frete para consultas (essa calculadora dá o valor de frete de cada tipo de frete cadastrado para um determinado peso e localidade)
 
-![Frete Correios](/images/Checkout/TutorialCheckout/checkout-frete-correios.png)
+![Frete Correios]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-frete-correios.png)
 
 # Tutorial - Link de Pagamentos
 
@@ -357,8 +357,8 @@ O botão gera um do 3 tipos diferentes de métodos de acesso a **mesma tela tran
 
 |Método|Nome|Descrição|
 |---|:--:|---|
-|![Botão]({{ site.baseurl_root }}/images/Checkout/botao.png)|**Botão**|É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em **hotSites** ou **E-mail Marketing**|
-|![QRCODE]({{ site.baseurl_root }}/images/Checkout/qrcode.png)|**QRCODE**|Código interpretável por Smartphones e Tablets - Ideal para uso em **Marketing impressos** ou **Digital**|
+|![Botão]({{ site.baseurl_root }}/images/checkout/botao.png)|**Botão**|É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em **hotSites** ou **E-mail Marketing**|
+|![QRCODE]({{ site.baseurl_root }}/images/checkout/qrcode.png)|**QRCODE**|Código interpretável por Smartphones e Tablets - Ideal para uso em **Marketing impressos** ou **Digital**|
 |`http://bit.ly/2tRkSxZ`|**LINK**|é um link compartilhável, ideal para uso em **Redes Sociais** ou **Messengers Mobile**|
 
 Este modelo de integração é utilizado para:
@@ -383,7 +383,7 @@ Cada botão possui um código único que só permite comprar aquele determinado 
 
 #### Fluxo do Link de Pagamento
 
-![Fluxo de integração Checkout Cielo Botão]({{ site.baseurl_root }}/images/Checkout/intbt.png)
+![Fluxo de integração Checkout Cielo Botão]({{ site.baseurl_root }}/images/checkout/intbt.png)
 
 ## Criando Um Link de pagamentos
 
@@ -401,11 +401,11 @@ Para utilizar este recurso, é necessário cadastrar o produto que se deseja ven
 
 **Tela de Cadastro**
 
-![Cadastro de Botão]({{ site.baseurl_root }}/images/Checkout/btcadastro.png)
+![Cadastro de Botão]({{ site.baseurl_root }}/images/checkout/btcadastro.png)
 
 **Botão Cadastrado:**
 
-![Cadastro de Botão]({{ site.baseurl_root }}/images/Checkout/btcadastro2.png)
+![Cadastro de Botão]({{ site.baseurl_root }}/images/checkout/btcadastro2.png)
 
 Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 

@@ -268,10 +268,10 @@ Durante a integração com o Checkout Cielo, uma seguencia de troca de informaç
 Veja o fluxo abaixo:
 
 **Fluxo de integração Checkout Cielo** - Diagrama sequêncial
-![Fluxo de integração Checkout Cielo]({{ site.baseurl_root }}/images/Checkout/fluxobasico.svg)
+![Fluxo de integração Checkout Cielo]({{ site.baseurl_root }}/images/checkout/fluxobasico.svg)
 
 **Fluxo de integração Checkout Cielo** - Fluxograma
-![Fluxo de integração Checkout Cielo]({{ site.baseurl_root }}/images/Checkout/fluxocheckoutbasico.png)
+![Fluxo de integração Checkout Cielo]({{ site.baseurl_root }}/images/checkout/fluxocheckoutbasico.png)
 
 Após o portador do cartão (consumidor) selecionar suas compras e apertar o botão “Comprar” de uma loja já integrada ao Checkout Cielo, o fluxo nesta ordem:
 
@@ -293,7 +293,7 @@ O modo de teste Checkout Cielo é uma ferramenta que permite testar a integraç�
 
 O modo de teste pode ser ativado na aba **Configurações**, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.
 
-![Ativando Modo de teste]({{ site.baseurl_root }}/images/Checkout/tm01.png)
+![Ativando Modo de teste]({{ site.baseurl_root }}/images/checkout/tm01.png)
 
 Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/) e na tela transacional do Checkout Cielo.
 
@@ -301,7 +301,7 @@ Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente
 
 |Backoffice|Transacional|
 |---|---|
-|![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/Checkout/tmbackoffice.png)|![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/Checkout/tmtransacional.png)|
+|![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png)|![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png)|
 
 ### Como transacionar no Modo de teste.
 
@@ -380,7 +380,7 @@ Se você não possui um carrinho de compras implementado, veja a seção de **In
 
 Abaixo, é demonstrado como o fluxo de compra ocorre na integração via API:
 
-![Integração Via API]({{site.baseurl_root}}{{ site.baseurl_root }}/images/Checkout/intapi.png)
+![Integração Via API]({{site.baseurl_root}}{{ site.baseurl_root }}/images/checkout/intapi.png)
 
 ### Criando o Carrinho
 
@@ -598,7 +598,7 @@ Abaixo, como o efeito do desconto são apresentados no Carrinho:
 
 |Percentual|Valor|
 |---|---|
-|![Percentual]({{ site.baseurl_root }}/images/Checkout/checkout-discount-percent.png)|![Valor]({{ site.baseurl_root }}/images/Checkout/checkout-discount-amount.png)|
+|![Percentual]({{ site.baseurl_root }}/images/checkout/checkout-discount-percent.png)|![Valor]({{ site.baseurl_root }}/images/checkout/checkout-discount-amount.png)|
 
 **Boleto & Débito Online**
 
@@ -624,7 +624,7 @@ Abaixo, como o efeito do desconto são apresentados no Carrinho:
 
 |Tela transacional|
 |---|
-|![Meios de pagamento]({{ site.baseurl_root }}/images/Checkout/checkout-discount-mp.png)|
+|![Meios de pagamento]({{ site.baseurl_root }}/images/checkout/checkout-discount-mp.png)|
 
 #### Tipos de "Frete"
 
@@ -642,11 +642,11 @@ O Checkout cielo possui diferentes tipos de frete.
 
 |Tipo de frete|Transacional|
 |---|---|
-|`FixedAmount`|![FixedAmount]({{ site.baseurl_root }}/images/Checkout/fixedamount.png)|
-|`Free`|![Free]({{ site.baseurl_root }}/images/Checkout/free.png)|
-|`WithoutShippingPickUp`|![WithoutShippingPickUp]({{ site.baseurl_root }}/images/Checkout/withoutshippingpickup.png)|
-|`WithoutShipping`|![WithoutShipping]({{ site.baseurl_root }}/images/Checkout/withoutshippingpickup.png)|
-|`Correios`|![Correios]({{ site.baseurl_root }}/images/Checkout/correios.png)|
+|`FixedAmount`|![FixedAmount]({{ site.baseurl_root }}/images/checkout/fixedamount.png)|
+|`Free`|![Free]({{ site.baseurl_root }}/images/checkout/free.png)|
+|`WithoutShippingPickUp`|![WithoutShippingPickUp]({{ site.baseurl_root }}/images/checkout/withoutshippingpickup.png)|
+|`WithoutShipping`|![WithoutShipping]({{ site.baseurl_root }}/images/checkout/withoutshippingpickup.png)|
+|`Correios`|![Correios]({{ site.baseurl_root }}/images/checkout/correios.png)|
 
  **OBS:** As opções para múltiplos fretes na categoria `Correios` devem ser selecionadas dentro do Backoffice Cielo.        
 
@@ -722,8 +722,8 @@ O botão gera um do 3 tipos diferentes de métodos de acesso a **mesma tela tran
 
 |Método|Nome|Descrição|
 |---|:--:|---|
-|![Botão]({{ site.baseurl_root }}/images/Checkout/botao.png)|**Botão**|É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em **hotSites** ou **E-mail Marketing**|
-|![QRCODE]({{ site.baseurl_root }}/images/Checkout/qrcode.png)|**QRCODE**|Código interpretável por Smartphones e Tablets - Ideal para uso em **Marketing impressos** ou **Digital**|
+|![Botão]({{ site.baseurl_root }}/images/checkout/botao.png)|**Botão**|É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em **hotSites** ou **E-mail Marketing**|
+|![QRCODE]({{ site.baseurl_root }}/images/checkout/qrcode.png)|**QRCODE**|Código interpretável por Smartphones e Tablets - Ideal para uso em **Marketing impressos** ou **Digital**|
 |`http://bit.ly/2tRkSxZ`|**LINK**|é um link compartilhável, ideal para uso em **Redes Sociais** ou **Messengers Mobile**|
 
 Este modelo de integração é utilizado para:
@@ -748,7 +748,7 @@ Cada botão possui um código único que só permite comprar aquele determinado 
 
  **Abaixo, o fluxo de pagamento via Botão:**
 
-![Fluxo de integração Checkout Cielo Botão]({{ site.baseurl_root }}/images/Checkout/intbt.png)
+![Fluxo de integração Checkout Cielo Botão]({{ site.baseurl_root }}/images/checkout/intbt.png)
 
 ### Criando o Botão
 
@@ -756,11 +756,11 @@ Para utilizar este recurso, é necessário cadastrar o produto que se deseja ven
 
 **Tela de Cadastro:**
 
-![Cadastro de Botão]({{ site.baseurl_root }}/images/Checkout/btcadastro.png)
+![Cadastro de Botão]({{ site.baseurl_root }}/images/checkout/btcadastro.png)
 
 **Botão Cadastrado:**
 
-![Cadastro de Botão]({{ site.baseurl_root }}/images/Checkout/btcadastro2.png)
+![Cadastro de Botão]({{ site.baseurl_root }}/images/checkout/btcadastro2.png)
 
 Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 
@@ -976,7 +976,7 @@ Todas as 3 URLs devem possuir as seguintes características:
 2. Em **Configurações da Loja**, Vá a sessão de **Pagamentos**
 3. Cadastre as URLS e escolhe o tipo de Notificação desejado
 
-![Cadastro de URLS]({{ site.baseurl_root }}/images/Checkout/urls.png)
+![Cadastro de URLS]({{ site.baseurl_root }}/images/checkout/urls.png)
 
 ## Notificação: POST
 
@@ -989,7 +989,7 @@ Este fluxo é utilizado por lojas que ainda não realizam transações via API.
 
 Abaixo o Fluxo de uma Notificação POST
 
-![Fluxo N.POST]({{ site.baseurl_root }}/images/Checkout/npost.png)
+![Fluxo N.POST]({{ site.baseurl_root }}/images/checkout/npost.png)
 
 **Retorno aguardado para o envio da notificação:** `HttpStatus = 200 (OK)` - Post recebido e processado com sucesso
 
@@ -997,7 +997,7 @@ Abaixo o Fluxo de uma Notificação POST
 
 Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
 
-![Reenvio de notificação]({{ site.baseurl_root }}/images/Checkout/reenvipost.png)
+![Reenvio de notificação]({{ site.baseurl_root }}/images/checkout/reenvipost.png)
 
 Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
 
@@ -1015,7 +1015,7 @@ Na Notificação de JSON, não há diferença entre o `POST de Notificação` e 
 
 Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de status)
 
-![Fluxo N.JSON]({{ site.baseurl_root }}/images/Checkout/njson.png)
+![Fluxo N.JSON]({{ site.baseurl_root }}/images/checkout/njson.png)
 
 **Conteúdo do POST de NOTIFICAÇÃO JSON:**
 
@@ -1076,7 +1076,7 @@ Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de
 
 Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
 
-![Reenvio de notificação]({{ site.baseurl_root }}/images/Checkout/reenvipost.png)
+![Reenvio de notificação]({{ site.baseurl_root }}/images/checkout/reenvipost.png)
 
 ## Conteúdo da Notificação
 
@@ -1206,7 +1206,7 @@ Existem dois métodos de parcelamento:
 
 Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba **Configurações** e alterando a sessão **Pagamentos**
 
- ![Seleção de Parcelas]({{ site.baseurl_root }}/images/Checkout/parcelamento.png)
+ ![Seleção de Parcelas]({{ site.baseurl_root }}/images/checkout/parcelamento.png)
 
 **OBS:** O Check Box deve estar marcado para que o meio de pagamento seja exibido na tela transacional.
 
@@ -1424,7 +1424,7 @@ O cancelamento da recorrência ocorre dentro do Backoffice do Checkout Cielo, ta
 
 ![Pedido de recorrência]({{ site.baseurl_root }}/images/checkout-cancelar-recorrencia.png)
 <br>
-![Cancelamento de recorrência]({{ site.baseurl_root }}/images/Checkout/pedidoreccance.png)
+![Cancelamento de recorrência]({{ site.baseurl_root }}/images/checkout/pedidoreccance.png)
 
 Tela de detalhes da Recorrência
 
