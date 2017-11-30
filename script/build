@@ -15,8 +15,13 @@ if [ "$TRAVIS_PULL_REQUEST" == "true" ]; then
   exit 0
 fi
 
-# check for filenams format
+# check filenames format
 for file in $(find _i18n/ -iname "*.md" -not -regex "_i18n/\w+/_posts/[a-z0-9\.\-]+\(/[a-z0-9\.\-]*\)*\(\.md\)?"); do
+  echo "Filenames must match [a-z0-9\.\-] expression. Filename '$file' is invalid"
+  exit 1
+done
+
+for file in $(find images -not -regex "images\(/[a-z0-9\.\-]+\(/[a-z0-9\.\-]*\)*\(\.(png|jpg|gif)\)?\)?"); do
   echo "Filenames must match [a-z0-9\.\-] expression. Filename '$file' is invalid"
   exit 1
 done
@@ -33,7 +38,8 @@ if [ -n "$GH_TOKEN" ]; then
   git clone https://${GH_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
   # build with Jekyll into "_site"
-  bundle exec jekyll build -b ${HOST}
+  bundle exec jekyll build --quiet -b ${HOST}
+  bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
 
   # push
   cd _site

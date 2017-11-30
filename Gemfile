@@ -7,3 +7,4 @@ gem 'kramdown'
 gem 'pygments.rb'
 gem 'jekyll-multiple-languages-plugin'
 gem 'mdl'
+gem "html-proofer"
