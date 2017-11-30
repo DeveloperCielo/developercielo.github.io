@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T15:20:58+00:00</updated>
+    <updated>2017-11-30T15:24:16+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -23904,7 +23904,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;h2 id=&quot;como-eu-crio-o-botão&quot;&gt;Como eu crio o Botão?&lt;/h2&gt;
 
-&lt;p&gt;O Botão é criado no momento de inclusão de um novo produto. Para isso, acesse o &lt;a href=&quot;/Checkout-Backoffice/&quot;&gt;Backoffice Checkout Cielo&lt;/a&gt;, no menu Produtos/Cadastrar Produtos.&lt;/p&gt;
+&lt;p&gt;O Botão é criado no momento de inclusão de um novo produto. Para isso, acesse o &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Checkout Cielo&lt;/a&gt;, no menu Produtos/Cadastrar Produtos.&lt;/p&gt;
 
 &lt;h2 id=&quot;quais-informações-eu-preciso-para-montar-o-post&quot;&gt;Quais informações eu preciso para montar o POST?&lt;/h2&gt;
 
@@ -23933,7 +23933,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;p&gt;Ao finalizar uma transação, é enviado um POST com todos os dados da venda para a URL de Notificação, previamente cadastrada no BackOffice. O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houver alteração do status da transação.&lt;/p&gt;
 
-&lt;p&gt;Dessa maneira os dados do pedido ficam atualizados no &lt;a href=&quot;/Checkout-Backoffice/&quot;&gt;Backoffice Checkout Cielo&lt;/a&gt; e também no backoffice da loja/plataforma.&lt;/p&gt;
+&lt;p&gt;Dessa maneira os dados do pedido ficam atualizados no &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Checkout Cielo&lt;/a&gt; e também no backoffice da loja/plataforma.&lt;/p&gt;
 
 &lt;h2 id=&quot;para-que-serve-a-url-de-mudança-de-status&quot;&gt;Para que serve a URL de Mudança de Status?&lt;/h2&gt;
 
@@ -23941,7 +23941,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;h2 id=&quot;onde-é-feito-o-cadastro-dessas-urls&quot;&gt;Onde é feito o cadastro dessas URLs?&lt;/h2&gt;
 
-&lt;p&gt;No &lt;a href=&quot;/Checkout-Backoffice/&quot;&gt;Backoffice Checkout Cielo&lt;/a&gt;, no menu Configurações/Configurações da loja.&lt;/p&gt;
+&lt;p&gt;No &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Checkout Cielo&lt;/a&gt;, no menu Configurações/Configurações da loja.&lt;/p&gt;
 
 &lt;h2 id=&quot;qual-a-diferença-entre-o--erro-opsss-antes-e-depois-da-exibição-da-tela-do-checkout-cielo&quot;&gt;Qual a diferença entre o  Erro OPSSS antes e depois da exibição da tela do Checkout Cielo?&lt;/h2&gt;
 
@@ -23981,7 +23981,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;p&gt;As categorias “Bens digitais” ou “Serviços” não necessitam desse tipo de informação.&lt;/p&gt;
 
-&lt;p&gt;Para compreender a diferença entre os parâmetros do POST em relação a frete e tipos de produtos, compare os exemplos de post abaixo. Para mais informações, acesse o &lt;a href=&quot;/Checkout-Cielo/&quot;&gt;Manual de Integração Checkout Cielo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para compreender a diferença entre os parâmetros do POST em relação a frete e tipos de produtos, compare os exemplos de post abaixo. Para mais informações, acesse o &lt;a href=&quot;https://developercielo.github.io/manual/checkout-cielo&quot;&gt;Manual de Integração Checkout Cielo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;parâmetros-obrigatórios&quot;&gt;Parâmetros obrigatórios&lt;/h3&gt;
 
