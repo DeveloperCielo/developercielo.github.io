@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Cielo Credenciamento
+title: Manual de Integração
 description: Integracao Cielo Credenciamento
 search: true
 toc_footers: true
