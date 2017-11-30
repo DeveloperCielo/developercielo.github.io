@@ -1365,29 +1365,29 @@ curl
 |`FraudAnalysis.Browser.Type`|Text|40|No|Browser name used by the buyer.|
 |`FraudAnalysis.Cart.IsGift`|Boolean|---|No|Boolean indicating whether the order is a gift or not.|
 |`FraudAnalysis.Cart.ReturnsAccepted`|Boolean|---|No|Boolean that defines whether returns are accepted for the order.|
-|`FraudAnalysis.Items.GiftCategory`|Text|9|No|Field that will evaluate the billing and delivery addresses for different cities, states or countries.[Values](#fraudanalysis.items.giftcategory)|
-|`FraudAnalysis.Items.HostHedge`|Text|No|Level of importance of e-mail and IP addresses of customers at risk of scoring.[Values](#fraudanalysis.items.hosthedge)|
-|`FraudAnalysis.Items.NonSensicalHedge`|Text|6|No|Level of testing performed on buyer data with meaningless received orders.[Values](#fraudanalysis.items.nonsensicalhedge)|
-|`FraudAnalysis.Items.ObscenitiesHedge`|Text|6|No|Level of obscenity of received orders.[Values](#fraudanalysis.items.obscenitieshedge)|
-|`FraudAnalysis.Items.PhoneHedge`|Text|6|No|Level of tests performed with telephone numbers.[Values](#fraudanalysis.items.phonehedge)|
+|`FraudAnalysis.Items.GiftCategory`|Text|9|No|Field that will evaluate the billing and delivery addresses for different cities, states or countries.[Values](#fraudanalysisitemsgiftcategory)|
+|`FraudAnalysis.Items.HostHedge`|Text|No|Level of importance of e-mail and IP addresses of customers at risk of scoring.[Values](#fraudanalysisitemshosthedge)|
+|`FraudAnalysis.Items.NonSensicalHedge`|Text|6|No|Level of testing performed on buyer data with meaningless received orders.[Values](#fraudanalysisitemsnonsensicalhedge)|
+|`FraudAnalysis.Items.ObscenitiesHedge`|Text|6|No|Level of obscenity of received orders.[Values](#fraudanalysisitemsobscenitieshedge)|
+|`FraudAnalysis.Items.PhoneHedge`|Text|6|No|Level of tests performed with telephone numbers.[Values](#fraudanalysisitemsphonehedge)|
 |`FraudAnalysis.Items.Name`|Text|255|No|Product's name.|
 |`FraudAnalysis.Items.Quantity`|Number|15|No|Quantity of product to be purchased.|
 |`FraudAnalysis.Items.Sku`|Text|255|No|Código comerciante identificador do produto.|
 |`FraudAnalysis.Items.UnitPrice`|Number|15|No|Unit price of the product.|
-|`FraudAnalysis.Items.Risk`|Text|6|No|Product risk level.[Values](#fraudanalysis.items.risk)|
-|`FraudAnalysis.Items.TimeHedge`|Text|No|Level of importance of customer's order day time.[Values](#fraudanalysis.items.timehedge)|
-|`FraudAnalysis.Items.Type`|Text|No|Product type.[Values](#fraudanalysis.items.type)|
-|`FraudAnalysis.Items.VelocityHedge`|Text|6|No|Level of importance of customer purchase frequency.[Values](#fraudanalysis.items.velocityhedge)|
+|`FraudAnalysis.Items.Risk`|Text|6|No|Product risk level.[Values](#fraudanalysisitemsrisk)|
+|`FraudAnalysis.Items.TimeHedge`|Text|No|Level of importance of customer's order day time.[Values](#fraudanalysisitemstimehedge)|
+|`FraudAnalysis.Items.Type`|Text|No|Product type.[Values](#fraudanalysisitemstype)|
+|`FraudAnalysis.Items.VelocityHedge`|Text|6|No|Level of importance of customer purchase frequency.[Values](#fraudanalysisitemsvelocityhedge)|
 |`FraudAnalysis.Items.Passenger.Email`|Text|255|No|Email do passageiro.|
 |`FraudAnalysis.Items.Passenger.Identity`|Text|32|No|Id of the passenger to whom the ticket was issued.|
 |`FraudAnalysis.Items.Passenger.Name`|Text|120|No|Passenger name.|
-|`FraudAnalysis.Items.Passenger.Rating`|Text|No|Passenger classification.[Values](#fraudanalysis.items.passenger.rating)|
+|`FraudAnalysis.Items.Passenger.Rating`|Text|No|Passenger classification.[Values](#fraudanalysisitemspassengerrating)|
 |`FraudAnalysis.Items.Passenger.Phone`|Text|15|No|Passenger phone number. For orders outside the U.S., CyberSource recommends to include the country code.|
 |`FraudAnalysis.Items.Passenger.Status`|Text|32|No|Classification of the airline. It can be used values such as Gold or Platinum.|
 |`FraudAnalysis.MerchantDefinedFields.Id`|Text|---|No|Id of the additional information to be sent.|
 |`FraudAnalysis.MerchantDefinedFields.Value`|Text|255|No|Value of the additional information to be sent.|
 |`FraudAnalysis.Shipping.Addressee`|Text|255|No|Name of delivery recipient.|
-|`FraudAnalysis.Shipping.Method`|Text|No|Type of product delivery service.[Values](#fraudanalysis.items.method)|
+|`FraudAnalysis.Shipping.Method`|Text|No|Type of product delivery service.[Values](#fraudanalysisshippingmethod)|
 |`FraudAnalysis.Shipping.Phone`|Text|15|No|Delivery recipient's phone number.|
 |`FraudAnalysis.Travel.DepartureTime`|DateTime|23|No|Date, hour and minute of flight departure.|
 |`FraudAnalysis.Travel.JourneyType`|Text|32|No|Trip type.|
