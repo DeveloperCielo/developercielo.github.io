@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T15:13:10+00:00</updated>
+    <updated>2017-11-30T15:19:26+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24529,7 +24529,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
   &lt;li&gt;A API da Cielo retorna o &lt;strong&gt;CheckoutURL&lt;/strong&gt;, que é a URL da tela transacional montada com base nos dados enviados pelo Lojista/Botão.&lt;/li&gt;
   &lt;li&gt;A loja redireciona o cliente para a URL retornada pela Cielo. A tela apresentada é parte do &lt;strong&gt;Ambiente de pagamento seguro Cielo&lt;/strong&gt;.&lt;/li&gt;
   &lt;li&gt;O portador escolhe: Meio de pagamento, tipo de frete e endereço de entrega na tela transacional&lt;/li&gt;
-  &lt;li&gt;O Checkout Cielo redireciona o cliente para a &lt;strong&gt;URL de Retorno&lt;/strong&gt; escolhida pela loja, configurada no &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;Backoffice Checkout Cielo&lt;/a&gt; ou enviada pela integração via API.&lt;/li&gt;
+  &lt;li&gt;O Checkout Cielo redireciona o cliente para a &lt;strong&gt;URL de Retorno&lt;/strong&gt; escolhida pela loja, configurada no &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Checkout Cielo&lt;/a&gt; ou enviada pela integração via API.&lt;/li&gt;
   &lt;li&gt;Se a loja possui uma &lt;strong&gt;URL de notificação&lt;/strong&gt;, ela será notificada sobre a situação da transação.&lt;/li&gt;
   &lt;li&gt;A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por e-mail.e&lt;/li&gt;
   &lt;li&gt;A loja processa o pedido de compra utilizando os dados do POST de notificação e, se a transação estiver autorizada, libera o pedido.&lt;/li&gt;
@@ -24547,7 +24547,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tm01.png&quot; alt=&quot;Ativando Modo de teste&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; e na tela transacional do Checkout Cielo.&lt;/p&gt;
+&lt;p&gt;Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; e na tela transacional do Checkout Cielo.&lt;/p&gt;
 
 &lt;p&gt;Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.&lt;/p&gt;
 
@@ -24568,7 +24568,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
 
 &lt;h3 id=&quot;como-transacionar-no-modo-de-teste&quot;&gt;Como transacionar no Modo de teste.&lt;/h3&gt;
 
-&lt;p&gt;A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico &lt;a href=&quot;#integração-carrinho-de-compras&quot;&gt;Integração com carrinho&lt;/a&gt;, entretanto, os meios de pagamentos a serem usados serão meios simulados.&lt;/p&gt;
+&lt;p&gt;A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico &lt;a href=&quot;#integração-por-api&quot;&gt;Integração por API&lt;/a&gt;, entretanto, os meios de pagamentos a serem usados serão meios simulados.&lt;/p&gt;
 
 &lt;p&gt;Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:&lt;/p&gt;
 
@@ -25655,11 +25655,11 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   &lt;li&gt;Sempre que se deseja disponibilizar uma venda rápida.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt;, no menu de Produtos/Cadastrar Produto.&lt;/p&gt;
+&lt;p&gt;Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt;, no menu de Produtos/Cadastrar Produto.&lt;/p&gt;
 
 &lt;h3 id=&quot;características-do-botão&quot;&gt;Características do Botão&lt;/h3&gt;
 
-&lt;p&gt;Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt;, e valerão os dados do cadastro.&lt;/p&gt;
+&lt;p&gt;Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt;, e valerão os dados do cadastro.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -25690,7 +25690,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;h3 id=&quot;criando-o-botão&quot;&gt;Criando o Botão&lt;/h3&gt;
 
-&lt;p&gt;Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt;, no menu de Produtos/Cadastrar Produto.&lt;/p&gt;
+&lt;p&gt;Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt;, no menu de Produtos/Cadastrar Produto.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Tela de Cadastro:&lt;/strong&gt;&lt;/p&gt;
 
@@ -25833,7 +25833,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;aside class=&quot;notice&quot;&gt;O código deve ser inserido dentro da área adequada no seu HTML.&lt;/aside&gt;
 
-&lt;p&gt;Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt;, e valerão os dados do cadastro.&lt;/p&gt;
+&lt;p&gt;Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt;, e valerão os dados do cadastro.&lt;/p&gt;
 
 &lt;h2 id=&quot;fluxos-meios-de-pagamento&quot;&gt;Fluxos Meios de pagamento&lt;/h2&gt;
 
@@ -25841,7 +25841,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;p&gt;O Checkout Cielo permite a utilização de Cartões de Crédito das principais bandeiras nacionais e internacionais. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.&lt;/p&gt;
 
-&lt;p&gt;Transações de cartão de crédito serão incluídas no &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao Banco.&lt;/p&gt;
+&lt;p&gt;Transações de cartão de crédito serão incluídas no &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao Banco.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Cartão de Crédito&lt;/strong&gt; Ordem de Status:&lt;/p&gt;
 
@@ -26022,7 +26022,7 @@ Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou canc
 
 &lt;p&gt;Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.&lt;/p&gt;
 
-&lt;p&gt;Transações de cartão de débito serão incluídas no &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.&lt;/p&gt;
+&lt;p&gt;Transações de cartão de débito serão incluídas no &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Cartão de Débito&lt;/strong&gt; - Ordem de Status&lt;/p&gt;
 
@@ -26060,7 +26060,7 @@ Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja d
 
 &lt;p&gt;Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Boleto.&lt;/p&gt;
 
-&lt;p&gt;Transações de boleto  serão incluídas no &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; como NÃO FINALIZADO ou PAGO.
+&lt;p&gt;Transações de boleto  serão incluídas no &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; como NÃO FINALIZADO ou PAGO.
 Diferentemente de outros meios de pagamento, o boleto não possui atualização de Status. Caberá ao Lojista acessar o Backoffice e modificar o status do boleto manualmente.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Boleto&lt;/strong&gt; - Ordem de Status&lt;/p&gt;
@@ -26079,7 +26079,7 @@ Esse meio de pagamento é liberado via cadastro junto ao Suporte Cielo.&lt;/p&gt
 
 &lt;p&gt;Ao acessar a tela transacional, o comprador obterá pelo pagamento via Débito online, e será redirecionado ao ambiente bancário para Autenticação e Autorização.&lt;/p&gt;
 
-&lt;p&gt;Transações de Débito online serão incluídos no &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.&lt;/p&gt;
+&lt;p&gt;Transações de Débito online serão incluídos no &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Débito online&lt;/strong&gt; - Ordem de Status&lt;/p&gt;
 
@@ -26846,7 +26846,7 @@ Abaixo, um exemplo do Nó&lt;/p&gt;
 
 &lt;p&gt;A Recorrência é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção &lt;a href=&quot;#retentativa&quot;&gt;Retentativa&lt;/a&gt;.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção &lt;a href=&quot;#retentativa-de-recorrências&quot;&gt;Retentativa&lt;/a&gt;.&lt;/aside&gt;
 
 &lt;p&gt;Transações recorrentes são ideais para modelos de negócios que envolvam o &lt;strong&gt;conceito de assinatura, plano ou mensalidade&lt;/strong&gt; na sua forma de &lt;strong&gt;cobrança&lt;/strong&gt;.
 Alguns exemplos de negócios são:&lt;/p&gt;
@@ -27115,7 +27115,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
   &lt;li&gt;&lt;strong&gt;Dia de ocorrência&lt;/strong&gt; - É possivel modificar o dia de execução da transação recorrente.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o &lt;a href=&quot;/tutorial/checkout-tutoriais&quot;&gt;&lt;strong&gt;Tutorial do Backoffice Checkout Cielo&lt;/strong&gt;&lt;/a&gt; para mais informações.&lt;/p&gt;
+&lt;p&gt;A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o &lt;a href=&quot;https://developercielo.github.io/tutorial/checkout-tutoriais&quot;&gt;&lt;strong&gt;Tutorial do Backoffice Checkout Cielo&lt;/strong&gt;&lt;/a&gt; para mais informações.&lt;/p&gt;
 
 &lt;h1 id=&quot;suporte-cielo&quot;&gt;Suporte Cielo&lt;/h1&gt;
 
