@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T11:38:38+00:00</updated>
+    <updated>2017-11-30T12:00:29+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8538,6 +8538,207 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
         <link href="https://developercielo.github.io/tutorial/tutoriais"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/tutorial/tutoriais</id>
+        <content type="html">&lt;h1 id=&quot;backoffice-api-cielo&quot;&gt;Backoffice API Cielo&lt;/h1&gt;
+
+&lt;p&gt;O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.&lt;/p&gt;
+
+&lt;h2 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h2&gt;
+
+&lt;p&gt;O Backoffice da API Cielo Ecommerce permite que o lojista possa acessar 4 menus com diferentes funcionalidades:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Área do desenvolvedor Cielo&lt;/strong&gt; – Onde desenvolvedores podem acessar informações como manuais de integração, FAQs e suporte&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Pesquisa de transações&lt;/strong&gt; – Busca todas as transações executadas pela loja e exibe como captura ou cancelar transações&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Extrato de cobrança&lt;/strong&gt; – Detalha os valores cobradas pela a Cielo por cada função utilizada na API Cielo Ecommerce.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Configuração da recorrência&lt;/strong&gt; – Alterar quantidades de tentativas de execução de recorrências em caso de cartão negado.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;acessando-o-backoffice&quot;&gt;Acessando o Backoffice&lt;/h2&gt;
+
+&lt;p&gt;Para acessar o Backoffice, é necessário que o lojista realize login no Site Cielo, inserindo sua Afiliação (Nº de estabelecimento) e Usuário:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i0.png&quot; alt=&quot;Acessando o Backoffice&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i1.png&quot; alt=&quot;Acessando o Backoffice&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Em seguida é necessário incluir sua Senha:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i2.png&quot; alt=&quot;Acessando o Backoffice&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Na área de “Vendas Online” basta clicar em Webservice 3.0&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i3.png&quot; alt=&quot;Acessando o Backoffice&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Você será direcionado para o Backoffice:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i4.png&quot; alt=&quot;Acessando o Backoffice&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nesta área você pode acessar as outras funcionalidades do Backoffice&lt;/p&gt;
+
+&lt;h2 id=&quot;acessando-a-área-do-desenvolvedor&quot;&gt;Acessando a área do Desenvolvedor&lt;/h2&gt;
+
+&lt;p&gt;Clique no link destacado abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i45.png&quot; alt=&quot;Desenvolvedor&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Você será redirecionado para &lt;a href=&quot;https://www.cielo.com.br/desenvolvedores/&quot;&gt;https://www.cielo.com.br/desenvolvedores/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;pesquisando-e-editando-transações&quot;&gt;Pesquisando e editando transações&lt;/h2&gt;
+
+&lt;h3 id=&quot;pesquisar-transações&quot;&gt;Pesquisar Transações&lt;/h3&gt;
+
+&lt;p&gt;Ao acessar a opção abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i5.png&quot; alt=&quot;Pesquisa de transações&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Você será direcionado a tela de pesquisa de transações:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i6.png&quot; alt=&quot;Pesquisa de transações&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Essa tela permite buscar todas as transações realizadas com sucesso na API Cielo Ecommerce e realizar a captura ou cancelamento de transações.&lt;/p&gt;
+
+&lt;p&gt;Sobre os Filtros:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Filtros&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Tid&lt;/td&gt;
+      &lt;td&gt;Identificador da transação Cielo. Retornado via response e disponivel no site Cielo&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;EC&lt;/td&gt;
+      &lt;td&gt;Número da Afiliação Cielo&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment Id&lt;/td&gt;
+      &lt;td&gt;Identificador da transação e-commerce&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Número do Pedido&lt;/td&gt;
+      &lt;td&gt;Número do pedido enviado pelo lojista&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NSU&lt;/td&gt;
+      &lt;td&gt;Identificação da autorização. Enviado via response&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Código de Erro&lt;/td&gt;
+      &lt;td&gt;Código retornado caso uma transação gere um erro.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Tipos de meio de pagamento&lt;/td&gt;
+      &lt;td&gt;Grupo de meios de pagamento como Boletos ou cartão de crédito. Não diferencia&lt;/td&gt;
+      &lt;td&gt;bandeira ou banco.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Meios de pagamento&lt;/td&gt;
+      &lt;td&gt;Meio de pagamento especifico usado na transação (EX: Boleto Bradesco)&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Análise de Fraude&lt;/td&gt;
+      &lt;td&gt;Qual o status de antifraude da transação no momento da pesquisa&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Status da Transação&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Cancelado&lt;/strong&gt; - Transação cancelada pelo lojista&lt;br /&gt;&lt;strong&gt;Estornado&lt;/strong&gt; - Transações canceladas com menos de 24 horas&lt;br /&gt;&lt;strong&gt;Não Autorizado&lt;/strong&gt; - Transações negadas pelo Autorizador Cielo&lt;br /&gt;&lt;strong&gt;Não Pago&lt;/strong&gt; - Transações autorizadas, mas não capturadas&lt;br /&gt;&lt;strong&gt;Pago&lt;/strong&gt; - Transações capturadas&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Os filtros podem ser combinados para realizar uma pesquisa personalizada.&lt;/p&gt;
+
+&lt;h3 id=&quot;capturando-ou-cancelando-transações&quot;&gt;Capturando ou Cancelando Transações&lt;/h3&gt;
+
+&lt;p&gt;Ao realizar uma pesquisa, é possível realizar a captura ou cancelamento de transações. Ao identificar a transação que deseje cancelar ou capturar:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i7.png&quot; alt=&quot;capturando transações&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i8.png&quot; alt=&quot;capturando transações&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Basta realizar o cancelamento ou a Captura (O botão apresentado depende do status da transação no momento de exibição.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i9.png&quot; alt=&quot;capturando transações&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Confirme o valor a ser capturado ou cancelado.
+&lt;strong&gt;OBS:&lt;/strong&gt; Alterar o valor no menu acima, define o comportamento do Cancelamento/Captura Parcial.&lt;/p&gt;
+
+&lt;h3 id=&quot;capturando-ou-cancelando-transações-em-bloco&quot;&gt;Capturando ou cancelando Transações em bloco.&lt;/h3&gt;
+
+&lt;p&gt;Ao realizar uma pesquisa, é possível realizar a captura ou cancelamento de transações em bloco. Basta selecionar quais serão modificadas e clique em “Opções”:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i10.png&quot; alt=&quot;bloco de transações&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Selecione a opção desejada:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i11.png&quot; alt=&quot;bloco de transações&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ao selecionar a opção desejada, você será direcionado a uma tela onde poderá ser definido o valor da captura/cancelamento.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i12.png&quot; alt=&quot;bloco de transações&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;utilizando-o-extrato&quot;&gt;Utilizando o Extrato&lt;/h2&gt;
+
+&lt;p&gt;O Extrato de cobrança permite visualizar o valor a ser cobrado pela utilização das funcionalidades da API Cielo Ecommerce. Basta selecionar o mês e ano que se deseja exibir.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i13.png&quot; alt=&quot;extrato&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Para maiores informações a respeito dos serviços cobrados, entre em contato com nossa equipe de suporte:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;+55 4002-9700 – Capitais e Regiões Metropolitanas&lt;/li&gt;
+  &lt;li&gt;+55 0800-570-1700 – Demais Localidades&lt;/li&gt;
+  &lt;li&gt;+55 11 2860-1348 – Internacionais
+    &lt;ul&gt;
+      &lt;li&gt;Opção 1 – Suporte técnico;&lt;/li&gt;
+      &lt;li&gt;Opção 2 – Credenciamento eCommerce.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Email: cieloeCommerce@cielo.com.br&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;configurando-a-recorrência&quot;&gt;Configurando a Recorrência&lt;/h2&gt;
+
+&lt;p&gt;A área de configuração da recorrência permite modificar o número e o intervalo das tentativas de transações. Essas tentativas ocorrem quando uma transação (dentro de uma recorrência) é negada. A API Cielo Ecommerce possui a inteligência para identificar esse cenário, e executar uma nova transação.&lt;/p&gt;
+
+&lt;p&gt;Acesse a tela de configuração e use o link “&lt;strong&gt;Tipo de pagamento&lt;/strong&gt;”:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i14.png&quot; alt=&quot;Recorrência&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Você será direcionado para a tela de configuração:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/i15.png&quot; alt=&quot;Recorrência&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nessa tela é possível alterar:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Quantidades de tentativas:&lt;/strong&gt; Número de vezes a API vai realizar uma nova transação em caso de não autorização dentro de uma recorrência. Limitada a 4 tentativas&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Intervalo de tentativas:&lt;/strong&gt; Espaço de tempo entre a execução de cada nova tentativa de autorização de uma transação dentro de uma recorrência. Limitado a 4 dias entre cada tentativa.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Tutoriais</title>
+        <category term="tutorial" />
+        <link href="https://developercielo.github.io/tutorial/tutoriais-copy"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/tutorial/tutoriais-copy</id>
         <content type="html">&lt;h1 id=&quot;backoffice-api-cielo&quot;&gt;Backoffice API Cielo&lt;/h1&gt;
 
 &lt;p&gt;O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.&lt;/p&gt;
