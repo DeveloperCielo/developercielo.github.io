@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T11:10:40+00:00</updated>
+    <updated>2017-11-30T11:14:50+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3119,7 +3119,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
     </entry>
     
     <entry>
-        <title>Manual</title>
+        <title>Manual de Integração</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/manual/webservice-1-5"/>
         <updated>2015-03-25T00:00:00+00:00</updated>
