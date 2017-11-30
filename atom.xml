@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T12:43:36+00:00</updated>
+    <updated>2017-11-30T12:46:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8746,21 +8746,6 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Android&lt;/th&gt;
-      &lt;th&gt;iOS&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/01-sdk-android.png&quot; alt=&quot;Android&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;strong&gt;iOS&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
       &lt;th&gt;Links&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -8788,6 +8773,21 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
 &lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/07-sdk-php.png&quot; alt=&quot;**PHP**&quot; /&gt;&lt;/a&gt; 
 &lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/08-sdk-python.png&quot; alt=&quot;**Python**&quot; /&gt;&lt;/a&gt;
 &lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/09-sdk-ruby.png&quot; alt=&quot;**Ruby**&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/04-sdk-java.png&quot; alt=&quot;**Java**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/09-sdk-ruby.png&quot; alt=&quot;**Ruby**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h1 id=&quot;sdks-cielo-lio&quot;&gt;SDKs Cielo LIO&lt;/h1&gt;
 
