@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T12:18:40+00:00</updated>
+    <updated>2017-11-30T12:20:13+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8533,57 +8533,6 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
     </entry>
     
     <entry>
-        <title>SDKs</title>
-        <category term="tutorial" />
-        <link href="https://developercielo.github.io/tutorial/tutoriais"/>
-        <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/tutorial/tutoriais</id>
-        <content type="html">&lt;h1 id=&quot;sdks&quot;&gt;SDKs&lt;/h1&gt;
-
-&lt;p&gt;A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Android&lt;/th&gt;
-      &lt;th&gt;iOS&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot; alt=&quot;**Android**&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;strong&gt;iOS&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;SDK&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;strong&gt;JAVA&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/01-sdk-android.png&quot; alt=&quot;**Android**&quot; /&gt;&lt;/p&gt;
-</content>
-    </entry>
-    
-    <entry>
         <title>Tutoriais</title>
         <category term="tutorial" />
         <link href="https://developercielo.github.io/tutorial/tutoriais-3-0"/>
@@ -8781,6 +8730,57 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
   &lt;li&gt;&lt;strong&gt;Quantidades de tentativas:&lt;/strong&gt; Número de vezes a API vai realizar uma nova transação em caso de não autorização dentro de uma recorrência. Limitada a 4 tentativas&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Intervalo de tentativas:&lt;/strong&gt; Espaço de tempo entre a execução de cada nova tentativa de autorização de uma transação dentro de uma recorrência. Limitado a 4 dias entre cada tentativa.&lt;/li&gt;
 &lt;/ul&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>SDKs</title>
+        <category term="tutorial" />
+        <link href="https://developercielo.github.io/tutorial/sdks-3-0"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/tutorial/sdks-3.0</id>
+        <content type="html">&lt;h1 id=&quot;sdks&quot;&gt;SDKs&lt;/h1&gt;
+
+&lt;p&gt;A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Android&lt;/th&gt;
+      &lt;th&gt;iOS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot; alt=&quot;**Android**&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;strong&gt;iOS&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SDK&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;strong&gt;JAVA&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/01-sdk-android.png&quot; alt=&quot;**Android**&quot; /&gt;&lt;/p&gt;
 </content>
     </entry>
     
