@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-29T20:18:03+00:00</updated>
+    <updated>2017-11-30T11:10:40+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24148,7 +24148,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
     </entry>
     
     <entry>
-        <title>Cielo Credenciamento</title>
+        <title>Manual de Integração</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/manual/credenciamento"/>
         <updated>2000-01-01T00:00:00+00:00</updated>
