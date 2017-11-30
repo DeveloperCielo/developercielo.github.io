@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T12:59:20+00:00</updated>
+    <updated>2017-11-30T13:20:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8739,6 +8739,109 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
         <link href="https://developercielo.github.io/tutorial/sdks-3-0"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/tutorial/sdks-3.0</id>
+        <content type="html">&lt;h1 id=&quot;sdks-api-e-commerce-cielo&quot;&gt;SDKs Api e-Commerce Cielo&lt;/h1&gt;
+
+&lt;p&gt;A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/01-sdk-android.png&quot; alt=&quot;**iOS**&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/01-sdk-android.png&quot; alt=&quot;**Android**&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/04-sdk-java.png&quot; alt=&quot;**Java**&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/07-sdk-php.png&quot; alt=&quot;**PHP**&quot; /&gt;&lt;/a&gt; 
+&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/08-sdk-python.png&quot; alt=&quot;**Python**&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/09-sdk-ruby.png&quot; alt=&quot;**Ruby**&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/04-sdk-java.png&quot; alt=&quot;**Java**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/09-sdk-ruby.png&quot; alt=&quot;**Ruby**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/04-sdk-java.png&quot; alt=&quot;**Java**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/09-sdk-ruby.png&quot; alt=&quot;**Ruby**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;sdks-cielo-lio&quot;&gt;SDKs Cielo LIO&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;SDK&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sample&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;strong&gt;Integração Local&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Java&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;CSharp&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;sdks-webservice-15&quot;&gt;SDKs Webservice 1.5&lt;/h1&gt;
+
+&lt;h1 id=&quot;base&quot;&gt;base&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SDK&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;strong&gt;iOS&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;strong&gt;JAVA&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>SDKs</title>
+        <category term="tutorial" />
+        <link href="https://developercielo.github.io/tutorial/sdks-3-0-copy"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/tutorial/sdks-3.0-copy</id>
         <content type="html">&lt;h1 id=&quot;sdks-api-e-commerce-cielo&quot;&gt;SDKs Api e-Commerce Cielo&lt;/h1&gt;
 
 &lt;p&gt;A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:&lt;/p&gt;
