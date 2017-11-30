@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T12:12:23+00:00</updated>
+    <updated>2017-11-30T12:13:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8545,16 +8545,25 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;SDK&lt;/th&gt;
+      &lt;th&gt;Android&lt;/th&gt;
+      &lt;th&gt;iOS&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;img src=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot; alt=&quot;**Android**&quot; /&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
       &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;strong&gt;iOS&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SDK&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
