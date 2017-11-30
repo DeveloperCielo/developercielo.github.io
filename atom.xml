@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T12:14:41+00:00</updated>
+    <updated>2017-11-30T12:18:40+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8586,9 +8586,9 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
     <entry>
         <title>Tutoriais</title>
         <category term="tutorial" />
-        <link href="https://developercielo.github.io/tutorial/sdks-30"/>
+        <link href="https://developercielo.github.io/tutorial/tutoriais-3-0"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/tutorial/sdks-30</id>
+        <id>https://developercielo.github.io/tutorial/tutoriais-3.0</id>
         <content type="html">&lt;h1 id=&quot;backoffice-api-cielo&quot;&gt;Backoffice API Cielo&lt;/h1&gt;
 
 &lt;p&gt;O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.&lt;/p&gt;
