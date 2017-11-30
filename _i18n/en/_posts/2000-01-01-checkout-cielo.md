@@ -129,15 +129,15 @@ Specialized companies are responsible for domain validating and, depending on th
 
 ### Internet Explorer:
 
-![EV Internet Explorer Certificate](images/certificado-ie.jpg)
+![EV Internet Explorer Certificate]({{ site.baseurl }}/images/certificado-ie.jpg)
 
 ### Firefox
 
-![EV Firefox Certificate](images/certificado-firefox.jpg)
+![EV Firefox Certificate]({{ site.baseurl }}/images/certificado-firefox.jpg)
 
 ### Google Chrome
 
-![EV Google Chrome Certificate](images/certificado-chrome.jpg)
+![EV Google Chrome Certificate]({{ site.baseurl }}/images/certificado-chrome.jpg)
 
 ## What is EV SSL Certificate?
 
@@ -149,9 +149,10 @@ It is a certificate of greater confidence and when https is accessed the address
 
 Just install the following three files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.
 
-* [Root Certificate](./attachment/root.crt)
-* [Intermediate Certificate](./attachment/intermediaria](./attachment/intermediaria.crt)
-* [E-Commerce Cielo Certificateo](./attachment/ecommerce.cielo.com.br.crt)
+* [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
+* [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
+* [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
+* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
 
 ## Step-by-Step for Installation
 
@@ -169,81 +170,82 @@ Normally, the browser automatically updates the Certificate. If it does not and 
 
 Save the three files below into a new folder, or into a folder that can be easily remembered, as it will be used later:
 
-* [Root Certificate](./attachment/root.crt)
-* [Intermediate Certificate](./attachment/intermediaria.crt)
-* [E-Commerce Cielo Certificate](./attachment/ecommerce.cielo.com.br.crt)
+* [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
+* [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
+* [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
+* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
 
 #### Step 2:
 
 In “Internet Explorer”, click on “Tools” menu and go to “Internet Options”:
 
-![Install IE](images/certificado-instalar-ie-1.jpg)
+![Install IE]({{ site.baseurl }}/images/certificado-instalar-ie-1.jpg)
 
 In “Firefox”, click on “Open Menu” menu and go to “Advanced” and “Options”:
 
-![Install FF](images/certificado-instalar-ff-1.jpg)
+![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-1.jpg)
 
 In “Chrome”, click on “Customize and Control Google Chrome” and go to “Settings” and “Show advanced settings ... “Change Proxy Settings and “Content” and Certificates:
 
-![Install GC](images/certificado-instalar-gc-1.jpg)
+![Install GC]({{ site.baseurl }}/images/certificado-instalar-gc-1.jpg)
 
 #### Step 3:
 
 In Internet Explorer, under “Certificates”, click on “Import”.
 
-![Install IE](images/certificado-instalar-ie-2.jpg)
+![Install IE]({{ site.baseurl }}/images/certificado-instalar-ie-2.jpg)
 
 In Firefox, click on “View Certificates”, click on “Import”
 
-![Install FF](images/certificado-instalar-ff-2.jpg)
+![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-2.jpg)
 
 In Chrome, click on “Manage Certificates”, click on “Import”
 
-![Install GC](images/certificado-instalar-gc-2.jpg)
+![Install GC]({{ site.baseurl }}/images/certificado-instalar-gc-2.jpg)
 
 #### Step 4:
 
 In Internet Explorer and Chrome “Certificate Import Wizard”, click on “Next”.
 
-![Install IE and GC](images/certificado-instalar-ie-gc-3.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-3.jpg)
 
-![Install IE and GC](images/certificado-instalar-ie-gc-4.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-4.jpg)
 
 In Firefox “Servers Tab”, click on “Import”
 
-![Install FF](images/certificado-instalar-ff-3.jpg)
+![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-3.jpg)
 
 #### Step 5:
 
 In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.
 
-![Install IE and GC](images/certificado-instalar-ie-gc-5.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-5.jpg)
 
-![Install IE and GC](images/certificado-instalar-ie-gc-6.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-6.jpg)
 
 #### Step 6:
 
 Select the desired option: add the Certificate in a default folder or search for the folder of your choice.
 
-![Install IE and GC](images/certificado-instalar-ie-gc-7.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-7.jpg)
 
 #### Step 7:
 
 Click on “Finish”.
 
-![Install IE and GC](images/certificado-instalar-ie-gc-8.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-8.jpg)
 
 #### Step 8:
 
 Click on “Ok” to complete the import.
 
-![Install IE and GC](images/certificado-instalar-ie-gc-9.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-9.jpg)
 
 <aside class="notice">In Firefox there is no Successfull Import message, it only completes the import.</aside>
 
 The Certificate may be viewed in the default tab “Other People” or at the one chosen by the customer.
 
-![Install IE and GC](images/certificado-instalar-ie-gc-10.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-10.jpg)
 
 #### Step 9:
 
@@ -266,10 +268,10 @@ During the integration with Checkout Cielo, a sequence of information exchange a
 See the flow below:
 
 **Checkout Cielo integration flow** - Sequential diagram
-![Checkout Cielo integration flow](images/Checkout/fluxobasico.svg)
+![Checkout Cielo integration flow]({{ site.baseurl }}/images/Checkout/fluxobasico.svg)
 
 **Checkout Cielo integration flow** - Flowchart
-![Checkout Cielo integration flow](images/Checkout/fluxocheckoutbasico.png)
+![Checkout Cielo integration flow]({{ site.baseurl }}/images/Checkout/fluxocheckoutbasico.png)
 
 After the card carrier (custumer) select their purchases and hit the "Buy" button of a shop already integrated with Checkout Cielo, the flow in this order:
 
@@ -291,7 +293,7 @@ Checkout Cielo test mode is a tool that allows to test the integration of your w
 
 The test mode can be activated in the  **Settings** tab, where there is a checkbox that, when checked, enable the Checkout Cielo test mode. The test mode will only start when the selection is saved.
 
-![Activating test mode](images/Checkout/tm01.png)
+![Activating test mode]({{ site.baseurl }}/images/Checkout/tm01.png)
 
 When the option is saved, a red stripe appears at the top of the screen. It will be displayed on all the screens of the [Backoffice Cielo Checkout](http://developercielo.github.io/Checkout-Backoffice/) and on the Checkout Cielo transaction screen.
 
@@ -299,7 +301,7 @@ This stripe indicates that your Checkout Cielo store is now operating in a test 
 
 |Backoffice|Transacional|
 |---|---|
-|![Red stripe - Backoffice](images/Checkout/tmbackoffice.png)|![Red stripe - Transacional](images/Checkout/tmtransacional.png)|
+|![Red stripe - Backoffice]({{ site.baseurl }}/images/Checkout/tmbackoffice.png)|![Red stripe - Transacional]({{ site.baseurl }}/images/Checkout/tmtransacional.png)|
 
 ### How to transact in Test Mode.
 
@@ -348,11 +350,11 @@ It is necessary to inform the status of online Debit transaction to be returned 
 
 All transactions performed in test mode will be displayed as normal transactions in the Checkout Cielo Orders tab, however, they will be marked as test transactions and will not be accounted for in conjunction with transactions performed outside of the test environment.
 
-![Test Transactions](images/checkout-cielo-modo-teste-transacoes-de-teste.png)
+![Test Transactions]({{ site.baseurl }}/images/checkout-cielo-modo-teste-transacoes-de-teste.png)
 
 These transactions will have the test symbol differentiating them from their other transactions. They can be captured or canceled using the same procedures of the actual transactions.
 
-![Test Transactions](images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png)
+![Test Transactions]({{ site.baseurl }}/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png)
 
 <aside class="notice">It is very important that when releasing your store to perfomr sales to your customers that **it is not in test mode**. Transactions performed in this environment may be finished normally, but **they will not be discounted from the customer's card** and they can not be “transferred” to the standard sales environment.</aside>
 
@@ -602,7 +604,7 @@ Below, how the effect of the discount is displayed in the Cart:
 
 |Percentage|Value|
 |---|---|
-|![Percentage](images/Checkout/checkout-discount-percent.png)|![Value](images/Checkout/checkout-discount-amount.png)|
+|![Percentage]({{ site.baseurl }}/images/Checkout/checkout-discount-percent.png)|![Value]({{ site.baseurl }}/images/Checkout/checkout-discount-amount.png)|
 
 **Bank slip & Online Debit**
 
@@ -628,7 +630,7 @@ Below, how the effect of the discount is displayed in the Cart:
 
 |Transactional screen|
 |---|
-|![Means of payment](images/Checkout/checkout-discount-mp.png)|
+|![Means of payment]({{ site.baseurl }}/images/Checkout/checkout-discount-mp.png)|
 
 #### Types of "Freight"
 
@@ -646,11 +648,11 @@ Checkout Cielo has different types of freight.
 
 |Type of freight|Transactional|
 |---|---|
-|`FixedAmount`|![FixedAmount](images/Checkout/fixedamount.png)|
-|`Free`|![Free](images/Checkout/free.png)|
-|`WithoutShippingPickUp`|![WithoutShippingPickUp](images/Checkout/withoutshippingpickup.png)|
-|`WithoutShipping`|![WithoutShipping](images/Checkout/withoutshippingpickup.png)|
-|`Post office`|![Post office](images/Checkout/correios.png)|
+|`FixedAmount`|![FixedAmount]({{ site.baseurl }}/images/Checkout/fixedamount.png)|
+|`Free`|![Free]({{ site.baseurl }}/images/Checkout/free.png)|
+|`WithoutShippingPickUp`|![WithoutShippingPickUp]({{ site.baseurl }}/images/Checkout/withoutshippingpickup.png)|
+|`WithoutShipping`|![WithoutShipping]({{ site.baseurl }}/images/Checkout/withoutshippingpickup.png)|
+|`Post office`|![Post office]({{ site.baseurl }}/images/Checkout/correios.png)|
 
  **NOTE:** The options for multiple freights in the category `Post office` should be selected within the Backoffice Cielo.        
 
@@ -726,8 +728,8 @@ The generates one of the 3 different types of access methods to the **same trans
 
 |Method|Name|Description|
 |---|:--:|---|
-|![Button](images/Checkout/botao.png)|**Button**|It is an HTML code that when pasted into a website, will direct the buyer to the transactional screen - Ideal for use in **hotSites** or **Marketing E-mail**|
-|![QRCODE](images/Checkout/qrcode.png)|**QRCODE**|Code interpretable by Smartphones and Tablets - Ideal for use in **Printed Marketing** or **Digital**|
+|![Button]({{ site.baseurl }}/images/Checkout/botao.png)|**Button**|It is an HTML code that when pasted into a website, will direct the buyer to the transactional screen - Ideal for use in **hotSites** or **Marketing E-mail**|
+|![QRCODE]({{ site.baseurl }}/images/Checkout/qrcode.png)|**QRCODE**|Code interpretable by Smartphones and Tablets - Ideal for use in **Printed Marketing** or **Digital**|
 |`http://bit.ly/2tRkSxZ`|**LINK**|is a shareable link, ideal for use in **Social networks** or **Messengers Mobile**|
 
 This integration model is used to:
@@ -752,7 +754,7 @@ Each button has a unique code that only allows to buy that particular product in
 
  **Below, the payment flow via Button:**
 
-![Button Checkout Cielo Integration Flow](images/Checkout/intbt.png)
+![Button Checkout Cielo Integration Flow]({{ site.baseurl }}/images/Checkout/intbt.png)
 
 ### Creating the Button
 
@@ -760,11 +762,11 @@ To use this feature, it is necessary to register the product you want to sell, t
 
 **Registration Screen:**
 
-![Button Registration](images/Checkout/btcadastro.png)
+![Button Registration]({{ site.baseurl }}/images/Checkout/btcadastro.png)
 
 **Registered Button:**
 
-![Button Registration](images/Checkout/btcadastro2.png)
+![Button Registration]({{ site.baseurl }}/images/Checkout/btcadastro2.png)
 
 Below the list of items that must be registered for the button creation:
 
@@ -884,11 +886,11 @@ This degree of risk is what should guide the merchant's decision to capture or c
 
 The analysis will be displayed in the “Order Details”, as below:
 
-![Risk analysis](images/checkout-cielo-analise-risco.png)
+![Risk analysis]({{ site.baseurl }}/images/checkout-cielo-analise-risco.png)
 
 You can view the anti-fraud status by going to the purchase detail in the Orders tab and clicking on (+)
 
-![Anti-fraud Status](images/checkout-status-antifraude.png)
+![Anti-fraud Status]({{ site.baseurl }}/images/checkout-status-antifraude.png)
 
 ### Debit card
 
@@ -1015,7 +1017,7 @@ All 3 URLs must have the following features:
 2. At **Store Settings**, go to the **Payments** session
 3. Register the URLs and choose the type of Notification you want
 
-![URLS registration](images/Checkout/urls.png)
+![URLS registration]({{ site.baseurl }}/images/Checkout/urls.png)
 
 ## Notification: POST
 
@@ -1028,7 +1030,7 @@ This flow is used by stores that do not yet perform transactions via API.
 
 Below the Flow of a POST Notification
 
-![N.POST Flow](images/Checkout/npost.png)
+![N.POST Flow]({{ site.baseurl }}/images/Checkout/npost.png)
 
 **Return expected to send notification:** `HttpStatus = 200 (OK)` - Post received and processed successfully
 
@@ -1036,7 +1038,7 @@ Below the Flow of a POST Notification
 
 If the POST is not received, it is possible to resend it manually, just access the order in question by the Backoffice and click on the Sending icon:
 
-![Resending of notification](images/Checkout/reenvipost.png)
+![Resending of notification]({{ site.baseurl }}/images/Checkout/reenvipost.png)
 
 See description of notification items in the session **"NOTIFICATION POST content"**
 
@@ -1054,7 +1056,7 @@ In JSON Notification, there is no difference between the `Notification POST` and
 
 Below the Flow of a JSON Notification (Transaction Creation + Status Change)
 
-![N.JSON Flow](images/Checkout/njson.png)
+![N.JSON Flow]({{ site.baseurl }}/images/Checkout/njson.png)
 
 **JSON NOTIFICATION POST content:**
 
@@ -1115,7 +1117,7 @@ See description of notification items in the session **"NOTIFICATION POST conten
 
 If the POST is not received, it is possible to resend it manually, just access the order in question by the Backoffice and click on the Sending icon:
 
-![Resending of notification](images/Checkout/reenvipost.png)
+![Resending of notification]({{ site.baseurl }}/images/Checkout/reenvipost.png)
 
 ## Notification Content
 
@@ -1245,7 +1247,7 @@ There are two methods of installment:
 
 In this mode, the merchant controls the maximum limit of installments that the store will perform by Backoffice Checkout. The installments Value is defined by accessing the **Settings** tab and changing the session **Payments**
 
- ![Installments Selection](images/Checkout/parcelamento.png)
+ ![Installments Selection]({{ site.baseurl }}/images/Checkout/parcelamento.png)
 
 **NOTE:** The Check Box must be marked for the payment means to be displayed on the transactional screen.
 
@@ -1427,7 +1429,7 @@ One way to perform recurrence within Checkout is to create a recurring button.
 
 Just register the product, including a billing interval and a closing date (Optional), as in the example below:
 
-![Recurrence button](images/checkout-botao-recorrencia.png)
+![Recurrence button]({{ site.baseurl }}/images/checkout-botao-recorrencia.png)
 
 **WARNING:** If a button is used after the registered “End Date”, the transaction will present an error displaying **Oppss** on the transaction screen. The Date can be edited in the editing screen of the button within “Product Details”
 
@@ -1450,7 +1452,7 @@ The first transaction of the recurrence is a normal transaction, following the r
 
 **WARNING:** The value and charge date of the recurring transactions will always be the same as the initial transaction. Scheduling starts automatically from the date the first transaction is authorized.
 
-![Querying transactions](images/checkout-consulta-recorrencia.png)
+![Querying transactions]({{ site.baseurl }}/images/checkout-consulta-recorrencia.png)
 
 This screen shows the date that the 1st recurrence transaction was authorized and should be captured manually. **The other recurrence transactions will always be captured automatically**, regardless of whether the first transaction was captured or canceled. If the Customer has configured Automatic Capture, the recurrence capture will also be automatic.
 
@@ -1463,9 +1465,9 @@ Recurrence cancellation occurs within Checkout Cielo's Backoffice, also on the "
 1. Access a recurrence transaction (marked with the “Recurring” symbol)
 2. Enter Details (the “+” symbol)
 
-![Recurrence order](images/checkout-cancelar-recorrencia.png)
+![Recurrence order]({{ site.baseurl }}/images/checkout-cancelar-recorrencia.png)
 <br>
-![Recurrence cancellation](images/Checkout/pedidoreccance.png)
+![Recurrence cancellation]({{ site.baseurl }}/images/Checkout/pedidoreccance.png)
 
 Recurrence detail screen
 

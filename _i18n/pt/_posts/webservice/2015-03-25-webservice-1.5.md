@@ -334,7 +334,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 </requisicao-transacao>
 ```
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ### raiz
 
@@ -809,7 +809,7 @@ A requisição de autorização é a principal operação do Cielo eCommerce, po
 
 <aside class="notice">Para os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ## Autorização Direta
 
@@ -887,7 +887,7 @@ A autorização recorrente pode ser feita de duas formas: através do envio de u
 
 <aside class="notice">Para saber se sua loja é elegível a utilizar a autorização recorrente, consulte nossa central de relacionamento ou o Suporte Web Cielo eCommerce.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ### Autorização recorrente com Cartão
 
@@ -935,7 +935,7 @@ Essa funcionalidade facilita a identificação de um cartão que tenha sido subs
 
 <aside class="notice">O Renova Fácil só está disponível para transações recorrentes. A efetividade do Renova Fácil depende do uso correto das transações recorrentes devidamente sinalizadas como tal. Consulte os bancos e bandeiras participantes com o Suporte Web Cielo eCommerce.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ### Autorização de uma transação previamente gerada
 
@@ -956,7 +956,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="notice">Requisições para transações que não foram submetidas ao processo de autenticação ou foram interrompidas, pois o portador errou a senha não serão aceitas.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |---|---|---|---|---|

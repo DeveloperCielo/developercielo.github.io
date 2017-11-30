@@ -104,15 +104,15 @@ Specialized companies are responsible for domain validating and, depending on th
 
 ### Internet Explorer:
 
-![EV Internet Explorer Certificate](./images/certificado-ie.jpg)
+![EV Internet Explorer Certificate]({{ site.baseurl }}/images/certificado-ie.jpg)
 
 ### Firefox
 
-![EV Firefox Certificate](./images/certificado-firefox.jpg)
+![EV Firefox Certificate]({{ site.baseurl }}/images/certificado-firefox.jpg)
 
 ### Google Chrome
 
-![EV Google Chrome Certificate](./images/certificado-chrome.jpg)
+![EV Google Chrome Certificate]({{ site.baseurl }}/images/certificado-chrome.jpg)
 
 ## What is EV SSL Certificate?
 
@@ -124,9 +124,10 @@ It is a certificate of greater confidence and when https is accessed the address
 
 Just install the following three files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.
 
-* [Root Certificate](./attachment/root.crt)
-* [Intermediate Certificate](./attachment/intermediaria.crt)
-* [E-Commerce Cielo Certificate](./attachment/ecommerce.cielo.com.br.crt)
+* [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
+* [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
+* [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
+* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
 
 ## Step-by-Step for Installation
 
@@ -144,81 +145,82 @@ Normally, the browser automatically updates the Certificate. If it does not and 
 
 Save the three files below into a new folder, or into a folder that can be easily remembered, as it will be used later:
 
-* [Root Certificate](./attachment/root.crt)
-* [Intermediate Certificate](./attachment/intermediaria.crt)
-* [E-Commerce Cielo Certificate](./attachment/ecommerce.cielo.com.br.crt)
+* [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
+* [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
+* [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
+* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
 
 **Step 2:**
 
 In “Internet Explorer”, click on “Tools” menu and go to “Internet Options”:
 
-![Install IE](./images/certificado-instalar-ie-1.jpg)
+![Install IE]({{ site.baseurl }}/images/certificado-instalar-ie-1.jpg)
 
 In “Firefox”, click on “Open Menu” menu and go to “Advanced” and “Options”:
 
-![Install FF](./images/certificado-instalar-ff-1.jpg)
+![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-1.jpg)
 
 Control Google Chrome” and go to “Settings” and “Show advanced settings... “Change Proxy Settings and “Content” and Certificates:
 
-![Install GC](./images/certificado-instalar-gc-1.jpg)
+![Install GC]({{ site.baseurl }}/images/certificado-instalar-gc-1.jpg)
 
 **Step 3:**
 
 In Internet Explorer, under “Certificates”, click on “Import.”
 
-![Install IE](./images/certificado-instalar-ie-2.jpg)
+![Install IE]({{ site.baseurl }}/images/certificado-instalar-ie-2.jpg)
 
 In Firefox, click on “View Certificates”, click on “Import”
 
-![Install FF](./images/certificado-instalar-ff-2.jpg)
+![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-2.jpg)
 
 In Chrome, click on “Manage Certificates”, click on “Import”v
 
-![Install GC](./images/certificado-instalar-gc-2.jpg)
+![Install GC]({{ site.baseurl }}/images/certificado-instalar-gc-2.jpg)
 
 **Step 4:**
 
 In Internet Explorer and Chrome “Certificate Import Wizard”, click on “Next”.
 
-![Install IE and GC](./images/certificado-instalar-ie-gc-3.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-3.jpg)
 
-![Install IE and GC](./images/certificado-instalar-ie-gc-4.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-4.jpg)
 
 In Firefox “Servers Tab”, click on “Import”
 
-![Install FF](./images/certificado-instalar-ff-3.jpg)
+![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-3.jpg)
 
 **Step 5:**
 
 In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.
 
-![Install IE and GC](./images/certificado-instalar-ie-gc-5.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-5.jpg)
 
-![Install IE and GC](./images/certificado-instalar-ie-gc-6.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-6.jpg)
 
 **Step 6:**
 
 Select the desired option: add the Certificate in a default folder or search for the folder of your choice.
 
-![Install IE and GC](./images/certificado-instalar-ie-gc-7.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-7.jpg)
 
 **Step 7:**
 
 Click on “Finish”.
 
-![Install IE and GC](./images/certificado-instalar-ie-gc-8.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-8.jpg)
 
 **Step 8:**
 
 Click on “Ok” to complete the import.
 
-![Install IE and GC](./images/certificado-instalar-ie-gc-9.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-9.jpg)
 
 <aside class="notice">In Firefox there is no Successfull Import message, it only completes the import.</aside>
 
 The Certificate may be viewed in the default tab “Other People” or at the one chosen by the customer.
 
-![Install IE and GC](./images/certificado-instalar-ie-gc-10.jpg)
+![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-10.jpg)
 
 **Step 9:**
 
@@ -2369,11 +2371,11 @@ Important features of **Scheduled Recurrence**:
 
 **RecurrentPaymentID Structure**
 
-![](./images/RECpaymentID.PNG)
+![]({{ site.baseurl }}/images/RECpaymentID.PNG)
 
 **Scheduled Recurrence flow**
 
-![](./images/FluxosRECPROG.PNG)
+![]({{ site.baseurl }}/images/FluxosRECPROG.PNG)
 
 #### Use case
 

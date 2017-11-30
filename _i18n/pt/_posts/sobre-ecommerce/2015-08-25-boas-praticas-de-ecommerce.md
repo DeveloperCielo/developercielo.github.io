@@ -19,7 +19,7 @@ Por isso, a Cielo recomenda que, no momento que o portador digitar o número do 
 
 ## Números de cartões
 
-![Cartão Visa](/images/cartao.png)
+![Cartão Visa]({{ site.baseurl }}/images/cartao.png)
 
 Basicamente, o número do cartão é composto por três partes:
 

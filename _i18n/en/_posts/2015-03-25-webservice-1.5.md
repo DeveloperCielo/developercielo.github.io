@@ -104,9 +104,10 @@ It is a certificate of greater confidence and when https is accessed, the addres
 
 Just install the following three files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.
 
-* [Root certificate](./attachment/root.crt)
-* [Intermediate certificate](./attachment/intermediaria.crt)
-* [E-Commerce Cielo certificate](./attachment/ecommerce.cielo.com.br.crt)
+* [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
+* [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
+* [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
+* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
 
 ## Step by Step Installation
 
@@ -124,9 +125,10 @@ Normally, the browser makes a Certificate update automatically, in  case of fail
 
 Save the files below into a new folder, or recall easily to be used later:
 
-* [Root certificate](./attachment/root.crt)
-* [Intermediate certificate](./attachment/intermediaria.crt)
-* [E-Commerce Cielo certificate](./attachment/ecommerce.cielo.com.br.crt)
+* [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
+* [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
+* [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
+* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
 
 #### 2nd STEP:
 
@@ -327,7 +329,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 </requisicao-transacao>
 ```
 
-<aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">All messages must be formatted correctly according to specified on <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
 ### ROOT Node
 
@@ -770,7 +772,7 @@ The request for an authorization is the main operation of Cielo E-commerce, beca
 
 <aside class="notice">For the response codes of the authorization, consult the Directory of Response Codes of Authorization  os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
 
-<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ## Direct authorization
 
@@ -848,7 +850,7 @@ The recurrent authorization must be done in two ways: sending a token previously
 
 <aside class="notice">To know if your store is eligible to use a recurrent authorization, check with our service center or Cielo E-commerce Web Support.</aside>
 
-<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ### Recurrent authorization with card
 
@@ -896,9 +898,9 @@ This functionality makes easier to identify a card which has been replaced for a
 
 <aside class="notice">The "Renova Fácil" (Easy Renew) is only available on recurrent transactions. The Easy Renew effectiveness depends of correct usage of recurrent transactions properly signalized. Consult banks and card issuers participants with Cielo E-commerce Web Support.</aside>
 
-<aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
+<aside class="notice">All messages must be formatted correctly according to specified on <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
-<aside class="notice">All the messages must be formatted correctly, according specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">All the messages must be formatted correctly, according specified on <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 ### Authorization of a transaction previously created
 
@@ -917,7 +919,7 @@ To the establishments that use the authentication process of authentication it's
 
 <aside class="notice">Requests to transactions that weren't submit to the authentication process or have been interrupted, because the holder made a mistake on the password won't be accepted.</aside>
 
-<aside class="notice">All messages must be formatted correctly according to specified on <a href="attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">All messages must be formatted correctly according to specified on <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
