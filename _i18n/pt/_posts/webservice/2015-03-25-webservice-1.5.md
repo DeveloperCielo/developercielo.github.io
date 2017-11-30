@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual
+title: Manual de Integração
 description: Integração Técnica via XML
 search: true
 translated: true
