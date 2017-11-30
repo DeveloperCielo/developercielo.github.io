@@ -5,6 +5,7 @@ description: O objetivo deste documento é orientar o lojista sobre como acessar
 search: true
 toc_footers: true
 categories: tutorial
+sort_order: 2
 tags:
   - API e-Commerce Cielo
 ---
