@@ -23,7 +23,7 @@ After conclude the registration and receive the instructions, you need to develo
 
 Finally, after the development, to start the operation on production environment, first, it's necessary start the homologation at Cielo.
 
-<aside class="notice">Look at section <a href="#Homologacao">Homologação</a> to more instruction about the homologation process</aside>
+<aside class="notice">Look at section <a href="#testing-and-homologation">Testing and homologation</a> to more instruction about the homologation process</aside>
 
 ## Cielo Support
 
@@ -346,14 +346,14 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |gerar-token|Boolean|optional|n/a|`true` ou `false`. Define if the current transaction must create an associate token to card.|
 |avs#avs|alphanumeric|optional|n/a|String containing a XML block, encapsulated by CDATA, containing required information to realized a service consult.|
 
-### data-ec
+### dados-ec
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
 |numero|numeric|Yes|1..20|Affiliation number of Store with Cielo.|
 |chave|alphanumeric|Yes|1..100|Store's access key attributed by Cielo.|
 
-### data-carrier
+### dados-portador
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
@@ -364,7 +364,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |nome-portador|alphanumeric|Opcional|0..50|Holder name|
 |token|Alfanumérico|Conditional|0..100|Token must be used in replacement to card data to direct authorization or recurrent. It's not allowed to send a token with the card information in the same transaction.|
 
-### data-order
+### dados-pedido
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
@@ -379,7 +379,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 
 <aside class="notice">The customer register will be enable to transact only with REAL currency, in case you need more information, contact the service center, commercial manager or Cielo E-commerce Web Support</aside>
 
-### payment-method
+### forma-pagamento
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
@@ -517,7 +517,7 @@ The prerequisites for a transaction to be certified are listed below:
 * The BIN card must be participant in authentication program;
 * Setting the // <allow> is 0, 1 or 2.
 
-Looking at the diagram of section [Transaction](# transaction), you can see that all transactions will pass through status "Authenticated" or "not authenticated". Consequently, all receive the node `<autenticacao>` in the merchant response XML. Below the XML with the authentication node:
+Looking at the diagram of section [Transaction](#transaction), you can see that all transactions will pass through status "Authenticated" or "not authenticated". Consequently, all receive the node `<autenticacao>` in the merchant response XML. Below the XML with the authentication node:
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -1473,7 +1473,7 @@ The result "homologated" will be sent by e-mail. If there is any point that does
 
 The reading of card data on own environment is controlled by rules defined by security program imposed by card issuers.
 
-For Visa, this program is known as AIS (Account Information Security) PCI. To more information, access: [www.cielo.com.br](www.cielo.com.br) > Service > Security Service > AIS - Information Security Program or contact us.
+For Visa, this program is known as AIS (Account Information Security) PCI. To more information, access: [https://www.cielo.com.br](https://www.cielo.com.br) > Service > Security Service > AIS - Information Security Program or contact us.
 
 For Mastercard, the security program is SDP (Site Data Protection) PCI. For more information, access:  [http://www.mastercard.com/us/sdp/index.html](http://www.mastercard.com/us/sdp/index.html), or contact us.
 
