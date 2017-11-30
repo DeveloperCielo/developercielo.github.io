@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T12:29:21+00:00</updated>
+    <updated>2017-11-30T12:32:17+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8786,15 +8786,8 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
 
 &lt;h2 id=&quot;teste-01&quot;&gt;Teste 01&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/01-sdk-android.png&quot; alt=&quot;Android&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;teste-02&quot;&gt;Teste 02&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://cdn.osxdaily.com/wp-content/uploads/2013/07/dancing-banana.gif&quot; alt=&quot;Banana&quot; title=&quot;Olha a banana dançando!&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;teste-03&quot;&gt;Teste 03&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/01-sdk-android.png&quot; alt=&quot;Android&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/01-sdk-android.png&quot; alt=&quot;Android&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;https://developercielo.github.io/images/ApiCieloecommerce/SDKs/01-sdk-android.png&quot;&gt;!Android&lt;/a&gt;](https://github.com/DeveloperCielo/API-3.0-Android)&lt;/p&gt;
 
 &lt;h1 id=&quot;sdks-1&quot;&gt;SDKs&lt;/h1&gt;
 
