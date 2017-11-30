@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T14:01:49+00:00</updated>
+    <updated>2017-11-30T14:12:20+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8854,6 +8854,19 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
     &lt;tr&gt;
       &lt;th&gt;1&lt;/th&gt;
       &lt;th&gt;2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/01-sdk-ios.png&quot; alt=&quot;**iOS**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/01-sdk-android.png&quot; alt=&quot;**Android**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
       &lt;th&gt;3&lt;/th&gt;
       &lt;th&gt;4&lt;/th&gt;
       &lt;th&gt;5&lt;/th&gt;
@@ -8862,8 +8875,6 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/01-sdk-ios&quot; alt=&quot;**iOS**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/01-sdk-android.png&quot; alt=&quot;**Android**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/04-sdk-java.png&quot; alt=&quot;**Java**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/07-sdk-php.png&quot; alt=&quot;**PHP**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/08-sdk-python.png&quot; alt=&quot;**Python**&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
@@ -8874,13 +8885,11 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/01-sdk-ios&quot; alt=&quot;**iOS**&quot; /&gt;&lt;/a&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/01-sdk-ios.png&quot; alt=&quot;**iOS**&quot; /&gt;&lt;/a&gt;
 &lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/01-sdk-android.png&quot; alt=&quot;**Android**&quot; /&gt;&lt;/a&gt;
 &lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/04-sdk-java.png&quot; alt=&quot;**Java**&quot; /&gt;&lt;/a&gt;
 &lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;img src=&quot;https://developercielo.github.io/images/SDKs/07-sdk-php.png&quot; alt=&quot;**PHP**&quot; /&gt;&lt;/a&gt; 
