@@ -147,7 +147,7 @@
 
 <p>Finally, after the development, to start the operation on production environment, first, it’s necessary start the homologation at Cielo.</p>
 
-<aside class="notice">Look at section <a href="#Homologacao">Homologação</a> to more instruction about the homologation process</aside>
+<aside class="notice">Look at section <a href="#testing-and-homologation">Testing and homologation</a> to more instruction about the homologation process</aside>
 
 <h2 id="cielo-support">Cielo Support</h2>
 
@@ -617,7 +617,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </tbody>
 </table>
 
-<h3 id="data-ec">data-ec</h3>
+<h3 id="dados-ec">dados-ec</h3>
 
 <table>
   <thead>
@@ -647,7 +647,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </tbody>
 </table>
 
-<h3 id="data-carrier">data-carrier</h3>
+<h3 id="dados-portador">dados-portador</h3>
 
 <table>
   <thead>
@@ -705,7 +705,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </tbody>
 </table>
 
-<h3 id="data-order">data-order</h3>
+<h3 id="dados-pedido">dados-pedido</h3>
 
 <table>
   <thead>
@@ -779,7 +779,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="notice">The customer register will be enable to transact only with REAL currency, in case you need more information, contact the service center, commercial manager or Cielo E-commerce Web Support</aside>
 
-<h3 id="payment-method">payment-method</h3>
+<h3 id="forma-pagamento">forma-pagamento</h3>
 
 <table>
   <thead>
@@ -994,7 +994,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <li>Setting the // <allow> is 0, 1 or 2.</allow></li>
 </ul>
 
-<p>Looking at the diagram of section <a href="# transaction">Transaction</a>, you can see that all transactions will pass through status “Authenticated” or “not authenticated”. Consequently, all receive the node <code class="highlighter-rouge">&lt;autenticacao&gt;</code> in the merchant response XML. Below the XML with the authentication node:</p>
+<p>Looking at the diagram of section <a href="#transaction">Transaction</a>, you can see that all transactions will pass through status “Authenticated” or “not authenticated”. Consequently, all receive the node <code class="highlighter-rouge">&lt;autenticacao&gt;</code> in the merchant response XML. Below the XML with the authentication node:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"5e445904-963e-4fa1-95cd-55ef88c289cc"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
@@ -3396,7 +3396,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>The reading of card data on own environment is controlled by rules defined by security program imposed by card issuers.</p>
 
-<p>For Visa, this program is known as AIS (Account Information Security) PCI. To more information, access: <a href="www.cielo.com.br">www.cielo.com.br</a> &gt; Service &gt; Security Service &gt; AIS - Information Security Program or contact us.</p>
+<p>For Visa, this program is known as AIS (Account Information Security) PCI. To more information, access: <a href="https://www.cielo.com.br">https://www.cielo.com.br</a> &gt; Service &gt; Security Service &gt; AIS - Information Security Program or contact us.</p>
 
 <p>For Mastercard, the security program is SDP (Site Data Protection) PCI. For more information, access:  <a href="http://www.mastercard.com/us/sdp/index.html">http://www.mastercard.com/us/sdp/index.html</a>, or contact us.</p>
 
