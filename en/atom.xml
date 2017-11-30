@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2017-11-30T14:39:14+00:00</updated>
+    <updated>2017-11-30T14:53:00+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -178,9 +178,10 @@
 &lt;p&gt;Just install the following three files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/root.crt&quot;&gt;Root certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/intermediaria.crt&quot;&gt;Intermediate certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/ecommerce.cielo.com.br.crt&quot;&gt;E-Commerce Cielo certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Root.crt&quot;&gt;Root Certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate1.crt&quot;&gt;Intermediate 1 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate2.crt&quot;&gt;Intermediate 2 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/ServerCertificate.crt&quot;&gt;E-Commerce Cielo certificate&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;step-by-step-installation&quot;&gt;Step by Step Installation&lt;/h2&gt;
@@ -200,9 +201,10 @@
 &lt;p&gt;Save the files below into a new folder, or recall easily to be used later:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/root.crt&quot;&gt;Root certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/intermediaria.crt&quot;&gt;Intermediate certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/ecommerce.cielo.com.br.crt&quot;&gt;E-Commerce Cielo certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Root.crt&quot;&gt;Root Certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate1.crt&quot;&gt;Intermediate 1 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate2.crt&quot;&gt;Intermediate 2 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/ServerCertificate.crt&quot;&gt;E-Commerce Cielo certificate&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;2nd-step&quot;&gt;2nd STEP:&lt;/h4&gt;
@@ -410,7 +412,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema ecommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema ecommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;root-node&quot;&gt;ROOT Node&lt;/h3&gt;
 
@@ -2235,7 +2237,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;aside class=&quot;notice&quot;&gt;For the response codes of the authorization, consult the Directory of Response Codes of Authorization  os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
 &lt;h2 id=&quot;direct-authorization&quot;&gt;Direct authorization&lt;/h2&gt;
 
@@ -2319,7 +2321,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;aside class=&quot;notice&quot;&gt;To know if your store is eligible to use a recurrent authorization, check with our service center or Cielo E-commerce Web Support.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;recurrent-authorization-with-card&quot;&gt;Recurrent authorization with card&lt;/h3&gt;
 
@@ -2373,9 +2375,9 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;aside class=&quot;notice&quot;&gt;The &quot;Renova Fácil&quot; (Easy Renew) is only available on recurrent transactions. The Easy Renew effectiveness depends of correct usage of recurrent transactions properly signalized. Consult banks and card issuers participants with Cielo E-commerce Web Support.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema ecommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema ecommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;authorization-of-a-transaction-previously-created&quot;&gt;Authorization of a transaction previously created&lt;/h3&gt;
 
@@ -2393,7 +2395,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;aside class=&quot;notice&quot;&gt;Requests to transactions that weren't submit to the authentication process or have been interrupted, because the holder made a mistake on the password won't be accepted.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -3544,15 +3546,15 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;internet-explorer&quot;&gt;Internet Explorer:&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-ie.jpg&quot; alt=&quot;EV Internet Explorer Certificate&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-ie.jpg&quot; alt=&quot;EV Internet Explorer Certificate&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;firefox&quot;&gt;Firefox&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-firefox.jpg&quot; alt=&quot;EV Firefox Certificate&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-firefox.jpg&quot; alt=&quot;EV Firefox Certificate&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;google-chrome&quot;&gt;Google Chrome&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-chrome.jpg&quot; alt=&quot;EV Google Chrome Certificate&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-chrome.jpg&quot; alt=&quot;EV Google Chrome Certificate&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;what-is-ev-ssl-certificate&quot;&gt;What is EV SSL Certificate?&lt;/h2&gt;
 
@@ -3565,9 +3567,10 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 &lt;p&gt;Just install the following three files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/root.crt&quot;&gt;Root Certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/intermediaria.crt&quot;&gt;Intermediate Certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/ecommerce.cielo.com.br.crt&quot;&gt;E-Commerce Cielo Certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Root.crt&quot;&gt;Root Certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate1.crt&quot;&gt;Intermediate 1 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate2.crt&quot;&gt;Intermediate 2 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/ServerCertificate.crt&quot;&gt;E-Commerce Cielo certificate&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;step-by-step-for-installation&quot;&gt;Step-by-Step for Installation&lt;/h2&gt;
@@ -3587,82 +3590,83 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 &lt;p&gt;Save the three files below into a new folder, or into a folder that can be easily remembered, as it will be used later:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/root.crt&quot;&gt;Root Certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/intermediaria.crt&quot;&gt;Intermediate Certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/ecommerce.cielo.com.br.crt&quot;&gt;E-Commerce Cielo Certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Root.crt&quot;&gt;Root Certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate1.crt&quot;&gt;Intermediate 1 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate2.crt&quot;&gt;Intermediate 2 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/ServerCertificate.crt&quot;&gt;E-Commerce Cielo certificate&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;In “Internet Explorer”, click on “Tools” menu and go to “Internet Options”:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ie-1.jpg&quot; alt=&quot;Install IE&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-1.jpg&quot; alt=&quot;Install IE&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In “Firefox”, click on “Open Menu” menu and go to “Advanced” and “Options”:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ff-1.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ff-1.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Control Google Chrome” and go to “Settings” and “Show advanced settings… “Change Proxy Settings and “Content” and Certificates:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-gc-1.jpg&quot; alt=&quot;Install GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-gc-1.jpg&quot; alt=&quot;Install GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 3:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;In Internet Explorer, under “Certificates”, click on “Import.”&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ie-2.jpg&quot; alt=&quot;Install IE&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-2.jpg&quot; alt=&quot;Install IE&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Firefox, click on “View Certificates”, click on “Import”&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ff-2.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ff-2.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Chrome, click on “Manage Certificates”, click on “Import”v&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-gc-2.jpg&quot; alt=&quot;Install GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-gc-2.jpg&quot; alt=&quot;Install GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 4:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;In Internet Explorer and Chrome “Certificate Import Wizard”, click on “Next”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ie-gc-3.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-3.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ie-gc-4.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-4.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Firefox “Servers Tab”, click on “Import”&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ff-3.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ff-3.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 5:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ie-gc-5.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-5.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ie-gc-6.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-6.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 6:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Select the desired option: add the Certificate in a default folder or search for the folder of your choice.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ie-gc-7.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-7.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 7:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Click on “Finish”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ie-gc-8.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-8.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 8:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Click on “Ok” to complete the import.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ie-gc-9.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-9.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;In Firefox there is no Successfull Import message, it only completes the import.&lt;/aside&gt;
 
 &lt;p&gt;The Certificate may be viewed in the default tab “Other People” or at the one chosen by the customer.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/certificado-instalar-ie-gc-10.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-10.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Step 9:&lt;/strong&gt;&lt;/p&gt;
 
@@ -7919,11 +7923,11 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;&lt;strong&gt;RecurrentPaymentID Structure&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/RECpaymentID.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/RECpaymentID.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Scheduled Recurrence flow&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;./images/FluxosRECPROG.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/FluxosRECPROG.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;use-case-1&quot;&gt;Use case&lt;/h4&gt;
 
@@ -17841,15 +17845,15 @@ Below we list points that must be ready before integration:&lt;/p&gt;
 
 &lt;h3 id=&quot;internet-explorer&quot;&gt;Internet Explorer:&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-ie.jpg&quot; alt=&quot;EV Internet Explorer Certificate&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-ie.jpg&quot; alt=&quot;EV Internet Explorer Certificate&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;firefox&quot;&gt;Firefox&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-firefox.jpg&quot; alt=&quot;EV Firefox Certificate&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-firefox.jpg&quot; alt=&quot;EV Firefox Certificate&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;google-chrome&quot;&gt;Google Chrome&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-chrome.jpg&quot; alt=&quot;EV Google Chrome Certificate&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-chrome.jpg&quot; alt=&quot;EV Google Chrome Certificate&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;what-is-ev-ssl-certificate&quot;&gt;What is EV SSL Certificate?&lt;/h2&gt;
 
@@ -17862,9 +17866,10 @@ Below we list points that must be ready before integration:&lt;/p&gt;
 &lt;p&gt;Just install the following three files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/root.crt&quot;&gt;Root Certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;[Intermediate Certificate](./attachment/intermediaria](./attachment/intermediaria.crt)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/ecommerce.cielo.com.br.crt&quot;&gt;E-Commerce Cielo Certificateo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Root.crt&quot;&gt;Root Certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate1.crt&quot;&gt;Intermediate 1 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate2.crt&quot;&gt;Intermediate 2 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/ServerCertificate.crt&quot;&gt;E-Commerce Cielo certificate&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;step-by-step-for-installation&quot;&gt;Step-by-Step for Installation&lt;/h2&gt;
@@ -17884,82 +17889,83 @@ Below we list points that must be ready before integration:&lt;/p&gt;
 &lt;p&gt;Save the three files below into a new folder, or into a folder that can be easily remembered, as it will be used later:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/root.crt&quot;&gt;Root Certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/intermediaria.crt&quot;&gt;Intermediate Certificate&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/ecommerce.cielo.com.br.crt&quot;&gt;E-Commerce Cielo Certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Root.crt&quot;&gt;Root Certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate1.crt&quot;&gt;Intermediate 1 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/Intermediate2.crt&quot;&gt;Intermediate 2 certificate&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/attachment/ServerCertificate.crt&quot;&gt;E-Commerce Cielo certificate&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;step-2&quot;&gt;Step 2:&lt;/h4&gt;
 
 &lt;p&gt;In “Internet Explorer”, click on “Tools” menu and go to “Internet Options”:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ie-1.jpg&quot; alt=&quot;Install IE&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-1.jpg&quot; alt=&quot;Install IE&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In “Firefox”, click on “Open Menu” menu and go to “Advanced” and “Options”:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ff-1.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ff-1.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In “Chrome”, click on “Customize and Control Google Chrome” and go to “Settings” and “Show advanced settings … “Change Proxy Settings and “Content” and Certificates:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-gc-1.jpg&quot; alt=&quot;Install GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-gc-1.jpg&quot; alt=&quot;Install GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;step-3&quot;&gt;Step 3:&lt;/h4&gt;
 
 &lt;p&gt;In Internet Explorer, under “Certificates”, click on “Import”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ie-2.jpg&quot; alt=&quot;Install IE&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-2.jpg&quot; alt=&quot;Install IE&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Firefox, click on “View Certificates”, click on “Import”&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ff-2.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ff-2.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Chrome, click on “Manage Certificates”, click on “Import”&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-gc-2.jpg&quot; alt=&quot;Install GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-gc-2.jpg&quot; alt=&quot;Install GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;step-4&quot;&gt;Step 4:&lt;/h4&gt;
 
 &lt;p&gt;In Internet Explorer and Chrome “Certificate Import Wizard”, click on “Next”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ie-gc-3.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-3.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ie-gc-4.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-4.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In Firefox “Servers Tab”, click on “Import”&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ff-3.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ff-3.jpg&quot; alt=&quot;Install FF&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;step-5&quot;&gt;Step 5:&lt;/h4&gt;
 
 &lt;p&gt;In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ie-gc-5.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-5.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ie-gc-6.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-6.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;step-6&quot;&gt;Step 6:&lt;/h4&gt;
 
 &lt;p&gt;Select the desired option: add the Certificate in a default folder or search for the folder of your choice.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ie-gc-7.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-7.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;step-7&quot;&gt;Step 7:&lt;/h4&gt;
 
 &lt;p&gt;Click on “Finish”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ie-gc-8.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-8.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;step-8&quot;&gt;Step 8:&lt;/h4&gt;
 
 &lt;p&gt;Click on “Ok” to complete the import.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ie-gc-9.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-9.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;In Firefox there is no Successfull Import message, it only completes the import.&lt;/aside&gt;
 
 &lt;p&gt;The Certificate may be viewed in the default tab “Other People” or at the one chosen by the customer.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/certificado-instalar-ie-gc-10.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/certificado-instalar-ie-gc-10.jpg&quot; alt=&quot;Install IE and GC&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;step-9&quot;&gt;Step 9:&lt;/h4&gt;
 
@@ -17996,10 +18002,10 @@ Below we list points that must be ready before integration:&lt;/p&gt;
 See the flow below:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Checkout Cielo integration flow&lt;/strong&gt; - Sequential diagram
-&lt;img src=&quot;images/Checkout/fluxobasico.svg&quot; alt=&quot;Checkout Cielo integration flow&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/fluxobasico.svg&quot; alt=&quot;Checkout Cielo integration flow&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Checkout Cielo integration flow&lt;/strong&gt; - Flowchart
-&lt;img src=&quot;images/Checkout/fluxocheckoutbasico.png&quot; alt=&quot;Checkout Cielo integration flow&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/fluxocheckoutbasico.png&quot; alt=&quot;Checkout Cielo integration flow&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;After the card carrier (custumer) select their purchases and hit the “Buy” button of a shop already integrated with Checkout Cielo, the flow in this order:&lt;/p&gt;
 
@@ -18023,7 +18029,7 @@ See the flow below:&lt;/p&gt;
 
 &lt;p&gt;The test mode can be activated in the  &lt;strong&gt;Settings&lt;/strong&gt; tab, where there is a checkbox that, when checked, enable the Checkout Cielo test mode. The test mode will only start when the selection is saved.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/tm01.png&quot; alt=&quot;Activating test mode&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/tm01.png&quot; alt=&quot;Activating test mode&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When the option is saved, a red stripe appears at the top of the screen. It will be displayed on all the screens of the &lt;a href=&quot;http://developercielo.github.io/Checkout-Backoffice/&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; and on the Checkout Cielo transaction screen.&lt;/p&gt;
 
@@ -18038,8 +18044,8 @@ See the flow below:&lt;/p&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/tmbackoffice.png&quot; alt=&quot;Red stripe - Backoffice&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/tmtransacional.png&quot; alt=&quot;Red stripe - Transacional&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/tmbackoffice.png&quot; alt=&quot;Red stripe - Backoffice&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/tmtransacional.png&quot; alt=&quot;Red stripe - Transacional&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -18152,11 +18158,11 @@ The bank slip generated in test mode will always be a simulated bank slip.&lt;/p
 
 &lt;p&gt;All transactions performed in test mode will be displayed as normal transactions in the Checkout Cielo Orders tab, however, they will be marked as test transactions and will not be accounted for in conjunction with transactions performed outside of the test environment.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/checkout-cielo-modo-teste-transacoes-de-teste.png&quot; alt=&quot;Test Transactions&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-cielo-modo-teste-transacoes-de-teste.png&quot; alt=&quot;Test Transactions&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;These transactions will have the test symbol differentiating them from their other transactions. They can be captured or canceled using the same procedures of the actual transactions.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png&quot; alt=&quot;Test Transactions&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png&quot; alt=&quot;Test Transactions&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;It is very important that when releasing your store to perfomr sales to your customers that **it is not in test mode**. Transactions performed in this environment may be finished normally, but **they will not be discounted from the customer's card** and they can not be “transferred” to the standard sales environment.&lt;/aside&gt;
 
@@ -18721,8 +18727,8 @@ The discounts available at Checkout Cielo are:&lt;/p&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/checkout-discount-percent.png&quot; alt=&quot;Percentage&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/checkout-discount-amount.png&quot; alt=&quot;Value&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/checkout-discount-percent.png&quot; alt=&quot;Percentage&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/checkout-discount-amount.png&quot; alt=&quot;Value&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -18785,7 +18791,7 @@ The discounts available at Checkout Cielo are:&lt;/p&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/checkout-discount-mp.png&quot; alt=&quot;Means of payment&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/checkout-discount-mp.png&quot; alt=&quot;Means of payment&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -18837,23 +18843,23 @@ The discounts available at Checkout Cielo are:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FixedAmount&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/fixedamount.png&quot; alt=&quot;FixedAmount&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/fixedamount.png&quot; alt=&quot;FixedAmount&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Free&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/free.png&quot; alt=&quot;Free&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/free.png&quot; alt=&quot;Free&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShippingPickUp&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/withoutshippingpickup.png&quot; alt=&quot;WithoutShippingPickUp&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/withoutshippingpickup.png&quot; alt=&quot;WithoutShippingPickUp&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShipping&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/withoutshippingpickup.png&quot; alt=&quot;WithoutShipping&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/withoutshippingpickup.png&quot; alt=&quot;WithoutShipping&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Post office&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/correios.png&quot; alt=&quot;Post office&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/correios.png&quot; alt=&quot;Post office&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -19114,12 +19120,12 @@ This type of integration is accomplished through the registration of a set of it
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/botao.png&quot; alt=&quot;Button&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/botao.png&quot; alt=&quot;Button&quot; /&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;Button&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;It is an HTML code that when pasted into a website, will direct the buyer to the transactional screen - Ideal for use in &lt;strong&gt;hotSites&lt;/strong&gt; or &lt;strong&gt;Marketing E-mail&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;images/Checkout/qrcode.png&quot; alt=&quot;QRCODE&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/qrcode.png&quot; alt=&quot;QRCODE&quot; /&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;QRCODE&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Code interpretable by Smartphones and Tablets - Ideal for use in &lt;strong&gt;Printed Marketing&lt;/strong&gt; or &lt;strong&gt;Digital&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
@@ -19172,7 +19178,7 @@ This type of integration is accomplished through the registration of a set of it
 
 &lt;p&gt;&lt;strong&gt;Below, the payment flow via Button:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/intbt.png&quot; alt=&quot;Button Checkout Cielo Integration Flow&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/intbt.png&quot; alt=&quot;Button Checkout Cielo Integration Flow&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;creating-the-button&quot;&gt;Creating the Button&lt;/h3&gt;
 
@@ -19180,11 +19186,11 @@ This type of integration is accomplished through the registration of a set of it
 
 &lt;p&gt;&lt;strong&gt;Registration Screen:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/btcadastro.png&quot; alt=&quot;Button Registration&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/btcadastro.png&quot; alt=&quot;Button Registration&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Registered Button:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/btcadastro2.png&quot; alt=&quot;Button Registration&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/btcadastro2.png&quot; alt=&quot;Button Registration&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Below the list of items that must be registered for the button creation:&lt;/p&gt;
 
@@ -19477,11 +19483,11 @@ This degree of risk is what should guide the merchant’s decision to capture or
 
 &lt;p&gt;The analysis will be displayed in the “Order Details”, as below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/checkout-cielo-analise-risco.png&quot; alt=&quot;Risk analysis&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-cielo-analise-risco.png&quot; alt=&quot;Risk analysis&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can view the anti-fraud status by going to the purchase detail in the Orders tab and clicking on (+)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/checkout-status-antifraude.png&quot; alt=&quot;Anti-fraud Status&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-status-antifraude.png&quot; alt=&quot;Anti-fraud Status&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;debit-card&quot;&gt;Debit card&lt;/h3&gt;
 
@@ -19717,7 +19723,7 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
   &lt;li&gt;Register the URLs and choose the type of Notification you want&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/urls.png&quot; alt=&quot;URLS registration&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/urls.png&quot; alt=&quot;URLS registration&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;notification-post&quot;&gt;Notification: POST&lt;/h2&gt;
 
@@ -19732,7 +19738,7 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
 
 &lt;p&gt;Below the Flow of a POST Notification&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/npost.png&quot; alt=&quot;N.POST Flow&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/npost.png&quot; alt=&quot;N.POST Flow&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Return expected to send notification:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;HttpStatus = 200 (OK)&lt;/code&gt; - Post received and processed successfully&lt;/p&gt;
 
@@ -19740,7 +19746,7 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
 
 &lt;p&gt;If the POST is not received, it is possible to resend it manually, just access the order in question by the Backoffice and click on the Sending icon:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/reenvipost.png&quot; alt=&quot;Resending of notification&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/reenvipost.png&quot; alt=&quot;Resending of notification&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;See description of notification items in the session &lt;strong&gt;“NOTIFICATION POST content”&lt;/strong&gt;&lt;/p&gt;
 
@@ -19760,7 +19766,7 @@ This notification mode is based on a &lt;code class=&quot;highlighter-rouge&quot
 
 &lt;p&gt;Below the Flow of a JSON Notification (Transaction Creation + Status Change)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/njson.png&quot; alt=&quot;N.JSON Flow&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/njson.png&quot; alt=&quot;N.JSON Flow&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;JSON NOTIFICATION POST content:&lt;/strong&gt;&lt;/p&gt;
 
@@ -19840,7 +19846,7 @@ This notification mode is based on a &lt;code class=&quot;highlighter-rouge&quot
 
 &lt;p&gt;If the POST is not received, it is possible to resend it manually, just access the order in question by the Backoffice and click on the Sending icon:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/reenvipost.png&quot; alt=&quot;Resending of notification&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/reenvipost.png&quot; alt=&quot;Resending of notification&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;notification-content&quot;&gt;Notification Content&lt;/h2&gt;
 
@@ -20328,7 +20334,7 @@ There are two methods of installment:&lt;/p&gt;
 
 &lt;p&gt;In this mode, the merchant controls the maximum limit of installments that the store will perform by Backoffice Checkout. The installments Value is defined by accessing the &lt;strong&gt;Settings&lt;/strong&gt; tab and changing the session &lt;strong&gt;Payments&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/Checkout/parcelamento.png&quot; alt=&quot;Installments Selection&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/parcelamento.png&quot; alt=&quot;Installments Selection&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; The Check Box must be marked for the payment means to be displayed on the transactional screen.&lt;/p&gt;
 
@@ -20595,7 +20601,7 @@ If there is a recurrence node in the technical contract, the &lt;code class=&quo
 
 &lt;p&gt;Just register the product, including a billing interval and a closing date (Optional), as in the example below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/checkout-botao-recorrencia.png&quot; alt=&quot;Recurrence button&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-botao-recorrencia.png&quot; alt=&quot;Recurrence button&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;WARNING:&lt;/strong&gt; If a button is used after the registered “End Date”, the transaction will present an error displaying &lt;strong&gt;Oppss&lt;/strong&gt; on the transaction screen. The Date can be edited in the editing screen of the button within “Product Details”&lt;/p&gt;
 
@@ -20620,7 +20626,7 @@ If there is a recurrence node in the technical contract, the &lt;code class=&quo
 
 &lt;p&gt;&lt;strong&gt;WARNING:&lt;/strong&gt; The value and charge date of the recurring transactions will always be the same as the initial transaction. Scheduling starts automatically from the date the first transaction is authorized.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/checkout-consulta-recorrencia.png&quot; alt=&quot;Querying transactions&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-consulta-recorrencia.png&quot; alt=&quot;Querying transactions&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This screen shows the date that the 1st recurrence transaction was authorized and should be captured manually. &lt;strong&gt;The other recurrence transactions will always be captured automatically&lt;/strong&gt;, regardless of whether the first transaction was captured or canceled. If the Customer has configured Automatic Capture, the recurrence capture will also be automatic.&lt;/p&gt;
 
@@ -20635,9 +20641,9 @@ If there is a recurrence node in the technical contract, the &lt;code class=&quo
   &lt;li&gt;Enter Details (the “+” symbol)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Recurrence order&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Recurrence order&quot; /&gt;
 &lt;br /&gt;
-&lt;img src=&quot;images/Checkout/pedidoreccance.png&quot; alt=&quot;Recurrence cancellation&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/pedidoreccance.png&quot; alt=&quot;Recurrence cancellation&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Recurrence detail screen&lt;/p&gt;
 

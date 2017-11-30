@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T14:39:10+00:00</updated>
+    <updated>2017-11-30T14:52:57+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2714,7 +2714,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 
 &lt;h2 id=&quot;números-de-cartões&quot;&gt;Números de cartões&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/cartao.png&quot; alt=&quot;Cartão Visa&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/cartao.png&quot; alt=&quot;Cartão Visa&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Basicamente, o número do cartão é composto por três partes:&lt;/p&gt;
 
@@ -3521,7 +3521,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Todas as mensagens devem estar formatadas corretamente segundo especificado no &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Todas as mensagens devem estar formatadas corretamente segundo especificado no &lt;a href=&quot;https://developercielo.github.io/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;raiz&quot;&gt;raiz&lt;/h3&gt;
 
@@ -5284,7 +5284,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;aside class=&quot;notice&quot;&gt;Para os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Todas as mensagens devem estar formatadas corretamente segundo especificado no &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Todas as mensagens devem estar formatadas corretamente segundo especificado no &lt;a href=&quot;https://developercielo.github.io/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
 &lt;h2 id=&quot;autorização-direta&quot;&gt;Autorização Direta&lt;/h2&gt;
 
@@ -5368,7 +5368,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;aside class=&quot;notice&quot;&gt;Para saber se sua loja é elegível a utilizar a autorização recorrente, consulte nossa central de relacionamento ou o Suporte Web Cielo eCommerce.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Todas as mensagens devem estar formatadas corretamente segundo especificado no &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Todas as mensagens devem estar formatadas corretamente segundo especificado no &lt;a href=&quot;https://developercielo.github.io/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;autorização-recorrente-com-cartão&quot;&gt;Autorização recorrente com Cartão&lt;/h3&gt;
 
@@ -5422,7 +5422,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;aside class=&quot;notice&quot;&gt;O Renova Fácil só está disponível para transações recorrentes. A efetividade do Renova Fácil depende do uso correto das transações recorrentes devidamente sinalizadas como tal. Consulte os bancos e bandeiras participantes com o Suporte Web Cielo eCommerce.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Todas as mensagens devem estar formatadas corretamente segundo especificado no &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Todas as mensagens devem estar formatadas corretamente segundo especificado no &lt;a href=&quot;https://developercielo.github.io/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
 &lt;h3 id=&quot;autorização-de-uma-transação-previamente-gerada&quot;&gt;Autorização de uma transação previamente gerada&lt;/h3&gt;
 
@@ -5442,7 +5442,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;aside class=&quot;notice&quot;&gt;Requisições para transações que não foram submetidas ao processo de autenticação ou foram interrompidas, pois o portador errou a senha não serão aceitas.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Todas as mensagens devem estar formatadas corretamente segundo especificado no &lt;a href=&quot;attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Todas as mensagens devem estar formatadas corretamente segundo especificado no &lt;a href=&quot;https://developercielo.github.io/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -9602,10 +9602,10 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 &lt;p&gt;Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;passo-a-passo-para-a-instalação&quot;&gt;Passo a Passo para a Instalação&lt;/h2&gt;
@@ -9625,10 +9625,10 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 &lt;p&gt;Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;2o-passo&quot;&gt;2o Passo:&lt;/h4&gt;
@@ -24381,9 +24381,10 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
 &lt;p&gt;Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/intermediaria.crt&quot;&gt;Certificado Intermediária&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/ecommerce.cielo.com.br.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;passo-a-passo-para-a-instalação&quot;&gt;Passo a Passo para a Instalação&lt;/h2&gt;
@@ -24403,9 +24404,10 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
 &lt;p&gt;Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/intermediaria.crt&quot;&gt;Certificado Intermediária&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;./attachment/ecommerce.cielo.com.br.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;2º Passo&lt;/strong&gt;&lt;/p&gt;
