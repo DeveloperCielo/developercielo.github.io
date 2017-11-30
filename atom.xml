@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-11-30T14:20:35+00:00</updated>
+    <updated>2017-11-30T14:39:10+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -50,7 +50,7 @@
 
 &lt;p&gt;1.Acesse a Chrome Store, pesquise por POSTMAN  em APPs&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/TutorialPostman/p1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/documentos-adicionais/tutorial-postman/p1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;2.Na aba de Apps no seu Google Chrome acesse o ícone do Postman&lt;/p&gt;
 
@@ -23178,19 +23178,19 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
 
 &lt;p&gt;Para acessar o Backoffice do Checkout Cielo, é necessário que o lojista &lt;strong&gt;&lt;a href=&quot;https://www.cielo.com.br/minha-conta&quot;&gt;realize login no Site Cielo&lt;/a&gt;&lt;/strong&gt;, inserindo sua Afiliação (Nº de estabelecimento) e Usuário:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-login.png&quot; alt=&quot;Login Backoffice Cielo&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-login.png&quot; alt=&quot;Login Backoffice Cielo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Em seguida é necessário incluir sua Senha:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-login-senha.png&quot; alt=&quot;Senha Backoffice Cielo&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-login-senha.png&quot; alt=&quot;Senha Backoffice Cielo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Na área de “Vendas Online” basta clicar em Checkout Cielo.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-vendas-online.png&quot; alt=&quot;Vendas online&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-vendas-online.png&quot; alt=&quot;Vendas online&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Caso o site principal da Cielo não esteja disponível, basta acessar a URL &lt;a href=&quot;https://cieloecommerce.cielo.com.br/backoffice&quot;&gt;https://cieloecommerce.cielo.com.br/backoffice&lt;/a&gt; e inserir seu e-mail de cadastro e senha.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/images/Checkout/TutorialCheckout/checkout-cielo.png&quot;&gt;!Checkout Cielo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-cielo.png&quot;&gt;!Checkout Cielo&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;abas-do-backoffice-checkout-cielo&quot;&gt;Abas do Backoffice Checkout Cielo&lt;/h2&gt;
 
@@ -23246,7 +23246,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
 
 &lt;aside class=&quot;warning&quot;&gt;Por padrão, transações de crédito expiram em 15 dias. Após esse perido, elas não podem ser capturadas.&lt;/aside&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-dashboard.png&quot; alt=&quot;DashBoard&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-dashboard.png&quot; alt=&quot;DashBoard&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;aba-pedidos&quot;&gt;Aba Pedidos&lt;/h2&gt;
 
@@ -23255,11 +23255,11 @@ O resultado da pesquisa é exposto em forma de uma listagem de transações que 
 
 &lt;p&gt;Listagem de Pedidos&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-pedidos.png&quot; alt=&quot;Pedidos&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-pedidos.png&quot; alt=&quot;Pedidos&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Detalhes dos Pedidos&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-pedidos-detalhes.png&quot; alt=&quot;Detalhes do Pedido&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-pedidos-detalhes.png&quot; alt=&quot;Detalhes do Pedido&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;aba-link-de-pagamento&quot;&gt;Aba Link de Pagamento&lt;/h2&gt;
 
@@ -23276,7 +23276,7 @@ O resultado da pesquisa é exposto em forma de uma listagem de transações que 
 
 &lt;h3 id=&quot;listar-link-de-pagamentos-cadastrados&quot;&gt;Listar Link de pagamentos Cadastrados&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-listar-link-de-pagamentos.png&quot; alt=&quot;Produtos cadastrados&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-listar-link-de-pagamentos.png&quot; alt=&quot;Produtos cadastrados&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Clicando no Titulo ou SKU do produto, você será redirecionado a página de informações de Produto, onde todas as características do produto são informadas e onde você pode definir o padrão do Botão (caso a sua integração seja com base no Botão Checkout Cielo) a ser usado na venda desse produto.&lt;/p&gt;
 
@@ -23295,7 +23295,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   &lt;li&gt;&lt;strong&gt;Pagamentos&lt;/strong&gt; - Pagamentos unicos ou transferência de valores Ex: quitação de dividas etc&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-cadastrar-link-de-pagamentos.png&quot; alt=&quot;Cadastrar Link de pagamentos&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-cadastrar-link-de-pagamentos.png&quot; alt=&quot;Cadastrar Link de pagamentos&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Material Físico exige que um tipo de frete seja cadastrado. &lt;/aside&gt;
 
@@ -23307,7 +23307,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;Após realizar o cadastro do produto/Link de pagamento, a seguinte loja será exibida:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-detalhes-Link-de-pagamentos.png&quot; alt=&quot;Detalhes do produto&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-detalhes-link-de-pagamentos.png&quot; alt=&quot;Detalhes do produto&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;O Link de pagamentos é exibido de &lt;strong&gt;3 maneiras:&lt;/strong&gt;&lt;/p&gt;
 
@@ -23351,7 +23351,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;Esse relatorio apresenta as vendas pagas em um determinado periodo de tempo, sendo separadas por meio de pagamento. Selecionando o periodo e  tipo de pagamento, após pressionar “Buscar” o resultado será apresentado.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-relatorio-financeiro.png&quot; alt=&quot;Relatório financeiro&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-relatorio-financeiro.png&quot; alt=&quot;Relatório financeiro&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;relatório-detalhado-de-vendas&quot;&gt;Relatório detalhado de vendas.&lt;/h3&gt;
 
@@ -23359,7 +23359,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;aside class=&quot;notice&quot;&gt;Pedidos realizados no Modo de teste não são apresentados nesse relatório, mesmo que estejam com o status “PAGO”&lt;/aside&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-relatorio-detalhado-vendas.png&quot; alt=&quot;Relatório detalhado de vendas&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-relatorio-detalhado-vendas.png&quot; alt=&quot;Relatório detalhado de vendas&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;listagem-de-clientes&quot;&gt;Listagem de clientes&lt;/h3&gt;
 
@@ -23410,17 +23410,17 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;A lista do valor cobrado pelos serviços oferecidos pela Cielo será apresentada neste relatório. Todos os dados dos planos e custos transacionais serão apresentados aqui:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-extrato-cobranca.png&quot; alt=&quot;Extrato de cobrança&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-extrato-cobranca.png&quot; alt=&quot;Extrato de cobrança&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;relatório-de-recorrência&quot;&gt;Relatório de Recorrência&lt;/h3&gt;
 
 &lt;p&gt;Nesse relatório é possível pesquisar o conjunto de recorrência e suas transações com base em seu ID ou por Status e Intervalo de ocorrência.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-relatorio-recorrencia.png&quot; alt=&quot;Relatório de Recorrências&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-relatorio-recorrencia.png&quot; alt=&quot;Relatório de Recorrências&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Ao clicar no “+” é aberto a tela de Detalhes da recorrência:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-detalhes-da-recorrencia.png&quot; alt=&quot;Detalhes da Recorrência&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-detalhes-da-recorrencia.png&quot; alt=&quot;Detalhes da Recorrência&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Os Detalhes da recorrência informam o carrinho e o histórico de transações agendadas. Ao clicar em “+Detalhes” o lojista é direcionado a tela de detalhes de Pedidos (Ver item “PEDIDOS”)&lt;/p&gt;
 
@@ -23436,7 +23436,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-suporte.png&quot; alt=&quot;Dúvidas&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-suporte.png&quot; alt=&quot;Dúvidas&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Nessa pagina é possivel entrar em contato a respeito de duvidas Operacionais, tecnicas e Comerciais  e ter acesso aos documentos técnicos e de suporte do Checkout Cielo.&lt;/p&gt;
 
@@ -23453,7 +23453,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;Aqui é possivel alterar o logo do meio de pagamento disponível em sua loja e a cor de fundo do site via o uso da caixa de opções ou digitando o código relativo a cor escolhida (As cores estão no padrão RGB).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-configuracoes-loja.png&quot; alt=&quot;Configuração Exibição&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-configuracoes-loja.png&quot; alt=&quot;Configuração Exibição&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;O logo de sua loja será exibido na tela de Checkout centralizado.&lt;/aside&gt;
 
@@ -23461,7 +23461,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;Nesta tela é possível alterar as configurações dos meios de pagamento disponíveis em sua loja, os definindo como ativos ou não, e configurar a URL de retorno, notificação e Mudança de Status.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-configuracoes-pagamento.png&quot; alt=&quot;Configuração Exibição&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-configuracoes-pagamento.png&quot; alt=&quot;Configuração Exibição&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;modo-de-teste-checkout-cielo&quot;&gt;Modo de Teste Checkout Cielo&lt;/h4&gt;
 
@@ -23469,7 +23469,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;O modo de teste pode ser ativado marcando a caixa de seleção:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/tm01.png&quot; alt=&quot;Ativando Modo de teste&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tm01.png&quot; alt=&quot;Ativando Modo de teste&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Backoffice e na tela transacional do Checkout Cielo.&lt;/p&gt;
 
@@ -23484,8 +23484,8 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/tmbackoffice.png&quot; alt=&quot;Tarja vermelha - Backoffice&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/tmtransacional.png&quot; alt=&quot;Tarja vermelha - Transacional&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tmbackoffice.png&quot; alt=&quot;Tarja vermelha - Backoffice&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tmtransacional.png&quot; alt=&quot;Tarja vermelha - Transacional&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -23535,7 +23535,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;Na tela de pedidos, dentro de cada transação, há a opção de reenvio do POST de mudança de status.  Basta clicar nos botões azuis, marcados na imagem abaixo:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-detalhe-pedidos.png&quot; alt=&quot;Detalhes do pedido&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-detalhe-pedidos.png&quot; alt=&quot;Detalhes do pedido&quot; /&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Os Lojistas da “Loja Virtual Terra Cielo” possuem URL’s de notificação, mudança de Status e Retorno atualizadas automaticamente. Para esses lojistas, não é necessário alterar as URL’s citadas.&lt;/aside&gt;
 
@@ -23545,7 +23545,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;Nesta parte da aba de configurações é possível configurar 4 valores mínimos e descontos por meios de pagamento:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-Configurações-de-valores-Minimos.png&quot; alt=&quot;Valor minimo parcela&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-configuracoes-de-valores-minimos.png&quot; alt=&quot;Valor minimo parcela&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -23592,7 +23592,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;Basta marcar a caixa de seleção do cartão que deseja disponibilizar no momento do pagamento. Para desabilita-lo, basta desmarcar a caixa de seleção.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-cards.png&quot; alt=&quot;Configurando meios de pagamento&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-cards.png&quot; alt=&quot;Configurando meios de pagamento&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;O parcelamento é definido por bandeira de cartão. O numero de parcelas maximas disponibilizadas para cada cartão passa a ser definida pelo Lojista.&lt;/p&gt;
 
@@ -23606,11 +23606,11 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;aside class=&quot;notice&quot;&gt;Se o lojista não tem habilitado o antifraude em seu contrato junto a Cielo ou não enviar no POST a solicitação de analise de fraude, a captura automática não será executada caso esteja configurada para ser efetuada com base no status da analise de risco. Caberá ao lojista a captura manual do pedido.&lt;/aside&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-anti-fraude.png&quot; alt=&quot;Anti fraude&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-anti-fraude.png&quot; alt=&quot;Anti fraude&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Campo valor mínimo de analise AF:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-anti-fraude-valor-minimo.png&quot; alt=&quot;Valor mínimo anti fraude&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-anti-fraude-valor-minimo.png&quot; alt=&quot;Valor mínimo anti fraude&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;tabela-de-status-do-antifraude&quot;&gt;Tabela de status do Antifraude&lt;/h4&gt;
 
@@ -23673,13 +23673,13 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
 
 &lt;p&gt;Você pode visualizar o status do antifraude acessando o detalhe da compra, na aba Pedidos e clicando no (+)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-status-antifraude.png&quot; alt=&quot;Status Antifraude&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-status-antifraude.png&quot; alt=&quot;Status Antifraude&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;frete-de-correios--serviços&quot;&gt;Frete de Correios &amp;amp; Serviços&lt;/h3&gt;
 
 &lt;p&gt;Nesta área você configura as opções de frete disponiveis em sua Loja. Na seção &lt;a href=&quot;#informações-sobre-frete&quot;&gt;Informações sobre Frete&lt;/a&gt; há uma explicação mais detalhada sobre os tipos de fretes disponiveis no Checkout Cielo. Há tambem na área de fretes de Correiros, uma calculadora de frete para consultas (essa calculadora dá o valor de frete de cada tipo de frete cadastrado para um determinado peso e localidade)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/Checkout/TutorialCheckout/checkout-frete-correios.png&quot; alt=&quot;Frete Correios&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-frete-correios.png&quot; alt=&quot;Frete Correios&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;tutorial---link-de-pagamentos&quot;&gt;Tutorial - Link de Pagamentos&lt;/h1&gt;
 
@@ -23700,12 +23700,12 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/botao.png&quot; alt=&quot;Botão&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/botao.png&quot; alt=&quot;Botão&quot; /&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;Botão&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em &lt;strong&gt;hotSites&lt;/strong&gt; ou &lt;strong&gt;E-mail Marketing&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/qrcode.png&quot; alt=&quot;QRCODE&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/qrcode.png&quot; alt=&quot;QRCODE&quot; /&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;QRCODE&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Código interpretável por Smartphones e Tablets - Ideal para uso em &lt;strong&gt;Marketing impressos&lt;/strong&gt; ou &lt;strong&gt;Digital&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
@@ -23758,7 +23758,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;h4 id=&quot;fluxo-do-link-de-pagamento&quot;&gt;Fluxo do Link de Pagamento&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/intbt.png&quot; alt=&quot;Fluxo de integração Checkout Cielo Botão&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/intbt.png&quot; alt=&quot;Fluxo de integração Checkout Cielo Botão&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;criando-um-link-de-pagamentos&quot;&gt;Criando Um Link de pagamentos&lt;/h2&gt;
 
@@ -23778,11 +23778,11 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;p&gt;&lt;strong&gt;Tela de Cadastro&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/btcadastro.png&quot; alt=&quot;Cadastro de Botão&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/btcadastro.png&quot; alt=&quot;Cadastro de Botão&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Botão Cadastrado:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/btcadastro2.png&quot; alt=&quot;Cadastro de Botão&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/btcadastro2.png&quot; alt=&quot;Cadastro de Botão&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:&lt;/p&gt;
 
@@ -24516,10 +24516,10 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
 &lt;p&gt;Veja o fluxo abaixo:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Fluxo de integração Checkout Cielo&lt;/strong&gt; - Diagrama sequêncial
-&lt;img src=&quot;https://developercielo.github.io/images/Checkout/fluxobasico.svg&quot; alt=&quot;Fluxo de integração Checkout Cielo&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/checkout/fluxobasico.svg&quot; alt=&quot;Fluxo de integração Checkout Cielo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Fluxo de integração Checkout Cielo&lt;/strong&gt; - Fluxograma
-&lt;img src=&quot;https://developercielo.github.io/images/Checkout/fluxocheckoutbasico.png&quot; alt=&quot;Fluxo de integração Checkout Cielo&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/checkout/fluxocheckoutbasico.png&quot; alt=&quot;Fluxo de integração Checkout Cielo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Após o portador do cartão (consumidor) selecionar suas compras e apertar o botão “Comprar” de uma loja já integrada ao Checkout Cielo, o fluxo nesta ordem:&lt;/p&gt;
 
@@ -24543,7 +24543,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
 
 &lt;p&gt;O modo de teste pode ser ativado na aba &lt;strong&gt;Configurações&lt;/strong&gt;, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/tm01.png&quot; alt=&quot;Ativando Modo de teste&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tm01.png&quot; alt=&quot;Ativando Modo de teste&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do &lt;a href=&quot;http://developercielo.github.io/Checkout-Backoffice/&quot;&gt;Backoffice Cielo Checkout&lt;/a&gt; e na tela transacional do Checkout Cielo.&lt;/p&gt;
 
@@ -24558,8 +24558,8 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/tmbackoffice.png&quot; alt=&quot;Tarja vermelha - Backoffice&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/tmtransacional.png&quot; alt=&quot;Tarja vermelha - Transacional&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tmbackoffice.png&quot; alt=&quot;Tarja vermelha - Backoffice&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/tmtransacional.png&quot; alt=&quot;Tarja vermelha - Transacional&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -24704,7 +24704,7 @@ Basta acessar nosso &lt;a href=&quot;https://developercielo.github.io/Tutorial//
 
 &lt;p&gt;Abaixo, é demonstrado como o fluxo de compra ocorre na integração via API:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.iohttps://developercielo.github.io/images/Checkout/intapi.png&quot; alt=&quot;Integração Via API&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.iohttps://developercielo.github.io/images/checkout/intapi.png&quot; alt=&quot;Integração Via API&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;criando-o-carrinho&quot;&gt;Criando o Carrinho&lt;/h3&gt;
 
@@ -25233,8 +25233,8 @@ Os descontos disponíveis no Checkout Cielo são:&lt;/p&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/checkout-discount-percent.png&quot; alt=&quot;Percentual&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/checkout-discount-amount.png&quot; alt=&quot;Valor&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/checkout-discount-percent.png&quot; alt=&quot;Percentual&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/checkout-discount-amount.png&quot; alt=&quot;Valor&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -25297,7 +25297,7 @@ Os descontos disponíveis no Checkout Cielo são:&lt;/p&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/checkout-discount-mp.png&quot; alt=&quot;Meios de pagamento&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/checkout-discount-mp.png&quot; alt=&quot;Meios de pagamento&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -25349,23 +25349,23 @@ Os descontos disponíveis no Checkout Cielo são:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FixedAmount&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/fixedamount.png&quot; alt=&quot;FixedAmount&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/fixedamount.png&quot; alt=&quot;FixedAmount&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Free&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/free.png&quot; alt=&quot;Free&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/free.png&quot; alt=&quot;Free&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShippingPickUp&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/withoutshippingpickup.png&quot; alt=&quot;WithoutShippingPickUp&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/withoutshippingpickup.png&quot; alt=&quot;WithoutShippingPickUp&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShipping&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/withoutshippingpickup.png&quot; alt=&quot;WithoutShipping&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/withoutshippingpickup.png&quot; alt=&quot;WithoutShipping&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Correios&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/correios.png&quot; alt=&quot;Correios&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/correios.png&quot; alt=&quot;Correios&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -25626,12 +25626,12 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/botao.png&quot; alt=&quot;Botão&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/botao.png&quot; alt=&quot;Botão&quot; /&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;Botão&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em &lt;strong&gt;hotSites&lt;/strong&gt; ou &lt;strong&gt;E-mail Marketing&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/qrcode.png&quot; alt=&quot;QRCODE&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/qrcode.png&quot; alt=&quot;QRCODE&quot; /&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;QRCODE&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Código interpretável por Smartphones e Tablets - Ideal para uso em &lt;strong&gt;Marketing impressos&lt;/strong&gt; ou &lt;strong&gt;Digital&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
@@ -25684,7 +25684,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;p&gt;&lt;strong&gt;Abaixo, o fluxo de pagamento via Botão:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/intbt.png&quot; alt=&quot;Fluxo de integração Checkout Cielo Botão&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/intbt.png&quot; alt=&quot;Fluxo de integração Checkout Cielo Botão&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;criando-o-botão&quot;&gt;Criando o Botão&lt;/h3&gt;
 
@@ -25692,11 +25692,11 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;p&gt;&lt;strong&gt;Tela de Cadastro:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/btcadastro.png&quot; alt=&quot;Cadastro de Botão&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/btcadastro.png&quot; alt=&quot;Cadastro de Botão&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Botão Cadastrado:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/btcadastro2.png&quot; alt=&quot;Cadastro de Botão&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/btcadastro2.png&quot; alt=&quot;Cadastro de Botão&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:&lt;/p&gt;
 
@@ -26171,7 +26171,7 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
   &lt;li&gt;Cadastre as URLS e escolhe o tipo de Notificação desejado&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/urls.png&quot; alt=&quot;Cadastro de URLS&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/urls.png&quot; alt=&quot;Cadastro de URLS&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;notificação-post&quot;&gt;Notificação: POST&lt;/h2&gt;
 
@@ -26186,7 +26186,7 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
 
 &lt;p&gt;Abaixo o Fluxo de uma Notificação POST&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/npost.png&quot; alt=&quot;Fluxo N.POST&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/npost.png&quot; alt=&quot;Fluxo N.POST&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Retorno aguardado para o envio da notificação:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;HttpStatus = 200 (OK)&lt;/code&gt; - Post recebido e processado com sucesso&lt;/p&gt;
 
@@ -26194,7 +26194,7 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
 
 &lt;p&gt;Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/reenvipost.png&quot; alt=&quot;Reenvio de notificação&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/reenvipost.png&quot; alt=&quot;Reenvio de notificação&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Veja a descrição dos itens de notificação na sessão &lt;strong&gt;“Conteúdo do POST de NOTIFICAÇÃO”&lt;/strong&gt;&lt;/p&gt;
 
@@ -26214,7 +26214,7 @@ Essa modalidade de notificação é baseada em um &lt;code class=&quot;highlight
 
 &lt;p&gt;Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de status)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/njson.png&quot; alt=&quot;Fluxo N.JSON&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/njson.png&quot; alt=&quot;Fluxo N.JSON&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Conteúdo do POST de NOTIFICAÇÃO JSON:&lt;/strong&gt;&lt;/p&gt;
 
@@ -26294,7 +26294,7 @@ Essa modalidade de notificação é baseada em um &lt;code class=&quot;highlight
 
 &lt;p&gt;Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/reenvipost.png&quot; alt=&quot;Reenvio de notificação&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/reenvipost.png&quot; alt=&quot;Reenvio de notificação&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;conteúdo-da-notificação&quot;&gt;Conteúdo da Notificação&lt;/h2&gt;
 
@@ -26782,7 +26782,7 @@ Existem dois métodos de parcelamento:&lt;/p&gt;
 
 &lt;p&gt;Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba &lt;strong&gt;Configurações&lt;/strong&gt; e alterando a sessão &lt;strong&gt;Pagamentos&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/Checkout/parcelamento.png&quot; alt=&quot;Seleção de Parcelas&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/parcelamento.png&quot; alt=&quot;Seleção de Parcelas&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;OBS:&lt;/strong&gt; O Check Box deve estar marcado para que o meio de pagamento seja exibido na tela transacional.&lt;/p&gt;
 
@@ -27085,7 +27085,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Pedido de recorrência&quot; /&gt;
 &lt;br /&gt;
-&lt;img src=&quot;https://developercielo.github.io/images/Checkout/pedidoreccance.png&quot; alt=&quot;Cancelamento de recorrência&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/checkout/pedidoreccance.png&quot; alt=&quot;Cancelamento de recorrência&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Tela de detalhes da Recorrência&lt;/p&gt;
 
