@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T09:16:36+00:00</updated>
+    <updated>2017-12-01T09:29:34+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29615,8 +29615,6 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/credenciamento/credenciamentobr.png&quot; alt=&quot;Credenciamento&quot; /&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;api-docs&quot;&gt;API Docs&lt;/h1&gt;
-
 &lt;h2 id=&quot;endpoints-sandbox-e-produção&quot;&gt;Endpoints (Sandbox e Produção)&lt;/h2&gt;
 
 &lt;p&gt;Ambiente Produção&lt;/p&gt;
@@ -29705,14 +29703,14 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
     &lt;tr&gt;
       &lt;td&gt;500&lt;/td&gt;
       &lt;td&gt;Internal Server Error&lt;/td&gt;
-      &lt;td&gt;Erro não esperado; algo está quebrado na API&lt;/td&gt;
+      &lt;td&gt;Erro não esperado; algoestá quebrado na API&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;recursos&quot;&gt;Recursos&lt;/h2&gt;
+&lt;h1 id=&quot;api-docs&quot;&gt;API Docs&lt;/h1&gt;
 
-&lt;h3 id=&quot;criação-de-proposta-comercial-para-credenciamento&quot;&gt;Criação de proposta comercial para credenciamento&lt;/h3&gt;
+&lt;h2 id=&quot;criação-de-proposta-comercial-para-credenciamento&quot;&gt;Criação de proposta comercial para credenciamento&lt;/h2&gt;
 
 &lt;p&gt;Merchants é a representação da entidade de estabelecimento comercial para a execução do fluxo de credenciamento de um novo cliente&lt;/p&gt;
 
@@ -29841,7 +29839,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Request&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -30138,7 +30136,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Response&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -30165,7 +30163,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;consulta-terminal-lógico-equipamento&quot;&gt;Consulta terminal lógico (equipamento)&lt;/h3&gt;
+&lt;h2 id=&quot;consulta-terminal-lógico-equipamento&quot;&gt;Consulta terminal lógico (equipamento)&lt;/h2&gt;
 
 &lt;p&gt;Terminal referencia a solução captura que retorna a identificação do terminal lógico quando associado a um estabelecimento comercial&lt;/p&gt;
 
@@ -30178,7 +30176,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
   &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'content-type: application/json'&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;requisição&quot;&gt;Requisição&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Requisição&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -30199,7 +30197,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;resposta&quot;&gt;Resposta&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Resposta&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
