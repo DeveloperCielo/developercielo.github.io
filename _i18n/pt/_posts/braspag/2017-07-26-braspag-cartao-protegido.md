@@ -81,6 +81,7 @@ Com a permissão do cliente para salvar seu cartão, a loja deve:
 O cartão deve ser enviado para o Endpoint:
 
 Header:
+
 ```
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
