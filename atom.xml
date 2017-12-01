@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T18:41:27+00:00</updated>
+    <updated>2017-12-01T18:48:52+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16518,57 +16518,18 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
 
 &lt;aside class=&quot;notice&quot;&gt;Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. &lt;/aside&gt;
 
-&lt;h1 id=&quot;integração-cartÃo-protegido&quot;&gt;Integração CARTÃO PROTEGIDO&lt;/h1&gt;
+&lt;h3 id=&quot;credenciais-de-acesso&quot;&gt;Credenciais de acesso&lt;/h3&gt;
 
-&lt;p&gt;Neste modelo de integração, a loja pode salvar um &lt;strong&gt;salva um cartão&lt;/strong&gt; enviando as Credenciais Braspag e os Dados do cartão para a &lt;strong&gt;API do Cartão Protegido&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Assim como outros produtos Braspag, é necessario que a loja em processo de integração use em seu header as credenciais de acesso abaixo:&lt;/p&gt;
 
-&lt;p&gt;Utilizando essa API, a Loja receberá uma chave que identifica o cartão e o comprador, chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;JustClickKey&lt;/code&gt; que pode ser utilizada para consultar os dados do meio de pagamento em uma transação posterior, como demonstrado no Fluxo abaixo:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;salvando-um-cartão&quot;&gt;Salvando um cartão&lt;/h2&gt;
-
-&lt;p&gt;Com a permissão do cliente para salvar seu cartão, a loja deve:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Enviar a tentativa de autorização da compra para um Gateway de pagamentos&lt;/li&gt;
-  &lt;li&gt;Receber o resultado da autorização&lt;/li&gt;
-  &lt;li&gt;Enviar os dados do cartão para armazenamento no &lt;em&gt;CARTÃO PROTEGIDO&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;Receber a &lt;code class=&quot;highlighter-rouge&quot;&gt;JustClickKey&lt;/code&gt;, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;O cartão deve ser enviado para o Endpoint:&lt;/p&gt;
-
-&lt;p&gt;Header:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;--request POST &quot;https://apisandbox.cieloecommerce.cielo.com.br/1/sales/&quot;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+--request POST &quot;https://ENDPOINT.com.br/&quot;
 --header &quot;Content-Type: application/json&quot;
 --header &quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;
 --header &quot;MerchantKey: 0123456789012345678901234567890123456789&quot;
 --header &quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-Json&quot;&gt;{  
-   &quot;MerchantOrderId&quot;:&quot;010101&quot;,
-   &quot;Customer&quot;:{  
-      &quot;Name&quot;:&quot;Comprador Fulano de tal&quot;     
-   },
-   &quot;Payment&quot;:{  
-     &quot;Type&quot;:&quot;CreditCard&quot;,
-     &quot;Amount&quot;:100,
-     &quot;Provider&quot;:&quot;Cielo&quot;,
-     &quot;Installments&quot;:1,
-     &quot;CreditCard&quot;:{  
-         &quot;CardNumber&quot;:&quot;1234123412341231&quot;,
-         &quot;Holder&quot;:&quot;Teste Holder&quot;,
-         &quot;ExpirationDate&quot;:&quot;03/2019&quot;,
-         &quot;SecurityCode&quot;:&quot;262&quot;,
-         &quot;SaveCard&quot;:&quot;true&quot;,
-         &quot;Brand&quot;:&quot;Visa&quot;
-     }
-   }
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -16602,6 +16563,63 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.&lt;/td&gt;
     &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;integração-cartÃo-protegido&quot;&gt;Integração CARTÃO PROTEGIDO&lt;/h1&gt;
+
+&lt;p&gt;Neste modelo de integração, a loja pode salvar um &lt;strong&gt;salva um cartão&lt;/strong&gt; enviando as Credenciais Braspag e os Dados do cartão para a &lt;strong&gt;API do Cartão Protegido&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Utilizando essa API, a Loja receberá uma chave que identifica o cartão e o comprador, chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;JustClickKey&lt;/code&gt; que pode ser utilizada para consultar os dados do meio de pagamento em uma transação posterior, como demonstrado no Fluxo abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;salvando-um-cartão&quot;&gt;Salvando um cartão&lt;/h2&gt;
+
+&lt;p&gt;Com a permissão do cliente para salvar seu cartão, a loja deve:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Enviar a tentativa de autorização da compra para um Gateway de pagamentos&lt;/li&gt;
+  &lt;li&gt;Receber o resultado da autorização&lt;/li&gt;
+  &lt;li&gt;Enviar os dados do cartão para armazenamento no &lt;em&gt;CARTÃO PROTEGIDO&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Receber a &lt;code class=&quot;highlighter-rouge&quot;&gt;JustClickKey&lt;/code&gt;, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;O cartão deve ser enviado para o Endpoint:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;010101&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Comprador Fulano de tal&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1234123412341231&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Teste Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;03/2019&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;262&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Obrigatório&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
@@ -16698,7 +16716,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
   &lt;li&gt;Receber o resultado da autorização&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&quot;integração-pagador&quot;&gt;integração PAGADOR&lt;/h1&gt;
+&lt;h1 id=&quot;integração-pagador&quot;&gt;Integração PAGADOR&lt;/h1&gt;
 
 &lt;p&gt;Abaixo estão representados os fluxos de uma requisição para salvar um cartão de um cliente durante uma venda e de uma compra via CARTÃO PROTEGIDO, ambas utilizando a integração PAGADOR/CARTÃO PROTEGIDO&lt;/p&gt;
 

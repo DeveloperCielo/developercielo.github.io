@@ -221,57 +221,18 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 
 <aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
 
-<h1 id="integração-cartÃo-protegido">Integração CARTÃO PROTEGIDO</h1>
+<h3 id="credenciais-de-acesso">Credenciais de acesso</h3>
 
-<p>Neste modelo de integração, a loja pode salvar um <strong>salva um cartão</strong> enviando as Credenciais Braspag e os Dados do cartão para a <strong>API do Cartão Protegido</strong></p>
+<p>Assim como outros produtos Braspag, é necessario que a loja em processo de integração use em seu header as credenciais de acesso abaixo:</p>
 
-<p>Utilizando essa API, a Loja receberá uma chave que identifica o cartão e o comprador, chamada <code class="highlighter-rouge">JustClickKey</code> que pode ser utilizada para consultar os dados do meio de pagamento em uma transação posterior, como demonstrado no Fluxo abaixo:</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.png" alt="" /></p>
-
-<h2 id="salvando-um-cartão">Salvando um cartão</h2>
-
-<p>Com a permissão do cliente para salvar seu cartão, a loja deve:</p>
-
-<ol>
-  <li>Enviar a tentativa de autorização da compra para um Gateway de pagamentos</li>
-  <li>Receber o resultado da autorização</li>
-  <li>Enviar os dados do cartão para armazenamento no <em>CARTÃO PROTEGIDO</em></li>
-  <li>Receber a <code class="highlighter-rouge">JustClickKey</code>, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.</li>
-</ol>
-
-<p>O cartão deve ser enviado para o Endpoint:</p>
-
-<p>Header:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+--request POST "https://ENDPOINT.com.br/"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-</code></pre></div></div>
 
-<pre><code class="language-Json">{  
-   "MerchantOrderId":"010101",
-   "Customer":{  
-      "Name":"Comprador Fulano de tal"     
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":100,
-     "Provider":"Cielo",
-     "Installments":1,
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"03/2019",
-         "SecurityCode":"262",
-         "SaveCard":"true",
-         "Brand":"Visa"
-     }
-   }
-}
-</code></pre>
+</code></pre></div></div>
 
 <table>
   <thead>
@@ -305,6 +266,63 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
       <td>Não</td>
       <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
     </tr>
+  </tbody>
+</table>
+
+<h1 id="integração-cartÃo-protegido">Integração CARTÃO PROTEGIDO</h1>
+
+<p>Neste modelo de integração, a loja pode salvar um <strong>salva um cartão</strong> enviando as Credenciais Braspag e os Dados do cartão para a <strong>API do Cartão Protegido</strong></p>
+
+<p>Utilizando essa API, a Loja receberá uma chave que identifica o cartão e o comprador, chamada <code class="highlighter-rouge">JustClickKey</code> que pode ser utilizada para consultar os dados do meio de pagamento em uma transação posterior, como demonstrado no Fluxo abaixo:</p>
+
+<p><img src="https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.png" alt="" /></p>
+
+<h2 id="salvando-um-cartão">Salvando um cartão</h2>
+
+<p>Com a permissão do cliente para salvar seu cartão, a loja deve:</p>
+
+<ol>
+  <li>Enviar a tentativa de autorização da compra para um Gateway de pagamentos</li>
+  <li>Receber o resultado da autorização</li>
+  <li>Enviar os dados do cartão para armazenamento no <em>CARTÃO PROTEGIDO</em></li>
+  <li>Receber a <code class="highlighter-rouge">JustClickKey</code>, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.</li>
+</ol>
+
+<p>O cartão deve ser enviado para o Endpoint:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"010101"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador Fulano de tal"</span><span class="w">     
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">  
+     </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"03/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"262"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantOrderId</code></td>
       <td>Texto</td>
@@ -401,7 +419,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
   <li>Receber o resultado da autorização</li>
 </ol>
 
-<h1 id="integração-pagador">integração PAGADOR</h1>
+<h1 id="integração-pagador">Integração PAGADOR</h1>
 
 <p>Abaixo estão representados os fluxos de uma requisição para salvar um cartão de um cliente durante uma venda e de uma compra via CARTÃO PROTEGIDO, ambas utilizando a integração PAGADOR/CARTÃO PROTEGIDO</p>
 
