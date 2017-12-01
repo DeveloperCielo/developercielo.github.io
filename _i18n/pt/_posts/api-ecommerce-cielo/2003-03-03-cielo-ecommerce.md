@@ -4646,13 +4646,13 @@ curl
 --verbose
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`Name`|Texto|255|Sim|Nome do Comprador.|
-|`CardNumber`|Texto|16|Sim|Número do Cartão do Comprador.|
-|`Holder`|Texto|25|Sim|Nome do Comprador impresso no cartão.|
-|`ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
-|`Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+| Propriedade      | Tipo  | Tamanho | Obrigatório | Descrição                                                                         |
+|------------------|-------|---------|-------------|-----------------------------------------------------------------------------------|
+| `Name`           | Texto | 255     | Sim         | Nome do Comprador.                                                                |
+| `CardNumber`     | Texto | 16      | Sim         | Número do Cartão do Comprador.                                                    |
+| `Holder`         | Texto | 25      | Sim         | Nome do Comprador impresso no cartão.                                             |
+| `ExpirationDate` | Texto | 7       | Sim         | Data de validade impresso no cartão.                                              |
+| `Brand`          | Texto | 10      | Sim         | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover). |
 
 ### Resposta
 
