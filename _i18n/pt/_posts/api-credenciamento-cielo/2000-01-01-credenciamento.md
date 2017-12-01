@@ -44,8 +44,6 @@ Integradores que desejam criar novos canais de credenciamento, seja de forma onl
 
 ![Credenciamento]({{ site.baseurl_root }}/images/credenciamento/credenciamentobr.png)
 
-# API Docs
-
 ## Endpoints (Sandbox e Produção)
 
 Ambiente Produção
@@ -80,11 +78,11 @@ Todas as chamadas da API de Credenciamento necessitam que as informações abaix
 | 413    | Request is to Large   | A requisição está ultrapassando o limite permitido para o perfil do seu token de acesso |
 | 422    | Unprocessable Entity  | A requisição possui parâmetros obrigatórios não informados |
 | 429    | Too Many Requests     | O consumidor estourou o limite de requisições por tempo |
-| 500    | Internal Server Error | Erro não esperado; algo está quebrado na API |
+| 500    | Internal Server Error | Erro não esperado; algoestá quebrado na API |
 
-## Recursos
+# API Docs
 
-### Criação de proposta comercial para credenciamento
+## Criação de proposta comercial para credenciamento
 
 Merchants é a representação da entidade de estabelecimento comercial para a execução do fluxo de credenciamento de um novo cliente
 
@@ -215,7 +213,7 @@ curl -X POST \
 }
 ```
 
-### Request
+***Request***
 
 | Propriedade                          | Tipo    | Valores                                  | Descrição                                |
 | ------------------------------------ | ------- | ---------------------------------------- | ---------------------------------------- |
@@ -267,14 +265,14 @@ curl -X POST \
 | `CustomerpaymentType`                | Texto   | ENUM: IN_CASH, FINANCED                  | Tipo de pagamento                        |
 | `CustomerarvTax`                     | Texto   | any                                      | Taxa de antecipação                      |
 
-### Response
+***Response***
 
 | Propriedade      | Tipo   | Valores | Descrição                                |
 | ---------------- | ------ | ------- | ---------------------------------------- |
 | `merchantNumber` | Número | any     | Número do EC (Estabelecimento comercial) |
 | `proposalNumber` | Número | any     | Número da proposta comercial que foi criada |
 
-### Consulta terminal lógico (equipamento)
+## Consulta terminal lógico (equipamento)
 
 Terminal referencia a solução captura que retorna a identificação do terminal lógico quando associado a um estabelecimento comercial
 
@@ -288,13 +286,13 @@ curl -X GET \
   -H 'content-type: application/json'
 ```
 
-#### Requisição
+***Requisição***
 
 | Propriedade      | Tipo   | Valores | Descrição                                |
 | ---------------- | ------ | ------- | ---------------------------------------- |
 | `proposalNumber` | Número | any     | Número da proposta comercial que foi criada |
 
-#### Resposta
+***Resposta***
 
 | Propriedade | Tipo   | Valores | Descrição                                |
 | ----------- | ------ | ------- | ---------------------------------------- |
