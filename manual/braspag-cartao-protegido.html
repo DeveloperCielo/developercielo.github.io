@@ -188,89 +188,6 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 
 <aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
 
-<h1 id="parâmetro-justclickalias">Parâmetro JustClickAlias</h1>
-
-<p>Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido.</p>
-
-<p><br /></p>
-
-<p>O cliente poderá, no momento do salvamento do cartão, criar um <strong>Alias (<em>*apelido*</em>)</strong> que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
-Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
-Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.</p>
-
-<h2 id="forma-correta-de-associação">Forma Correta de Associação</h2>
-
-<p>Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Merchant Id</th>
-      <th>JustClickKey (Token)</th>
-      <th>Alias</th>
-      <th>Enabled</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 1</td>
-      <td>XPTO</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 2</td>
-      <td>XPTO</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 3</td>
-      <td>XPTO</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-
-<aside class="notice">Obs.: A desassociação ocorrerá após a execução do método InvalidateCreditCard </aside>
-
-<h2 id="forma-de-associação-não-aceita">Forma de Associação Não Aceita</h2>
-
-<p>Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
-desde que esteja desvinculado de um determinado Token:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Merchant Id</th>
-      <th>JustClickKey (Token)</th>
-      <th>Alias</th>
-      <th>Enabled</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 1</td>
-      <td>XPTO</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 2</td>
-      <td>XPTO</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 3</td>
-      <td>XPTO</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="fluxo-de-autorizaÇÃo-via-plataforma-cartÃo-protegido">FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO</h1>
 
 <p>Abaixo está representado o fluxo de uma requisição para salvar um cartão de um cliente durante uma venda, seguido de outro fluxo onde o mesmo cliente realiza uma compra via CARTÃO PROTEGIDO.</p>
@@ -291,7 +208,7 @@ desde que esteja desvinculado de um determinado Token:</p>
   <li>Receber o resultado da autorização</li>
 </ol>
 
-<p>IMAGEM”/images/autorizacaocomopcaosalvarcartao.PNG”</p>
+<p><img src="https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.PNG" alt="" /></p>
 
 <h1 id="fluxo-de-autorizaÇÃo-via-pagador">FLUXO DE AUTORIZAÇÃO VIA PAGADOR</h1>
 
@@ -999,6 +916,89 @@ deve ser abortado e o erro analisado e tratado.</p>
     <tr>
       <td>799</td>
       <td>Undefined error</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="parâmetro-justclickalias">Parâmetro JustClickAlias</h1>
+
+<p>Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido.</p>
+
+<p><br /></p>
+
+<p>O cliente poderá, no momento do salvamento do cartão, criar um <strong>Alias (<em>*apelido*</em>)</strong> que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
+Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
+Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.</p>
+
+<h2 id="forma-correta-de-associação">Forma Correta de Associação</h2>
+
+<p>Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Merchant Id</th>
+      <th>JustClickKey (Token)</th>
+      <th>Alias</th>
+      <th>Enabled</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 1</td>
+      <td>XPTO</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 2</td>
+      <td>XPTO</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 3</td>
+      <td>XPTO</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Obs:</strong> A desassociação ocorrerá após a execução do método InvalidateCreditCard</p>
+
+<h2 id="forma-de-associação-não-aceita">Forma de Associação Não Aceita</h2>
+
+<p>Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
+desde que esteja desvinculado de um determinado Token:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Merchant Id</th>
+      <th>JustClickKey (Token)</th>
+      <th>Alias</th>
+      <th>Enabled</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 1</td>
+      <td>XPTO</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 2</td>
+      <td>XPTO</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 3</td>
+      <td>XPTO</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>

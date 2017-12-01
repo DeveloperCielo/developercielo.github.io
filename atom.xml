@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T13:01:59+00:00</updated>
+    <updated>2017-12-01T13:20:03+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2130,89 +2130,6 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
 
 &lt;aside class=&quot;notice&quot;&gt;Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. &lt;/aside&gt;
 
-&lt;h1 id=&quot;parâmetro-justclickalias&quot;&gt;Parâmetro JustClickAlias&lt;/h1&gt;
-
-&lt;p&gt;Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;O cliente poderá, no momento do salvamento do cartão, criar um &lt;strong&gt;Alias (&lt;em&gt;*apelido*&lt;/em&gt;)&lt;/strong&gt; que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
-Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
-Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.&lt;/p&gt;
-
-&lt;h2 id=&quot;forma-correta-de-associação&quot;&gt;Forma Correta de Associação&lt;/h2&gt;
-
-&lt;p&gt;Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Merchant Id&lt;/th&gt;
-      &lt;th&gt;JustClickKey (Token)&lt;/th&gt;
-      &lt;th&gt;Alias&lt;/th&gt;
-      &lt;th&gt;Enabled&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;LOJA A&lt;/td&gt;
-      &lt;td&gt;Token 1&lt;/td&gt;
-      &lt;td&gt;XPTO&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;LOJA A&lt;/td&gt;
-      &lt;td&gt;Token 2&lt;/td&gt;
-      &lt;td&gt;XPTO&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;LOJA A&lt;/td&gt;
-      &lt;td&gt;Token 3&lt;/td&gt;
-      &lt;td&gt;XPTO&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;aside class=&quot;notice&quot;&gt;Obs.: A desassociação ocorrerá após a execução do método InvalidateCreditCard &lt;/aside&gt;
-
-&lt;h2 id=&quot;forma-de-associação-não-aceita&quot;&gt;Forma de Associação Não Aceita&lt;/h2&gt;
-
-&lt;p&gt;Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
-desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Merchant Id&lt;/th&gt;
-      &lt;th&gt;JustClickKey (Token)&lt;/th&gt;
-      &lt;th&gt;Alias&lt;/th&gt;
-      &lt;th&gt;Enabled&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;LOJA A&lt;/td&gt;
-      &lt;td&gt;Token 1&lt;/td&gt;
-      &lt;td&gt;XPTO&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;LOJA A&lt;/td&gt;
-      &lt;td&gt;Token 2&lt;/td&gt;
-      &lt;td&gt;XPTO&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;LOJA A&lt;/td&gt;
-      &lt;td&gt;Token 3&lt;/td&gt;
-      &lt;td&gt;XPTO&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
 &lt;h1 id=&quot;fluxo-de-autorizaÇÃo-via-plataforma-cartÃo-protegido&quot;&gt;FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO&lt;/h1&gt;
 
 &lt;p&gt;Abaixo está representado o fluxo de uma requisição para salvar um cartão de um cliente durante uma venda, seguido de outro fluxo onde o mesmo cliente realiza uma compra via CARTÃO PROTEGIDO.&lt;/p&gt;
@@ -2233,7 +2150,7 @@ desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
   &lt;li&gt;Receber o resultado da autorização&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;IMAGEM”/images/autorizacaocomopcaosalvarcartao.PNG”&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;fluxo-de-autorizaÇÃo-via-pagador&quot;&gt;FLUXO DE AUTORIZAÇÃO VIA PAGADOR&lt;/h1&gt;
 
@@ -2941,6 +2858,89 @@ deve ser abortado e o erro analisado e tratado.&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;799&lt;/td&gt;
       &lt;td&gt;Undefined error&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;parâmetro-justclickalias&quot;&gt;Parâmetro JustClickAlias&lt;/h1&gt;
+
+&lt;p&gt;Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;O cliente poderá, no momento do salvamento do cartão, criar um &lt;strong&gt;Alias (&lt;em&gt;*apelido*&lt;/em&gt;)&lt;/strong&gt; que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
+Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
+Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.&lt;/p&gt;
+
+&lt;h2 id=&quot;forma-correta-de-associação&quot;&gt;Forma Correta de Associação&lt;/h2&gt;
+
+&lt;p&gt;Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Merchant Id&lt;/th&gt;
+      &lt;th&gt;JustClickKey (Token)&lt;/th&gt;
+      &lt;th&gt;Alias&lt;/th&gt;
+      &lt;th&gt;Enabled&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 1&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 2&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 3&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Obs:&lt;/strong&gt; A desassociação ocorrerá após a execução do método InvalidateCreditCard&lt;/p&gt;
+
+&lt;h2 id=&quot;forma-de-associação-não-aceita&quot;&gt;Forma de Associação Não Aceita&lt;/h2&gt;
+
+&lt;p&gt;Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
+desde que esteja desvinculado de um determinado Token:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Merchant Id&lt;/th&gt;
+      &lt;th&gt;JustClickKey (Token)&lt;/th&gt;
+      &lt;th&gt;Alias&lt;/th&gt;
+      &lt;th&gt;Enabled&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 1&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 2&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LOJA A&lt;/td&gt;
+      &lt;td&gt;Token 3&lt;/td&gt;
+      &lt;td&gt;XPTO&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
