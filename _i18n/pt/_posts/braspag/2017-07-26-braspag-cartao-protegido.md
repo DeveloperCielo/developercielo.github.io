@@ -268,7 +268,7 @@ de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) 
 
 O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e deve ser chamado para invalidar um cartão de crédito. Um cartão inválido não pode ser utilizado numa autorização do PAGADOR
 
-IMAGEM"/images/invalidatecreditcard.PNG">
+![]({{ site.baseurl_root }}/images/braspag/invalidatecreditcard.png)
 
 ### Requisição
 
