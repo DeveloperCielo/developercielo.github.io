@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T19:21:13+00:00</updated>
+    <updated>2017-12-01T19:24:33+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16427,11 +16427,11 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
     </entry>
     
     <entry>
-        <title>Cartão Protegido Braspag</title>
-        <category term="manual" />
-        <link href="https://developercielo.github.io/manual/braspag-cartao-protegido"/>
+        <title>Cartão Protegido</title>
+        <category term="tutorial" />
+        <link href="https://developercielo.github.io/tutorial/braspag-cartao-protegido"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/braspag-cartao-protegido</id>
+        <id>https://developercielo.github.io/tutorial/braspag-cartao-protegido</id>
         <content type="html">&lt;h1 id=&quot;introdução-ao-cartão-protegido&quot;&gt;Introdução ao Cartão Protegido&lt;/h1&gt;
 
 &lt;p&gt;A plataforma do &lt;strong&gt;CARTÃO PROTEGIDO&lt;/strong&gt; é uma armazenadora segura de cartões de crédito. Os dados nela armazenados seguem as normas PCI, que garante a integridade das informações dos cartões armazenados.
