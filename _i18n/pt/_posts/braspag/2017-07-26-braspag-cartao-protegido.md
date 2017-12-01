@@ -62,39 +62,6 @@ Os dados necessários para armazenar um cartão de crédito na plataforma são:
 
 <aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
 
-# Parâmetro JustClickAlias
-
-Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. 
-
-<br>
-
-O cliente poderá, no momento do salvamento do cartão, criar um **Alias (_*apelido*_)** que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
-Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
-Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.
-
-## Forma Correta de Associação
-
-Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:
-
-| Merchant Id | JustClickKey (Token) | Alias | Enabled |
-|-------------|----------------------|-------|---------|
-| LOJA A      | Token 1              | XPTO  | 0       |
-| LOJA A      | Token 2              | XPTO  | 0       |
-| LOJA A      | Token 3              | XPTO  | 1       |
-
-<aside class="notice">Obs.: A desassociação ocorrerá após a execução do método InvalidateCreditCard </aside>
-
-## Forma de Associação Não Aceita
-
-Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
-desde que esteja desvinculado de um determinado Token:
-
-| Merchant Id | JustClickKey (Token) | Alias | Enabled |
-|-------------|----------------------|-------|---------|
-| LOJA A      | Token 1              | XPTO  | 1       |
-| LOJA A      | Token 2              | XPTO  | 1       |
-| LOJA A      | Token 3              | XPTO  | 1       |
-
 # FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO
 
 Abaixo está representado o fluxo de uma requisição para salvar um cartão de um cliente durante uma venda, seguido de outro fluxo onde o mesmo cliente realiza uma compra via CARTÃO PROTEGIDO.
@@ -361,3 +328,36 @@ Abaixo segue a lista dos possíveis erros retornado pelos métodos no campo “E
 |752|Data Collection Can Not Be Empty|
 |753|JustClickAlias Is Mandatory|
 |799|Undefined error|
+
+# Parâmetro JustClickAlias
+
+Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. 
+
+<br>
+
+O cliente poderá, no momento do salvamento do cartão, criar um **Alias (_*apelido*_)** que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
+Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
+Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.
+
+## Forma Correta de Associação
+
+Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:
+
+| Merchant Id | JustClickKey (Token) | Alias | Enabled |
+|-------------|----------------------|-------|---------|
+| LOJA A      | Token 1              | XPTO  | 0       |
+| LOJA A      | Token 2              | XPTO  | 0       |
+| LOJA A      | Token 3              | XPTO  | 1       |
+
+**Obs:** A desassociação ocorrerá após a execução do método InvalidateCreditCard 
+
+## Forma de Associação Não Aceita
+
+Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
+desde que esteja desvinculado de um determinado Token:
+
+| Merchant Id | JustClickKey (Token) | Alias | Enabled |
+|-------------|----------------------|-------|---------|
+| LOJA A      | Token 1              | XPTO  | 1       |
+| LOJA A      | Token 2              | XPTO  | 1       |
+| LOJA A      | Token 3              | XPTO  | 1       |
