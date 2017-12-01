@@ -7,8 +7,6 @@ translated: true
 categories: tutorial
 tags:
   - Documentos Braspag
-language_tabs:
-  json: JSON
 ---
 
 # Introdução ao Cartão Protegido
