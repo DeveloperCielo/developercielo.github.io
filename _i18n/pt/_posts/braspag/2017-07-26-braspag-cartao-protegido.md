@@ -90,7 +90,7 @@ Quando o cliente voltar ao site para fazer uma nova compra e se logar, o site po
 1. Chamar a autorização da transação direto pela plataforma do CARTÃO PROTEGIDO, passando a “JustClickKey” e/ou “JustClickAlias” do cliente e, opcionalmente, o CVV (vide seção Código de Segurança)
 2. Receber o resultado da autorização
 
-![]({{ site.baseurl_root }}/images/braspag/autorizacaocomopcaosalvarcartao.png)
+![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/autorizacaocomopcaosalvarcartao.png)
 
 # FLUXO DE AUTORIZAÇÃO VIA PAGADOR
 
@@ -98,7 +98,7 @@ Abaixo estão representados os fluxos de uma requisição para salvar um cartão
 
 ## AUTORIZAÇÃO COM OPÇÃO SALVAR CARTÃO
 
-![]({{ site.baseurl_root }}/images/braspag/pgautorizacaocomopcaosalvarcartao.png)
+![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/pgautorizacaocomopcaosalvarcartao.png)
 
 1. Enviar a tentativa de autorização da compra em questão via PAGADOR, contendo o parâmetro SaveCreditCard;
 2. O PAGADOR envia os dados de cartão de crédito para a plataforma CARTÃO PROTEGIDO, à fim de armazenar esses dados;
@@ -107,7 +107,7 @@ Abaixo estão representados os fluxos de uma requisição para salvar um cartão
 
 ## AUTORIZAÇÃO COM CARTÃO JÁ SALVO
 
-![]({{ site.baseurl_root }}/images/braspag/pgautorizacaocomcartaosalvo.png)
+![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/pgautorizacaocomcartaosalvo.png)
 
 1. Enviar a tentativa de autorização da compra em questão via PAGADOR, contendo o parâmetro CredicardToken;
 2. O PAGADOR envia os dados de cartão de crédito para a plataforma CARTÃO PROTEGIDO, à fim de recuperar os dados previamente salvos do cartão;
@@ -120,7 +120,7 @@ Abaixo estão representados os fluxos de uma requisição para salvar um cartão
 
 Abaixo, fluxo de autorização via Post. Mostrando uma transação onde o cliente possui a chave gerada pelo Cartão Protegido e outra onde essa chave ainda irá ser criada e enviada ao cliente (CredicardToken).
 
-![]({{ site.baseurl_root }}/images/braspag/pgautorizacaopost.png)
+![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/pgautorizacaopost.png)
 
 <aside class="warning">O parâmetro “CreditCardToken” retornado pelo PAGADOR é a própria “JustClickKey” do CARTÃO PROTEGIDO.</aside>
 
@@ -170,7 +170,7 @@ Abaixo estão representados os fluxos dos webmethods da plataforma do CARTÃO PR
 
 O método SaveCreditCard recebe o objeto SaveCreditCardRequest e deve ser chamado para salvar os dados de uma cartão de crédito e receber a chave identificadora (token) da dupla “cartão de crédito-cliente” para futuras autorizações via “compra com 1 clique”. Não se deve informar RequestId repetidos para essa operação, pois essa informação será necessária para recuperar o JustClickKey na utilização do método GetJustClickKey().
 
-![]({{ site.baseurl_root }}/images/braspag/savecreditcard.png)
+![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/savecreditcard.png)
 
 ### Requisição
 
@@ -199,7 +199,7 @@ O método SaveCreditCard recebe o objeto SaveCreditCardRequest e deve ser chamad
 
 O método GetMaskedCreditCard recebe o objeto GetMaskedCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito de forma PCI Compliance, ou seja, apenas o número mascarado do cartão é retornado no método GetMaskedCreditCardResponse, juntamente com as demais informações não sensíveis. 
 
-![]({{ site.baseurl_root }}/images/braspag/getcreditcard.png)
+![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/getcreditcard.png)
 
 ### Requisição
 
@@ -227,7 +227,7 @@ O método GetMaskedCreditCard recebe o objeto GetMaskedCreditCardRequest, e deve
 
 O método GetCreditCard recebe o objeto GetCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito, incluindo o número aberto do cartão. Em geral, esse método será utilizado apenas quando se desejar autorizar a transação via outra plataforma que não o PAGADOR. Este método deve ser usado com muito cuidado por ter informações sensíveis.
 
-![]({{ site.baseurl_root }}/images/braspag/getcreditcardraw.png)
+![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/getcreditcardraw.png)
 
 ### Requisição
 
@@ -257,7 +257,7 @@ O método GetCreditCard recebe o objeto GetCreditCardRequest, e deve ser chamado
 O método GetJustClickKey recebe o objeto GetJustClickKeyRequest, e deve ser chamado para consultar uma JustClickKey. Em geral, esse método será utilizado apenas quando o lojista, por algum motivo, perder a JustClickKey
 de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) vezes consecutivas passando um ‘SaveCreditCardRequestId’ inválido, a loja ficará impossibilitada de utilizar o método até que entre em contato com o suporte da Braspag para efetuar a liberação.
 
-![]({{ site.baseurl_root }}/images/braspag/getjustclickkey.png)
+![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/getjustclickkey.png)
 
 ### Requisição
 
@@ -281,7 +281,7 @@ de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) 
 
 O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e deve ser chamado para invalidar um cartão de crédito. Um cartão inválido não pode ser utilizado numa autorização do PAGADOR
 
-![]({{ site.baseurl_root }}/images/braspag/invalidatecreditcard.png)
+![]({{ site.baseurl_root }}/images/braspag/cartaoprotegido/invalidatecreditcard.png)
 
 ### Requisição
 
