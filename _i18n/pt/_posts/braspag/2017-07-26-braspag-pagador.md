@@ -57,8 +57,8 @@ Já estou pronto para entrar em Produção!
 
 <aside class="notice">A Braspag oferece suporte de alta disponibilidade, com atendimento de segunda à sexta, das 9h às 19h, e telefone de emergência 24×7, através de ferramenta via web. Contamos com a equipe que poderá atender em português, inglês e espanhol</aside>
 
-* Atendimento Web: [Suporte Braspag via Portal](http://suporte.braspag.com.br/)
-* E-mail: [mailto:suporte@braspag.com.br](suporte@braspag.com.br)
+* Atendimento Web: http://suporte.braspag.com.br/
+* E-mail: suporte@braspag.com.br
 * Telefone: (11) 2184-0550
 
 ## Características da Solução
@@ -5950,8 +5950,8 @@ curl
 
 <aside class="notice"><strong>Regra:</strong> 
 <ul>
-<li>Transação com vida até 3 meses – consulta via API ou <a href="https://admin.braspag.com.br/">Painel Admin Braspag</a></li>
-<li>Transação com vida de 3 meses a 12 meses - somente via consulta no <a href="https://admin.braspag.com.br/">Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
+<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
+<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
 <li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
 </ul>
 </aside>
@@ -6027,8 +6027,8 @@ curls
 
 <aside class="notice"><strong>Regra:</strong> 
 <ul>
-<li>Transação com vida até 3 meses – consulta via API ou <a href="https://admin.braspag.com.br/">Painel Admin Braspag</a></li>
-<li>Transação com vida de 3 meses a 12 meses - somente via consulta no <a href="https://admin.braspag.com.br/">Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
+<li>Transação com vida até 3 meses – consulta via API ou  Painel Admin Braspag</a></li>
+<li>Transação com vida de 3 meses a 12 meses - somente via consulta no  Painel Admin Braspag</a> com a opção “Histórico” selecionada</li>
 <li>Transação com vida acima de 12 meses - entrar em contato com seu Executivo Comercial Braspag</li>
 </ul>
 </aside>
