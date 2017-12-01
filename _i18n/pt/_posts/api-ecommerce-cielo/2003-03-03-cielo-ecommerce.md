@@ -4679,9 +4679,9 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`Cardtoken`|Token de identificação do Cartão.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+| Propriedade | Descrição                         | Tipo | Tamanho | Formato                              |
+|-------------|-----------------------------------|------|---------|--------------------------------------|
+| `Cardtoken` | Token de identificação do Cartão. | Guid | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 
 ## Criando um Cartão Tokenizado durante uma autorização
 
