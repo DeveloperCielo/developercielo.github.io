@@ -29,10 +29,10 @@ A integração é realizada através da operação de POST para o recurso /merch
 
 É possível realizar consultas, através do método GET para obter informações necessárias que irão auxiliar e informar resultados da operação de POST.
 
-|Método|Descrição|
-|---|---|
-|**POST**|O método HTTP `POST` é utilizado na criação dos recursos ou no envio de informações que serão processadas Por exemplo, criação de uma transação|
-|**GET**|O método HTTP `GET` é utilizado para consultas de recursos já existentes Por exemplo, consulta de transações|
+| Método   | Descrição                                |
+| -------- | ---------------------------------------- |
+| **POST** | O método HTTP `POST` é utilizado na criação dos recursos ou no envio de informações que serão processadas Por exemplo, criação de uma transação |
+| **GET**  | O método HTTP `GET` é utilizado para consultas de recursos já existentes Por exemplo, consulta de transações |
 
 ## Público-alvo
 
@@ -42,23 +42,23 @@ Integradores que desejam criar novos canais de credenciamento, seja de forma onl
 
 ## Diagrama de utilização demostrando os passos para o uso da API
 
-## Documentação Técnica
+![Credenciamento]({{ site.baseurl_root }}/images/credenciamento/credenciamentobr.png)
 
-## API Docs
+# API Docs
 
-### Endpoints (Sandbox e Produção)
+## Endpoints (Sandbox e Produção)
 
 Ambiente Produção
 
-* <https://apicielocombr/affiliate>
+* (https://api.cielo.com.br/affiliate)
 
 Ambiente Sandbox
 
-* <https://apicielocombr/sandbox/affiliate>
+* (https://api.cielo.com.br/sandbox/affiliate)
 
-### Instruções para uso: realizar chamadas, autenticação
+## Instruções para uso: realizar chamadas, autenticação
 
-### HTTP Header
+## HTTP Header
 
 Todas as chamadas da API de Credenciamento necessitam que as informações abaixo estejam presentes no Header na requisição:
 
@@ -66,27 +66,25 @@ Todas as chamadas da API de Credenciamento necessitam que as informações abaix
 
 **Access-Token**:Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor Seu valor pode ser visualizado clicando em “detalhes” na coluna “Access Tokens”, dentro do menu “Desenvolvedor” -> “Client ID Cadastrados”
 
-**Merchant-Id**: Token que identifica o estabelecimento comercial dentro do servidor Order Manager da Cielo LIO Sua geração ocorre durante o processo de cadastro do Client ID Seu valor pode ser visualizado na coluna “Merchant ID”, dentro do menu “Desenvolvedor” -> “Client ID Cadastrados”
+## HTTP Status Code
 
-### HTTP Status Code
-
-| Código | Erro                  | Descrição                                                                                |
-|--------|-----------------------|------------------------------------------------------------------------------------------|
-| 200    | OK                    | Operação realizada com sucesso                                                          |
-| 201    | Created               | A solicitação foi realizada, resultando na criação de um novo recurso                   |
-| 204    | Empty                 | Operação realizada com sucesso, mas nenhuma resposta foi retornada                      |
-| 400    | Bad Request           | A requisição possui parâmetro(s) inválido(s)                                            |
-| 401    | Unauthorized          | O token de acesso não foi informado ou não possui acesso às APIs                        |
-| 403    | Forbidden             | O acesso ao recurso foi negado                                                          |
-| 404    | Not Found             | O recurso informado no request não foi encontrado                                       |
+| Código | Erro                  | Descrição                                |
+| ------ | --------------------- | ---------------------------------------- |
+| 200    | OK                    | Operação realizada com sucesso           |
+| 201    | Created               | A solicitação foi realizada, resultando na criação de um novo recurso |
+| 204    | Empty                 | Operação realizada com sucesso, mas nenhuma resposta foi retornada |
+| 400    | Bad Request           | A requisição possui parâmetro(s) inválido(s) |
+| 401    | Unauthorized          | O token de acesso não foi informado ou não possui acesso às APIs |
+| 403    | Forbidden             | O acesso ao recurso foi negado           |
+| 404    | Not Found             | O recurso informado no request não foi encontrado |
 | 413    | Request is to Large   | A requisição está ultrapassando o limite permitido para o perfil do seu token de acesso |
-| 422    | Unprocessable Entity  | A requisição possui parâmetros obrigatórios não informados                              |
-| 429    | Too Many Requests     | O consumidor estourou o limite de requisições por tempo                                 |
-| 500    | Internal Server Error | Erro não esperado; algo está quebrado na API                                             |
+| 422    | Unprocessable Entity  | A requisição possui parâmetros obrigatórios não informados |
+| 429    | Too Many Requests     | O consumidor estourou o limite de requisições por tempo |
+| 500    | Internal Server Error | Erro não esperado; algo está quebrado na API |
 
-### Recursos
+## Recursos
 
-#### Merchants
+### Criação de proposta comercial para credenciamento
 
 Merchants é a representação da entidade de estabelecimento comercial para a execução do fluxo de credenciamento de um novo cliente
 
@@ -217,66 +215,66 @@ curl -X POST \
 }
 ```
 
-#### Request
+### Request
 
-| Propriedade                           | Tipo    | Valores                                  | Descrição                                |
-| ------------------------------------- | ------- | ---------------------------------------- | ---------------------------------------- |
-| `agribusiness`                        | Boolean | true, false                              | ?                                        |
-| `username`                            | Texto   | any                                      | Nome do usuário                         |
+| Propriedade                          | Tipo    | Valores                                  | Descrição                                |
+| ------------------------------------ | ------- | ---------------------------------------- | ---------------------------------------- |
+| `agribusiness`                       | Boolean | true, false                              | ?                                        |
+| `username`                           | Texto   | any                                      | Nome do usuário                          |
 | `Terminalscode`                      | Texto   | ENUM: POS_PORTABLE, POS_DIALED_LINE, POS_BROADBAND, MOBILE_WITH_SCANNER, MOBILE_WITHOUT_SCANNER, ECOMMERCE_CHECKOUT, ECOMMERCE_V3, LIO_BASIC, LIO_PLUS, LIO_BASIC_V2, LIO_PLUS_V2, POS_WIFI | Identificador do terminal solicitado para o credenciamento |
-| `TerminalsnumberOfEquipaments`       | Número  | any                                      | Quantidade de equipamentos              |
+| `TerminalsnumberOfEquipaments`       | Número  | any                                      | Quantidade de equipamentos               |
 | `TerminalsecommercePlan`             | Número  | any                                      | Número do plano para um credenciamento ecommerce |
 | `TerminalspaymentByLink`             | Boolean | true, false                              | Credenciamento será feito para pagamento utilizando link online |
 | `TerminalstelephoneCompanies`        | Texto   | "VIVO", "CLARO", "TIM", "OI"             | Companhia de telefonia escolhida para compor o equipamento POS |
 | `TerminalsbusinessHours`             | Texto   | any                                      | Horário comercial                        |
 | `TerminalsautoService`               | Boolean | true, false                              | ?                                        |
 | `CustomerdocumentType`               | Texto   | F, J                                     | Indicador do tipo de documento (F - física / J - jurídica) |
-| `CustomerdocumentNumber`             | Número  | any                                      | Número do documento                     |
-| `Customername`                       | Text    | any                                      | Nome do cliente                         |
-| `CustomercompanyName`                | Texto   | any                                      | Nome da empresa                         |
+| `CustomerdocumentNumber`             | Número  | any                                      | Número do documento                      |
+| `Customername`                       | Text    | any                                      | Nome do cliente                          |
+| `CustomercompanyName`                | Texto   | any                                      | Nome da empresa                          |
 | `Customermei`                        | Boolean | true, false                              | Indicador se é pessoa jurídica MEI (Micro empreendedor individual) |
 | `CustomerstateEnrollment`            | Texto   | any                                      | ?                                        |
 | `Customermcc`                        | Texto   | Sim                                      | ?                                        |
-| `CustomeraccountsbankCode`          | Número  | any                                      | Código do banco                          |
-| `CustomeraccountsbankBranch`        | Número  | any                                      | Número da agência                       |
-| `CustomeraccountsaccountNumber`     | Número  | any                                      | Número da conta corrente                |
-| `Customeraccountstype`              | Número  | ENUM: CHECKING_ACCOUNT_CIELO, CHECKING_ACCOUNT, SAVINGS_ACCOUNT, PREPAID_CARD | Tipo da conta corrente                  |
+| `CustomeraccountsbankCode`           | Número  | any                                      | Código do banco                          |
+| `CustomeraccountsbankBranch`         | Número  | any                                      | Número da agência                        |
+| `CustomeraccountsaccountNumber`      | Número  | any                                      | Número da conta corrente                 |
+| `Customeraccountstype`               | Número  | ENUM: CHECKING_ACCOUNT_CIELO, CHECKING_ACCOUNT, SAVINGS_ACCOUNT, PREPAID_CARD | Tipo da conta corrente                   |
 | `CustomertradingName`                | Texto   | any                                      | ?                                        |
-| `CustomercontactName`                | Texto   | any                                      | Nome do contato                         |
-| `CustomercontactEmail`               | Texto   | any                                      | E-mail do contato                       |
-| `CustomerphoneNumberstype`          | Texto   | ENUM: HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX | Tipo do telefone                        |
-| `CustomerphoneNumbersddd`           | Número  | any                                      | Código DDD                              |
-| `CustomerphoneNumbersnumber`        | Número  | any                                      | Número do telefone                      |
-| `Customeraddressestype`             | Texto   | ENUM: HOME_ADDRESS, COMMERCIAL_ADDRESS, MAIL_ADDRESS, SUPPLY_ADDRESS | Tipo do endereço                        |
-| `CustomeraddressespostalCode`       | Número  | any                                      | Número do CEP                           |
-| `Customeraddressesaddress`          | Texto   | any                                      | Endereço (Rua/Avenida/Travessa/etc)     |
-| `Customeraddressesnumber`           | Número  | any                                      | Número                                  |
-| `Customeraddressesadd`              | Texto   | any                                      | ?                                        |
-| `Customeraddressesneighborhood`     | Texto   | any                                      | Bairro                                  |
-| `Customeraddressescity`             | Texto   | any                                      | Cidade                                  |
-| `Customeraddressesstate`            | Texto   | any                                      | Estado                                  |
-| `Customeraddressescountry`          | Texto   | any                                      | País                                    |
-| `Customerownersname`                | Texto   | any                                      | Nome do proprietário                    |
-| `CustomerownersdocumentNumber`      | Número  | any                                      | Número do documento                     |
-| `CustomerownersbirthDate`           | Data    | any                                      | Data de aniversário                     |
-| `CustomerownersphoneNumberstype`   | Texto   | ENUM: HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX | Tipo do telefone                        |
-| `CustomerownersphoneNumbersddd`    | Número  | any                                      | Código DDD                              |
-| `CustomerownersphoneNumbersnumber` | Número  | any                                      | Número do telefone                      |
-| `CustomeraffiliatorCode`             | Número  | any                                      | Código de afiliação                     |
+| `CustomercontactName`                | Texto   | any                                      | Nome do contato                          |
+| `CustomercontactEmail`               | Texto   | any                                      | E-mail do contato                        |
+| `CustomerphoneNumberstype`           | Texto   | ENUM: HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX | Tipo do telefone                         |
+| `CustomerphoneNumbersddd`            | Número  | any                                      | Código DDD                               |
+| `CustomerphoneNumbersnumber`         | Número  | any                                      | Número do telefone                       |
+| `Customeraddressestype`              | Texto   | ENUM: HOME_ADDRESS, COMMERCIAL_ADDRESS, MAIL_ADDRESS, SUPPLY_ADDRESS | Tipo do endereço                         |
+| `CustomeraddressespostalCode`        | Número  | any                                      | Número do CEP                            |
+| `Customeraddressesaddress`           | Texto   | any                                      | Endereço (Rua/Avenida/Travessa/etc)      |
+| `Customeraddressesnumber`            | Número  | any                                      | Número                                   |
+| `Customeraddressesadd`               | Texto   | any                                      | ?                                        |
+| `Customeraddressesneighborhood`      | Texto   | any                                      | Bairro                                   |
+| `Customeraddressescity`              | Texto   | any                                      | Cidade                                   |
+| `Customeraddressesstate`             | Texto   | any                                      | Estado                                   |
+| `Customeraddressescountry`           | Texto   | any                                      | País                                     |
+| `Customerownersname`                 | Texto   | any                                      | Nome do proprietário                     |
+| `CustomerownersdocumentNumber`       | Número  | any                                      | Número do documento                      |
+| `CustomerownersbirthDate`            | Data    | any                                      | Data de aniversário                      |
+| `CustomerownersphoneNumberstype`     | Texto   | ENUM: HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX | Tipo do telefone                         |
+| `CustomerownersphoneNumbersddd`      | Número  | any                                      | Código DDD                               |
+| `CustomerownersphoneNumbersnumber`   | Número  | any                                      | Número do telefone                       |
+| `CustomeraffiliatorCode`             | Número  | any                                      | Código de afiliação                      |
 | `CustomeraverageRevenue`             | Número  | any                                      | ?                                        |
-| `CustomercieloPlanCode`              | Número  | ENUM: DEFAULT, CONTROL                   | Código de plano cielo (comercial)       |
-| `CustomeramountOfDaysForliquidation` | Número  | any                                      | Quantidade de dias para liquidação      |
-| `CustomerpaymentType`                | Texto   | ENUM: IN_CASH, FINANCED                  | Tipo de pagamento                       |
-| `CustomerarvTax`                     | Texto   | any                                      | Taxa de antecipação                     |
+| `CustomercieloPlanCode`              | Número  | ENUM: DEFAULT, CONTROL                   | Código de plano cielo (comercial)        |
+| `CustomeramountOfDaysForliquidation` | Número  | any                                      | Quantidade de dias para liquidação       |
+| `CustomerpaymentType`                | Texto   | ENUM: IN_CASH, FINANCED                  | Tipo de pagamento                        |
+| `CustomerarvTax`                     | Texto   | any                                      | Taxa de antecipação                      |
 
-#### Response
+### Response
 
 | Propriedade      | Tipo   | Valores | Descrição                                |
 | ---------------- | ------ | ------- | ---------------------------------------- |
 | `merchantNumber` | Número | any     | Número do EC (Estabelecimento comercial) |
 | `proposalNumber` | Número | any     | Número da proposta comercial que foi criada |
 
-#### Terminals
+### Consulta terminal lógico (equipamento)
 
 Terminal referencia a solução captura que retorna a identificação do terminal lógico quando associado a um estabelecimento comercial
 
@@ -290,15 +288,15 @@ curl -X GET \
   -H 'content-type: application/json'
 ```
 
-##### Requisição
+#### Requisição
 
 | Propriedade      | Tipo   | Valores | Descrição                                |
 | ---------------- | ------ | ------- | ---------------------------------------- |
 | `proposalNumber` | Número | any     | Número da proposta comercial que foi criada |
 
-##### Resposta
+#### Resposta
 
-| Propriedade      | Tipo   | Valores | Descrição                                |
-| ---------------- | ------ | ------- | ---------------------------------------- |
-| `code` | Número | any     | Número do terminal lógico que foi associado ao credenciado (Estabelecimento Comercial) |
-| `digit` | Número | any     | Digito validado do terminal lógico |
+| Propriedade | Tipo   | Valores | Descrição                                |
+| ----------- | ------ | ------- | ---------------------------------------- |
+| `code`      | Número | any     | Número do terminal lógico que foi associado ao credenciado (Estabelecimento Comercial) |
+| `digit`     | Número | any     | Digito validado do terminal lógico       |
