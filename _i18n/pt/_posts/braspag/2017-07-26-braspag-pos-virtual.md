@@ -7,12 +7,6 @@ translated: true
 categories: manual
 tags:
   - Documentos Braspag
-language_tabs:
-  json: JSON
-toc_footers:
-  - <a href='/Habilitacao-meios-de-pagamento/'>Manual de Boleto e débito online</a>
-  - <a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a>
-  - <a href='/Checkout-FAQ/'>FAQ</a>
 ---
 
 # Criar Grupos
@@ -21,7 +15,7 @@ toc_footers:
 
 Para criar um grupo, acesse Configurações > Grupos, e preencha corretamente os campos identificados abaixo:
 
-![]({{ site.baseurl_root }}/images/braspag/criargrupos.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/criargrupos.png)
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
@@ -55,7 +49,7 @@ Através do usuário "gerente", é possível criar usuários operadores, que ter
 
 Acesse Configurações > Operadores, e preencha corretamente o forumulário abaixo. Assim que os dados forem submetidos, um e-mail com as instruções será enviado no endereço cadastrado.
 
-![]({{ site.baseurl_root }}/images/braspag/cadastraroperador.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/cadastraroperador.png)
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
@@ -69,7 +63,7 @@ Acesse Configurações > Operadores, e preencha corretamente o forumulário abai
 
 Para a criação de um novo pedido, o usuário deverá acessar a tela através do menu:  POS Virtual -> Realizar Venda
 
-![]({{ site.baseurl_root }}/images/braspag/menucriarpedido.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/menucriarpedido.png)
 
 ## Passo a Passo 
 
@@ -85,7 +79,7 @@ Neste passo é possível informar os dados do pedido.
 O campo de e-mail é opcional, e pode ser configurado para ser exibido na tela de criação de um novo pedido no momento do setup do seu POS Virtual. 
 Abaixo a descrição e obrigatoriedade de cada campo. 
 
-![]({{ site.baseurl_root }}/images/braspag/camposdadosdopedido.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/camposdadosdopedido.png)
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
@@ -100,7 +94,7 @@ Neste passo é possível informar os dados do endereço de entrega do pedido.
 Os campos com os dados de endereço de entrega são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.  
 Abaixo a descrição e obrigatoriedade de cada campo.  
 
-![]({{ site.baseurl_root }}/images/braspag/camposdadosendereco.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/camposdadosendereco.png)
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
@@ -132,7 +126,7 @@ Nesta opção uma recorrência será agendada de acordo com as informações for
 
 O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”. 
  
-![]({{ site.baseurl_root }}/images/braspag/dadosdarecorrencia1.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/dadosdarecorrencia1.png)
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
@@ -146,7 +140,7 @@ Nesta opção uma recorrência será criada e a primeira recorrência será cobr
 
 O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”. 
 
-![]({{ site.baseurl_root }}/images/braspag/dadosdarecorrencia2.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/dadosdarecorrencia2.png)
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
@@ -161,7 +155,7 @@ Nesta opção uma recorrência será criada e a primeira recorrência será cobr
 
 O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”. 
 
-![]({{ site.baseurl_root }}/images/braspag/dadosdarecorrencia3.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/dadosdarecorrencia3.png)
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
@@ -176,7 +170,7 @@ Neste passo é possível informar os dados do endereço de cobrança do pedido.
 
 Os campos com os dados de endereço de cobrança são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual. 
 
-![]({{ site.baseurl_root }}/images/braspag/camposdadosenderecocobranca.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/camposdadosenderecocobranca.png)
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
@@ -195,7 +189,7 @@ Neste passo é possível informar os dados do pagamento do pedido.
 
 Para o campo meio de pagamento, as bandeiras estarão disponíveis de acordo com as opções de meios de pagamentos configurados para o seu POS Virtual. 
 
-![]({{ site.baseurl_root }}/images/braspag/dadospagamento.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/dadospagamento.png)
 
 |Campo|Descrição|Obrigatório?|
 |-----|---------|------------|
@@ -215,13 +209,13 @@ Caso o seu POS Virtual esteja configurado com a opção de “captura automátic
 
 O botão “limpar”, limpa todos os campos da tela de criação de um novo pedido. 
 
-![]({{ site.baseurl_root }}/images/braspag/btnpagarlimpar.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/btnpagarlimpar.png)
 
 # Lista de pedidos
 
 Conforme imagem abaixo, nesta sessão serão exibidos todos os pedidos realizados pelo operador: 
 
-![]({{ site.baseurl_root }}/images/braspag/listapedidos.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/listapedidos.png)
 
 Acima da lista de pedidos, existem duas legendas com informações dos totais. Estas representam o valor total pago e o valor total pendente de captura. 
 
@@ -243,7 +237,7 @@ Esta ação ficará disponível para o usuário caso o seu POS Virtual no moment
 
 Caso a opção seja por captura parcial no setup do seu POS Virtual, o usuário ao clicar no link “Capturar”, a tela abaixo será exibida, deixando assim o usuário escolher o valor a ser capturado. 
 
-![]({{ site.baseurl_root }}/images/braspag/capturar.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/capturar.png)
 
 <aside class="notice)Obs.: A ação de capturar só poderá ocorrer uma única vez, então caso seja realizada uma captura parcial conforme exemplo acima, os outros R$ 50,00 restantes não poderá ser mais capturado, disponibilizando novamente esses R$ 50,00 no limite do cliente. </aside>
 
@@ -262,7 +256,7 @@ Esta ação poderá ser tomada para o usuário cancelar um pedido, sendo assim o
 
 Será exibida uma tela de confirmação do cancelamento conforme imagem abaixo: 
 
-![]({{ site.baseurl_root }}/images/braspag/cancelar.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/cancelar.png)
 
 ## Imprimir 
 
@@ -270,5 +264,5 @@ Esta ação poderá ser tomada para o usuário imprimir um comprovante com os da
 
 A impressão terá os detalhes do pedido conforme imagem abaixo: 
 
-![]({{ site.baseurl_root }}/images/braspag/imprimir.png)
+![]({{ site.baseurl_root }}/images/braspag/posvirtual/imprimir.png)
 
