@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Cartão Protegido Braspag
+title: Cartão Protegido
 description: Integração técnica Tokenização Braspag
 search: true
 translated: true
