@@ -65,20 +65,19 @@ Os dados necessários para armazenar um cartão de crédito na plataforma são:
 
 Assim como outros produtos Braspag, é necessario que a loja em processo de integração use em seu header as credenciais de acesso abaixo:
 
-```
-
---request POST "https://ENDPOINT.com.br/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-
+```json
+{
+   "Content-Type": "application/json"
+   "MerchantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+   "MerchantKey": "0123456789012345678901234567890123456789"
+   "RequestId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+}
 ```
 
 | Propriedade   | Tipo  | Tamanho | Obrigatório | Descrição                                                                                              |
 |---------------|-------|---------|-------------|--------------------------------------------------------------------------------------------------------|
-| `MerchantId`  | Guid  | 36      | Sim         | Identificador da loja na Cielo.                                                                        |
-| `MerchantKey` | Texto | 40      | Sim         | Chave Publica para Autenticação Dupla na Cielo.                                                        |
+| `MerchantId`  | Guid  | 36      | Sim         | Identificador da loja na Braspag.                                                                      |
+| `MerchantKey` | Texto | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                       |
 | `RequestId`   | Guid  | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. |
 
 # Integração CARTÃO PROTEGIDO
