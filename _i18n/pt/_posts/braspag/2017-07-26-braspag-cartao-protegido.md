@@ -27,7 +27,7 @@ Enquanto produto, o CARTÃO PROTEGIDO, por ser uma solução para resolver o pro
 |-|-|
 |**Compra com 1 clique**| A “compra com 1 clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.|
 |**Cobrança Recorrente**| Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma apenas para a parte sensível: armazenar os dados de cartão de crédito e processar via PAGADOR, as cobranças nas Adquirentes utilizando apenas o token. (Não é obrigatório que a transação seja processada via Pagador)|
-|**Re-tentativa de envio de transação (venda)**| Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.|
+|**Re-tentar Transação**| Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.|
 |**Segurança**| Qualquer outra finalidade, onde se faça necessário armazenar dados de um cartão de crédito de forma segura, mesmo que temporariamente|
 
 ## Sobre este manual
@@ -38,12 +38,11 @@ Este manual tem como objetivo orientar o desenvolvedor da loja sobre a integraç
 
 ## Sobre a Integração
 
-Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 3 maneiras de integrar o produto:
+Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 2 maneiras de integrar o produto:
 
-* Diretamente pela plataforma do **CARTÃO PROTEGIDO**;
-* Via plataforma **PAGADOR**, utilizando **API Pagador**;
-* Via plataforma **PAGADOR**, utilizando **Webservice**;
-* Via plataforma **PAGADOR**, utilizando Post de Dados.
+|Tipo de integração|Via de integração|
+|**Cartão protegido**| Utilizando a API do proprio Cartão Protegido 
+|**Pagador**|Utilizando uma das 3 vias de integração do Pagador: <br> **API** <br> **Webservice** <br>**Post de Dados Pagador**|
 
 <br>
 
