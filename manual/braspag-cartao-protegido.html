@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Cartão Protegido Braspag &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/poole.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/syntax.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/prettify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/custom.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/cielo.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/manual/braspag-cartao-protegido" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/manual/braspag-cartao-protegido" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/braspag-cartao-protegido">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/braspag-cartao-protegido">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/braspag-cartao-protegido">Cartão Protegido Braspag</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="introdução-ao-cartão-protegido">Introdução ao Cartão Protegido</h1>
+
+<p>A plataforma do <strong>CARTÃO PROTEGIDO</strong> é uma armazenadora segura de cartões de crédito. Os dados nela armazenados seguem as normas PCI, que garante a integridade das informações dos cartões armazenados.
+<br /><br />
+O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong>, facilitando o envio e processamento de transações de cartão de crédito via token.</p>
+
+<h2 id="sobre-o-produto">Sobre o Produto</h2>
+
+<p>Enquanto produto, o CARTÃO PROTEGIDO, por ser uma solução para resolver o problema de armazenamento seguro de dados de cartão de crédito, pode ser utilizado para diversos fins, como:</p>
+
+<ul>
+  <li><strong>Compra com 1 clique</strong>: A “compra com 1 clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.</li>
+  <li><strong>Cobrança Recorrente</strong>: Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma apenas para a parte sensível: armazenar os dados de cartão de crédito e processar via PAGADOR, as cobranças nas Adquirentes utilizando apenas o token. (Não é obrigatório que a transação seja processada via Pagador)</li>
+  <li><strong>Re-tentativa de envio de transação (venda)</strong>: Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.</li>
+  <li>Ou para qualquer outra finalidade, onde se faça necessário armazenar dados de um cartão de crédito de forma segura, mesmo que temporariamente</li>
+</ul>
+
+<h2 id="sobre-este-manual">Sobre este manual</h2>
+
+<p>Este manual tem como objetivo orientar o desenvolvedor da loja sobre a integração com a plataforma <strong>CARTÃO PROTEGIDO</strong>, descrevendo as funcionalidades existentes e os métodos a serem utilizados, listando informações a serem enviadas e recebidas e provendo exemplos.</p>
+
+<aside class="warning">Para receber a URL de Produção, solicite à nossa equipe de implantação através da ferramenta Suporte.</aside>
+
+<h2 id="sobre-a-integração">Sobre a Integração</h2>
+
+<p>Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 3 maneiras de integrar o produto:</p>
+
+<ul>
+  <li>Diretamente pela plataforma do CARTÃO PROTEGIDO;</li>
+  <li>Via plataforma PAGADOR, utilizando Webservice;</li>
+  <li>Via plataforma PAGADOR, utilizando Post de Dados.</li>
+</ul>
+
+<p>Os dados necessários para armazenar um cartão de crédito na plataforma são: CPF do Cliente, Nome do Cliente, Nome do Portador, Número do Cartão e Data de Validade. O código de segurança não é armazenado (vide seção Código de
+Segurança).</p>
+
+<aside class="notice">A plataforma do CARTÃO PROTEGIDO armazena de forma segura, 100% PCI Compliance, os dados dos cartões de crédito.</aside>
+
+<aside class="warning">Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).</aside>
+
+<aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
+
+<h1 id="parÂmetro-justclickalias"><strong>PARÂMETRO</strong> JustClickAlias</h1>
+
+<p>Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. O cliente poderá, no momento do salvamento do cartão, criar um Alias (apelido) que identificará esse cartão na Plataforma CARTÃO PROTEGIDO. Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. Para isso, o lojista deveria indicar que o JustClickKey está desabilitado. Dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.</p>
+
+<h2 id="forma-correta-de-associação">Forma Correta de Associação</h2>
+
+<p>Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Merchant Id</th>
+      <th>JustClickKey (Token)</th>
+      <th>Alias</th>
+      <th>Enabled</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 1</td>
+      <td>XPTO</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 2</td>
+      <td>XPTO</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 3</td>
+      <td>XPTO</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">Obs.: A desassociação ocorrerá após a execução do método InvalidateCreditCard </aside>
+
+<h2 id="forma-de-associação-não-aceita">Forma de Associação Não Aceita</h2>
+
+<p>Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
+desde que esteja desvinculado de um determinado Token:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Merchant Id</th>
+      <th>JustClickKey (Token)</th>
+      <th>Alias</th>
+      <th>Enabled</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 1</td>
+      <td>XPTO</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 2</td>
+      <td>XPTO</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 3</td>
+      <td>XPTO</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="fluxo-de-autorizaÇÃo-via-plataforma-cartÃo-protegido">FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO</h1>
+
+<p>Abaixo está representado o fluxo de uma requisição para salvar um cartão de um cliente durante uma venda, seguido de outro fluxo onde o mesmo cliente realiza uma compra via CARTÃO PROTEGIDO.</p>
+
+<p>Com a permissão do cliente para salvar seu cartão, o estabelecimento deve:</p>
+
+<ol>
+  <li>Enviar a tentativa de autorização da compra em questão via Gateway. Processo padrão que já acontece hoje</li>
+  <li>Receber o resultado da autorização</li>
+  <li>Enviar os dados do cartão para armazenamento no CARTÃO PROTEGIDO</li>
+  <li>Receber a “JustClickKey”, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.</li>
+</ol>
+
+<p>Quando o cliente voltar ao site para fazer uma nova compra e se logar, o site pode apresentar a opção de “compra com 1 clique”, e o fluxo será:</p>
+
+<ol>
+  <li>Chamar a autorização da transação direto pela plataforma do CARTÃO PROTEGIDO, passando a “JustClickKey” e/ou “JustClickAlias” do cliente e, opcionalmente, o CVV (vide seção Código de Segurança)</li>
+  <li>Receber o resultado da autorização</li>
+</ol>
+
+<p>IMAGEM”/images/autorizacaocomopcaosalvarcartao.PNG”</p>
+
+<h1 id="fluxo-de-autorizaÇÃo-via-pagador">FLUXO DE AUTORIZAÇÃO VIA PAGADOR</h1>
+
+<p>Abaixo estão representados os fluxos de uma requisição para salvar um cartão de um cliente durante uma venda e de uma compra via CARTÃO PROTEGIDO, ambas utilizando a integração PAGADOR/CARTÃO PROTEGIDO</p>
+
+<h2 id="autorizaÇÃo-com-opÇÃo-salvar-cartÃo">AUTORIZAÇÃO COM OPÇÃO SALVAR CARTÃO</h2>
+
+<p>IMAGEM”/images/pgautorizacaocomopcaosalvarcartao.PNG”&gt;</p>
+
+<ol>
+  <li>Enviar a tentativa de autorização da compra em questão via PAGADOR, contendo o parâmetro SaveCreditCard;</li>
+  <li>O PAGADOR envia os dados de cartão de crédito para a plataforma CARTÃO PROTEGIDO, à fim de armazenar esses dados;</li>
+  <li>CARTÃO PROTEGIDO envia resposta do armazenamento dos dados do cartão ao PAGADOR;</li>
+  <li>Como resultado, o PAGADOR envia resposta da autorização e do armazenamento, ao cliente;</li>
+</ol>
+
+<h2 id="autorizaÇÃo-com-cartÃo-jÁ-salvo">AUTORIZAÇÃO COM CARTÃO JÁ SALVO</h2>
+
+<p>IMAGEM”/images/pgautorizacaocomcartaosalvo.PNG”&gt;</p>
+
+<ol>
+  <li>Enviar a tentativa de autorização da compra em questão via PAGADOR, contendo o parâmetro CredicardToken;</li>
+  <li>O PAGADOR envia os dados de cartão de crédito para a plataforma CARTÃO PROTEGIDO, à fim de recuperar os dados previamente salvos do cartão;</li>
+  <li>CARTÃO PROTEGIDO envia resposta dos dados do cartão ao PAGADOR;</li>
+  <li>Como resultado, o PAGADOR envia resposta da autorização ao cliente;</li>
+</ol>
+
+<aside class="notice">Note que toda a comunicação é feita pelo estabelecimento através da plataforma PAGADOR. Para obter todas as informações sobre os métodos dos Webserivces e seus parâmetros, assim como aqueles da integração via Post, solicite os devidos manuais da plataforma PAGADOR.</aside>
+
+<h2 id="autorizaÇÃo-via-post">AUTORIZAÇÃO VIA POST</h2>
+
+<p>Abaixo, fluxo de autorização via Post. Mostrando uma transação onde o cliente possui a chave gerada pelo Cartão Protegido e outra onde essa chave ainda irá ser criada e enviada ao cliente (CredicardToken).</p>
+
+<p>IMAGEM”/images/pgautorizacaopost.PNG”&gt;</p>
+
+<aside class="warning">O parâmetro “CreditCardToken” retornado pelo PAGADOR é a própria “JustClickKey” do CARTÃO PROTEGIDO.</aside>
+
+<h1 id="cÓdigo-de-seguranÇa-cvv">CÓDIGO DE SEGURANÇA (CVV)</h1>
+
+<p>O código de segurança é obrigatório para que uma autorização, em compras não presenciais, seja aceita pelo banco emissor do cartão. Ele é mais um mecanismo de segurança no processo anti-fraude, onde busca-se validar que a pessoa que está utilizando o cartão seja de fato a dona dele. Por isso, as regras da indústria de cartões (PCI) permitem que se armazene o número do cartão e a validade, mas nunca o código de segurança. Este deve ser sempre solicitado no ato da compra para validação. Sendo a BRASPAG uma empresa PCI compliance, ela não armazena o código de segurança, que deverá ser solicitado pelo estabelecimento no ato da confirmação da venda via CARTÃO PROTEGIDO, caso seja obrigatório o uso da Adquirente em questão.</p>
+
+<p>Estabelecimentos que possuem o modelo de negócio baseado em recorrência, como, por exemplo, assinaturas de serviços, já possuem afiliação liberada para uso sem CVV.</p>
+
+<aside class="notice">Esta condição de recorrência é concedida exclusivamente pelas Adquirentes, não dependendo da BRASPAG.</aside>
+
+<h1 id="dicas-de-implementaÇÃo">DICAS DE IMPLEMENTAÇÃO</h1>
+
+<h2 id="implementando-justclickshop-compra-com-1-clique">IMPLEMENTANDO JUSTCLICKSHOP (COMPRA COM 1 CLIQUE)</h2>
+
+<p>Para fazer uma venda através de um clique, é necessário que o estabelecimento já possua uma autorização, fornecida pelo cliente, para poder armazenar os dados de seu cartão de crédito. Desta forma, nas próximas compras ele pode optar por fazer o pagamento com o cartão de crédito previamente salvo. Concedida a autorização para o armazenamento, basta que o estabelecimento envie os dados do cartão para a plataforma do CARTÃO PROTEGIDO, recebendo como resposta uma chave que representa a dupla “cartão de crédito-cliente”. Para cada cartão distinto que o cliente autorize o armazenamento, o CARTÃO PROTEGIDO fornecerá uma chave também distinta.</p>
+
+<p>Nas próximas vendas para este cliente, o estabelecimento poderá oferecer a “compra com 1 clique” como forma de pagamento. Isto pode ser feito através de um botão de “comprar com um clique” no produto/ serviço selecionado, ou como mais um meio de pagamento no processo de finalização do carrinho de compras. Para processar uma venda via “compra com 1 clique”, basta que seja passado para a plataforma do CARTÃO PROTEGIDO a chave previamente fornecida que identifique o “cartão de crédito-cliente” e, dependendo de qual serviço do CARTÃO PROTEGIDO o estabelecimento opte por utilizar, a plataforma irá:</p>
+
+<ul>
+  <li>Devolver os dados do cartão para o estabelecimento autorizar a transação;</li>
+  <li>Autorizar direto a transação na Operadora via PAGADOR (sendo este o mais indicado, por garantir maior segurança dos dados).</li>
+</ul>
+
+<h3 id="boas-prÁticas">BOAS PRÁTICAS</h3>
+
+<p>Salvar o número do cartão mascarado para apresentar ao cliente qual cartão ele tem habilitado para “a compra com 1 clique” no site;</p>
+
+<ul>
+  <li>Opcionalmente, também salvar a data de validade, para ativamente comunicar ao cliente que o cartão que ele tem armazenado expirou e sugerir a troca;</li>
+  <li>Apenas salvar o cartão na plataforma do CARTÃO PROTEGIDO caso ele tenha sido autorizado com sucesso na última compra do cliente;</li>
+  <li>Segurança do login e senha dos usuarios do site – senhas muito fracas são facilmente descobertas e o fraudador consegue fazer uma compra mesmo sem ter o cartão (no caso de não solicitação do CVV pelo site);</li>
+  <li>Controlar variáveis de sessão para evitar que o usuário (login do cliente) permaneça logado no site e outra pessoa acesse depois fazendo “compras via 1 clique” com este login (ex: usuários conectados em lan houses).</li>
+</ul>
+
+<h2 id="implementando-cobranÇa-recorrente">IMPLEMENTANDO COBRANÇA RECORRENTE</h2>
+
+<p>Para cada pedido a ser cobrado com recorrência de cartão de crédito, o estabelecimento deve salvar os dados do cartão de crédito na plataforma do Cartão Protegido e receber a chave (JustClickKey) que representa aquele “pedido-cartão”. Chegado o dia da cobrança da recorrência, basta que o método de autorização de cartão seja chamado, passando os dados para pagamento e, ao invés dos dados do cartão (número + data de validade), a chave que o representa (JustClickKey ou JustClickAlias).</p>
+
+<p>Se houver necessidade de troca de cartão para determinado pedido, basta que este novo cartão seja salvo no CARTÃO PROTEGIDO, e a nova chave gerada seja associada ao pedido na plataforma do estabelecimento. Não há necessidade de cancelamento/ exclusão do cartão na plataforma.</p>
+
+<p>Se houver a necessidade de associar um Alias já existente a um novo JustClickKey, basta desabilitar o JustClickKey antigo para deixar o Alias associado a ele, liberado para uma nova associação.</p>
+
+<p>Se o estabelecimento optar por não processar a autorização da transação pela integração PAGADOR/CARTÃO PROTEGIDO, é fundamental que em nenhum momento o número do cartão seja gravado (persistido em banco ou em seção do browser) para que a segurança das informações seja mantida.</p>
+
+<h1 id="mÉtodos-do-cartÃo-protegido">MÉTODOS DO CARTÃO PROTEGIDO</h1>
+
+<p>Abaixo estão representados os fluxos dos webmethods da plataforma do CARTÃO PROTEGIDO, para execução dos procedimentos via webservice descritos nas seções anteriores.</p>
+
+<h2 id="salvando-um-cartão-de-crédito">SALVANDO um cartão de crédito</h2>
+
+<p>O método SaveCreditCard recebe o objeto SaveCreditCardRequest e deve ser chamado para salvar os dados de uma cartão de crédito e receber a chave identificadora (token) da dupla “cartão de crédito-cliente” para futuras autorizações via “compra com 1 clique”. Não se deve informar RequestId repetidos para essa operação, pois essa informação será necessária para recuperar o JustClickKey na utilização do método GetJustClickKey().</p>
+
+<p>IMAGEM”/images/savecreditcard.PNG”&gt;</p>
+
+<h3 id="requisição">Requisição</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MerchantKey</td>
+      <td>Guid</td>
+      <td>Chave da loja JustClick</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CustomerIdentification</td>
+      <td>string</td>
+      <td>CPF do comprador</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CustomerName</td>
+      <td>string</td>
+      <td>Nome do comprador</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CardHolder</td>
+      <td>string</td>
+      <td>Nome do Portador do cartão de crédito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CardNumber</td>
+      <td>string</td>
+      <td>Número do cartão de crédito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CardExpiration</td>
+      <td>string</td>
+      <td>Validade do cartão de crédito. Formato: mm/yyyy</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>JustClickAlias</td>
+      <td>string</td>
+      <td>Alias (Apelido) do cartão de crédito</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>RequestId</td>
+      <td>Guid</td>
+      <td>Identificador da requisição enviada</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>string</td>
+      <td>Versão do método. Padrão: 2.0</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta">Resposta</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JustClickKey</td>
+      <td>Guid</td>
+      <td>Token (Chave identificadora) que representa o cartão de crédito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CorrelationId</td>
+      <td>Guid</td>
+      <td>Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Success</td>
+      <td>bool</td>
+      <td>Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ErrorReportCollection</td>
+      <td>List<ErrorReport></ErrorReport></td>
+      <td>Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recuperaÇÃo-do-número-do-cartão-de-crédito-com-retorno-mascarado">RECUPERAÇÃO do número do Cartão de Crédito, com retorno Mascarado</h2>
+
+<p>O método GetMaskedCreditCard recebe o objeto GetMaskedCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito de forma PCI Compliance, ou seja, apenas o número mascarado do cartão é retornado no método GetMaskedCreditCardResponse, juntamente com as demais informações não sensíveis.</p>
+
+<p>IMAGEM”/images/getcreditcard.PNG”&gt;</p>
+
+<h3 id="requisição-1">Requisição</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MerchantKey</td>
+      <td>Guid</td>
+      <td>Chave da loja JustClick</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>JustClickKey</td>
+      <td>Guid</td>
+      <td>Token que representa o cartão de crédito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>JustClickAlias</td>
+      <td>string</td>
+      <td>Alias (Apelido) do cartão de crédito</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>RequestId</td>
+      <td>Guid</td>
+      <td>Identificador da requisição enviada</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>string</td>
+      <td>Versão do método. Padrão: 2.0</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-1">Resposta</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CardHolder</td>
+      <td>string</td>
+      <td>Portador do cartão de crédito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CardExpiration</td>
+      <td>string</td>
+      <td>Validade do cartão de crédito. Formato: mm/yyyy</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>MaskedCardNumber</td>
+      <td>string</td>
+      <td>Número do cartão de crédito mascarado</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CorrelationId</td>
+      <td>Guid</td>
+      <td>Identificador da resposta recebida, que será o próprio</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>RequestId</td>
+      <td>Guid</td>
+      <td>enviado no objeto de request</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Success</td>
+      <td>bool</td>
+      <td>Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ErrorReportCollection</td>
+      <td>List<ErrorReport></ErrorReport></td>
+      <td>Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recuperando-informações-sobre-o-cartão-de-crédito">RECUPERANDO informações sobre o Cartão de Crédito</h2>
+
+<p>O método GetCreditCard recebe o objeto GetCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito, incluindo o número aberto do cartão. Em geral, esse método será utilizado apenas quando se desejar autorizar a transação via outra plataforma que não o PAGADOR. Este método deve ser usado com muito cuidado por ter informações sensíveis.</p>
+
+<p>IMAGEM”/images/getcreditcardraw.PNG”&gt;</p>
+
+<h3 id="requisição-2">Requisição</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MerchantKey</td>
+      <td>Guid</td>
+      <td>Chave da loja JustClick</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>JustClickKey</td>
+      <td>Guid</td>
+      <td>Token que representa o cartão de crédito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>JustClickAlias</td>
+      <td>string</td>
+      <td>Alias (Apelido) do cartão de crédito</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>RequestId</td>
+      <td>Guid</td>
+      <td>Identificador da requisição enviada</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>string</td>
+      <td>Versão do método. Padrão: 2.0</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-2">Resposta</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CardHolder</td>
+      <td>string</td>
+      <td>Portador do cartão de crédito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CardNumber</td>
+      <td>string</td>
+      <td>Número do cartão de crédito aberto</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CardExpiration</td>
+      <td>string</td>
+      <td>Validade do cartão de crédito. Formato: mm/yyyy</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>MaskedCardNumber</td>
+      <td>string</td>
+      <td>Número do cartão de crédito mascarado</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CorrelationId</td>
+      <td>Guid</td>
+      <td>Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>RequestId</td>
+      <td>Guid</td>
+      <td>enviado no objeto de request</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Success</td>
+      <td>bool</td>
+      <td>Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ErrorReportCollection</td>
+      <td>List<ErrorReport></ErrorReport></td>
+      <td>Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recuperando-uma-justclickkey">RECUPERANDO uma JustClickKey</h2>
+
+<p>O método GetJustClickKey recebe o objeto GetJustClickKeyRequest, e deve ser chamado para consultar uma JustClickKey. Em geral, esse método será utilizado apenas quando o lojista, por algum motivo, perder a JustClickKey
+de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) vezes consecutivas passando um ‘SaveCreditCardRequestId’ inválido, a loja ficará impossibilitada de utilizar o método até que entre em contato com o suporte da Braspag para efetuar a liberação.</p>
+
+<p>IMAGEM”/images/getjustclickkey.PNG”&gt;</p>
+
+<h3 id="requisição-3">Requisição</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MerchantKey</td>
+      <td>Guid</td>
+      <td>Chave da loja JustClick</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>SaveCreditCardRequestId</td>
+      <td>Guid</td>
+      <td>Identificador da requisição ao método SaveCreditCard (parâmetro “RequestId”) que resultou no armazenamento do cartão de crédito na plataforma do Cartão Protegido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>RequestId</td>
+      <td>Guid</td>
+      <td>Identificador da requisição enviada</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>string</td>
+      <td>Versão do método. Padrão: 2.0</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-3">Resposta</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JustClickKey</td>
+      <td>Guid</td>
+      <td>Token que representa o cartão de crédito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CorrelationId</td>
+      <td>Guid</td>
+      <td>Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Success</td>
+      <td>bool</td>
+      <td>Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ErrorReportCollection</td>
+      <td>List<ErrorReport></ErrorReport></td>
+      <td>Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="invalidando-um-cartão-de-crédito">Invalidando um Cartão de Crédito</h2>
+
+<p>O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e deve ser chamado para invalidar um cartão de crédito. Um cartão inválido não pode ser utilizado numa autorização do PAGADOR</p>
+
+<p>IMAGEM”/images/invalidatecreditcard.PNG”&gt;</p>
+
+<h3 id="requisição-4">Requisição</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MerchantKey</td>
+      <td>Guid</td>
+      <td>Chave da loja JustClick</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>JustClickKey</td>
+      <td>Guid</td>
+      <td>Token que representa o cartão de crédito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>JustClickAlias</td>
+      <td>string</td>
+      <td>Alias (Apelido) do cartão de crédito</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>RequestId</td>
+      <td>Guid</td>
+      <td>Identificador da requisição enviada</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>string</td>
+      <td>Versão do método. Padrão: 2.0</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-4">Resposta</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CorrelationId</td>
+      <td>Guid</td>
+      <td>Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Success</td>
+      <td>bool</td>
+      <td>Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ErrorReportCollection</td>
+      <td>List<ErrorReport></ErrorReport></td>
+      <td>Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="detalhes-importantes-no-consumo-dos-métodos">Detalhes importantes no consumo dos métodos</h2>
+
+<ul>
+  <li>
+    <p><strong>“RequestID”/ “CorrelationID”</strong>: No envio do objeto de Request, deve ser enviado no parâmetro “RequestID” um guid qualquer que funcionará como uma chave identificadora daquela requisição. Após processamento do Request em questão, o objeto de Response será montado com o devido resultado e o parâmetro “CorrelationID” conterá o mesmo guid enviado no Request (“RequestID”). Desta forma é possível se certificar de qual Request o objeto Response é
+proveniente;</p>
+  </li>
+  <li>
+    <p><strong>“Success”</strong>: Todo objeto de Response possui o parâmetro “Success” que indica se a requisição foi processada com sucesso ou não pela aplicação. Quando o retorno do “Sucess” for FALSE significa que houve falha no recebimento e/ou processamento, ou seja, o método não conseguiu executar a função a qual ele se propõe. Assim, este deve ser o primeiro parâmetro a ser checado no retorno de uma requisição. Sendo FALSE, todo o processamento subsequente
+deve ser abortado e o erro analisado e tratado.</p>
+  </li>
+  <li>
+    <p><strong>“ErrorReportCollection”</strong>: Todo objeto de Response possui o parâmetro “ErrorReportCollection” que conterá o(s) erro(s) ocorrido(s) no processamento, ou seja, quando o parâmetro “Sucess” for FALSE. Erro de processamento pode ser devido a um parâmetro incorreto ou a falta de um parâmetro esperado.</p>
+  </li>
+</ul>
+
+<h1 id="mapa-de-erros">MAPA DE ERROS</h1>
+
+<p>Abaixo segue a lista dos possíveis erros retornado pelos métodos no campo “ErrorReportCollection”</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Mensagem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>701</td>
+      <td>Merchant key can not be null</td>
+    </tr>
+    <tr>
+      <td>702</td>
+      <td>Merchant key is not valid</td>
+    </tr>
+    <tr>
+      <td>703</td>
+      <td>JustClick key can not be null</td>
+    </tr>
+    <tr>
+      <td>704</td>
+      <td>JustClick key is not valid</td>
+    </tr>
+    <tr>
+      <td>705</td>
+      <td>Customer name can not be null</td>
+    </tr>
+    <tr>
+      <td>706</td>
+      <td>Card holder can not be null</td>
+    </tr>
+    <tr>
+      <td>707</td>
+      <td>Card number can not be null</td>
+    </tr>
+    <tr>
+      <td>709</td>
+      <td>Card expiration can not be null</td>
+    </tr>
+    <tr>
+      <td>710</td>
+      <td>Card expiration is not valid (Format: MM/yyyy)</td>
+    </tr>
+    <tr>
+      <td>720</td>
+      <td>Merchant JustClick not found</td>
+    </tr>
+    <tr>
+      <td>724</td>
+      <td>Credit card not exists for merchant</td>
+    </tr>
+    <tr>
+      <td>731</td>
+      <td>Invalid IP address</td>
+    </tr>
+    <tr>
+      <td>732</td>
+      <td>SaveCreditCardRequestId can not be null</td>
+    </tr>
+    <tr>
+      <td>733</td>
+      <td>SaveCreditCardRequestId not found for this Merchant</td>
+    </tr>
+    <tr>
+      <td>734</td>
+      <td>Numbers of attempts to Recovery JustClickKey exceeded</td>
+    </tr>
+    <tr>
+      <td>735</td>
+      <td>Save Credit Card Request Id Already Exists</td>
+    </tr>
+    <tr>
+      <td>747</td>
+      <td>Empty Request</td>
+    </tr>
+    <tr>
+      <td>749</td>
+      <td>JustClickAlias Already Exists</td>
+    </tr>
+    <tr>
+      <td>750</td>
+      <td>Extra Data Name Is Not Valid</td>
+    </tr>
+    <tr>
+      <td>751</td>
+      <td>JustClickAlias Is Not Filled</td>
+    </tr>
+    <tr>
+      <td>752</td>
+      <td>Data Collection Can Not Be Empty</td>
+    </tr>
+    <tr>
+      <td>753</td>
+      <td>JustClickAlias Is Mandatory</td>
+    </tr>
+    <tr>
+      <td>799</td>
+      <td>Undefined error</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://developercielo.github.io/">
+        <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
+        <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
+        <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
+        <script src="https://developercielo.github.io/assets/js/search.js"></script>
+        
+
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://developercielo.github.io/assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json", ]);
+            });
+        </script>
+         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+        
+    </body>
+</html>
