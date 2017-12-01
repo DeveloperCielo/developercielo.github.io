@@ -78,7 +78,7 @@ Quando o cliente voltar ao site para fazer uma nova compra e se logar, o site po
 1. Chamar a autorização da transação direto pela plataforma do CARTÃO PROTEGIDO, passando a “JustClickKey” e/ou “JustClickAlias” do cliente e, opcionalmente, o CVV (vide seção Código de Segurança)
 2. Receber o resultado da autorização
 
-IMAGEM"/images/autorizacaocomopcaosalvarcartao.PNG"
+![]({{ site.baseurl_root }}/images/braspag/autorizacaocomopcaosalvarcartao.PNG)
 
 # FLUXO DE AUTORIZAÇÃO VIA PAGADOR
 
