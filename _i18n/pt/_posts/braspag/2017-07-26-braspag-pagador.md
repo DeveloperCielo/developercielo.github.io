@@ -5394,7 +5394,7 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ## Alterar a data final da Recorrência
 
@@ -5434,7 +5434,7 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ## Alterar o intevalo da Recorrência
 
@@ -5474,7 +5474,7 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ## Alterar o dia da Recorrência
 
@@ -5516,7 +5516,7 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ## Alterar o valor da transação da Recorrência
 
@@ -5558,7 +5558,7 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ## Alterar a data do próximo Pagamento
 
@@ -5598,7 +5598,7 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ## Alterar os dados do Pagamento da Recorrência
 
@@ -5677,7 +5677,7 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ## Desabilitando um Pedido Recorrente
 
@@ -5711,7 +5711,7 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 ## Reabilitando um Pedido Recorrente
 
@@ -5745,7 +5745,7 @@ curl
 HTTP Status 200
 ```
 
-Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
+Veja o Anexo HTTP Status Code para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
 # Consultas
 
