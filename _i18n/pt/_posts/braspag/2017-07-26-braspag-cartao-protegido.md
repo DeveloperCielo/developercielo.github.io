@@ -80,6 +80,56 @@ Com a permissão do cliente para salvar seu cartão, a loja deve:
 
 O cartão deve ser enviado para o Endpoint:
 
+Header:
+```
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+```Json
+{  
+   "MerchantOrderId":"010101",
+   "Customer":{  
+      "Name":"Comprador Fulano de tal"     
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":100,
+     "Provider":"Cielo",
+     "Installments":1,
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"03/2019",
+         "SecurityCode":"262",
+         "SaveCard":"true",
+         "Brand":"Visa"
+     }
+   }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
+|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
+|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
+|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
+|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
+|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
+|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
+|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
+|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
+|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+
 ## Buscar um cartão
 
 Quando o cliente voltar ao site para fazer uma nova compra e se logar, o site pode apresentar a opção de “compra com 1 clique”, e o fluxo será:
