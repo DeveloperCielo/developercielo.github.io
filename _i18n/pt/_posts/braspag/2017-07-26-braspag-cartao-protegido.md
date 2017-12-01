@@ -15,11 +15,13 @@ toc_footers:
   - <a href='/Checkout-FAQ/'>FAQ</a>
 ---
 
-# Introdução ao Cartão Protegido
+# O que é o Cartão Protegido
 
 A plataforma do **CARTÃO PROTEGIDO** é uma armazenadora segura de cartões de crédito. Os dados nela armazenados seguem as normas PCI, que garante a integridade das informações dos cartões armazenados.
 <br><br>
 O gateway PAGADOR (BRASPAG) está integrado ao **CARTÃO PROTEGIDO**, facilitando o envio e processamento de transações de cartão de crédito via token.
+
+<aside class="notice">A plataforma do CARTÃO PROTEGIDO armazena de forma segura, 100% PCI Compliance, os dados dos cartões de crédito.</aside>
 
 ## Sobre o Produto
 
@@ -40,32 +42,45 @@ Este manual tem como objetivo orientar o desenvolvedor da loja sobre a integraç
 
 Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 3 maneiras de integrar o produto:
 
-* Diretamente pela plataforma do CARTÃO PROTEGIDO;
-* Via plataforma PAGADOR, utilizando Webservice;
-* Via plataforma PAGADOR, utilizando Post de Dados.
+* Diretamente pela plataforma do **CARTÃO PROTEGIDO**;
+* Via plataforma **PAGADOR**, utilizando **Webservice**;
+* Via plataforma **PAGADOR**, utilizando Post de Dados.
 
-Os dados necessários para armazenar um cartão de crédito na plataforma são: CPF do Cliente, Nome do Cliente, Nome do Portador, Número do Cartão e Data de Validade. O código de segurança não é armazenado (vide seção Código de
-Segurança).
+<br>
 
-<aside class="notice">A plataforma do CARTÃO PROTEGIDO armazena de forma segura, 100% PCI Compliance, os dados dos cartões de crédito.</aside>
+Os dados necessários para armazenar um cartão de crédito na plataforma são: 
+
+* **CPF do Cliente**
+* **Nome do Cliente**
+* **Nome do Portador**
+* **Número do Cartão**
+* **Data de Validade**
+
+<aside class="warning"><b>CÓDIGO DE SEGURANÇA (CVV)</b>O código de segurança não é armazenado devido a regras de seguranças PCI - Vide seção "Código de Segurança"</aside>
 
 <aside class="warning">Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).</aside>
 
 <aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
 
-# **PARÂMETRO** JustClickAlias
+# Parâmetro JustClickAlias
 
-Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. O cliente poderá, no momento do salvamento do cartão, criar um Alias (apelido) que identificará esse cartão na Plataforma CARTÃO PROTEGIDO. Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. Para isso, o lojista deveria indicar que o JustClickKey está desabilitado. Dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.
+Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. 
+
+<br>
+
+O cliente poderá, no momento do salvamento do cartão, criar um **Alias (_*apelido*_)** que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
+Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
+Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.
 
 ## Forma Correta de Associação
 
 Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:
 
-|Merchant Id|JustClickKey (Token)|Alias|Enabled|
-|-----------|--------------------|-----|-------|
-|LOJA A|Token 1|XPTO|0|
-|LOJA A|Token 2|XPTO|0|
-|LOJA A|Token 3|XPTO|1|
+| Merchant Id | JustClickKey (Token) | Alias | Enabled |
+|-------------|----------------------|-------|---------|
+| LOJA A      | Token 1              | XPTO  | 0       |
+| LOJA A      | Token 2              | XPTO  | 0       |
+| LOJA A      | Token 3              | XPTO  | 1       |
 
 <aside class="notice">Obs.: A desassociação ocorrerá após a execução do método InvalidateCreditCard </aside>
 
@@ -74,11 +89,11 @@ Um Alias pode ser associado a um novo Token, desde que antes seja desassociado d
 Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
 desde que esteja desvinculado de um determinado Token:
 
-|Merchant Id|JustClickKey (Token)|Alias|Enabled|
-|-----------|--------------------|-----|-------|
-|LOJA A|Token 1|XPTO|1|
-|LOJA A|Token 2|XPTO|1|
-|LOJA A|Token 3|XPTO|1|
+| Merchant Id | JustClickKey (Token) | Alias | Enabled |
+|-------------|----------------------|-------|---------|
+| LOJA A      | Token 1              | XPTO  | 1       |
+| LOJA A      | Token 2              | XPTO  | 1       |
+| LOJA A      | Token 3              | XPTO  | 1       |
 
 # FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO
 
