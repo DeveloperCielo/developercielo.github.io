@@ -56,7 +56,7 @@ Os dados necessários para armazenar um cartão de crédito na plataforma são:
 * **Número do Cartão**
 * **Data de Validade**
 
-<aside class="warning"><b>CÓDIGO DE SEGURANÇA (CVV)</b>O código de segurança não é armazenado devido a regras de seguranças PCI - Vide seção "Código de Segurança"</aside>
+<aside class="warning"><b>CÓDIGO DE SEGURANÇA (CVV)</b> O código de segurança não é armazenado devido a regras de seguranças PCI - Vide seção "Código de Segurança"</aside>
 
 <aside class="warning">Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).</aside>
 
@@ -78,7 +78,7 @@ Quando o cliente voltar ao site para fazer uma nova compra e se logar, o site po
 1. Chamar a autorização da transação direto pela plataforma do CARTÃO PROTEGIDO, passando a “JustClickKey” e/ou “JustClickAlias” do cliente e, opcionalmente, o CVV (vide seção Código de Segurança)
 2. Receber o resultado da autorização
 
-![]({{ site.baseurl_root }}/images/braspag/autorizacaocomopcaosalvarcartao.PNG)
+![]({{ site.baseurl_root }}/images/braspag/autorizacaocomopcaosalvarcartao.png)
 
 # FLUXO DE AUTORIZAÇÃO VIA PAGADOR
 
