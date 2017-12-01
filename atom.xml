@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T19:46:35+00:00</updated>
+    <updated>2017-12-01T19:47:20+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2083,7 +2083,7 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 
 &lt;p&gt;Para criar um grupo, acesse Configurações &amp;gt; Grupos, e preencha corretamente os campos identificados abaixo:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/criargrupos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/criargrupos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2173,7 +2173,7 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 
 &lt;p&gt;Acesse Configurações &amp;gt; Operadores, e preencha corretamente o forumulário abaixo. Assim que os dados forem submetidos, um e-mail com as instruções será enviado no endereço cadastrado.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/cadastraroperador.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/cadastraroperador.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2216,7 +2216,7 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 
 &lt;p&gt;Para a criação de um novo pedido, o usuário deverá acessar a tela através do menu:  POS Virtual -&amp;gt; Realizar Venda&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/menucriarpedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/menucriarpedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;passo-a-passo&quot;&gt;Passo a Passo&lt;/h2&gt;
 
@@ -2232,7 +2232,7 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 O campo de e-mail é opcional, e pode ser configurado para ser exibido na tela de criação de um novo pedido no momento do setup do seu POS Virtual. 
 Abaixo a descrição e obrigatoriedade de cada campo.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/camposdadosdopedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/camposdadosdopedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2277,7 +2277,7 @@ Abaixo a descrição e obrigatoriedade de cada campo.&lt;/p&gt;
 Os campos com os dados de endereço de entrega são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.&lt;br /&gt;
 Abaixo a descrição e obrigatoriedade de cada campo.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/camposdadosendereco.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/camposdadosendereco.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2352,7 +2352,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/dadosdarecorrencia1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/dadosdarecorrencia1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2387,7 +2387,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/dadosdarecorrencia2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/dadosdarecorrencia2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2427,7 +2427,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/dadosdarecorrencia3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/dadosdarecorrencia3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2467,7 +2467,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;Os campos com os dados de endereço de cobrança são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/camposdadosenderecocobranca.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/camposdadosenderecocobranca.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2527,7 +2527,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;Para o campo meio de pagamento, as bandeiras estarão disponíveis de acordo com as opções de meios de pagamentos configurados para o seu POS Virtual.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/dadospagamento.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/dadospagamento.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2584,13 +2584,13 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;O botão “limpar”, limpa todos os campos da tela de criação de um novo pedido.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/btnpagarlimpar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/btnpagarlimpar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;lista-de-pedidos&quot;&gt;Lista de pedidos&lt;/h1&gt;
 
 &lt;p&gt;Conforme imagem abaixo, nesta sessão serão exibidos todos os pedidos realizados pelo operador:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/listapedidos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/listapedidos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Acima da lista de pedidos, existem duas legendas com informações dos totais. Estas representam o valor total pago e o valor total pendente de captura.&lt;/p&gt;
 
@@ -2616,7 +2616,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;Caso a opção seja por captura parcial no setup do seu POS Virtual, o usuário ao clicar no link “Capturar”, a tela abaixo será exibida, deixando assim o usuário escolher o valor a ser capturado.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/capturar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/capturar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;lt;aside class=”notice)Obs.: A ação de capturar só poderá ocorrer uma única vez, então caso seja realizada uma captura parcial conforme exemplo acima, os outros R$ 50,00 restantes não poderá ser mais capturado, disponibilizando novamente esses R$ 50,00 no limite do cliente. &amp;lt;/aside&amp;gt;&lt;/p&gt;
 
@@ -2637,7 +2637,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;Será exibida uma tela de confirmação do cancelamento conforme imagem abaixo:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/cancelar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/cancelar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;imprimir&quot;&gt;Imprimir&lt;/h2&gt;
 
@@ -2645,7 +2645,7 @@ diferentes.&lt;/p&gt;
 
 &lt;p&gt;A impressão terá os detalhes do pedido conforme imagem abaixo:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/imprimir.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/posvirtual/imprimir.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 </content>
     </entry>
