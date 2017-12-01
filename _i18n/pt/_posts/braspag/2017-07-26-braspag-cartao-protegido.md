@@ -162,26 +162,26 @@ IMAGEM"/images/savecreditcard.PNG">
 
 ### Requisição
 
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|MerchantKey|Guid|Chave da loja JustClick|Sim|
-|CustomerIdentification|string| CPF do comprador|Não|
-|CustomerName|string|Nome do comprador|Sim|
-|CardHolder|string|Nome do Portador do cartão de crédito|Sim|
-|CardNumber|string|Número do cartão de crédito|Sim|
-|CardExpiration|string|Validade do cartão de crédito. Formato: mm/yyyy|Sim|
-|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
-|RequestId|Guid|Identificador da requisição enviada|Sim|
-|Version|string|Versão do método. Padrão: 2.0|Não|
+| Parâmetros             | Tipo   | Descrição                                       | Obrigatório? |
+|------------------------|--------|-------------------------------------------------|--------------|
+| MerchantKey            | Guid   | Chave da loja JustClick                         | Sim          |
+| CustomerIdentification | string | CPF do comprador                                | Não          |
+| CustomerName           | string | Nome do comprador                               | Sim          |
+| CardHolder             | string | Nome do Portador do cartão de crédito           | Sim          |
+| CardNumber             | string | Número do cartão de crédito                     | Sim          |
+| CardExpiration         | string | Validade do cartão de crédito. Formato: mm/yyyy | Sim          |
+| JustClickAlias         | string | Alias (Apelido) do cartão de crédito            | Não          |
+| RequestId              | Guid   | Identificador da requisição enviada             | Sim          |
+| Version                | string | Versão do método. Padrão: 2.0                   | Não          |
 
 ### Resposta
 
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|JustClickKey|Guid|Token (Chave identificadora) que representa o cartão de crédito|Sim|
-|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request|Sim|
-|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
-|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
+| Parâmetros            | Tipo              | Descrição                                                                                                                                                                                                | Obrigatório? |
+|-----------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| JustClickKey          | Guid              | Token (Chave identificadora) que representa o cartão de crédito                                                                                                                                          | Sim          |
+| CorrelationId         | Guid              | Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request                                                                                                          | Sim          |
+| Success               | bool              | Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados | Não          |
+| ErrorReportCollection | List<ErrorReport> | Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”                                                                                                                       | Não          |
 
 ## RECUPERAÇÃO do número do Cartão de Crédito, com retorno Mascarado
 
@@ -191,25 +191,25 @@ IMAGEM"/images/getcreditcard.PNG">
 
 ### Requisição
 
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|MerchantKey|Guid|Chave da loja JustClick|Sim|
-|JustClickKey|Guid|Token que representa o cartão de crédito|Sim|
-|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
-|RequestId|Guid|Identificador da requisição enviada|Não|
-|Version|string|Versão do método. Padrão: 2.0|Não|
+| Parâmetros     | Tipo   | Descrição                                | Obrigatório? |
+|----------------|--------|------------------------------------------|--------------|
+| MerchantKey    | Guid   | Chave da loja JustClick                  | Sim          |
+| JustClickKey   | Guid   | Token que representa o cartão de crédito | Sim          |
+| JustClickAlias | string | Alias (Apelido) do cartão de crédito     | Não          |
+| RequestId      | Guid   | Identificador da requisição enviada      | Não          |
+| Version        | string | Versão do método. Padrão: 2.0            | Não          |
 
 ### Resposta
 
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|CardHolder|string|Portador do cartão de crédito|Sim|
-|CardExpiration|string|Validade do cartão de crédito. Formato: mm/yyyy|Sim|
-|MaskedCardNumber|string|Número do cartão de crédito mascarado|Sim|
-|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio|Não|
-|RequestId|Guid|enviado no objeto de request|Não|
-|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
-|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
+| Parâmetros            | Tipo              | Descrição                                                                                                                                                                                                | Obrigatório? |
+|-----------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| CardHolder            | string            | Portador do cartão de crédito                                                                                                                                                                            | Sim          |
+| CardExpiration        | string            | Validade do cartão de crédito. Formato: mm/yyyy                                                                                                                                                          | Sim          |
+| MaskedCardNumber      | string            | Número do cartão de crédito mascarado                                                                                                                                                                    | Sim          |
+| CorrelationId         | Guid              | Identificador da resposta recebida, que será o próprio                                                                                                                                                   | Não          |
+| RequestId             | Guid              | enviado no objeto de request                                                                                                                                                                             | Não          |
+| Success               | bool              | Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados | Não          |
+| ErrorReportCollection | List<ErrorReport> | Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”                                                                                                                       | Não          |
 
 ## RECUPERANDO informações sobre o Cartão de Crédito
 
@@ -219,26 +219,26 @@ IMAGEM"/images/getcreditcardraw.PNG">
 
 ### Requisição
 
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|MerchantKey|Guid|Chave da loja JustClick|Sim|
-|JustClickKey|Guid|Token que representa o cartão de crédito|Sim|
-|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
-|RequestId|Guid|Identificador da requisição enviada|Não|
-|Version|string|Versão do método. Padrão: 2.0|Não|
+| Parâmetros     | Tipo   | Descrição                                | Obrigatório? |
+|----------------|--------|------------------------------------------|--------------|
+| MerchantKey    | Guid   | Chave da loja JustClick                  | Sim          |
+| JustClickKey   | Guid   | Token que representa o cartão de crédito | Sim          |
+| JustClickAlias | string | Alias (Apelido) do cartão de crédito     | Não          |
+| RequestId      | Guid   | Identificador da requisição enviada      | Não          |
+| Version        | string | Versão do método. Padrão: 2.0            | Não          |
 
 ### Resposta
 
-|Parâmetros|Tipo|Descrição|Obrigatório?|
-|----------|----|---------|------------|
-|CardHolder|string|Portador do cartão de crédito|Sim|
-|CardNumber|string|Número do cartão de crédito aberto|Sim|
-|CardExpiration|string|Validade do cartão de crédito. Formato: mm/yyyy|Sim|
-|MaskedCardNumber|string|Número do cartão de crédito mascarado|Sim|
-|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request|Não|
-|RequestId|Guid|enviado no objeto de request|Não|
-|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
-|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
+| Parâmetros            | Tipo              | Descrição                                                                                                                                                                                                | Obrigatório? |
+|-----------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
+| CardHolder            | string            | Portador do cartão de crédito                                                                                                                                                                            | Sim          |
+| CardNumber            | string            | Número do cartão de crédito aberto                                                                                                                                                                       | Sim          |
+| CardExpiration        | string            | Validade do cartão de crédito. Formato: mm/yyyy                                                                                                                                                          | Sim          |
+| MaskedCardNumber      | string            | Número do cartão de crédito mascarado                                                                                                                                                                    | Sim          |
+| CorrelationId         | Guid              | Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request                                                                                                          | Não          |
+| RequestId             | Guid              | enviado no objeto de request                                                                                                                                                                             | Não          |
+| Success               | bool              | Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados | Não          |
+| ErrorReportCollection | List<ErrorReport> | Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”                                                                                                                       | Não          |
 
 ## RECUPERANDO uma JustClickKey
 
