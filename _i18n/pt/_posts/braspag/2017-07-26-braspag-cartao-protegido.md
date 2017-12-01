@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Cartão Protegido
+title: Cartão Protegido Braspag
 description: Integração técnica Tokenização Braspag
 search: true
 translated: true
@@ -9,26 +9,26 @@ tags:
   - Documentos Braspag
 language_tabs:
   json: JSON
+toc_footers:
+  - <a href='/Habilitacao-meios-de-pagamento/'>Manual de Boleto e débito online</a>
+  - <a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a>
+  - <a href='/Checkout-FAQ/'>FAQ</a>
 ---
 
-# O que é o Cartão Protegido
+# Introdução ao Cartão Protegido
 
 A plataforma do **CARTÃO PROTEGIDO** é uma armazenadora segura de cartões de crédito. Os dados nela armazenados seguem as normas PCI, que garante a integridade das informações dos cartões armazenados.
 <br><br>
 O gateway PAGADOR (BRASPAG) está integrado ao **CARTÃO PROTEGIDO**, facilitando o envio e processamento de transações de cartão de crédito via token.
 
-<aside class="notice">A plataforma do CARTÃO PROTEGIDO armazena de forma segura, 100% PCI Compliance, os dados dos cartões de crédito.</aside>
-
 ## Sobre o Produto
 
 Enquanto produto, o CARTÃO PROTEGIDO, por ser uma solução para resolver o problema de armazenamento seguro de dados de cartão de crédito, pode ser utilizado para diversos fins, como:
 
-|||
-|-|-|
-|**Compra com 1 clique**| A “compra com 1 clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.|
-|**Cobrança Recorrente**| Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma apenas para a parte sensível: armazenar os dados de cartão de crédito e processar via PAGADOR, as cobranças nas Adquirentes utilizando apenas o token. (Não é obrigatório que a transação seja processada via Pagador)|
-|**Re-tentar Transação**| Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.|
-|**Segurança**| Qualquer outra finalidade, onde se faça necessário armazenar dados de um cartão de crédito de forma segura, mesmo que temporariamente|
+* **Compra com 1 clique**: A “compra com 1 clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.
+* **Cobrança Recorrente**: Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma apenas para a parte sensível: armazenar os dados de cartão de crédito e processar via PAGADOR, as cobranças nas Adquirentes utilizando apenas o token. (Não é obrigatório que a transação seja processada via Pagador)
+* **Re-tentativa de envio de transação (venda)**: Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.
+* Ou para qualquer outra finalidade, onde se faça necessário armazenar dados de um cartão de crédito de forma segura, mesmo que temporariamente
 
 ## Sobre este manual
 
@@ -38,113 +38,67 @@ Este manual tem como objetivo orientar o desenvolvedor da loja sobre a integraç
 
 ## Sobre a Integração
 
-Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 2 maneiras de integrar o produto:
+Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 3 maneiras de integrar o produto:
 
-| Tipo de integração   | Via de integração                                                                                                  |
-|----------------------|--------------------------------------------------------------------------------------------------------------------|
-| **Cartão protegido** | Utilizando a API do proprio Cartão Protegido                                                                       |
-| **Pagador**          | Utilizando uma das 3 vias de integração do Pagador: <br> **API** <br> **Webservice** <br>**Post de Dados Pagador** |
+* Diretamente pela plataforma do CARTÃO PROTEGIDO;
+* Via plataforma PAGADOR, utilizando Webservice;
+* Via plataforma PAGADOR, utilizando Post de Dados.
 
-<br>
+Os dados necessários para armazenar um cartão de crédito na plataforma são: CPF do Cliente, Nome do Cliente, Nome do Portador, Número do Cartão e Data de Validade. O código de segurança não é armazenado (vide seção Código de
+Segurança).
 
-Os dados necessários para armazenar um cartão de crédito na plataforma são: 
+<aside class="notice">A plataforma do CARTÃO PROTEGIDO armazena de forma segura, 100% PCI Compliance, os dados dos cartões de crédito.</aside>
 
-* **CPF do Cliente**
-* **Nome do Cliente**
-* **Nome do Portador**
-* **Número do Cartão**
-* **Data de Validade**
-
-<aside class="warning"><b>CÓDIGO DE SEGURANÇA (CVV)</b> O código de segurança não é armazenado devido a regras de seguranças PCI - Vide seção "Código de Segurança"</aside>
-
-<aside class="warning"><b>REGISTRO DE IP's</b> Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).</aside>
+<aside class="warning">Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).</aside>
 
 <aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
 
-### Credenciais de acesso
+# **PARÂMETRO** JustClickAlias
 
-Assim como outros produtos Braspag, é necessario que a loja em processo de integração use em seu header as credenciais de acesso abaixo:
+Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. O cliente poderá, no momento do salvamento do cartão, criar um Alias (apelido) que identificará esse cartão na Plataforma CARTÃO PROTEGIDO. Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. Para isso, o lojista deveria indicar que o JustClickKey está desabilitado. Dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.
 
-```json
-{
-   "Content-Type": "application/json"
-   "MerchantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-   "MerchantKey": "0123456789012345678901234567890123456789"
-   "RequestId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-}
-```
+## Forma Correta de Associação
 
-| Propriedade   | Tipo  | Tamanho | Obrigatório | Descrição                                                                                              |
-|---------------|-------|---------|-------------|--------------------------------------------------------------------------------------------------------|
-| `MerchantId`  | Guid  | 36      | Sim         | Identificador da loja na Braspag.                                                                      |
-| `MerchantKey` | Texto | 40      | Sim         | Chave Publica para Autenticação Dupla na Braspag                                                       |
-| `RequestId`   | Guid  | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. |
+Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:
 
-# Integração CARTÃO PROTEGIDO
+|Merchant Id|JustClickKey (Token)|Alias|Enabled|
+|-----------|--------------------|-----|-------|
+|LOJA A|Token 1|XPTO|0|
+|LOJA A|Token 2|XPTO|0|
+|LOJA A|Token 3|XPTO|1|
 
-Neste modelo de integração, a loja pode salvar um **salva um cartão** enviando as Credenciais Braspag e os Dados do cartão para a **API do Cartão Protegido**
+<aside class="notice">Obs.: A desassociação ocorrerá após a execução do método InvalidateCreditCard </aside>
 
-Utilizando essa API, a Loja receberá uma chave que identifica o cartão e o comprador, chamada `JustClickKey` que pode ser utilizada para consultar os dados do meio de pagamento em uma transação posterior, como demonstrado no Fluxo abaixo:
+## Forma de Associação Não Aceita
 
-![]({{ site.baseurl_root }}/images/braspag/autorizacaocomopcaosalvarcartao.png)
+Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
+desde que esteja desvinculado de um determinado Token:
 
-## Salvando um cartão
+|Merchant Id|JustClickKey (Token)|Alias|Enabled|
+|-----------|--------------------|-----|-------|
+|LOJA A|Token 1|XPTO|1|
+|LOJA A|Token 2|XPTO|1|
+|LOJA A|Token 3|XPTO|1|
 
-Com a permissão do cliente para salvar seu cartão, a loja deve:
+# FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO
 
-1. Enviar a tentativa de autorização da compra para um Gateway de pagamentos 
+Abaixo está representado o fluxo de uma requisição para salvar um cartão de um cliente durante uma venda, seguido de outro fluxo onde o mesmo cliente realiza uma compra via CARTÃO PROTEGIDO.
+
+Com a permissão do cliente para salvar seu cartão, o estabelecimento deve:
+
+1. Enviar a tentativa de autorização da compra em questão via Gateway. Processo padrão que já acontece hoje
 2. Receber o resultado da autorização
-3. Enviar os dados do cartão para armazenamento no *CARTÃO PROTEGIDO*
-4. Receber a `JustClickKey`, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.
-
-O cartão deve ser enviado para o Endpoint:
-
-```json
-{  
-   "MerchantOrderId":"010101",
-   "Customer":{  
-      "Name":"Comprador Fulano de tal"     
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":100,
-     "Provider":"Cielo",
-     "Installments":1,
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"03/2019",
-         "SecurityCode":"262",
-         "SaveCard":"true",
-         "Brand":"Visa"
-     }
-   }
-}
-```
-
-| Propriedade                 | Tipo   | Tamanho | Obrigatório | Descrição                                                                           |
-|-----------------------------|--------|---------|-------------|-------------------------------------------------------------------------------------|
-| `MerchantOrderId`           | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                  |
-| `Customer.Name`             | Texto  | 255     | Não         | Nome do Comprador.                                                                  |
-| `Customer.Status`           | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                            |
-| `Payment.Type`              | Texto  | 100     | Sim         | Tipo do Meio de Pagamento.                                                          |
-| `Payment.Amount`            | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                          |
-| `Payment.Provider`          | Texto  | 15      | ---         | Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO. |
-| `Payment.Installments`      | Número | 2       | Sim         | Número de Parcelas.                                                                 |
-| `CreditCard.CardNumber`     | Texto  | 19      | Sim         | Número do Cartão do Comprador.                                                      |
-| `CreditCard.Holder`         | Texto  | 25      | Não         | Nome do Comprador impresso no cartão.                                               |
-| `CreditCard.ExpirationDate` | Texto  | 7       | Sim         | Data de validade impresso no cartão.                                                |
-| `CreditCard.SecurityCode`   | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                        |
-| `CreditCard.Brand`          | Texto  | 10      | Sim         | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).   |
-
-## Buscar um cartão
+3. Enviar os dados do cartão para armazenamento no CARTÃO PROTEGIDO
+4. Receber a “JustClickKey”, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.
 
 Quando o cliente voltar ao site para fazer uma nova compra e se logar, o site pode apresentar a opção de “compra com 1 clique”, e o fluxo será:
 
 1. Chamar a autorização da transação direto pela plataforma do CARTÃO PROTEGIDO, passando a “JustClickKey” e/ou “JustClickAlias” do cliente e, opcionalmente, o CVV (vide seção Código de Segurança)
 2. Receber o resultado da autorização
 
-# Integração PAGADOR
+![]({{ site.baseurl_root }}/images/braspag/autorizacaocomopcaosalvarcartao.png)
+
+# FLUXO DE AUTORIZAÇÃO VIA PAGADOR
 
 Abaixo estão representados os fluxos de uma requisição para salvar um cartão de um cliente durante uma venda e de uma compra via CARTÃO PROTEGIDO, ambas utilizando a integração PAGADOR/CARTÃO PROTEGIDO
 
@@ -172,7 +126,7 @@ Abaixo estão representados os fluxos de uma requisição para salvar um cartão
 
 Abaixo, fluxo de autorização via Post. Mostrando uma transação onde o cliente possui a chave gerada pelo Cartão Protegido e outra onde essa chave ainda irá ser criada e enviada ao cliente (CredicardToken).
 
-IMAGEM"/images/pgautorizacaopost.PNG">
+![]({{ site.baseurl_root }}/images/braspag/pgautorizacaopost.png)
 
 <aside class="warning">O parâmetro “CreditCardToken” retornado pelo PAGADOR é a própria “JustClickKey” do CARTÃO PROTEGIDO.</aside>
 
@@ -226,54 +180,54 @@ O método SaveCreditCard recebe o objeto SaveCreditCardRequest e deve ser chamad
 
 ### Requisição
 
-| Parâmetros             | Tipo   | Descrição                                       | Obrigatório? |
-|------------------------|--------|-------------------------------------------------|--------------|
-| MerchantKey            | Guid   | Chave da loja JustClick                         | Sim          |
-| CustomerIdentification | string | CPF do comprador                                | Não          |
-| CustomerName           | string | Nome do comprador                               | Sim          |
-| CardHolder             | string | Nome do Portador do cartão de crédito           | Sim          |
-| CardNumber             | string | Número do cartão de crédito                     | Sim          |
-| CardExpiration         | string | Validade do cartão de crédito. Formato: mm/yyyy | Sim          |
-| JustClickAlias         | string | Alias (Apelido) do cartão de crédito            | Não          |
-| RequestId              | Guid   | Identificador da requisição enviada             | Sim          |
-| Version                | string | Versão do método. Padrão: 2.0                   | Não          |
+|Parâmetros|Tipo|Descrição|Obrigatório?|
+|----------|----|---------|------------|
+|MerchantKey|Guid|Chave da loja JustClick|Sim|
+|CustomerIdentification|string| CPF do comprador|Não|
+|CustomerName|string|Nome do comprador|Sim|
+|CardHolder|string|Nome do Portador do cartão de crédito|Sim|
+|CardNumber|string|Número do cartão de crédito|Sim|
+|CardExpiration|string|Validade do cartão de crédito. Formato: mm/yyyy|Sim|
+|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
+|RequestId|Guid|Identificador da requisição enviada|Sim|
+|Version|string|Versão do método. Padrão: 2.0|Não|
 
 ### Resposta
 
-| Parâmetros            | Tipo              | Descrição                                                                                                                                                                                                | Obrigatório? |
-|-----------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
-| JustClickKey          | Guid              | Token (Chave identificadora) que representa o cartão de crédito                                                                                                                                          | Sim          |
-| CorrelationId         | Guid              | Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request                                                                                                          | Sim          |
-| Success               | bool              | Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados | Não          |
-| ErrorReportCollection | List<ErrorReport> | Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”                                                                                                                       | Não          |
+|Parâmetros|Tipo|Descrição|Obrigatório?|
+|----------|----|---------|------------|
+|JustClickKey|Guid|Token (Chave identificadora) que representa o cartão de crédito|Sim|
+|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request|Sim|
+|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
+|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
 
 ## RECUPERAÇÃO do número do Cartão de Crédito, com retorno Mascarado
 
-O método GetMaskedCreditCard recebe o objeto GetMaskedCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito de forma PCI Compliance, ou seja, apenas o número mascarado do cartão é retornado no método GetMaskedCreditCardResponse, juntamente com as demais informações não sensíveis.
+O método GetMaskedCreditCard recebe o objeto GetMaskedCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito de forma PCI Compliance, ou seja, apenas o número mascarado do cartão é retornado no método GetMaskedCreditCardResponse, juntamente com as demais informações não sensíveis. 
 
 ![]({{ site.baseurl_root }}/images/braspag/getcreditcard.png)
 
 ### Requisição
 
-| Parâmetros     | Tipo   | Descrição                                | Obrigatório? |
-|----------------|--------|------------------------------------------|--------------|
-| MerchantKey    | Guid   | Chave da loja JustClick                  | Sim          |
-| JustClickKey   | Guid   | Token que representa o cartão de crédito | Sim          |
-| JustClickAlias | string | Alias (Apelido) do cartão de crédito     | Não          |
-| RequestId      | Guid   | Identificador da requisição enviada      | Não          |
-| Version        | string | Versão do método. Padrão: 2.0            | Não          |
+|Parâmetros|Tipo|Descrição|Obrigatório?|
+|----------|----|---------|------------|
+|MerchantKey|Guid|Chave da loja JustClick|Sim|
+|JustClickKey|Guid|Token que representa o cartão de crédito|Sim|
+|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
+|RequestId|Guid|Identificador da requisição enviada|Não|
+|Version|string|Versão do método. Padrão: 2.0|Não|
 
 ### Resposta
 
-| Parâmetros            | Tipo              | Descrição                                                                                                                                                                                                | Obrigatório? |
-|-----------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
-| CardHolder            | string            | Portador do cartão de crédito                                                                                                                                                                            | Sim          |
-| CardExpiration        | string            | Validade do cartão de crédito. Formato: mm/yyyy                                                                                                                                                          | Sim          |
-| MaskedCardNumber      | string            | Número do cartão de crédito mascarado                                                                                                                                                                    | Sim          |
-| CorrelationId         | Guid              | Identificador da resposta recebida, que será o próprio                                                                                                                                                   | Não          |
-| RequestId             | Guid              | enviado no objeto de request                                                                                                                                                                             | Não          |
-| Success               | bool              | Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados | Não          |
-| ErrorReportCollection | List<ErrorReport> | Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”                                                                                                                       | Não          |
+|Parâmetros|Tipo|Descrição|Obrigatório?|
+|----------|----|---------|------------|
+|CardHolder|string|Portador do cartão de crédito|Sim|
+|CardExpiration|string|Validade do cartão de crédito. Formato: mm/yyyy|Sim|
+|MaskedCardNumber|string|Número do cartão de crédito mascarado|Sim|
+|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio|Não|
+|RequestId|Guid|enviado no objeto de request|Não|
+|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
+|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
 
 ## RECUPERANDO informações sobre o Cartão de Crédito
 
@@ -283,26 +237,26 @@ O método GetCreditCard recebe o objeto GetCreditCardRequest, e deve ser chamado
 
 ### Requisição
 
-| Parâmetros     | Tipo   | Descrição                                | Obrigatório? |
-|----------------|--------|------------------------------------------|--------------|
-| MerchantKey    | Guid   | Chave da loja JustClick                  | Sim          |
-| JustClickKey   | Guid   | Token que representa o cartão de crédito | Sim          |
-| JustClickAlias | string | Alias (Apelido) do cartão de crédito     | Não          |
-| RequestId      | Guid   | Identificador da requisição enviada      | Não          |
-| Version        | string | Versão do método. Padrão: 2.0            | Não          |
+|Parâmetros|Tipo|Descrição|Obrigatório?|
+|----------|----|---------|------------|
+|MerchantKey|Guid|Chave da loja JustClick|Sim|
+|JustClickKey|Guid|Token que representa o cartão de crédito|Sim|
+|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
+|RequestId|Guid|Identificador da requisição enviada|Não|
+|Version|string|Versão do método. Padrão: 2.0|Não|
 
 ### Resposta
 
-| Parâmetros            | Tipo              | Descrição                                                                                                                                                                                                | Obrigatório? |
-|-----------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
-| CardHolder            | string            | Portador do cartão de crédito                                                                                                                                                                            | Sim          |
-| CardNumber            | string            | Número do cartão de crédito aberto                                                                                                                                                                       | Sim          |
-| CardExpiration        | string            | Validade do cartão de crédito. Formato: mm/yyyy                                                                                                                                                          | Sim          |
-| MaskedCardNumber      | string            | Número do cartão de crédito mascarado                                                                                                                                                                    | Sim          |
-| CorrelationId         | Guid              | Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request                                                                                                          | Não          |
-| RequestId             | Guid              | enviado no objeto de request                                                                                                                                                                             | Não          |
-| Success               | bool              | Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados | Não          |
-| ErrorReportCollection | List<ErrorReport> | Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”                                                                                                                       | Não          |
+|Parâmetros|Tipo|Descrição|Obrigatório?|
+|----------|----|---------|------------|
+|CardHolder|string|Portador do cartão de crédito|Sim|
+|CardNumber|string|Número do cartão de crédito aberto|Sim|
+|CardExpiration|string|Validade do cartão de crédito. Formato: mm/yyyy|Sim|
+|MaskedCardNumber|string|Número do cartão de crédito mascarado|Sim|
+|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request|Não|
+|RequestId|Guid|enviado no objeto de request|Não|
+|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
+|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
 
 ## RECUPERANDO uma JustClickKey
 
@@ -313,21 +267,22 @@ de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) 
 
 ### Requisição
 
-| Parâmetros              | Tipo   | Descrição                                                                                                                                                          | Obrigatório? |
-|-------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
-| MerchantKey             | Guid   | Chave da loja JustClick                                                                                                                                            | Sim          |
-| SaveCreditCardRequestId | Guid   | Identificador da requisição ao método SaveCreditCard (parâmetro “RequestId”) que resultou no armazenamento do cartão de crédito na plataforma do Cartão Protegido. | Sim          |
-| RequestId               | Guid   | Identificador da requisição enviada                                                                                                                                | Não          |
-| Version                 | string | Versão do método. Padrão: 2.0                                                                                                                                      | Não          |
+|Parâmetros|Tipo|Descrição|Obrigatório?|
+|----------|----|---------|------------|
+|MerchantKey|Guid|Chave da loja JustClick|Sim|
+|SaveCreditCardRequestId|Guid|Identificador da requisição ao método SaveCreditCard (parâmetro “RequestId”) que resultou no armazenamento do cartão de crédito na plataforma do Cartão Protegido.|Sim|
+|RequestId|Guid|Identificador da requisição enviada|Não|
+|Version|string|Versão do método. Padrão: 2.0|Não|
 
 ### Resposta
 
-| Parâmetros            | Tipo              | Descrição                                                                                                                                                                                                | Obrigatório? |
-|-----------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
-| JustClickKey          | Guid              | Token que representa o cartão de crédito                                                                                                                                                                 | Sim          |
-| CorrelationId         | Guid              | Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request                                                                                                          | Não          |
-| Success               | bool              | Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados | Não          |
-| ErrorReportCollection | List<ErrorReport> | Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”                                                                                                                       | Não          |
+|Parâmetros|Tipo|Descrição|Obrigatório?|
+|----------|----|---------|------------|
+|JustClickKey|Guid|Token que representa o cartão de crédito|Sim|
+|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request|Não|
+|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
+|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
+
 ## Invalidando um Cartão de Crédito
 
 O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e deve ser chamado para invalidar um cartão de crédito. Um cartão inválido não pode ser utilizado numa autorização do PAGADOR
@@ -336,21 +291,21 @@ O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e de
 
 ### Requisição
 
-| Parâmetros     | Tipo   | Descrição                                | Obrigatório? |
-|----------------|--------|------------------------------------------|--------------|
-| MerchantKey    | Guid   | Chave da loja JustClick                  | Sim          |
-| JustClickKey   | Guid   | Token que representa o cartão de crédito | Sim          |
-| JustClickAlias | string | Alias (Apelido) do cartão de crédito     | Não          |
-| RequestId      | Guid   | Identificador da requisição enviada      | Não          |
-| Version        | string | Versão do método. Padrão: 2.0            | Não          |
+|Parâmetros|Tipo|Descrição|Obrigatório?|
+|----------|----|---------|------------|
+|MerchantKey|Guid|Chave da loja JustClick|Sim|
+|JustClickKey|Guid|Token que representa o cartão de crédito|Sim|
+|JustClickAlias|string|Alias (Apelido) do cartão de crédito|Não|
+|RequestId|Guid|Identificador da requisição enviada|Não|
+|Version|string|Versão do método. Padrão: 2.0|Não|
 
 ### Resposta
 
-| Parâmetros            | Tipo              | Descrição                                                                                                                                                                                                | Obrigatório? |
-|-----------------------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|
-| CorrelationId         | Guid              | Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request                                                                                                          | Não          |
-| Success               | bool              | Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados | Não          |
-| ErrorReportCollection | List<ErrorReport> | Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”                                                                                                                       | Não          |
+|Parâmetros|Tipo|Descrição|Obrigatório?|
+|----------|----|---------|------------|
+|CorrelationId|Guid|Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request|Não|
+|Success|bool|Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados|Não|
+|ErrorReportCollection|List<ErrorReport>|Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”|Não|
 
 ## Detalhes importantes no consumo dos métodos
 
@@ -366,61 +321,28 @@ deve ser abortado e o erro analisado e tratado.
 
 Abaixo segue a lista dos possíveis erros retornado pelos métodos no campo “ErrorReportCollection”
 
-| Código | Mensagem                                              |
-|--------|-------------------------------------------------------|
-| 701    | Merchant key can not be null                          |
-| 702    | Merchant key is not valid                             |
-| 703    | JustClick key can not be null                         |
-| 704    | JustClick key is not valid                            |
-| 705    | Customer name can not be null                         |
-| 706    | Card holder can not be null                           |
-| 707    | Card number can not be null                           |
-| 709    | Card expiration can not be null                       |
-| 710    | Card expiration is not valid (Format: MM/yyyy)        |
-| 720    | Merchant JustClick not found                          |
-| 724    | Credit card not exists for merchant                   |
-| 731    | Invalid IP address                                    |
-| 732    | SaveCreditCardRequestId can not be null               |
-| 733    | SaveCreditCardRequestId not found for this Merchant   |
-| 734    | Numbers of attempts to Recovery JustClickKey exceeded |
-| 735    | Save Credit Card Request Id Already Exists            |
-| 747    | Empty Request                                         |
-| 749    | JustClickAlias Already Exists                         |
-| 750    | Extra Data Name Is Not Valid                          |
-| 751    | JustClickAlias Is Not Filled                          |
-| 752    | Data Collection Can Not Be Empty                      |
-| 753    | JustClickAlias Is Mandatory                           |
-| 799    | Undefined error                                       |
-
-# Parâmetro JustClickAlias
-
-Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. 
-
-<br>
-
-O cliente poderá, no momento do salvamento do cartão, criar um **Alias (_apelido_)** que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
-Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
-Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.
-
-## Forma Correta de Associação
-
-Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:
-
-| Merchant Id | JustClickKey (Token) | Alias | Enabled |
-|-------------|----------------------|-------|---------|
-| LOJA A      | Token 1              | XPTO  | 0       |
-| LOJA A      | Token 2              | XPTO  | 0       |
-| LOJA A      | Token 3              | XPTO  | 1       |
-
-**Obs:** A desassociação ocorrerá após a execução do método InvalidateCreditCard 
-
-## Forma de Associação Não Aceita
-
-Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
-desde que esteja desvinculado de um determinado Token:
-
-| Merchant Id | JustClickKey (Token) | Alias | Enabled |
-|-------------|----------------------|-------|---------|
-| LOJA A      | Token 1              | XPTO  | 1       |
-| LOJA A      | Token 2              | XPTO  | 1       |
-| LOJA A      | Token 3              | XPTO  | 1       |
+|Código|Mensagem|
+|------|--------|
+|701|Merchant key can not be null|
+|702|Merchant key is not valid|
+|703|JustClick key can not be null|
+|704|JustClick key is not valid|
+|705|Customer name can not be null|
+|706|Card holder can not be null|
+|707|Card number can not be null|
+|709|Card expiration can not be null|
+|710|Card expiration is not valid (Format: MM/yyyy)|
+|720|Merchant JustClick not found|
+|724|Credit card not exists for merchant|
+|731|Invalid IP address|
+|732|SaveCreditCardRequestId can not be null|
+|733|SaveCreditCardRequestId not found for this Merchant|
+|734|Numbers of attempts to Recovery JustClickKey exceeded|
+|735|Save Credit Card Request Id Already Exists|
+|747|Empty Request|
+|749|JustClickAlias Already Exists|
+|750|Extra Data Name Is Not Valid|
+|751|JustClickAlias Is Not Filled|
+|752|Data Collection Can Not Be Empty|
+|753|JustClickAlias Is Mandatory|
+|799|Undefined error|
