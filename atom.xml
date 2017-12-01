@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T13:20:03+00:00</updated>
+    <updated>2017-12-01T13:29:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2124,7 +2124,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
   &lt;li&gt;&lt;strong&gt;Data de Validade&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;&lt;b&gt;CÓDIGO DE SEGURANÇA (CVV)&lt;/b&gt;O código de segurança não é armazenado devido a regras de seguranças PCI - Vide seção &quot;Código de Segurança&quot;&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;&lt;b&gt;CÓDIGO DE SEGURANÇA (CVV)&lt;/b&gt; O código de segurança não é armazenado devido a regras de seguranças PCI - Vide seção &quot;Código de Segurança&quot;&lt;/aside&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).&lt;/aside&gt;
 
@@ -2150,7 +2150,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
   &lt;li&gt;Receber o resultado da autorização&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;fluxo-de-autorizaÇÃo-via-pagador&quot;&gt;FLUXO DE AUTORIZAÇÃO VIA PAGADOR&lt;/h1&gt;
 
