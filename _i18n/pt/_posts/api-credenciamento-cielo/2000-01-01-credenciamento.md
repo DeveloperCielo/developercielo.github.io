@@ -286,13 +286,13 @@ curl -X GET \
   -H 'content-type: application/json'
 ```
 
-***Requisição***
+***Request***
 
 | Propriedade      | Tipo   | Valores | Descrição                                |
 | ---------------- | ------ | ------- | ---------------------------------------- |
 | `proposalNumber` | Número | any     | Número da proposta comercial que foi criada |
 
-***Resposta***
+***Response***
 
 | Propriedade | Tipo   | Valores | Descrição                                |
 | ----------- | ------ | ------- | ---------------------------------------- |
