@@ -61,6 +61,26 @@ Os dados necessários para armazenar um cartão de crédito na plataforma são:
 
 <aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
 
+### Credenciais de acesso
+
+Assim como outros produtos Braspag, é necessario que a loja em processo de integração use em seu header as credenciais de acesso abaixo:
+
+```
+
+--request POST "https://ENDPOINT.com.br/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+```
+
+| Propriedade   | Tipo  | Tamanho | Obrigatório | Descrição                                                                                              |
+|---------------|-------|---------|-------------|--------------------------------------------------------------------------------------------------------|
+| `MerchantId`  | Guid  | 36      | Sim         | Identificador da loja na Cielo.                                                                        |
+| `MerchantKey` | Texto | 40      | Sim         | Chave Publica para Autenticação Dupla na Cielo.                                                        |
+| `RequestId`   | Guid  | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. |
+
 # Integração CARTÃO PROTEGIDO
 
 Neste modelo de integração, a loja pode salvar um **salva um cartão** enviando as Credenciais Braspag e os Dados do cartão para a **API do Cartão Protegido**
@@ -80,17 +100,7 @@ Com a permissão do cliente para salvar seu cartão, a loja deve:
 
 O cartão deve ser enviado para o Endpoint:
 
-Header:
-
-```
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-```
-
-```Json
+```json
 {  
    "MerchantOrderId":"010101",
    "Customer":{  
@@ -113,23 +123,20 @@ Header:
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
-|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
-|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+| Propriedade                 | Tipo   | Tamanho | Obrigatório | Descrição                                                                           |
+|-----------------------------|--------|---------|-------------|-------------------------------------------------------------------------------------|
+| `MerchantOrderId`           | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                  |
+| `Customer.Name`             | Texto  | 255     | Não         | Nome do Comprador.                                                                  |
+| `Customer.Status`           | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                            |
+| `Payment.Type`              | Texto  | 100     | Sim         | Tipo do Meio de Pagamento.                                                          |
+| `Payment.Amount`            | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                          |
+| `Payment.Provider`          | Texto  | 15      | ---         | Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO. |
+| `Payment.Installments`      | Número | 2       | Sim         | Número de Parcelas.                                                                 |
+| `CreditCard.CardNumber`     | Texto  | 19      | Sim         | Número do Cartão do Comprador.                                                      |
+| `CreditCard.Holder`         | Texto  | 25      | Não         | Nome do Comprador impresso no cartão.                                               |
+| `CreditCard.ExpirationDate` | Texto  | 7       | Sim         | Data de validade impresso no cartão.                                                |
+| `CreditCard.SecurityCode`   | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                        |
+| `CreditCard.Brand`          | Texto  | 10      | Sim         | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).   |
 
 ## Buscar um cartão
 
@@ -138,7 +145,7 @@ Quando o cliente voltar ao site para fazer uma nova compra e se logar, o site po
 1. Chamar a autorização da transação direto pela plataforma do CARTÃO PROTEGIDO, passando a “JustClickKey” e/ou “JustClickAlias” do cliente e, opcionalmente, o CVV (vide seção Código de Segurança)
 2. Receber o resultado da autorização
 
-# integração PAGADOR
+# Integração PAGADOR
 
 Abaixo estão representados os fluxos de uma requisição para salvar um cartão de um cliente durante uma venda e de uma compra via CARTÃO PROTEGIDO, ambas utilizando a integração PAGADOR/CARTÃO PROTEGIDO
 
