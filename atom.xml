@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T18:05:17+00:00</updated>
+    <updated>2017-12-01T18:06:09+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16626,7 +16626,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
 
 &lt;p&gt;O método SaveCreditCard recebe o objeto SaveCreditCardRequest e deve ser chamado para salvar os dados de uma cartão de crédito e receber a chave identificadora (token) da dupla “cartão de crédito-cliente” para futuras autorizações via “compra com 1 clique”. Não se deve informar RequestId repetidos para essa operação, pois essa informação será necessária para recuperar o JustClickKey na utilização do método GetJustClickKey().&lt;/p&gt;
 
-&lt;p&gt;IMAGEM”/images/savecreditcard.PNG”&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/savecreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -16740,7 +16740,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
 
 &lt;p&gt;O método GetMaskedCreditCard recebe o objeto GetMaskedCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito de forma PCI Compliance, ou seja, apenas o número mascarado do cartão é retornado no método GetMaskedCreditCardResponse, juntamente com as demais informações não sensíveis.&lt;/p&gt;
 
-&lt;p&gt;IMAGEM”/images/getcreditcard.PNG”&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/getcreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -16848,7 +16848,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
 
 &lt;p&gt;O método GetCreditCard recebe o objeto GetCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito, incluindo o número aberto do cartão. Em geral, esse método será utilizado apenas quando se desejar autorizar a transação via outra plataforma que não o PAGADOR. Este método deve ser usado com muito cuidado por ter informações sensíveis.&lt;/p&gt;
 
-&lt;p&gt;IMAGEM”/images/getcreditcardraw.PNG”&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/getcreditcardraw.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-2&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -16963,7 +16963,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
 &lt;p&gt;O método GetJustClickKey recebe o objeto GetJustClickKeyRequest, e deve ser chamado para consultar uma JustClickKey. Em geral, esse método será utilizado apenas quando o lojista, por algum motivo, perder a JustClickKey
 de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) vezes consecutivas passando um ‘SaveCreditCardRequestId’ inválido, a loja ficará impossibilitada de utilizar o método até que entre em contato com o suporte da Braspag para efetuar a liberação.&lt;/p&gt;
 
-&lt;p&gt;IMAGEM”/images/getjustclickkey.PNG”&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/getjustclickkey.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-3&quot;&gt;Requisição&lt;/h3&gt;
 
@@ -17047,7 +17047,7 @@ de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) 
 
 &lt;p&gt;O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e deve ser chamado para invalidar um cartão de crédito. Um cartão inválido não pode ser utilizado numa autorização do PAGADOR&lt;/p&gt;
 
-&lt;p&gt;IMAGEM”/images/invalidatecreditcard.PNG”&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/invalidatecreditcard.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-4&quot;&gt;Requisição&lt;/h3&gt;
 

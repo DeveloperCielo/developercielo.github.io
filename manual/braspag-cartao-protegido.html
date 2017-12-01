@@ -329,7 +329,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 
 <p>O método SaveCreditCard recebe o objeto SaveCreditCardRequest e deve ser chamado para salvar os dados de uma cartão de crédito e receber a chave identificadora (token) da dupla “cartão de crédito-cliente” para futuras autorizações via “compra com 1 clique”. Não se deve informar RequestId repetidos para essa operação, pois essa informação será necessária para recuperar o JustClickKey na utilização do método GetJustClickKey().</p>
 
-<p>IMAGEM”/images/savecreditcard.PNG”&gt;</p>
+<p><img src="https://developercielo.github.io/images/braspag/savecreditcard.png" alt="" /></p>
 
 <h3 id="requisição">Requisição</h3>
 
@@ -443,7 +443,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 
 <p>O método GetMaskedCreditCard recebe o objeto GetMaskedCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito de forma PCI Compliance, ou seja, apenas o número mascarado do cartão é retornado no método GetMaskedCreditCardResponse, juntamente com as demais informações não sensíveis.</p>
 
-<p>IMAGEM”/images/getcreditcard.PNG”&gt;</p>
+<p><img src="https://developercielo.github.io/images/braspag/getcreditcard.png" alt="" /></p>
 
 <h3 id="requisição-1">Requisição</h3>
 
@@ -551,7 +551,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 
 <p>O método GetCreditCard recebe o objeto GetCreditCardRequest, e deve ser chamado para consultar os dados de um cartão de crédito, incluindo o número aberto do cartão. Em geral, esse método será utilizado apenas quando se desejar autorizar a transação via outra plataforma que não o PAGADOR. Este método deve ser usado com muito cuidado por ter informações sensíveis.</p>
 
-<p>IMAGEM”/images/getcreditcardraw.PNG”&gt;</p>
+<p><img src="https://developercielo.github.io/images/braspag/getcreditcardraw.png" alt="" /></p>
 
 <h3 id="requisição-2">Requisição</h3>
 
@@ -666,7 +666,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 <p>O método GetJustClickKey recebe o objeto GetJustClickKeyRequest, e deve ser chamado para consultar uma JustClickKey. Em geral, esse método será utilizado apenas quando o lojista, por algum motivo, perder a JustClickKey
 de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) vezes consecutivas passando um ‘SaveCreditCardRequestId’ inválido, a loja ficará impossibilitada de utilizar o método até que entre em contato com o suporte da Braspag para efetuar a liberação.</p>
 
-<p>IMAGEM”/images/getjustclickkey.PNG”&gt;</p>
+<p><img src="https://developercielo.github.io/images/braspag/getjustclickkey.png" alt="" /></p>
 
 <h3 id="requisição-3">Requisição</h3>
 
@@ -750,7 +750,7 @@ de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) 
 
 <p>O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e deve ser chamado para invalidar um cartão de crédito. Um cartão inválido não pode ser utilizado numa autorização do PAGADOR</p>
 
-<p>IMAGEM”/images/invalidatecreditcard.PNG”&gt;</p>
+<p><img src="https://developercielo.github.io/images/braspag/invalidatecreditcard.png" alt="" /></p>
 
 <h3 id="requisição-4">Requisição</h3>
 
