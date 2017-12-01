@@ -12,7 +12,7 @@
 
     <title>
         
-        Cartão Protegido &middot; Documentações e tutoriais
+        Cartão Protegido Braspag &middot; Documentações e tutoriais
         
     </title>
 
@@ -125,7 +125,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/braspag-cartao-protegido">Cartão Protegido</a></li>
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/braspag-cartao-protegido">Cartão Protegido Braspag</a></li>
                                     
                                 
                             
@@ -135,44 +135,22 @@
             </div>
 
             <div class="post">
-  <h1 id="o-que-é-o-cartão-protegido">O que é o Cartão Protegido</h1>
+  <h1 id="introdução-ao-cartão-protegido">Introdução ao Cartão Protegido</h1>
 
 <p>A plataforma do <strong>CARTÃO PROTEGIDO</strong> é uma armazenadora segura de cartões de crédito. Os dados nela armazenados seguem as normas PCI, que garante a integridade das informações dos cartões armazenados.
 <br /><br />
 O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong>, facilitando o envio e processamento de transações de cartão de crédito via token.</p>
 
-<aside class="notice">A plataforma do CARTÃO PROTEGIDO armazena de forma segura, 100% PCI Compliance, os dados dos cartões de crédito.</aside>
-
 <h2 id="sobre-o-produto">Sobre o Produto</h2>
 
 <p>Enquanto produto, o CARTÃO PROTEGIDO, por ser uma solução para resolver o problema de armazenamento seguro de dados de cartão de crédito, pode ser utilizado para diversos fins, como:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Compra com 1 clique</strong></td>
-      <td>A “compra com 1 clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.</td>
-    </tr>
-    <tr>
-      <td><strong>Cobrança Recorrente</strong></td>
-      <td>Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma apenas para a parte sensível: armazenar os dados de cartão de crédito e processar via PAGADOR, as cobranças nas Adquirentes utilizando apenas o token. (Não é obrigatório que a transação seja processada via Pagador)</td>
-    </tr>
-    <tr>
-      <td><strong>Re-tentar Transação</strong></td>
-      <td>Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.</td>
-    </tr>
-    <tr>
-      <td><strong>Segurança</strong></td>
-      <td>Qualquer outra finalidade, onde se faça necessário armazenar dados de um cartão de crédito de forma segura, mesmo que temporariamente</td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+  <li><strong>Compra com 1 clique</strong>: A “compra com 1 clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.</li>
+  <li><strong>Cobrança Recorrente</strong>: Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma apenas para a parte sensível: armazenar os dados de cartão de crédito e processar via PAGADOR, as cobranças nas Adquirentes utilizando apenas o token. (Não é obrigatório que a transação seja processada via Pagador)</li>
+  <li><strong>Re-tentativa de envio de transação (venda)</strong>: Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.</li>
+  <li>Ou para qualquer outra finalidade, onde se faça necessário armazenar dados de um cartão de crédito de forma segura, mesmo que temporariamente</li>
+</ul>
 
 <h2 id="sobre-este-manual">Sobre este manual</h2>
 
@@ -182,234 +160,112 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 
 <h2 id="sobre-a-integração">Sobre a Integração</h2>
 
-<p>Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 2 maneiras de integrar o produto:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tipo de integração</th>
-      <th>Via de integração</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Cartão protegido</strong></td>
-      <td>Utilizando a API do proprio Cartão Protegido</td>
-    </tr>
-    <tr>
-      <td><strong>Pagador</strong></td>
-      <td>Utilizando uma das 3 vias de integração do Pagador: <br /> <strong>API</strong> <br /> <strong>Webservice</strong> <br /><strong>Post de Dados Pagador</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><br /></p>
-
-<p>Os dados necessários para armazenar um cartão de crédito na plataforma são:</p>
+<p>Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 3 maneiras de integrar o produto:</p>
 
 <ul>
-  <li><strong>CPF do Cliente</strong></li>
-  <li><strong>Nome do Cliente</strong></li>
-  <li><strong>Nome do Portador</strong></li>
-  <li><strong>Número do Cartão</strong></li>
-  <li><strong>Data de Validade</strong></li>
+  <li>Diretamente pela plataforma do CARTÃO PROTEGIDO;</li>
+  <li>Via plataforma PAGADOR, utilizando Webservice;</li>
+  <li>Via plataforma PAGADOR, utilizando Post de Dados.</li>
 </ul>
 
-<aside class="warning"><b>CÓDIGO DE SEGURANÇA (CVV)</b> O código de segurança não é armazenado devido a regras de seguranças PCI - Vide seção "Código de Segurança"</aside>
+<p>Os dados necessários para armazenar um cartão de crédito na plataforma são: CPF do Cliente, Nome do Cliente, Nome do Portador, Número do Cartão e Data de Validade. O código de segurança não é armazenado (vide seção Código de
+Segurança).</p>
 
-<aside class="warning"><b>REGISTRO DE IP's</b> Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).</aside>
+<aside class="notice">A plataforma do CARTÃO PROTEGIDO armazena de forma segura, 100% PCI Compliance, os dados dos cartões de crédito.</aside>
+
+<aside class="warning">Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).</aside>
 
 <aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
 
-<h3 id="credenciais-de-acesso">Credenciais de acesso</h3>
+<h1 id="parÂmetro-justclickalias"><strong>PARÂMETRO</strong> JustClickAlias</h1>
 
-<p>Assim como outros produtos Braspag, é necessario que a loja em processo de integração use em seu header as credenciais de acesso abaixo:</p>
+<p>Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. O cliente poderá, no momento do salvamento do cartão, criar um Alias (apelido) que identificará esse cartão na Plataforma CARTÃO PROTEGIDO. Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. Para isso, o lojista deveria indicar que o JustClickKey está desabilitado. Dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="w">
-   </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
-   </span><span class="s2">"MerchantKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789012345678901234567890123456789"</span><span class="w">
-   </span><span class="s2">"RequestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<h2 id="forma-correta-de-associação">Forma Correta de Associação</h2>
+
+<p>Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
+      <th>Merchant Id</th>
+      <th>JustClickKey (Token)</th>
+      <th>Alias</th>
+      <th>Enabled</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Identificador da loja na Braspag.</td>
+      <td>LOJA A</td>
+      <td>Token 1</td>
+      <td>XPTO</td>
+      <td>0</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantKey</code></td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
-      <td>Chave Publica para Autenticação Dupla na Braspag</td>
+      <td>LOJA A</td>
+      <td>Token 2</td>
+      <td>XPTO</td>
+      <td>0</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Não</td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>LOJA A</td>
+      <td>Token 3</td>
+      <td>XPTO</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="integração-cartÃo-protegido">Integração CARTÃO PROTEGIDO</h1>
+<aside class="notice">Obs.: A desassociação ocorrerá após a execução do método InvalidateCreditCard </aside>
 
-<p>Neste modelo de integração, a loja pode salvar um <strong>salva um cartão</strong> enviando as Credenciais Braspag e os Dados do cartão para a <strong>API do Cartão Protegido</strong></p>
+<h2 id="forma-de-associação-não-aceita">Forma de Associação Não Aceita</h2>
 
-<p>Utilizando essa API, a Loja receberá uma chave que identifica o cartão e o comprador, chamada <code class="highlighter-rouge">JustClickKey</code> que pode ser utilizada para consultar os dados do meio de pagamento em uma transação posterior, como demonstrado no Fluxo abaixo:</p>
+<p>Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
+desde que esteja desvinculado de um determinado Token:</p>
 
-<p><img src="https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.png" alt="" /></p>
+<table>
+  <thead>
+    <tr>
+      <th>Merchant Id</th>
+      <th>JustClickKey (Token)</th>
+      <th>Alias</th>
+      <th>Enabled</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 1</td>
+      <td>XPTO</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 2</td>
+      <td>XPTO</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>LOJA A</td>
+      <td>Token 3</td>
+      <td>XPTO</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2 id="salvando-um-cartão">Salvando um cartão</h2>
+<h1 id="fluxo-de-autorizaÇÃo-via-plataforma-cartÃo-protegido">FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO</h1>
 
-<p>Com a permissão do cliente para salvar seu cartão, a loja deve:</p>
+<p>Abaixo está representado o fluxo de uma requisição para salvar um cartão de um cliente durante uma venda, seguido de outro fluxo onde o mesmo cliente realiza uma compra via CARTÃO PROTEGIDO.</p>
+
+<p>Com a permissão do cliente para salvar seu cartão, o estabelecimento deve:</p>
 
 <ol>
-  <li>Enviar a tentativa de autorização da compra para um Gateway de pagamentos</li>
+  <li>Enviar a tentativa de autorização da compra em questão via Gateway. Processo padrão que já acontece hoje</li>
   <li>Receber o resultado da autorização</li>
-  <li>Enviar os dados do cartão para armazenamento no <em>CARTÃO PROTEGIDO</em></li>
-  <li>Receber a <code class="highlighter-rouge">JustClickKey</code>, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.</li>
+  <li>Enviar os dados do cartão para armazenamento no CARTÃO PROTEGIDO</li>
+  <li>Receber a “JustClickKey”, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.</li>
 </ol>
-
-<p>O cartão deve ser enviado para o Endpoint:</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"010101"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">  
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador Fulano de tal"</span><span class="w">     
-   </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">  
-     </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"03/2019"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"262"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-     </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-      <td>Numero de identificação do Pedido.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Customer.Status</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do Meio de Pagamento.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Amount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Provider</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>—</td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Installments</code></td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de Parcelas.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>Sim</td>
-      <td>Número do Cartão do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-      <td>Nome do Comprador impresso no cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade impresso no cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="buscar-um-cartão">Buscar um cartão</h2>
 
 <p>Quando o cliente voltar ao site para fazer uma nova compra e se logar, o site pode apresentar a opção de “compra com 1 clique”, e o fluxo será:</p>
 
@@ -418,7 +274,9 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
   <li>Receber o resultado da autorização</li>
 </ol>
 
-<h1 id="integração-pagador">Integração PAGADOR</h1>
+<p><img src="https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.png" alt="" /></p>
+
+<h1 id="fluxo-de-autorizaÇÃo-via-pagador">FLUXO DE AUTORIZAÇÃO VIA PAGADOR</h1>
 
 <p>Abaixo estão representados os fluxos de uma requisição para salvar um cartão de um cliente durante uma venda e de uma compra via CARTÃO PROTEGIDO, ambas utilizando a integração PAGADOR/CARTÃO PROTEGIDO</p>
 
@@ -450,7 +308,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 
 <p>Abaixo, fluxo de autorização via Post. Mostrando uma transação onde o cliente possui a chave gerada pelo Cartão Protegido e outra onde essa chave ainda irá ser criada e enviada ao cliente (CredicardToken).</p>
 
-<p>IMAGEM”/images/pgautorizacaopost.PNG”&gt;</p>
+<p><img src="https://developercielo.github.io/images/braspag/pgautorizacaopost.png" alt="" /></p>
 
 <aside class="warning">O parâmetro “CreditCardToken” retornado pelo PAGADOR é a própria “JustClickKey” do CARTÃO PROTEGIDO.</aside>
 
@@ -884,12 +742,43 @@ de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) 
 
 <h3 id="resposta-3">Resposta</h3>
 
-<p>| Parâmetros            | Tipo              | Descrição                                                                                                                                                                                                | Obrigatório? |
-|———————–|——————-|———————————————————————————————————————————————————————————————————-|————–|
-| JustClickKey          | Guid              | Token que representa o cartão de crédito                                                                                                                                                                 | Sim          |
-| CorrelationId         | Guid              | Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request                                                                                                          | Não          |
-| Success               | bool              | Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados | Não          |
-| ErrorReportCollection | List<ErrorReport> | Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”                                                                                                                       | Não          |</ErrorReport></p>
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JustClickKey</td>
+      <td>Guid</td>
+      <td>Token que representa o cartão de crédito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>CorrelationId</td>
+      <td>Guid</td>
+      <td>Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>Success</td>
+      <td>bool</td>
+      <td>Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ErrorReportCollection</td>
+      <td>List<ErrorReport></ErrorReport></td>
+      <td>Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="invalidando-um-cartão-de-crédito">Invalidando um Cartão de Crédito</h2>
 
 <p>O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e deve ser chamado para invalidar um cartão de crédito. Um cartão inválido não pode ser utilizado numa autorização do PAGADOR</p>
@@ -1097,89 +986,6 @@ deve ser abortado e o erro analisado e tratado.</p>
   </tbody>
 </table>
 
-<h1 id="parâmetro-justclickalias">Parâmetro JustClickAlias</h1>
-
-<p>Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido.</p>
-
-<p><br /></p>
-
-<p>O cliente poderá, no momento do salvamento do cartão, criar um <strong>Alias (<em>apelido</em>)</strong> que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
-Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
-Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.</p>
-
-<h2 id="forma-correta-de-associação">Forma Correta de Associação</h2>
-
-<p>Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, conforme indicado no exemplo abaixo:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Merchant Id</th>
-      <th>JustClickKey (Token)</th>
-      <th>Alias</th>
-      <th>Enabled</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 1</td>
-      <td>XPTO</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 2</td>
-      <td>XPTO</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 3</td>
-      <td>XPTO</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Obs:</strong> A desassociação ocorrerá após a execução do método InvalidateCreditCard</p>
-
-<h2 id="forma-de-associação-não-aceita">Forma de Associação Não Aceita</h2>
-
-<p>Um Alias pode ser associado a um novo Token, desde que antes seja desassociado do Token antigo, no exemplo abaixo está indicada uma forma que não permitiria essa associação, pois o Alias só estará liberado para uma nova associação
-desde que esteja desvinculado de um determinado Token:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Merchant Id</th>
-      <th>JustClickKey (Token)</th>
-      <th>Alias</th>
-      <th>Enabled</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 1</td>
-      <td>XPTO</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 2</td>
-      <td>XPTO</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>LOJA A</td>
-      <td>Token 3</td>
-      <td>XPTO</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-
 </div>
 
 
@@ -1211,6 +1017,26 @@ desde que esteja desvinculado de um determinado Token:</p>
     <div id="toc"></div>
 
     <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/manual/braspag-pagador" title="Integração técnica Gateway Braspag">Pagador</a></li>
+                
+            
+            </ul>
+        </div>
         
 
     <div class="toc-contact">
