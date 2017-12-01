@@ -225,14 +225,13 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 
 <p>Assim como outros produtos Braspag, é necessario que a loja em processo de integração use em seu header as credenciais de acesso abaixo:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
---request POST "https://ENDPOINT.com.br/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="w">
+   </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
+   </span><span class="s2">"MerchantKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789012345678901234567890123456789"</span><span class="w">
+   </span><span class="s2">"RequestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -250,14 +249,14 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
-      <td>Identificador da loja na Cielo.</td>
+      <td>Identificador da loja na Braspag.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantKey</code></td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
-      <td>Chave Publica para Autenticação Dupla na Cielo.</td>
+      <td>Chave Publica para Autenticação Dupla na Braspag</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
