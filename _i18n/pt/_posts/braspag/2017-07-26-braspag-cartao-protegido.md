@@ -84,7 +84,7 @@ Abaixo estão representados os fluxos de uma requisição para salvar um cartão
 
 ## AUTORIZAÇÃO COM OPÇÃO SALVAR CARTÃO
 
-IMAGEM"/images/pgautorizacaocomopcaosalvarcartao.PNG">
+![]({{ site.baseurl_root }}/images/braspag/pgautorizacaocomopcaosalvarcartao.png)
 
 1. Enviar a tentativa de autorização da compra em questão via PAGADOR, contendo o parâmetro SaveCreditCard;
 2. O PAGADOR envia os dados de cartão de crédito para a plataforma CARTÃO PROTEGIDO, à fim de armazenar esses dados;
@@ -93,7 +93,7 @@ IMAGEM"/images/pgautorizacaocomopcaosalvarcartao.PNG">
 
 ## AUTORIZAÇÃO COM CARTÃO JÁ SALVO
 
-IMAGEM"/images/pgautorizacaocomcartaosalvo.PNG">
+![]({{ site.baseurl_root }}/images/braspag/pgautorizacaocomcartaosalvo.png)
 
 1. Enviar a tentativa de autorização da compra em questão via PAGADOR, contendo o parâmetro CredicardToken;
 2. O PAGADOR envia os dados de cartão de crédito para a plataforma CARTÃO PROTEGIDO, à fim de recuperar os dados previamente salvos do cartão;
