@@ -164,7 +164,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
       <td>Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma apenas para a parte sensível: armazenar os dados de cartão de crédito e processar via PAGADOR, as cobranças nas Adquirentes utilizando apenas o token. (Não é obrigatório que a transação seja processada via Pagador)</td>
     </tr>
     <tr>
-      <td><strong>Re-tentativa de envio de transação (venda)</strong></td>
+      <td><strong>Re-tentar Transação</strong></td>
       <td>Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.</td>
     </tr>
     <tr>
@@ -182,14 +182,24 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 
 <h2 id="sobre-a-integração">Sobre a Integração</h2>
 
-<p>Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 3 maneiras de integrar o produto:</p>
+<p>Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 2 maneiras de integrar o produto:</p>
 
-<ul>
-  <li>Diretamente pela plataforma do <strong>CARTÃO PROTEGIDO</strong>;</li>
-  <li>Via plataforma <strong>PAGADOR</strong>, utilizando <strong>API Pagador</strong>;</li>
-  <li>Via plataforma <strong>PAGADOR</strong>, utilizando <strong>Webservice</strong>;</li>
-  <li>Via plataforma <strong>PAGADOR</strong>, utilizando Post de Dados.</li>
-</ul>
+<table>
+  <tbody>
+    <tr>
+      <td>Tipo de integração</td>
+      <td>Via de integração</td>
+    </tr>
+    <tr>
+      <td><strong>Cartão protegido</strong></td>
+      <td>Utilizando a API do proprio Cartão Protegido</td>
+    </tr>
+    <tr>
+      <td><strong>Pagador</strong></td>
+      <td>Utilizando uma das 3 vias de integração do Pagador: <br /> <strong>API</strong> <br /> <strong>Webservice</strong> <br /><strong>Post de Dados Pagador</strong></td>
+    </tr>
+  </tbody>
+</table>
 
 <p><br /></p>
 

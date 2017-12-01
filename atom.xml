@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T17:43:45+00:00</updated>
+    <updated>2017-12-01T17:53:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16461,7 +16461,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
       &lt;td&gt;Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma apenas para a parte sensível: armazenar os dados de cartão de crédito e processar via PAGADOR, as cobranças nas Adquirentes utilizando apenas o token. (Não é obrigatório que a transação seja processada via Pagador)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Re-tentativa de envio de transação (venda)&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Re-tentar Transação&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -16479,14 +16479,24 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
 
 &lt;h2 id=&quot;sobre-a-integração&quot;&gt;Sobre a Integração&lt;/h2&gt;
 
-&lt;p&gt;Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 3 maneiras de integrar o produto:&lt;/p&gt;
+&lt;p&gt;Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 2 maneiras de integrar o produto:&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Diretamente pela plataforma do &lt;strong&gt;CARTÃO PROTEGIDO&lt;/strong&gt;;&lt;/li&gt;
-  &lt;li&gt;Via plataforma &lt;strong&gt;PAGADOR&lt;/strong&gt;, utilizando &lt;strong&gt;API Pagador&lt;/strong&gt;;&lt;/li&gt;
-  &lt;li&gt;Via plataforma &lt;strong&gt;PAGADOR&lt;/strong&gt;, utilizando &lt;strong&gt;Webservice&lt;/strong&gt;;&lt;/li&gt;
-  &lt;li&gt;Via plataforma &lt;strong&gt;PAGADOR&lt;/strong&gt;, utilizando Post de Dados.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Tipo de integração&lt;/td&gt;
+      &lt;td&gt;Via de integração&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cartão protegido&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Utilizando a API do proprio Cartão Protegido&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Pagador&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Utilizando uma das 3 vias de integração do Pagador: &lt;br /&gt; &lt;strong&gt;API&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Webservice&lt;/strong&gt; &lt;br /&gt;&lt;strong&gt;Post de Dados Pagador&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
