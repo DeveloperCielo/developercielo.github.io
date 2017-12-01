@@ -1,18 +1,14 @@
 ---
-layout: manual
-title: Cartão Protegido Braspag
+layout: tutorial
+title: Cartão Protegido
 description: Integração técnica Tokenização Braspag
 search: true
 translated: true
-categories: manual
+categories: tutorial
 tags:
   - Documentos Braspag
 language_tabs:
   json: JSON
-toc_footers:
-  - <a href='/Habilitacao-meios-de-pagamento/'>Manual de Boleto e débito online</a>
-  - <a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a>
-  - <a href='/Checkout-FAQ/'>FAQ</a>
 ---
 
 # Introdução ao Cartão Protegido
