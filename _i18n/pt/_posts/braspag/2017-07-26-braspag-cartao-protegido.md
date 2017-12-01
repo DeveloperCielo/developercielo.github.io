@@ -58,7 +58,7 @@ Os dados necessários para armazenar um cartão de crédito na plataforma são:
 
 <aside class="warning"><b>CÓDIGO DE SEGURANÇA (CVV)</b> O código de segurança não é armazenado devido a regras de seguranças PCI - Vide seção "Código de Segurança"</aside>
 
-<aside class="warning">Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).</aside>
+<aside class="warning"><b>REGISTRO DE IP's</b> Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).</aside>
 
 <aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
 
