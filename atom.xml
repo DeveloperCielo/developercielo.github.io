@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T19:40:11+00:00</updated>
+    <updated>2017-12-01T19:46:35+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2068,6 +2068,585 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 &lt;p&gt;3 - Pronto. O exemplo Json está convertido para Python&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/pcode2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>POS-Virtual Braspag</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/braspag-pos-virtual"/>
+        <updated>2017-07-26T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/manual/braspag-pos-virtual</id>
+        <content type="html">&lt;h1 id=&quot;criar-grupos&quot;&gt;Criar Grupos&lt;/h1&gt;
+
+&lt;p&gt;É necessário criar pelo menos um grupo para que as vendas sejam realizadas no POS Virtual. O grupo determina quais são as pemissões que um determinado operador possui.&lt;/p&gt;
+
+&lt;p&gt;Para criar um grupo, acesse Configurações &amp;gt; Grupos, e preencha corretamente os campos identificados abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/criargrupos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Obrigatório?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Nome&lt;/td&gt;
+      &lt;td&gt;Nome do grupo&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Permissões&lt;/td&gt;
+      &lt;td&gt;selecione as permissões que este grupo poderá ter&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;A lista de permissões são:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Permissão&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alterar data da próxima cobrança da recorrência&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alterar data fim da recorrência&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alterar dia da recorrência&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alterar periodicidade da recorrência&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alterar valor da recorrência&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ativar/Desativar pedido de recorrência&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cancelar Transação&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cancelar Transação via Relatório&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cancelar Transaç&amp;amp;ões De Todos Usuários&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Capturar Transação&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Capturar Transação via Relatório&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Criar Transação&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Estornar Transação via Relatório&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Visualizar Pedidos de Recorrência&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Visualizar suas Transaç&amp;amp;ões&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Visualizar Transaç&amp;amp;ões Recorrentes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;criar-operadores&quot;&gt;Criar Operadores&lt;/h1&gt;
+
+&lt;p&gt;Através do usuário “gerente”, é possível criar usuários operadores, que terão permissão para realizar novas vendas.&lt;/p&gt;
+
+&lt;p&gt;Acesse Configurações &amp;gt; Operadores, e preencha corretamente o forumulário abaixo. Assim que os dados forem submetidos, um e-mail com as instruções será enviado no endereço cadastrado.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/cadastraroperador.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Obrigatório?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Usuário&lt;/td&gt;
+      &lt;td&gt;username a ser utilizado para acessar o POS&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Nome&lt;/td&gt;
+      &lt;td&gt;Nome do operador&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;E-mail&lt;/td&gt;
+      &lt;td&gt;E-mail do operador&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Grupo&lt;/td&gt;
+      &lt;td&gt;Grupo de permissão que o operador pertence&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Lojas&lt;/td&gt;
+      &lt;td&gt;Lojas para as quais o operador fará as vendas&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;realizar-venda&quot;&gt;Realizar Venda&lt;/h1&gt;
+
+&lt;p&gt;Para a criação de um novo pedido, o usuário deverá acessar a tela através do menu:  POS Virtual -&amp;gt; Realizar Venda&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/menucriarpedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;passo-a-passo&quot;&gt;Passo a Passo&lt;/h2&gt;
+
+&lt;p&gt;A tela de criação de um novo pedido pelo POS Virtual é dividida em blocos com campos que são obrigatórios e não obrigatórios.&lt;/p&gt;
+
+&lt;p&gt;Alguns blocos são opcionais de serem exibidos na tela, e para os mesmos ficarem disponíveis é necessário configurá-los no momento do setup do seu POS Virtual.&lt;/p&gt;
+
+&lt;p&gt;A seguir iremos explicar passo a passo quais os blocos disponíveis com seus campos e a obrigatoriedade de cada campo referente ao bloco que pertence.&lt;/p&gt;
+
+&lt;h3 id=&quot;dados-do-pedido&quot;&gt;Dados do Pedido&lt;/h3&gt;
+
+&lt;p&gt;Neste passo é possível informar os dados do pedido. 
+O campo de e-mail é opcional, e pode ser configurado para ser exibido na tela de criação de um novo pedido no momento do setup do seu POS Virtual. 
+Abaixo a descrição e obrigatoriedade de cada campo.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/camposdadosdopedido.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Obrigatório?&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Número do Pedido&lt;/td&gt;
+      &lt;td&gt;Identificador do pedido da loja&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Nome&lt;/td&gt;
+      &lt;td&gt;Nome do cliente&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CPF/CNPJ&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;CPF/CNPJ do cliente&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;E-mail&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;E-mail do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;endereço-de-entrega&quot;&gt;Endereço de Entrega&lt;/h3&gt;
+
+&lt;p&gt;Neste passo é possível informar os dados do endereço de entrega do pedido. 
+Os campos com os dados de endereço de entrega são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.&lt;br /&gt;
+Abaixo a descrição e obrigatoriedade de cada campo.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/camposdadosendereco.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Obrigatório?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rua&lt;/td&gt;
+      &lt;td&gt;Nome da rua do endereço de entrega do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;Número do endereço de entrega do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Complemento&lt;/td&gt;
+      &lt;td&gt;Complemento do endereço de entrega do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cidade&lt;/td&gt;
+      &lt;td&gt;Cidade do endereço de entrega do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Estado&lt;/td&gt;
+      &lt;td&gt;Estado do endereço de entrega do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Bairro&lt;/td&gt;
+      &lt;td&gt;Bairro do endereço de entrega do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CEP&lt;/td&gt;
+      &lt;td&gt;CEP do endereço de entrega do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;País&lt;/td&gt;
+      &lt;td&gt;País do endereço de entrega do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;dados-da-recorrência&quot;&gt;Dados da Recorrência&lt;/h3&gt;
+
+&lt;p&gt;Neste passo é possível informar os dados do pedido criando uma recorrência com umas das 3 opções:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Agendar para uma data futura&lt;/li&gt;
+  &lt;li&gt;Cobrar agora e agendar as demais recorrências para o mesmo dia&lt;/li&gt;
+  &lt;li&gt;Cobrar agora e agendar as demais recorrências para um dia diferente&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Os campos com os dados para criação de um pedido de recorrência são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.&lt;/p&gt;
+
+&lt;p&gt;Para cada opção de recorrência abaixo os campos têm comportamentos de obrigatoriedades 
+diferentes.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Opção 1: Agendar para uma data futura&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Nesta opção uma recorrência será agendada de acordo com as informações fornecidas nos campos exibidos abaixo. Neste caso o cliente só será cobrado quando a primeira recorrência ocorrer, ou seja, no dia da data início informada.&lt;/p&gt;
+
+&lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/dadosdarecorrencia1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Obrigatório?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Intervalo&lt;/td&gt;
+      &lt;td&gt;Intervalo da recorrência Obs.: por padrão Mensal&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data Início&lt;/td&gt;
+      &lt;td&gt;Data para início da recorrência&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data Fim&lt;/td&gt;
+      &lt;td&gt;Data para término da recorrência&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;Opção 2: Cobrar agora e agendar as demais recorrências para o mesmo dia&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Nesta opção uma recorrência será criada e a primeira recorrência será cobrada de imediato.  As demais recorrências sempre irão ocorrer no mesmo dia da data de início da recorrência.&lt;/p&gt;
+
+&lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/dadosdarecorrencia2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Obrigatório?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Intervalo&lt;/td&gt;
+      &lt;td&gt;Intervalo da recorrência Obs.: por padrão Mensal&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data Início&lt;/td&gt;
+      &lt;td&gt;Data para início da recorrência Obs.: Não é possível alterar&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Dia das demais recorrências&lt;/td&gt;
+      &lt;td&gt;Dia em que as demais recorrências irão acontecer. Ex.: a próxima neste exemplo será em 02/10/2016. Obs.: Não é possível alterar&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data Fim&lt;/td&gt;
+      &lt;td&gt;Data para término da recorrência&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;Opção 3: Cobrar agora e agendar as demais recorrências para um dia diferente&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Nesta opção uma recorrência será criada e a primeira recorrência será cobrada de imediato.  As demais recorrências sempre irão ocorrer no dia definido para o campo “Dia das demais recorrências”.&lt;/p&gt;
+
+&lt;p&gt;O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/dadosdarecorrencia3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Obrigatório?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Intervalo&lt;/td&gt;
+      &lt;td&gt;Intervalo da recorrência Obs.: por padrão Mensal&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data Início&lt;/td&gt;
+      &lt;td&gt;Data para início da recorrência Obs.: Não é possível alterar&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Dia das demais recorrências&lt;/td&gt;
+      &lt;td&gt;Dia em que as demais recorrências irão acontecer. Ex.: a próxima poderá ser em 15/10/2016 por exemplo&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Data Fim&lt;/td&gt;
+      &lt;td&gt;Data para término da recorrência&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;endereço-de-cobrança&quot;&gt;Endereço de Cobrança&lt;/h3&gt;
+
+&lt;p&gt;Neste passo é possível informar os dados do endereço de cobrança do pedido.&lt;/p&gt;
+
+&lt;p&gt;Os campos com os dados de endereço de cobrança são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/camposdadosenderecocobranca.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Obrigatório?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Rua&lt;/td&gt;
+      &lt;td&gt;Nome da rua do endereço de cobrança do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;Número do endereço de cobrança do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Complemento&lt;/td&gt;
+      &lt;td&gt;Complemento do endereço de cobrança do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cidade&lt;/td&gt;
+      &lt;td&gt;Cidade do endereço de cobrança do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Estado&lt;/td&gt;
+      &lt;td&gt;Estado do endereço de cobrança do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Bairro&lt;/td&gt;
+      &lt;td&gt;Bairro do endereço de cobrança do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CEP&lt;/td&gt;
+      &lt;td&gt;CEP do endereço de cobrança do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;País&lt;/td&gt;
+      &lt;td&gt;País do endereço de cobrança do cliente&lt;/td&gt;
+      &lt;td&gt;NÃO&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;dados-de-pagamento&quot;&gt;Dados de Pagamento&lt;/h3&gt;
+
+&lt;p&gt;Neste passo é possível informar os dados do pagamento do pedido.&lt;/p&gt;
+
+&lt;p&gt;Para o campo meio de pagamento, as bandeiras estarão disponíveis de acordo com as opções de meios de pagamentos configurados para o seu POS Virtual.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/dadospagamento.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Obrigatório?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Meio de Pagamento&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão de crédito&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Portador&lt;/td&gt;
+      &lt;td&gt;Nome do portador do cartão de crédito&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Número do cartão&lt;/td&gt;
+      &lt;td&gt;Número do cartão de crédito do cliente&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Código de Segurança&lt;/td&gt;
+      &lt;td&gt;Código de segurança do cartão de crédito&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Validade&lt;/td&gt;
+      &lt;td&gt;Validade do cartão de crédito&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Valor&lt;/td&gt;
+      &lt;td&gt;Valor do pedido&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Número de Parcelas&lt;/td&gt;
+      &lt;td&gt;Quantidade de parcelas do pedido Obs.: Caso seja um pedido de recorrência, este campo não é obrigatório e o mesmo é ocultado na tela&lt;/td&gt;
+      &lt;td&gt;SIM&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;pagar-ou-limpar&quot;&gt;Pagar ou Limpar&lt;/h2&gt;
+
+&lt;p&gt;Através do botão “Pagar”, o pedido será criado de acordo com os dados preenchidos nos campos citados acima.&lt;/p&gt;
+
+&lt;p&gt;Caso o seu POS Virtual esteja configurado com a opção de “captura automática”, ao clicar em pagar, o pedido será autorizado e capturado imediatamente. Caso contrário, o pedido será somente autorizado e através da opção “capturar” em “Ações” na lista de pedidos, será possível realizar a captura do pedido.&lt;/p&gt;
+
+&lt;p&gt;O botão “limpar”, limpa todos os campos da tela de criação de um novo pedido.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/btnpagarlimpar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;lista-de-pedidos&quot;&gt;Lista de pedidos&lt;/h1&gt;
+
+&lt;p&gt;Conforme imagem abaixo, nesta sessão serão exibidos todos os pedidos realizados pelo operador:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/listapedidos.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Acima da lista de pedidos, existem duas legendas com informações dos totais. Estas representam o valor total pago e o valor total pendente de captura.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Total pago - valor total de pedidos capturados na lista de pedidos&lt;/li&gt;
+  &lt;li&gt;Total pendente de captura - valor total de pedidos que foram apenas autorizados, ou seja, estão passíveis de serem capturados&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A coluna “Ações” possui links onde o usuário poderá tomar a ação desejada, que são:&lt;/p&gt;
+
+&lt;h2 id=&quot;capturar&quot;&gt;Capturar&lt;/h2&gt;
+
+&lt;p&gt;Esta ação ficará disponível para o usuário caso o seu POS Virtual no momento do setup não desejar que a forma de pagamento seja com captura automática, ou seja, ao realizar o passo 7 clicando no botão “Pagar”, o pedido será autorizado apenas, necessitando da ação de clicar no link “Capturar” do usuário para mudar o status de “Não Pago” para “Pago”. Para esta opção, no momento do setup do seu POS Virtual, é possível escolher por captura parcial ou total.&lt;/p&gt;
+
+&lt;h3 id=&quot;captura-parcial&quot;&gt;Captura Parcial&lt;/h3&gt;
+
+&lt;p&gt;É a ação de capturar um determinado valor menor que o valor autorizado. Ex.:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transação autorizada de R$ 100,00&lt;/li&gt;
+  &lt;li&gt;Captura parcial de R$ 50,00&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Caso a opção seja por captura parcial no setup do seu POS Virtual, o usuário ao clicar no link “Capturar”, a tela abaixo será exibida, deixando assim o usuário escolher o valor a ser capturado.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/capturar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;aside class=”notice)Obs.: A ação de capturar só poderá ocorrer uma única vez, então caso seja realizada uma captura parcial conforme exemplo acima, os outros R$ 50,00 restantes não poderá ser mais capturado, disponibilizando novamente esses R$ 50,00 no limite do cliente. &amp;lt;/aside&amp;gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;captura-total&quot;&gt;Captura Total&lt;/h3&gt;
+
+&lt;p&gt;É a ação de capturar o valor total autorizado. Ex.:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transação autorizada de R$ 100,00&lt;/li&gt;
+  &lt;li&gt;Captura total de R$ 100,00&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;lt;aside class=”notice)Obs.: Caso no momento do setup do seu POS Virtual a configuração seja de pagamento com captura automática, o link “Capturar” não será exibido como uma das possíveis ações a serem tomadas na lista de pedidos, e ao realizar o passo 7 clicando no botão “Pagar”, o pedido será autorizado e capturado no mesmo instante. &amp;lt;/aside&amp;gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;cancelar&quot;&gt;Cancelar&lt;/h2&gt;
+
+&lt;p&gt;Esta ação poderá ser tomada para o usuário cancelar um pedido, sendo assim o limite do cliente ficará disponível novamente em seu cartão.&lt;/p&gt;
+
+&lt;p&gt;Será exibida uma tela de confirmação do cancelamento conforme imagem abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/cancelar.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;imprimir&quot;&gt;Imprimir&lt;/h2&gt;
+
+&lt;p&gt;Esta ação poderá ser tomada para o usuário imprimir um comprovante com os dados do pedido.&lt;/p&gt;
+
+&lt;p&gt;A impressão terá os detalhes do pedido conforme imagem abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/imprimir.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 </content>
     </entry>
     
