@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T12:48:27+00:00</updated>
+    <updated>2017-12-01T13:01:59+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2077,11 +2077,13 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
         <link href="https://developercielo.github.io/manual/braspag-cartao-protegido"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/manual/braspag-cartao-protegido</id>
-        <content type="html">&lt;h1 id=&quot;introdução-ao-cartão-protegido&quot;&gt;Introdução ao Cartão Protegido&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;o-que-é-o-cartão-protegido&quot;&gt;O que é o Cartão Protegido&lt;/h1&gt;
 
 &lt;p&gt;A plataforma do &lt;strong&gt;CARTÃO PROTEGIDO&lt;/strong&gt; é uma armazenadora segura de cartões de crédito. Os dados nela armazenados seguem as normas PCI, que garante a integridade das informações dos cartões armazenados.
 &lt;br /&gt;&lt;br /&gt;
 O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&lt;/strong&gt;, facilitando o envio e processamento de transações de cartão de crédito via token.&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;A plataforma do CARTÃO PROTEGIDO armazena de forma segura, 100% PCI Compliance, os dados dos cartões de crédito.&lt;/aside&gt;
 
 &lt;h2 id=&quot;sobre-o-produto&quot;&gt;Sobre o Produto&lt;/h2&gt;
 
@@ -2105,23 +2107,38 @@ O gateway PAGADOR (BRASPAG) está integrado ao &lt;strong&gt;CARTÃO PROTEGIDO&l
 &lt;p&gt;Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 3 maneiras de integrar o produto:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Diretamente pela plataforma do CARTÃO PROTEGIDO;&lt;/li&gt;
-  &lt;li&gt;Via plataforma PAGADOR, utilizando Webservice;&lt;/li&gt;
-  &lt;li&gt;Via plataforma PAGADOR, utilizando Post de Dados.&lt;/li&gt;
+  &lt;li&gt;Diretamente pela plataforma do &lt;strong&gt;CARTÃO PROTEGIDO&lt;/strong&gt;;&lt;/li&gt;
+  &lt;li&gt;Via plataforma &lt;strong&gt;PAGADOR&lt;/strong&gt;, utilizando &lt;strong&gt;Webservice&lt;/strong&gt;;&lt;/li&gt;
+  &lt;li&gt;Via plataforma &lt;strong&gt;PAGADOR&lt;/strong&gt;, utilizando Post de Dados.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Os dados necessários para armazenar um cartão de crédito na plataforma são: CPF do Cliente, Nome do Cliente, Nome do Portador, Número do Cartão e Data de Validade. O código de segurança não é armazenado (vide seção Código de
-Segurança).&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;A plataforma do CARTÃO PROTEGIDO armazena de forma segura, 100% PCI Compliance, os dados dos cartões de crédito.&lt;/aside&gt;
+&lt;p&gt;Os dados necessários para armazenar um cartão de crédito na plataforma são:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;CPF do Cliente&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nome do Cliente&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nome do Portador&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Número do Cartão&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Data de Validade&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;&lt;b&gt;CÓDIGO DE SEGURANÇA (CVV)&lt;/b&gt;O código de segurança não é armazenado devido a regras de seguranças PCI - Vide seção &quot;Código de Segurança&quot;&lt;/aside&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;Para garantir uma maior segurança, apenas os IP’s previamente cadastrados do Estabelecimento poderão consultar um número de cartão ou autorizar uma transação utilizando a chave do Cartão Protegido (JustClickKey).&lt;/aside&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. &lt;/aside&gt;
 
-&lt;h1 id=&quot;parÂmetro-justclickalias&quot;&gt;&lt;strong&gt;PARÂMETRO&lt;/strong&gt; JustClickAlias&lt;/h1&gt;
+&lt;h1 id=&quot;parâmetro-justclickalias&quot;&gt;Parâmetro JustClickAlias&lt;/h1&gt;
 
-&lt;p&gt;Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido. O cliente poderá, no momento do salvamento do cartão, criar um Alias (apelido) que identificará esse cartão na Plataforma CARTÃO PROTEGIDO. Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. Para isso, o lojista deveria indicar que o JustClickKey está desabilitado. Dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.&lt;/p&gt;
+&lt;p&gt;Este parâmetro tem por finalidade facilitar o armazenamento, por parte do cliente, de informações referentes a um Cartão Protegido.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;O cliente poderá, no momento do salvamento do cartão, criar um &lt;strong&gt;Alias (&lt;em&gt;*apelido*&lt;/em&gt;)&lt;/strong&gt; que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
+Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
+Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.&lt;/p&gt;
 
 &lt;h2 id=&quot;forma-correta-de-associação&quot;&gt;Forma Correta de Associação&lt;/h2&gt;
 
