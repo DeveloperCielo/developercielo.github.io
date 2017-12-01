@@ -221,18 +221,28 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
 
 <aside class="notice">Como a autorização de uma transação é via PAGADOR, todas as funcionalidades de confirmação da transação - Segundo Post (post de confirmação), e Terceiro Post (sonda) - permanecem funcionando da mesma forma. </aside>
 
-<h1 id="fluxo-de-autorizaÇÃo-via-plataforma-cartÃo-protegido">FLUXO DE AUTORIZAÇÃO VIA PLATAFORMA CARTÃO PROTEGIDO</h1>
+<h1 id="integração-cartÃo-protegido">Integração CARTÃO PROTEGIDO</h1>
 
-<p>Abaixo está representado o fluxo de uma requisição para salvar um cartão de um cliente durante uma venda, seguido de outro fluxo onde o mesmo cliente realiza uma compra via CARTÃO PROTEGIDO.</p>
+<p>Neste modelo de integração, a loja pode salvar um <strong>salva um cartão</strong> enviando as Credenciais Braspag e os Dados do cartão para a <strong>API do Cartão Protegido</strong></p>
 
-<p>Com a permissão do cliente para salvar seu cartão, o estabelecimento deve:</p>
+<p>Utilizando essa API, a Loja receberá uma chave que identifica o cartão e o comprador, chamada <code class="highlighter-rouge">JustClickKey</code> que pode ser utilizada para consultar os dados do meio de pagamento em uma transação posterior, como demonstrado no Fluxo abaixo:</p>
+
+<p><img src="https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.png" alt="" /></p>
+
+<h2 id="salvando-um-cartão">Salvando um cartão</h2>
+
+<p>Com a permissão do cliente para salvar seu cartão, a loja deve:</p>
 
 <ol>
-  <li>Enviar a tentativa de autorização da compra em questão via Gateway. Processo padrão que já acontece hoje</li>
+  <li>Enviar a tentativa de autorização da compra para um Gateway de pagamentos</li>
   <li>Receber o resultado da autorização</li>
-  <li>Enviar os dados do cartão para armazenamento no CARTÃO PROTEGIDO</li>
-  <li>Receber a “JustClickKey”, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.</li>
+  <li>Enviar os dados do cartão para armazenamento no <em>CARTÃO PROTEGIDO</em></li>
+  <li>Receber a <code class="highlighter-rouge">JustClickKey</code>, que é a chave que vai representar a dupla “cartão de crédito-cliente” para futuras “compras com 1 clique”, e armazená-la.</li>
 </ol>
+
+<p>O cartão deve ser enviado para o Endpoint:</p>
+
+<h2 id="buscar-um-cartão">Buscar um cartão</h2>
 
 <p>Quando o cliente voltar ao site para fazer uma nova compra e se logar, o site pode apresentar a opção de “compra com 1 clique”, e o fluxo será:</p>
 
@@ -241,9 +251,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao <strong>CARTÃO PROTEGIDO</strong
   <li>Receber o resultado da autorização</li>
 </ol>
 
-<p><img src="https://developercielo.github.io/images/braspag/autorizacaocomopcaosalvarcartao.png" alt="" /></p>
-
-<h1 id="fluxo-de-autorizaÇÃo-via-pagador">FLUXO DE AUTORIZAÇÃO VIA PAGADOR</h1>
+<h1 id="integração-pagador">integração PAGADOR</h1>
 
 <p>Abaixo estão representados os fluxos de uma requisição para salvar um cartão de um cliente durante uma venda e de uma compra via CARTÃO PROTEGIDO, ambas utilizando a integração PAGADOR/CARTÃO PROTEGIDO</p>
 
@@ -709,43 +717,12 @@ de um usuário. Por questões de segurança, ao utilizar esse método 5 (cinco) 
 
 <h3 id="resposta-3">Resposta</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Parâmetros</th>
-      <th>Tipo</th>
-      <th>Descrição</th>
-      <th>Obrigatório?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>JustClickKey</td>
-      <td>Guid</td>
-      <td>Token que representa o cartão de crédito</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>CorrelationId</td>
-      <td>Guid</td>
-      <td>Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>Success</td>
-      <td>bool</td>
-      <td>Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>ErrorReportCollection</td>
-      <td>List<ErrorReport></ErrorReport></td>
-      <td>Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”</td>
-      <td>Não</td>
-    </tr>
-  </tbody>
-</table>
-
+<p>| Parâmetros            | Tipo              | Descrição                                                                                                                                                                                                | Obrigatório? |
+|———————–|——————-|———————————————————————————————————————————————————————————————————-|————–|
+| JustClickKey          | Guid              | Token que representa o cartão de crédito                                                                                                                                                                 | Sim          |
+| CorrelationId         | Guid              | Identificador da resposta recebida, que será o próprio “RequestId” enviado no objeto de request                                                                                                          | Não          |
+| Success               | bool              | Indicador de sucesso no fluxo da operação (true ou false). No caso de FALSE, significa que a requisição não foi concluída com êxito e portanto todos os demais parâmetros de retorno podem ser ignorados | Não          |
+| ErrorReportCollection | List<ErrorReport> | Lista de erros/validações gerados no fluxo da operação. Vide seção “Mapa de Erros”                                                                                                                       | Não          |</ErrorReport></p>
 <h2 id="invalidando-um-cartão-de-crédito">Invalidando um Cartão de Crédito</h2>
 
 <p>O método InvalidateCreditCard recebe o objeto InvalidateCreditCardRequest, e deve ser chamado para invalidar um cartão de crédito. Um cartão inválido não pode ser utilizado numa autorização do PAGADOR</p>
@@ -959,7 +936,7 @@ deve ser abortado e o erro analisado e tratado.</p>
 
 <p><br /></p>
 
-<p>O cliente poderá, no momento do salvamento do cartão, criar um <strong>Alias (<em>*apelido*</em>)</strong> que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
+<p>O cliente poderá, no momento do salvamento do cartão, criar um <strong>Alias (<em>apelido</em>)</strong> que identificará esse cartão na Plataforma CARTÃO PROTEGIDO.
 Outra vantagem, é o fato desse Alias poder ser associado a um novo JustClickKey, o que facilitaria a troca de um cartão quando, por exemplo, a validade deste expirar. 
 Para isso, o lojista deveria indicar que o JustClickKey está desabilitado, dessa forma, o Alias associado a ele ficaria liberado para ser utilizado com um novo JustClickKey.</p>
 
