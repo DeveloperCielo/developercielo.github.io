@@ -9,10 +9,6 @@ tags:
   - Documentos Braspag
 language_tabs:
   json: JSON
-toc_footers:
-  - <a href='/Habilitacao-meios-de-pagamento/'>Manual de Boleto e débito online</a>
-  - <a href='/Checkout-Backoffice/'>Backoffice Cielo (Acesso lojista)</a>
-  - <a href='/Checkout-FAQ/'>FAQ</a>
 ---
 
 # O que é o Cartão Protegido
@@ -27,7 +23,7 @@ O gateway PAGADOR (BRASPAG) está integrado ao **CARTÃO PROTEGIDO**, facilitand
 
 Enquanto produto, o CARTÃO PROTEGIDO, por ser uma solução para resolver o problema de armazenamento seguro de dados de cartão de crédito, pode ser utilizado para diversos fins, como:
 
-* **Compra com 1 clique**: A “compra com 1 clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.
+**Compra com 1 clique**: A “compra com 1 clique” permite que um pagamento online, via cartão de crédito, seja feito pulando a etapa de preenchimento dos dados para pagamento ou até mesmo de todo o processo do carrinho de compras, pois os dados do cartão já foram previamente informados pelo comprador em compras passadas e serão replicados em futuras compras mediante sua autorizaçãol.
 * **Cobrança Recorrente**: Estabelecimentos que já possuam uma solução interna de gerenciamento de recorrências podem utilizar a plataforma apenas para a parte sensível: armazenar os dados de cartão de crédito e processar via PAGADOR, as cobranças nas Adquirentes utilizando apenas o token. (Não é obrigatório que a transação seja processada via Pagador)
 * **Re-tentativa de envio de transação (venda)**: Para estabelecimentos que represam os dados da venda para passar num segundo momento, sendo para retentar o envio de uma transação de cartão de crédito para uma Adquirente ou para fazer algum procedimento interno antes de autorizar a venda (validação de estoque, análise de fraude), a plataforma atende perfeitamente esta finalidade. O estabelecimento precisa conhecer e manipular apenas um token, mantendo-se aderente com as regras de segurança da indústria de cartões de crédito.
 * Ou para qualquer outra finalidade, onde se faça necessário armazenar dados de um cartão de crédito de forma segura, mesmo que temporariamente
@@ -43,6 +39,7 @@ Este manual tem como objetivo orientar o desenvolvedor da loja sobre a integraç
 Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 3 maneiras de integrar o produto:
 
 * Diretamente pela plataforma do **CARTÃO PROTEGIDO**;
+* Via plataforma **PAGADOR**, utilizando **API Pagador**;
 * Via plataforma **PAGADOR**, utilizando **Webservice**;
 * Via plataforma **PAGADOR**, utilizando Post de Dados.
 
