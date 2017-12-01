@@ -40,9 +40,10 @@ Este manual tem como objetivo orientar o desenvolvedor da loja sobre a integraç
 
 Nas seções abaixo, estão graficamente representados, os fluxos do processo de venda. Existem 2 maneiras de integrar o produto:
 
-|Tipo de integração|Via de integração|
-|**Cartão protegido**| Utilizando a API do proprio Cartão Protegido 
-|**Pagador**|Utilizando uma das 3 vias de integração do Pagador: <br> **API** <br> **Webservice** <br>**Post de Dados Pagador**|
+| Tipo de integração   | Via de integração                                                                                                  |
+|----------------------|--------------------------------------------------------------------------------------------------------------------|
+| **Cartão protegido** | Utilizando a API do proprio Cartão Protegido                                                                       |
+| **Pagador**          | Utilizando uma das 3 vias de integração do Pagador: <br> **API** <br> **Webservice** <br>**Post de Dados Pagador** |
 
 <br>
 
