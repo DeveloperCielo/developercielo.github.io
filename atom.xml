@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-01T16:12:11+00:00</updated>
+    <updated>2017-12-01T17:10:26+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2072,7 +2072,7 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
     </entry>
     
     <entry>
-        <title>Pagador Braspag</title>
+        <title>Pagador</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/manual/braspag-pagador"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
@@ -16427,7 +16427,7 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
     </entry>
     
     <entry>
-        <title>Cartão Protegido Braspag</title>
+        <title>Cartão Protegido</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/manual/braspag-cartao-protegido"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
