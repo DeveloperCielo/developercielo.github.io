@@ -1775,7 +1775,7 @@ Esta página descreve como funciona e como configurar o fingerprint em sua pági
 
 ## Como funciona?
 
-![Fluxo]({{ site.url }}/img/fingerprint.png){: .centerimg }{:title="Fluxo da coleta do fingerprint "}
+![Fluxo]({{ site.baseurl_root }}/images/braspag/af/fingerprint.png)
 
 1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a *caixa preta*  
 2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo *hidden*  
@@ -1872,12 +1872,12 @@ Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de co
 **Sobre a integração**  
 Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma *caixa preta* que contém todas as informações do dispositivo disponíveis.
 
-![Fluxo]({{ site.url }}/img/fingerprintmobile.png){: .centerimg }{:title="Fluxo da coleta do fingerprint mobile"}  
+![Fluxo]({{ site.baseurl_root }}/images/braspag/af/fingerprintmobile.png){: .centerimg }{:title="Fluxo da coleta do fingerprint mobile"}  
 
 * Integrando com aplicativos iOS  
 
 Arquivos e requisitos de integração do iOS  
-![Detalhes]({{ site.url }}/img/fingerprintios1.png){: .left }{:title="Detalhes integração iOS"}  
+![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintios1.png){: .left }{:title="Detalhes integração iOS"}  
 
 Esta versão suporta iOS 5.1.1 ou superior nos seguintes dispositivos:  
         iPhone 3GS e posterior  
@@ -1888,16 +1888,16 @@ Esta versão suporta iOS 5.1.1 ou superior nos seguintes dispositivos:
 
     1 - Baixe e descompacte o SDK  
     2 - No Xcode, arraste *iovation.framework* na área de navegação do seu projeto  
-![Detalhes]({{ site.url }}/img/fingerprintios2.png){: .left }{:title="Detalhes instalação SDK"}  
+![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintios2.png){: .left }{:title="Detalhes instalação SDK"}  
     3 - Na caixa de diálogo que aparece:  
         Selecione *Copy items if needed* para copiar o framework para o diretório do projeto  
         Marque a caixa de seleção para os destinos nos quais você planeja usar o framework  
-![Detalhes]({{ site.url }}/img/fingerprintios3.png){: .left }{:title="Detalhes instalação SDK"}  
+![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintios3.png){: .left }{:title="Detalhes instalação SDK"}  
     4 - Clique em Finish  
     5 - Adicione os frameworks a seguir ao destino da aplicação no XCode:  
         - *ExternalAccessory.framework*. Se você verificar que o Wireless Accessory Configuration está ativado no Xcode 6 ou superior e não precisa, desativa e adicione novamente o ExternalAccessory.framework  
         - *CoreTelephony.framework*  
-![Detalhes]({{ site.url }}/img/fingerprintios4.png){: .left }{:title="Detalhes instalação SDK"}  
+![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintios4.png){: .left }{:title="Detalhes instalação SDK"}  
     6 - Opcionalmente, adicione esses frameworks se o seu aplicativo fizer uso deles:  
         - *AdSupport.framework*. Se o seu aplicativo exibe anúncios  
         Obs.: Não incluir se o seu aplicativo não utilizar anúncios, pois a App Store rejeita aplicativos que incluem o framework mas não usam anúncios  
@@ -1938,7 +1938,7 @@ A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa pr
 * Integrando com aplicativos Android  
 
 Arquivos e requisitos de integração do Android  
-![Detalhes]({{ site.url }}/img/fingerprintandroid.png){: .left }{:title="Detalhes integração Android"}  
+![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid.png){: .left }{:title="Detalhes integração Android"}  
 
 **NOTA**  
 Se as permissões listadas não são necessárias pelo aplicativo, os valores obtidos obtidos utilizando essas permissões serão ignorados. As permissões não são necessárias para obter uma *caixa preta*, mas ajudam a obter mais informações do dispositivo.  
@@ -1954,7 +1954,7 @@ A versão 1.2.0 do Iovation Mobile SDK para Android suporta versões do Android 
     4 - No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package*
     5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish*
     6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle  
-![Detalhes]({{ site.url }}/img/fingerprintandroid1.png){: .left }{:title="Detalhes integração Android"}  
+![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid1.png){: .left }{:title="Detalhes integração Android"}  
 
 * Usando a função ioBegin  
 
@@ -1992,7 +1992,7 @@ Se a opção para executar o módulo não aparecer, selecione *File -> Project S
 7 - No Android Studio, selecione *File -> New Module*. Expande *More Modules* e escolha *Import existing .jar or .aar package*  
 8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em *Finish*  
 9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle  
-![Detalhes]({{ site.url }}/img/fingerprintandroid1.png){: .left }{:title="Detalhes integração Android"}  
+![Detalhes]({{ site.baseurl_root }}/images/braspag/af/fingerprintandroid1.png){: .left }{:title="Detalhes integração Android"}  
 10 - Abra a pasta DevicePrintSampleActivity  
 11 - Na opção de navegação do projeto, abra *src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java*  
 12 - Clique com o botão direito e selecione *Run DevicePrintSampleAct*  
