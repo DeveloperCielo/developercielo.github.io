@@ -2149,14 +2149,10 @@ Código do motivo do chargeback.
 **IsFraud**{:.custom-attrib} `required`{:.custom-tag} `bool`{:.custom-tag}  
 Flag para identificar se o chargeback foi motivado por fraude ou não
 
-<a name="http_operations"></a>
-
 ## Operações HTTP
 
-`POST`{:.http-post} [https://riskhomolog.braspag.com.br/Chargeback/](#post_retrocbk){:.custom-attrib}  
+`POST`{:.http-post} [https://riskhomolog.braspag.com.br/Chargeback/]
 Retroalimentação de chargeback  
-
-<a name="post_retrocbk"></a>
 
 #### `POST`{:.http-post} Retroalimentação de chargeback
 
@@ -2289,14 +2285,10 @@ Serviço que associa uma transação do Pagador Braspag à uma transação do An
 Id da transação no Pagador da Braspag.  
 Ex.: a3e08eb2-2144-4e41-85d4-61f1befc7a3b
 
-<a name="http_operations"></a>
-
 ## Operação HTTP
 
-`PATCH`{:.http-patch} [https://riskhomolog.braspag.com.br/Transaction/{Id}](http_patch){:.custom-attrib}  
+`PATCH`{:.http-patch} [https://riskhomolog.braspag.com.br/Transaction/{Id}]
 Associa a transação do Pagador à transação do Antifraude Gateway
-
-<a name="http-patch"></a>
 
 #### `PATCH`{:.http-patch} Associa a transação do Pagador à transação do Antifraude Gateway 
 
