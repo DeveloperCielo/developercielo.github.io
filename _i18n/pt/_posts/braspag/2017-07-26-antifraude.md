@@ -28,7 +28,7 @@ Este documento descreve o fluxo necessário para que aplicações **cliente** ob
 
 * O token de acesso é obtido através do fluxo de autorização **Client Credentials**.
 
-![Obtenção de Tokens de Acesso]({{ site.url }}/img/AntifraudeAuthentication.png){: .centerimg }{:title="Fluxo para obtenção do Token de Acesso "}
+![Obtenção de Tokens de Acesso]({{ site.baseurl_root }}/images/braspag/af/antifraudeAuthentication.png){: .centerimg }{:title="Fluxo para obtenção do Token de Acesso "}
 
 Fluxo de obtenção do Token de Acesso:
 
