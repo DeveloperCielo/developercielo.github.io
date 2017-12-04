@@ -2158,8 +2158,6 @@ Flag para identificar se o chargeback foi motivado por fraude ou não
 `POST`{:.http-post} [https://riskhomolog.braspag.com.br/Chargeback/](#post_retrocbk){:.custom-attrib}  
 Retroalimentação de chargeback  
 
-<a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a>
-
 <a name="post_retrocbk"></a>
 
 #### `POST`{:.http-post} Retroalimentação de chargeback
@@ -2173,7 +2171,7 @@ Authorization: Bearer {access_token}
 Content-Type: application/json
 ```
 
-``` json
+```json
 {
     "Chargebacks":
     [
@@ -2229,7 +2227,7 @@ Quando não ocorrer o processamento de todas as transações de chargeback envia
 HTTP/1.1 300 Multiple Choices
 ```
 
-``` json
+```json
 {
     "Chargebacks":
     [
