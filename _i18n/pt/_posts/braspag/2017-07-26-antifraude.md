@@ -2151,8 +2151,6 @@ Código do motivo do chargeback.
 **IsFraud**{:.custom-attrib} `required`{:.custom-tag} `bool`{:.custom-tag}  
 Flag para identificar se o chargeback foi motivado por fraude ou não
 
-<a style="float: right;" href="#attributes"><i class="fa fa-angle-double-up fa-fw"></i></a>
-
 <a name="http_operations"></a>
 
 ## Operações HTTP
