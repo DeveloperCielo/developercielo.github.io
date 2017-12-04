@@ -2293,7 +2293,7 @@ Ex.: a3e08eb2-2144-4e41-85d4-61f1befc7a3b
 
 ## Operação HTTP
 
-`PATCH`{:.http-patch} [https://riskhomolog.braspag.com.br/Transaction/{Id}](#http_patch){:.custom-attrib}  
+`PATCH`{:.http-patch} [https://riskhomolog.braspag.com.br/Transaction/{Id}](http_patch){:.custom-attrib}  
 Associa a transação do Pagador à transação do Antifraude Gateway
 
 <a name="http-patch"></a>
