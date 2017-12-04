@@ -2520,6 +2520,110 @@ Associa a transação do Pagador à transação do Antifraude Gateway</p>
 
 </code></pre></div></div>
 
+<h1 id="update-de-status">Update de Status</h1>
+
+<p>Serviço para alterar o status de transações em revisão (review) para aceita (accept) ou rejeita (reject), disponível somente para o provedor Cybersource.</p>
+
+<h2 id="hosts-5">Hosts</h2>
+
+<p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
+<strong>Live</strong> https://risk.braspag.com.br</p>
+
+<h2 id="atributos-2">Atributos</h2>
+
+<p><strong class="custom-attrib">Status</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">Guid</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
+Novo status da transação.<br />
+Enum: Accept | Reject</p>
+
+<p><strong class="custom-attrib">Comments</strong> <code class="custom-tag highlighter-rouge">optional</code> <code class="custom-tag highlighter-rouge">255</code>.<code class="custom-tag highlighter-rouge">string</code> <code class="custom-provider-cyber highlighter-rouge">Cybersource</code><br />
+Comentário associado a mudança de status.</p>
+
+<h2 id="operação-http-1">Operação HTTP</h2>
+
+<p><code class="http-patch highlighter-rouge">PATCH</code> [https://riskhomolog.braspag.com.br/Analysis/{Id}]
+Altera o status da transação</p>
+
+<h4 id="patch-altera-o-status-da-transação"><code class="http-patch highlighter-rouge">PATCH</code> Altera o status da transação</h4>
+
+<p><strong>PARÂMETROS:</strong></p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Id</span><span class="p">:</span> <span class="n">Guid</span>  <span class="c1">// Id da Transação no Antifraude Gateway</span>
+</code></pre></div></div>
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">https://riskhomolog.braspag.com.br/Transaction/{Id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">riskhomolog.braspag.com.br</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="s2">"Accept"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Comments"</span><span class="p">:</span><span class="s2">"Transação aceita após contato com o cliente."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<p>Quando a transação for recebida para processamento.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Change status request successfully received. New status: Accept."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Quando a transação não for encontrada na base de dados.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not found</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The transaction does not exist."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Quando a transação não estiver elegivel para alteração de status.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The transaction is not able to update status. Actual status: Reject."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Quando o novo status enviado for diferente de Accept ou Reject.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The new status is invalid to update transaction. Accepted status are: 'Accept' or 'Reject'."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Quando o tipo ou tamanho de algum campo não for enviado conforme especificado no manual.</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ModelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"request.Status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Error converting value </span><span class="se">\"</span><span class="s2">Review</span><span class="se">\"</span><span class="s2"> to type 'Antifraude.Domain.Enums.StatusType'. Path 'Status', line 2, position 16."</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"request.Comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"The field Comments must be a string or array type with a maximum length of '255'."</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
