@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-04T19:01:26+00:00</updated>
+    <updated>2017-12-04T19:02:49+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -20078,8 +20078,6 @@ Flag para identificar se o chargeback foi motivado por fraude ou não&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;http-post highlighter-rouge&quot;&gt;POST&lt;/code&gt; &lt;a href=&quot;#post_retrocbk&quot; class=&quot;custom-attrib&quot;&gt;https://riskhomolog.braspag.com.br/Chargeback/&lt;/a&gt;&lt;br /&gt;
 Retroalimentação de chargeback&lt;/p&gt;
-
-&lt;p&gt;&lt;a style=&quot;float: right;&quot; href=&quot;#http_operations&quot;&gt;&lt;i class=&quot;fa fa-angle-double-up fa-fw&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a name=&quot;post_retrocbk&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 
