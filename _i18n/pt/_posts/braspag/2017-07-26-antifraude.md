@@ -2363,7 +2363,6 @@ Enum: Accept | Reject
 **Comments**{:.custom-attrib} `optional`{:.custom-tag} `255`{:.custom-tag}.`string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
 Comentário associado a mudança de status.  
 
-
 ## Operação HTTP
 
 `PATCH`{:.http-patch} [https://riskhomolog.braspag.com.br/Analysis/{Id}]
