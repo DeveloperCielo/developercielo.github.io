@@ -1929,6 +1929,8 @@ A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa pr
 {
     self.blackbox.text = [iovation ioBegin];
 }
+@end
+
 ```
 
 * Integrando com aplicativos Android  
