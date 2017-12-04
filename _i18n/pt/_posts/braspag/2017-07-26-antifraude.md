@@ -2372,7 +2372,7 @@ Altera o status da transação
 
 **PARÂMETROS:**  
 
-``` csharp
+``` http
 Id: Guid  // Id da Transação no Antifraude Gateway
 ```
 
