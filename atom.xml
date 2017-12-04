@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-04T18:22:22+00:00</updated>
+    <updated>2017-12-04T18:40:34+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -17933,9 +17933,12 @@ Exemplo:&lt;/p&gt;
   &lt;li&gt;Resultado após a codificação: &lt;strong&gt;YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;REQUEST:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nf&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;https://authhomolog.braspag.com.br/oauth2/token&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt;
+&lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;https://authhomolog.braspag.com.br/oauth2/token&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt;
 &lt;span class=&quot;na&quot;&gt;Host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://authhomolog.braspag.com.br&lt;/span&gt;
 &lt;span class=&quot;na&quot;&gt;Content-Type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;application/x-www-form-urlencoded&lt;/span&gt;
 &lt;span class=&quot;na&quot;&gt;Authorization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Basic {Resultado_Da_String_Codificada_Em_Base64}&lt;/span&gt;
@@ -19585,7 +19588,7 @@ Caso algum campo não esteja de acordo com o tamanho especificado no manual.&lt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;post-de-notificação&quot;&gt;Post de notificação&lt;/h1&gt;
+&lt;h1 id=&quot;post-de-notificação-de-mudança-de-status&quot;&gt;Post de notificação de Mudança de Status&lt;/h1&gt;
 
 &lt;p&gt;Esta página descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de Status na Transação de revisão para aceita/rejeita.&lt;/p&gt;
 
@@ -19635,6 +19638,403 @@ Para maior detalhes de como realizar o GET, consultar em Análise a sessão &lt;
 
 &lt;div class=&quot;language-http highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.1&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;Ok&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;configuração-do-fingerprint&quot;&gt;Configuração do Fingerprint&lt;/h1&gt;
+
+&lt;p&gt;Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.&lt;/p&gt;
+
+&lt;h2 id=&quot;redshield&quot;&gt;ReDShield&lt;/h2&gt;
+
+&lt;h2 id=&quot;integração-com-sua-página-de-checkoutsite&quot;&gt;Integração com sua página de checkout(site)&lt;/h2&gt;
+
+&lt;h2 id=&quot;como-funciona&quot;&gt;Como funciona?&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/af/fingerprint.png&quot; alt=&quot;Fluxo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;1 - A página de checkout da loja envia os atributos do dispositivo do comprador para a Iovation, criando assim a &lt;em&gt;caixa preta&lt;/em&gt;&lt;br /&gt;
+2 - O lojista recebe a sequência de caracteres criptografados da Iovation e escreve o mesmo na página de checkout em um campo do tipo &lt;em&gt;hidden&lt;/em&gt;&lt;br /&gt;
+3 - O lojista envia para a Braspag, junto com os demais dados da transação a ser analisada, a &lt;em&gt;caixa preta&lt;/em&gt;&lt;br /&gt;
+4 - A Braspag recebe todos os dados, valida e envia para a ReD Shield&lt;br /&gt;
+5 - A ReD Shield recebe todos os dados, envia a &lt;em&gt;caixa preta&lt;/em&gt; para a Iovation descriptografar&lt;br /&gt;
+6 - A Red Shield recebe da Iovation os atributos do dispositivo do comprador&lt;/p&gt;
+
+&lt;h2 id=&quot;como-configurar&quot;&gt;Como configurar?&lt;/h2&gt;
+
+&lt;p&gt;1 - Inclua o javascript da Iovation em sua página de checkout&lt;br /&gt;
+2 - Adicione parâmetros de configuração no javascript&lt;br /&gt;
+3 - Crie um campo do tipo &lt;em&gt;hidden&lt;/em&gt; em sua página para escrever a &lt;em&gt;caixa preta&lt;/em&gt; nele e enviá-lo junto com os dados da transação a ser analisada&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Obs.:&lt;/strong&gt; Não realize cache do script, pois pode ocorrer de vários dispositovos sejam identificados como sendo o mesmo.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Incluindo o javascript da Iovation&lt;/p&gt;
+
+    &lt;p&gt;Para incluir o javascript, adicione o seguinte elemento &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;script&amp;gt;&lt;/code&gt; na sua página de checkout. Esta é a URL da versão do snare.js do ambiente de produção da Iovation.&lt;br /&gt;
+  &lt;strong&gt;Exemplo:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;script type=&quot;text/javascript&quot; src=&quot;https://mpsnare.iesnare.com/snare.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Parâmetros de configuração&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_install_flash&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;bool&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;DefaultValue=false&lt;/code&gt;&lt;br /&gt;
+  Determina se será solicitado ao usuário a instalação do Flash ou atualização da versão.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_flash_needs_handler&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt;&lt;br /&gt;
+  Este parâmetro só terá validade se o parâmetro &lt;em&gt;io_install_flash&lt;/em&gt; estiver configurado como TRUE, caso contrário não será executado.&lt;br /&gt;
+  É possível aqui customizar sua própria mensagem caso o Flash não esteja instalado.&lt;br /&gt;
+  Ex.: var io_flash_needs_handler = “Alert(‘Instalar Flash’);”&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_install_stm&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;bool&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;DefaultValue=false&lt;/code&gt;&lt;br /&gt;
+  Determina se será solicitado ao usuário a instalação do Active X, que ajuda a coletar informações do hardware.&lt;br /&gt;
+  Este controle está disponível somente para o Internet Explorer, e caso o Active X já se encontre instalado, esta configuração não terá efeito.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_exclude_stm&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;bitmask&lt;/code&gt;  &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;DefaultValue=15&lt;/code&gt; &lt;br /&gt;
+  Determina se o Active X deverá ser executado quando instalado. É possível optar por desativar o controle para plataformas específicas.&lt;br /&gt;
+  Possíveis valores:&lt;br /&gt;
+      0 - executa em todas as plataformas&lt;br /&gt;
+      1 - não executa no Windows 9.x (incluindo as versões 3.1, 95, 98 e ME)&lt;br /&gt;
+      2 - não executa no Windows CE&lt;br /&gt;
+      4 - não executa no Windows XP (incluindo as versões NT, 2000, 2003 e 8)&lt;br /&gt;
+      8 - não executa no Windows Vista&lt;/p&gt;
+
+    &lt;p&gt;Obs.: Os valores são combinação de somas dos valores acima, por exemplo: 12 - não executa no Windows XP (4) ou no Windows Vista (8).&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_bbout_element_id&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt;&lt;br /&gt;
+  Id do elemento HTML para preencher com a &lt;em&gt;caixa preta&lt;/em&gt;. Se o parâmetro &lt;em&gt;io_bb_callback&lt;/em&gt; for definido, este não terá efeito.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_enable_rip&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;bool&lt;/code&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;DefaultValue=true&lt;/code&gt;&lt;br /&gt;
+  Determina se tentará coletar informações para obter o IP real do usuário.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong class=&quot;custom-attrib&quot;&gt;io_bb_callback&lt;/strong&gt; &lt;code class=&quot;custom-tag highlighter-rouge&quot;&gt;optional&lt;/code&gt;&lt;br /&gt;
+  Parâmetro para customizar a checagem da coleta da &lt;em&gt;caixa preta&lt;/em&gt; foi concluída.&lt;br /&gt;
+  Ao utilizar, escrever a função conforme com a seguinte sintaxe:&lt;br /&gt;
+  &lt;em&gt;io_callback(bb, complete)&lt;/em&gt;, onde:&lt;br /&gt;
+      bb - valor da caixa preta&lt;br /&gt;
+      complete - valor booleano que indica que a coleta foi concluída&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+  Os parâmetros de configuração devem ser colocados antes da chamada da tag acima. Eles determinam como javascript do iovation funcionará, e podem ocorrer erros
+  caso os mesmos sejam colocados antes da chamada do javascript.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;io_install_flash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;io_install_stm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;io_bbout_element_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'gatewayFingerprint'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://mpsnare.iesnare.com/snare.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hidden&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gatewayFingerprint&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gatewayFingerprint&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;integração-em-aplicativos-mobile&quot;&gt;Integração em aplicativos mobile&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Visão Geral&lt;/strong&gt;&lt;br /&gt;
+Este tópico explica como integrar o mobile SDK da Iovation em seus aplicativos para iOS e Android.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Baixando o SDK&lt;/strong&gt;&lt;br /&gt;
+Se você ainda não baixou o SDK do iOS ou do Android, deve fazê-lo antes de continuar através do centro de ajuda da Iovation.&lt;br /&gt;
+&lt;a href=&quot;http://help.iovation.com/Downloads&quot;&gt;Download Mobile SDK&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Sobre a integração&lt;/strong&gt;&lt;br /&gt;
+Adicione o Iovation Mobile SDK aos seus aplicativos para coletar informações sobre os dispositivos dos usuários finais. Será gerada uma &lt;em&gt;caixa preta&lt;/em&gt; que contém todas as informações do dispositivo disponíveis.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/af/fingerprintmobile.png&quot; alt=&quot;Fluxo&quot; class=&quot;centerimg&quot; title=&quot;Fluxo da coleta do fingerprint mobile&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Integrando com aplicativos iOS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Arquivos e requisitos de integração do iOS&lt;br /&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/braspag/af/fingerprintios1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração iOS&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Esta versão suporta iOS 5.1.1 ou superior nos seguintes dispositivos:&lt;br /&gt;
+        iPhone 3GS e posterior&lt;br /&gt;
+        iPod Touch 3ª geração ou posterior&lt;br /&gt;
+        Todos os iPads&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Instalando o SDK no iOS&lt;/p&gt;
+
+    &lt;p&gt;1 - Baixe e descompacte o SDK&lt;br /&gt;
+  2 - No Xcode, arraste &lt;em&gt;iovation.framework&lt;/em&gt; na área de navegação do seu projeto&lt;br /&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/braspag/af/fingerprintios2.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
+  3 - Na caixa de diálogo que aparece:&lt;br /&gt;
+      Selecione &lt;em&gt;Copy items if needed&lt;/em&gt; para copiar o framework para o diretório do projeto&lt;br /&gt;
+      Marque a caixa de seleção para os destinos nos quais você planeja usar o framework&lt;br /&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/braspag/af/fingerprintios3.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
+  4 - Clique em Finish&lt;br /&gt;
+  5 - Adicione os frameworks a seguir ao destino da aplicação no XCode:&lt;br /&gt;
+      - &lt;em&gt;ExternalAccessory.framework&lt;/em&gt;. Se você verificar que o Wireless Accessory Configuration está ativado no Xcode 6 ou superior e não precisa, desativa e adicione novamente o ExternalAccessory.framework&lt;br /&gt;
+      - &lt;em&gt;CoreTelephony.framework&lt;/em&gt;&lt;br /&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/braspag/af/fingerprintios4.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes instalação SDK&quot; /&gt;&lt;br /&gt;
+  6 - Opcionalmente, adicione esses frameworks se o seu aplicativo fizer uso deles:&lt;br /&gt;
+      - &lt;em&gt;AdSupport.framework&lt;/em&gt;. Se o seu aplicativo exibe anúncios&lt;br /&gt;
+      Obs.: Não incluir se o seu aplicativo não utilizar anúncios, pois a App Store rejeita aplicativos que incluem o framework mas não usam anúncios&lt;br /&gt;
+      - &lt;em&gt;CoreLocation.framework&lt;/em&gt;. Se o seu aplicativo usa monitoramento local&lt;br /&gt;
+      Obs.: Não incluir, a menos que seu aplicativo solicite permissão de geolocalização do usuário&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Usando a função +ioBegin&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A função &lt;em&gt;+ioBegin&lt;/em&gt; coleta informações sobre o dispositivo e gera uma &lt;em&gt;caixa preta&lt;/em&gt;. Esta &lt;em&gt;caixa preta&lt;/em&gt; deverá ser enviada através do campo &lt;em&gt;CustomerData.BrowserFingerPrint&lt;/em&gt; em conjunto com os outros dados para análise.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sintaxe&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;NSSstring * bbox = [iovation ioBegin]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Valores de retorno&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;bbox - string que contem a &lt;em&gt;caixa preta&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+A &lt;em&gt;caixa preta&lt;/em&gt; que retornou de &lt;em&gt;+ioBegin&lt;/em&gt; nunca deve estar vazio. Uma &lt;em&gt;caixa preta&lt;/em&gt; vazia indica que a proteção oferecida pelo sistema pode ter sido comprometida.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Exemplo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#import &quot;sampleViewController.h&quot;
+#import &lt;span class=&quot;nt&quot;&gt;&amp;lt;iovation&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;iovation&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+@implementation SampleViewController
+@property (strong, nonatomic) UILabel *blackbox;
+// Button press updates text field with blackbox value
+- (IBAction)changeMessage:(id)sender
+{
+    self.blackbox.text = [iovation ioBegin];
+}
+@end
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Integrando com aplicativos Android&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Arquivos e requisitos de integração do Android&lt;br /&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/braspag/af/fingerprintandroid.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTA&lt;/strong&gt;&lt;br /&gt;
+Se as permissões listadas não são necessárias pelo aplicativo, os valores obtidos obtidos utilizando essas permissões serão ignorados. As permissões não são necessárias para obter uma &lt;em&gt;caixa preta&lt;/em&gt;, mas ajudam a obter mais informações do dispositivo.&lt;/p&gt;
+
+&lt;p&gt;A versão 1.2.0 do Iovation Mobile SDK para Android suporta versões do Android 2.1 ou superior.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Instalando o SDK no Android&lt;/p&gt;
+
+    &lt;p&gt;1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar&lt;br /&gt;
+  2 - Inicie o IDE de sua escolha&lt;br /&gt;
+  3 - No Eclipse e Maven, faça o deploy do arquivo de extensão &lt;em&gt;.aar&lt;/em&gt; no repositório Maven local, usando o maven-deploy.&lt;br /&gt;
+      Mais detalhes em: &lt;a href=&quot;http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html&quot;&gt;Maven Guide&lt;/a&gt;
+  4 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; New Module&lt;/em&gt;. Expande &lt;em&gt;More Modules&lt;/em&gt; e escolha &lt;em&gt;Import existing .jar or .aar package&lt;/em&gt;
+  5 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em &lt;em&gt;Finish&lt;/em&gt;
+  6 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle&lt;br /&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/braspag/af/fingerprintandroid1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Usando a função ioBegin&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A função &lt;em&gt;ioBegin&lt;/em&gt; coleta informações sobre o dispositivo e gera uma &lt;em&gt;caixa preta&lt;/em&gt;. Esta &lt;em&gt;caixa preta&lt;/em&gt; deverá ser enviada através do campo &lt;em&gt;CustomerData.BrowserFingerPrint&lt;/em&gt; em conjunto com os outros dados para análise.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sintaxe&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;public static String ioBegin(Context context)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Parâmetros&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;context - uma instância da classe &lt;em&gt;android.content.Context&lt;/em&gt; usado para acessar informações sobre o dispositivo&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Valores de retorno&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;string que contem a &lt;em&gt;caixa preta&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+A &lt;em&gt;caixa preta&lt;/em&gt; que retornou de &lt;em&gt;ioBegin&lt;/em&gt; nunca deve estar vazio. Uma &lt;em&gt;caixa preta&lt;/em&gt; vazia indica que contem apenas &lt;em&gt;0500&lt;/em&gt; indica que a proteção oferecida pelo sistema pode ter sido comprometida.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+O arquivo &lt;em&gt;device-lib-1.2.0.aar&lt;/em&gt; deverá ser empacotado com o aplicativo.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compilando o aplicativo de exemplo no Android Studio&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+Se a opção para executar o módulo não aparecer, selecione &lt;em&gt;File -&amp;gt; Project Structure&lt;/em&gt; e abra o painel &lt;em&gt;Modules&lt;/em&gt;. A partir disso, defina na lista a versão do Android SDK.&lt;/p&gt;
+
+&lt;p&gt;1 - Baixe e descompacte o deviceprint-lib-1.2.0.aar&lt;br /&gt;
+2 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; Open&lt;/em&gt; ou clique em &lt;em&gt;Open Project&lt;/em&gt; através da opção &lt;em&gt;quick-start&lt;/em&gt;&lt;br /&gt;
+3 - No diretório em que você descompactou o &lt;em&gt;deviceprint-lib-1.2.0.aar&lt;/em&gt;, abra diretório &lt;em&gt;android-studio-sample-app&lt;/em&gt; do aplicativo de exemplo&lt;br /&gt;
+4 - Abra o arquivo &lt;em&gt;DevicePrintSampleActivity&lt;/em&gt;&lt;br /&gt;
+5 - Com algumas configurações, o Android Studio pode detectar um Android Framework no projeto e não configurá-lo. Neste caso, abra o &lt;em&gt;Event Log&lt;/em&gt; e clique em &lt;em&gt;Configure&lt;/em&gt;&lt;br /&gt;
+6 - Uma pop-up irá abrir para você selecionar o Android Framework. Clique em &lt;em&gt;OK&lt;/em&gt; para corrigir os erros&lt;br /&gt;
+7 - No Android Studio, selecione &lt;em&gt;File -&amp;gt; New Module&lt;/em&gt;. Expande &lt;em&gt;More Modules&lt;/em&gt; e escolha &lt;em&gt;Import existing .jar or .aar package&lt;/em&gt;&lt;br /&gt;
+8 - Selecione o arquivo deviceprint-lib-1.2.0.aar, e clique em &lt;em&gt;Finish&lt;/em&gt;&lt;br /&gt;
+9 - Certifique-se de que o device-lib é uma dependência de compilação no arquivo build.gradle&lt;br /&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/braspag/af/fingerprintandroid1.png&quot; alt=&quot;Detalhes&quot; class=&quot;left&quot; title=&quot;Detalhes integração Android&quot; /&gt;&lt;br /&gt;
+10 - Abra a pasta DevicePrintSampleActivity&lt;br /&gt;
+11 - Na opção de navegação do projeto, abra &lt;em&gt;src/main/java/com/iovation/mobile/android/sample/DevicePrintSampleActivity.java&lt;/em&gt;&lt;br /&gt;
+12 - Clique com o botão direito e selecione &lt;em&gt;Run DevicePrintSampleAct&lt;/em&gt;&lt;br /&gt;
+13 - Selecione um dispositivo físico conectado ou um Android virtual para executar o aplicativo&lt;br /&gt;
+14 - O aplicativo irá compilar e executar&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Exemplo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O exemplo a seguir é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a &lt;em&gt;caixa preta&lt;/em&gt;. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package com.iovation.mobile.android.sample;
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import com.iovation.mobile.android.DevicePrint;
+public class DevicePrintSampleActivity extends Activity
+{
+    /**
+    * Called when the activity is first created.
+    * @param savedInstanceState If the activity is being re-initialized after
+    * previously being shut down then this Bundle contains the data it most
+    * recently supplied in onSaveInstanceState(Bundle). &lt;span class=&quot;nt&quot;&gt;&amp;lt;b&amp;gt;&lt;/span&gt;Note: Otherwise it is null.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/b&amp;gt;&lt;/span&gt;
+    */
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+    }
+    
+    public void printDevice(View target)
+    {
+        String bb = DevicePrint.ioBegin(getApplicationContext());
+        TextView bbResult = (TextView) findViewById(R.id.bbResult);
+        bbResult.setText(bb);
+        bbResult.setVisibility(View.VISIBLE);
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;cybersource&quot;&gt;Cybersource&lt;/h2&gt;
+
+&lt;p&gt;Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag &lt;em&gt;&amp;lt;body&amp;gt;&lt;/em&gt; da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Colocando os segmentos de código e substituindo os valores das variáveis&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Coloque os segmentos de código imediatamente acima da tag &lt;em&gt;&amp;lt;/body&amp;gt;&lt;/em&gt; para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.&lt;/p&gt;
+
+&lt;p&gt;Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Domain:&lt;br /&gt;
+  Testing - Use h.online-metrix.net, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo.&lt;br /&gt;
+  Production - Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para h.online-metrix.net.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ProviderOrgId&lt;/strong&gt; - Para obter este valor, entre em contato com a Braspag.&lt;br /&gt;
+&lt;strong&gt;ProviderMerchantId&lt;/strong&gt; - Para obter este valor, entre em contato com a Braspag.&lt;br /&gt;
+&lt;strong&gt;ProviderSessionId&lt;/strong&gt; - Prencha este campo com o mesmo valor do campo &lt;strong&gt;MerchantOrderId&lt;/strong&gt; que será enviado na requisição da análise de fraude.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PNG Image&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;background:url(https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;amp;amp;session_id=ProviderMerchantIdProviderSessionId&amp;amp;amp;m=1)&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;  
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://h.online-metrix.net/fp/clear.png?org_id=ProviderOrgId&amp;amp;amp;session_id=ProviderMerchantIdProviderSessionId&amp;amp;amp;m=2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;  
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Flash Code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;object&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;application/x-shockwave-flash&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;amp;amp;session_id=ProviderMerchantIdProviderSessionId&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;thm_fp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;param&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;movie&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://h.online-metrix.net/fp/fp.swf?org_id=ProviderOrgId&amp;amp;amp;session_id=ProviderMerchantIdProviderSessionId&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Javascript Code&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;amp;amp;session_id=ProviderMerchantIdProviderSessionId&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Configurando seu Servidor Web&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Na seção &lt;em&gt;Colocando os segmentos de código e substituindo os valores das variáveis (Domain)&lt;/em&gt;, todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;br /&gt;
+Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.&lt;/p&gt;
 </content>
     </entry>
     
@@ -28064,6 +28464,1107 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
 &lt;p&gt;Na Loja Pública, o aplicativo ficara disponível na Cielo Store para todos os clientes que possuem LIO.&lt;/p&gt;
 
 &lt;p&gt;Na Loja Privada o modelo de distribuição consiste em um desenvolvedor (ou grupo de desenvolvedores), estando relacionado a uma loja privada. Esse modelo visa a distribuição seletiva do aplicativo, dado que ele só é instalado em LIOs cadastradas para aquela loja específica. O aplicativo que está na Loja Privada não estará disponível na Loja Pública.&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Split de pagamentos</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/split"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/manual/split</id>
+        <content type="html">&lt;h1 id=&quot;o-que-é-o-split-de-pagamentos-&quot;&gt;O que é o Split de Pagamentos ?&lt;/h1&gt;
+
+&lt;p&gt;O Split de Pagamentos permite a divisão de uma transação entre diferentes participantes de uma venda.&lt;/p&gt;
+
+&lt;p&gt;Muito utilizado em Marketplaces, onde &lt;strong&gt;o carrinho é composto por produtos de diferentes fornecedores&lt;/strong&gt; e o valor total da venda deve ser dividido entre os participantes.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Participantes&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Responsável pelo carrinho. &lt;br /&gt; Possui &lt;strong&gt;Subordinados&lt;/strong&gt; que fornecem os produtos presentes no carrinho.&lt;br /&gt; Define um MDR* e uma Tarifa Fixa (opcional) a serem descontados sobre a venda do &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;br /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Subordinado&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Fornecedor dos produtos que compõem o carrinho.&lt;br /&gt;Recebe parte do valor da venda, descontado o MDR* acordado com o &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;br /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Responsável pelo fluxo transacional.&lt;br /&gt; Define um MDR* e uma Tarifa Fixa a serem descontados sobre o valor total da venda realizada pelo &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;br /&gt; Responsável pela liquidação dos pagamentos para os &lt;strong&gt;Subordinados&lt;/strong&gt; e &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;MDR&lt;/strong&gt;  (&lt;em&gt;Merchant Discount Rate&lt;/em&gt;): Percentual a ser descontado sobre o valor de uma transação.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;como-funciona-o-split-de-pagamentos&quot;&gt;Como funciona o Split de Pagamentos?&lt;/h2&gt;
+
+&lt;p&gt;No Split de Pagamentos o responsável pelo fluxo transacional é o facilitador.&lt;/p&gt;
+
+&lt;p&gt;O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.&lt;/p&gt;
+
+&lt;p&gt;Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Regime de Pagamento&lt;/strong&gt;: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.&lt;br /&gt;
+&lt;strong&gt;Crédito&lt;/strong&gt;: Em até 31 dias.&lt;br /&gt;
+&lt;strong&gt;Crédito&lt;/strong&gt; Parcelado: 1º parcela em até 31 dias, demais a cada 30.&lt;br /&gt;
+&lt;strong&gt;Débito&lt;/strong&gt;: Em até 1 dia útil&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Para utilizar o Split de Pagamentos, o &lt;strong&gt;Marketplace&lt;/strong&gt; deverá se cadastrar na Braspag juntamente com seus &lt;strong&gt;Subordinados&lt;/strong&gt;. Após este processo, tanto o &lt;strong&gt;Marketplace&lt;/strong&gt; quanto seus &lt;strong&gt;Subordinados&lt;/strong&gt; possuirão um identificador único, conhecido como &lt;strong&gt;MerchantId (MID)&lt;/strong&gt;, que deverá ser utlizado ao informar as regras de divisão de uma transação.&lt;/p&gt;
+
+&lt;p&gt;A divisão de uma transação deve serguir as seguintes regras:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Informar os identificadores dos &lt;strong&gt;Subordinados&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Os valores de participação de cada &lt;strong&gt;Subordinado&lt;/strong&gt;. O somatório deverá ser igual ao valor total da transação.&lt;/li&gt;
+  &lt;li&gt;MDRs + Tarifas Fixas (opcional) a serem aplicados sobre o valor de cada &lt;strong&gt;Subordinado&lt;/strong&gt; que será destinado ao &lt;strong&gt;Marketplace&lt;/strong&gt;. Deverá ser acordado previamente entre o &lt;strong&gt;Marketplace&lt;/strong&gt; e o &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O &lt;strong&gt;Marketplace&lt;/strong&gt; também pode ser um participante da divisão. Para isso basta informar seu identificador na divisão, passando o mesmo a ter também o papel de &lt;strong&gt;Subordinado&lt;/strong&gt; e ter seus próprios produtos no carrinho.&lt;/p&gt;
+
+&lt;h2 id=&quot;taxas&quot;&gt;Taxas&lt;/h2&gt;
+
+&lt;p&gt;As taxas acordadas entre os participantes, que são o &lt;strong&gt;MDR(%)&lt;/strong&gt; e uma &lt;strong&gt;Taxa Fixa(R$)&lt;/strong&gt;, devem ser definidas no momento do cadastro do &lt;strong&gt;Marketplace&lt;/strong&gt; e dos seus &lt;strong&gt;Subordinados&lt;/strong&gt; junto à Braspag.&lt;/p&gt;
+
+&lt;p&gt;As mesmas poderão ser enviadas no momento transacional ou pós-transacional. Caso não sejam enviadas, a &lt;strong&gt;Braspag&lt;/strong&gt; irá considerar as taxas já cadastradas.&lt;/p&gt;
+
+&lt;h3 id=&quot;braspag-facilitador&quot;&gt;Braspag (Facilitador)&lt;/h3&gt;
+
+&lt;p&gt;A Braspag acordará um &lt;strong&gt;MDR(%)&lt;/strong&gt; e uma &lt;strong&gt;Tarifa Fixa(R$)&lt;/strong&gt; com o &lt;strong&gt;Marketplace&lt;/strong&gt; a serem descontados em cada transação.&lt;/p&gt;
+
+&lt;p&gt;O &lt;strong&gt;Marketplace&lt;/strong&gt;, de conhecimento destas taxas, negociará o seu &lt;strong&gt;MDR(%)&lt;/strong&gt; e uma &lt;strong&gt;Tarifa Fixa(R$)(opcional)&lt;/strong&gt; juntamente com seus &lt;strong&gt;Subornidandos&lt;/strong&gt;, já embutindo o &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado junto à &lt;strong&gt;Braspag&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;O desconto da &lt;strong&gt;Tarifa Fixa(R$)&lt;/strong&gt;, acordado entre o &lt;strong&gt;Marketplace&lt;/strong&gt; e a &lt;strong&gt;Braspag&lt;/strong&gt;, não é aplicado no valor total da transação, não entrando no cálculo da divisão e sim sendo debitado do montante que o &lt;strong&gt;Marketplace&lt;/strong&gt; tem para receber junto à &lt;strong&gt;Braspag&lt;/strong&gt;. O &lt;strong&gt;MDR(%)&lt;/strong&gt; entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre o &lt;strong&gt;Marketplace&lt;/strong&gt; e seus &lt;strong&gt;Subordinados.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Custo para o Marketplace:&lt;/strong&gt; MDR Braspag(%) + Tarifa Fixa(R$)
+O &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre um &lt;strong&gt;Marketplace&lt;/strong&gt; e um &lt;strong&gt;Subordinado&lt;/strong&gt; deve ser sempre maior que o &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre a &lt;strong&gt;Braspag&lt;/strong&gt; e o &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;marketplace&quot;&gt;Marketplace&lt;/h3&gt;
+
+&lt;p&gt;O &lt;strong&gt;Marketplace&lt;/strong&gt; é responsável por acordar as taxas a serem cobradas de seus &lt;strong&gt;Subordinados&lt;/strong&gt;, onde deve ser defindo um &lt;strong&gt;MDR(%)&lt;/strong&gt; maior ou igual ao &lt;strong&gt;MDR(%)&lt;/strong&gt; definido entre a &lt;strong&gt;Braspag&lt;/strong&gt; e o &lt;strong&gt;Marketplace&lt;/strong&gt; e uma &lt;strong&gt;Tarifa Fixa(R$)&lt;/strong&gt;, que é opcional.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Custo para o Subordinado:&lt;/strong&gt; MDR Marketplace(%) + Tarifa Fixa(R$), onde no MDR Marketplace(%) está embutido o MDR Braspag(%).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Exemplo&lt;/p&gt;
+
+&lt;p&gt;Uma transação de &lt;strong&gt;R$100&lt;/strong&gt;, realizada por um &lt;strong&gt;Marketplace&lt;/strong&gt; com participação do &lt;strong&gt;Subordinado 01&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://docsbraspag.github.io/SplitBraspag/images/Split/Split000.PNG&quot; alt=&quot;Split&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Neste exemplo, foram assumidos os seguintes acordos:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace&lt;/strong&gt;: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.&lt;/p&gt;
+
+&lt;p&gt;Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Subordinado&lt;/strong&gt;:&lt;br /&gt;
+Crédito: R$94,70 = (R$100 - 5%) - R$0,30.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;:&lt;br /&gt;
+Crédito: R$3,30 = R$100 * (5% - 2%) + R$0,30.&lt;br /&gt;
+Débito: R$0,30 (Tarifa Fixa Braspag)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;:&lt;br /&gt;
+Crédito: R$2,00 = R$100 * 2%.&lt;br /&gt;
+Crédito: R$0,30 (Tarifa Fixa Braspag)&lt;/p&gt;
+
+&lt;h2 id=&quot;utilizando-o-split-de-pagamentos&quot;&gt;Utilizando o Split de Pagamentos&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;
+O Split de Pagamentos é parte da API Cielo E-Commerce, desenvolvida utilizando a arquitetura REST e JSON como mensageria. Para mais informações sobre a API Cielo E-Commerce, consulte o &lt;a href=&quot;https://developercielo.github.io/Webservice-3.0/#criando-uma-transação-simples&quot; target=&quot;_blank&quot;&gt;Manual de Integração&lt;/a&gt; da Plataforma.&lt;/p&gt;
+
+&lt;p&gt;OBS: Neste manual serão apresentados os contratos de integração da API Cielo E-Commerce, porém o foco da análise será nas operações referentes ao Split de Pagamentos.&lt;/p&gt;
+
+&lt;h3 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;SANDBOX&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;:&lt;br /&gt;
+https://apisandbox.cieloecommerce.cielo.com.br/&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;API Cielo E-Commerce (Consulta)&lt;/strong&gt;:&lt;br /&gt;
+https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;API Split&lt;/strong&gt;:&lt;br /&gt;
+http://splitsandbox.braspag.com.br/&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;OAUTH2 Server&lt;/strong&gt;:&lt;br /&gt;
+https://authhomolog.braspag.com.br/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;autorização&quot;&gt;Autorização&lt;/h3&gt;
+
+&lt;p&gt;A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.&lt;/p&gt;
+
+&lt;p&gt;Porém, para indentificar que a transação enviada se trata de uma transação de Split de Pagamentos, deve-se modificar o tipo de pagamento utilizado, conforme abaixo:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;=&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Cartão de Crédito&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Cartão de Débito&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Transação Comum&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;CreditCard&lt;/td&gt;
+      &lt;td&gt;DebitCard&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Transação Split&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;SplittedCreditCard&lt;/td&gt;
+      &lt;td&gt;SplittedDebitCard&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Atualmente o Split de Pagamentos está disponivel para os seguintes tipos de pagamento:&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Cartão de Crédito&lt;br /&gt;
+Em breve estarão disponíveis:&lt;/li&gt;
+    &lt;li&gt;Cartão de Débito&lt;/li&gt;
+    &lt;li&gt;Boleto&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Exemplo:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+   &quot;MerchantOrderId&quot;:&quot;2014111703&quot;,
+   &quot;Customer&quot;:{
+      &quot;Name&quot;:&quot;Comprador crédito simples&quot;
+   },
+   &quot;Payment&quot;:{
+     &quot;Type&quot;:&quot;SplittedCreditCard&quot;,
+     &quot;Amount&quot;:10000,
+     &quot;Installments&quot;:1,
+     &quot;SoftDescriptor&quot;:&quot;123456789ABCD&quot;,
+     &quot;CreditCard&quot;:{
+         &quot;CardNumber&quot;:&quot;1234123412341231&quot;,
+         &quot;Holder&quot;:&quot;Teste Holder&quot;,
+         &quot;ExpirationDate&quot;:&quot;12/2030&quot;,
+         &quot;SecurityCode&quot;:&quot;123&quot;,
+         &quot;Brand&quot;:&quot;Visa&quot;
+     }
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional pela Braspag (Facilitador).&lt;/p&gt;
+
+&lt;p&gt;Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a &lt;strong&gt;Braspag&lt;/strong&gt; e o &lt;strong&gt;Marketplace&lt;/strong&gt;. Posteriormente é permitido que o &lt;strong&gt;Marketplace&lt;/strong&gt; envie novas regras de divisão para a transação através da API de divisão pós-transacional, desde que esteja dentro do período de tempo permitido.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Exemplo 1)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Transação no valor de &lt;strong&gt;R$100,00&lt;/strong&gt; sem o nó contendo as regras de divisão.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,30 Tarifa Fixa.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+   &quot;MerchantOrderId&quot;:&quot;2014111703&quot;,
+   &quot;Customer&quot;:{
+      &quot;Name&quot;:&quot;Comprador crédito simples&quot;
+   },
+   &quot;Payment&quot;:{
+     &quot;Type&quot;:&quot;SplittedCreditCard&quot;,
+     &quot;Amount&quot;:10000,
+     &quot;Capture&quot;:true,
+     &quot;Installments&quot;:1,
+     &quot;SoftDescriptor&quot;:&quot;123456789ABCD&quot;,
+     &quot;CreditCard&quot;:{
+         &quot;CardNumber&quot;:&quot;1234123412341231&quot;,
+         &quot;Holder&quot;:&quot;Teste Holder&quot;,
+         &quot;ExpirationDate&quot;:&quot;12/2030&quot;,
+         &quot;SecurityCode&quot;:&quot;123&quot;,
+         &quot;Brand&quot;:&quot;Visa&quot;
+     }
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Neste caso o &lt;strong&gt;Marketplace&lt;/strong&gt; recebe o valor da transação descontado o MDR acordado com a &lt;strong&gt;Braspag&lt;/strong&gt;. Como apresentado anteriormente, a Tarifa Fixa acordada entre o &lt;strong&gt;Marketplace&lt;/strong&gt; e a &lt;strong&gt;Braspag&lt;/strong&gt; é sensibilizada diretamente na agenda.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://docsbraspag.github.io/SplitBraspag/images/Split/Split001.PNG&quot; alt=&quot;Split&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Exemplo 2)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Transação no valor de &lt;strong&gt;R$100,00&lt;/strong&gt; com o nó contendo as regras de divisão.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace com o Subordinado 01&lt;/strong&gt;: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace com o Subordinado 02&lt;/strong&gt;: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+   &quot;MerchantOrderId&quot;:&quot;2014111703&quot;,
+   &quot;Customer&quot;:{
+      &quot;Name&quot;:&quot;Comprador crédito simples&quot;
+   },
+   &quot;Payment&quot;:{
+     &quot;Type&quot;:&quot;SplittedCreditCard&quot;,
+     &quot;Amount&quot;:10000,
+     &quot;Capture&quot;:true,
+     &quot;Installments&quot;:1,
+     &quot;SoftDescriptor&quot;:&quot;123456789ABCD&quot;,
+     &quot;CreditCard&quot;:{
+         &quot;CardNumber&quot;:&quot;1234123412341231&quot;,
+         &quot;Holder&quot;:&quot;Teste Holder&quot;,
+         &quot;ExpirationDate&quot;:&quot;12/2030&quot;,
+         &quot;SecurityCode&quot;:&quot;123&quot;,
+         &quot;Brand&quot;:&quot;Visa&quot;
+     },
+     &quot;SplitPayments&quot;:[
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;MID Subordinate 01&quot;,
+            &quot;Amount&quot;:6000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:5,
+                &quot;Fee&quot;:30
+            }
+        },
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;MID Subordinate 02&quot;,
+            &quot;Amount&quot;:4000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:4,
+                &quot;Fee&quot;:15
+            }
+        }
+     ]
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Neste caso o cálculos do Split são realizados sobre cada regra de divisão informada. No próximo tópico serão explicados as propriedades que compõem o nó do Split de Pagamentos.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://docsbraspag.github.io/SplitBraspag/images/Split/Split003.PNG&quot; alt=&quot;Split&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;modelos-de-split&quot;&gt;Modelos de Split&lt;/h3&gt;
+
+&lt;p&gt;O Split de Pagamentos possui dois modelos básicos de integração:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Split Transacional&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;O &lt;strong&gt;Marketplace&lt;/strong&gt; envia na autorização (captura automática) ou no momento de captura as regras de divisão.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Split Pós-Transacional&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;O &lt;strong&gt;Marketplace&lt;/strong&gt; envia as regras de divisão após a captura da transação.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;O Split de Pagamentos só é realizado para transações capturadas, ou seja, o mesmo só será considerado para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;split-transacional&quot;&gt;Split Transacional&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Este modelo exige que o &lt;strong&gt;Marketplace&lt;/strong&gt; envie um “nó” adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;SplitPayments&quot;:[
+    {
+        &quot;SubordinateMerchantId&quot; :&quot;MID Subordinate 01&quot;,
+        &quot;Amount&quot;:10000,
+        &quot;Fares&quot;:{
+            &quot;Mdr&quot;:5,
+            &quot;Fee&quot;:0
+        }
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Obrigatório&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SplitPayments.SubordinateMerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;MerchantId&lt;/strong&gt; (Identificador) do &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SplitPayments.Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Parte do valor total da transação referente a participação do &lt;strong&gt;Subordinado&lt;/strong&gt;, em centavos.&lt;/td&gt;
+      &lt;td&gt;Inteiro&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SplitPayments.Fares.Mdr&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;MDR(%)&lt;/strong&gt; do &lt;strong&gt;Marketplace&lt;/strong&gt; a ser descontado do valor referente a participação do &lt;strong&gt;Subordinado&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Decimal&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SplitPayments.Fares.Fee&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Tarifa Fixa(R$)&lt;/strong&gt; a ser descontada do valor referente a participação do &lt;strong&gt;Subordinado&lt;/strong&gt;, em centavos.&lt;/td&gt;
+      &lt;td&gt;Inteiro&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Como resposta, A API Cielo E-Commerce retornará na resposta um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo &lt;strong&gt;Marketplace&lt;/strong&gt; e seus &lt;strong&gt;Subordinados&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;SplitPayments&quot;: [
+    {
+        &quot;SubordinateMerchantId&quot;: &quot;MID Subordinate 01&quot;,
+        &quot;Amount&quot;: 10000,
+        &quot;Fares&quot;: {
+            &quot;Mdr&quot;: 5,
+            &quot;Fee&quot;: 0
+        },
+        &quot;Splits&quot;: [                
+            {
+                &quot;MerchantId&quot;: &quot;MID do Marketplace&quot;,
+                &quot;amount&quot;: 500,
+            },
+            {
+                &quot;MerchantId&quot;: &quot;MID Subordinate 01&quot;,
+                &quot;amount&quot;: 9500,
+            }
+        ]
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Obrigatório&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SplitPayments.Splits.SubordinateMerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;MerchantId&lt;/strong&gt; (Identificador) do &lt;strong&gt;Subordinado&lt;/strong&gt; ou &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SplitPayments.Splits.Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Parte do valor calculado da transação a ser recebido pelo &lt;strong&gt;Subordinado&lt;/strong&gt; ou &lt;strong&gt;Marketplace&lt;/strong&gt;, já descontando todas as taxas (MDR e Tarifa Fixa)&lt;/td&gt;
+      &lt;td&gt;Inteiro&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Transação no valor de &lt;strong&gt;R$100,00&lt;/strong&gt; com o nó contendo as regras de divisão.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace com o Subordinado 01&lt;/strong&gt;: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace com o Subordinado 02&lt;/strong&gt;: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+   &quot;MerchantOrderId&quot;:&quot;2014111703&quot;,
+   &quot;Customer&quot;:{
+      &quot;Name&quot;:&quot;Comprador crédito simples&quot;
+   },
+   &quot;Payment&quot;:{
+     &quot;Type&quot;:&quot;SplittedCreditCard&quot;,
+     &quot;Amount&quot;:10000,
+     &quot;Capture&quot;:true,
+     &quot;Installments&quot;:1,
+     &quot;SoftDescriptor&quot;:&quot;123456789ABCD&quot;,
+     &quot;CreditCard&quot;:{
+         &quot;CardNumber&quot;:&quot;1234123412341231&quot;,
+         &quot;Holder&quot;:&quot;Teste Holder&quot;,
+         &quot;ExpirationDate&quot;:&quot;12/2030&quot;,
+         &quot;SecurityCode&quot;:&quot;123&quot;,
+         &quot;Brand&quot;:&quot;Visa&quot;
+     },
+     &quot;SplitPayments&quot;:[
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+            &quot;Amount&quot;:6000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:5,
+                &quot;Fee&quot;:30
+            }
+        },
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+            &quot;Amount&quot;:4000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:4,
+                &quot;Fee&quot;:15
+            }
+        }
+     ]
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;MerchantOrderId&quot;: &quot;2014111706&quot;,
+    &quot;Customer&quot;: {
+        &quot;Name&quot;: &quot;Comprador crédito simples&quot;
+    },
+    &quot;Payment&quot;: {
+        &quot;ServiceTaxAmount&quot;: 0,
+        &quot;Installments&quot;: 1,
+        &quot;Interest&quot;: &quot;ByMerchant&quot;,
+        &quot;Capture&quot;: true,
+        &quot;Authenticate&quot;: false,
+        &quot;CreditCard&quot;: {
+            &quot;CardNumber&quot;: &quot;455187******0183&quot;,
+            &quot;Holder&quot;: &quot;Teste Holder&quot;,
+            &quot;ExpirationDate&quot;: &quot;12/2030&quot;,
+            &quot;SaveCard&quot;: false,
+            &quot;Brand&quot;: &quot;Visa&quot;
+        },
+        &quot;ProofOfSale&quot;: &quot;674532&quot;,
+        &quot;Tid&quot;: &quot;0305023644309&quot;,
+        &quot;AuthorizationCode&quot;: &quot;123456&quot;,
+        &quot;PaymentId&quot;: &quot;24bc8366-fc31-4d6c-8555-17049a836a07&quot;,
+        &quot;Type&quot;: &quot;CreditCard&quot;,
+        &quot;Amount&quot;: 10000,
+        &quot;Currency&quot;: &quot;BRL&quot;,
+        &quot;Country&quot;: &quot;BRA&quot;,
+        &quot;ExtraDataCollection&quot;: [],
+        &quot;Status&quot;: 1,
+        &quot;ReturnCode&quot;: &quot;4&quot;,
+        &quot;ReturnMessage&quot;: &quot;Operation Successful&quot;,
+        &quot;SplitPayments&quot;:[
+            {
+                &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+                &quot;Amount&quot;:6000,
+                &quot;Fares&quot;:{
+                    &quot;Mdr&quot;:5,
+                    &quot;Fee&quot;:30
+                },
+                &quot;Splits&quot;: [
+                    {
+                        &quot;MerchantId&quot;: &quot;cd16ab8e-2173-4a16-b037-36cd04c07950&quot;,
+                        &quot;amount&quot;: 210,    
+                    },
+                    {
+                        &quot;MerchantId&quot;: &quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+                        &quot;amount&quot;: 5670,    
+                    }
+                ]
+            },
+            {
+                &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+                &quot;Amount&quot;:4000,
+                &quot;Fares&quot;:{
+                    &quot;Mdr&quot;:4,
+                    &quot;Fee&quot;:15
+                },
+                &quot;Splits&quot;: [
+                    {
+                        &quot;MerchantId&quot;: &quot;cd16ab8e-2173-4a16-b037-36cd04c07950&quot;,
+                        &quot;amount&quot;: 95,    
+                    },
+                    {
+                        &quot;MerchantId&quot;: &quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+                        &quot;amount&quot;: 3825,    
+                    }
+                ]
+            }
+        ],
+        &quot;Links&quot;: [
+            {
+                &quot;Method&quot;: &quot;GET&quot;,
+                &quot;Rel&quot;: &quot;self&quot;,
+                &quot;Href&quot;: &quot;https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}&quot;
+            },
+            {
+                &quot;Method&quot;: &quot;PUT&quot;,
+                &quot;Rel&quot;: &quot;capture&quot;,
+                &quot;Href&quot;: &quot;https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture&quot;
+            },
+            {
+                &quot;Method&quot;: &quot;PUT&quot;,
+                &quot;Rel&quot;: &quot;void&quot;,
+                &quot;Href&quot;: &quot;https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void&quot;
+            }
+        ]
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Neste exemplo os cálculos do Split foram realizados sobre cada regra de divisão informada e na resposta retornaram os valores a serem recebidos pelo &lt;strong&gt;Marketplace&lt;/strong&gt; e seus &lt;strong&gt;Subordinados&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://docsbraspag.github.io/SplitBraspag/images/Split/Split003.PNG&quot; alt=&quot;Split&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Divisão do valor do Subordinado &lt;strong&gt;0f377932-5668-4c72-8b5b-2b43760ebd38&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;: R$2,10&lt;br /&gt;
+&lt;strong&gt;Subordinado&lt;/strong&gt;: R$56,70&lt;/p&gt;
+
+&lt;p&gt;Divisão do valor do Subordinado &lt;strong&gt;98430463-7c1e-413b-b13a-0f613af594d8&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;: R$0,95&lt;br /&gt;
+&lt;strong&gt;Subordinado&lt;/strong&gt;: R$38,25&lt;/p&gt;
+
+&lt;h4 id=&quot;split-pós-transacional&quot;&gt;Split Pós-Transacional&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Neste modelo o &lt;strong&gt;Marketplace&lt;/strong&gt; poderá enviar as regras de divisão da transação após a mesma ser capturada.&lt;/p&gt;
+
+&lt;p&gt;A divisão pós-transacional é possível somente para transações com &lt;strong&gt;Cartão de Crédito&lt;/strong&gt; e poderá ser realizada dentro de um intervalo de tempo a partir da data de captura da transação.&lt;/p&gt;
+
+&lt;p&gt;Para transações com &lt;strong&gt;Cartão de Crédito&lt;/strong&gt;, este período é de &lt;strong&gt;25 dias&lt;/strong&gt; se o &lt;strong&gt;Marketplace&lt;/strong&gt; possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (&lt;strong&gt;Marketplace&lt;/strong&gt; e &lt;strong&gt;Braspag&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;p&gt;A API de divisão pós-transacional utiliza como segurança o protocolo &lt;a href=&quot;https://oauth.net/2/&quot; target=&quot;_blank&quot;&gt;OAUTH2&lt;/a&gt;, onde é necessário primeiramente obter um token utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.&lt;/p&gt;
+
+&lt;p&gt;Para obter um token de acesso:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Concatene o ClientId e ClientSecret: &lt;code class=&quot;highlighter-rouge&quot;&gt;ClientId:ClientSecret&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Codifique o resultado da concatenação em Base64.&lt;/li&gt;
+  &lt;li&gt;Realize uma requisição ao servidor de autorização:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST https://{OAUTH2 Server}/oauth2/token  
+--header &quot;Authorization: Basic {base64}&quot;  
+--header &quot;Content-Type: application/x-www-form-urlencoded&quot;  
+grant_type=client_credentials
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;access_token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs&quot;,
+    &quot;token_type&quot;: &quot;bearer&quot;,
+    &quot;expires_in&quot;: 1199
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;O token retornado (access_token) deverá ser utilizado em toda requisição à API do Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.&lt;/p&gt;
+
+&lt;p&gt;Com o token de acesso, é possível realizar um requisição à API do Split para enviar as regras de divisão de uma transação.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PUT https://{API Split}/api/transactions/{PaymentId}/split
+--header &quot;Authorization: Bearer {token}&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
+    {
+        &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+        &quot;Amount&quot;:6000,
+        &quot;Fares&quot;:{
+            &quot;Mdr&quot;:5,
+            &quot;Fee&quot;:30
+        }
+    },
+    {
+        &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+        &quot;Amount&quot;:4000,
+        &quot;Fares&quot;:{
+            &quot;Mdr&quot;:4,
+            &quot;Fee&quot;:15
+        }
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;RESPONSE&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
+    {
+        &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+        &quot;Amount&quot;:6000,
+        &quot;Fares&quot;:{
+            &quot;Mdr&quot;:5,
+            &quot;Fee&quot;:30
+        },
+        &quot;Splits&quot;: [
+            {
+                &quot;MerchantId&quot;: &quot;cd16ab8e-2173-4a16-b037-36cd04c07950&quot;,
+                &quot;amount&quot;: 210,    
+            },
+            {
+                &quot;MerchantId&quot;: &quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+                &quot;amount&quot;: 5670   
+            }
+        ]
+    },
+    {
+        &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+        &quot;Amount&quot;:4000,
+        &quot;Fares&quot;:{
+            &quot;Mdr&quot;:4,
+            &quot;Fee&quot;:0.15
+        },
+        &quot;Splits&quot;: [
+            {
+                &quot;MerchantId&quot;: &quot;cd16ab8e-2173-4a16-b037-36cd04c07950&quot;,
+                &quot;amount&quot;: 95,    
+            },
+            {
+                &quot;MerchantId&quot;: &quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+                &quot;amount&quot;: 3825    
+            }
+        ]
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Exemplo considerando transação no valor de &lt;strong&gt;R$100,00&lt;/strong&gt; e as seguinte taxas:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace com o Subordinado 01&lt;/strong&gt;: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace com o Subordinado 02&lt;/strong&gt;: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.&lt;/p&gt;
+
+&lt;p&gt;O nó de Split de Pagamentos da API pós-transacional, no contrato de request e response, é o mesmo retornado na divisão no momento transacional, apresentado anteriormente.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;O &lt;strong&gt;Marketplace&lt;/strong&gt; poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de &lt;strong&gt;25 dias&lt;/strong&gt; para Cartão de Crédito. Para transações com Cartão de Débito a divisão poderá ser realizada somente no momento transacional.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;consulta&quot;&gt;Consulta&lt;/h3&gt;
+
+&lt;p&gt;Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET https://{API Cielo E-Commerce (consulta)}/1/sales/{PaymentId}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;MerchantOrderId&quot;: &quot;2014111706&quot;,
+    &quot;Customer&quot;: {
+        &quot;Name&quot;: &quot;Comprador Teste&quot;
+    },
+    &quot;Payment&quot;: {
+        &quot;ServiceTaxAmount&quot;: 0,
+        &quot;Installments&quot;: 1,
+        &quot;Interest&quot;: &quot;ByMerchant&quot;,
+        &quot;Capture&quot;: false,
+        &quot;Authenticate&quot;: false,
+        &quot;CreditCard&quot;: {
+            &quot;CardNumber&quot;: &quot;455187******0183&quot;,
+            &quot;Holder&quot;: &quot;Teste Holder&quot;,
+            &quot;ExpirationDate&quot;: &quot;12/2030&quot;,
+            &quot;SaveCard&quot;: false,
+            &quot;Brand&quot;: &quot;Visa&quot;
+        },
+        &quot;ProofOfSale&quot;: &quot;674532&quot;,
+        &quot;AuthorizationCode&quot;: &quot;123456&quot;,
+        &quot;PaymentId&quot;: &quot;24bc8366-fc31-4d6c-8555-17049a836a07&quot;,
+        &quot;Type&quot;: &quot;CreditCard&quot;,
+        &quot;Amount&quot;: 1000,
+        &quot;Currency&quot;: &quot;BRL&quot;,
+        &quot;Country&quot;: &quot;BRA&quot;,
+        &quot;ExtraDataCollection&quot;: [],
+        &quot;Status&quot;: 2,
+        &quot;SplitPayments&quot;:[
+            {
+                &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+                &quot;Amount&quot;:6000,
+                &quot;Fares&quot;:{
+                    &quot;Mdr&quot;:5,
+                    &quot;Fee&quot;:30
+                },
+                &quot;Splits&quot;: [
+                    {
+                        &quot;MerchantId&quot;: &quot;cd16ab8e-2173-4a16-b037-36cd04c07950&quot;,
+                        &quot;amount&quot;: 210,    
+                    },
+                    {
+                        &quot;MerchantId&quot;: &quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+                        &quot;amount&quot;: 5670,    
+                    }
+                ]
+            },
+            {
+                &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+                &quot;Amount&quot;:4000,
+                &quot;Fares&quot;:{
+                    &quot;Mdr&quot;:4,
+                    &quot;Fee&quot;:15
+                },
+                &quot;Splits&quot;: [
+                    {
+                        &quot;MerchantId&quot;: &quot;cd16ab8e-2173-4a16-b037-36cd04c07950&quot;,
+                        &quot;amount&quot;: 95,    
+                    },
+                    {
+                        &quot;MerchantId&quot;: &quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+                        &quot;amount&quot;: 3825,    
+                    }
+                ]
+            }
+        ],
+        &quot;Links&quot;: [
+            {
+                &quot;Method&quot;: &quot;GET&quot;,
+                &quot;Rel&quot;: &quot;self&quot;,
+                &quot;Href&quot;: &quot;https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}&quot;
+            },
+            {
+                &quot;Method&quot;: &quot;PUT&quot;,
+                &quot;Rel&quot;: &quot;capture&quot;,
+                &quot;Href&quot;: &quot;https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture&quot;
+            },
+            {
+                &quot;Method&quot;: &quot;PUT&quot;,
+                &quot;Rel&quot;: &quot;void&quot;,
+                &quot;Href&quot;: &quot;https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void&quot;
+            }
+        ]
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;captura&quot;&gt;Captura&lt;/h3&gt;
+
+&lt;p&gt;Ao capturar uma transação do Split de Pagamentos o &lt;strong&gt;Marketplace&lt;/strong&gt; deve informar as regras de divisão da mesma. Caso não informe, será gerada a divisão da transação entre o &lt;strong&gt;Marketplace&lt;/strong&gt; e a &lt;strong&gt;Braspag&lt;/strong&gt;, tanto para &lt;strong&gt;captura do valor total&lt;/strong&gt; quanto para &lt;strong&gt;captura de um valor parcial&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;captura-total&quot;&gt;Captura Total&lt;/h4&gt;
+
+&lt;p&gt;Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/capture
+{
+    &quot;SplitPayments&quot;:[
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+            &quot;Amount&quot;:6000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:5,
+                &quot;Fee&quot;:30
+            }
+        },
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+            &quot;Amount&quot;:4000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:4,
+                &quot;Fee&quot;:15
+            }
+        }
+     ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;Status&quot;: 2,
+    &quot;ReturnCode&quot;: &quot;6&quot;,
+    &quot;ReturnMessage&quot;: &quot;Operation Successful&quot;,
+    &quot;SplitPayments&quot;:[
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+            &quot;Amount&quot;:6000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:5,
+                &quot;Fee&quot;:30
+            },
+            &quot;Splits&quot;: [
+                {
+                    &quot;MerchantId&quot;: &quot;cd16ab8e-2173-4a16-b037-36cd04c07950&quot;,
+                    &quot;amount&quot;: 210,    
+                },
+                {
+                    &quot;MerchantId&quot;: &quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+                    &quot;amount&quot;: 5670,    
+                }
+            ]
+        },
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+            &quot;Amount&quot;:4000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:4,
+                &quot;Fee&quot;:15
+            },
+            &quot;Splits&quot;: [
+                {
+                    &quot;MerchantId&quot;: &quot;cd16ab8e-2173-4a16-b037-36cd04c07950&quot;,
+                    &quot;amount&quot;: 95,    
+                },
+                {
+                    &quot;MerchantId&quot;: &quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+                    &quot;amount&quot;: 3825,    
+                }
+            ]
+        }
+    ]
+    &quot;Links&quot;: [
+        {
+            &quot;Method&quot;: &quot;GET&quot;,
+            &quot;Rel&quot;: &quot;self&quot;,
+            &quot;Href&quot;: &quot;https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}&quot;
+        },
+        {
+            &quot;Method&quot;: &quot;PUT&quot;,
+            &quot;Rel&quot;: &quot;void&quot;,
+            &quot;Href&quot;: &quot;https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void&quot;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Exemplo considerando transação no valor de &lt;strong&gt;R$100,00&lt;/strong&gt; e as seguinte taxas:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace com o Subordinado 01&lt;/strong&gt;: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace com o Subordinado 02&lt;/strong&gt;: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.&lt;/p&gt;
+
+&lt;h4 id=&quot;captura-parcial&quot;&gt;Captura Parcial&lt;/h4&gt;
+
+&lt;p&gt;Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/capture?amount=8000
+{
+    &quot;SplitPayments&quot;:[
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+            &quot;Amount&quot;:4000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:5,
+                &quot;Fee&quot;:30
+            }
+        },
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+            &quot;Amount&quot;:4000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:4,
+                &quot;Fee&quot;:15
+            }
+        }
+     ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;Status&quot;: 2,
+    &quot;ReturnCode&quot;: &quot;6&quot;,
+    &quot;ReturnMessage&quot;: &quot;Operation Successful&quot;,
+    &quot;SplitPayments&quot;:[
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+            &quot;Amount&quot;:4000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:5,
+                &quot;Fee&quot;:30
+            },
+            &quot;Splits&quot;: [
+                {
+                    &quot;MerchantId&quot;: &quot;cd16ab8e-2173-4a16-b037-36cd04c07950&quot;,
+                    &quot;amount&quot;: 150,    
+                },
+                {
+                    &quot;MerchantId&quot;: &quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+                    &quot;amount&quot;: 3770,    
+                }
+            ]
+        },
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+            &quot;Amount&quot;:4000,
+            &quot;Fares&quot;:{
+                &quot;Mdr&quot;:4,
+                &quot;Fee&quot;:0.15
+            },
+            &quot;Splits&quot;: [
+                {
+                    &quot;MerchantId&quot;: &quot;cd16ab8e-2173-4a16-b037-36cd04c07950&quot;,
+                    &quot;amount&quot;: 95,    
+                },
+                {
+                    &quot;MerchantId&quot;: &quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+                    &quot;amount&quot;: 3825,    
+                }
+            ]
+        }
+    ]
+    &quot;Links&quot;: [
+        {
+            &quot;Method&quot;: &quot;GET&quot;,
+            &quot;Rel&quot;: &quot;self&quot;,
+            &quot;Href&quot;: &quot;https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}&quot;
+        },
+        {
+            &quot;Method&quot;: &quot;PUT&quot;,
+            &quot;Rel&quot;: &quot;void&quot;,
+            &quot;Href&quot;: &quot;https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void&quot;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Exemplo considerando transação no valor de &lt;strong&gt;R$100,00&lt;/strong&gt;, captura parcial de &lt;strong&gt;R$80,00&lt;/strong&gt; e as seguintes taxas:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace com o Subordinado 01&lt;/strong&gt;: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace com o Subordinado 02&lt;/strong&gt;: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.&lt;/p&gt;
+
+&lt;h3 id=&quot;cancelamento&quot;&gt;Cancelamento&lt;/h3&gt;
+
+&lt;p&gt;Ao cancelar uma transação do Split de Pagamentos o &lt;strong&gt;Marketplace&lt;/strong&gt; deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada &lt;strong&gt;Subpordinado&lt;/strong&gt; que participa da transação. Para um cancelamento total esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada &lt;strong&gt;Subpordinado&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;cancelamento-total&quot;&gt;Cancelamento Total&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;
+No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;Status&quot;: 10,
+    &quot;ReturnCode&quot;: &quot;9&quot;,
+    &quot;ReturnMessage&quot;: &quot;Operation Successful&quot;,
+    &quot;VoidSplitPayments&quot;:[
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+            &quot;VoidAmount&quot;:1500,
+        },
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+            &quot;VoidAmount&quot;:500,
+        }
+    ]
+    &quot;Links&quot;: [
+        {
+            &quot;Method&quot;: &quot;GET&quot;,
+            &quot;Rel&quot;: &quot;self&quot;,
+            &quot;Href&quot;: &quot;https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}&quot;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;cancelamento-parcial&quot;&gt;Cancelamento Parcial&lt;/h4&gt;
+
+&lt;p&gt;&lt;br /&gt;
+No cancelamento parcial, o somatório dos valores cancelados definidos para cada &lt;strong&gt;Subordinado&lt;/strong&gt; não poderão ultrapassar o valor total do cancelamento parcial.&lt;/p&gt;
+
+&lt;p&gt;Os valores cancelados serão sensibilizados nas respectivas agendas dos &lt;strong&gt;Subordinados&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount=2000
+{
+    &quot;VoidSplitPayments&quot;:[
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+            &quot;VoidAmount&quot;:1500,
+        },
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+            &quot;VoidAmount&quot;:500,
+        }
+     ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;Status&quot;: 2,
+    &quot;ReasonCode&quot;: 0,
+    &quot;ReasonMessage&quot;: &quot;Successful&quot;,
+    &quot;ProviderReturnCode&quot;: &quot;0&quot;,
+    &quot;ProviderReturnMessage&quot;: &quot;Operation Successful&quot;,
+    &quot;ReturnCode&quot;: &quot;0&quot;,
+    &quot;ReturnMessage&quot;: &quot;Operation Successful&quot;,
+    &quot;VoidSplitPayments&quot;:[
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;0f377932-5668-4c72-8b5b-2b43760ebd38&quot;,
+            &quot;VoidAmount&quot;:1500,
+        },
+        {
+            &quot;SubordinateMerchantId&quot; :&quot;98430463-7c1e-413b-b13a-0f613af594d8&quot;,
+            &quot;VoidAmount&quot;:500,
+        }
+    ],
+    &quot;Links&quot;: [
+        {
+            &quot;Method&quot;: &quot;GET&quot;,
+            &quot;Rel&quot;: &quot;self&quot;,
+            &quot;Href&quot;: &quot;https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}&quot;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;agenda&quot;&gt;Agenda&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Em breve disponibilizaremos a API de Agenda onde será possível consultar a agenda do &lt;strong&gt;Markectplace&lt;/strong&gt; e seus &lt;strong&gt;Subordinados&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
     </entry>
     

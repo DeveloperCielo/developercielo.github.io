@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Split de pagamentos &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/poole.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/syntax.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/hyde.css">
+
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/prettify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/custom.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/cielo.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/manual/split" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/manual/split" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/split">Split de pagamentos</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="o-que-é-o-split-de-pagamentos-">O que é o Split de Pagamentos ?</h1>
+
+<p>O Split de Pagamentos permite a divisão de uma transação entre diferentes participantes de uma venda.</p>
+
+<p>Muito utilizado em Marketplaces, onde <strong>o carrinho é composto por produtos de diferentes fornecedores</strong> e o valor total da venda deve ser dividido entre os participantes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Participantes</strong></th>
+      <th><strong>Descrição</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Marketplace</strong></td>
+      <td>Responsável pelo carrinho. <br /> Possui <strong>Subordinados</strong> que fornecem os produtos presentes no carrinho.<br /> Define um MDR* e uma Tarifa Fixa (opcional) a serem descontados sobre a venda do <strong>Subordinado</strong>.<br /></td>
+    </tr>
+    <tr>
+      <td><strong>Subordinado</strong></td>
+      <td>Fornecedor dos produtos que compõem o carrinho.<br />Recebe parte do valor da venda, descontado o MDR* acordado com o <strong>Marketplace</strong>.<br /></td>
+    </tr>
+    <tr>
+      <td><strong>Braspag (Facilitador)</strong></td>
+      <td>Responsável pelo fluxo transacional.<br /> Define um MDR* e uma Tarifa Fixa a serem descontados sobre o valor total da venda realizada pelo <strong>Marketplace</strong>.<br /> Responsável pela liquidação dos pagamentos para os <strong>Subordinados</strong> e <strong>Marketplace</strong>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>MDR</strong>  (<em>Merchant Discount Rate</em>): Percentual a ser descontado sobre o valor de uma transação.</p>
+</blockquote>
+
+<h2 id="como-funciona-o-split-de-pagamentos">Como funciona o Split de Pagamentos?</h2>
+
+<p>No Split de Pagamentos o responsável pelo fluxo transacional é o facilitador.</p>
+
+<p>O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.</p>
+
+<p>Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação.</p>
+
+<blockquote>
+  <p><strong>Regime de Pagamento</strong>: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.<br />
+<strong>Crédito</strong>: Em até 31 dias.<br />
+<strong>Crédito</strong> Parcelado: 1º parcela em até 31 dias, demais a cada 30.<br />
+<strong>Débito</strong>: Em até 1 dia útil<br /></p>
+</blockquote>
+
+<p>Para utilizar o Split de Pagamentos, o <strong>Marketplace</strong> deverá se cadastrar na Braspag juntamente com seus <strong>Subordinados</strong>. Após este processo, tanto o <strong>Marketplace</strong> quanto seus <strong>Subordinados</strong> possuirão um identificador único, conhecido como <strong>MerchantId (MID)</strong>, que deverá ser utlizado ao informar as regras de divisão de uma transação.</p>
+
+<p>A divisão de uma transação deve serguir as seguintes regras:</p>
+
+<ul>
+  <li>Informar os identificadores dos <strong>Subordinados</strong>.</li>
+  <li>Os valores de participação de cada <strong>Subordinado</strong>. O somatório deverá ser igual ao valor total da transação.</li>
+  <li>MDRs + Tarifas Fixas (opcional) a serem aplicados sobre o valor de cada <strong>Subordinado</strong> que será destinado ao <strong>Marketplace</strong>. Deverá ser acordado previamente entre o <strong>Marketplace</strong> e o <strong>Subordinado</strong>.</li>
+</ul>
+
+<p>O <strong>Marketplace</strong> também pode ser um participante da divisão. Para isso basta informar seu identificador na divisão, passando o mesmo a ter também o papel de <strong>Subordinado</strong> e ter seus próprios produtos no carrinho.</p>
+
+<h2 id="taxas">Taxas</h2>
+
+<p>As taxas acordadas entre os participantes, que são o <strong>MDR(%)</strong> e uma <strong>Taxa Fixa(R$)</strong>, devem ser definidas no momento do cadastro do <strong>Marketplace</strong> e dos seus <strong>Subordinados</strong> junto à Braspag.</p>
+
+<p>As mesmas poderão ser enviadas no momento transacional ou pós-transacional. Caso não sejam enviadas, a <strong>Braspag</strong> irá considerar as taxas já cadastradas.</p>
+
+<h3 id="braspag-facilitador">Braspag (Facilitador)</h3>
+
+<p>A Braspag acordará um <strong>MDR(%)</strong> e uma <strong>Tarifa Fixa(R$)</strong> com o <strong>Marketplace</strong> a serem descontados em cada transação.</p>
+
+<p>O <strong>Marketplace</strong>, de conhecimento destas taxas, negociará o seu <strong>MDR(%)</strong> e uma <strong>Tarifa Fixa(R$)(opcional)</strong> juntamente com seus <strong>Subornidandos</strong>, já embutindo o <strong>MDR(%)</strong> acordado junto à <strong>Braspag</strong>.</p>
+
+<p>O desconto da <strong>Tarifa Fixa(R$)</strong>, acordado entre o <strong>Marketplace</strong> e a <strong>Braspag</strong>, não é aplicado no valor total da transação, não entrando no cálculo da divisão e sim sendo debitado do montante que o <strong>Marketplace</strong> tem para receber junto à <strong>Braspag</strong>. O <strong>MDR(%)</strong> entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no <strong>MDR(%)</strong> acordado entre o <strong>Marketplace</strong> e seus <strong>Subordinados.</strong></p>
+
+<blockquote>
+  <p><strong>Custo para o Marketplace:</strong> MDR Braspag(%) + Tarifa Fixa(R$)
+O <strong>MDR(%)</strong> acordado entre um <strong>Marketplace</strong> e um <strong>Subordinado</strong> deve ser sempre maior que o <strong>MDR(%)</strong> acordado entre a <strong>Braspag</strong> e o <strong>Marketplace</strong>.</p>
+</blockquote>
+
+<h3 id="marketplace">Marketplace</h3>
+
+<p>O <strong>Marketplace</strong> é responsável por acordar as taxas a serem cobradas de seus <strong>Subordinados</strong>, onde deve ser defindo um <strong>MDR(%)</strong> maior ou igual ao <strong>MDR(%)</strong> definido entre a <strong>Braspag</strong> e o <strong>Marketplace</strong> e uma <strong>Tarifa Fixa(R$)</strong>, que é opcional.</p>
+
+<blockquote>
+  <p><strong>Custo para o Subordinado:</strong> MDR Marketplace(%) + Tarifa Fixa(R$), onde no MDR Marketplace(%) está embutido o MDR Braspag(%).</p>
+</blockquote>
+
+<p>Exemplo</p>
+
+<p>Uma transação de <strong>R$100</strong>, realizada por um <strong>Marketplace</strong> com participação do <strong>Subordinado 01</strong>.</p>
+
+<p><img src="https://docsbraspag.github.io/SplitBraspag/images/Split/Split000.PNG" alt="Split" /></p>
+
+<p>Neste exemplo, foram assumidos os seguintes acordos:</p>
+
+<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.</p>
+
+<p>Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
+
+<p><strong>Subordinado</strong>:<br />
+Crédito: R$94,70 = (R$100 - 5%) - R$0,30.</p>
+
+<p><strong>Marketplace</strong>:<br />
+Crédito: R$3,30 = R$100 * (5% - 2%) + R$0,30.<br />
+Débito: R$0,30 (Tarifa Fixa Braspag)</p>
+
+<p><strong>Braspag (Facilitador)</strong>:<br />
+Crédito: R$2,00 = R$100 * 2%.<br />
+Crédito: R$0,30 (Tarifa Fixa Braspag)</p>
+
+<h2 id="utilizando-o-split-de-pagamentos">Utilizando o Split de Pagamentos</h2>
+
+<p><br />
+O Split de Pagamentos é parte da API Cielo E-Commerce, desenvolvida utilizando a arquitetura REST e JSON como mensageria. Para mais informações sobre a API Cielo E-Commerce, consulte o <a href="https://developercielo.github.io/Webservice-3.0/#criando-uma-transação-simples" target="_blank">Manual de Integração</a> da Plataforma.</p>
+
+<p>OBS: Neste manual serão apresentados os contratos de integração da API Cielo E-Commerce, porém o foco da análise será nas operações referentes ao Split de Pagamentos.</p>
+
+<h3 id="ambientes">Ambientes</h3>
+
+<blockquote>
+  <p><strong>SANDBOX</strong></p>
+
+  <p><strong>API Cielo E-Commerce</strong>:<br />
+https://apisandbox.cieloecommerce.cielo.com.br/</p>
+
+  <p><strong>API Cielo E-Commerce (Consulta)</strong>:<br />
+https://apiquerysandbox.cieloecommerce.cielo.com.br/</p>
+
+  <p><strong>API Split</strong>:<br />
+http://splitsandbox.braspag.com.br/</p>
+
+  <p><strong>OAUTH2 Server</strong>:<br />
+https://authhomolog.braspag.com.br/</p>
+</blockquote>
+
+<h3 id="autorização">Autorização</h3>
+
+<p>A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.</p>
+
+<p>Porém, para indentificar que a transação enviada se trata de uma transação de Split de Pagamentos, deve-se modificar o tipo de pagamento utilizado, conforme abaixo:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>=</th>
+      <th><strong>Cartão de Crédito</strong></th>
+      <th><strong>Cartão de Débito</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Transação Comum</strong></td>
+      <td>CreditCard</td>
+      <td>DebitCard</td>
+    </tr>
+    <tr>
+      <td><strong>Transação Split</strong></td>
+      <td>SplittedCreditCard</td>
+      <td>SplittedDebitCard</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Atualmente o Split de Pagamentos está disponivel para os seguintes tipos de pagamento:</p>
+  <ul>
+    <li>Cartão de Crédito<br />
+Em breve estarão disponíveis:</li>
+    <li>Cartão de Débito</li>
+    <li>Boleto</li>
+  </ul>
+</blockquote>
+
+<p>Exemplo:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{
+     "Type":"SplittedCreditCard",
+     "Amount":10000,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     }
+   }
+}
+</code></pre></div></div>
+
+<p>Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional pela Braspag (Facilitador).</p>
+
+<p>Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a <strong>Braspag</strong> e o <strong>Marketplace</strong>. Posteriormente é permitido que o <strong>Marketplace</strong> envie novas regras de divisão para a transação através da API de divisão pós-transacional, desde que esteja dentro do período de tempo permitido.</p>
+
+<p><strong>Exemplo 1)</strong></p>
+
+<p>Transação no valor de <strong>R$100,00</strong> sem o nó contendo as regras de divisão.</p>
+
+<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{
+     "Type":"SplittedCreditCard",
+     "Amount":10000,
+     "Capture":true,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     }
+   }
+}
+</code></pre></div></div>
+
+<p>Neste caso o <strong>Marketplace</strong> recebe o valor da transação descontado o MDR acordado com a <strong>Braspag</strong>. Como apresentado anteriormente, a Tarifa Fixa acordada entre o <strong>Marketplace</strong> e a <strong>Braspag</strong> é sensibilizada diretamente na agenda.</p>
+
+<p><img src="https://docsbraspag.github.io/SplitBraspag/images/Split/Split001.PNG" alt="Split" /></p>
+
+<p><strong>Exemplo 2)</strong></p>
+
+<p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão.</p>
+
+<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{
+     "Type":"SplittedCreditCard",
+     "Amount":10000,
+     "Capture":true,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     },
+     "SplitPayments":[
+        {
+            "SubordinateMerchantId" :"MID Subordinate 01",
+            "Amount":6000,
+            "Fares":{
+                "Mdr":5,
+                "Fee":30
+            }
+        },
+        {
+            "SubordinateMerchantId" :"MID Subordinate 02",
+            "Amount":4000,
+            "Fares":{
+                "Mdr":4,
+                "Fee":15
+            }
+        }
+     ]
+   }
+}
+</code></pre></div></div>
+
+<p>Neste caso o cálculos do Split são realizados sobre cada regra de divisão informada. No próximo tópico serão explicados as propriedades que compõem o nó do Split de Pagamentos.</p>
+
+<p><img src="https://docsbraspag.github.io/SplitBraspag/images/Split/Split003.PNG" alt="Split" /></p>
+
+<h3 id="modelos-de-split">Modelos de Split</h3>
+
+<p>O Split de Pagamentos possui dois modelos básicos de integração:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Split Transacional</strong></td>
+      <td>O <strong>Marketplace</strong> envia na autorização (captura automática) ou no momento de captura as regras de divisão.</td>
+    </tr>
+    <tr>
+      <td><strong>Split Pós-Transacional</strong></td>
+      <td>O <strong>Marketplace</strong> envia as regras de divisão após a captura da transação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>O Split de Pagamentos só é realizado para transações capturadas, ou seja, o mesmo só será considerado para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h4 id="split-transacional">Split Transacional</h4>
+
+<p><br />
+Este modelo exige que o <strong>Marketplace</strong> envie um “nó” adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"SplitPayments":[
+    {
+        "SubordinateMerchantId" :"MID Subordinate 01",
+        "Amount":10000,
+        "Fares":{
+            "Mdr":5,
+            "Fee":0
+        }
+    }
+]
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
+      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong>.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.Amount</code></td>
+      <td>Parte do valor total da transação referente a participação do <strong>Subordinado</strong>, em centavos.</td>
+      <td>Inteiro</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
+      <td><strong>MDR(%)</strong> do <strong>Marketplace</strong> a ser descontado do valor referente a participação do <strong>Subordinado</strong></td>
+      <td>Decimal</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.Fares.Fee</code></td>
+      <td><strong>Tarifa Fixa(R$)</strong> a ser descontada do valor referente a participação do <strong>Subordinado</strong>, em centavos.</td>
+      <td>Inteiro</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Como resposta, A API Cielo E-Commerce retornará na resposta um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo <strong>Marketplace</strong> e seus <strong>Subordinados</strong>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"SplitPayments": [
+    {
+        "SubordinateMerchantId": "MID Subordinate 01",
+        "Amount": 10000,
+        "Fares": {
+            "Mdr": 5,
+            "Fee": 0
+        },
+        "Splits": [                
+            {
+                "MerchantId": "MID do Marketplace",
+                "amount": 500,
+            },
+            {
+                "MerchantId": "MID Subordinate 01",
+                "amount": 9500,
+            }
+        ]
+    }
+]
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
+      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong> ou <strong>Marketplace</strong>.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.Splits.Amount</code></td>
+      <td>Parte do valor calculado da transação a ser recebido pelo <strong>Subordinado</strong> ou <strong>Marketplace</strong>, já descontando todas as taxas (MDR e Tarifa Fixa)</td>
+      <td>Inteiro</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Exemplo</strong></p>
+
+<p>Transação no valor de <strong>R$100,00</strong> com o nó contendo as regras de divisão.</p>
+
+<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
+
+<p><code class="highlighter-rouge">REQUEST</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{
+     "Type":"SplittedCreditCard",
+     "Amount":10000,
+     "Capture":true,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+     },
+     "SplitPayments":[
+        {
+            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+            "Amount":6000,
+            "Fares":{
+                "Mdr":5,
+                "Fee":30
+            }
+        },
+        {
+            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+            "Amount":4000,
+            "Fares":{
+                "Mdr":4,
+                "Fee":15
+            }
+        }
+     ]
+   }
+}
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">RESPONSE</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador crédito simples"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "674532",
+        "Tid": "0305023644309",
+        "AuthorizationCode": "123456",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "ReturnCode": "4",
+        "ReturnMessage": "Operation Successful",
+        "SplitPayments":[
+            {
+                "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+                "Amount":6000,
+                "Fares":{
+                    "Mdr":5,
+                    "Fee":30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
+                        "amount": 210,    
+                    },
+                    {
+                        "MerchantId": "0f377932-5668-4c72-8b5b-2b43760ebd38",
+                        "amount": 5670,    
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+                "Amount":4000,
+                "Fares":{
+                    "Mdr":4,
+                    "Fee":15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
+                        "amount": 95,    
+                    },
+                    {
+                        "MerchantId": "98430463-7c1e-413b-b13a-0f613af594d8",
+                        "amount": 3825,    
+                    }
+                ]
+            }
+        ],
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+</code></pre></div></div>
+
+<p>Neste exemplo os cálculos do Split foram realizados sobre cada regra de divisão informada e na resposta retornaram os valores a serem recebidos pelo <strong>Marketplace</strong> e seus <strong>Subordinados</strong>.</p>
+
+<p><img src="https://docsbraspag.github.io/SplitBraspag/images/Split/Split003.PNG" alt="Split" /></p>
+
+<p>Divisão do valor do Subordinado <strong>0f377932-5668-4c72-8b5b-2b43760ebd38</strong>:</p>
+
+<p><strong>Marketplace</strong>: R$2,10<br />
+<strong>Subordinado</strong>: R$56,70</p>
+
+<p>Divisão do valor do Subordinado <strong>98430463-7c1e-413b-b13a-0f613af594d8</strong>:</p>
+
+<p><strong>Marketplace</strong>: R$0,95<br />
+<strong>Subordinado</strong>: R$38,25</p>
+
+<h4 id="split-pós-transacional">Split Pós-Transacional</h4>
+
+<p><br />
+Neste modelo o <strong>Marketplace</strong> poderá enviar as regras de divisão da transação após a mesma ser capturada.</p>
+
+<p>A divisão pós-transacional é possível somente para transações com <strong>Cartão de Crédito</strong> e poderá ser realizada dentro de um intervalo de tempo a partir da data de captura da transação.</p>
+
+<p>Para transações com <strong>Cartão de Crédito</strong>, este período é de <strong>25 dias</strong> se o <strong>Marketplace</strong> possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (<strong>Marketplace</strong> e <strong>Braspag</strong>).</p>
+
+<p>A API de divisão pós-transacional utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, onde é necessário primeiramente obter um token utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.</p>
+
+<p>Para obter um token de acesso:</p>
+
+<ol>
+  <li>Concatene o ClientId e ClientSecret: <code class="highlighter-rouge">ClientId:ClientSecret</code>.</li>
+  <li>Codifique o resultado da concatenação em Base64.</li>
+  <li>Realize uma requisição ao servidor de autorização:</li>
+</ol>
+
+<p><code class="highlighter-rouge">REQUEST</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST https://{OAUTH2 Server}/oauth2/token  
+--header "Authorization: Basic {base64}"  
+--header "Content-Type: application/x-www-form-urlencoded"  
+grant_type=client_credentials
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">RESPONSE</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs",
+    "token_type": "bearer",
+    "expires_in": 1199
+}
+</code></pre></div></div>
+
+<blockquote>
+  <p>O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.</p>
+</blockquote>
+
+<p>O token retornado (access_token) deverá ser utilizado em toda requisição à API do Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.</p>
+
+<p>Com o token de acesso, é possível realizar um requisição à API do Split para enviar as regras de divisão de uma transação.</p>
+
+<p><code class="highlighter-rouge">REQUEST</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT https://{API Split}/api/transactions/{PaymentId}/split
+--header "Authorization: Bearer {token}"
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    {
+        "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+        "Amount":6000,
+        "Fares":{
+            "Mdr":5,
+            "Fee":30
+        }
+    },
+    {
+        "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+        "Amount":4000,
+        "Fares":{
+            "Mdr":4,
+            "Fee":15
+        }
+    }
+]
+</code></pre></div></div>
+
+<p>RESPONSE</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    {
+        "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+        "Amount":6000,
+        "Fares":{
+            "Mdr":5,
+            "Fee":30
+        },
+        "Splits": [
+            {
+                "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
+                "amount": 210,    
+            },
+            {
+                "MerchantId": "0f377932-5668-4c72-8b5b-2b43760ebd38",
+                "amount": 5670   
+            }
+        ]
+    },
+    {
+        "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+        "Amount":4000,
+        "Fares":{
+            "Mdr":4,
+            "Fee":0.15
+        },
+        "Splits": [
+            {
+                "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
+                "amount": 95,    
+            },
+            {
+                "MerchantId": "98430463-7c1e-413b-b13a-0f613af594d8",
+                "amount": 3825    
+            }
+        ]
+    }
+]
+</code></pre></div></div>
+
+<p>Exemplo considerando transação no valor de <strong>R$100,00</strong> e as seguinte taxas:</p>
+
+<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
+
+<p>O nó de Split de Pagamentos da API pós-transacional, no contrato de request e response, é o mesmo retornado na divisão no momento transacional, apresentado anteriormente.</p>
+
+<blockquote>
+  <p>O <strong>Marketplace</strong> poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de <strong>25 dias</strong> para Cartão de Crédito. Para transações com Cartão de Débito a divisão poderá ser realizada somente no momento transacional.</p>
+</blockquote>
+
+<h3 id="consulta">Consulta</h3>
+
+<p>Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.</p>
+
+<p><code class="highlighter-rouge">REQUEST</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET https://{API Cielo E-Commerce (consulta)}/1/sales/{PaymentId}
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">RESPONSE</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador Teste"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "674532",
+        "AuthorizationCode": "123456",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 1000,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 2,
+        "SplitPayments":[
+            {
+                "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+                "Amount":6000,
+                "Fares":{
+                    "Mdr":5,
+                    "Fee":30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
+                        "amount": 210,    
+                    },
+                    {
+                        "MerchantId": "0f377932-5668-4c72-8b5b-2b43760ebd38",
+                        "amount": 5670,    
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+                "Amount":4000,
+                "Fares":{
+                    "Mdr":4,
+                    "Fee":15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
+                        "amount": 95,    
+                    },
+                    {
+                        "MerchantId": "98430463-7c1e-413b-b13a-0f613af594d8",
+                        "amount": 3825,    
+                    }
+                ]
+            }
+        ],
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+</code></pre></div></div>
+
+<h3 id="captura">Captura</h3>
+
+<p>Ao capturar uma transação do Split de Pagamentos o <strong>Marketplace</strong> deve informar as regras de divisão da mesma. Caso não informe, será gerada a divisão da transação entre o <strong>Marketplace</strong> e a <strong>Braspag</strong>, tanto para <strong>captura do valor total</strong> quanto para <strong>captura de um valor parcial</strong>.</p>
+
+<h4 id="captura-total">Captura Total</h4>
+
+<p>Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
+
+<p><code class="highlighter-rouge">REQUEST</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/capture
+{
+    "SplitPayments":[
+        {
+            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+            "Amount":6000,
+            "Fares":{
+                "Mdr":5,
+                "Fee":30
+            }
+        },
+        {
+            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+            "Amount":4000,
+            "Fares":{
+                "Mdr":4,
+                "Fee":15
+            }
+        }
+     ]
+}
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">RESPONSE</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "Status": 2,
+    "ReturnCode": "6",
+    "ReturnMessage": "Operation Successful",
+    "SplitPayments":[
+        {
+            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+            "Amount":6000,
+            "Fares":{
+                "Mdr":5,
+                "Fee":30
+            },
+            "Splits": [
+                {
+                    "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
+                    "amount": 210,    
+                },
+                {
+                    "MerchantId": "0f377932-5668-4c72-8b5b-2b43760ebd38",
+                    "amount": 5670,    
+                }
+            ]
+        },
+        {
+            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+            "Amount":4000,
+            "Fares":{
+                "Mdr":4,
+                "Fee":15
+            },
+            "Splits": [
+                {
+                    "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
+                    "amount": 95,    
+                },
+                {
+                    "MerchantId": "98430463-7c1e-413b-b13a-0f613af594d8",
+                    "amount": 3825,    
+                }
+            ]
+        }
+    ]
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
+</code></pre></div></div>
+
+<p>Exemplo considerando transação no valor de <strong>R$100,00</strong> e as seguinte taxas:</p>
+
+<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
+
+<h4 id="captura-parcial">Captura Parcial</h4>
+
+<p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado.</p>
+
+<p><code class="highlighter-rouge">REQUEST</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/capture?amount=8000
+{
+    "SplitPayments":[
+        {
+            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+            "Amount":4000,
+            "Fares":{
+                "Mdr":5,
+                "Fee":30
+            }
+        },
+        {
+            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+            "Amount":4000,
+            "Fares":{
+                "Mdr":4,
+                "Fee":15
+            }
+        }
+     ]
+}
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">RESPONSE</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "Status": 2,
+    "ReturnCode": "6",
+    "ReturnMessage": "Operation Successful",
+    "SplitPayments":[
+        {
+            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+            "Amount":4000,
+            "Fares":{
+                "Mdr":5,
+                "Fee":30
+            },
+            "Splits": [
+                {
+                    "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
+                    "amount": 150,    
+                },
+                {
+                    "MerchantId": "0f377932-5668-4c72-8b5b-2b43760ebd38",
+                    "amount": 3770,    
+                }
+            ]
+        },
+        {
+            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+            "Amount":4000,
+            "Fares":{
+                "Mdr":4,
+                "Fee":0.15
+            },
+            "Splits": [
+                {
+                    "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
+                    "amount": 95,    
+                },
+                {
+                    "MerchantId": "98430463-7c1e-413b-b13a-0f613af594d8",
+                    "amount": 3825,    
+                }
+            ]
+        }
+    ]
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
+</code></pre></div></div>
+
+<p>Exemplo considerando transação no valor de <strong>R$100,00</strong>, captura parcial de <strong>R$80,00</strong> e as seguintes taxas:</p>
+
+<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.<br />
+<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
+
+<h3 id="cancelamento">Cancelamento</h3>
+
+<p>Ao cancelar uma transação do Split de Pagamentos o <strong>Marketplace</strong> deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada <strong>Subpordinado</strong> que participa da transação. Para um cancelamento total esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada <strong>Subpordinado</strong>.</p>
+
+<h4 id="cancelamento-total">Cancelamento Total</h4>
+
+<p><br />
+No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada <strong>Subordinado</strong>.</p>
+
+<p><code class="highlighter-rouge">REQUEST</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">RESPONSE</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "Status": 10,
+    "ReturnCode": "9",
+    "ReturnMessage": "Operation Successful",
+    "VoidSplitPayments":[
+        {
+            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+            "VoidAmount":1500,
+        },
+        {
+            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+            "VoidAmount":500,
+        }
+    ]
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        }
+    ]
+}
+</code></pre></div></div>
+
+<h4 id="cancelamento-parcial">Cancelamento Parcial</h4>
+
+<p><br />
+No cancelamento parcial, o somatório dos valores cancelados definidos para cada <strong>Subordinado</strong> não poderão ultrapassar o valor total do cancelamento parcial.</p>
+
+<p>Os valores cancelados serão sensibilizados nas respectivas agendas dos <strong>Subordinados</strong>.</p>
+
+<p><code class="highlighter-rouge">REQUEST</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount=2000
+{
+    "VoidSplitPayments":[
+        {
+            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+            "VoidAmount":1500,
+        },
+        {
+            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+            "VoidAmount":500,
+        }
+     ]
+}
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">RESPONSE</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "VoidSplitPayments":[
+        {
+            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
+            "VoidAmount":1500,
+        },
+        {
+            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+            "VoidAmount":500,
+        }
+    ],
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        }
+    ]
+}
+</code></pre></div></div>
+
+<h2 id="agenda">Agenda</h2>
+
+<blockquote>
+  <p>Em breve disponibilizaremos a API de Agenda onde será possível consultar a agenda do <strong>Markectplace</strong> e seus <strong>Subordinados</strong>.</p>
+</blockquote>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://developercielo.github.io/">
+        <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/manual/cielo-ecommerce" title="Manual integração técnica via API">Manual de Integração</a></li>
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/tutorial/tutoriais-3-0" title="O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.">Tutoriais</a></li>
+                
+            
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/faq/faq-api-3-0" title="Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com a API Cielo.">FAQ</a></li>
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
+        <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
+        <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
+        <script src="https://developercielo.github.io/assets/js/search.js"></script>
+        
+
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+        langs += "<a data-language-name='shell'>cURL</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://developercielo.github.io/assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json",  "shell", ]);
+            });
+        </script>
+         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+        
+    </body>
+</html>
