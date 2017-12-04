@@ -2096,13 +2096,11 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 * Javascript Code
 
 ```html
-
 <html>
 <head></head>
 <script src="https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;session_id=ProviderMerchantIdProviderSessionId" type="text/javascript"></script>
 <body></body>
 </html>
-
 ```
 
 **IMPORTANTE!**  
@@ -2268,9 +2266,89 @@ HTTP/1.1 300 Multiple Choices
 }
 ```
 
+# Associar transação Pagador e Antifraude
 
+Esta página descreve como associar transações do Pagador Braspag à transações do Antifraude Gateway Braspag.
 
+Serviço que associa uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.
 
+**O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo:**
+
+1 - Realiza a análise de fraude
+2 - Realiza a autorização
+3 - O 3º passo deverá ser a chamada ao a este serviço para associar a transação do Pagador à transação do Antifraude Gateway.
+
+## Hosts
+
+**Test** https://riskhomolog.braspag.com.br  
+**Live** https://risk.braspag.com.br
+
+<a name="contract"></a>
+  
+## Atributos
+
+**BraspagTransactionId**{:.custom-attrib}  `required`{:.custom-tag} `Guid`{:.custom-tag}  
+Id da transação no Pagador da Braspag.  
+Ex.: a3e08eb2-2144-4e41-85d4-61f1befc7a3b
+
+<a name="http_operations"></a>
+
+## Operação HTTP
+
+`PATCH`{:.http-patch} [https://riskhomolog.braspag.com.br/Transaction/{Id}](#http_patch){:.custom-attrib}  
+Associa a transação do Pagador à transação do Antifraude Gateway
+
+<a name="http-patch"></a>
+
+#### `PATCH`{:.http-patch} Associa a transação do Pagador à transação do Antifraude Gateway 
+
+**PARÂMETROS:**  
+
+``` csharp
+Id: Guid  // Id da Transação no Antifraude Gateway
+```
+
+**REQUEST:**  
+
+``` http
+GET https://riskhomolog.braspag.com.br/Transaction/{Id} HTTP/1.1
+Host: riskhomolog.braspag.com.br
+Authorization: Bearer {access_token}
+Content-Type: application/json
+
+```
+
+``` json
+{
+    "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b"
+}
+```
+
+**RESPONSE:**  
+
+Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway
+ 
+``` http
+HTTP/1.1 200 Ok
+```
+
+Quando a transação do Pagador não for informada na requisição
+
+``` http
+HTTP/1.1 400 Bad Request
+```
+
+Quando a transação do Antifraude Gateway não for encontrada na base de dados
+
+``` http
+HTTP/1.1 404 Not found
+```
+
+Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway
+
+``` http
+HTTP/1.1 409 Conflict
+```
 
 
 
