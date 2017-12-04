@@ -67,6 +67,7 @@ Scope: AntifraudGatewayApp
 Cache-Control: no-cache
 
 grant_type=client_credentials
+
 ```
 
 **RESPONSE:**  
