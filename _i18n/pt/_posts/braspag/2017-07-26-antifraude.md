@@ -56,9 +56,12 @@ Exemplo:
 * String a ser codificada em Base64: **braspagtestes:1q2w3e4r**
 * Resultado após a codificação: **YnJhc3BhZ3Rlc3RlczoxcTJ3M2U0cg==**
 
+<br>
+
 **REQUEST:**  
 
-``` http
+```http
+
 POST https://authhomolog.braspag.com.br/oauth2/token HTTP/1.1
 Host: https://authhomolog.braspag.com.br
 Content-Type: application/x-www-form-urlencoded
@@ -72,13 +75,13 @@ grant_type=client_credentials
 
 **RESPONSE:**  
 
-``` http
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 
 ```
 
-``` json
+```json
 {
   "access_token": "faSYkjfiod8ddJxFTU3vti_rQV9fGvMrBNn0ZIZDqrLadEPKTUjt6ZPJSnNHtvOoJ6KO6gakgeyXNmSxFYHx7Y_-OCf8zgzILTVzCN5G1WTBWOKZHt-RknkmQLOgA882pWhC1gtOIQoq2tFX6-1VhOqsSCrdI3cUa2HolbGkxZWZMTPOl4Jzuy6ejo_USCMBNPqzvinchS0M33Bi8PiWMYwdpAbvwAe_nhIKNGmsAG6s7PTgWc2RksG6DaX8exdjvlGE9CMADq5LeM4JJ-BguZoHAP3yDBVZpe_DzI3JOrAYv0yzToBllPIMmq6CY-V8GJmckWByOGooBKr6COkZ1R9NPg2bvruYEC3g8hzKloUG21CD5r_la-t-0FvGHHY-8L7cKGybLidIYtw5aWOUgO2Aq0YScEnj1byDAsY6ROMnnzLrywkqscsf5xJACJwBmmEggHRyTVMY1-oOzmH6B2GNtC621i2XQ-8U6KVx9qD0R4qdWRn__AFatL7miTthMfO_PO2HWdDX_xD0i0jqcw",
   "token_type": "bearer",
@@ -1766,7 +1769,6 @@ HTTP/1.1 200 Ok
 
 Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
 
-
 ## ReDShield
 
 ## Integração com sua página de checkout(site)
@@ -2112,5 +2114,3 @@ Na seção *Colocando os segmentos de código e substituindo os valores das vari
 
 **IMPORTANTE!**  
 Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie. 
-
-
