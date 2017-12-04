@@ -1733,7 +1733,7 @@ Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada p
 * Após a loja receber a notificação de mudança de status, deverá realizar um GET através da URL https://riskhomolog.braspag.com.br/Analysis/{Id}, enviando Id da transação que foi recebido na notficação da mudança de status.  
 Para maior detalhes de como realizar o GET, consultar em Análise a sessão **Obtenção dos Detalhes da Análise**
 
-![Notificação de Mudança de Status]({{ site.baseurl_root }}/images/braspag/af/PostNotification.png)
+![Notificação de Mudança de Status]({{ site.baseurl_root }}/images/braspag/af/postnotification.png)
 
 ## Hosts
 
