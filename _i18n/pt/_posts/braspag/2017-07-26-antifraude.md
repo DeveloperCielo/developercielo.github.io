@@ -945,6 +945,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 HTTP/1.1 201 Created
 Content-Type: application/json;charset=UTF-8
 ```
+
 ``` json
 {
   "Id": "22b5e829-edf1-e611-9414-0050569318a7",
@@ -1211,6 +1212,7 @@ Content-Type: application/json;charset=UTF-8
 HTTP/1.1 201 Created
 Content-Type: application/json;charset=UTF-8
 ```
+
 ```json
 {
   "AnalysisResult": {
@@ -1379,6 +1381,7 @@ Caso algum campo não esteja de acordo com o tamanho especificado no manual.
 HTTP/1.1 400 Bad Request
 Content-Type: application/json;charset=UTF-8
 ```
+
 ``` json
 {
   "Message": "The request is invalid.",
@@ -1396,7 +1399,7 @@ Content-Type: application/json;charset=UTF-8
   }
 }
 ```
-  
+
 <a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></a>
   
 <a name="get_analise"></a>
@@ -1562,6 +1565,7 @@ Content-Type: application/json;charset=UTF-8
 HTTP/1.1 201 Created
 Content-Type: application/json;charset=UTF-8
 ```
+
 ```json
 {
   "AnalysisResult": {
@@ -1712,5 +1716,5 @@ Content-Type: application/json;charset=UTF-8
   }  
 }
 ```
-  
+
 <a style="float: right;" href="#http_operations"><i class="fa fa-angle-double-up fa-fw"></i></
