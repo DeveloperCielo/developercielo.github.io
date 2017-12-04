@@ -1721,7 +1721,7 @@ Content-Type: application/json;charset=UTF-8
 
 Esta página descreve o serviço de POST de Notificação, que envia uma notificação para a loja, caso haja alguma alteração de Status na Transação de revisão para aceita/rejeita.
 
-Serviço que envia um post de notificação ao cliente caso haja alguma alteração de status
+Serviço que envia um **post de notificação** ao cliente caso haja alguma alteração de status
 
 * É necessário solicitar ao Time de Implementação ([implantacao.operacoes@braspag.com.br](mailto:implantacao.operacoes@braspag.com.br)) o cadastramento da URL de mudança de status.
 Quando estimulada pelo servidor da Braspag, enviando um POST, a URL cadastrada para receber a notificação da mudança de status da transação, deverá retornar o código HTTP 200 (OK), indicando que a mensagem foi recebida e processada com sucesso pelo servidor da loja.  
