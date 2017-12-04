@@ -2283,8 +2283,6 @@ Serviço que associa uma transação do Pagador Braspag à uma transação do An
 **Test** https://riskhomolog.braspag.com.br  
 **Live** https://risk.braspag.com.br
 
-<a name="contract"></a>
-  
 ## Atributos
 
 **BraspagTransactionId**{:.custom-attrib}  `required`{:.custom-tag} `Guid`{:.custom-tag}  
@@ -2329,30 +2327,28 @@ Content-Type: application/json
 Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway
  
 ``` http
+
 HTTP/1.1 200 Ok
+
 ```
 
 Quando a transação do Pagador não for informada na requisição
 
 ``` http
 HTTP/1.1 400 Bad Request
+
 ```
 
 Quando a transação do Antifraude Gateway não for encontrada na base de dados
 
 ``` http
 HTTP/1.1 404 Not found
+
 ```
 
 Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway
 
 ``` http
 HTTP/1.1 409 Conflict
+
 ```
-
-
-
-
-
-
-
