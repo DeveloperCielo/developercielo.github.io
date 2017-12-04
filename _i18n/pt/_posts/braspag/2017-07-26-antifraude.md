@@ -798,7 +798,7 @@ Resolução da tela do comprador no momento da compra.
 **AnalysisResult.DeviceFingerprint.BrowseLanguage** `Cybersource`{:.custom-provider-cyber}  
 Linguagem do browser utilizado pelo comprador no momento da compra.  
 
-<a style="float: right;" href="#attributes"><i class="fa fa-angle-double-up fa-fw"></i></a>
+<a style="float: right;" href="##atributos-do-request"><i class="fa fa-angle-double-up fa-fw"></i></a>
 
 <a name="http_operations"></a>
 
