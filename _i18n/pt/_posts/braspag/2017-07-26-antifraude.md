@@ -102,8 +102,6 @@ Esta página descreve os campos do contrato do Antifraude Gateway, além de cont
 **Test** https://riskhomolog.braspag.com.br  
 **Live** https://risk.braspag.com.br
 
-<a name="contract"></a>
-  
 ## Atributos do Request
 
 **MerchantOrderId**{:.custom-attrib} `required`{:.custom-tag} `100`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
@@ -941,7 +939,7 @@ MerchantId: {Id da Loja no Antifraude Gateway}
 
 **RESPONSE - REDSHIELD**  
 
-- Quando a transação tiver a análise realizada.  
+* Quando a transação tiver a análise realizada.  
 
 ``` http
 HTTP/1.1 201 Created
@@ -1366,7 +1364,7 @@ Content-Type: application/json;charset=UTF-8
 
 **RESPONSE - Quando request for inválido para qualquer provedor.**  
 
-- Quando os dados enviados para análise tiver alguma inconformidade nos valores, tamanhos permitidos e/ou tipos dos campos conforme especificação do manual.  
+* Quando os dados enviados para análise tiver alguma inconformidade nos valores, tamanhos permitidos e/ou tipos dos campos conforme especificação do manual.  
 
 **Message**  
 Mensagem para um requisição inválida.  
@@ -1423,14 +1421,14 @@ Content-Type: application/json
 
 **RESPONSE:**  
 
-- Quando a transação não for encontrada na base de dados.  
+* Quando a transação não for encontrada na base de dados.  
 
 ``` http
 HTTP/1.1 404 Not Found
 Content-Type: application/json;charset=UTF-8
 ```
 
-- Quando a transação for encontrada na base de dados.
+* Quando a transação for encontrada na base de dados.
 
 **REDSHIELD**
 
