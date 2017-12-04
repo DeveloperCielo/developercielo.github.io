@@ -133,7 +133,7 @@ Obs.: Caso não envie a data do pedido, será gerada uma data pela Braspag.
 **BraspagTransactionId**{:.custom-attrib} `optional`{:.custom-tag} `Guid`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Id da transação no Pagador da Braspag. `optional`{:.custom-tag} `Guid`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
 Ex.: ED3B6646-5B6E-451C-B3CF-4FF5E807CB69  
-Obs.: Se o fluxo implementado ao seu negócio for a primeira chamada para fazer a análise de fraude atravpes do Antifraude Gateway e a segunda for a autorização através do Pagador, realizar uma terceira chamada para que as transações do Antifraude Gateway e Pagador sejam vinculadas. Para mais detalhes acessar: [Associar transação Pagador e Antifraude]({{ site.baseurl }}{% link docs/1.0/linktransaction.md %})  
+Obs.: Se o fluxo implementado ao seu negócio for a primeira chamada para fazer a análise de fraude atravpes do Antifraude Gateway e a segunda for a autorização através do Pagador, realizar uma terceira chamada para que as transações do Antifraude Gateway e Pagador sejam vinculadas. Para mais detalhes acessar: **Associar transação Pagador e Antifraude**
 
 **SplitingPaymentMethod**{:.custom-attrib} `default = None`{:.custom-tag} `optional`{:.custom-tag} `23`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Identifica se a autorização da transação é com um ou dois cartões ou com mais de um meio de pagamento, por exemplo, cartão de crédito e boleto bancário.  
@@ -338,7 +338,7 @@ Existing = Identifica quando o comprador é existente na loja, já realizou uma 
 
 **Customer.BrowserFingerPrint**{:.custom-attrib} `required`{:.custom-tag} `6005`{:.custom-tag} `string`{:.custom-tag} `ReDShield`{:.custom-provider-red}  
 Impressão digital de dispositivos e geolocalização real do IP do comprador. `required`{:.custom-tag} `50`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
-[Configuração do Fingerprint]({{ site.baseurl }}{% link docs/1.0/fingerprint.md %})  
+**Configuração do Fingerprint** 
 
 **Customer.BrowserHostName**{:.custom-attrib} `optional`{:.custom-tag} `60`{:.custom-tag} `string`{:.custom-tag} `Cybersource`{:.custom-provider-cyber}  
 Nome do host informado pelo browser do comprador e identificado através do cabeçalho HTTP.  
