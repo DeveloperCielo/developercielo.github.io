@@ -2282,13 +2282,11 @@ Se os 3 segmentos de código não forem colocados na página de checkout, os res
   <li>Javascript Code</li>
 </ul>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nt">&lt;html&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
 <span class="nt">&lt;head&gt;&lt;/head&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://h.online-metrix.net/fp/check.js?org_id=ProviderOrgId&amp;amp;session_id=ProviderMerchantIdProviderSessionId"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;body&gt;&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-
 </code></pre></div></div>
 
 <p><strong>IMPORTANTE!</strong><br />
@@ -2337,14 +2335,10 @@ Código do motivo do chargeback.</p>
 <p><strong class="custom-attrib">IsFraud</strong> <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">bool</code><br />
 Flag para identificar se o chargeback foi motivado por fraude ou não</p>
 
-<p><a name="http_operations"></a></p>
-
 <h2 id="operações-http-1">Operações HTTP</h2>
 
-<p><code class="http-post highlighter-rouge">POST</code> <a href="#post_retrocbk" class="custom-attrib">https://riskhomolog.braspag.com.br/Chargeback/</a><br />
+<p><code class="http-post highlighter-rouge">POST</code> [https://riskhomolog.braspag.com.br/Chargeback/]
 Retroalimentação de chargeback</p>
-
-<p><a name="post_retrocbk"></a></p>
 
 <h4 id="post-retroalimentação-de-chargeback"><code class="http-post highlighter-rouge">POST</code> Retroalimentação de chargeback</h4>
 
@@ -2450,6 +2444,81 @@ Retroalimentação de chargeback</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h1 id="associar-transação-pagador-e-antifraude">Associar transação Pagador e Antifraude</h1>
+
+<p>Esta página descreve como associar transações do Pagador Braspag à transações do Antifraude Gateway Braspag.</p>
+
+<p>Serviço que associa uma transação do Pagador Braspag à uma transação do Antifraude Gateway Braspag.</p>
+
+<p><strong>O cliente deverá realizar esta chamada quando o mesmo estiver utilizando o fluxo abaixo:</strong></p>
+
+<p>1 - Realiza a análise de fraude
+2 - Realiza a autorização
+3 - O 3º passo deverá ser a chamada ao a este serviço para associar a transação do Pagador à transação do Antifraude Gateway.</p>
+
+<h2 id="hosts-4">Hosts</h2>
+
+<p><strong>Test</strong> https://riskhomolog.braspag.com.br<br />
+<strong>Live</strong> https://risk.braspag.com.br</p>
+
+<h2 id="atributos-1">Atributos</h2>
+
+<p><strong class="custom-attrib">BraspagTransactionId</strong>  <code class="custom-tag highlighter-rouge">required</code> <code class="custom-tag highlighter-rouge">Guid</code><br />
+Id da transação no Pagador da Braspag.<br />
+Ex.: a3e08eb2-2144-4e41-85d4-61f1befc7a3b</p>
+
+<h2 id="operação-http">Operação HTTP</h2>
+
+<p><code class="http-patch highlighter-rouge">PATCH</code> [https://riskhomolog.braspag.com.br/Transaction/{Id}]
+Associa a transação do Pagador à transação do Antifraude Gateway</p>
+
+<h4 id="patch-associa-a-transação-do-pagador-à-transação-do-antifraude-gateway"><code class="http-patch highlighter-rouge">PATCH</code> Associa a transação do Pagador à transação do Antifraude Gateway</h4>
+
+<p><strong>PARÂMETROS:</strong></p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Id</span><span class="p">:</span> <span class="n">Guid</span>  <span class="c1">// Id da Transação no Antifraude Gateway</span>
+</code></pre></div></div>
+
+<p><strong>REQUEST:</strong></p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">GET</span> <span class="nn">https://riskhomolog.braspag.com.br/Transaction/{Id}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="p">:</span> <span class="s">riskhomolog.braspag.com.br</span>
+<span class="na">Authorization</span><span class="p">:</span> <span class="s">Bearer {access_token}</span>
+<span class="na">Content-Type</span><span class="p">:</span> <span class="s">application/json</span>
+
+</code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"BraspagTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3e08eb2-2144-4e41-85d4-61f1befc7a3b"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>RESPONSE:</strong></p>
+
+<p>Quando a transação do Pagador for associada corretamente com a transação do Antifraude Gateway</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">
+</span><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">Ok</span>
+
+</code></pre></div></div>
+
+<p>Quando a transação do Pagador não for informada na requisição</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">400</span> <span class="ne">Bad Request</span>
+
+</code></pre></div></div>
+
+<p>Quando a transação do Antifraude Gateway não for encontrada na base de dados</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">404</span> <span class="ne">Not found</span>
+
+</code></pre></div></div>
+
+<p>Quando a transação do Pagador já estiver associada a outra transação do Antifraude Gateway</p>
+
+<div class="language-http highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">409</span> <span class="ne">Conflict</span>
+
+</code></pre></div></div>
 
 </div>
 
