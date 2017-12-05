@@ -167,13 +167,13 @@
 <p>Ambiente Produção</p>
 
 <ul>
-  <li>(https://api.cielo.com.br/affiliate)</li>
+  <li><a href="https://api.cielo.com.br/affiliate">https://api.cielo.com.br/affiliate</a></li>
 </ul>
 
 <p>Ambiente Sandbox</p>
 
 <ul>
-  <li>(https://api.cielo.com.br/sandbox/affiliate)</li>
+  <li><a href="https://api.cielo.com.br/sandbox/affiliate">https://api.cielo.com.br/affiliate/sandbox</a></li>
 </ul>
 
 <h2 id="instruções-para-uso-realizar-chamadas-autenticação">Instruções para uso: realizar chamadas, autenticação</h2>
@@ -265,8 +265,7 @@
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="se">\</span>
   https://apicielocombr/sandbox/affiliate/v1/merchants <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'client_id: LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'client_id: &lt;your_client_id&gt;'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
     "agribusiness": false,
@@ -388,296 +387,321 @@
 
 <p><strong><em>Request</em></strong></p>
 
+<p><code class="highlighter-rouge">HEADERS</code></p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>client_id</td>
+      <td><your_client_id></your_client_id></td>
+    </tr>
+    <tr>
+      <td>Content-Type</td>
+      <td>application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">CORPO</code></p>
+
 <table>
   <thead>
     <tr>
       <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Valores</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Valores</th>
       <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">agribusiness</code></td>
-      <td>Boolean</td>
-      <td>true, false</td>
+      <td style="text-align: center">Boolean</td>
+      <td style="text-align: center">true, false</td>
       <td>?</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">username</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>Nome do usuário</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Terminalscode</code></td>
-      <td>Texto</td>
-      <td>ENUM: POS_PORTABLE, POS_DIALED_LINE, POS_BROADBAND, MOBILE_WITH_SCANNER, MOBILE_WITHOUT_SCANNER, ECOMMERCE_CHECKOUT, ECOMMERCE_V3, LIO_BASIC, LIO_PLUS, LIO_BASIC_V2, LIO_PLUS_V2, POS_WIFI</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center"><code class="highlighter-rouge">POS_PORTABLE, POS_DIALED_LINE, POS_BROADBAND, MOBILE_WITH_SCANNER, MOBILE_WITHOUT_SCANNER, ECOMMERCE_CHECKOUT, ECOMMERCE_V3, LIO_BASIC, LIO_PLUS, LIO_BASIC_V2, LIO_PLUS_V2, POS_WIFI</code></td>
       <td>Identificador do terminal solicitado para o credenciamento</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">TerminalsnumberOfEquipaments</code></td>
-      <td>Número</td>
-      <td>any</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
       <td>Quantidade de equipamentos</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">TerminalsecommercePlan</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número do plano para um credenciamento ecommerce</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number do plano para um credenciamento ecommerce</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">TerminalspaymentByLink</code></td>
-      <td>Boolean</td>
-      <td>true, false</td>
+      <td style="text-align: center">Boolean</td>
+      <td style="text-align: center">true, false</td>
       <td>Credenciamento será feito para pagamento utilizando link online</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">TerminalstelephoneCompanies</code></td>
-      <td>Texto</td>
-      <td>“VIVO”, “CLARO”, “TIM”, “OI”</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center"><code class="highlighter-rouge">VIVO, CLARO, TIM, OI</code></td>
       <td>Companhia de telefonia escolhida para compor o equipamento POS</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">TerminalsbusinessHours</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>Horário comercial</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">TerminalsautoService</code></td>
-      <td>Boolean</td>
-      <td>true, false</td>
+      <td style="text-align: center">Boolean</td>
+      <td style="text-align: center">true, false</td>
       <td>?</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerdocumentType</code></td>
-      <td>Texto</td>
-      <td>F, J</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center"><code class="highlighter-rouge">F, J</code></td>
       <td>Indicador do tipo de documento (F - física / J - jurídica)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerdocumentNumber</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número do documento</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number do documento</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customername</code></td>
-      <td>Text</td>
-      <td>any</td>
+      <td style="text-align: center">Text</td>
+      <td style="text-align: center">any</td>
       <td>Nome do cliente</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomercompanyName</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>Nome da empresa</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customermei</code></td>
-      <td>Boolean</td>
-      <td>true, false</td>
+      <td style="text-align: center">Boolean</td>
+      <td style="text-align: center">true, false</td>
       <td>Indicador se é pessoa jurídica MEI (Micro empreendedor individual)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerstateEnrollment</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>?</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customermcc</code></td>
-      <td>Texto</td>
-      <td>Sim</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">Sim</td>
       <td>?</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomeraccountsbankCode</code></td>
-      <td>Número</td>
-      <td>any</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
       <td>Código do banco</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomeraccountsbankBranch</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número da agência</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number da agência</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomeraccountsaccountNumber</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número da conta corrente</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number da conta corrente</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customeraccountstype</code></td>
-      <td>Número</td>
-      <td>ENUM: CHECKING_ACCOUNT_CIELO, CHECKING_ACCOUNT, SAVINGS_ACCOUNT, PREPAID_CARD</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center"><code class="highlighter-rouge">CHECKING_ACCOUNT_CIELO, CHECKING_ACCOUNT, SAVINGS_ACCOUNT, PREPAID_CARD</code></td>
       <td>Tipo da conta corrente</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomertradingName</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>?</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomercontactName</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>Nome do contato</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomercontactEmail</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>E-mail do contato</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerphoneNumberstype</code></td>
-      <td>Texto</td>
-      <td>ENUM: HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center"><code class="highlighter-rouge">HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX</code></td>
       <td>Tipo do telefone</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerphoneNumbersddd</code></td>
-      <td>Número</td>
-      <td>any</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
       <td>Código DDD</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerphoneNumbersnumber</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número do telefone</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number do telefone</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customeraddressestype</code></td>
-      <td>Texto</td>
-      <td>ENUM: HOME_ADDRESS, COMMERCIAL_ADDRESS, MAIL_ADDRESS, SUPPLY_ADDRESS</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center"><code class="highlighter-rouge">HOME_ADDRESS, COMMERCIAL_ADDRESS, MAIL_ADDRESS, SUPPLY_ADDRESS</code></td>
       <td>Tipo do endereço</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomeraddressespostalCode</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número do CEP</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number do CEP</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customeraddressesaddress</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>Endereço (Rua/Avenida/Travessa/etc)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customeraddressesnumber</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customeraddressesadd</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>?</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customeraddressesneighborhood</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>Bairro</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customeraddressescity</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>Cidade</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customeraddressesstate</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>Estado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customeraddressescountry</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>País</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customerownersname</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>Nome do proprietário</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerownersdocumentNumber</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número do documento</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number do documento</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerownersbirthDate</code></td>
-      <td>Data</td>
-      <td>any</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: center">any</td>
       <td>Data de aniversário</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerownersphoneNumberstype</code></td>
-      <td>Texto</td>
-      <td>ENUM: HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center"><code class="highlighter-rouge">HOME_PHONE, COMMERCIAL_PHONE, CELL_PHONE, MESSAGE_PHONE, FAX</code></td>
       <td>Tipo do telefone</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerownersphoneNumbersddd</code></td>
-      <td>Número</td>
-      <td>any</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
       <td>Código DDD</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerownersphoneNumbersnumber</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número do telefone</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number do telefone</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomeraffiliatorCode</code></td>
-      <td>Número</td>
-      <td>any</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
       <td>Código de afiliação</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomeraverageRevenue</code></td>
-      <td>Número</td>
-      <td>any</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
       <td>?</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomercieloPlanCode</code></td>
-      <td>Número</td>
-      <td>ENUM: DEFAULT, CONTROL</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center"><code class="highlighter-rouge">DEFAULT, CONTROL</code></td>
       <td>Código de plano cielo (comercial)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomeramountOfDaysForliquidation</code></td>
-      <td>Número</td>
-      <td>any</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
       <td>Quantidade de dias para liquidação</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerpaymentType</code></td>
-      <td>Texto</td>
-      <td>ENUM: IN_CASH, FINANCED</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center"><code class="highlighter-rouge">IN_CASH, FINANCED</code></td>
       <td>Tipo de pagamento</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CustomerarvTax</code></td>
-      <td>Texto</td>
-      <td>any</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
       <td>Taxa de antecipação</td>
     </tr>
   </tbody>
@@ -689,57 +713,83 @@
   <thead>
     <tr>
       <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Valores</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Valores</th>
       <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">merchantNumber</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número do EC (Estabelecimento comercial)</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number do EC (Estabelecimento comercial)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">proposalNumber</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número da proposta comercial que foi criada</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number da proposta comercial que foi criada</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="consulta-terminal-lógico-equipamento">Consulta terminal lógico (equipamento)</h2>
 
-<p>Terminal referencia a solução captura que retorna a identificação do terminal lógico quando associado a um estabelecimento comercial</p>
+<p>Consulta o terminal que faz referência à solução captura que retorna a identificação do terminal lógico quando associado a um estabelecimento comercial</p>
 
 <aside class="request"><span class="method post">GET</span> <span class="endpoint">/v1/terminals</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="se">\</span>
   <span class="s1">'https://apidevcielocombr/sandbox/affiliate/v1/terminals?proposalNumber=12345'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'client_id: LTwVuZSfW1iyQDxyOQRYJSrHyFaowzlnFmofCAmUsmmSzER4rZ'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'client_id: &lt;your_client_id&gt;'</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s1">'content-type: application/json'</span>
 </code></pre></div></div>
 
 <p><strong><em>Request</em></strong></p>
 
+<p><code class="highlighter-rouge">HEADERS</code></p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>client_id</td>
+      <td><your_client_id></your_client_id></td>
+    </tr>
+    <tr>
+      <td>Content-Type</td>
+      <td>application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">PARÂMETROS</code></p>
+
+<hr />
+
 <table>
   <thead>
     <tr>
       <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Valores</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Valores</th>
       <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">proposalNumber</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número da proposta comercial que foi criada</td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Number da proposta comercial que foi criada</td>
     </tr>
   </tbody>
 </table>
@@ -750,23 +800,283 @@
   <thead>
     <tr>
       <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Valores</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Valores</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">logicalNumber</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Number do terminal lógico que foi associado ao credenciado (Estabelecimento Comercial)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">digit</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Digito validado do terminal lógico</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="consulta-bancos-habilitados-para-realizar-o-credenciamento">Consulta bancos habilitados para realizar o credenciamento</h2>
+
+<p>Consulta a lista de bancos habilitados para realizar o processo de credenciamento. Essa consulta permite realizar uma validação para verificar quais bancos estão cadastrados junto a Cielo para serem utilizados no processo de credenciamento.</p>
+
+<aside class="request"><span class="method post">GET</span> <span class="endpoint">/v1/banks</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="se">\</span>
+  <span class="s1">'https://apidevcielocombr/sandbox/affiliate/v1/banks'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'client_id: &lt;your_client_id&gt;'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'content-type: application/json'</span>
+</code></pre></div></div>
+
+<p><strong><em>Request</em></strong></p>
+
+<p><code class="highlighter-rouge">HEADERS</code></p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>client_id</td>
+      <td><your_client_id></your_client_id></td>
+    </tr>
+    <tr>
+      <td>Content-Type</td>
+      <td>application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em>Response</em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Valores</th>
       <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">code</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Número do terminal lógico que foi associado ao credenciado (Estabelecimento Comercial)</td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Código do banco.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">digit</code></td>
-      <td>Número</td>
-      <td>any</td>
-      <td>Digito validado do terminal lógico</td>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Nome do banco.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="listagem-de-endereços-habilitados-para-credenciamento">Listagem de endereços habilitados para credenciamento</h2>
+
+<p>Consulta os endereços disponíveis para credenciamento a partir do CEP. É feita uma validação na base de endereços consultando o CEP enviado por parâmetro.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="se">\</span>
+  <span class="s1">'https://apidev.cielo.com.br/sandbox/affiliate/v1/addresses?postal_code=04552000'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'client_id: &lt;your_client_id&gt;'</span>
+</code></pre></div></div>
+
+<p><strong><em>Request</em></strong></p>
+
+<p><code class="highlighter-rouge">HEADERS</code></p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>client_id</td>
+      <td><your_client_id></your_client_id></td>
+    </tr>
+    <tr>
+      <td>Content-Type</td>
+      <td>application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">PARÂMETROS</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Valores</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">postal_code</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Número do CEP</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em>Response</em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Valores</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">postalCode</code></td>
+      <td style="text-align: center">Number</td>
+      <td style="text-align: center">any</td>
+      <td>Número do CEP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">address</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Endereço</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">add</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>??</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">neighborhood</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Bairro</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">city</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Cidade</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">state</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Estado</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">country</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>País</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="listagem-de-categorias-mcc-habilitados-para-credenciamento">Listagem de categorias (MCC) habilitados para credenciamento</h2>
+
+<p>Consulta as categorias de afiliações diponíveis para o credenciamento via API.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="se">\</span>
+  <span class="s1">'https://apidev.cielo.com.br/sandbox/affiliate/v1/merchant-categories?customer_type=F'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'client_id: &lt;your_client_id&gt;'</span>
+</code></pre></div></div>
+
+<p><strong><em>Request</em></strong></p>
+
+<p><code class="highlighter-rouge">HEADERS</code></p>
+
+<hr />
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>client_id</td>
+      <td><your_client_id></your_client_id></td>
+    </tr>
+    <tr>
+      <td>Content-Type</td>
+      <td>application/json</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">PARÂMETROS</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Valores</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">customer_type</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">F ou J</td>
+      <td>Tipo de cadastro. (F - pessoa fisica; J - pessoa juridica)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em>Response</em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Valores</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">code</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Código do MCC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">description</code></td>
+      <td style="text-align: center">String</td>
+      <td style="text-align: center">any</td>
+      <td>Descrição do MCC</td>
     </tr>
   </tbody>
 </table>
