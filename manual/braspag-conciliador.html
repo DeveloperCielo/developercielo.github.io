@@ -2149,6 +2149,737 @@ Consulte o suporte de sua linguagem de desenvolvimento para verificar se a mesma
 <p>O principal insumo do Conciliador são os extratos eletrônicos gerados pelas adquirentes. Devido a isso, podem existir particularidades entre cada uma.    <br />
 Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato eletrônico.</p>
 
+<h3 id="prazo-de-registro-no-extrato-eletrônico-tabela-ii-1">Prazo de registro no extrato eletrônico (Tabela II)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Adquirente</th>
+      <th>Captura</th>
+      <th>Pagamento</th>
+      <th>Observação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cielo</td>
+      <td>D+1</td>
+      <td>D</td>
+      <td>Pagamentos são realizados de Segunda à Sexta</td>
+    </tr>
+    <tr>
+      <td>Rede</td>
+      <td>D+1</td>
+      <td>D -1</td>
+      <td>Pagamentos são realizados de Segunda à Sexta</td>
+    </tr>
+    <tr>
+      <td>Amex</td>
+      <td>Entre D+1 à  D+2</td>
+      <td>Entre D-4 à D-6</td>
+      <td>*Desconsiderar do prazo a segunda feira, pois os extratos  não são gerados. Nestes dias o arquivo do Conciliador será disponibilizado somente com o header.</td>
+    </tr>
+    <tr>
+      <td>GetNet</td>
+      <td>D+1</td>
+      <td>D</td>
+      <td>Pagamentos são realizados de Segunda à Sexta</td>
+    </tr>
+    <tr>
+      <td>Ticket</td>
+      <td>D+30 ajustada ao dia de recebimento do cliente</td>
+      <td>D</td>
+      <td>Pagamentos são realizados de Segunda à Sexta</td>
+    </tr>
+    <tr>
+      <td>Sodexo</td>
+      <td>D+30 ajustada ao dia de recebimento do cliente</td>
+      <td>D</td>
+      <td>Pagamentos são realizados de Segunda à Sexta</td>
+    </tr>
+    <tr>
+      <td>Stone</td>
+      <td>Cartão de Débito: D+1 - Cartão de Crédito: D+30</td>
+      <td>D</td>
+      <td>Pagamentos são realizados de Segunda à Sexta</td>
+    </tr>
+    <tr>
+      <td>GlobalCollect</td>
+      <td>Cartão de Débito: D+1 - Cartão de Crédito: D+30</td>
+      <td> </td>
+      <td>Pagamentos são realizados de Segunda à Sexta</td>
+    </tr>
+    <tr>
+      <td>FirstData</td>
+      <td>Cartão de Débito: D+1 - Cartão de Crédito: D+30</td>
+      <td>D</td>
+      <td>Pagamentos são realizados de Segunda à Sexta</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-header-tabela-iii-1">Registro Header (Tabela III)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identificador do Registro</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Constante com valor 1</td>
+    </tr>
+    <tr>
+      <td>Identificador da Loja</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Contém o identificador único da loja no Conciliador</td>
+    </tr>
+    <tr>
+      <td>Identificador da Adquirente</td>
+      <td>Numérico (Inteiro)</td>
+      <td>{N}</td>
+      <td>1 = Cielo<br />2 = Redecard<br />3 = Amex<br />5 = Getnet<br />6 = Ticket<br />7 = Stone<br />8 = Sodexo<br />9 = Global Payments<br />10 = First Data</td>
+    </tr>
+    <tr>
+      <td>Geração do arquivo</td>
+      <td>Data/Hora</td>
+      <td>ddMMyyyyHHmmss</td>
+      <td>Contém a data e a hora da geração do arquivo pelo Conciliador</td>
+    </tr>
+    <tr>
+      <td>Período inicial</td>
+      <td>Data</td>
+      <td>ddMMyyyy</td>
+      <td>Data inicial do período de conciliação contemplado pelo arquivo</td>
+    </tr>
+    <tr>
+      <td>Período final</td>
+      <td>Data</td>
+      <td>ddMMyyyy</td>
+      <td>Data final do período de conciliação contemplado pelo arquivo</td>
+    </tr>
+    <tr>
+      <td>Número sequencial</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Número sequencial que indica a ordem de processamento dos arquivos diários</td>
+    </tr>
+    <tr>
+      <td>Identificador do tipo de processamento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>{N}</td>
+      <td>1 = Arquivo diário  <br /> 2 = Arquivo reprocessado</td>
+    </tr>
+    <tr>
+      <td>Descrição do tipo de processamento</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>“Daily” ou “Reprocessed” (Diário ou reprocessado)</td>
+    </tr>
+    <tr>
+      <td>Versão do arquivo</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>Versão do arquivo (“2.0”)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-de-transação-conciliada-tabela-iv-1">Registro de Transação Conciliada (Tabela IV)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identificador do Registro</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Constante com valor  2</td>
+    </tr>
+    <tr>
+      <td>Identificador do tipo de conciliação</td>
+      <td>Numérico (Inteiro)</td>
+      <td>{N}</td>
+      <td>1   = Automática  <br />2   = Manual</td>
+    </tr>
+    <tr>
+      <td>Descrição do tipo de conciliação</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>“Automatic” ou  “Manual”</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-de-conciliação-manual-tabela-v-1">Registro de Conciliação Manual (Tabela V)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identificador do Registro</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Constante com valor  9</td>
+    </tr>
+    <tr>
+      <td>Usuario de conciliação manual</td>
+      <td>Alfanumérico)</td>
+      <td>A</td>
+      <td>Login do usuario que efetuou a conciliação manual</td>
+    </tr>
+    <tr>
+      <td>Data e hora da conciliação manual</td>
+      <td>Data/hora</td>
+      <td>ddmmyyyyhhmmss</td>
+      <td>Data e hora sm que a conciliação manual foi efeturada pelo usuário</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-de-informação-de-venda-tabela-vi">Registro de Informação de Venda (Tabela VI)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identificador do Registro</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Constante com valor 3</td>
+    </tr>
+    <tr>
+      <td>Identificador Único da  Venda no Conciliador</td>
+      <td>Identificador Único  Global (GUID)</td>
+      <td>G</td>
+      <td>Identificador único do Conciliador para as informações de venda1</td>
+    </tr>
+    <tr>
+      <td>Identificador da Venda no  Sistema Transacional</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>Identificador da Venda obtido a partir do Sistema transacional no qual a transação foi processada com a Adquirente²</td>
+    </tr>
+    <tr>
+      <td>Identificador da Filial</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>Identificador da Filial da loja que processou a venda3</td>
+    </tr>
+    <tr>
+      <td>Código de Afiliação</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O código de afiliação da adquirente, informado nos dados da venda do cliente</td>
+    </tr>
+    <tr>
+      <td>Número do Pedido</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O número do pedido associado à venda no lojista4</td>
+    </tr>
+    <tr>
+      <td>Código de Autorização</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O Código de Autorização da transação que o Lojista recebeu da Adquirente</td>
+    </tr>
+    <tr>
+      <td>Data da Venda</td>
+      <td>Data</td>
+      <td>ddMMyyyy</td>
+      <td>A data em que foi realizada a venda no lojista</td>
+    </tr>
+    <tr>
+      <td>Data da Captura</td>
+      <td>Data</td>
+      <td>ddMMyyyy</td>
+      <td>A data da captura recebida pelo lojista</td>
+    </tr>
+    <tr>
+      <td>Valor da transação</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O valor da transação em centavos5</td>
+    </tr>
+    <tr>
+      <td>Número de parcelas</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>A quantidade de parcelas na qual a transação foi dividida</td>
+    </tr>
+    <tr>
+      <td>Nome do comprador</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O nome do comprador do produto</td>
+    </tr>
+    <tr>
+      <td>Documento do comprador</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>Documento de identificador do comprador (RG, CPF, etc.)</td>
+    </tr>
+    <tr>
+      <td>E-mail do comprador</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>Endereço de e-mail do comprador</td>
+    </tr>
+    <tr>
+      <td>Número do cartão</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>Número do cartão (crédito ou débito) utilizado na venda</td>
+    </tr>
+    <tr>
+      <td>TID</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>Identificador da transação e-commerce na Cielo, recebido pelo lojista</td>
+    </tr>
+    <tr>
+      <td>NSU</td>
+      <td>Número</td>
+      <td>N</td>
+      <td>Número sequencial da transação na  Adquirente, recebido pelo lojista</td>
+    </tr>
+    <tr>
+      <td>Valor da taxa IATA</td>
+      <td>Número</td>
+      <td>N</td>
+      <td>Valor da taxa IATA (apenas para setor aéreo), em centavos</td>
+    </tr>
+    <tr>
+      <td>Tipo de Integração</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>Nome do meio de pagamento utilizado no caso da transação efetuada no  gateway Pagador</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>As informações de venda são as transações enviadas pelo cliente do mundo físico, ou do  gateway/sistema transacional utilizado para efetuar as transações. São a primeira parte da conciliação. O Identificador Único da Venda pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:</li>
+</ol>
+
+<blockquote>
+  <p>https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?SaleTransactionId=[ID]</p>
+</blockquote>
+
+<p>Onde o texto [ID] deve ser substituído pelo identificador informado no registro.</p>
+
+<ol>
+  <li>O identificador da Venda no Sistema Transacional é o Identificador da Transação que é utilizado pelo sistema que efetuou a venda, seja ele um Gateway ou Sistema de Caixa/POS. Este valor pode ou não ser fornecido durante a importação da venda para o Conciliador. É de responsabilidade do cliente a decisão de informá-lo ou não.</li>
+  <li>O identificador da Filial deve ser fornecido pelo cliente toda vez que a importação de uma venda é realizada para o Conciliador. Apesar de não haver restrições para o formato do identificador da filial (campo Alfanumérico), é obrigatório que cada Filial possua um identificador único.</li>
+  <li>O Gerenciamento do Número do Pedido é de inteira responsabilidade do lojista. O Conciliador apenas armazena esta informação, mas nenhum tipo de validação é feito.</li>
+  <li>O Valor da Transação não é o valor das parcelas. O valor informado aqui é o valor integral da mesma, da forma como informado pelo cliente/gateway.</li>
+</ol>
+
+<h3 id="registro-de-informação-da-adquirente-tabela-vii">Registro de Informação da Adquirente (Tabela VII)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identificador do Registro</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Constante com valor 4</td>
+    </tr>
+    <tr>
+      <td>Identificador Único da  Transação no Conciliador</td>
+      <td>Identificador Único  Global (GUID)</td>
+      <td>G</td>
+      <td>Identificador Único das  informações da Adquirente</td>
+    </tr>
+    <tr>
+      <td>Código de Afiliação</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O Código de Afiliação informado na venda do Extrato.</td>
+    </tr>
+    <tr>
+      <td>Número do Lote</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O número do Lote (Resumo de Vendas) ao qual a transação pertence na Adquirente.</td>
+    </tr>
+    <tr>
+      <td>Número do Cartão</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O número do cartão usado na compra2</td>
+    </tr>
+    <tr>
+      <td>Data da Venda</td>
+      <td>Data</td>
+      <td>ddMMyyyy</td>
+      <td>A data em que a venda foi efetuada, segundo as informações do extrato.</td>
+    </tr>
+    <tr>
+      <td>Valor bruto da Transação</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor bruto da transação em centavos.</td>
+    </tr>
+    <tr>
+      <td>Valor da taxa de adquirência deduzido da transação</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor deduzido do valor bruto da transação como taxa de adquirência, em centavos.</td>
+    </tr>
+    <tr>
+      <td>Valor líquido da transação</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor que será recebido pelo lojista, após a dedução da taxa de Adquirência sobre o valor bruto, em centavos.</td>
+    </tr>
+    <tr>
+      <td>Valor bruto da parcela de arredondamento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor bruto da parcela de arredondamento, em centavos3</td>
+    </tr>
+    <tr>
+      <td>Valor da taxa de adquirência deduzido da parcela de arredondamento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor deduzido do valor bruto da parcela de arredondamento como taxa de adquirência, em centavos.</td>
+    </tr>
+    <tr>
+      <td>Valor líquido da parcela de arredondamento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor que será recebido pelo lojista como valor da parcela de arredondamento, após a dedução da taxa de adquirência.</td>
+    </tr>
+    <tr>
+      <td>Valor bruto das demais parcelas</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor bruto das demais parcelas da transação, em centavos.</td>
+    </tr>
+    <tr>
+      <td>Valor da taxa de adquirência deduzido das demais parcelas</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor deduzido do valor bruto das demais parcelas como taxa de adquirência, em centavos.</td>
+    </tr>
+    <tr>
+      <td>Valor líquido das demais parcelas</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor que será recebido pelo lojista como valor das demais parcelas, após a dedução da taxa de adquirência.</td>
+    </tr>
+    <tr>
+      <td>Taxa de adquirência</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>A taxa de adquirência sobre a transação</td>
+    </tr>
+    <tr>
+      <td>TID</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O identificador da transação ecommerce na adquirente Cielo.</td>
+    </tr>
+    <tr>
+      <td>NSU</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O número sequencial da transação na Adquirente</td>
+    </tr>
+    <tr>
+      <td>Valor da taxa IATA</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O valor da taxa IATA (apenas para setor aéreo), cobrado sobre a transação, em centavos.</td>
+    </tr>
+    <tr>
+      <td>Número do Pedido</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O Número do Pedido recebido pela adquirente durante a concretização da transação.</td>
+    </tr>
+    <tr>
+      <td>Número lógico do Terminal</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O número do terminal utilizado para efetuar a transação.</td>
+    </tr>
+    <tr>
+      <td>Data de Captura</td>
+      <td>Data</td>
+      <td>ddMMyyyy</td>
+      <td>A data da captura da transação na Adquirente.</td>
+    </tr>
+    <tr>
+      <td>Identificador Único do Lote</td>
+      <td>Numérico (Inteiro  Longo)</td>
+      <td>N</td>
+      <td>O identificador único do Lote (Resumo de Vendas) na adquirente Cielo</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Cielo.</td>
+    </tr>
+    <tr>
+      <td>Quantidade de Parcelas</td>
+      <td>Númerico (Inteiro)</td>
+      <td>N</td>
+      <td>A quantidade de parcelas na qual a transação foi dividida na Adquirente.</td>
+    </tr>
+    <tr>
+      <td>Código de Autorização</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O código de autorização da transação informado pela adquirente.</td>
+    </tr>
+    <tr>
+      <td>Identificador do Meio de  Captura</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O identificador do meio  tecnológico utilizado para capturar a transação na   Adquirente5</td>
+    </tr>
+    <tr>
+      <td>Descrição do Meio de Captura</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>A descrição do meio tecnológico utilizado para capturar a transação na  Adquirente5</td>
+    </tr>
+    <tr>
+      <td>Identificador da Bandeira</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O identificador da bandeira do cartão utilizado para efetuar a transação6</td>
+    </tr>
+    <tr>
+      <td>Nome da Bandeira</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O nome da bandeira do cartão utilizado para efetuar a transação6</td>
+    </tr>
+    <tr>
+      <td>Identificador do tipo de cartão</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O identificador do tipo do cartão: - 1: Debit  - 2: Credit</td>
+    </tr>
+    <tr>
+      <td>Nome do tipo de cartão</td>
+      <td>Tipo de cartão</td>
+      <td>A</td>
+      <td>O nome do tipo do cartão utilizado para efetuar a transação</td>
+    </tr>
+    <tr>
+      <td>Código de Identificação do  Produto na Cielo</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O código que identifica o   Produto da Adquirente Cielo utilizado para efetuar a transação7</td>
+    </tr>
+    <tr>
+      <td>Descrição do Produto na Cielo</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>A descrição do Produto na Adquirente Cielo utilizado para efetuar a transação7</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>As informações da adquirente são os dados da venda que o Conciliador recebe dos extratos eletrônicos, o meio de integração da adquirente com os sistemas externos. São a segunda parte da conciliação. O Identificador Único da Transação pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:</li>
+</ol>
+
+<blockquote>
+  <p>https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?AcquirerTransactionId=[I D]</p>
+</blockquote>
+
+<p>Onde o texto [ID] deve ser substituído pelo identificador informado no registro.</p>
+
+<ol>
+  <li>Devido à restrições de segurança, o número do cartão será informado de forma mascarada.</li>
+  <li>Quando uma transação é dividida em uma quantidade de parcelas onde o valor não pode ser distribuído igualmente entre as parcelas, surge a necessidade de colocar um valor extra em uma parcela específica. Esta parcela é chamada de parcela de arredondamento. Como exemplo, podemos adotar uma transação de R$ 100,00 dividida em três parcelas. Se a primeira parcela for a parcela de arredondamento, ela terá o valor de R$ 33,34 – enquanto as duas outras parcelas terão o valor de R$ 33,33.</li>
+  <li>A taxa de adquirência normalmente é expressa em porcentagem. O campo demonstra essa porcentagem multiplicada por 100. Portanto, se o valor deste campo for expresso como 275, isto indica uma taxa de adquirência de 2,75%.</li>
+  <li>Tabelas com os meios de captura informados estão disponíveis no Apêndice do Manual.</li>
+  <li>Uma tabela com as bandeiras disponíveis está disponível no Apêndice do Manual.</li>
+  <li>Uma tabela com os tipos de produto está disponível no Apêndice do Manual.</li>
+</ol>
+
+<h3 id="registro-de-evento-1">Registro de Evento</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identificador do Registro</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>5 = Evento Financeiro de Transação <br /> 6 = Evento Informativo de Transação <br /> 7 = Eventos financeiros de Afiliação <br /> 8 = Eventos  informativos de Afiliação1</td>
+    </tr>
+    <tr>
+      <td>Identificador Único do Evento no  Conciliador</td>
+      <td>Identificador Único  Global (GUID)</td>
+      <td>G</td>
+      <td>O identificador único do do  Evento no Conciliador2</td>
+    </tr>
+    <tr>
+      <td>Data do evento</td>
+      <td>Data</td>
+      <td>ddMMyyyy</td>
+      <td>A data em que o evento está previsto para ser realizado, ou a data em que foi realizado (no caso de evento realizado)</td>
+    </tr>
+    <tr>
+      <td>Identificador da Categoria de Evento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O identificador da categoria do evento3</td>
+    </tr>
+    <tr>
+      <td>Descrição da Categoria de Evento</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>A descrição da categoria do evento3</td>
+    </tr>
+    <tr>
+      <td>Identificador do Tipo de Evento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>{N}</td>
+      <td>1   = Realizado <br /> 2 = Previsto <br /> 3 = Pendente</td>
+    </tr>
+    <tr>
+      <td>Descrição do Tipo de Evento</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>“Preview”, “Realized” ou “Pending”</td>
+    </tr>
+    <tr>
+      <td>Código de Afiliação</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O código de afiliação do estabelecimento no qual o evento foi executado</td>
+    </tr>
+    <tr>
+      <td>Parcela da Transação</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>A parcela da transação a qual o evento se refere4</td>
+    </tr>
+    <tr>
+      <td>Valor Bruto</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O valor financeiro do evento contemplado, antes da dedução da taxa de adquirência, em centavos.</td>
+    </tr>
+    <tr>
+      <td>Valor Líquido</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O valor líquido do evento, após a redução da taxa de adquirência, em centavos.</td>
+    </tr>
+    <tr>
+      <td>Valor da Taxa</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O valor da taxa de adquirência sobre o evento, em centavos</td>
+    </tr>
+    <tr>
+      <td>Banco</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O código do banco do domicílio bancário sobre o qual o evento financeiro é ou será lançado</td>
+    </tr>
+    <tr>
+      <td>Agência</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O código da agência do domicílio bancário sobre o qual o evento financeiro é ou será lançado</td>
+    </tr>
+    <tr>
+      <td>Número da Conta</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O número da conta do domicílio bancário sobre o qual o evento financeiro é ou será lançado</td>
+    </tr>
+    <tr>
+      <td>Código do Ajuste</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O código que identifica o tipo de ajuste (apenas para eventos de ajustes)</td>
+    </tr>
+    <tr>
+      <td>Descrição do Ajuste</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>A descrição do ajuste (apenas para eventos de ajustes)</td>
+    </tr>
+    <tr>
+      <td>Número da Operação de Antecipação na Cielo</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O número da Operação de Antecipação (apenas para eventos derivados de antecipações na Cielo)</td>
+    </tr>
+    <tr>
+      <td>Data original de pagamento</td>
+      <td>Data</td>
+      <td>ddMMyyyy</td>
+      <td>A data original para a qual o evento de pagamento estava previsto (apenas para eventos de antecipações)</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>Os eventos são divididos em 2 tipos: Eventos financeiros são eventos que informam cobranças ou pagamentos na agenda financeira da adquirente com o lojista. Eventos informacionais são avisos de alterações na agenda (reagendamentos de eventos financeiros) ou outras informações não financeiras (captura de transação). Além disso, eles podem estar ligados à transações ou não. Caso estejam ligados à transações, eles aparecerão logo abaixo dos registros de transações aos quais se referem. Caso contrário, serão mencionados no final do arquivo. Utilize corretamente o identificador do registro para saber como tratar estes eventos pela sua ligação.</li>
+  <li>O Identificador Único do Evento pode ser utilizado para visualizar os dados do evento no WebSite do Conciliador, preenchendo a URL:  https://reconciliation.braspag.com.br/WebSite/Reports/EventDetails.aspx?Id=[ID] Onde o texto [ID] deve ser substituído pelo identificador informado no registro.</li>
+  <li>Uma tabela com as categorias de evento está disponível no apêndice do Manual.</li>
+  <li>Certos eventos podem não se referir à uma parcela da transação, como Estornos ou Chargebacks. <br />
+Nesses casos, o campo Parcela da Transação ficará vazio.</li>
+</ol>
+
 <h2 id="meios-de-captura-1">Meios de Captura</h2>
 
 <h3 id="cielo-2">Cielo</h3>
