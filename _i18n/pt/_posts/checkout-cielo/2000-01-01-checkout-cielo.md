@@ -527,7 +527,7 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 
 **Sucesso** - Em caso de sucesso, o response será o conteúdo do Request mais o Link que direciona a tela transacional
 
-```Json
+``` Json
 {
     "Settings": {
         "CheckoutUrl": "https://cieloecommerce.cielo.com.br/transacional/order/index?id=123",
