@@ -1,802 +1,91 @@
-<!DOCTYPE html>
-<html lang="pt">
-    <head>
-    <link href="http://gmpg.org/xfn/11" rel="profile">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="theme-color" content="#00aeef">
-    <meta http-equiv="Content-Language" content="pt">
-
-    <!-- Enable responsiveness on mobile devices-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-    <title>
-        
-        POS-Virtual Braspag &middot; Documentações e tutoriais
-        
-    </title>
-
-    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
-
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/poole.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/syntax.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/hyde.css">
-
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery.tocify.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/prettify.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/custom.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/cielo.css">
-
-    
-        
-            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/manual/braspag-pos-virtual" />
-        
-    
-        
-            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/manual/braspag-pos-virtual" />
-        
-    
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
-</head>
-
-    <body>
-        
-        <div class="content-container no-dark-box">
-        
-            <div id="submenu">
-                <div class="submenu-container">
-                    <div class="submenu-row sub-items">
-                        <div class="submenu-itens">
-                            <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact" class="help">Ajuda</a>
-
-                            
-                            <div class="lang">
-                                <span>Idiomas</span>
-
-                                
-                                    
-                                    <a href="https://developercielo.github.io/manual/braspag-pos-virtual">
-                                    
-
-                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
-                                    </a>
-                                
-                                    
-                                    <a href="https://developercielo.github.io/en/manual/braspag-pos-virtual">
-                                    
-
-                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
-                                    </a>
-                                
-                            </div>
-                            
-                        </div>
-
-                        
-                        <div class="search">
-                            <input type="text" class="search" id="input-search">
-                        </div>
-                    </div>
-                    <div class="submenu-row results">
-                        <div class="search-results-container">
-                            <ul class="search-results"></ul>
-                        </div>
-                    </div>
-                        
-
-                    <div class="submenu-row breads">
-                        <ol class="breadcrumb">
-                            
-                            <li><a href="/">Início</a></li>
-                            
-                            
-                            
-                            
-                                
-                                    
-                                    
-                                    
-                                    
-                                    
-                                        
-                                    
-                                        
-                                    
-                                        
-                                    
-                                
-                            
-                                
-                                    
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/braspag-pos-virtual">POS-Virtual Braspag</a></li>
-                                    
-                                
-                            
-                        </ol>
-                    </div>
-                </div>
-            </div>
-
-            <div class="post">
-  <h1 id="criar-grupos">Criar Grupos</h1>
-
-<p>É necessário criar pelo menos um grupo para que as vendas sejam realizadas no POS Virtual. O grupo determina quais são as pemissões que um determinado operador possui.</p>
-
-<p>Para criar um grupo, acesse Configurações &gt; Grupos, e preencha corretamente os campos identificados abaixo:</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/criargrupos.png" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-      <th>Obrigatório?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Nome</td>
-      <td>Nome do grupo</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Permissões</td>
-      <td>selecione as permissões que este grupo poderá ter</td>
-      <td>SIM</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>A lista de permissões são:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Permissão</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Alterar data da próxima cobrança da recorrência</td>
-    </tr>
-    <tr>
-      <td>Alterar data fim da recorrência</td>
-    </tr>
-    <tr>
-      <td>Alterar dia da recorrência</td>
-    </tr>
-    <tr>
-      <td>Alterar periodicidade da recorrência</td>
-    </tr>
-    <tr>
-      <td>Alterar valor da recorrência</td>
-    </tr>
-    <tr>
-      <td>Ativar/Desativar pedido de recorrência</td>
-    </tr>
-    <tr>
-      <td>Cancelar Transação</td>
-    </tr>
-    <tr>
-      <td>Cancelar Transação via Relatório</td>
-    </tr>
-    <tr>
-      <td>Cancelar Transaç&amp;ões De Todos Usuários</td>
-    </tr>
-    <tr>
-      <td>Capturar Transação</td>
-    </tr>
-    <tr>
-      <td>Capturar Transação via Relatório</td>
-    </tr>
-    <tr>
-      <td>Criar Transação</td>
-    </tr>
-    <tr>
-      <td>Estornar Transação via Relatório</td>
-    </tr>
-    <tr>
-      <td>Visualizar Pedidos de Recorrência</td>
-    </tr>
-    <tr>
-      <td>Visualizar suas Transaç&amp;ões</td>
-    </tr>
-    <tr>
-      <td>Visualizar Transaç&amp;ões Recorrentes</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="criar-operadores">Criar Operadores</h1>
-
-<p>Através do usuário “gerente”, é possível criar usuários operadores, que terão permissão para realizar novas vendas.</p>
-
-<p>Acesse Configurações &gt; Operadores, e preencha corretamente o forumulário abaixo. Assim que os dados forem submetidos, um e-mail com as instruções será enviado no endereço cadastrado.</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/cadastraroperador.png" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-      <th>Obrigatório?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Usuário</td>
-      <td>username a ser utilizado para acessar o POS</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Nome</td>
-      <td>Nome do operador</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>E-mail</td>
-      <td>E-mail do operador</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Grupo</td>
-      <td>Grupo de permissão que o operador pertence</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Lojas</td>
-      <td>Lojas para as quais o operador fará as vendas</td>
-      <td>SIM</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="realizar-venda">Realizar Venda</h1>
-
-<p>Para a criação de um novo pedido, o usuário deverá acessar a tela através do menu:  POS Virtual -&gt; Realizar Venda</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/menucriarpedido.png" alt="" /></p>
-
-<h2 id="passo-a-passo">Passo a Passo</h2>
-
-<p>A tela de criação de um novo pedido pelo POS Virtual é dividida em blocos com campos que são obrigatórios e não obrigatórios.</p>
-
-<p>Alguns blocos são opcionais de serem exibidos na tela, e para os mesmos ficarem disponíveis é necessário configurá-los no momento do setup do seu POS Virtual.</p>
-
-<p>A seguir iremos explicar passo a passo quais os blocos disponíveis com seus campos e a obrigatoriedade de cada campo referente ao bloco que pertence.</p>
-
-<h3 id="dados-do-pedido">Dados do Pedido</h3>
-
-<p>Neste passo é possível informar os dados do pedido. 
-O campo de e-mail é opcional, e pode ser configurado para ser exibido na tela de criação de um novo pedido no momento do setup do seu POS Virtual. 
-Abaixo a descrição e obrigatoriedade de cada campo.</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/camposdadosdopedido.png" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-      <th>Obrigatório?</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Número do Pedido</td>
-      <td>Identificador do pedido da loja</td>
-      <td>SIM</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Nome</td>
-      <td>Nome do cliente</td>
-      <td>SIM</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>CPF/CNPJ</td>
-      <td> </td>
-      <td>CPF/CNPJ do cliente</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>E-mail</td>
-      <td> </td>
-      <td>E-mail do cliente</td>
-      <td>NÃO</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="endereço-de-entrega">Endereço de Entrega</h3>
-
-<p>Neste passo é possível informar os dados do endereço de entrega do pedido. 
-Os campos com os dados de endereço de entrega são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.<br />
-Abaixo a descrição e obrigatoriedade de cada campo.</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/camposdadosendereco.png" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-      <th>Obrigatório?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Rua</td>
-      <td>Nome da rua do endereço de entrega do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>Número</td>
-      <td>Número do endereço de entrega do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>Complemento</td>
-      <td>Complemento do endereço de entrega do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>Cidade</td>
-      <td>Cidade do endereço de entrega do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>Estado</td>
-      <td>Estado do endereço de entrega do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>Bairro</td>
-      <td>Bairro do endereço de entrega do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>CEP</td>
-      <td>CEP do endereço de entrega do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>País</td>
-      <td>País do endereço de entrega do cliente</td>
-      <td>NÃO</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="dados-da-recorrência">Dados da Recorrência</h3>
-
-<p>Neste passo é possível informar os dados do pedido criando uma recorrência com umas das 3 opções:</p>
-
-<ul>
-  <li>Agendar para uma data futura</li>
-  <li>Cobrar agora e agendar as demais recorrências para o mesmo dia</li>
-  <li>Cobrar agora e agendar as demais recorrências para um dia diferente</li>
-</ul>
-
-<p>Os campos com os dados para criação de um pedido de recorrência são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.</p>
-
-<p>Para cada opção de recorrência abaixo os campos têm comportamentos de obrigatoriedades 
-diferentes.</p>
-
-<p><em>Opção 1: Agendar para uma data futura</em></p>
-
-<p>Nesta opção uma recorrência será agendada de acordo com as informações fornecidas nos campos exibidos abaixo. Neste caso o cliente só será cobrado quando a primeira recorrência ocorrer, ou seja, no dia da data início informada.</p>
-
-<p>O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/dadosdarecorrencia1.png" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-      <th>Obrigatório?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Intervalo</td>
-      <td>Intervalo da recorrência Obs.: por padrão Mensal</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Data Início</td>
-      <td>Data para início da recorrência</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Data Fim</td>
-      <td>Data para término da recorrência</td>
-      <td>NÃO</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><em>Opção 2: Cobrar agora e agendar as demais recorrências para o mesmo dia</em></p>
-
-<p>Nesta opção uma recorrência será criada e a primeira recorrência será cobrada de imediato.  As demais recorrências sempre irão ocorrer no mesmo dia da data de início da recorrência.</p>
-
-<p>O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/dadosdarecorrencia2.png" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-      <th>Obrigatório?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Intervalo</td>
-      <td>Intervalo da recorrência Obs.: por padrão Mensal</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Data Início</td>
-      <td>Data para início da recorrência Obs.: Não é possível alterar</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Dia das demais recorrências</td>
-      <td>Dia em que as demais recorrências irão acontecer. Ex.: a próxima neste exemplo será em 02/10/2016. Obs.: Não é possível alterar</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Data Fim</td>
-      <td>Data para término da recorrência</td>
-      <td>NÃO</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><em>Opção 3: Cobrar agora e agendar as demais recorrências para um dia diferente</em></p>
-
-<p>Nesta opção uma recorrência será criada e a primeira recorrência será cobrada de imediato.  As demais recorrências sempre irão ocorrer no dia definido para o campo “Dia das demais recorrências”.</p>
-
-<p>O fim de uma recorrência dependerá da data fim informada, caso não seja informada nenhuma data, a mesma tem o perfil de uma recorrência “infinita”.</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/dadosdarecorrencia3.png" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-      <th>Obrigatório?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Intervalo</td>
-      <td>Intervalo da recorrência Obs.: por padrão Mensal</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Data Início</td>
-      <td>Data para início da recorrência Obs.: Não é possível alterar</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Dia das demais recorrências</td>
-      <td>Dia em que as demais recorrências irão acontecer. Ex.: a próxima poderá ser em 15/10/2016 por exemplo</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Data Fim</td>
-      <td>Data para término da recorrência</td>
-      <td>NÃO</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="endereço-de-cobrança">Endereço de Cobrança</h3>
-
-<p>Neste passo é possível informar os dados do endereço de cobrança do pedido.</p>
-
-<p>Os campos com os dados de endereço de cobrança são opcionais, e podem ser configurados para serem exibidos na tela de criação de um novo pedido no momento do setup do seu POS Virtual.</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/camposdadosenderecocobranca.png" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-      <th>Obrigatório?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Rua</td>
-      <td>Nome da rua do endereço de cobrança do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>Número</td>
-      <td>Número do endereço de cobrança do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>Complemento</td>
-      <td>Complemento do endereço de cobrança do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>Cidade</td>
-      <td>Cidade do endereço de cobrança do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>Estado</td>
-      <td>Estado do endereço de cobrança do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>Bairro</td>
-      <td>Bairro do endereço de cobrança do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>CEP</td>
-      <td>CEP do endereço de cobrança do cliente</td>
-      <td>NÃO</td>
-    </tr>
-    <tr>
-      <td>País</td>
-      <td>País do endereço de cobrança do cliente</td>
-      <td>NÃO</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="dados-de-pagamento">Dados de Pagamento</h3>
-
-<p>Neste passo é possível informar os dados do pagamento do pedido.</p>
-
-<p>Para o campo meio de pagamento, as bandeiras estarão disponíveis de acordo com as opções de meios de pagamentos configurados para o seu POS Virtual.</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/dadospagamento.png" alt="" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Descrição</th>
-      <th>Obrigatório?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Meio de Pagamento</td>
-      <td>Bandeira do cartão de crédito</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Portador</td>
-      <td>Nome do portador do cartão de crédito</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Número do cartão</td>
-      <td>Número do cartão de crédito do cliente</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Código de Segurança</td>
-      <td>Código de segurança do cartão de crédito</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Validade</td>
-      <td>Validade do cartão de crédito</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Valor</td>
-      <td>Valor do pedido</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td>Número de Parcelas</td>
-      <td>Quantidade de parcelas do pedido Obs.: Caso seja um pedido de recorrência, este campo não é obrigatório e o mesmo é ocultado na tela</td>
-      <td>SIM</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="pagar-ou-limpar">Pagar ou Limpar</h2>
-
-<p>Através do botão “Pagar”, o pedido será criado de acordo com os dados preenchidos nos campos citados acima.</p>
-
-<p>Caso o seu POS Virtual esteja configurado com a opção de “captura automática”, ao clicar em pagar, o pedido será autorizado e capturado imediatamente. Caso contrário, o pedido será somente autorizado e através da opção “capturar” em “Ações” na lista de pedidos, será possível realizar a captura do pedido.</p>
-
-<p>O botão “limpar”, limpa todos os campos da tela de criação de um novo pedido.</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/btnpagarlimpar.png" alt="" /></p>
-
-<h1 id="lista-de-pedidos">Lista de pedidos</h1>
-
-<p>Conforme imagem abaixo, nesta sessão serão exibidos todos os pedidos realizados pelo operador:</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/listapedidos.png" alt="" /></p>
-
-<p>Acima da lista de pedidos, existem duas legendas com informações dos totais. Estas representam o valor total pago e o valor total pendente de captura.</p>
-
-<ul>
-  <li>Total pago - valor total de pedidos capturados na lista de pedidos</li>
-  <li>Total pendente de captura - valor total de pedidos que foram apenas autorizados, ou seja, estão passíveis de serem capturados</li>
-</ul>
-
-<p>A coluna “Ações” possui links onde o usuário poderá tomar a ação desejada, que são:</p>
-
-<h2 id="capturar">Capturar</h2>
-
-<p>Esta ação ficará disponível para o usuário caso o seu POS Virtual no momento do setup não desejar que a forma de pagamento seja com captura automática, ou seja, ao realizar o passo 7 clicando no botão “Pagar”, o pedido será autorizado apenas, necessitando da ação de clicar no link “Capturar” do usuário para mudar o status de “Não Pago” para “Pago”. Para esta opção, no momento do setup do seu POS Virtual, é possível escolher por captura parcial ou total.</p>
-
-<h3 id="captura-parcial">Captura Parcial</h3>
-
-<p>É a ação de capturar um determinado valor menor que o valor autorizado. Ex.:</p>
-
-<ul>
-  <li>Transação autorizada de R$ 100,00</li>
-  <li>Captura parcial de R$ 50,00</li>
-</ul>
-
-<p>Caso a opção seja por captura parcial no setup do seu POS Virtual, o usuário ao clicar no link “Capturar”, a tela abaixo será exibida, deixando assim o usuário escolher o valor a ser capturado.</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/capturar.png" alt="" /></p>
-
-<p>&lt;aside class=”notice)Obs.: A ação de capturar só poderá ocorrer uma única vez, então caso seja realizada uma captura parcial conforme exemplo acima, os outros R$ 50,00 restantes não poderá ser mais capturado, disponibilizando novamente esses R$ 50,00 no limite do cliente. &lt;/aside&gt;</p>
-
-<h3 id="captura-total">Captura Total</h3>
-
-<p>É a ação de capturar o valor total autorizado. Ex.:</p>
-
-<ul>
-  <li>Transação autorizada de R$ 100,00</li>
-  <li>Captura total de R$ 100,00</li>
-</ul>
-
-<p>&lt;aside class=”notice)Obs.: Caso no momento do setup do seu POS Virtual a configuração seja de pagamento com captura automática, o link “Capturar” não será exibido como uma das possíveis ações a serem tomadas na lista de pedidos, e ao realizar o passo 7 clicando no botão “Pagar”, o pedido será autorizado e capturado no mesmo instante. &lt;/aside&gt;</p>
-
-<h2 id="cancelar">Cancelar</h2>
-
-<p>Esta ação poderá ser tomada para o usuário cancelar um pedido, sendo assim o limite do cliente ficará disponível novamente em seu cartão.</p>
-
-<p>Será exibida uma tela de confirmação do cancelamento conforme imagem abaixo:</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/cancelar.png" alt="" /></p>
-
-<h2 id="imprimir">Imprimir</h2>
-
-<p>Esta ação poderá ser tomada para o usuário imprimir um comprovante com os dados do pedido.</p>
-
-<p>A impressão terá os detalhes do pedido conforme imagem abaixo:</p>
-
-<p><img src="https://developercielo.github.io/images/braspag/posvirtual/imprimir.png" alt="" /></p>
-
-
-</div>
-
-
-            <div class="footer-conteudo">
-    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
-            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
-    </div>
-
-    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-        <h2>Precisa de ajuda?</h2>
-        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">entre em contato conosco</a>.</p>
-    </div>
-</div>
-
-        </div>
-
-        <div class="sidebar">
-  <div class="sidebar-sticky">
-    <div class="sidebar-about">
-      <a title="Comutar a coluna da esquerda" class="hamburger">
-        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
-      </a>
-      <a href="https://developercielo.github.io/">
-        <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais">
-      </a>
-      <div></div>
-    </div>
-
-    <div id="toc"></div>
-
-    <div class="fixed-footer">
-        
-
-    <div class="toc-contact">
-      <div class="contact">
-        <a title="Contato" href="#">
-          <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Contato</span>
-        </a>
-      </div>
-      <div class="github">
-        <a title="GitHub" href="https://github.com/developercielo">
-          <i class="fa fa-github" aria-hidden="true"></i>
-          <span>GitHub</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-
-
-        <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
-        <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
-        <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
-        <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
-        <script>
-        $(function() {
-            var openedHeader = null;
-
-            $("#toc").tocify({
-                
-                selectors: "h1,h2,h3,h4,h5,h6",
-                
-                hashGenerator: "pretty",
-                ignoreSelector: ".no-toc",
-                scrollTo: 100,
-                smoothScroll: false,
-                showEffect: "none"
-            }).data("toc-tocify");
-
-            $('ul').prev('li').addClass('has-subitens');
-            $(window).scroll(function () {
-                if ($('li.active').closest('.tocify-header') !== openedHeader) {
-                    $('li.is-open').removeClass('is-open');
-
-                    openedHeader = $('li.active').closest('.tocify-header');
-                }
-
-                openedHeader.find('ul:visible').prev('li').addClass('is-open');
-            });
-
-            $('.hamburger').click(function() {
-                $('body').toggleClass('sidebar-closed');
-            });
-
-            $('.code-menu').click(function() {
-                $('body').toggleClass('code-menu-closed');
-            });
-
-            prettyPrint();
-        });
-        </script>
-
-        
-        <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
-        <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
-        <script src="https://developercielo.github.io/assets/js/search.js"></script>
-        
-
-        
-    </body>
-</html>
+/*
+Copyright 2008-2013 Concur Technologies, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+*/
+(function (global) {
+  var languages = [];
+
+  global.setupLanguages = setupLanguages;
+  global.activateLanguage = activateLanguage;
+
+  function activateLanguage(language) {
+    if (!language) return;
+    if (language === "") return;
+
+    $(".language-group:not(.lock) .language-buttons a").removeClass('active');
+    $(".language-group:not(.lock) .language-buttons a[data-language-name='" + language + "']").addClass('active');
+    for (var i=0; i < languages.length; i++) {
+      $(".language-group:not(.lock) .language-" + languages[i]).hide();
+    }
+    $(".language-group:not(.lock) .language-" + language).show();
+
+    //global.toc.calculateHeights();
+
+    // scroll to the new location of the position
+    if ($(window.location.hash).get(0)) {
+      $(window.location.hash).get(0).scrollIntoView(true);
+    }
+  }
+
+  // if a button is clicked, add the state to the history
+  function pushURL(language) {
+    if (!history) { return; }
+    var hash = window.location.hash;
+    if (hash) {
+      hash = hash.replace(/^#+/, '');
+    }
+    history.pushState({}, '', '?' + language + '#' + hash);
+
+    // save language as next default
+    localStorage.setItem("language", language);
+  }
+
+  function setupLanguages(l) {
+    var currentLanguage = l[0];
+    var defaultLanguage = localStorage.getItem("language");
+
+    languages = l;
+
+    if ((location.search.substr(1) !== "") && (jQuery.inArray(location.search.substr(1), languages)) != -1) {
+      // the language is in the URL, so use that language!
+      activateLanguage(location.search.substr(1));
+
+      localStorage.setItem("language", location.search.substr(1));
+    } else if ((defaultLanguage !== null) && (jQuery.inArray(defaultLanguage, languages) != -1)) {
+      // the language was the last selected one saved in localstorage, so use that language!
+      activateLanguage(defaultLanguage);
+    } else {
+      // no language selected, so use the default
+      activateLanguage(languages[0]);
+    }
+  }
+
+  // if we click on a language tab, activate that language
+  $(function() {
+    $(".language-group:not(.lock) .language-buttons a").on("click", function() {
+      var language = $(this).data("language-name");
+      var e = new CustomEvent('languagechange', { 'detail': language});
+
+      pushURL(language);
+      activateLanguage(language);
+
+      window.dispatchEvent(e);
+
+      return false;
+    });
+    window.onpopstate = function(event) {
+      activateLanguage(window.location.search.substr(1));
+    };
+  });
+})(window);
