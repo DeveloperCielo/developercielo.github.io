@@ -1124,14 +1124,23 @@ Esses dados são separados nos seguintes “nós principais”:</p>
 
 <p><strong>Sucesso</strong> - Em caso de sucesso, o response será o conteúdo do Request mais o Link que direciona a tela transacional</p>
 
-<pre><code class="language-Json">{
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"CheckoutUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/transacional/order/index?id=123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CheckoutCielo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "Settings": {
         "CheckoutUrl": "https://cieloecommerce.cielo.com.br/transacional/order/index?id=123",
         "Profile": "CheckoutCielo",
         "Version": 1
     }
 }
-</code></pre>
+</code></pre></div></div>
 
 <table>
   <thead>
