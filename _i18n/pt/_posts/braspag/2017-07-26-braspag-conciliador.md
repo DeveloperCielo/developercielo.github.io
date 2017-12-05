@@ -670,7 +670,6 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
 | Valor da taxa IATA                              | Número                             | N        | Valor da taxa IATA (apenas para setor aéreo), em centavos                                                           |
 | Tipo de Integração                              | Alfanumérico                       | A        | Nome do meio de pagamento utilizado no caso da transação efetuada no  gateway Pagador                               |
 
-  	  
 1. As informações de venda são as transações enviadas pelo cliente do mundo físico, ou do  gateway/sistema transacional utilizado para efetuar as transações. São a primeira parte da conciliação. O Identificador Único da Venda pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:   
 
 > https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?SaleTransactionId=[ID] 
