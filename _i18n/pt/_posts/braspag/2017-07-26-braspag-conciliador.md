@@ -8,7 +8,7 @@ categories: manual
 tags:
   - Documentos Braspag
 language_tabs:
-  json: JSON
+  xml: XML
 ---
 
 # Arquivos Fluxo de Caixa 2.0 - XML
