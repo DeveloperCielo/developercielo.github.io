@@ -121,8 +121,6 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
 
 ### Registro de Informação da Adquirente
 
-
-
 1. As informações da adquirente são os dados da venda que o Conciliador recebe dos extratos eletrônicos, o meio de integração da adquirente com os sistemas externos. São a segunda parte da conciliação. O Identificador Único da Transação pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:   
 https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?AcquirerTransactionId=[I D]   
 Onde o texto [ID] deve ser substituído pelo identificador informado no registro.   
@@ -132,7 +130,6 @@ Onde o texto [ID] deve ser substituído pelo identificador informado no registro
 5. Tabelas com os meios de captura informados estão disponíveis no Apêndice do Manual.   
 6. Uma tabela com as bandeiras disponíveis está disponível no Apêndice do Manual.   
 7. Uma tabela com os tipos de produto está disponível no Apêndice do Manual.   
-
 
 ### Registro de Evento
 
