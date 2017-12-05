@@ -537,16 +537,6 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 }
 ```
 
-```
-{
-    "Settings": {
-        "CheckoutUrl": "https://cieloecommerce.cielo.com.br/transacional/order/index?id=123",
-        "Profile": "CheckoutCielo",
-        "Version": 1
-    }
-}
-```
-
 |Campo|Tipo|Obrigatório|Tamanho|Descrição|
 |---|---|---|---|---|
 |`CheckoutUrl`|String|Sim|255|URL da tela transacional. O Comprador **deve ser direcionado a esse ambiente para finalizar a transação**|
