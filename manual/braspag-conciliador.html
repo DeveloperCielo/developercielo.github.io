@@ -566,10 +566,255 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
 
 <h3 id="registro-de-informação-da-adquirente">Registro de Informação da Adquirente</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TransactionId</td>
+      <td>Identificador Único da Transação no Conciliador</td>
+      <td>Identificador Único Global (GUID)</td>
+      <td>G</td>
+      <td>Identificador Único das Informações da Adquirente1</td>
+    </tr>
+    <tr>
+      <td>AffiliationCode</td>
+      <td>Código de Afiliação</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O Código de Afiliação informado na venda do Extrato</td>
+    </tr>
+    <tr>
+      <td>SummaryNumber</td>
+      <td>Número do Lote</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O número do Lote (Resumo de Vendas) ao qual a transação pertence na Adquirente</td>
+    </tr>
+    <tr>
+      <td>CardNumber</td>
+      <td>Número do Cartão</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O número do cartão usado na compra2</td>
+    </tr>
+    <tr>
+      <td>SaleDate</td>
+      <td>Data da Venda</td>
+      <td>Data</td>
+      <td>D</td>
+      <td>A data em que a venda foi efetuada, segundo as informações do extrato</td>
+    </tr>
+    <tr>
+      <td>TransactionGrossAmount</td>
+      <td>Valor bruto da Transação</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor bruto da transação em centavos</td>
+    </tr>
+    <tr>
+      <td>TransactionTaxAmount</td>
+      <td>Valor da taxa de adquirência deduzido da transação</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor deduzido do valor bruto da transação como taxa de adquirência, em centavos</td>
+    </tr>
+    <tr>
+      <td>TransactionNetAmount</td>
+      <td>Valor líquido da transação</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor que será recebido pelo lojista, após a dedução da taxa de Adquirência sobre o valor bruto, em centavos</td>
+    </tr>
+    <tr>
+      <td>RoundingInstallmentGrossAmount</td>
+      <td>Valor bruto da parcela de arredondamento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor bruto da parcela de arredondamento, em centavos3</td>
+    </tr>
+    <tr>
+      <td>RoundingInstallmentTaxAmount</td>
+      <td>Valor da taxa de adquirência deduzido da parcela de arredondamento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor deduzido do valor bruto da parcela de arredondamento como taxa de adquirência, em centavos</td>
+    </tr>
+    <tr>
+      <td>RoundingInstallmentNetAmount</td>
+      <td>Valor líquido da parcela de arredondamento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor que será recebido pelo lojista como valor da parcela de arredondamento, após a dedução da taxa de adquirência</td>
+    </tr>
+    <tr>
+      <td>InstallmentsGrossAmount</td>
+      <td>Valor bruto das demais parcelas</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor bruto das demais parcelas da transação,  em centavos</td>
+    </tr>
+    <tr>
+      <td>InstallmentsTaxAmount</td>
+      <td>Valor da taxa de adquirência deduzido das demais parcelas</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor deduzido do valor bruto das demais parcelas como taxa de adquirência, em centavos</td>
+    </tr>
+    <tr>
+      <td>InstallmentsNetAmount</td>
+      <td>Valor líquido das demais parcelas</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>Valor que será recebido pelo lojista como valor das demais parcelas, após a dedução da taxa de  adquirência</td>
+    </tr>
+    <tr>
+      <td>Tax</td>
+      <td>Taxa de adquirência</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>A taxa de adquirência sobre a transação4</td>
+    </tr>
+    <tr>
+      <td>Tid</td>
+      <td>TID</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O identificador da transação ecommerce na adquirente Cielo</td>
+    </tr>
+    <tr>
+      <td>Nsu</td>
+      <td>NSU</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O número sequencial da transação na Adquirente</td>
+    </tr>
+    <tr>
+      <td>IataAmount</td>
+      <td>Valor da taxa IATA</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O valor da taxa IATA (apenas para setor aéreo), cobrado sobre a transação, em centavos</td>
+    </tr>
+    <tr>
+      <td>OrderId</td>
+      <td>Número do Pedido</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O Número do Pedido recebido pela adquirente durante a concretização da transação</td>
+    </tr>
+    <tr>
+      <td>TerminalLogicNumber</td>
+      <td>Número lógico do Terminal</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O número do terminal utilizado para efetuar a transação</td>
+    </tr>
+    <tr>
+      <td>CaptureDate</td>
+      <td>Data de Captura</td>
+      <td>Data</td>
+      <td>D</td>
+      <td>A data da captura da transação na Adquirente</td>
+    </tr>
+    <tr>
+      <td>SummaryIdentifierNumber</td>
+      <td>Identificador Único do Lote</td>
+      <td>Numérico (Inteiro  Longo)</td>
+      <td>N</td>
+      <td>O identificador único do Lote (Resumo de Vendas) na adquirente Cielo</td>
+    </tr>
+    <tr>
+      <td>InstallmentCount</td>
+      <td>Quantidade de Parcelas</td>
+      <td>Númerico (Inteiro)</td>
+      <td>N</td>
+      <td>A quantidade de parcelas na qual a transação foi dividida na Adquirente</td>
+    </tr>
+    <tr>
+      <td>AuthorizationCode</td>
+      <td>Código de Autorização</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O código de autorização da transação informado pela adquirente</td>
+    </tr>
+    <tr>
+      <td>CaptureMethodId</td>
+      <td>Identificador do Meio de  Captura</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O identificador do meio tecnológico utilizado para capturar a transação na Adquirente5</td>
+    </tr>
+    <tr>
+      <td>CaptureMethodDescription</td>
+      <td>Descrição do Meio de Captura</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>A descrição do meio tecnológico utilizado para capturar a transação na   Adquirente5</td>
+    </tr>
+    <tr>
+      <td>CardBrandId</td>
+      <td>Identificador da Bandeira</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O identificador da bandeira do cartão utilizado para efetuar a  transação6</td>
+    </tr>
+    <tr>
+      <td>CardBrand</td>
+      <td>Nome da Bandeira</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O nome da bandeira do cartão utilizado para efetuar a transação6</td>
+    </tr>
+    <tr>
+      <td>CardTypeId</td>
+      <td>Identificador do tipo do cartão</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O identificador do tipo do cartão: - 1: Debit - 2: Credit</td>
+    </tr>
+    <tr>
+      <td>CardType</td>
+      <td>Tipo de cartão</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O nome do tipo do cartão utilizado para efetuar a transação</td>
+    </tr>
+    <tr>
+      <td>ProductIdentifierCode</td>
+      <td>Código de Identificação do   Produto na Cielo</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O código que identifica o   Produto da Adquirente Cielo utilizado para efetuar a transação7</td>
+    </tr>
+    <tr>
+      <td>ProductIdentifierDescription</td>
+      <td>Descrição do Produto na Cielo</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>A descrição do Produto na Adquirente Cielo utilizado para efetuar a  transação7</td>
+    </tr>
+  </tbody>
+</table>
+
 <ol>
-  <li>As informações da adquirente são os dados da venda que o Conciliador recebe dos extratos eletrônicos, o meio de integração da adquirente com os sistemas externos. São a segunda parte da conciliação. O Identificador Único da Transação pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL: <br />
-https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?AcquirerTransactionId=[I D] <br />
-Onde o texto [ID] deve ser substituído pelo identificador informado no registro.</li>
+  <li>As informações da adquirente são os dados da venda que o Conciliador recebe dos extratos eletrônicos, o meio de integração da adquirente com os sistemas externos. São a segunda parte da conciliação. O Identificador Único da Transação pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:</li>
+</ol>
+
+<blockquote>
+  <p>https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?AcquirerTransactionId=[I D]</p>
+</blockquote>
+
+<p>Onde o texto [ID] deve ser substituído pelo identificador informado no registro.</p>
+
+<ol>
   <li>Devido à restrições de segurança, o número do cartão será informado de forma mascarada.</li>
   <li>Quando uma transação é dividida em uma quantidade de parcelas onde o valor não pode ser distribuído igualmente entre as parcelas, surge a necessidade de colocar um valor extra em uma parcela específica. Esta parcela é chamada de parcela de arredondamento. Como exemplo, podemos adotar uma transação de R$ 100,00 dividida em três parcelas. Se a primeira parcela for a parcela de arredondamento, ela terá o valor de R$ 33,34 – enquanto as duas outras parcelas terão o valor de R$ 33,33.</li>
   <li>A taxa de adquirência normalmente é expressa em porcentagem. O campo demonstra essa porcentagem multiplicada por 100. Portanto, se o valor deste campo for expresso como 275, isto indica uma taxa de adquirência de 2,75%.</li>
