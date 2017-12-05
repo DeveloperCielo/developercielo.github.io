@@ -19,6 +19,7 @@ O arquivo de transações para upload é um arquivo de texto, mais especificamen
 As informações são guardadas em três tipos de registros, Header, Transação e Trailer.
 
 ## Registro Header
+
 Apenas um registro deste tipo é permitido por arquivo. O registro header deve estar na primeira linha do arquivo. O registro segue o seguinte padrão:
 
 > [Tipo de Registro];[Versão do Layout];[Período Inicial];[Período Final] 
@@ -54,6 +55,115 @@ Cada transação feita pela loja será demonstrada nesse registro, que se repeti
 | Documento do cliente     | Texto          | 0~32    | Numero do documento de identificação do cliente.                                                    |
 | Nome do cliente          | Texto          | 0~256   | Nome do cliente.                                                                                    |
 | Email do cliente         | Texto          | 0~256   | Email de contato do cliente.                                                                        |
+
+**Legenda:**
+
+1. Campo obrigatório.
+2. O tipo de dados deste campo deve seguir restritamente o formato expresso na descrição.
+3. O tipo inteiro aceita como um número válido qualquer valor entre -2.147.483.648 e 2.147.483.647. Entretanto, regras de domínio adicionais podem existir para os campos (o código de afiliação deve ser válido na adquirente, por exemplo).
+4. O tipo inteiro longo aceita como um número válido qualquer valor entre – 9.223.372.036.854.775.808 e 9.223.372.036.854.775.807. Entretanto, regras de domínioadicionais podem existir para os campos (o NSU da transação deve ser válido na adquirente, por exemplo).
+5. O tipo byte aceita como um número válido qualquer valor entre 0 e 255. Entretanto, regras de domínio adicionais podem existir para os campos (a parcela da transação deve ser no mínimo 1, por exemplo).
+
+**Informações Adicionais:**
+
+* **Campo NSU** - Quando não informado, este campo deve ser vazio.
+* **Campo TID** - Quando não informado, este campo deve ser vazio.
+* **Campo Hora** – Caso não tenha o valor exato, informar a hora como 00:00:00. 
+
+## Registro Trailer
+
+Apenas um registro deste tipo é permitido por arquivo. O registro trailer deve estar na última linha do arquivo. O registro segue o seguinte padrão:
+
+> [Tipo de Registro];[Quantidade de registros] 
+
+| Campo                   | Tamanho | Descrição                                                     |
+|-------------------------|---------|---------------------------------------------------------------|
+| Tipo de Registro        | 1       | Tipo de registro. Para o Trailer, este valor será sempre 2.   |
+| Quantidade de registros | N/A     | Quantidade de registros (exceto Header e Trailer) no arquivo. |
+
+## Formas de envio
+
+Atualmente o conciliador Braspag oferece 3 (treis) formas de envios para os arquivos de vendas: 
+
+* Upload Manual pela aplicação
+* Transferência via SFTP
+* Transferência via webservice
+
+### Transferência Manual: Upload de arquivos na aplicação.
+
+Pre-Requisitos:
+
+* Acesso à internet, usuário e senha com permissão para upload habilitada.
+* Acessando a URL: https://reconciliation.braspag.com.br/WebSite
+* No menu superior, localize a funcionalidade: **“Área do lojista”**
+* Após clicar no botão **“Área do lojista”** aparecerá um menu na lateral esquerda do backoffice:
+* Localize o botão **“Upload de arquivos de Transações”**, ao clicar, aparecerá a seguinte tela: 
+
+**IMAGEM**
+
+Agora basta selecionar a loja, e realizar o upload escolhendo o arquivo que deseja transmitir de sua máquina. Para iniciar a transmissão click em “Efetuar upload”. 
+
+### Transferência automática: Configuração de SFTP
+
+É possivel alimentar o conciliador com os dados de vendas, através desse protocolo de rede que fornece acesso a arquivos , transferência de arquivos e gerenciamento de arquivos sobre qualquer fluxo de dados confiável. 
+Porém para que seja possível a realização da automação, esse processo exige alguns pré-requisitos:
+
+* O Ambiente deverá ser configurado nos domínios do lojista.
+* O lojista disponibilizará diariamente os arquivos de vendas no layout Braspag nesse domínio.
+* A Braspag terá acesso liberado para se conectar e realizar as baixas
+
+**IMAGEM**
+
+### Transferência de arquivos automática via Webservice:
+
+> URL: https://reconciliation.braspag.com.br/WebServices/ReconciliationFilesWebservice.asmx 
+
+**Método:** SendTransactionFile
+
+| Parâmetro          | Tipo   | Descrição                        | Condição          |
+|--------------------|--------|----------------------------------|-------------------|
+| RequestId          | Guid   | Identificador da requisição      | Campo obrigatório |
+| MerchantId         | Int    | Identificador da loja            | Campo obrigatório |
+| RequestingUserName | String | Nome do usuário vinculado a loja | Campo obrigatório |
+| RequestingPassword | String | Senha do usuário                 | Campo obrigatório |
+| FileContent        | String | Conteúdo do arquivo em binário   | Campo obrigatório |
+
+**OBS**: Os dados desse arquivo são codificados como um "array" de bytes, ou seja, deverá ser enviado os bytes do arquivo.
+
+A solução para isso é utilizar a codificação Base64. Esse tipo de codificação é o padrão usado quando se deseja fazer transferência de dados binários utilizando texto como a fonte do meio de comunicação. Em outras palavras, essa codificação é capaz de representar conteúdo de texto em forma de binário.
+
+Para gerar o conteúdo do FileContent, é preciso primeiro saber codificar um dado textual em Base64. Existem documentos na internet explicando todo o processo conversão. A maioria das linguagens de programação atualmente já possuem algum framework integrado com alguma função que faça a codificação/decodificação.
+
+**Referência:**
+Caso o cliente queira codificar/decodificar um conteúdo como teste, ele pode acessar este site:
+
+> http://www.base64decode.org/ 
+
+#### Request
+
+**EXEMPLO XML 01**
+
+#### Response
+
+**EXEMPLO XML 02**
+
+## Tipos de erro
+
+Quando o valor da TAG `<Sucess>` for igual a false, a coleção de `<ErrorReport>` será retornada de acordo com um ou mais códigos de erros. Vide tabela abaixo.
+
+| Código | Descrição                                                                                                |
+|--------|----------------------------------------------------------------------------------------------------------|
+| 24     | RequestId inválido.                                                                                      |
+| 26     | Arquivo de transações de loja inválido. (Qualquer erro no conteúdo do arquivo.)                          |
+| 39     | Erro interno do sistema.                                                                                 |
+| 42     | Um MerchantId válido não foi especificado. É necessário especificar o identificador da loja.             |
+| 43     | Um conteúdo válido não foi especificado para o aruqivo. É necessário especificar o valor de FileContent. |
+| 44     | Acesso não autorizado no IP para a loja fornecida na requisição.                                         |
+| 46     | O usuário é inválido ou não tem acesso à loja especificada.                                              |
+
+### Exemplo
+
+**EXEMPLO XML 03**
 
 # Arquivos Fluxo de Caixa 2.0 - XML
 
