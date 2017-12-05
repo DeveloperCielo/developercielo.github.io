@@ -99,9 +99,7 @@ Pre-Requisitos:
 * Após clicar no botão **“Área do lojista”** aparecerá um menu na lateral esquerda do backoffice:
 * Localize o botão **“Upload de arquivos de Transações”**, ao clicar, aparecerá a seguinte tela: 
 
-**IMAGEM**
-
-`![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)`
+![]({{ site.baseurl_root }}/images/braspag/conciliador/upload.png)
 
 Agora basta selecionar a loja, e realizar o upload escolhendo o arquivo que deseja transmitir de sua máquina. Para iniciar a transmissão click em “Efetuar upload”. 
 
@@ -114,9 +112,7 @@ Porém para que seja possível a realização da automação, esse processo exig
 * O lojista disponibilizará diariamente os arquivos de vendas no layout Braspag nesse domínio.
 * A Braspag terá acesso liberado para se conectar e realizar as baixas
 
-**IMAGEM**
-
-`![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)`
+![]({{ site.baseurl_root }}/images/braspag/conciliador/fluxo.png)
 
 ### Transferência de arquivos automática via Webservice:
 
@@ -145,13 +141,11 @@ Caso o cliente queira codificar/decodificar um conteúdo como teste, ele pode ac
 
 #### Request
 
-**EXEMPLO XML 01**
-`![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)`
+![]({{ site.baseurl_root }}/images/braspag/conciliador/request.png)
 
 #### Response
 
-**EXEMPLO XML 02**
-`![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)`
+![]({{ site.baseurl_root }}/images/braspag/conciliador/response.png)
 
 ## Tipos de erro
 
@@ -169,8 +163,7 @@ Quando o valor da TAG `<Sucess>` for igual a false, a coleção de `<ErrorReport
 
 ### Exemplo
 
-**EXEMPLO XML 03**
-`![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)`
+![]({{ site.baseurl_root }}/images/braspag/conciliador/error.png)
 
 # Arquivos Fluxo de Caixa 2.0 - XML
 
