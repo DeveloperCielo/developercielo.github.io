@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
-    <head>
+<head>
     <link href="http://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -46,10 +46,11 @@
     <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
 </head>
 
-    <body>
-        
+
+<body>
+    
         <div class="content-container no-dark-box">
-        
+            
             <div id="submenu">
                 <div class="submenu-container">
                     <div class="submenu-row sub-items">
@@ -69,42 +70,25 @@
                             <ul class="search-results"></ul>
                         </div>
                     </div>
-                        
+                    
 
-                    <div class="submenu-row breads">
-                        <ol class="breadcrumb">
-                            
-                            <li><a href="/">Início</a></li>
-                            
-                            
-                            
-                            
-                                
-                                    
-                                    
-                                    
-                                    
-                                    
-                                        
-                                    
-                                        
-                                    
-                                        
-                                    
-                                
-                            
-                                
-                                    
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/tutorial/boas-praticas-de-ecommerce">Boas Práticas eCommerce</a></li>
-                                    
-                                
-                            
-                        </ol>
-                    </div>
+                <div class="submenu-row breads">
+                    <ol class="breadcrumb">
+                        
+                        <li>
+                            <a href="/">Início</a>
+                        </li>
+                                           
+                        <li class="active">&gt;
+                            <a href="https://developercielo.github.io/tutorial/boas-praticas-de-ecommerce">Boas Práticas eCommerce</a>
+                        </li>
+                          
+                    </ol>
                 </div>
             </div>
+        </div>
 
-            <div class="post">
+        <div class="post">
     <h1 id="boas-práticas-ecommerce">Boas Práticas eCommerce</h1>
 
 <p>Seja por curiosidade, seja por necessidade, você já deve ter se perguntado sobre como é definido o número de um cartão de crédito. Algumas pessoas chegam a achar que são números aleatórios, ou sequênciais, atribuídos pelas bandeiras ou pelos bancos emissores, mas a realidade é que o número do cartão segue um padrão especificado e que é possível saber qual é a bandeira, tipo do cartão e a conta do portador, apenas observando o número do cartão; em alguns casos, de fato, é possível saber até o país de origem do cartão, apenas observando seu número.</p>
@@ -518,9 +502,7 @@
 </code></pre></div></div>
 
 </div>
-
-
-            <div class="footer-conteudo">
+ <div class="footer-conteudo">
     <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
             <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
     </div>
@@ -531,9 +513,9 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <div class="sidebar">
+    <div class="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
       <a title="Comutar a coluna da esquerda" class="hamburger">
@@ -589,19 +571,26 @@
 </div>
 
 
-        <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
-        <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
-        <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
-        <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
-        <script>
-        $(function() {
+    <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
+    <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+    <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
+    <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
+    <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
+    <script>
+        $(function () {
             var openedHeader = null;
 
             $("#toc").tocify({
-                
+                { %
+                    if page.layout == "faq" %
+                }
+                selectors: "h1",
+                { %
+                    else %
+                }
                 selectors: "h1,h2,h3,h4,h5,h6",
-                
+                { % endif %
+                }
                 hashGenerator: "pretty",
                 ignoreSelector: ".no-toc",
                 scrollTo: 100,
@@ -620,24 +609,23 @@
                 openedHeader.find('ul:visible').prev('li').addClass('is-open');
             });
 
-            $('.hamburger').click(function() {
+            $('.hamburger').click(function () {
                 $('body').toggleClass('sidebar-closed');
             });
 
-            $('.code-menu').click(function() {
+            $('.code-menu').click(function () {
                 $('body').toggleClass('code-menu-closed');
             });
 
             prettyPrint();
         });
-        </script>
+    </script>
 
-        
-        <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
-        <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
-        <script src="https://developercielo.github.io/assets/js/search.js"></script>
-        
+    
+    <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
+    <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
+    <script src="https://developercielo.github.io/assets/js/search.js"></script>
+     
+</body>
 
-        
-    </body>
 </html>
