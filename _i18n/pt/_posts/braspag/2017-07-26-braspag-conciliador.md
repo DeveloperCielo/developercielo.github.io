@@ -101,6 +101,8 @@ Pre-Requisitos:
 
 **IMAGEM**
 
+`![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)`
+
 Agora basta selecionar a loja, e realizar o upload escolhendo o arquivo que deseja transmitir de sua máquina. Para iniciar a transmissão click em “Efetuar upload”. 
 
 ### Transferência automática: Configuração de SFTP
@@ -113,6 +115,8 @@ Porém para que seja possível a realização da automação, esse processo exig
 * A Braspag terá acesso liberado para se conectar e realizar as baixas
 
 **IMAGEM**
+
+`![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)`
 
 ### Transferência de arquivos automática via Webservice:
 
@@ -142,10 +146,12 @@ Caso o cliente queira codificar/decodificar um conteúdo como teste, ele pode ac
 #### Request
 
 **EXEMPLO XML 01**
+`![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)`
 
 #### Response
 
 **EXEMPLO XML 02**
+`![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)`
 
 ## Tipos de erro
 
@@ -164,6 +170,7 @@ Quando o valor da TAG `<Sucess>` for igual a false, a coleção de `<ErrorReport
 ### Exemplo
 
 **EXEMPLO XML 03**
+`![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)`
 
 # Arquivos Fluxo de Caixa 2.0 - XML
 
