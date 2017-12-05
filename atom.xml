@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-05T16:32:04+00:00</updated>
+    <updated>2017-12-05T16:36:00+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -17453,6 +17453,26 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
   &lt;li&gt;O Gerenciamento do Número do Pedido é de inteira responsabilidade do lojista. O Conciliador apenas armazena esta informação, mas nenhum tipo de validação é feito.&lt;/li&gt;
   &lt;li&gt;O Valor da Transação não é o valor das parcelas. O valor informado aqui é o valor integral da mesma, da forma como informado pelo cliente/gateway.&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h3 id=&quot;registro-de-informação-da-adquirente&quot;&gt;Registro de Informação da Adquirente&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;As informações da adquirente são os dados da venda que o Conciliador recebe dos extratos eletrônicos, o meio de integração da adquirente com os sistemas externos. São a segunda parte da conciliação. O Identificador Único da Transação pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL: &lt;br /&gt;
+https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?AcquirerTransactionId=[I D] &lt;br /&gt;
+Onde o texto [ID] deve ser substituído pelo identificador informado no registro.&lt;/li&gt;
+  &lt;li&gt;Devido à restrições de segurança, o número do cartão será informado de forma mascarada.&lt;/li&gt;
+  &lt;li&gt;Quando uma transação é dividida em uma quantidade de parcelas onde o valor não pode ser distribuído igualmente entre as parcelas, surge a necessidade de colocar um valor extra em uma parcela específica. Esta parcela é chamada de parcela de arredondamento. Como exemplo, podemos adotar uma transação de R$ 100,00 dividida em três parcelas. Se a primeira parcela for a parcela de arredondamento, ela terá o valor de R$ 33,34 – enquanto as duas outras parcelas terão o valor de R$ 33,33.&lt;/li&gt;
+  &lt;li&gt;A taxa de adquirência normalmente é expressa em porcentagem. O campo demonstra essa porcentagem multiplicada por 100. Portanto, se o valor deste campo for expresso como 275, isto indica uma taxa de adquirência de 2,75%.&lt;/li&gt;
+  &lt;li&gt;Tabelas com os meios de captura informados estão disponíveis no Apêndice do Manual.&lt;/li&gt;
+  &lt;li&gt;Uma tabela com as bandeiras disponíveis está disponível no Apêndice do Manual.&lt;/li&gt;
+  &lt;li&gt;Uma tabela com os tipos de produto está disponível no Apêndice do Manual.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;registro-de-evento&quot;&gt;Registro de Evento&lt;/h3&gt;
+
+&lt;h1 id=&quot;arquivos-fluxo-de-caixa-20---csv&quot;&gt;Arquivos Fluxo de Caixa 2.0 - CSV&lt;/h1&gt;
+
+&lt;p&gt;Teste&lt;/p&gt;
 </content>
     </entry>
     
