@@ -572,6 +572,8 @@ Um exemplo do efeito disto na linha de commando é demonstrado na imagem abaixo.
 Esta classe pode ser inserida em um projeto na linguagem C#, e com algumas alterações pode representar o conteúdo do arquivo por meio de deserialização.   
 Consulte o suporte de sua linguagem de desenvolvimento para verificar se a mesma possui algum tipo de automatização para interpretar a leitura do arquivo em XML. Isto pode facilitar seu processo de desenvolvimento e aprendizado do layout do mesmo
 
+![]({{ site.baseurl_root }}/images/braspag/conciliador/xml20.png)
+
 # Arquivos Fluxo de Caixa 2.0 - CSV
 
 Teste
