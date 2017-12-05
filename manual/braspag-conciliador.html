@@ -839,6 +839,393 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
 
 <h3 id="registro-de-evento">Registro de Evento</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EventId</td>
+      <td>Identficador Único do Evento no Conciliador</td>
+      <td>Identificador Único Global  (GUID)</td>
+      <td>G</td>
+      <td>O identificador único do do  Evento no Conciliador2</td>
+    </tr>
+    <tr>
+      <td>EventDate</td>
+      <td>Data do evento</td>
+      <td>Data</td>
+      <td>D</td>
+      <td>A data em que o evento está previsto para ser realizado, ou a data em que foi realizado (no caso de evento realizado)</td>
+    </tr>
+    <tr>
+      <td>CategoryId</td>
+      <td>Identificador da Categoria de  Evento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>N</td>
+      <td>O identificador da categoria do evento3</td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td>Descrição da Categoria de  Evento</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>A descrição da categoria do evento3</td>
+    </tr>
+    <tr>
+      <td>TypeId</td>
+      <td>Identificador do Tipo de Evento</td>
+      <td>Numérico (Inteiro)</td>
+      <td>{N}</td>
+      <td>1 = Realizado<br />2 = Previsto<br />3 = Pendente</td>
+    </tr>
+    <tr>
+      <td>Type</td>
+      <td>Descrição do Tipo de Evento</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>“Preview”, “Realized” ou “Pending” (Previsto, realizado ou pendente)</td>
+    </tr>
+    <tr>
+      <td>AffiliationCode</td>
+      <td>Código de Afiliação</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O código de afiliação do estabelecimento no qual o evento foi executado</td>
+    </tr>
+    <tr>
+      <td>TransactionInstallment</td>
+      <td>Parcela da Transação</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>A parcela da transação a qual o evento se refere4</td>
+    </tr>
+    <tr>
+      <td>GrossAmount</td>
+      <td>Valor Bruto</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O valor financeiro do evento contemplado, antes da dedução da taxa de adquirência, em centavos</td>
+    </tr>
+    <tr>
+      <td>NetAmount</td>
+      <td>Valor Líquido</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O valor líquido do evento, após a redução da taxa de adquirência, em centavos</td>
+    </tr>
+    <tr>
+      <td>TaxAmount</td>
+      <td>Valor da Taxa</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O valor da taxa de adquirência sobre o evento, em centavos</td>
+    </tr>
+    <tr>
+      <td>Bank</td>
+      <td>Banco</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O código do banco do domicílio bancário sobre o qual o evento financeiro é ou será lançado</td>
+    </tr>
+    <tr>
+      <td>Agency</td>
+      <td>Agência</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O código da agência do domicílio bancário sobre o qual o evento financeiro é ou será lançado</td>
+    </tr>
+    <tr>
+      <td>Account</td>
+      <td>Número da Conta</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O número da conta do domicílio bancário sobre o qual o evento financeiro é ou será lançado</td>
+    </tr>
+    <tr>
+      <td>AcquirerAdjustCode</td>
+      <td>Código do Ajuste</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>O código que identifica o tipo de ajuste (apenas para eventos de ajustes)</td>
+    </tr>
+    <tr>
+      <td>AcquirerAdjustDescription</td>
+      <td>Descrição do Ajuste</td>
+      <td>Alfanumérico</td>
+      <td>A</td>
+      <td>A descrição do ajuste (apenas para eventos de ajustes)</td>
+    </tr>
+    <tr>
+      <td>AnticipationOperationNumber</td>
+      <td>Número da Operação de  Antecipação na Cielo</td>
+      <td>Numérico</td>
+      <td>N</td>
+      <td>O número da Operação de Antecipação (apenas para eventos derivados de antecipações na Cielo)</td>
+    </tr>
+    <tr>
+      <td>OriginalPaymentDate</td>
+      <td>Data original de pagamento</td>
+      <td>Data</td>
+      <td>D</td>
+      <td>A data original para a qual o evento de pagamento estava previsto (apenas para eventos de antecipações)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="meios-de-captura">Meios de Captura</h2>
+
+<h3 id="cielo">Cielo</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código/Identificador</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>POS</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>PDV/TEF</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>E-Commerce</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>EDI</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>ADP/BSP</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Manual</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>URA/CVA</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Mobile</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Moedeiro Eletrônico</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="amex">Amex</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código/Identificador</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Rede AE – Manual</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Rede AE – EDI</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Rede AE – BSP</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Rede AE – TEF</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Cielo – POS</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Cielo – TEF</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Cielo – Autorização Manual</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Cielo – URA</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Cielo – EDI</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Cielo – GDS</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Cielo – E-Commerce</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Cielo – Mobile</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Legado – Versão anterior do extrato</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="rede">Rede</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código/Identificador</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Manual</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>POS</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>PDV</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>TO</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Internet</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Leitor de Trilha</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Outros</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="getnet">GetNet</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código/Identificador</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>TEF</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>POS</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Manual</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Internet</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="outros">Outros</h3>
+
+<p>A tabela abaixo é valida para:</p>
+
+<ul>
+  <li>Stone</li>
+  <li>Global Payments</li>
+  <li>First Data</li>
+  <li>Ticket</li>
+  <li>Sodexo</li>
+</ul>
+
+<p><strong>Observação:</strong> Para a adquirente Losango o campo é enviado “vazio”</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código/Identificador</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>N/D</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>POS</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>PDV/TEF</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>E-Commerce</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>EDI</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Manual</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Mobile</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Outros</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="arquivos-fluxo-de-caixa-20---csv">Arquivos Fluxo de Caixa 2.0 - CSV</h1>
 
 <p>Teste</p>
