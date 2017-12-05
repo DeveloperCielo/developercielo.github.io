@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-05T17:42:51+00:00</updated>
+    <updated>2017-12-05T17:45:50+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18940,6 +18940,8 @@ xsd&lt;/p&gt;
 &lt;strong&gt;“ConciliationFile_Guid.cs”&lt;/strong&gt;. 
 Esta classe pode ser inserida em um projeto na linguagem C#, e com algumas alterações pode representar o conteúdo do arquivo por meio de deserialização. &lt;br /&gt;
 Consulte o suporte de sua linguagem de desenvolvimento para verificar se a mesma possui algum tipo de automatização para interpretar a leitura do arquivo em XML. Isto pode facilitar seu processo de desenvolvimento e aprendizado do layout do mesmo&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/braspag/conciliador/xml20.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;arquivos-fluxo-de-caixa-20---csv&quot;&gt;Arquivos Fluxo de Caixa 2.0 - CSV&lt;/h1&gt;
 
