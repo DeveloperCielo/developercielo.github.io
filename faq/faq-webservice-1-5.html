@@ -1,91 +1,330 @@
-/*
-Copyright 2008-2013 Concur Technologies, Inc.
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may
-not use this file except in compliance with the License. You may obtain
-a copy of the License at
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  http://www.apache.org/licenses/LICENSE-2.0
+    <title>
+        
+        FAQ &middot; Documentações e tutoriais
+        
+    </title>
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-License for the specific language governing permissions and limitations
-under the License.
-*/
-(function (global) {
-  var languages = [];
+    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
 
-  global.setupLanguages = setupLanguages;
-  global.activateLanguage = activateLanguage;
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/poole.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/syntax.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/hyde.css">
 
-  function activateLanguage(language) {
-    if (!language) return;
-    if (language === "") return;
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/prettify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/custom.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/cielo.css">
 
-    $(".language-group:not(.lock) .language-buttons a").removeClass('active');
-    $(".language-group:not(.lock) .language-buttons a[data-language-name='" + language + "']").addClass('active');
-    for (var i=0; i < languages.length; i++) {
-      $(".language-group:not(.lock) .language-" + languages[i]).hide();
-    }
-    $(".language-group:not(.lock) .language-" + language).show();
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/faq/faq-webservice-1-5" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/faq/faq-webservice-1-5" />
+        
+    
 
-    //global.toc.calculateHeights();
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
+</head>
 
-    // scroll to the new location of the position
-    if ($(window.location.hash).get(0)) {
-      $(window.location.hash).get(0).scrollIntoView(true);
-    }
-  }
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact" class="help">Ajuda</a>
 
-  // if a button is clicked, add the state to the history
-  function pushURL(language) {
-    if (!history) { return; }
-    var hash = window.location.hash;
-    if (hash) {
-      hash = hash.replace(/^#+/, '');
-    }
-    history.pushState({}, '', '?' + language + '#' + hash);
+                            
+                        </div>
 
-    // save language as next default
-    localStorage.setItem("language", language);
-  }
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
 
-  function setupLanguages(l) {
-    var currentLanguage = l[0];
-    var defaultLanguage = localStorage.getItem("language");
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/faq/faq-webservice-1-5">FAQ</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
 
-    languages = l;
+            <div class="post">
+  <h1 id="dúvidas-frequentes">Dúvidas frequentes</h1>
 
-    if ((location.search.substr(1) !== "") && (jQuery.inArray(location.search.substr(1), languages)) != -1) {
-      // the language is in the URL, so use that language!
-      activateLanguage(location.search.substr(1));
+<h2 id="como-funciona-a-solução-do-webservice-15-da-cielo">Como funciona a solução do Webservice 1.5 da Cielo?</h2>
 
-      localStorage.setItem("language", location.search.substr(1));
-    } else if ((defaultLanguage !== null) && (jQuery.inArray(defaultLanguage, languages) != -1)) {
-      // the language was the last selected one saved in localstorage, so use that language!
-      activateLanguage(defaultLanguage);
-    } else {
-      // no language selected, so use the default
-      activateLanguage(languages[0]);
-    }
-  }
+<p>A solução <strong>Webservice</strong> da plataforma Cielo E-commerce foi desenvolvida com tecnologia XML, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.</p>
 
-  // if we click on a language tab, activate that language
-  $(function() {
-    $(".language-group:not(.lock) .language-buttons a").on("click", function() {
-      var language = $(this).data("language-name");
-      var e = new CustomEvent('languagechange', { 'detail': language});
+<h2 id="É-preciso-algum-software-proprietário-como-dlls-para-fazer-a-integração">É preciso algum software proprietário, como DLLs, para fazer a integração?</h2>
 
-      pushURL(language);
-      activateLanguage(language);
+<p>Não. A ausência de aplicativos proprietários é uma das características da solução: Não é necessário instalar aplicativos no ambiente da loja virtual <strong>em nenhuma hipótese</strong>.</p>
 
-      window.dispatchEvent(e);
+<h2 id="que-tipo-de-conteúdo-é-enviado-na-integração">Que tipo de conteúdo é enviado na integração?</h2>
 
-      return false;
-    });
-    window.onpopstate = function(event) {
-      activateLanguage(window.location.search.substr(1));
-    };
-  });
-})(window);
+<p>A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: há uma única URL (endpoint) que recebe os POSTs via HTTPs e, dependendo do formato do XML enviado, uma determinada operação é realizada.</p>
+
+<h2 id="como-o-webservice-da-cielo-sabe-que-a-requisição-é-da-minha-loja">Como o Webservice da Cielo sabe que a requisição é da minha loja?</h2>
+
+<p>Todas as requisições a Web Service da Cielo <strong>devem conter o nó de autenticação do lojista</strong>, composto pelo número de credenciamento e chave de acesso fornecidos pela Cielo no momento da afiliação.</p>
+
+<h1 id="dúvidas-sobre-integração">Dúvidas sobre Integração</h1>
+
+<h2 id="o-que-é-uma-transação">O que é uma transação?</h2>
+
+<p>O elemento central do Cielo E-commerce é a transação, criada a partir de uma requisição HTTP ao Webservice da Cielo. A identificação única de uma transação na Cielo é feita através do campo <strong>TID</strong>, que está presente no retorno das mensagens de autorização. Esse campo é essencial para realizar consultas, capturas e cancelamentos.</p>
+
+<h2 id="quais-tipos-de-erros-podem-ocorrer-durante-a-integração">Quais tipos de erros podem ocorrer durante a integração?</h2>
+
+<p>Quando a transação é inválida, podemos classificar os erros em dois tipos:</p>
+
+<ul>
+  <li><strong>Erros sintáticos</strong>: ocorrem quando a mensagem XML não respeita as regras definidas no arquivo ecommerce.xsd. Por exemplo, uma letra em um campo numérico, ou a ausência de um valor obrigatório;</li>
+  <li><strong>Erros semânticos</strong>: ocorrem quando uma requisição solicita uma operação não suportada para determinada transação. Por exemplo, tentar capturar uma transação não autorizada, ou ainda, cancelar uma transação já cancelada.</li>
+</ul>
+
+<p>As mensagens de erro sempre trazem informações adicionais que facilitam o troubleshooting.</p>
+
+<h2 id="como-faço-uma-autorização-direta">Como faço uma autorização direta?</h2>
+
+<p>A autorização direta caracteriza-se por ser uma transação onde não há a autenticação do portador, seja por opção (e risco) do lojista, seja porque a bandeira ou emissor não tem suporte. A autorização direta pode ser feita de duas formas: tradicional (com os dados do cartão) ou através de um token.</p>
+
+<h2 id="como-faço-uma-autorização-recorrente">Como faço uma autorização recorrente?</h2>
+
+<p>A autorização recorrente pode ser feita de duas formas: através do envio de um token previamente cadastrado, ou através de um cartão. A transação recorrente é praticamente igual à transação tradicional, as mudanças consistem nas regras que o emissor e a bandeira utilizam para autorizar ou negar uma transação. Outra diferença está relacionada ao Renova Fácil.</p>
+
+<h2 id="É-possível-fazer-uma-captura-em-um-momento-após-a-autorização">É possível fazer uma captura em um momento após a autorização?</h2>
+
+<p>Uma transação autorizada somente gera o crédito para o estabelecimento comercial caso ela seja capturada. Por isso, toda venda que o lojista queira efetivar será preciso realizar a captura (ou confirmação) da transação.</p>
+
+<p>Para vendas na modalidade de Crédito, essa confirmação pode ocorrer em dois momentos:</p>
+
+<ul>
+  <li>Imediatamente após a autorização (captura total);</li>
+  <li>Posterior à autorização (captura total ou parcial).</li>
+</ul>
+
+<p>No primeiro caso, não é necessário enviar uma requisição de captura, pois ela é feita automaticamente pela Cielo após a autorização da transação. Para tanto, é preciso configurar a requisição de transação definindo-se o valor “true” para a TAG <capturar>, conforme visto na seção “Criando uma transação”.</capturar></p>
+
+<p>Já no segundo caso, é preciso fazer uma “captura posterior”, através de uma nova requisição ao Webservice da Cielo para confirmar a transação e receber o valor da venda.</p>
+
+<aside class="warning"><strong>Atenção!</strong>: Na modalidade de débito não existe essa opção: toda transação de débito autorizada é capturada automaticamente.</aside>
+
+<h2 id="É-possível-cancelar-uma-transação">É possível cancelar uma transação?</h2>
+
+<p>O cancelamento é utilizado quando o lojista decide não efetivar um pedido de compra, seja por insuficiência de estoque, por desistência da compra pelo consumidor, ou qualquer outro motivo. Seu uso faz-se necessário principalmente se a transação estiver capturada, pois haverá débito na fatura do portador, caso ela não seja cancelada.</p>
+
+<aside class="notice">Se a transação estiver apenas autorizada e a loja queira cancelá-la, o pedido de cancelamento não é necessário, pois após o prazo de captura expirar, ela será cancelada automaticamente pelo sistema.</aside>
+
+<h2 id="existe-um-ambiente-para-testar-a-integração">Existe um ambiente para testar a integração?</h2>
+
+<p>Os testes de integração deverão ser realizados antes do início da homologação, durante o desenvolvimento (codificação) da solução. Para isso, deve-se considerar o seguinte ambiente como EndPoint do Webservice: <a href="https://qasecommerce.cielo.com.br/servicos/ecommwsec.do">https://qasecommerce.cielo.com.br/servicos/ecommwsec.do</a></p>
+
+<p>Para facilitar o desenvolvimento disponibilizamos duas chaves para testes, uma para cada modalidade de integração. Com base nas configurações iniciais feitas durante o seu credenciamento, escolha os dados corretos para realizar os testes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número estabelecimento comercial</th>
+      <th>Chave de testes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">1006993069</code></td>
+      <td><code class="highlighter-rouge">25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">O ambiente de testes só deve ser utilizado pelos estabelecimentos de testes listados no quadro acima. O uso de dados originais do estabelecimento gerará transações não possíveis de rastreamento, gerando resultados incorretos. No ambiente de testes, use as credenciais para testes, no ambiente de produção, use os dados originais do estabelecimento.</aside>
+
+<h2 id="existe-alguma-regra-para-leitura-de-cartões">Existe alguma regra para leitura de cartões?</h2>
+
+<p>A leitura dos dados do cartão no ambiente próprio é controlada por regras definidas pelo programa de segurança imposto pelas bandeiras de cartões.</p>
+
+<p>Para a Visa, esse programa é o conhecido como AIS (Account Information Security) PCI. Para maiores informações acesse: <a href="https://www.cielo.com.br">https://www.cielo.com.br</a> &gt; Serviços &gt; Serviços de Segurança &gt; AIS – Programa de Segurança da Informação , ou entre em contato conosco.</p>
+
+<p>Para a Mastercard o programa de segurança é o SDP (Site Data Protection) PCI. Para maiores informações acesse: <a href="http://www.mastercard.com/us/sdp/index.html">http://www.mastercard.com/us/sdp/index.html</a>, ou entre em contato conosco.</p>
+
+<p>Ademais, atendidos os requisitos, no momento do credenciamento E-commerce deve ser mencionada a escolha por leitura do cartão na própria loja.</p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://developercielo.github.io/">
+        <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/manual/webservice-1-5" title="Integração Técnica via XML">Manual de Integração</a></li>
+                
+            
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
+        <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
+        <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
+        <script src="https://developercielo.github.io/assets/js/search.js"></script>
+        
+
+        
+    </body>
+</html>

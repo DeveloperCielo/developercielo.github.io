@@ -1,91 +1,405 @@
-/*
-Copyright 2008-2013 Concur Technologies, Inc.
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may
-not use this file except in compliance with the License. You may obtain
-a copy of the License at
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  http://www.apache.org/licenses/LICENSE-2.0
+    <title>
+        
+        FAQ &middot; Documentações e tutoriais
+        
+    </title>
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-License for the specific language governing permissions and limitations
-under the License.
-*/
-(function (global) {
-  var languages = [];
+    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
 
-  global.setupLanguages = setupLanguages;
-  global.activateLanguage = activateLanguage;
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/poole.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/syntax.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/hyde.css">
 
-  function activateLanguage(language) {
-    if (!language) return;
-    if (language === "") return;
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/prettify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/custom.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/cielo.css">
 
-    $(".language-group:not(.lock) .language-buttons a").removeClass('active');
-    $(".language-group:not(.lock) .language-buttons a[data-language-name='" + language + "']").addClass('active');
-    for (var i=0; i < languages.length; i++) {
-      $(".language-group:not(.lock) .language-" + languages[i]).hide();
-    }
-    $(".language-group:not(.lock) .language-" + language).show();
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/faq/checkout-faq" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/faq/checkout-faq" />
+        
+    
 
-    //global.toc.calculateHeights();
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
+</head>
 
-    // scroll to the new location of the position
-    if ($(window.location.hash).get(0)) {
-      $(window.location.hash).get(0).scrollIntoView(true);
-    }
-  }
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact" class="help">Ajuda</a>
 
-  // if a button is clicked, add the state to the history
-  function pushURL(language) {
-    if (!history) { return; }
-    var hash = window.location.hash;
-    if (hash) {
-      hash = hash.replace(/^#+/, '');
-    }
-    history.pushState({}, '', '?' + language + '#' + hash);
+                            
+                        </div>
 
-    // save language as next default
-    localStorage.setItem("language", language);
-  }
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
 
-  function setupLanguages(l) {
-    var currentLanguage = l[0];
-    var defaultLanguage = localStorage.getItem("language");
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/faq/checkout-faq">FAQ</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
 
-    languages = l;
+            <div class="post">
+  <h1 id="dúvidas-de-integração">Dúvidas de Integração</h1>
 
-    if ((location.search.substr(1) !== "") && (jQuery.inArray(location.search.substr(1), languages)) != -1) {
-      // the language is in the URL, so use that language!
-      activateLanguage(location.search.substr(1));
+<h2 id="qual-a-diferença-entre-o-tipo-de-integração-usada-no-checkout-cielo">Qual a diferença entre o tipo de Integração usada no CHECKOUT CIELO?</h2>
 
-      localStorage.setItem("language", location.search.substr(1));
-    } else if ((defaultLanguage !== null) && (jQuery.inArray(defaultLanguage, languages) != -1)) {
-      // the language was the last selected one saved in localstorage, so use that language!
-      activateLanguage(defaultLanguage);
-    } else {
-      // no language selected, so use the default
-      activateLanguage(languages[0]);
-    }
-  }
+<p>O CHECKOUT CIELO utiliza integração via POST e é possível configurá-la de duas formas:</p>
 
-  // if we click on a language tab, activate that language
-  $(function() {
-    $(".language-group:not(.lock) .language-buttons a").on("click", function() {
-      var language = $(this).data("language-name");
-      var e = new CustomEvent('languagechange', { 'detail': language});
+<ul>
+  <li><strong>Integração via Carrinho de Compras</strong> - usada quando houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar a um carrinho e depois finalizar a transação.</li>
+  <li><strong>Integração via Botão</strong> - usada sempre que não houver um “carrinho de compras” em sua loja ou quando se deseja associar uma compra rápida/direta a um produto. Cada produto cadastrado gera um “botão de compra” único que permite personalização. Exemplo: um hotsite uma promoção que leva o comprador diretamente para a etapa de pagamento (página do Checkout Cielo).</li>
+</ul>
 
-      pushURL(language);
-      activateLanguage(language);
+<h2 id="como-eu-crio-o-botão">Como eu crio o Botão?</h2>
 
-      window.dispatchEvent(e);
+<p>O Botão é criado no momento de inclusão de um novo produto. Para isso, acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Checkout Cielo</a>, no menu Produtos/Cadastrar Produtos.</p>
 
-      return false;
-    });
-    window.onpopstate = function(event) {
-      activateLanguage(window.location.search.substr(1));
-    };
-  });
-})(window);
+<h2 id="quais-informações-eu-preciso-para-montar-o-post">Quais informações eu preciso para montar o POST?</h2>
+
+<p>Os dados a serem preenchidos no POST são:</p>
+
+<ul>
+  <li>Dados do Pedido</li>
+  <li>Carrinho de Compras</li>
+  <li>Dados de Frete</li>
+  <li>Dados do Consumidor</li>
+</ul>
+
+<p>Todas as informações para auxiliar nesse processo, encontram-se no Manual de Integração Checkout Cielo.</p>
+
+<h2 id="posso-enviar-um-e-mail-marketing-como-forma-de-cobrança">Posso enviar um e-mail marketing como forma de cobrança?</h2>
+
+<p>Sim, por meio da Integração via Botão é possível enviar um e-mail marketing, ou uma cobrança por e-mail, adicionando ao HTML do e-mail, o botão referente ao produto/serviço ofertado.</p>
+
+<h2 id="para-que-serve-a-url-de-retorno">Para que serve a URL de retorno?</h2>
+
+<p>Ao finalizar a compra, o consumidor tem a opção de voltar ao site do lojista ou ser direcionado para a página que o lojista desejar.  A função dessas URL é conduzir automaticamente o consumidor para a página definida nesta opção.</p>
+
+<h1 id="dúvidas-sobre-notificação">Dúvidas sobre Notificação</h1>
+
+<h2 id="para-que-serve-a-url-de-notificação">Para que serve a URL de Notificação?</h2>
+
+<p>Ao finalizar uma transação, é enviado um POST com todos os dados da venda para a URL de Notificação, previamente cadastrada no BackOffice. O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houver alteração do status da transação.</p>
+
+<p>Dessa maneira os dados do pedido ficam atualizados no <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Checkout Cielo</a> e também no backoffice da loja/plataforma.</p>
+
+<h2 id="para-que-serve-a-url-de-mudança-de-status">Para que serve a URL de Mudança de Status?</h2>
+
+<p>Ela define para onde será enviado o POST indicando a alteração de status de uma transação, ou seja, quando um pedido tiver seu status alterado, será enviando um POST para a URL de Mudança de Status, previamente cadastrada no BackOffice. O POST de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.</p>
+
+<h2 id="onde-é-feito-o-cadastro-dessas-urls">Onde é feito o cadastro dessas URLs?</h2>
+
+<p>No <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Checkout Cielo</a>, no menu Configurações/Configurações da loja.</p>
+
+<h2 id="qual-a-diferença-entre-o--erro-opsss-antes-e-depois-da-exibição-da-tela-do-checkout-cielo">Qual a diferença entre o  Erro OPSSS antes e depois da exibição da tela do Checkout Cielo?</h2>
+
+<p><strong>Antes da exibição da tela de Checkout</strong> - significa que houve algum dado errado no envio da transação. Dados obrigatórios podem estar faltando ou o formato é invalido. Aqui o lojista sempre vai receber um e-mail informando o motivo do erro.</p>
+
+<ul>
+  <li>Para esses, é exibido um código (os mesmos dos manuais) dentro do pedido no Backoffice Checkout Cielo.</li>
+</ul>
+
+<p><strong>Depois da Exibição da tela de Checkout (quando a venda é finalizada)</strong> - significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout.</p>
+
+<h1 id="dúvidas-sobre-frete">Dúvidas sobre Frete</h1>
+
+<h2 id="qual-a-relação-entre-os-tipos-de-produtos-e-os-tipos-de-fretes">Qual a relação entre os tipos de produtos e os tipos de fretes?</h2>
+
+<p>O tipo de produto a ser vendido no Checkout Cielo influencia diretamente o tipo de frete e a informação a ser enviada para o processamento da transação.</p>
+
+<p>O tipo de frete a ser utilizado dependerá do tipo de produto que a sua loja comercializa. No Checkout Cielo você pode comercializar 3 tipos de produtos:</p>
+
+<ul>
+  <li>Material Físico</li>
+  <li>Bens Digitais</li>
+  <li>Serviços</li>
+</ul>
+
+<p>Os tipos de frete que podem ser usados são:</p>
+
+<ul>
+  <li>Correios</li>
+  <li>Frete Fixo</li>
+  <li>Frete Grátis</li>
+  <li>Sem Frete (Retirada em mãos)</li>
+  <li>Sem cobrança de frete (usado para Bens Digitais ou Serviços)</li>
+</ul>
+
+<p>Produtos (categoria Material Físico) necessitam da habilitação de algum tipo de frete para serem enviados. Nesse caso, é obrigatória a inclusão de informações como do peso do produto (CART_1_WEIGHT), CEP de origem (CART_1_ZIPCODE) e CEP de entrega (SHIPPING_ZIPCODE), para o cálculo do frete.</p>
+
+<p>As categorias “Bens digitais” ou “Serviços” não necessitam desse tipo de informação.</p>
+
+<p>Para compreender a diferença entre os parâmetros do POST em relação a frete e tipos de produtos, compare os exemplos de post abaixo. Para mais informações, acesse o <a href="https://developercielo.github.io/manual/checkout-cielo">Manual de Integração Checkout Cielo</a>.</p>
+
+<h3 id="parâmetros-obrigatórios">Parâmetros obrigatórios</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Material físico</th>
+      <th>Bens Digitais / Serviço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MERCHANT_ID</code></td>
+      <td><code class="highlighter-rouge">MERCHANT_ID</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ORDER_NUMBER</code></td>
+      <td><code class="highlighter-rouge">ORDER_NUMBER</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SHIPPING_TYPE</code>: 1, 2 ou 3</td>
+      <td><code class="highlighter-rouge">SHIPPING_TYPE</code>: 5</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SOFT_DESCRIPTOR</code></td>
+      <td>SOFT_DESCRIPTOR</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CART_1_NAME</code></td>
+      <td><code class="highlighter-rouge">CART_1_NAME</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CART_1_UNITPRICE</code></td>
+      <td><code class="highlighter-rouge">CART_1_UNITPRICE</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CART_1_QUANTITY</code></td>
+      <td><code class="highlighter-rouge">CART_1_QUANTITY</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CART_1_WEIGHT</code></td>
+      <td><code class="highlighter-rouge">CART_1_TYPE</code>: 2 ou 3 <strong>(Obrigatorio)</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CART_1_ZIPCODE</code></td>
+      <td><code class="highlighter-rouge">CART_1_TYPE</code>: 1 <strong>(Obrigatorio)</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CUSTOMER_NAME</code></td>
+      <td><code class="highlighter-rouge">CUSTOMER_IDENTITY</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SHIPPING_1_NAME</code></td>
+      <td><code class="highlighter-rouge">CUSTOMER_EMAIL</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SHIPPING_1_PRICE</code></td>
+      <td><code class="highlighter-rouge">CUSTOMER_PHONE</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="dúvidas-sobre-o-modo-de-teste">Dúvidas sobre o Modo de teste</h1>
+
+<h2 id="o-que-é-o-modo-de-teste-checkout-cielo">O que é o modo de teste CHECKOUT CIELO?</h2>
+
+<p>É um ambiente de testes, onde é possível simular todas as ações sem precisar alterar sua integração. É um ambiente de teste onde é possível simular vendas e outras ações de teste (como cancelamentos, capturas e chargebacks).</p>
+
+<h2 id="como-é-ativado-o-modo-de-teste-checkout-cielo">Como é ativado o modo de teste Checkout Cielo?</h2>
+
+<p>No Backoffice Cielo Checkout, aba Configurações Pagamentos Modo de Teste é possível habilitar ou desabilitado o Modo de teste. Quando esse modo estiver ativo, uma grande faixa vermelha será exibida na parte superior de todas as telas do Checkout Cielo (Backoffice Checkout e Tela de pagamento).</p>
+
+<p>No Modo de teste o lojista ou desenvolvedor pode realizar testes de transações e de integração.</p>
+
+<h2 id="o-modo-de-teste-tem-algum-custo-adicional">O modo de teste tem algum custo adicional?</h2>
+
+<p>Não, para utiliza-lo não há taxas. O modo de teste é disponibilizado no momento da liberação da sua conta.</p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://developercielo.github.io/">
+        <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/manual/checkout-cielo" title="Integração técnica via API">Manual de integração</a></li>
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/tutorial/checkout-tutoriais" >Tutoriais</a></li>
+                
+            
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
+        <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
+        <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
+        <script src="https://developercielo.github.io/assets/js/search.js"></script>
+        
+
+        
+    </body>
+</html>

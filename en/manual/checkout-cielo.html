@@ -1,91 +1,3432 @@
-/*
-Copyright 2008-2013 Concur Technologies, Inc.
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="en">
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may
-not use this file except in compliance with the License. You may obtain
-a copy of the License at
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  http://www.apache.org/licenses/LICENSE-2.0
+    <title>
+        
+        Manual de integração &middot; Documentações e tutoriais
+        
+    </title>
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-License for the specific language governing permissions and limitations
-under the License.
-*/
-(function (global) {
-  var languages = [];
+    <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico">
 
-  global.setupLanguages = setupLanguages;
-  global.activateLanguage = activateLanguage;
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/css/poole.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/css/syntax.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/css/hyde.css">
 
-  function activateLanguage(language) {
-    if (!language) return;
-    if (language === "") return;
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/css/prettify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/css/custom.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/css/cielo.css">
 
-    $(".language-group:not(.lock) .language-buttons a").removeClass('active');
-    $(".language-group:not(.lock) .language-buttons a[data-language-name='" + language + "']").addClass('active');
-    for (var i=0; i < languages.length; i++) {
-      $(".language-group:not(.lock) .language-" + languages[i]).hide();
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/en/manual/checkout-cielo" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/en/manual/checkout-cielo" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/en/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact" class="help">Help</a>
+
+                            
+                            <div class="lang">
+                                <span>Languages</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/checkout-cielo">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/en/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/checkout-cielo">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/en/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/checkout-cielo">Manual de integração</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="about-checkout-cielo">About Checkout Cielo.</h1>
+
+<p><strong>Checkout Cielo</strong> is a solution that aggregates multiple payment processing services in which the consumer is directed to a secure online payment page from Cielo.
+The Cielo payments page provides a high level of confidence, following PCI security standards.</p>
+
+<p>The great advantage of Checkout Cielo is the range of services aggregated in a secure transactional screen with only one technical integration via the API REST.</p>
+
+<p>Checkout has the following Features:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Transactional screen</strong></td>
+      <td>Checkout Cielo has its own transactional screen, with an optimized layout, shortening the steps to pay for your transactions. <br /></td>
+    </tr>
+    <tr>
+      <td><strong>Buyer Registration</strong></td>
+      <td>The Checkout Cielo has the ability to save cards and payment data from buyers, allowing for future purchases that the data already are filled at the transactional screen</td>
+    </tr>
+    <tr>
+      <td><strong>1-click buy</strong></td>
+      <td>With the registered buyer, Checkout allows the purchase to be completed quickly, using the buyer’s preferred payment and address data</td>
+    </tr>
+    <tr>
+      <td><strong>Recurrence</strong></td>
+      <td>Checkout Cielo has the Scheduled Recurrence available in the API Cielo Ecommerce. <br /> The merchant just needs to define that a transaction must be repeated, that Checkout will run it again within the defined range</td>
+    </tr>
+    <tr>
+      <td><strong>Anti fraud</strong></td>
+      <td>Checkout already has an integration with CyberSource Anti Fraud, enabling analysis of credit transactions without additional integration</td>
+    </tr>
+    <tr>
+      <td><strong>Means of payment</strong></td>
+      <td>Checkout Cielo has a wide range of payment means: <br /><br /> <strong>Credit cards</strong> <br /> <strong>Debit card</strong><br /><strong>Online Debit</strong><br /><strong>Bradesco e Banco do Brasil Bank slip</strong><br /></td>
+    </tr>
+    <tr>
+      <td><strong>Simplified Backoffice</strong></td>
+      <td>Checkout Cielo Backoffice has a simplified and dynamic layout that allows a fast and comfortable browsing so that the Merchant can follow the sales without difficulty</td>
+    </tr>
+    <tr>
+      <td><strong>Integration with Button and QR Code</strong></td>
+      <td>Without technical integration or programming, Checkout provides an integration that makes it possible to create an order generator link with only onde product registration inside the Backoffice Checkout.</td>
+    </tr>
+    <tr>
+      <td><strong>Integration with E-commerce Platforms</strong></td>
+      <td>. It has integration with Terra Virtual Store and other platforms, already present in the main e-commerce platforms of the Brazilian market</td>
+    </tr>
+    <tr>
+      <td><strong>Transactional reports</strong></td>
+      <td>Within Backoffice, it is possible to generate transactional reports that make it easy to manage your sales: <br /><br /> <strong>Recurrence Report</strong> <br /> <strong>Buyer Report</strong><br /><strong>Sales statement</strong><br /><strong>Sales report</strong><br /><br /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Checkout Cielo is a functionality indicated for:</p>
+
+<ul>
+  <li><strong>Websites with Shopping carts</strong>: when there is a “shopping cart” to be sent, i.e. in case the consumer browse the website and choose 1 or more products in order to finalize the purchase.</li>
+  <li><strong>Sales via Social networks</strong>: With the ability to generate a link or QR Code to take the buyer to the transactional screen, Checkout is indicated to make sales via social networks in a simplified way, without the need of technical integration.</li>
+</ul>
+
+<h2 id="checkout-cielo-means-of-payment">Checkout Cielo Means of payment</h2>
+
+<p>The current version of Checkout Cielo supports the following payment means:</p>
+
+<p><strong>Credit card</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Issuer</th>
+      <th>Credit card cash payment</th>
+      <th>Installment credit Store</th>
+      <th>Debit</th>
+      <th>Voucher</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>MasterCard</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>American Express</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Diners Club</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Discover</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>JCB</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Aura</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>NOTE</strong>: Checkout Cielo maximum limit of installments is 12X.</p>
+
+<p><strong>Debit card</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Issuer</th>
+      <th>Bank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>Bradesco<br />Banco do Brasil<br />HSBC<br />Santander<br />Itaú<br />BRB<br />Safra<br />Banco da Amazônia<br />Sicredi<br />Banco do Espirito Santo<br />Banco do Nordeste<br />Mercantil<br /></td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>Banco do Brasil<br />Santander<br />Itaú<br />BRB<br />Sicredi<br />Bancoob<br />CitiBank<br /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Bank slip</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bank</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco</td>
+      <td>Not registered</td>
+    </tr>
+    <tr>
+      <td>Bradesco</td>
+      <td>SPS registered</td>
+    </tr>
+    <tr>
+      <td>Banco do Brasil</td>
+      <td>Not registered</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Online Debit</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco</td>
+    </tr>
+    <tr>
+      <td>Banco do Brasil</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="prerequisites-for-integration">Prerequisites for Integration.</h2>
+
+<p>Checkout Cielo has a list of basic requirements to make the integration process successful.
+Below we list points that must be ready before integration:</p>
+
+<ol>
+  <li>
+    <p>The store register must be <strong>active</strong> with Cielo, having at least one type of <strong>payment PLAN</strong> linked to the account.</p>
+  </li>
+  <li>
+    <p>A suitable <strong>timeout</strong> must be defined in the HTTP requests with Cielo; we recommend 30 seconds.</p>
+  </li>
+  <li>
+    <p>The Root certificate of the certifying entity (CA) of our Web Service must be registered in the Truststore to be used. Because our certifier is widely accepted in the market, it is likely that it is already registered in the Truststore of the operating system itself. See the section <a href="#extended-validation-certificate">Extended Validation Certificate</a> for more information.</p>
+  </li>
+  <li>
+    <p>The Checkout works efficiently only in supported browsers:</p>
+  </li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th>Browser</th>
+      <th>Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Chrome</td>
+      <td>V40.0 or later</td>
+    </tr>
+    <tr>
+      <td>FireFox</td>
+      <td>V34.0.5 or later</td>
+    </tr>
+    <tr>
+      <td>Internet Explorer</td>
+      <td>10 or higher</td>
+    </tr>
+    <tr>
+      <td>Safari (MAC/iOS)</td>
+      <td>7 or later</td>
+    </tr>
+    <tr>
+      <td>Opera</td>
+      <td>V26 or later</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>NOTE</strong>: For buyers and merchants to get the best experience from Checkout Cielo, we recommend downloading the latest version of the browsers mentioned above.</p>
+
+<p>Check out this <a href="http://browsehappy.com/"><strong>web site</strong></a> to view the latest versions of browsers.</p>
+
+<p><strong>Note:</strong> old browsers may deny access to Checkout Cielo and some features will not work as intended. Newer browsers also offer better encryption and privacy features.</p>
+
+<p>If a feature still does not work as expected:</p>
+
+<ul>
+  <li>Try using another browser as a temporary solution for the problem.</li>
+  <li>If you use Internet Explorer, try disabling compatibility mode.</li>
+</ul>
+
+<p>If you have tried these solutions but still experience problems, please contact us at <a href="#cielo-support">Cielo Support</a> and provide the following information:</p>
+
+<ul>
+  <li>A general explanation of the problem.</li>
+  <li>The browser and version being used.</li>
+  <li>The operating system and version used on the computer.</li>
+  <li>A screenshot of the problem.</li>
+</ul>
+
+<h1 id="extended-validation-certificate">Extended Validation Certificate</h1>
+
+<h2 id="what-is-ssl-certificate">What is SSL Certificate?</h2>
+
+<p>The SSL Certificate for web server offers authenticity and integrity of web site data, giving customers of virtual stores the guarantee that they are actually accessing the web site they want, not a fraudster web site.</p>
+
+<p>Specialized companies are responsible for domain validating and, depending on the type of certificate, they are also responsible for the validation of the entity that owns the domain.</p>
+
+<h3 id="internet-explorer">Internet Explorer:</h3>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-ie.jpg" alt="EV Internet Explorer Certificate" /></p>
+
+<h3 id="firefox">Firefox</h3>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-firefox.jpg" alt="EV Firefox Certificate" /></p>
+
+<h3 id="google-chrome">Google Chrome</h3>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-chrome.jpg" alt="EV Google Chrome Certificate" /></p>
+
+<h2 id="what-is-ev-ssl-certificate">What is EV SSL Certificate?</h2>
+
+<p>The EV Certificate has been recently released on market and ensures a higher level of security for virtual stores customers.</p>
+
+<p>It is a certificate of greater confidence and when https is accessed the address bar will turn green, giving more reliability for site visitors.</p>
+
+<h2 id="how-to-install-the-extended-validation-certificate-on-the-store-server">How to install the Extended Validation Certificate on the Store server?</h2>
+
+<p>Just install the following three files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.</p>
+
+<ul>
+  <li><a href="https://developercielo.github.io/en/attachment/Root.crt">Root Certificate</a></li>
+  <li><a href="https://developercielo.github.io/en/attachment/Intermediate1.crt">Intermediate 1 certificate</a></li>
+  <li><a href="https://developercielo.github.io/en/attachment/Intermediate2.crt">Intermediate 2 certificate</a></li>
+  <li><a href="https://developercielo.github.io/en/attachment/ServerCertificate.crt">E-Commerce Cielo certificate</a></li>
+</ul>
+
+<h2 id="step-by-step-for-installation">Step-by-Step for Installation</h2>
+
+<h3 id="installation-on-the-virtual-store-server">Installation on the Virtual Store Server</h3>
+
+<p>The step-by-step of the EV Certificate installation must contact your server vendor support.</p>
+
+<aside class="warning">Cielo does not offer support for the installation of the Certificate.</aside>
+
+<h3 id="client-access-to-virtual-store">Client Access to Virtual Store</h3>
+
+<p>Normally, the browser automatically updates the Certificate. If it does not and the client contacts, the following steps must be informed:</p>
+
+<h4 id="step-1">Step 1:</h4>
+
+<p>Save the three files below into a new folder, or into a folder that can be easily remembered, as it will be used later:</p>
+
+<ul>
+  <li><a href="https://developercielo.github.io/en/attachment/Root.crt">Root Certificate</a></li>
+  <li><a href="https://developercielo.github.io/en/attachment/Intermediate1.crt">Intermediate 1 certificate</a></li>
+  <li><a href="https://developercielo.github.io/en/attachment/Intermediate2.crt">Intermediate 2 certificate</a></li>
+  <li><a href="https://developercielo.github.io/en/attachment/ServerCertificate.crt">E-Commerce Cielo certificate</a></li>
+</ul>
+
+<h4 id="step-2">Step 2:</h4>
+
+<p>In “Internet Explorer”, click on “Tools” menu and go to “Internet Options”:</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-1.jpg" alt="Install IE" /></p>
+
+<p>In “Firefox”, click on “Open Menu” menu and go to “Advanced” and “Options”:</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ff-1.jpg" alt="Install FF" /></p>
+
+<p>In “Chrome”, click on “Customize and Control Google Chrome” and go to “Settings” and “Show advanced settings … “Change Proxy Settings and “Content” and Certificates:</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-gc-1.jpg" alt="Install GC" /></p>
+
+<h4 id="step-3">Step 3:</h4>
+
+<p>In Internet Explorer, under “Certificates”, click on “Import”.</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-2.jpg" alt="Install IE" /></p>
+
+<p>In Firefox, click on “View Certificates”, click on “Import”</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ff-2.jpg" alt="Install FF" /></p>
+
+<p>In Chrome, click on “Manage Certificates”, click on “Import”</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-gc-2.jpg" alt="Install GC" /></p>
+
+<h4 id="step-4">Step 4:</h4>
+
+<p>In Internet Explorer and Chrome “Certificate Import Wizard”, click on “Next”.</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-3.jpg" alt="Install IE and GC" /></p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-4.jpg" alt="Install IE and GC" /></p>
+
+<p>In Firefox “Servers Tab”, click on “Import”</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ff-3.jpg" alt="Install FF" /></p>
+
+<h4 id="step-5">Step 5:</h4>
+
+<p>In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-5.jpg" alt="Install IE and GC" /></p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-6.jpg" alt="Install IE and GC" /></p>
+
+<h4 id="step-6">Step 6:</h4>
+
+<p>Select the desired option: add the Certificate in a default folder or search for the folder of your choice.</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-7.jpg" alt="Install IE and GC" /></p>
+
+<h4 id="step-7">Step 7:</h4>
+
+<p>Click on “Finish”.</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-8.jpg" alt="Install IE and GC" /></p>
+
+<h4 id="step-8">Step 8:</h4>
+
+<p>Click on “Ok” to complete the import.</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-9.jpg" alt="Install IE and GC" /></p>
+
+<aside class="notice">In Firefox there is no Successfull Import message, it only completes the import.</aside>
+
+<p>The Certificate may be viewed in the default tab “Other People” or at the one chosen by the customer.</p>
+
+<p><img src="https://developercielo.github.io/en/images/certificado-instalar-ie-gc-10.jpg" alt="Install IE and GC" /></p>
+
+<h4 id="step-9">Step 9:</h4>
+
+<p>Repeat the same procedure for the 3 sent files.</p>
+
+<h1 id="integrating-checkout-cielo">Integrating Checkout Cielo</h1>
+
+<p>This documentation describes all the features of the API Checkout Cielo integration, technical parameters and especially the examples of codes to facilitate their development.</p>
+
+<p>There are two ways to achieve integration:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">API</code></td>
+      <td>An Integration via API allows the merchant to send the web site <strong>“Shopping cart”</strong> with all the data that he wants to display on the transactional screen. <br /> In this type of integration the merchant has more control over how the order will be generated.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Botão / QR Code / Link</code></td>
+      <td>Within the Checkout Cielo Backoffice, it is possible to register a product or group of products that will generate a Link capable of creating multiple payment screens. This template is used for payments by social networks, promotional campaigns or Sales via QR Code. In this category the merchant has less control over how the orders will be presented or generated on the transactional screen</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="integration-flow">Integration flow</h2>
+
+<p>During the integration with Checkout Cielo, a sequence of information exchange and redirects will be executed so that a transaction is created and executed.
+See the flow below:</p>
+
+<p><strong>Checkout Cielo integration flow</strong> - Sequential diagram
+<img src="https://developercielo.github.io/en/images/Checkout/fluxobasico.svg" alt="Checkout Cielo integration flow" /></p>
+
+<p><strong>Checkout Cielo integration flow</strong> - Flowchart
+<img src="https://developercielo.github.io/en/images/Checkout/fluxocheckoutbasico.png" alt="Checkout Cielo integration flow" /></p>
+
+<p>After the card carrier (custumer) select their purchases and hit the “Buy” button of a shop already integrated with Checkout Cielo, the flow in this order:</p>
+
+<ol>
+  <li>The Cielo API returns the <strong>CheckoutURL</strong>, which is the URL of the transactional screen assembled based on the data sent by the Merchant/Button.</li>
+  <li>The store redirects the customer to the URL returned by Cielo. The screen shown is part of the <strong>Cielo safe payment environment</strong>.</li>
+  <li>The carrier chooses: Means of payment , freight type and delivery address on the transactional screen</li>
+  <li>Checkout Cielo redirects the customer to the <strong>Return URL</strong> chosen by the store, configured in Backoffice Checkout Cielo or sent by the integration via API.</li>
+  <li>If the store has a <strong>notification URL</strong>, it will be notified about the status of the transaction.</li>
+  <li>The store notifies the customer that the process has been completed and that he will receive more information about the purchase and payment by e-mail.</li>
+  <li>The store processes the purchase order using the notification POST data and, if the transaction is authorized, releases the order.</li>
+</ol>
+
+<p><strong>NOTE:</strong> The Checkout Cielo does not notify buyers about purchasing status, only the merchant does. This is because it allows the merchant to decide when and how to inform their customers about the delivery deadline and shipping process</p>
+
+<h2 id="checkout-cielo-test-mode">Checkout Cielo test mode</h2>
+
+<p>Checkout Cielo test mode is a tool that allows to test the integration of your web site with the platform. With the test mode, you can perform transactions as you evolve with integration, and you can simulate scenarios to test different means of payment.</p>
+
+<h3 id="activating-test-mode">Activating test mode.</h3>
+
+<p>The test mode can be activated in the  <strong>Settings</strong> tab, where there is a checkbox that, when checked, enable the Checkout Cielo test mode. The test mode will only start when the selection is saved.</p>
+
+<p><img src="https://developercielo.github.io/en/images/Checkout/tm01.png" alt="Activating test mode" /></p>
+
+<p>When the option is saved, a red stripe appears at the top of the screen. It will be displayed on all the screens of the Backoffice Cielo Checkout and on the Checkout Cielo transaction screen.</p>
+
+<p>This stripe indicates that your Checkout Cielo store is now operating in a test environment, i.e. any transaction performed in that mode will be considered as a test.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Backoffice</th>
+      <th>Transacional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/tmbackoffice.png" alt="Red stripe - Backoffice" /></td>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/tmtransacional.png" alt="Red stripe - Transacional" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="how-to-transact-in-test-mode">How to transact in Test Mode.</h3>
+
+<p>Performing transactions in test mode occurs normally. Transaction information is sent via POST or API, using the parameters as described in the <a href="#integration-by-api">Integration by API</a> topic, however, the payment means to be used are simulated media.</p>
+
+<p>To perform test transactions with different payment means, follow these rules:</p>
+
+<p><strong>A - Transactions with Credit cards:</strong></p>
+
+<p>To test credit cards it is necessary for two important data to be defined, the authorization status of the card and the return of the fraud analysis.</p>
+
+<p><strong>Credit Card Authorization Status</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Transaction Status</th>
+      <th>Cards for conducting tests</th>
+      <th>Return Code</th>
+      <th>Return message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Authorized</td>
+      <td>0000.0000.0000.0001 / 0000.0000.0000.0004</td>
+      <td>4</td>
+      <td>Operation performed successfully</td>
+    </tr>
+    <tr>
+      <td>Not Authorized</td>
+      <td>0000.0000.0000.0002</td>
+      <td>2</td>
+      <td>Not Authorized</td>
+    </tr>
+    <tr>
+      <td>Not Authorized</td>
+      <td>0000.0000.0000.0007</td>
+      <td>77</td>
+      <td>Canceled Card</td>
+    </tr>
+    <tr>
+      <td>Not Authorized</td>
+      <td>0000.0000.0000.0008</td>
+      <td>70</td>
+      <td>Problems with Credit Card</td>
+    </tr>
+    <tr>
+      <td>Not Authorized</td>
+      <td>0000.0000.0000.0005</td>
+      <td>78</td>
+      <td>Locked Card</td>
+    </tr>
+    <tr>
+      <td>Not Authorized</td>
+      <td>0000.0000.0000.0003</td>
+      <td>57</td>
+      <td>Expired Card</td>
+    </tr>
+    <tr>
+      <td>Not Authorized</td>
+      <td>0000.0000.0000.0006</td>
+      <td>99</td>
+      <td>Time Out</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Example:</strong> 540443424293010 <strong>7</strong> = <strong>Authorized</strong></p>
+
+<p><strong>B - Bank slip</strong></p>
+
+<p>Just carry out the purchase process normally with no change in procedure.
+The bank slip generated in test mode will always be a simulated bank slip.</p>
+
+<p><strong>C - Online debit</strong></p>
+
+<p>It is necessary to inform the status of online Debit transaction to be returned the desired status. This process occurs as in the credit card anti-fraud described above, with the change of the name of the buyer.</p>
+
+<p><strong>Debit Status</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer last name</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Paid</td>
+      <td>Paid</td>
+    </tr>
+    <tr>
+      <td>Any name.</td>
+      <td>Not authorized</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>Example:</strong> Unauthorized Status.</li>
+  <li><strong>Customer name:</strong> Maria Pereira</li>
+</ul>
+
+<p><strong>D - Test Transactions</strong></p>
+
+<p>All transactions performed in test mode will be displayed as normal transactions in the Checkout Cielo Orders tab, however, they will be marked as test transactions and will not be accounted for in conjunction with transactions performed outside of the test environment.</p>
+
+<p><img src="https://developercielo.github.io/en/images/checkout-cielo-modo-teste-transacoes-de-teste.png" alt="Test Transactions" /></p>
+
+<p>These transactions will have the test symbol differentiating them from their other transactions. They can be captured or canceled using the same procedures of the actual transactions.</p>
+
+<p><img src="https://developercielo.github.io/en/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png" alt="Test Transactions" /></p>
+
+<aside class="notice">It is very important that when releasing your store to perfomr sales to your customers that **it is not in test mode**. Transactions performed in this environment may be finished normally, but **they will not be discounted from the customer's card** and they can not be “transferred” to the standard sales environment.</aside>
+
+<h2 id="sdks-and-postman">SDKs and POSTMAN</h2>
+
+<p>Checkout Cielo has a unique test POSTMAN collection with all the parameters and options described in this manual.
+Just access our <a href="https://developercielo.github.io/Tutorial//Postman">Tutorial</a> for information on using the tool.</p>
+
+<p>In postman it is possible to create examples of its integration in:</p>
+
+<ul>
+  <li>PHP</li>
+  <li>RUBY</li>
+  <li>C#</li>
+  <li>JAVA</li>
+  <li>PYTHON</li>
+  <li>SHELL</li>
+</ul>
+
+<h2 id="integration-by-api">Integration by API</h2>
+
+<p>This type of integration must be used whenever there is a “shopping cart” to be sent, i.e. in case the customer browses the web site and choose 1 or more products to add to a cart and then finalize the sale.</p>
+
+<p>If you do not have a shopping cart implemented, see the Checkout Cielo <strong>Integration via Button</strong> section.</p>
+
+<p>Below, it is demonstrated how the purchase flow occurs in the integration via API:</p>
+
+<p><img src="https://developercielo.github.ioimages/Checkout/intapi.png" alt="Integration Via API" /></p>
+
+<h3 id="creating-the-cart">Creating the Cart</h3>
+
+<p>In integration via API, the transactional screen is “assembled” with bases in sent data that form a <strong>Shopping cart</strong>.
+These data are separated into the following “main nodes”:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Node</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Cart</code></td>
+      <td>Contains data of the products to be sold.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping</code></td>
+      <td>Contains data of the type of freight to be charged. Is influenced by the <code class="highlighter-rouge">Cart</code> node</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment</code></td>
+      <td>Contains information that influences the amount charged. <strong>Does not contain information about payment means</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer</code></td>
+      <td>Has buyer’s data. Not required in the integration, but required on the payments screen. We suggest it to be sent to expedite the purchase process</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Options</code></td>
+      <td>Controls Checkout optional features. Node not required</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>After sending cart data, Checkout will send a Response containing one <strong>LINK to the payment screen</strong></p>
+
+<p><strong>IMPORTANT</strong>: A call to the API Checkout <strong>DOES NOT CREATE A TRANSACTION</strong>. The returned Link is just a “preorder” indicating that a transactional screen is ready to be used. The Transaction is created only when the buyer clicks on “FINALIZE”</p>
+
+<h3 id="request">Request</h3>
+
+<p>Endpoint is the URL to where requests with the cart data will be sent. All requests must be sent using the HTTP POST method, for the endpoint:</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/orders</span></aside>
+
+<p><strong>Example of a requisition</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="s2">"OrderNumber"</span><span class="p">:</span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Exemplo"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Cart"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"Discount"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Value"</span><span class="p">:</span><span class="mi">00</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Items"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Produto01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Description"</span><span class="p">:</span><span class="s2">"ProdutoExemplo01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Sku"</span><span class="p">:</span><span class="s2">"ABC001"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Weight"</span><span class="p">:</span><span class="mi">500</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Shipping"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"SourceZipCode"</span><span class="p">:</span><span class="s2">"20020080"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TargetZipCode"</span><span class="p">:</span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Services"</span><span class="p">:[</span><span class="w">  
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Price"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Deadline"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Carrier"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">  
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"UPS Express"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Price"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Deadline"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Carrier"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"Address"</span><span class="p">:{</span><span class="w">  
+         </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"92"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"BoletoDiscount"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DebitDiscount"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="s2">"Identity"</span><span class="p">:</span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"FullName"</span><span class="p">:</span><span class="s2">"Test de Test"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Email"</span><span class="p">:</span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Phone"</span><span class="p">:</span><span class="s2">"21987654321"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Options"</span><span class="p">:{</span><span class="w">  
+     </span><span class="s2">"AntifraudEnabled"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.cielo.com.br"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Settings"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Header</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>Yes</td>
+      <td>36</td>
+      <td>Unique store identifier. <strong>Format:</strong> 00000000-0000-0000-0000-000000000000</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Content-type</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>n/a</td>
+      <td>Type of message content to be sent. <strong>Use:</strong> “application/json”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Header and Authentication</strong> - All requests sent to Cielo must be authenticated by the store. Authentication consists of sending <code class="highlighter-rouge">MerchantID</code>, which is the unique store identifier provided by Cielo after store affiliation. Store authentication should be done by sending the <code class="highlighter-rouge">MerchandId</code> HTTP header field, as shown below and beside:</p>
+
+<p><strong>Body - Detailed</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+      <th>Conditional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">OrderNumber</code></td>
+      <td>Alphanumeric</td>
+      <td>Optional</td>
+      <td>64</td>
+      <td>Store order number.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SoftDescriptor</code></td>
+      <td>Alphanumeric</td>
+      <td>Optional</td>
+      <td>13</td>
+      <td>Text displayed on buyer’s invoice. No special characters or spaces. e.g.: <code class="highlighter-rouge">Loja_ABC_1234</code></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Discount.Type</code></td>
+      <td>Alphanumeric</td>
+      <td>Conditional</td>
+      <td>255</td>
+      <td>Discount type to be applied: <code class="highlighter-rouge">Amount</code> or <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Required in case of Cart.Discount.Value is greater than or equal to zero.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Discount.Value</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>18</td>
+      <td>Discount amount to be applied: Value or Percentage</td>
+      <td>Required in case of Cart.Discount.Type is <code class="highlighter-rouge">Amount</code> or <code class="highlighter-rouge">Percent</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Name</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>128</td>
+      <td>Item name in cart.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Description</code></td>
+      <td>Alphanumeric</td>
+      <td>Optional</td>
+      <td>256</td>
+      <td>Item description in cart.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.UnitPrice</code></td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>18</td>
+      <td>Unit price of the product in cents. e.g.: R$ 1,00 = 100</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Quantity</code></td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>9</td>
+      <td>Item quantity in cart.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Type</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>255</td>
+      <td>Item type in cart: <br /><code class="highlighter-rouge">Asset</code><br /><code class="highlighter-rouge">Digital</code><br /><code class="highlighter-rouge">Service</code><br /><code class="highlighter-rouge">Payment</code><br /></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Sku</code></td>
+      <td>Alphanumeric</td>
+      <td>Optional</td>
+      <td>32</td>
+      <td>Item Sku in cart.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Items.Weight</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>9</td>
+      <td>Weight in grams of item in cart.</td>
+      <td>Required in case of Shipping.Type is “Post office”.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.BoletoDiscount</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>3</td>
+      <td>Discount, in percentage, for payments to be performed with bank slip.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.DebitDiscount</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>3</td>
+      <td>Discount, in percentage, for payments to be perfomed with online debit.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FirstInstallmentDiscount</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>3</td>
+      <td>Discount, in percentage, for payments to be performed with credit card cash payment.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>2</td>
+      <td>Sets maximum value of installments displayed in transactional, ignoring Backoffice setup</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>14</td>
+      <td>buyer’s CPF or CNPJ.</td>
+      <td>Not required in API, but mandatory in the transactional screen</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.FullName</code></td>
+      <td>Alphanumeric</td>
+      <td>Conditional</td>
+      <td>288</td>
+      <td>Buyer full name.</td>
+      <td>Not required in API, but mandatory in the transactional screen</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Alphanumeric</td>
+      <td>Conditional</td>
+      <td>64</td>
+      <td>Buyer’s e-mail.</td>
+      <td>Not required in API, but mandatory in the transactional screen</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>11</td>
+      <td>Buyer’s phone number.</td>
+      <td>Not required in API, but mandatory in the transactional screen</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Options.AntifraudEnabled</code></td>
+      <td>Boolean</td>
+      <td>Conditional</td>
+      <td>n/a</td>
+      <td>Enable or not the fraud analysis for the order: true or false.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Options.ReturnUrl</code></td>
+      <td>Strin</td>
+      <td>Conditional</td>
+      <td>255</td>
+      <td>Sets to which url the buyer will be sent after completing the purchase.</td>
+      <td>A fixed URL can be registered in Backoffice Checkout</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="responses">Responses</h3>
+
+<p>Due to its sale flow being divided into two stages, the first being the creation of the transactional screen and the second being the finalization of the payment; The Checkout has two replies to a transaction:</p>
+
+<ul>
+  <li><strong>Response - Transactional screen</strong> - It is the Response returned with data to send the buyer to the transactional screen</li>
+  <li><strong>Response - Transaction Finished</strong> - Contains data on the result of the transaction, after the buyer clicks “Finish” on the transaction screen. <strong>It is returned only via Notification</strong></li>
+</ul>
+
+<p><strong>Transaction Result/Status:</strong> To get the transaction status return, it is necessary to set a NOTIFICATION URL. See the notification session for more information..</p>
+
+<p><strong>Response - Transactional screen</strong></p>
+
+<p>There are only two response options in API integration: Success / Error</p>
+
+<p><strong>Success</strong>:
+In case of success, the response will be the content of the Request plus the Link that directs the transactional screen</p>
+
+<blockquote>
+  <p><strong>SUCCESS</strong></p>
+</blockquote>
+
+<pre><code class="language-Json">{
+    "Settings": {
+        "CheckoutUrl": "https://cieloecommerce.cielo.com.br/transacional/order/index?id=123",
+        "Profile": "CheckoutCielo",
+        "Version": 1
     }
-    $(".language-group:not(.lock) .language-" + language).show();
+}
+</code></pre>
 
-    //global.toc.calculateHeights();
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">CheckoutUrl</code></td>
+      <td>String</td>
+      <td>Yes</td>
+      <td>255</td>
+      <td>Transactional screen URL. The Buyer <strong>must be directed to this environment to finalize the transaction</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Profile</code></td>
+      <td>String</td>
+      <td>Yes</td>
+      <td>16</td>
+      <td>Merchant profile: “CheckoutCielo” fixed.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Version</code></td>
+      <td>String</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>Order creation service version (version: 1).</td>
+    </tr>
+  </tbody>
+</table>
 
-    // scroll to the new location of the position
-    if ($(window.location.hash).get(0)) {
-      $(window.location.hash).get(0).scrollIntoView(true);
-    }
-  }
+<p><strong>Error</strong>:
+In case of error, the message below will be returned.</p>
 
-  // if a button is clicked, add the state to the history
-  function pushURL(language) {
-    if (!history) { return; }
-    var hash = window.location.hash;
-    if (hash) {
-      hash = hash.replace(/^#+/, '');
-    }
-    history.pushState({}, '', '?' + language + '#' + hash);
+<blockquote>
+  <p><strong>ERROR</strong></p>
+</blockquote>
 
-    // save language as next default
-    localStorage.setItem("language", language);
-  }
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"An error has occurred."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
-  function setupLanguages(l) {
-    var currentLanguage = l[0];
-    var defaultLanguage = localStorage.getItem("language");
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Message</code></td>
+      <td>String</td>
+      <td>Yes</td>
+      <td>254</td>
+      <td>Error descriptive message</td>
+    </tr>
+  </tbody>
+</table>
 
-    languages = l;
+<p><strong>Important</strong> - Checkout Cielo has no numbered errors, just a generic message. See the section “Identifying Integration Errors” for more information.</p>
 
-    if ((location.search.substr(1) !== "") && (jQuery.inArray(location.search.substr(1), languages)) != -1) {
-      // the language is in the URL, so use that language!
-      activateLanguage(location.search.substr(1));
+<h3 id="additional-features">Additional Features</h3>
 
-      localStorage.setItem("language", location.search.substr(1));
-    } else if ((defaultLanguage !== null) && (jQuery.inArray(defaultLanguage, languages) != -1)) {
-      // the language was the last selected one saved in localstorage, so use that language!
-      activateLanguage(defaultLanguage);
-    } else {
-      // no language selected, so use the default
-      activateLanguage(languages[0]);
-    }
-  }
+<p>In the following items, the behavior of some of the API integration features will be explained. These features have rules specific to use and are not available for integration via Button.</p>
 
-  // if we click on a language tab, activate that language
-  $(function() {
-    $(".language-group:not(.lock) .language-buttons a").on("click", function() {
-      var language = $(this).data("language-name");
-      var e = new CustomEvent('languagechange', { 'detail': language});
+<ul>
+  <li><strong>Types of “Discount”</strong></li>
+  <li><strong>Types of “Freight”</strong></li>
+</ul>
 
-      pushURL(language);
-      activateLanguage(language);
+<h4 id="types-of-discount">Types of “Discount”</h4>
 
-      window.dispatchEvent(e);
+<p>Checkout Cielo allows the merchant to apply specific discounts for both cart and payment means.
+The discounts available at Checkout Cielo are:</p>
 
-      return false;
-    });
-    window.onpopstate = function(event) {
-      activateLanguage(window.location.search.substr(1));
-    };
-  });
-})(window);
+<table>
+  <thead>
+    <tr>
+      <th>Discount</th>
+      <th>Application</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Cart</code></td>
+      <td>API</td>
+      <td>When sent, it applies the discount on the entire cart, regardless of the means of payment</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bank slip</code></td>
+      <td>API and Backoffice</td>
+      <td>When sent, the discount is applied only if the Bank slip is the chosen payment means</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Online Debit</code></td>
+      <td>API and Backoffice</td>
+      <td>When sent, the discount is applied only if the Online debit is the chosen payment means</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cash payment</code></td>
+      <td>API</td>
+      <td>When sent, the discount is applied when cash payment on Credit Card is the chosen payment means</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">discounts can be sent in the API or defined in the Backoffice. If a Discount Value is sent in the API, this value will be considered, even if the Backoffice has another registered value </aside>
+
+<p><strong>Cart</strong></p>
+
+<p>To send a Discount on the <code class="highlighter-rouge">Cart</code> just send the node below inside the <code class="highlighter-rouge">Cart</code> node</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
+         </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Value"</span><span class="p">:</span><span class="mi">00</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+      <th>Conditional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Discount.Type</code></td>
+      <td>Alphanumeric</td>
+      <td>Conditional</td>
+      <td>255</td>
+      <td>Discount type to be applied: <code class="highlighter-rouge">Amount</code> or <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Required in case of Cart.Discount.Value is greater than or equal to zero.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cart.Discount.Value</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>18</td>
+      <td>Discount amount to be applied: Value or Percentage</td>
+      <td>Required in case of Cart.Discount.Type is <code class="highlighter-rouge">Amount</code> or <code class="highlighter-rouge">Percent</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Below, how the effect of the discount is displayed in the Cart:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Percentage</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/checkout-discount-percent.png" alt="Percentage" /></td>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/checkout-discount-amount.png" alt="Value" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Bank slip &amp; Online Debit</strong></p>
+
+<p>To send a Discount on the <code class="highlighter-rouge">Bank slip</code> and <code class="highlighter-rouge">Online debit</code> just send inside the Payment node the fields below:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
+        </span><span class="s2">"BoletoDiscount"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DebitDiscount"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FirstInstallmentDiscount"</span><span class="p">:</span><span class="mi">90</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.BoletoDiscount</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>3</td>
+      <td>Discount, in percentage, for payments to be performed with bank slip.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.DebitDiscount</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>3</td>
+      <td>Discount, in percentage, for payments to be perfomed with online debit.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.FirstInstallmentDiscount</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>3</td>
+      <td>Discount, in percent, for cash payments on credit card</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Below, how the effect of the discount is displayed in the Cart:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Transactional screen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/checkout-discount-mp.png" alt="Means of payment" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="types-of-freight">Types of “Freight”</h4>
+
+<p>Checkout Cielo has different types of freight.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">FixedAmount</code></td>
+      <td>Fixed value sent by the merchant. Used if the Merchant has a delivery method of his own</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Free</code></td>
+      <td>Do not perform freight calculation and displays on the transactional screen “Free Shipping”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">WithoutShippingPickUp</code></td>
+      <td>Considered “Withdrawal at the store”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">WithoutShipping</code></td>
+      <td>No freight charge (applicable for digital products and services).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Post office</code></td>
+      <td>Uses the post office API to perform the cost calculation. The value of the calculation will depend on the used contract (Chosen in the Backoffice of the checkout) and on the type of integration for calculation: <strong>Shipping with Volume</strong> or <strong>Shipping without Volume</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Below, how each option is demonstrated on the transactional screen</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type of freight</th>
+      <th>Transactional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">FixedAmount</code></td>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/fixedamount.png" alt="FixedAmount" /></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Free</code></td>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/free.png" alt="Free" /></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">WithoutShippingPickUp</code></td>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/withoutshippingpickup.png" alt="WithoutShippingPickUp" /></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">WithoutShipping</code></td>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/withoutshippingpickup.png" alt="WithoutShipping" /></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Post office</code></td>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/correios.png" alt="Post office" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>NOTE:</strong> The options for multiple freights in the category <code class="highlighter-rouge">Post office</code> should be selected within the Backoffice Cielo.</p>
+
+<p>The nodes that compound the freight information below:</p>
+
+<ul>
+  <li><strong>Shipping</strong> - Base node. It is equired on integration via API. It defines the types of freight to be used</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+      <th>Conditional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Type</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>255</td>
+      <td>Freight type: <br /><code class="highlighter-rouge">Post office</code><br /><code class="highlighter-rouge">FixedAmount</code><br /><code class="highlighter-rouge">Free</code><br /><code class="highlighter-rouge">WithoutShippingPickUp</code><br /><code class="highlighter-rouge">WithoutShipping</code><br /></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.SourceZipCode</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>8</td>
+      <td>Shopping cart origin zip code.</td>
+      <td>Obrigatório caso Shipping.Type for “Correios”.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.TargetZipCode</code></td>
+      <td>Numeric</td>
+      <td>Optional</td>
+      <td>8</td>
+      <td>Buyer’s delivery address zip code.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Shipping.Address</strong> - Delivery address information. <strong>Not required in API contract, but mandatory on transactional screen</strong>. We suggest this data to be sent, if it has already been collected within the store environment.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.Street</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>256</td>
+      <td>Street, avenue, lane, etc., from buyer’s delivery address.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.Number</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>8</td>
+      <td>Buyer’s delivery address number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.Complement</code></td>
+      <td>Alphanumeric</td>
+      <td>Optional</td>
+      <td>256</td>
+      <td>Buyer’s delivery address complement.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.District</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>64</td>
+      <td>Buyer’s delivery address neighborhood.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.City</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>64</td>
+      <td>Buyer’s delivery address city.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Address.State</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>2</td>
+      <td>Buyer’s delivery address state (UF).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Shipping.Services</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Services.Name</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>128</td>
+      <td>Freight service name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Services.Price</code></td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>18</td>
+      <td>Price of freight service in cents. e.g.: R$ 1,00 = 100.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Services.Deadline</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>9</td>
+      <td>Delivery time (in days).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The Post Office Freight can be calculated in 2 ways:</p>
+
+<ul>
+  <li><strong>Shipping with Volume</strong> - Uses the post office API, but requires the store to send the dimensions of the package to be shipped with the goods</li>
+  <li><strong>Freight without Volume</strong> - Uses the Post Office API, but only considers cart weight as the basis for calculating the delivery.</li>
+</ul>
+
+<p>To use volumetric freight, just send the <code class="highlighter-rouge">Shipping.Measures</code> node, following the integration rules via API REST.</p>
+
+<p><strong>Shipping.Measures</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+      <th>Conditional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Package</code></td>
+      <td>Alphanumeric</td>
+      <td>Required</td>
+      <td>Integer</td>
+      <td>Type of package: <br /><code class="highlighter-rouge">BOX</code>- Box <br /> <code class="highlighter-rouge">ROL</code> - Cylinder or ENVELOPE</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Lenght</code></td>
+      <td>Numeric</td>
+      <td>Required</td>
+      <td>Integer</td>
+      <td>Package length</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Height</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>Integer</td>
+      <td>Package height</td>
+      <td>Required in case of Shipping.Package as BOX</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Width</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>Integer</td>
+      <td>Package width.</td>
+      <td>Required in case of Shipping.Package as BOX or ENVELOPE</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping.Diameter</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>Integer</td>
+      <td>Package diameter.</td>
+      <td>Required in case of Shipping.Package as ROL</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To carry out the calculation of freight via Post Office, it is necessary to respect the measures defined by the contract used by the merchant. For more information on dimensions and weights allowed, we suggest that you validate the store agreement at the link below:</p>
+
+<p><a href="http://www.correios.com.br/para-voce/precisa-de-ajuda/limites-de-dimensoes-e-de-peso">Limits and dimensions for post office deliveries</a></p>
+
+<h3 id="identifying-integration-errors">Identifying Integration Errors</h3>
+
+<p>Due to the Cielo checkout structure, where the buyer is redirected to a separate environment to complete the transaction, there are possibilities for errors and integration failures at different times of the payment flow.
+During integration it is important to
+There are two types of errors that may occur during the integration process with Checkout Cielo. They are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type of freight</th>
+      <th>Transactional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Transactional pre-screen</strong></td>
+      <td>It means that there was some wrong data in sending the transaction. Required data may be missing or in invalid format. Here the merchant will always receive an e-mail stating what went wrong</td>
+    </tr>
+    <tr>
+      <td><strong>Transactional post-screen</strong></td>
+      <td>It means that there is some register impediment that limits the sale. Things like membership blocked, error in data saved in the register or even problems in the checkout itself</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If any errors occur after the transaction is completed, contact Cielo Support.</p>
+
+<h2 id="integration-by-button">Integration by BUTTON</h2>
+
+<p><strong>Integration via Button, QR CODE or LINK</strong> is a purchase method used whenever there is no “shopping cart” in your store.
+This type of integration is accomplished through the registration of a set of items to be sold on the backoffice of Checkout Cielo.</p>
+
+<p>The generates one of the 3 different types of access methods to the <strong>same transactional screen</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: center">Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/botao.png" alt="Button" /></td>
+      <td style="text-align: center"><strong>Button</strong></td>
+      <td>It is an HTML code that when pasted into a website, will direct the buyer to the transactional screen - Ideal for use in <strong>hotSites</strong> or <strong>Marketing E-mail</strong></td>
+    </tr>
+    <tr>
+      <td><img src="https://developercielo.github.io/en/images/Checkout/qrcode.png" alt="QRCODE" /></td>
+      <td style="text-align: center"><strong>QRCODE</strong></td>
+      <td>Code interpretable by Smartphones and Tablets - Ideal for use in <strong>Printed Marketing</strong> or <strong>Digital</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td style="text-align: center"><strong>LINK</strong></td>
+      <td>is a shareable link, ideal for use in <strong>Social networks</strong> or <strong>Messengers Mobile</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This integration model is used to:</p>
+
+<ul>
+  <li>Associate a direct quick purchase to a product as a promotion on a homepage by jumping the cart step.</li>
+  <li>Send an e-mail marketing, or a charge via e-mail.</li>
+  <li>Add the button (HTML) for the product/service to be purchased/paid.</li>
+  <li>Perform payments sending by mobile applications</li>
+  <li>Whenever you want to provide a quick sale.</li>
+</ul>
+
+<p>To use this feature, it is necessary to register the product you want to sell, their information, and then just copy the source code generated for this button. The inclusion of products is done within the Backoffice Cielo Checkout, in the Products/Register Product menu.</p>
+
+<h3 id="button-features">Button Features</h3>
+
+<p>Each button has a unique code that only allows to buy that particular product in the conditions of price and registered freight. Therefore, a fraudster can not change any of this information when submitting to the purchase, because Checkout Cielo will collect all the product data in the register of the Backoffice Cielo Checkout, and will be worth the register data.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Specific</strong></td>
+      <td>Each generated button only suits for a particular product or group of products. The quantity and volume of products sold is defined in the Button register, and it is not possible to change the quantity in the transactional screen <br /><br /><strong>Example:</strong> It will be necessary to create a button to sell 1 shirt. If the buyer desires 3 shirts, he will need to use the button 2X or The merchant should create a button with 2 shirts</td>
+    </tr>
+    <tr>
+      <td><strong>Checkout Order Number</strong></td>
+      <td>The button does not allow the register of the Merchant’s order number. Since Cielo will trigger its own Checkout, a unique order number (a <code class="highlighter-rouge">GUID</code>) will be generated. The Merchant will receive this order number as a link to the performed sale</td>
+    </tr>
+    <tr>
+      <td><strong>Creation of orders</strong></td>
+      <td>One button generates multiple independent orders, i.e. it is not possible to limit the number of orders generated by a button, QRCODE or created Link. Button is a method of calling the API Checkout. Each time it is triggered, a new request is performed to the API, thus creating a new order</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Below, the payment flow via Button:</strong></p>
+
+<p><img src="https://developercielo.github.io/en/images/Checkout/intbt.png" alt="Button Checkout Cielo Integration Flow" /></p>
+
+<h3 id="creating-the-button">Creating the Button</h3>
+
+<p>To use this feature, it is necessary to register the product you want to sell, their information, and then just copy the source code generated for this button. The inclusion of products is done within the Backoffice Cielo Checkout, in the Products/Register Product menu.</p>
+
+<p><strong>Registration Screen:</strong></p>
+
+<p><img src="https://developercielo.github.io/en/images/Checkout/btcadastro.png" alt="Button Registration" /></p>
+
+<p><strong>Registered Button:</strong></p>
+
+<p><img src="https://developercielo.github.io/en/images/Checkout/btcadastro2.png" alt="Button Registration" /></p>
+
+<p>Below the list of items that must be registered for the button creation:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fields</th>
+      <th>Description</th>
+      <th>Minimum Size</th>
+      <th>Maximum size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Product Type</code></td>
+      <td>Indicate whether you are selling a Material, a Service or a Digital Good. For Digital goods, the Freight type option will not be displayed.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SKU</code></td>
+      <td>Product identification code</td>
+      <td>1</td>
+      <td>50</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Title</code></td>
+      <td>Product Title</td>
+      <td>1</td>
+      <td>50</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Description</code></td>
+      <td>Product description</td>
+      <td>1</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Price</code></td>
+      <td>Order total value <strong>in cents</strong> (e.g.: R$1,00 =100).</td>
+      <td>11</td>
+      <td>14</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Freight</code></td>
+      <td>Choose from one of the Freight options (Post Office, Fixed Freight, Free Shipping, Store Pickup, No Charge).</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Zip Code of Origin</code></td>
+      <td>This field only appears for Post Office Freight type, must be filled with the Zip Code from where the goods will be shipped for freight calculation purposes.</td>
+      <td>9</td>
+      <td>9</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Weight(kg)</code></td>
+      <td>This field only appears for Post Office Freight type, must be filled with the product weight in kg for freight calculation purposes</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Cost of Freight</code></td>
+      <td>This field only appears for Fixed Freight freight type, and must be filled with the amount that the merchant specifies for their products.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Shipping method</code></td>
+      <td>This field only appears for Product Type equal to Physical Material and Type of Freight equal to Fixed Freight.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">URL</code></td>
+      <td>This field only appears for Product Type equal to Digital.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-of-button">Example of Button:</h3>
+
+<p>Below it is possible to see how the registration of a button generates the 3 methods to access the transactional screen.</p>
+
+<blockquote>
+  <p><strong>Button</strong> - An HTML code like the one below will be created.:</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'&gt;&lt;input type='hidden' name='id' value=00000000-0000-0000-000000000000/&gt;&lt;input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Contentimages/botao_comprar_3.jpg' /&gt;
+&lt;/form&gt;
+</code></pre></div></div>
+
+<p><strong>Example of a Functional Button:</strong></p>
+
+<form method="post" action="https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow" target="blank"><input type="hidden" name="id" value="937874c6-a4d7-477e-9272-a4cb8b0c5f79" /><input type="image" name="submit" alt="Comprar" src="https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png" /></form>
+
+<ul>
+  <li><strong>QR CODE AND LINK</strong> - The link and the QRCODE has the same behavior as the button, leading to the same transactional screen.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>QR Code</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="data:image/jpeg;base64,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" /></td>
+      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Adding the button to your HTML page you should copy the HTML code of the created button and put it in on the HTML code of your web site, as shown in the example below.</p>
+
+<aside class="notice">The code must be inserted within the appropriate area in your HTML.</aside>
+
+<p>Each button has a unique code that only allows to buy that particular product in the conditions of price and registered freight. Therefore, a fraudster can not change any of this information when submitting the purchase, because Checkout Cielo will collect all product data in the register of the Backoffice Cielo Checkout, and the register data will be valid.</p>
+
+<h4 id="use-case">Use case</h4>
+
+<p>Here’s an example of how to use the link tool / Qr code / Payment button to boost your sales!</p>
+
+<p>For ease of reading, let’s name these options as “LQB”.</p>
+
+<p>First, let us explain the differences between these 3 options. They are 3 ways to access our payment screen without necessarily a technical integration with APIs etc.</p>
+
+<ul>
+  <li><strong>Link</strong> - is a shortened url that can be sent via social networks. Very practical for access via computers!</li>
+  <li><strong>QR Code</strong> - is an image that when read by a device with QR code reader (an APP on the cell phone for example), takes the buyer to the payment screen. Great for printed advertising!</li>
+  <li><strong>Button</strong> - is an Image embedded in HTML code to use in a web site. Very good if you own a web site, but does not want to deal with creating carts or payment streams. Put on your web site and that’s all, the button takes the buyers to the payments screen</li>
+</ul>
+
+<p>The LQB is available when you register a cart in Checkout Cielo’s backoffice.
+Just follow the path below:</p>
+
+<p>Merchant access on Cielo web site &gt; Online Sales &gt; Checkout Cielo &gt; ABA: Products &gt;. Register products</p>
+
+<p>That’s it! After registering you already have a LQB waiting to be used!</p>
+
+<p>Here’s an example of use:</p>
+
+<ul>
+  <li>Link + Recurrence:</li>
+</ul>
+
+<p>The PagBras company holds a birthday party with their employees every month, watered by soft drinks and snacks, provided by the company itself, which they say are very good!</p>
+
+<p>One day the employees decided to carry out a “crowdfunding” and contribute monthly to make the variety of snacks and drinks bigger, so they could do theme parties such as Christmas, for example.</p>
+
+<p>What did they do? Being an attuned company that did not want to use a little box every month to collect the monthly contribution, one of the employees created a recurrence via LQB, and in a company Facebook group, posted the payments link.</p>
+
+<p>Today, employees contribute monthly without having to remember to pay, once the Checkout Cielo Recurrence performs a new billing transaction every month!</p>
+
+<h2 id="flows-means-of-payment">Flows Means of payment</h2>
+
+<h3 id="credit-card">Credit card</h3>
+
+<p>Checkout Cielo allows the use of Credit Cards of the main national and international issuers. This means of payment is automatically released with Cielo affiliation, and can be used initially with the Checkout integration.</p>
+
+<p>Credit card transactions will be included in the Backoffice Cielo Checkout as PENDING, AUTHORIZED, PAID, DENIED, EXPIRED OR CHARGEBACK depending on the result of the authorization with the Bank.</p>
+
+<p><strong>Credit Card</strong> Order of Status:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>Status</th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>PENDING</strong></td>
+      <td>Original status. The transaction is occurring, awaiting response from the authorization process</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>AUTHORIZED / DENIED</strong></td>
+      <td>Result of the authorization process. <br /><br /><strong>AUTHORIZED</strong> - Credit was reserved for purchase <br /> <strong>DENIED</strong> - Card not authorized by the issuer to continue the transaction</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>PAID</strong></td>
+      <td>It occurs after capture. Indicates that the credit booked on the card will be deposited in the merchant’s account</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><strong>EXPIRED</strong></td>
+      <td>Occurs if the transaction is not captured within 15 days after authorization. In this situation the transaction is lost.</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><strong>CHARGEBACK</strong></td>
+      <td>Not automatic status. If the merchant is notified of ChargeBack, he can mark this transaction as lost.<br /> This Status is only a markup, not affecting payment processes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Warning - International Cards:</strong> Checkout Cielo accepts cards issued outside Brazil, however these cards do not have the ability to pay installment sales. This is a limitation imposed by the issuing bank.</p>
+
+<p><strong>Warning - EXPIRED TRANSACTIONS:</strong> By default, Checkout Cielo stores have 15 days to capture the Credit transaction. If not captured, these transactions will be LOST.</p>
+
+<h3 id="fraud-analysis">Fraud Analysis</h3>
+
+<p>Credit transactions <strong>“AUTHORIZED”</strong> will be sent for analysis of the anti-fraud tool if the <code class="highlighter-rouge">Options.AntifraudEnabled</code> parameter is defined as <code class="highlighter-rouge">TRUE</code>.
+Anti-Fraud has the concept of <code class="highlighter-rouge">Status</code> and <code class="highlighter-rouge">SubStatus</code>, where the first represents the level of risk that a transaction has to be a fraud, and the second, additional information about the transaction.
+The analysis shall indicate a degree of *RISK**, specified by the <code class="highlighter-rouge">Status</code>, for the sale in question.
+This degree of risk is what should guide the merchant’s decision to capture or cancel the sale.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Anti-Fraud Status</th>
+      <th>Substatus</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Low risk</code></td>
+      <td>Low risk</td>
+      <td>Low risk of being a fraudulent transaction</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Medium Risk</code></td>
+      <td>Medium Risk</td>
+      <td>Medium risk of being a fraudulent transaction</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">High risk</code></td>
+      <td>High risk</td>
+      <td>High risk of being a fraudulent transaction</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Not finished</code></td>
+      <td>Not finished</td>
+      <td>Could not complete the query</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Authenticated</td>
+      <td>Transactions authenticated by the bank - <strong>They are not analyzable by AF</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>AF Not hired</td>
+      <td>Anti-fraud not allowed in merchant’s plan - <strong>They are not analyzable by AF</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>AF Dispensed</td>
+      <td>Anti-fraud dispensed via contract or lower than the minimum value of antifrade parameterized backoffice in the merchant</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Not applicable</td>
+      <td>Non-analyzable means of payment such as debit cards, bank slip and online debit</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Recurrence transaction</td>
+      <td>credit transaction is later than the scheduled transaction. <strong>Only Scheduling is analyzed</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Transaction denied</td>
+      <td>Credit sale has been denied - <strong>They are not analyzable by AF</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The analysis will be displayed in the “Order Details”, as below:</p>
+
+<p><img src="https://developercielo.github.io/en/images/checkout-cielo-analise-risco.png" alt="Risk analysis" /></p>
+
+<p>You can view the anti-fraud status by going to the purchase detail in the Orders tab and clicking on (+)</p>
+
+<p><img src="https://developercielo.github.io/en/images/checkout-status-antifraude.png" alt="Anti-fraud Status" /></p>
+
+<h3 id="debit-card">Debit card</h3>
+
+<p>Checkout Cielo allows the use of MasterCard and Visa Debit cards. This means of payment is automatically released with Cielo affiliation and can be used initially with the Checkout integration.</p>
+
+<p>Supported Banks:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mastercard</th>
+      <th>Visa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco</td>
+      <td>Bradesco</td>
+    </tr>
+    <tr>
+      <td>Banco do Brasil</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>Santander</td>
+      <td>Santander</td>
+    </tr>
+    <tr>
+      <td>Itaú</td>
+      <td>Itaú</td>
+    </tr>
+    <tr>
+      <td>CitiBank</td>
+      <td>CitiBank</td>
+    </tr>
+    <tr>
+      <td>BRB</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Caixa</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>BancooB</td>
+      <td>N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>NOTE:</strong> Cards not belonging to these banks will have their authorizations denied.</p>
+
+<p>Upon accessing the transaction screen, the buyer will obtain by the payment via Debit Card, and will be redirected to the banking environment for Authentication and Authorization.</p>
+
+<p>Debit card transactions will be included in the Backoffice Cielo Checkout as PENDING, PAID, UNAUTHORIZED or NOT FINISHED, depending on the result of the authorization with the Bank.</p>
+
+<p><strong>Debit card</strong> - Order of Status</p>
+
+<ol>
+  <li><strong>Pending</strong> - Original status. The transaction is occurring, awaiting response from the bank to send the buyer to the authentication environment</li>
+  <li><strong>Not finished</strong> - Intermediate status. At this point Checkout Cielo expects the Bank to confirm the status of the authentication and transaction. If the buyer leaves the bank environment, the status does not change.</li>
+  <li><strong>Paid</strong> - Buyer successfully completed debit card payment.</li>
+  <li><strong>Not authorized</strong> - The Buyer did not present an account balance to finalize the transaction.</li>
+</ol>
+
+<p><strong>NOTE</strong>: The <strong>Cancell</strong> option within the backoffice, will modify the status of the PAID/NOT PAID transaction to CANCELED, but will have no effect on the banking movement. It will be up to the merchant to return the value to the buyer</p>
+
+<h3 id="bank-slip">Bank slip</h3>
+
+<p>Checkout Cielo allows the use of Bradesco (Wallet 26 and SPS) and Banco do Brasil Bank slips (Wallet 18).
+This means of payment must be registered by Cielo Support to be made available in Backoffice Checkout.</p>
+
+<p>Supported Banks:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mastercard</th>
+      <th>Visa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco</td>
+      <td>Bradesco</td>
+    </tr>
+    <tr>
+      <td>Banco do Brasil</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>Santander</td>
+      <td>Santander</td>
+    </tr>
+    <tr>
+      <td>Itaú</td>
+      <td>Itaú</td>
+    </tr>
+    <tr>
+      <td>CitiBank</td>
+      <td>CitiBank</td>
+    </tr>
+    <tr>
+      <td>BRB</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Caixa</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>BancooB</td>
+      <td>N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>NOTE:</strong> Cards not belonging to these banks will have their authorizations denied.</p>
+
+<p>Upon accessing the transaction screen, the buyer will obtain by the payment via Debit Card, and will be redirected to the banking environment for Authentication and Authorization.</p>
+
+<p>Debit card transactions will be included in the Backoffice Cielo Checkout as PENDING, PAID, UNAUTHORIZED or NOT FINISHED, depending on the result of the authorization with the Bank.</p>
+
+<p><strong>Debit card</strong> - Order of Status</p>
+
+<ol>
+  <li><strong>Pending</strong> - Original status. The transaction is occurring, awaiting response from the bank to send the buyer to the authentication environment</li>
+  <li><strong>Not Finished</strong> - Intermediate status. At this point, the Checkout Cielo expects the Bank to confirm the status of the authentication and transaction. If the buyer leaves the bank environment, the status does not change.</li>
+  <li><strong>Paid</strong> - Buyer successfully completed debit card payment.</li>
+  <li><strong>Not Authorized</strong> - The Buyer did not present an account balance to finalize the transaction.</li>
+</ol>
+
+<p><strong>NOTE</strong>: The <strong>Cancel</strong> option within the backoffice, will modify the status of the PAID/NOT PAID transaction to CANCELED, but will have no effect on the banking movement. It will be up to the merchant to return the value to the buyer</p>
+
+<h3 id="online-debit">Online Debit</h3>
+
+<p>Checkout Cielo allows the use of Online Debit (Transfer between bank accounts) for buyers who have accounts at Bradesco and Banco do Brasil banks.
+This means of payment is released via registration with Support Cielo.</p>
+
+<p>Upon accessing the transaction screen, the buyer will obtain by the payment via Online debit, and will be redirected to the banking environment for Authentication and Authorization.</p>
+
+<p>Online debit transactions will be included in the Backoffice Cielo Checkout as PENDING, PAID, UNAUTHORIZED or NOT FINISHED, depending on the result of the authorization with the Bank.</p>
+
+<p><strong>Online debit</strong> - Order of Status</p>
+
+<ul>
+  <li><strong>Pending</strong> - Original status. The transaction is occurring, awaiting response from the bank to send the buyer to the authentication environment</li>
+  <li><strong>Not Finished</strong> - Intermediate status. At this point, the Checkout Cielo expects the Bank to confirm the status of the authentication and transaction. If the buyer leaves the bank environment, the status does not change.</li>
+  <li><strong>Paid</strong> - Buyer successfully completed debit payment.</li>
+  <li><strong>Not Authorized</strong> - The Buyer did not present an account balance to finalize the transaction.</li>
+</ul>
+
+<p><strong>NOTE</strong>: The <strong>Cancel</strong> option within the backoffice, will modify the status of the PAID/NOT PAID transaction to CANCELED, but will have no effect on the banking movement. It will be up to the merchant to return the value to the buyer</p>
+
+<h1 id="payment-notifications">Payment Notifications</h1>
+
+<p>The process of transactional notification in Checkout Cielo occurs via the inclusion of an URL to where will be directed the data of the transactions performed on the platform.
+Note that Checkout only notifies when a transaction is considered completed i.e. the buyer has filled in all the payment screen data and clicked “Finish”.</p>
+
+<h2 id="types-of-notification">Types of notification</h2>
+
+<p>Checkout Cielo has two types of notifications that the merchant can use according to their needs:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">POST</code></td>
+      <td>Notification where the merchant is passive. Two <code class="highlighter-rouge">POST HTTP</code> are triggered, one informing sales data and another the change of Transaction Status</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">JSON</code></td>
+      <td>Notification where the merchant performs a query. One <code class="highlighter-rouge">POST</code> containing information for conducting a query (<code class="highlighter-rouge">GET</code>) the checkout transactions</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To use both models, the merchant will need to access Cielo Backoffice and configure both the <code class="highlighter-rouge">NOTIFICATION URL</code> and the <code class="highlighter-rouge">STATUS CHANGE URL</code>.</p>
+
+<h2 id="notification-url-types">Notification URL Types</h2>
+
+<p>Checkout has 3 types of URLs that can impact the notification process.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Return URL</code></td>
+      <td>Web page to where the buyer will be redirected at the end of the purchase. <br /><br />No data is exchanged or sent to this URL.<br /><br /> This URL only takes the buyer, after completing the purchase, to a page set by the store.</td>
+      <td>If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo <br /><br /> Can be sent via API - See “Integration via API”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Notification URL</code></td>
+      <td>At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL.<br /><br /> The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed**</td>
+      <td>Used in the Notification via <code class="highlighter-rouge">POST</code> and<code class="highlighter-rouge"> JSON</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status Change URL</code></td>
+      <td>When an order has its status changed, a HTTP post will be sent to the Status Change URL.<br /><br /> The status change POST does not contain cart data, only order identification data</td>
+      <td>Used only in Notification via <code class="highlighter-rouge">POST</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>NOTE:</strong> If a <code class="highlighter-rouge">Return URL</code> is sent to the API, it will have priority over the URL registered in the Backoffice / In the integration Cielo <code class="highlighter-rouge">via Button</code>, you can only use the return URL option via backoffice.</p>
+
+<p><strong>URL Features</strong></p>
+
+<p>All 3 URLs must have the following features:</p>
+
+<ul>
+  <li>Must be static URLs</li>
+  <li>Must have less than 255 characters</li>
+  <li>Special characters are not supported</li>
+</ul>
+
+<p><strong>Setting up URLs</strong></p>
+
+<ol>
+  <li>Just access within the <strong>Backoffice</strong> the <strong>Settings</strong> Tabs</li>
+  <li>At <strong>Store Settings</strong>, go to the <strong>Payments</strong> session</li>
+  <li>Register the URLs and choose the type of Notification you want</li>
+</ol>
+
+<p><img src="https://developercielo.github.io/en/images/Checkout/urls.png" alt="URLS registration" /></p>
+
+<h2 id="notification-post">Notification: POST</h2>
+
+<p>Notification via POST is based on sending a <code class="highlighter-rouge">POST HTTP</code> when a transaction is performed. It is performed in two steps:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">NOTIFICATION POST</code> - Occurs when the transaction is finalized. This POST has all the order data, including the initial STATUS of the transaction.</li>
+  <li><code class="highlighter-rouge">STATUS CHANGE POST</code> - Occurs when a transaction has its STATUS changed - <strong>e.g.:</strong> “Authorized” &gt; &gt; &gt; “Paid”</li>
+</ol>
+
+<p>This flow is used by stores that do not yet perform transactions via API.</p>
+
+<p>Below the Flow of a POST Notification</p>
+
+<p><img src="https://developercielo.github.io/en/images/Checkout/npost.png" alt="N.POST Flow" /></p>
+
+<p><strong>Return expected to send notification:</strong> <code class="highlighter-rouge">HttpStatus = 200 (OK)</code> - Post received and processed successfully</p>
+
+<p><strong>IMPORTANT</strong> If the registered <code class="highlighter-rouge">Notification URL</code> returns any error/is unavailable, <em>*3 retries, with an interval of 1 hour between each POST</em> will be performed.</p>
+
+<p>If the POST is not received, it is possible to resend it manually, just access the order in question by the Backoffice and click on the Sending icon:</p>
+
+<p><img src="https://developercielo.github.io/en/images/Checkout/reenvipost.png" alt="Resending of notification" /></p>
+
+<p>See description of notification items in the session <strong>“NOTIFICATION POST content”</strong></p>
+
+<h2 id="notification-json">Notification: JSON</h2>
+
+<p>Notification via JSON is a more secure and flexible method for the merchant to conduct a query in Chekcout Cielo.
+This notification mode is based on a <code class="highlighter-rouge">POST JSON</code>, where the merchant receives credentials so that a query (<code class="highlighter-rouge">GET</code>) can be performed with the Checkout Cielo database.</p>
+
+<p>It is performed in two steps:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">NOTIFICATION POST</code> - Occurs when the transaction is finalized. It has the necessary Credentials transactional queries.</li>
+  <li><code class="highlighter-rouge">TRANSACTIONAL QUERY</code> - With the query credentials, the merchant searches for sale data with Checkout Cielo</li>
+</ol>
+
+<p>In JSON Notification, there is no difference between the <code class="highlighter-rouge">Notification POST</code> and <code class="highlighter-rouge">Status Change</code>. Whenever something occurs in the transaction, the merchant will receive a <code class="highlighter-rouge">Notification POST</code></p>
+
+<p>Below the Flow of a JSON Notification (Transaction Creation + Status Change)</p>
+
+<p><img src="https://developercielo.github.io/en/images/Checkout/njson.png" alt="N.JSON Flow" /></p>
+
+<p><strong>JSON NOTIFICATION POST content:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Field Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">URL</code></td>
+      <td>URL with the data needed to perform the transaction data search.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier at Checkout Cielo; in the Backoffice in the Setup/Register Data menu.</td>
+      <td>Alphanumeric (GUID)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderNumber</code></td>
+      <td>Store order number; if it is not sent, Checkout Cielo will generate a number, which will be viewed by the Customer.</td>
+      <td>Alphanumeric</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Example of a query:</strong></p>
+
+<p><strong>REQUEST</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--HEADER: MerchantID
+ GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/{merchantId}/{merchantOrderNumber}
+</code></pre></div></div>
+
+<p><strong>RESPONSE</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"checkout_cielo_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65930e7460bd4a849502ed14d7be6c03"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/09/2017 14:38:56"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shipping_address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_method_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_method_brand"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_maskedcreditcard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"471612******7044"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10447480686J51OH8BPB"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<p>See description of notification items in the session <strong>“NOTIFICATION POST content”</strong></p>
+
+<p><strong>Return expected to send notification:</strong> <code class="highlighter-rouge">HttpStatus = 200 (OK)</code> - Post received and processed successfully</p>
+
+<p><strong>IMPORTANT</strong> If the registered <code class="highlighter-rouge">Notification URL</code> returns any error/is unavailable, <em>*3 new attempts, with an interval of 1 hour between each POST</em> will be made.</p>
+
+<p>If the POST is not received, it is possible to resend it manually, just access the order in question by the Backoffice and click on the Sending icon:</p>
+
+<p><img src="https://developercielo.github.io/en/images/Checkout/reenvipost.png" alt="Resending of notification" /></p>
+
+<h2 id="notification-content">Notification Content</h2>
+
+<p>In either HTTP POST or JSON POST Notification, the content of the returned data is the same.
+Below are described all the returned fields, as well as their definitions and sizes:</p>
+
+<p><strong>NOTIFICATION POST content:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Field Type</th>
+      <th>Maximum size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td>Unique identifier generated by CHECKOUT CIELO</td>
+      <td>Alphanumeric</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">amount</code></td>
+      <td>Unit price of the product, in cents (e.g.: R$ 1,00 = 100)</td>
+      <td>Numeric</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">order_number</code></td>
+      <td>Order number sent by store</td>
+      <td>Alphanumeric</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">created_date</code></td>
+      <td>Date of order creation - <code class="highlighter-rouge">dd/MM/yyyy HH:mm:ss</code></td>
+      <td>Alphanumeric</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_name</code></td>
+      <td>Name of the customer. If sent, this value is already filled in the CHECKOUT CIELO screen</td>
+      <td>Alphanumeric</td>
+      <td>289</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_identity</code></td>
+      <td>Customer identification (CPF or CNPJ) If sent, this value is already filled in the CHECKOUT CIELO screen</td>
+      <td>Alphanumeric</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_email</code></td>
+      <td>Customer e-mail. If sent, this value is already filled in the CHECKOUT CIELO screen</td>
+      <td>Alphanumeric</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_phone</code></td>
+      <td>Customer phone number. If sent, this value is already filled in the CHECKOUT CIELO screen</td>
+      <td>Numeric</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">discount_amount</code></td>
+      <td>Discount amount provided (sent only if there was a discount)</td>
+      <td>Numeric</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_type</code></td>
+      <td>Freight mode</td>
+      <td>Numeric</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_name</code></td>
+      <td>Freight name</td>
+      <td>Alphanumeric</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_price</code></td>
+      <td>Value of the freight service, in cents (e.g.: R$ 10,00 = 1000)</td>
+      <td>Numeric</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_zipcode</code></td>
+      <td>Delivery address zip code</td>
+      <td>Numeric</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_district</code></td>
+      <td>Delivery address neighborhood</td>
+      <td>Text</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_city</code></td>
+      <td>Delivery address city</td>
+      <td>Alphanumeric</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_state</code></td>
+      <td>Delivery address state</td>
+      <td>Alphanumeric</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_line1</code></td>
+      <td>Delivery address</td>
+      <td>Alphanumeric</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_line2</code></td>
+      <td>Delivery address complement</td>
+      <td>Alphanumeric</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_number</code></td>
+      <td>Delivery address number</td>
+      <td>Numeric</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_type</code></td>
+      <td>Payment means type code</td>
+      <td>Numeric</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_brand</code></td>
+      <td>Issuer (only for transactions with credit card payment means)</td>
+      <td>Numeric</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_bank</code></td>
+      <td>Issuer bank (For Automatic Debit and Bank slip transactions)</td>
+      <td>Numeric</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_maskedcredicard</code></td>
+      <td>Masked Card (Only for transactions with credit card payment means)</td>
+      <td>Alphanumeric</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_installments</code></td>
+      <td>Number of installments</td>
+      <td>Numeric</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_antifrauderesult</code></td>
+      <td>Status of Credit Card Transactions in Anti-Fraud</td>
+      <td>Numeric</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_boletonumber</code></td>
+      <td>Number of bank slip generated</td>
+      <td>String</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_boletoexpirationdate</code></td>
+      <td>Due date for transactions made with bank slip</td>
+      <td>Numeric</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_status</code></td>
+      <td>Transaction status</td>
+      <td>Numeric</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tid</code></td>
+      <td>TID Cielo generated at the time of transaction authorization</td>
+      <td>Alphanumeric</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">test_transaction</code></td>
+      <td>Indicates whether the transaction was generated with ‘Test Mode’ enabled</td>
+      <td>Boolean</td>
+      <td>32</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Payment_status</strong></p>
+
+<p>Checkout has a status of its own, different from the CIELO WEB SITE or the API Cielo e-Commerce. See below the complete list.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Transaction status</th>
+      <th>Means of Payment</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="highlighter-rouge">Pending</code></td>
+      <td>For all means of payment</td>
+      <td>Indicates payment is still being processed; NOTE: Bank slip - Indicates that the bank slip did not have status changed by the merchant</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="highlighter-rouge">Paid</code></td>
+      <td>For all means of payment</td>
+      <td>Transaction captured and money will be deposited into account.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="highlighter-rouge">Denied</code></td>
+      <td>Credit Card only</td>
+      <td>Transaction not authorized by the party responsible for the payment means</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="highlighter-rouge">Expired</code></td>
+      <td>Credit Cards and Bank slip</td>
+      <td>Transaction no longer valid for capture - <strong>15 days post Authorization</strong></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="highlighter-rouge">Canceled</code></td>
+      <td>For credit cards</td>
+      <td>Transaction was canceled by the merchant</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><code class="highlighter-rouge">Not Finished</code></td>
+      <td>All means of payment</td>
+      <td>Payment waiting Status - May indicate error or processing failure. Contact Cielo Support</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><code class="highlighter-rouge">Authorized</code></td>
+      <td>Credit Card only</td>
+      <td>Transaction authorized by the card issuer. Must be captured for money to be deposited into account</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><code class="highlighter-rouge">Chargeback</code></td>
+      <td>Credit Card only</td>
+      <td>Transaction canceled by the customer with the card issuer. Money will not be deposited into account.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Payment_antifrauderesult</strong></p>
+
+<p>Antifraud has the concept of <code class="highlighter-rouge">Status</code> and <code class="highlighter-rouge">SubStatus</code>, where the first represents the level of risk that a transaction has to be a fraud, and the second, an additional information about the transaction.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Anti-Fraud Status</th>
+      <th>Substatus</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="highlighter-rouge">Low risk</code></td>
+      <td>Low risk</td>
+      <td>Low risk of being a fraudulent transaction</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="highlighter-rouge">Medium Risk</code></td>
+      <td>Medium Risk</td>
+      <td>Medium risk of being a fraudulent transaction</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="highlighter-rouge">High risk</code></td>
+      <td>High risk</td>
+      <td>High risk of being a fraudulent transaction</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="highlighter-rouge">Not finished</code></td>
+      <td>Not finished</td>
+      <td>Could not end query</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Authenticated</td>
+      <td>Transactions authenticated by the bank - <strong>Not analyzable by AF</strong></td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>AF Not hired</td>
+      <td>Anti-Fraud not enabled on the merchant’s plan - <strong>Not analyzable by AF</strong></td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>AF Dispensed</td>
+      <td>Anti-fraud dispensed via contract or lower than the minimum value of anti-fraud parameterized backoffice in the merchant</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Not applicable</td>
+      <td>Non-analyzable payment means such as debit cards, bank slip and online debit</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Recurrence transaction</td>
+      <td>Credit transaction is after than the scheduled transaction. <strong>Only Scheduling is analyzed</strong></td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Transaction denied</td>
+      <td>Sale by credit was denied - <strong>Not analyzable by AF</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Payment_method_type</strong></p>
+
+<p>Checkout allows only one type of <code class="highlighter-rouge">Bank slip</code> or <code class="highlighter-rouge">Online Debit</code> per merchant, so it is not returned if the method used is Bradesco or Banco do Brasil, since only one of them will be activated in the affiliation.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Credit card</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Bank slip</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Online Debit</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Debit card</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Payment_method_brand</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Mastercad</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>AmericanExpress</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Diners</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Aura</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>JCB</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Payment_method_bank</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Bradesco</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Shipping_type</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Post office</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Fixed freight</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Free shipping</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Withdraw in store</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>No freight charge (digital services or products)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="checkout-cielo-installments">Checkout Cielo installments</h1>
+
+<h2 id="type-of-installment">Type of Installment</h2>
+
+<p>Checkout Cielo allows the merchant to carry out credit transactions by installments up to 12 times.
+There are two methods of installment:</p>
+
+<ul>
+  <li><strong>Installment via backoffice</strong> - is the default installment method of Checkout. Each issuer has a installment configuration up to 12x. The Value of the Cart (Products + Freight) is equally divided by the number of parcels.</li>
+  <li><strong>Installment via API</strong> - The Merchant limits the number of installments to be displayed in the backoffice</li>
+</ul>
+
+<p><strong>NOTE:</strong> Checkout is limited to 12x installments, even if your Cielo affiliation supports higher values. If the value presented in your backoffice is lower than 12, contact Cielo Support and check the configuration of your Affiliation.</p>
+
+<h2 id="installment-via-backoffice">Installment via backoffice</h2>
+
+<p>In this mode, the merchant controls the maximum limit of installments that the store will perform by Backoffice Checkout. The installments Value is defined by accessing the <strong>Settings</strong> tab and changing the session <strong>Payments</strong></p>
+
+<p><img src="https://developercielo.github.io/en/images/Checkout/parcelamento.png" alt="Installments Selection" /></p>
+
+<p><strong>NOTE:</strong> The Check Box must be marked for the payment means to be displayed on the transactional screen.</p>
+
+<p><strong>Features</strong></p>
+
+<ul>
+  <li>Available in Checkout Cielo integrations via API or Button;</li>
+  <li>The total value of the items in the cart is summed and divided by the amount of installments of the merchant;</li>
+  <li>The value of the purchase is always the same regardless of the number of parcels chosen by the buyer (There is no Interest charge);</li>
+  <li>The value of the freight is added to the value of the installment;</li>
+  <li>The “in cash” option is always available to the buyer.</li>
+  <li>All transactions will have the same installment options.</li>
+</ul>
+
+<h2 id="installment-via-api">Installment via API</h2>
+
+<p>In this option, the merchant can configure the amount of parcels per sale, specified via API request at the time of sending the transaction.
+Checkout calculates the installments by considering total value and limit of installments sent via API.</p>
+
+<p><strong>WARNING:</strong> In this installment option, the number of installments desired should be lower than the amount that is registered in the backoffice Checkout.</p>
+
+<p><strong>Features</strong></p>
+
+<ul>
+  <li>The merchant sends the maximum number of installments he wants to display to the buyer.</li>
+  <li>The value of the freight is added to the value of the installment.</li>
+</ul>
+
+<p>The Installment via API is performed by sending the <code class="highlighter-rouge">MaxNumberOfInstallments</code> field inside the Payment node. This will force Checkout to recalculate the installment value.
+Below is an example of the Node</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>2</td>
+      <td>Sets maximum value of installments displayed in transactional, ignoring Backoffice configuration</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="checkout-cielo-recurrence">Checkout Cielo Recurrence</h1>
+
+<p>Recurrence is a process of automatic scheduling of credit transactions, that is, it is a transaction that will be repeated automatically, without the need of the buyer to access the transactional screen, according to the rules defined at the time of the scheduling.</p>
+
+<aside class="notice">If one of the transactions is not authorized, Checkout Cielo performs the retentative automatically; for details on automatic retentative, see section <a href="#retry-of-recurrences">Retry of Recurrences</a>.</aside>
+
+<p>Recurrent transactions are ideal for business models that involve the <strong>concept of subscription, plan or monthly fee</strong> in its form of <strong>charge</strong>.
+Some business examples are:</p>
+
+<ul>
+  <li>Schools</li>
+  <li>Gyms</li>
+  <li>Publishers</li>
+  <li>Hosting services</li>
+</ul>
+
+<p><strong>Difference between recurrent and installment transactions:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Installment</strong></td>
+      <td>This is a <strong>transaction divided into several months</strong>. <br />The total value of the sale compromises the limit of the buyer’s credit card regardless of the value of the initial installment.<br /> The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied.<br /><br /> <strong>e.g.</strong>: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied</td>
+    </tr>
+    <tr>
+      <td><strong>Recurrent</strong></td>
+      <td>They are <strong>different transactions performed on the same card at previously scheduled times</strong>.<br /> The first sale schedules future sales from a pre-defined time interval.<br />  At each interval there will be a charge on the credit card. <br /> The recurring payment blocks from the card limit only the value debited on the date of the first recurring sale and from the total value of the sale.<br /><br /> <strong>e.g.</strong>: Sale of R$1,000.00 on 01/15/2015, with monthly recurrence and final date on 06/01/2015. Every day of 15 there will be a new charge of R$1,000.00 on the buyer’s card, repeating until 05/15/2015, the last valid date before the end date.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recurrence-by-api">Recurrence by API</h2>
+
+<p>A recurring transaction in Checkout Cielo has two settings: <code class="highlighter-rouge">Interval</code> and <code class="highlighter-rouge">Closing date</code>.</p>
+
+<ul>
+  <li><strong>Interval</strong> – repeat pattern and time interval between each transaction. This time interval between transactions can be: Monthly, Bimonthly, Quarterly, Biannual and Annual.</li>
+  <li><strong>Closing date</strong> – Date that the recurrence process no longer occurs.</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-31"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Payment.RecurrentPayment</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td>Alphanumeric</td>
+      <td>Yes</td>
+      <td>10</td>
+      <td>Interval between each recurrence transaction</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td>YYYY-MM-DD</td>
+      <td>No</td>
+      <td>255</td>
+      <td>Date where the Recurrence will end; If not sent the recurrence ends only if canceled</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Interval</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Monthly</code></td>
+      <td>Monthly</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bimonthly</code></td>
+      <td>Bimonthly</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Quarterly</code></td>
+      <td>Quarterly</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SemiAnnual</code></td>
+      <td>SemiAnnual</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Annual</code></td>
+      <td>Annual</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The buyer’s credit card data is securely stored within Checkout Cielo, allowing it to be re-used in a recurring transaction. This data is not accessed by the merchant and this intelligence is controlled by Checkout Cielo.</p>
+
+<p>Except the <code class="highlighter-rouge">Payment</code> object that contains a new element specific to the recurrence called <code class="highlighter-rouge">RecurrentPayment</code>, all other objects are equal to the integration with the Cart.</p>
+
+<blockquote>
+  <p>REQUEST</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12344"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome que aparecerá na fatura"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do produto"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do produto"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sku do item no carrinho"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correios"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SourceZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14400000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TargetZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endereço de entrega"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bairro da entrega"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade de entrega"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serviço de frete"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Deadline"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"BoletoDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DebitDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="mi">11111111111</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"FullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano Comprador da Silva"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fulano@email.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11999999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"Options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AntifraudEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Example</strong>: Physical goods</p>
+
+<p>If the product type is <code class="highlighter-rouge">Physical Goods</code>, the <strong>API requires the sending of the type of freight</strong>.
+If there is a recurrence node in the technical contract, the <code class="highlighter-rouge">WithoutShipping</code> type is mandatory, otherwise the following response will be displayed:</p>
+
+<blockquote>
+  <p>RESPONSE</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"[Shipping.Type]"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'."</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>IMPORTANT:</strong> The Recurrence is created only if the transaction is <strong>AUTHORIZED</strong>. Whether or not captured, once authorized, the recurrence process starts.</p>
+
+<h2 id="recurrence-by-button">Recurrence by Button</h2>
+
+<p>One way to perform recurrence within Checkout is to create a recurring button.</p>
+
+<p>Just register the product, including a billing interval and a closing date (Optional), as in the example below:</p>
+
+<p><img src="https://developercielo.github.io/en/images/checkout-botao-recorrencia.png" alt="Recurrence button" /></p>
+
+<p><strong>WARNING:</strong> If a button is used after the registered “End Date”, the transaction will present an error displaying <strong>Oppss</strong> on the transaction screen. The Date can be edited in the editing screen of the button within “Product Details”</p>
+
+<h2 id="retry-of-recurrences">Retry of Recurrences</h2>
+
+<p>If one of the recurrence transactions is not authorized, Checkout Cielo performs the retry automatically, sending a new transaction, considering:</p>
+
+<ul>
+  <li><strong>Time interval between attempts:</strong> 1 day</li>
+  <li><strong>Number of retries:</strong> 3 (three), one per day, for 3 consecutive days from the day following the unauthorized original transaction.</li>
+</ul>
+
+<p><strong>NOTE</strong>: This process aims to maintain a positive response to the authorization process, preventing the merchant from losing the sale. The Retry Process generates duplicate orders within the Backoffice because the original order, the one denied, will be displayed in the Orders list, along with the new authorized transaction</p>
+
+<p><strong>WARNING:</strong>The retry rule can not be modified by the merchant.</p>
+
+<h2 id="querying-transactions">Querying transactions</h2>
+
+<p>Recurrence transactions are available in Backoffice Checkout Cielo like the other sales of your store in the “ORDERS” tab (see image below).</p>
+
+<p>The first transaction of the recurrence is a normal transaction, following the rules and preferences defined by the merchant in the Backoffice.</p>
+
+<p><strong>WARNING:</strong> The value and charge date of the recurring transactions will always be the same as the initial transaction. Scheduling starts automatically from the date the first transaction is authorized.</p>
+
+<p><img src="https://developercielo.github.io/en/images/checkout-consulta-recorrencia.png" alt="Querying transactions" /></p>
+
+<p>This screen shows the date that the 1st recurrence transaction was authorized and should be captured manually. <strong>The other recurrence transactions will always be captured automatically</strong>, regardless of whether the first transaction was captured or canceled. If the Customer has configured Automatic Capture, the recurrence capture will also be automatic.</p>
+
+<p><strong>WARNING:</strong> Only the 1st transaction is subjected to anti-fraud analysis</p>
+
+<h2 id="cancellation-of-recurrence-in-checkout-cielo">Cancellation of Recurrence in Checkout Cielo.</h2>
+
+<p>Recurrence cancellation occurs within Checkout Cielo’s Backoffice, also on the “ORDERS” tab. Just:</p>
+
+<ol>
+  <li>Access a recurrence transaction (marked with the “Recurring” symbol)</li>
+  <li>Enter Details (the “+” symbol)</li>
+</ol>
+
+<p><img src="https://developercielo.github.io/en/images/checkout-cancelar-recorrencia.png" alt="Recurrence order" />
+<br />
+<img src="https://developercielo.github.io/en/images/Checkout/pedidoreccance.png" alt="Recurrence cancellation" /></p>
+
+<p>Recurrence detail screen</p>
+
+<p>In the above screen, there are two Cancel options by buttons:</p>
+
+<ul>
+  <li><strong>Cancel</strong> – Cancels the transaction, without canceling future recurrence transactions.</li>
+  <li><strong>Cancel Recurrence</strong> - Cancels the scheduling of future transactions, ending the recurrence. It does not cancel the current transaction or those that have already occurred. These need to be canceled manually.</li>
+</ul>
+
+<p><strong>WARNING:</strong></p>
+<ul>
+  <li>The Recurrence occurs only for Credit Cards and for products like “SERVICE” and “DIGITAL GOODS”.</li>
+  <li>Recurrence is initiated at the time of AUTHORIZATION, NOT AT THE CAPTURE. If the recurrence does not have a date to be finalized, it will automatically repeat itself until it is manually canceled.</li>
+  <li>Your Cielo affiliation must be enabled to transact without CVV or In recurrence, otherwise all recurring transactions will be denied.</li>
+</ul>
+
+<h2 id="recurrence-edition">Recurrence Edition</h2>
+
+<p>Checkout Cielo allows the merchant to modify 3 recurrence data:</p>
+
+<ul>
+  <li><strong>Activation</strong> - A recurrence can be enabled or disabled. e.g.: Suspension of a signature for a period of 3 months; Just set the Recurrence as inactive.</li>
+  <li><strong>Interval</strong> - It is possible to modify the execution interval.</li>
+  <li><strong>Occurrence day</strong> - It is possible to modify the execution date of the recurring transaction.</li>
+</ul>
+
+<p>The update is done exclusively via Backoffice Cielo.</p>
+
+<h1 id="cielo-support">Cielo Support</h1>
+
+<p>After reading this manual, if any doubts remain (technical or not), Cielo provides technical support 24 hours a day, 7 days a week in languages (Portuguese and English), in the following contacts:</p>
+
+<ul>
+  <li>+55 4002-9700 – <em>Capitals and Metropolitan Regions</em></li>
+  <li>+55 0800-570-1700 – <em>Other Locations</em></li>
+  <li>+55 11 2860-1348 – <em>International</em>
+    <ul>
+      <li>Option 1 – <em>Technical support;</em></li>
+      <li>Option 2 – <em>E-commerce Accreditation.</em></li>
+    </ul>
+  </li>
+  <li>E-mail: <a href="mailto:cieloecommerce@cielo.com.br">cieloecommerce@cielo.com.br</a></li>
+</ul>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Need Help?</h2>
+        <p>If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">send us a message</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Toggle left column" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://developercielo.github.io/en/">
+        <img src="https://developercielo.github.io/en/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contact" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/js/jquery.min.js"></script>
+        <script src="https://developercielo.github.io/en/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://developercielo.github.io/en/assets/js/bootstrap.js"></script>
+        <script src="https://developercielo.github.io/en/assets/js/jquery.tocify.js"></script>
+        <script src="https://developercielo.github.io/en/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://developercielo.github.io/en/assets/js/jquery.highlight.js"></script>
+        <script src="https://developercielo.github.io/en/assets/js/lunr.js"></script>
+        <script src="https://developercielo.github.io/en/assets/js/search.js"></script>
+        
+
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Toggle"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://developercielo.github.io/en/assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json", ]);
+            });
+        </script>
+         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+        
+    </body>
+</html>

@@ -1,91 +1,2489 @@
-/*
-Copyright 2008-2013 Concur Technologies, Inc.
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may
-not use this file except in compliance with the License. You may obtain
-a copy of the License at
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  http://www.apache.org/licenses/LICENSE-2.0
+    <title>
+        
+        Manual de integração &middot; Documentações e tutoriais
+        
+    </title>
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-License for the specific language governing permissions and limitations
-under the License.
-*/
-(function (global) {
-  var languages = [];
+    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
 
-  global.setupLanguages = setupLanguages;
-  global.activateLanguage = activateLanguage;
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://use.fontawesome.com/3ae06f1030.js"></script>
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/poole.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/syntax.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/hyde.css">
 
-  function activateLanguage(language) {
-    if (!language) return;
-    if (language === "") return;
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery.tocify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/prettify.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/custom.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/cielo.css">
 
-    $(".language-group:not(.lock) .language-buttons a").removeClass('active');
-    $(".language-group:not(.lock) .language-buttons a[data-language-name='" + language + "']").addClass('active');
-    for (var i=0; i < languages.length; i++) {
-      $(".language-group:not(.lock) .language-" + languages[i]).hide();
-    }
-    $(".language-group:not(.lock) .language-" + language).show();
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/manual/cielo-lio" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/manual/cielo-lio" />
+        
+    
 
-    //global.toc.calculateHeights();
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
+</head>
 
-    // scroll to the new location of the position
-    if ($(window.location.hash).get(0)) {
-      $(window.location.hash).get(0).scrollIntoView(true);
-    }
-  }
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact" class="help">Ajuda</a>
 
-  // if a button is clicked, add the state to the history
-  function pushURL(language) {
-    if (!history) { return; }
-    var hash = window.location.hash;
-    if (hash) {
-      hash = hash.replace(/^#+/, '');
-    }
-    history.pushState({}, '', '?' + language + '#' + hash);
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
 
-    // save language as next default
-    localStorage.setItem("language", language);
-  }
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/cielo-lio">
+                                    
 
-  function setupLanguages(l) {
-    var currentLanguage = l[0];
-    var defaultLanguage = localStorage.getItem("language");
+                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/cielo-lio">
+                                    
 
-    languages = l;
+                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
 
-    if ((location.search.substr(1) !== "") && (jQuery.inArray(location.search.substr(1), languages)) != -1) {
-      // the language is in the URL, so use that language!
-      activateLanguage(location.search.substr(1));
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
 
-      localStorage.setItem("language", location.search.substr(1));
-    } else if ((defaultLanguage !== null) && (jQuery.inArray(defaultLanguage, languages) != -1)) {
-      // the language was the last selected one saved in localstorage, so use that language!
-      activateLanguage(defaultLanguage);
-    } else {
-      // no language selected, so use the default
-      activateLanguage(languages[0]);
-    }
-  }
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/cielo-lio">Manual de integração</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
 
-  // if we click on a language tab, activate that language
-  $(function() {
-    $(".language-group:not(.lock) .language-buttons a").on("click", function() {
-      var language = $(this).data("language-name");
-      var e = new CustomEvent('languagechange', { 'detail': language});
+            <div class="post">
+  <h1 id="bem-vindo-a-cielo">Bem-vindo a Cielo!</h1>
 
-      pushURL(language);
-      activateLanguage(language);
+<p>Nessa documentação você tem acesso a todas as informações sobre as plataformas de desenvolvimento da Cielo bem como suas principais funcionalidades para integrar com seu negócio.</p>
 
-      window.dispatchEvent(e);
+<p>O objetivo dessa documentação é facilitar o processo de desenvolvimento e integração com a Cielo</p>
 
-      return false;
-    });
-    window.onpopstate = function(event) {
-      activateLanguage(window.location.search.substr(1));
-    };
-  });
-})(window);
+<p>Caso você deseje ser cliente Cielo e possuir uma de nossas soluções de pagamento, acesse https://www.cielo.com.br/seja-nosso-cliente/ e escolha a solução ideal para você vender muito mais.</p>
+
+<h1 id="visão-geral-da-plataforma">Visão Geral da Plataforma</h1>
+
+<h2 id="arquitetura">Arquitetura</h2>
+
+<p>A plataforma Cielo LIO consiste em:</p>
+
+<p>Dispositivo de ponto de venda baseado em Android.</p>
+
+<ul>
+  <li>Uma loja de aplicativos (Cielo Store) para os desenvolvedores publicarem seus aplicativos e os disponibilizarem para os estabelecimentos comerciais.</li>
+  <li>Uma plataforma com arquitetura em nuvem e APIs REST que permite a integração com parceiros. Acesse Documentação da Integração Remota</li>
+  <li>Um SDK para desenvolvimento em Android, de forma que aplicativos de parceiros possam se integrar com as funcionalidades de pagamento da Cielo LIO. Acesse * Documentação da Integração Local</li>
+</ul>
+
+<p>O objetivo da Cielo LIO é fornecer uma plataforma de controle e gestão de negócios que vai além de um sistema de pagamentos tradicional. Essa plataforma suporta aplicativos desenvolvidos para sistema Android, incentivando desenvolvedores parceiros a criar aplicativos especializados para determinados segmentos (restaurantes, vestuário, cosméticos, combustível e outros) e, assim, permitindo que esses estabelecimentos escolham o aplicativo que melhor se adapte ao modelo de negócio da empresa.</p>
+
+<p>Quer conhecer mais sobre o produto Cielo LIO? Acesse: <em><a href="http://cielolio.com.br">http://cielolio.com.br</a></em></p>
+
+<h3 id="modelos-de-integração-com-a-plataforma-cielo-lio">Modelos de integração com a plataforma Cielo LIO</h3>
+
+<p><strong>Integração Remota - Cielo LIO Order Manager</strong></p>
+
+<p>Conjunto de APIs que permitem que o cliente continue utilizando sua solução de PDV/Automação Comercial com todas as funcionalidades. No momento de realizar o pagamento, ocorre a integração com o gerenciador de pedidos (Order Manager) da Cielo LIO, de forma rápida, simples e segura.</p>
+
+<p><strong>Integração Local - Cielo LIO Order Manager SDK</strong></p>
+
+<p>A Cielo disponibiliza um SDK com base na Cielo LIO Order Manager API que permite ao desenvolvedor e parceiro Cielo LIO integrar em sua aplicação as funcionalidades de pagamento do Order Manager da Cielo LIO</p>
+
+<h3 id="funcionalidades-nativas-da-cielo-lio">Funcionalidades nativas da Cielo LIO</h3>
+
+<p>A Cielo LIO possui algumas funcionalidades que são nativas da plataforma:</p>
+
+<ul>
+  <li>Calculadora integrada</li>
+  <li>Pagamentos parciais</li>
+  <li>Relatório de vendas</li>
+  <li>Comprovantes digitais</li>
+  <li>Catálogo de produtos e serviços</li>
+  <li>Gerenciador de pedidos</li>
+  <li>Loja de aplicativos (Cielo Store)</li>
+  <li>Comprovantes físicos (LIO V2)</li>
+  <li>Pagamento com NFC (LIO V2)</li>
+</ul>
+
+<h3 id="diferenças-lio-v1-e-lio-v2">Diferenças LIO V1 e LIO V2</h3>
+
+<p>A Cielo LIO V2, foi um hardware também desenvolvido pela Cielo pensando em atender as necessidades específicas de alguns clientes.</p>
+
+<p>A LIO V2 foi concebida com um tamanho maior do que a LIO V1 e com isso leva aos nossos clientes um design recomendado para utilização em balcões de forma mais estática e com algumas funcionalidades adicionais à LIO V1.</p>
+
+<h3 id="funcionalidades-exclusivas-lio-v2">Funcionalidades exclusivas LIO V2</h3>
+
+<p>A LIO V2 possui todas as funcionalidades presentes na LIO V1 e também:</p>
+
+<p><strong>Impressora térmica</strong>
+Com a LIO V2, o cliente poderá ter a 1ª e 2ª via impressa após o pagamento realizado. Além disso, as aplicações parceiras poderão utilizar os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente.</p>
+
+<p><strong>NFC</strong>
+Na LIO V2 colocamos o NFC como uma outra alternativa de pagamento. Portanto pagamentos poderão ser feitos utilizando cartão ou via contactless.</p>
+
+<h3 id="serviços-periféricos">Serviços periféricos</h3>
+
+<p>A Cielo LIO também se integra com os seguintes periféricos de hardware:</p>
+
+<p>Impressoras Bluetooth (normalmente utilizadas para realizar a impressão de recibos).
+Já existem parceiros que estão utilizando impressoras Bluetooth das marcas Zebra, Datex, Leopardo e outras para se Integrar com a Cielo LIO!
+Todos os protocolos de comunicação e pareamento ficam sob responsabilidade do aplicativo do parceiro.</p>
+
+<h2 id="guia-para-desenvolvedores">Guia para desenvolvedores</h2>
+
+<p>O guia abaixo fornece as informações necessárias para ajudar os desenvolvedores a integrar ou desenvolver seus aplicativos na plataforma Cielo LIO da melhor maneira possível, de modo a oferecer uma experiência excelente para os estabelecimentos comerciais.</p>
+
+<h3 id="hardware">Hardware</h3>
+
+<p>A Cielo oferece a plataforma Cielo LIO com o próprio software baseado em Android..</p>
+
+<p>Confira abaixo a tabela com as especificações técnicas da Cielo LIO:
+<strong>Especificações Técnicas</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Versão</th>
+      <th>LIO v1</th>
+      <th>LIO v2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sistema operacional</td>
+      <td>Android OS Cielo 5.1.1</td>
+      <td>Android OS Cielo 6.0 (Marshmallow)</td>
+    </tr>
+    <tr>
+      <td>Memória</td>
+      <td>2GB LPDDR3</td>
+      <td>1GB LPDDR3</td>
+    </tr>
+    <tr>
+      <td>Dual Chip</td>
+      <td>Dual SIM Stand-by</td>
+      <td>Dual SIM Stand-by</td>
+    </tr>
+    <tr>
+      <td>Tipo do SIM Card</td>
+      <td>micro SIM (3FF)</td>
+      <td>micro SIM (3FF)</td>
+    </tr>
+    <tr>
+      <td>Frequência GSM Mhz</td>
+      <td>Quad-Band 850/900/1800/1900</td>
+      <td>Quad Band 850/900/1800/1900</td>
+    </tr>
+    <tr>
+      <td>Tamanho em polegadas</td>
+      <td>5”</td>
+      <td>5.5”</td>
+    </tr>
+    <tr>
+      <td>Tipo de tela</td>
+      <td>AMOLED</td>
+      <td>AMOLED</td>
+    </tr>
+    <tr>
+      <td>Resolução da tela</td>
+      <td>720 x 1280 pixels</td>
+      <td>720 x 1280 pixels</td>
+    </tr>
+    <tr>
+      <td>Densidade de pixels</td>
+      <td>293 ppi</td>
+      <td>267 ppi</td>
+    </tr>
+    <tr>
+      <td>Câmera</td>
+      <td>12,8 Mega Pixels</td>
+      <td>13 Mega Pixels</td>
+    </tr>
+    <tr>
+      <td>Resolução da câmera</td>
+      <td>4128 x 3096 pixels</td>
+      <td>4160 x 3120 pixels</td>
+    </tr>
+    <tr>
+      <td>Flash</td>
+      <td>Flash LED</td>
+      <td>Flash LED</td>
+    </tr>
+    <tr>
+      <td>USB</td>
+      <td>USB 2.0 Micro-B (Micro-USB) Somente Energia</td>
+      <td>USB 2.0 Micro-B (Micro-USB) Somente Energia</td>
+    </tr>
+    <tr>
+      <td>Bluetooth</td>
+      <td>Versão 4.0 com A2DP</td>
+      <td>Versão 4.0 com A2DP/LE</td>
+    </tr>
+    <tr>
+      <td>WiFi</td>
+      <td>802.11 a/b/g/n</td>
+      <td>802.11 b/g/n</td>
+    </tr>
+    <tr>
+      <td>Memória</td>
+      <td>2GB LPDDR3</td>
+      <td>1GB LPDDR3</td>
+    </tr>
+    <tr>
+      <td>GPS</td>
+      <td>A-GPS, GeoTagging</td>
+      <td>A-GPS</td>
+    </tr>
+    <tr>
+      <td>Sensores</td>
+      <td>Acelerômetro, Proximidade e Luminosidade</td>
+      <td>Acelerômetro, Proximidade e Luminosidade</td>
+    </tr>
+    <tr>
+      <td>Saída de áudio</td>
+      <td>Audio Jack 3,5mm</td>
+      <td>Audio Jack 3,5mm</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="práticas-gerais-recomendadas">Práticas gerais recomendadas</h3>
+
+<ul>
+  <li>Crie uma conta no Portal de Desenvolvedores e acesse a documentação de acordo com a necessidade do seu desenvolvimento de integração com a plataforma da Cielo LIO.</li>
+  <li>Se estiver desenvolvendo um aplicativo para a Cielo LIO, ao término do desenvolvimento e/ou integração com o SDK Order Manager, crie uma conta na Cielo Store para submeter seu apk para certificação e, na sequência, disponibilizá-lo na Cielo LIO. Leia e aceite nossos Termos de Uso para fazer o envio do seu aplicativo.</li>
+  <li>O aplicativo deve atender às necessidades dos estabelecimentos comerciais da Cielo.</li>
+  <li>Teste completamente seu aplicativo antes da submissão. Aplicativos que não funcionam como esperado serão rejeitados na etapa de certificação.</li>
+  <li>Certifique-se de que todos os dados gerados externamente e todas as operações estão sendo realizadas corretamente com a plataforma Cielo LIO.</li>
+  <li>Seu aplicativo deve ter uma boa experiência de ponta a ponta. Aplicativos que não têm uma quantidade significativa e razoável de funcionalidade podem ser rejeitados durante o processo de revisão.</li>
+  <li>O aplicativo em produção deve se autenticar com a Cielo LIO utilizando os tokens de acesso (Client-Id e Access-Tokens), ambos gerados no Portal de Desenvolvedores.</li>
+</ul>
+
+<h3 id="uso-da-api">Uso da API</h3>
+
+<p><strong>Segurança</strong></p>
+
+<p>Proteja os dados confidenciais de clientes e funcionários. Não exponha publicamente nomes, endereços ou números de telefone.
+Nunca exponha tokens de autenticação ou senhas de qualquer tipo.</p>
+
+<p><strong>Rate Limiting</strong></p>
+
+<p>As solicitações da Automação Comercial ou PDV devem ser escalonadas o máximo possível para evitar rajadas de alto volume de tráfego.
+“Cache” seus próprios dados quando você precisar armazenar valores especializados ou revisar rapidamente conjuntos de dados muito grandes.</p>
+
+<p><strong>Melhores práticas</strong></p>
+
+<p>Não crie multithread com chamadas POST, pois esse comportamento pode criar atrasos sistêmicos devido a deadlocks.
+Minimize o uso de dados. Os comerciantes podem estar utilizando conexão com dados móveis limitados.</p>
+
+<h3 id="android-cielo-os">Android (Cielo OS)</h3>
+
+<p><strong>Melhores práticas</strong></p>
+
+<ul>
+  <li>Recomendamos aos desenvolvedores que integrem algum tipo de utilitário de relatório de falhas em seus produtos Android. Isso ajudará você a manter a consciência operacional do seu produto.</li>
+  <li>Os desenvolvedores podem coletar métricas sobre o uso do seu aplicativo. Isso irá ajudá-los a construir melhores produtos e aumentar a conscientização a respeito de quaisquer questões impactantes.</li>
+</ul>
+
+<p><strong>Código de Qualidade</strong></p>
+
+<p>Seu aplicativo deve estar em conformidade com as práticas de programação Java e Android convencionais:</p>
+
+<ul>
+  <li>Diretrizes para desenvolvedores do Android.</li>
+  <li>Princípios de Design Orientado a Objetos (S.O.L.I.D.).</li>
+  <li>Diretrizes de estilo Java.</li>
+  <li>Entenda a diferença entre compileSdkVersion, targetSdkVersion, e minSdkVersion.</li>
+  <li>Aproveite os botões nativos do Android, como os botões “Voltar” e “Início”.</li>
+</ul>
+
+<p><strong>Rotações do dispositivo</strong>
+O recurso de rotação de exibição na Cielo LIO (ambas versões) é desativado.</p>
+
+<p>Pode ser utilizado o método setRequestedOrientation passando a orientação desejada para alterar a orientação, e o getRequestedOrientation() para obter a orientação atual da tela.</p>
+
+<h3 id="design">Design</h3>
+
+<p><strong>Recursos de imagem</strong></p>
+
+<ul>
+  <li>Os ícones dos aplicativos devem ser recursos do mipmap.</li>
+  <li>Os ícones devem estar em conformidade com o dimensionamento padrão do Android (você pode usar geradores de ícones de terceiros para redimensionar seu logotipo): 192 × 192 (xxxhdpi).</li>
+</ul>
+
+<p><strong>Design gráfico</strong></p>
+
+<p>Se o seu aplicativo incluir um componente voltado para o cliente, seu projeto refletirá sobre o negócio usando seu aplicativo. Essas interfaces devem ser agradáveis e profissionais.</p>
+
+<p><strong>Usabilidade</strong></p>
+
+<ul>
+  <li>Seu aplicativo será usado em condições de trabalho de ritmo rápido e dinâmico. Esforce-se para obter fluxos de trabalho claros, fáceis de usar e robustos, com o mínimo de passos possível.</li>
+  <li>O design deve enfatizar clareza e acessibilidade – alto contraste, fontes legíveis, texto grande e entradas.</li>
+  <li>Se você estiver adaptando um aplicativo desenvolvido para outra plataforma, verifique se ele só inclui recursos e botões relevantes para o usuário da Cielo LIO.</li>
+</ul>
+
+<h3 id="publicação">Publicação</h3>
+
+<p><strong>Detalhes da aplicação - Envio para certificação</strong></p>
+
+<p>As seguintes informações são necessárias no momento de enviar seu aplicativo para certificação:</p>
+
+<ul>
+  <li>Uma descrição clara e detalhada da finalidade do app.</li>
+  <li>Uma listagem com as funcionalidades do app.</li>
+  <li>As funções do SDK utilizadas e as APIs utilizadas pelo app.</li>
+  <li>Possíveis casos de uso da aplicação.</li>
+  <li>Alterações relativas à última versão.</li>
+  <li>Dados para acesso. Por exemplo: login e senha relevantes. Caso seja necessário, descreva outro hardware ou os recursos necessários para analisar seu aplicativo.</li>
+  <li>Versão do SDK utilizada.</li>
+  <li>Versão Cielo OS utilizada.</li>
+  <li>Screenshots das telas do app.</li>
+</ul>
+
+<p>Certifique-se de que seu aplicativo não infringe os direitos de propriedade intelectual de terceiros, incluindo a marca Cielo, por exemplo. Não use Cielo ou qualquer outra marca registrada no nome do seu aplicativo para implicar a propriedade ou incluir a marca Cielo no domínio do seu site de ajuda.</p>
+
+<h1 id="integração-remota">Integração Remota</h1>
+
+<h2 id="apresentação">Apresentação</h2>
+
+<p>O objetivo da Integração Remota da Cielo LIO é permitir que o lojista continue utilizando sua solução de frente de caixa (Automação Comercial ou PDV) e a integre com o módulo de pedidos e pagamentos da Cielo LIO através de uma API construída no padrão RESTful.</p>
+
+<p>Dessa forma, toda a gestão do estabelecimento comercial fica sob responsabilidade da Automação Comercial e, no momento de realizar o pagamento, a Cielo LIO é utilizada.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/diagrama-overview.jpg" alt="integração remota" /></p>
+
+<p>A API Order Manager da Cielo LIO possui as seguintes características:</p>
+
+<ul>
+  <li>Recursos REST, de forma que seja possível acessar por meio de semântica HTTP padrão.</li>
+  <li>Códigos de status HTTP para comunicar o sucesso/erro nas chamadas.</li>
+  <li>Todas as requisições e respostas encontram-se no formato JSON.</li>
+  <li>As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.</li>
+</ul>
+
+<h2 id="vídeo-demo">Vídeo Demo</h2>
+
+<p>No vídeo abaixo é possível ver um exemplo de Automação Comercial integrada com a API Order Manager da Cielo LIO.</p>
+
+<p><a href="https://www.youtube.com/watch?v=QxfTkJEN1Qs"><img src="https://img.youtube.com/vi/QxfTkJEN1Qs/0.jpg" alt="Vídeo Demo" /></a></p>
+
+<p>Clique na imagem acima, para acessar o vídeo.</p>
+
+<h3 id="code-sample">Code Sample</h3>
+
+<p>O código do exemplo da Automação Comercial integrada com a API Order Manager da Cielo LIO encontra-se disponível no <a href="https://github.com/cielolabsbr/SampleAutomacaoComercial1.2">GitHub</a>.</p>
+
+<h2 id="fluxo-para-integração">Fluxo para Integração</h2>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-remote-new.png" alt="fluxo integração remota" /></p>
+
+<h2 id="api-docs">API Docs</h2>
+
+<p>Nessa documentação, o desenvolvedor encontra todas as informações sobre os Endpoints, Entidades e Recursos disponíveis na API.</p>
+
+<p>Você poderá consultar os dados de entrada, exemplos de requisição e os dados de saída. Assim como entender o fluxo básico da utilização da API Order Manager da Cielo LIO.</p>
+
+<h3 id="endpoints">Endpoints</h3>
+
+<p>Todas as chamadas devem ser executadas utilizando as respectivas credenciais dos ambientes de sandbox e produção.</p>
+
+<h4 id="sandbox">Sandbox</h4>
+
+<p>O ambiente de sandbox é destinado à realização de testes com parceiros da Cielo. Esse ambiente usa simuladores de integração. Assim, as operações não são executadas em ambiente produtivo.</p>
+
+<p>Para utilizar o ambiente de sandbox, não é necessário que você forneça o número do estabelecimento. Você poderá iniciar os testes sem a necessidade de ter uma Cielo LIO. Para obter os tokens de sandbox, crie uma conta no portal e crie o Client-Id.</p>
+
+<p>Utilize o endereço de sandbox abaixo para realizar os testes:</p>
+
+<blockquote>
+  <p>https://api.cielo.com.br/sandbox-lio/order-management/v1</p>
+</blockquote>
+
+<h4 id="produção">Produção</h4>
+
+<p>O ambiente de produção é o ambiente transacional integrado ao ambiente da Cielo. As operações realizadas nesse ambiente não podem ser desfeitas.</p>
+
+<p>Para utilizar o ambiente de produção, é necessário que você entre em contato através do formulário. Juntamente com os dados pessoais, forneça o número do estabelecimento. Para utilizar o ambiente de produção, é necessário que você possua uma Cielo LIO.</p>
+
+<p>Utilize o endereço de produção abaixo para realizar as requisições:</p>
+
+<blockquote>
+  <p>https://api.cielo.com.br/order-management/v1</p>
+</blockquote>
+
+<p>Já fez os testes em sandbox e deseja solicitar os tokens?</p>
+
+<p>Clique em <a href="https://desenvolvedores.cielo.com.br/api-portal/content/solicitar-tokens-para-producao">Solicitar Tokens</a> ou acesse o menu “Desenvolvedor” no Portal de Desenvolvedores e escolha a opção “Solicitar tokens”.</p>
+
+<p>É necessário estar logado!</p>
+
+<h3 id="http-headers">HTTP Headers</h3>
+
+<p>Todas as chamadas da API Integração Remota Cielo LIO Order Manager necessitam que as informações abaixo estejam presentes no Header na requisição:</p>
+
+<p><strong>Client-Id</strong>: Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna “Client ID”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”.</p>
+
+<p><strong>Access-Token</strong>:Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em “detalhes” na coluna “Access Tokens”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”.</p>
+
+<p><strong>Merchant-Id</strong>: Token que identifica o estabelecimento comercial dentro do servidor Order Manager da Cielo LIO. Sua geração ocorre durante o processo de cadastro do Client ID. Seu valor pode ser visualizado na coluna “Merchant ID”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”.</p>
+
+<h3 id="http-status-code">HTTP Status Code</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Erro</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>Operação realizada com sucesso.</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>A solicitação foi realizada, resultando na criação de um novo recurso.</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>Empty</td>
+      <td>Operação realizada com sucesso, mas nenhuma resposta foi retornada.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Bad Request</td>
+      <td>A requisição possui parâmetro(s) inválido(s).</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>O token de acesso não foi informado ou não possui acesso às APIs.</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>O acesso ao recurso foi negado.</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>O recurso informado no request não foi encontrado.</td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td>Request is to Large</td>
+      <td>A requisição está ultrapassando o limite permitido para o perfil do seu token de acesso.</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Unprocessable Entity</td>
+      <td>A requisição possui parâmetros obrigatórios não informados.</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>Too Many Requests</td>
+      <td>O consumidor estourou o limite de requisições por tempo.</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Internal Server Error</td>
+      <td>Erro não esperado; algo está quebrado na API</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="status-de-pedido">Status de pedido</h3>
+
+<p>Abaixo é apresentada uma máquina de estados, com os possíveis estados que um pedido pode assumir desde o momento de sua criação até o seu término:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/diagrama-lifecycle-new.png" alt="status do pedido" /></p>
+
+<h3 id="entidades">Entidades</h3>
+
+<h4 id="order">Order</h4>
+
+<p>A Order é uma representação de um pedido para a venda de um ou mais produtos e/ou serviços. É fundamental que exista uma Order para que um pagamento seja realizado na Cielo LIO.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Texto</td>
+      <td>UUID que identifica unicamente o pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>number</td>
+      <td>Texto</td>
+      <td>Número do pedido. Geralmente, esse número representa o identificador do pedido em um sistema externo através da integração com parceiros.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>reference</td>
+      <td>Texto</td>
+      <td>Referência do pedido. Utilizada para facilitar o acesso ou a localização do mesmo.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>Texto</td>
+      <td>Status do pedido (ENTERED, RE-ENTERED, PAID, CANCELED e CLOSED).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>Texto</td>
+      <td>Data de criação do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>Texto</td>
+      <td>Data da última atualização do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>items</td>
+      <td>Lista (Order Item)</td>
+      <td>Lista de itens contidos no pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>notes</td>
+      <td>Texto</td>
+      <td>Campo disponível para uso do Merchant para comunicação.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>transactions</td>
+      <td>Lista (Transaction)</td>
+      <td>Lista de transações de pagamento (ou outros tipos) efetuadas no pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>price</td>
+      <td>Número</td>
+      <td>Valor total do pedido. Exemplo: O valor de R$ 10,00 é representado como 1000.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>remaining</td>
+      <td>Número</td>
+      <td>Valor restante do pagamento do pedido. Exemplo: O valor de R$ 10,00 é representado como 1000.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="order-item">Order Item</h4>
+
+<p>O Order Item é uma representação dos itens presentes em uma Order. É obrigatória a existência de, no mínimo, um Item para uma Order.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sku</td>
+      <td>Texto</td>
+      <td>SKU do produto. Exemplo: c2f5fb9a-5542-406e-8b79-17892329cda8.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Texto</td>
+      <td>Nome do produto.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Texto</td>
+      <td>Descrição do produto.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>unit_price</td>
+      <td>Número</td>
+      <td>Valor unitário do produto. Exemplo: O valor de R$ 10,00 é representado como 1000.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>quantity</td>
+      <td>Número</td>
+      <td>Quantidade de itens. Caso não seja informado, será considerado o valor 1.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>unit_of_measure</td>
+      <td>Texto</td>
+      <td>Unidade de medida (EACH, HOURS, DAYS, SECONDS, CRATE_OF_12, SIX_PACK, GALLON e LITRE).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>details</td>
+      <td>Texto</td>
+      <td>Detalhes do produto.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>Texto</td>
+      <td>Data de criação do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>Texto</td>
+      <td>Data de última atualização do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="transaction">Transaction</h4>
+
+<p>A Transaction é uma representação com todos os pagamentos que foram realizados em uma Order. O objetivo é utilizá-la para consultar os pagamentos (transactions) que foram efetuados em uma Order.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>Texto</td>
+      <td>“UUID” que identifica unicamente a transação.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>transaction_type</td>
+      <td>Texto</td>
+      <td>Tipo da transação (PAYMENT e CANCELLATION).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>Texto</td>
+      <td>Status da transação (CONFIRMED, PENDING e CANCELLED).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Texto</td>
+      <td>Descrição da transação.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>terminal_number</td>
+      <td>Número</td>
+      <td>Número do terminal da Cielo LIO em que o pagamento foi realizado.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>card</td>
+      <td>Card (Card)</td>
+      <td>Informações sobre o cartão utilizado na transação.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>number</td>
+      <td>Número</td>
+      <td>Número Sequencial Único (NSU) da transação.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>authorization_code</td>
+      <td>Número</td>
+      <td>Código de autorização da transação.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>payment_product</td>
+      <td>Payment Product (Payment Product)</td>
+      <td>Informações sobre o produto de pagamento utilizado.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>amount</td>
+      <td>Número</td>
+      <td>Valor da transação. Exemplo: O valor de R$ 10,00 é representado como 1000.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>Texto</td>
+      <td>Data de criação do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>Texto</td>
+      <td>Data de última atualização do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="card">Card</h4>
+
+<p>O Card é uma representação do cartão que foi utilizado para realizar o pagamento/transação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>brand</td>
+      <td>Texto</td>
+      <td>Bandeira do cartão (VISA e MASTER).</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bin</td>
+      <td>Número</td>
+      <td>Bin (primeiros 6 dígitos) do cartão.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>last</td>
+      <td>Número</td>
+      <td>Last (últimos 4 dígitos) do cartão.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="payment-product">Payment Product</h4>
+
+<p>O Payment Product é uma representação da forma de pagamento utilizada para realizar um pagamento.
+Ex.: Crédito, Débito, etc.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>number</td>
+      <td>Texto</td>
+      <td>Identificação numérica do produto primário da Cielo.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Número</td>
+      <td>Nome do produto primário utilizado.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>sub</td>
+      <td>Número</td>
+      <td>Produto secundário.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="sub-payment-product">Sub Payment Product</h4>
+
+<p>O Sub Payment Product é uma representação com o complemento da forma de pagamento utilizada para realizar um pagamento.
+Ex.: À Vista, Parcelado, etc.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>number</td>
+      <td>Texto</td>
+      <td>Identificação numérica do produto primário da Cielo.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Número</td>
+      <td>Nome do produto primário utilizado.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="recursos">Recursos</h3>
+
+<h4 id="post---criar-um-pedido">POST - Criar um pedido</h4>
+
+<p>Esse recurso realiza a criação de um pedido no servidor do Order Manager.</p>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>POST</strong> /orders</p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>order</td>
+      <td>Order</td>
+      <td>Informações do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0992f1d5cee540d9a9648f4d6a9e4aa6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PEDIDO #1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DRAFT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2f5fb9a5542406e8b7917892329cda8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b2j4bn6j93461385r5n90453407hjk0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">550</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55329cda842406e8cv2f5gdf96985152d"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2005</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesa 1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">9155</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>body</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2e1d7b07-dcee-4a09-8d09-3bb02d94169d"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="get---consultar-pedido">GET - Consultar pedido</h4>
+
+<p>Esse recurso é utilizado para obter informações sobre um pedido específico. O id do pedido é utilizado para realizar a chamada.</p>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>GET</strong> /orders<id></id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>GET</strong> https://api.cielo.com.br/order-management/v1/orders/c393ce9f-3741-413f-8ad5-2f142eaed51f</p>
+</blockquote>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>order</td>
+      <td>Order</td>
+      <td>Informações sobre o pedido consultado.</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b4d8a7dc-4250-48a3-bf18-d560d4508368"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0992f1d5-cee5-40d9-a964-8f4d6a9e4aa6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOJA SUCO #1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENTERED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesa 6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">5250</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010920335960001"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4QeQD63ZeKsz"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0687f00a-0aea-48f7-85d0-64bc31977734"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000001"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco Detox"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cf561196-4e4c-436b-816b-80190e9a705f"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000010"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Uva"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16b4b10b-9967-477b-91a2-ecc02e6ff40c"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000011"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Tomate"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8500c747-1740-47cf-908a-3ab0f8b44193"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000100"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Abacaxi"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="get---consultar-todos-os-pedidos">GET - Consultar todos os Pedidos</h4>
+
+<p>Esse recurso é utilizado para obter a lista e as informações de todos os pedidos cadastrados no Order Manager.</p>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>GET</strong> /orders/</p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N/A</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>GET</strong>  https://api.cielo.com.br/order-management/v1/orders/</p>
+</blockquote>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>order</td>
+      <td>Order</td>
+      <td>Informações sobre o pedido consultado.</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b4d8a7dc-4250-48a3-bf18-d560d4508368"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0992f1d5-cee5-40d9-a964-8f4d6a9e4aa6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOJA SUCO #1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENTERED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesa 6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">5250</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010920335960001"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4QeQD63ZeKsz"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0687f00a-0aea-48f7-85d0-64bc31977734"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000001"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco Detox"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cf561196-4e4c-436b-816b-80190e9a705f"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000010"</span><span class="p">,</span><span class="w">
+
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Uva"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16b4b10b-9967-477b-91a2-ecc02e6ff40c"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000011"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Tomate"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8500c747-1740-47cf-908a-3ab0f8b44193"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000100"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Abacaxi"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="put--alterar-status-de-um-pedido">PUT- Alterar status de um pedido</h4>
+
+<p>Esse recurso realiza a alteração do status de um pedido criado. O id do pedido é utilizado para realizar a chamada.</p>
+
+<p>As possíveis alterações de status são:</p>
+<ul>
+  <li>PLACE (Liberar um pedido para pagamento, exibir pedido na Cielo LIO)</li>
+  <li>PAY (Alterar um pedido para pago)</li>
+  <li>CLOSE (Fechar um pedido)</li>
+</ul>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>PUT</strong> /orders/<id>?operation=<operation></operation></id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>operation</td>
+      <td>query parameter</td>
+      <td>Operação que deve ser executada. As possíveis operações são: place (Liberar um pedido para pagamento), pay (deixar um pedido como pago) e close (Fechar um pedido).</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>PUT</strong>  https://api.cielo.com.br/order-management/v1/orders/db815e66-e5b6-497c-8444-2120cc87d33a?operation=PLACE</p>
+</blockquote>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N/A</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">N/A</span><span class="w">
+</span></code></pre></div></div>
+
+<p>O retorno 200 dessa operação representa sucesso na requisição.</p>
+
+<h4 id="delete---excluir-um-pedido">DELETE - Excluir um pedido</h4>
+
+<p>Esse recurso é utilizado para excluir um pedido do servidor do Order Manager. O id do pedido é utilizado para realizar a chamada.</p>
+
+<blockquote>
+  <p>Somente os pedidos com status <strong>DRAFT</strong> podem ser excluídos.</p>
+
+  <p>Endpoint:</p>
+
+  <p><strong>DELETE</strong> /orders/<id></id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>DELETE</strong> https://api.cielo.com.br/order-management/v1/orders/db815e66-e5b6-497c-8444-2120cc87d33a</p>
+</blockquote>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N/A</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">N/A</span><span class="w">
+</span></code></pre></div></div>
+
+<p>O retorno 200 dessa operação representa sucesso na requisição.</p>
+
+<h4 id="post---adicionar-itemitens-em-um-pedido">POST - Adicionar Item/Itens em um Pedido</h4>
+
+<p>Esse recurso é utilizado para adicionar um ou mais itens em um pedido já criado. O id do pedido é utilizado para realizar a chamada.</p>
+
+<blockquote>
+  <p>Somente os pedidos com status <strong>DRAFT</strong> podem ser excluídos.</p>
+
+  <p>Endpoint:</p>
+
+  <p><strong>POST</strong> /orders/<id>/items</id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="w">
+    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N/A</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">N/A</span><span class="w">
+</span></code></pre></div></div>
+
+<p>O retorno 200 dessa operação representa sucesso na requisição.</p>
+
+<h4 id="get---consultar-os-itens-de-um-pedido">GET - Consultar os itens de um pedido</h4>
+
+<p>Esse recurso é utilizado para consultar os itens presentes em um pedido. O id do pedido é utilizado para realizar a chamada.</p>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>GET</strong> /orders/<id>/items</id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>GET</strong> https://api.cielo.com.br/order-management/v1/orders/c393ce9f-3741-413f-8ad5-2f142eaed51f/items</p>
+</blockquote>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderItems</td>
+      <td>Lista (OrderItem)</td>
+      <td>Lista de itens de um pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="w">
+        </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2f5fb9a5542406e8b7917892329cda8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="w">
+        </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="put---alterar-um-item-em-um-pedido">PUT - Alterar um item em um pedido</h4>
+
+<p>Esse recurso permite alterar informações de um item de um pedido. O id do pedido e o id_item são utilizados para realizar a chamada.</p>
+
+<blockquote>
+  <p>Somente os pedidos com status <strong>DRAFT</strong> podem ter itens alterados.</p>
+
+  <p>Endpoint:</p>
+
+  <p><strong>PUT</strong> /orders/<id>/items/<id_item></id_item></id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>id_item</td>
+      <td>path parameter</td>
+      <td>Identificador do item do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>PUT</strong> https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7
+/items/8484df74-eca6-4850-8e4c-35653af0bd31</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N/A</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O retorno 200 dessa operação representa sucesso na requisição.</p>
+
+<h4 id="delete---excluir-item-de-um-pedido">DELETE - Excluir Item de um pedido</h4>
+
+<p>Esse recurso é utilizado para excluir um item presente em um pedido. O id do pedido e o id_item são utilizados para realizar a chamada.</p>
+
+<blockquote>
+  <p>Somente os pedidos com status <strong>DRAFT</strong> podem ter itens alterados.</p>
+
+  <p>Endpoint:</p>
+
+  <p><strong>DELETE</strong> /orders/<id>/items/<id_item></id_item></id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>id_item</td>
+      <td>path parameter</td>
+      <td>Identificador do item do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>DELETE</strong> https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7/items/8484df74-eca6-4850-8e4c-35653af0bd31</p>
+</blockquote>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N/A</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O retorno 200 dessa operação representa sucesso na requisição.</p>
+
+<h4 id="post----adicionar-uma-transação">POST -  Adicionar uma Transação</h4>
+
+<blockquote>
+  <p>Recurso utilizado somente para <strong>Ambiente de Sandbox</strong></p>
+</blockquote>
+
+<p>Esse recurso permite que o desenvolvedor simule as transações financeiras, adicionando-as manualmente, sendo possível entender o funcionamento em uma Order.</p>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>POST</strong> /orders/<id>/transactions</id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Transactions</td>
+      <td>Lista (Transaction)</td>
+      <td>Informações da Transação</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>POST</strong> https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7/transactions</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77102XXX"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"490172"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7897"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234589"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22388292"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5151</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>number</td>
+      <td>Identificador da Transação</td>
+      <td>SIM</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"00219dd0-1c13-46da-91e5-1c313f0d2e83"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Em ambiente de Sandbox, onde não há necessidade de ter uma Cielo LIO, e consequentemente não é necessário possuir o número do estabelecimento, faz total sentido fazer essa chamada deste recurso.</p>
+
+<p>Já em ambiente de Produção quem irá criar as transactions é a própria Cielo LIO conforme os pagamentos forem efetuados.</p>
+
+<h4 id="get----consultar-as-transações-de-um-pedido">GET -  Consultar as transações de um pedido</h4>
+
+<p>Esse recurso é utilizado para obter as informações de todas as transações realizadas em um pedido. O id do pedido é utilizado para realizar a chamada.
+Em ambiente de produção, uma vez que um pagamento for realizado na Cielo LIO a transactions será adicionada automaticamente no pedido e então, será possível obter as informações do pagamento realizado a partir da chamada deste recurso.</p>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>GET</strong> /orders/<id>/transactions</id></p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>GET</strong> https://api.cielo.com.br/order-management/v1/orders/c393ce9f-3741-413f-8ad5-2f142eaed51f/transactions</p>
+</blockquote>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>transactions</td>
+      <td>Lista (Transaction)</td>
+      <td>Lista de transações de um pedido.</td>
+      <td>SIM</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40578a65-939e-4613-b8c1-9e7358c6c256"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928273921"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"490172"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7897"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234589"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22388292"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20151020T13:13:29.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20151022T12:13:29.000Z"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="fluxo-básico-utilização-api-order-manager-cielo-lio">Fluxo Básico Utilização API Order manager Cielo LIO</h3>
+
+<p>Abaixo você encontra um fluxo básico para enviar um pedido para a Cielo LIO utilizando a Integração Remota:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-order-manager-slim.png" alt="fluxo_basico" /></p>
+
+<h3 id="notificações-de-mudanças-na-order">Notificações de Mudanças na Order</h3>
+
+<p>O maior motivo da disponibilização da API RESTful do Order Manager é permitir que aplicações parceiras se integrem à plataforma da Cielo na cloud. Porém, uma vez que as aplicações parceiras submetem pedidos, estes devem ser pagos localmente na própria Cielo LIO. Sendo assim, as aplicações parceiras precisam de uma forma de receber notificações de mudanças do status e das transações realizadas na Order.</p>
+
+<p>Para tal, é necessário que o parceiro disponibilize um Backend RESTful, que irá receber as notificações seguindo o formato abaixo. Uma vez recebidas as informações, o Backend tem a liberdade de ser utilizado da forma mais adequada ao modelo de negócio.</p>
+
+<h4 id="put---notificação-de-mudança-de-status">PUT - Notificação de Mudança de Status</h4>
+
+<p>A cada modificação de status em um pedido, o servidor do Order Manager envia, via comando, as informações para o Backend do parceiro.</p>
+
+<p>Requisição do Order Manager</p>
+
+<blockquote>
+  <p><strong>PUT</strong> <url_cadastrada_pelo_parceiro></url_cadastrada_pelo_parceiro></p>
+</blockquote>
+
+<p>Exemplo de informação enviada pelo Order Manager</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f9a9e3c0d31445f7ac419642651f0a52"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STATUS_CHANGED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"old"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENTERED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"new_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAID"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="put---notificação-de-transação-realizada">PUT - Notificação de Transação Realizada</h4>
+
+<p>A cada transação/pagamento realizada em um pedido, o servidor do Order Manager envia, via comando, as informações para o Backend do parceiro.</p>
+
+<p>Requisição do Order Manager</p>
+
+<blockquote>
+  <p><strong>PUT</strong> <url_cadastrada_pelo_parceiro></url_cadastrada_pelo_parceiro></p>
+</blockquote>
+
+<p>Exemplo de informação enviada pelo Order Manager</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c7b1dfc39f59436fbc55db8b4e360a96"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_ADDED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928273921"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"bin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"490172"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7897"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234589"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22388292"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"payment_product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20151020T13:13:29.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20151022T12:13:29.000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="sdk">SDK</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Android"><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/01-sdk-android.png" alt="android" /></a></td>
+      <td><a href="https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-CSHARP"><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/03-sdk-csharp.png" alt="C#" /></a></td>
+      <td><a href="https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Java"><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/04-sdk-java.png" alt="android" /></a></td>
+      <td><a href="https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-PHP"><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/07-sdk-php.png" alt="android" /></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="integração-local">Integração Local</h1>
+
+<h2 id="apresentação-1">Apresentação</h2>
+
+<p>O objetivo da Integração Local da Cielo LIO é permitir que o aplicativo desenvolvido em Android se integre com o módulo de pedidos e pagamentos da Cielo LIO através do Cielo LIO Order Manager SDK.</p>
+
+<p>Nesse modelo de integração, toda a gestão do estabelecimento comercial e da arquitetura da solução fica sob responsabilidade do aplicativo que irá utilizar o SDK nas operações de pagamento.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/diagrama-apresentacao-images.png" alt="modelo de integração" /></p>
+
+<ul>
+  <li>O aplicativo do parceiro rodando na Cielo envia informações para o Cielo LIO Order Manager SDK.</li>
+  <li>O Cielo LIO Order Manager SDK executa os fluxos para pagamento.</li>
+  <li>O aplicativo do parceiro recebe as informações do pagamento e continua sua execução.</li>
+</ul>
+
+<p>As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.</p>
+
+<hr />
+
+<h2 id="vídeo-demo-1">Vídeo Demo</h2>
+
+<p>No vídeo abaixo, é possível ver um exemplo de aplicativo integrado com o Cielo LIO Order Manager SDK, utilizando a função de pagamento de valores do SDK.</p>
+
+<p><a href="https://www.youtube.com/watch?v=d7y-x6p36YU"><img src="https://img.youtube.com/vi/d7y-x6p36YU/0.jpg" alt="Vídeo Demo" /></a></p>
+
+<p>Clique na imagem acima, para acessar o vídeo</p>
+
+<h2 id="code-sample-1">Code Sample</h2>
+
+<p>O código do exemplo do aplicativo integrado com o Cielo LIO Order Manager SDK encontra-se disponível no GitHub.</p>
+
+<p>Fluxo para Integração</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-local-new.png" alt="fluxo para integração" /></p>
+
+<ol>
+  <li>Leia toda a documentação sobre a Integração Local.</li>
+  <li>Crie sua conta no Portal de Desenvolvedores da Cielo para obter todas as funcionalidades que o portal pode oferecer para você, desenvolvedor. É obrigatório possuir uma conta para gerar um Client-Id.</li>
+  <li>Realizando o cadastro de Client ID, o desenvolvedor recebe os tokens</li>
+  <li>(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no Emulador Cielo Lio Confira o link: <a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk">Download do Emulador</a></li>
+  <li>Acesse a <a href="https://www.cieloliostore.com.br/login">Cielo Store</a> e faça o upload do APK da sua aplicação. Ao término do upload, submeta seu aplicativo para certificação e preencha todas as informações necessárias.</li>
+  <li>Ao término do upload submeta seu aplicativo, no próprio ambiente da Cielo Store, para certificação e preencha todas as informações necessárias.</li>
+  <li>Assim que a certificação for concluída, o desenvolvedor receberá um e-mail e deverá acessar novamente a Cielo Store para promover o aplicativo para produção.</li>
+  <li>Agora seu aplicativo já está disponível para download na Cielo Store. Sucesso!! Aproveite ao máximo tudo que a Integração Local Cielo LIO pode oferecer para você!!</li>
+</ol>
+
+<h2 id="cielo-lio-order-manager-sdk">Cielo Lio Order Manager SDK</h2>
+
+<h3 id="sobre">Sobre</h3>
+
+<p>O Cielo LIO Order Manager SDK é uma biblioteca Android desenvolvida com base na Cielo LIO Order Manager API, encapsulando a complexidade da comunicação REST em uma API fluente e amigável ao desenvolvedor e permitindo uma integração simples, rápida e segura com a plataforma Cielo LIO.</p>
+
+<p>O principal objetivo do Cielo LIO Order Manager SDK é simplificar a integração com o sistema de pagamentos e permitir que o desenvolvedor concentre esforços no desenvolvimento das características do seu aplicativo. Abaixo, é apresentado um exemplo em alto nível do processo de utilização do Cielo LIO Order Manager SDK por um aplicativo parceiro:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/sdk-order.jpg" alt="fluxo" /></p>
+
+<ol>
+  <li>O aplicativo do parceiro é responsável por gerenciar todas as informações do pedido e, então, enviá-las para o Cielo LIO Order Manager SDK.</li>
+  <li>O Cielo LIO Order Manager SDK recebe as informações e o fluxo de pagamento para o cliente. Neste fluxo, o cliente irá selecionar a forma de pagamento e digitar a senha no Pinpad, tendo a possibilidade de enviar por e-mail o comprovante do pagamento.</li>
+  <li>Ao término do fluxo de pagamento, o aplicativo do parceiro recebe as informações sobre o pagamento realizado e volta a ser executado na tela da Cielo LIO.</li>
+</ol>
+
+<blockquote>
+  <p><strong>Atenção:</strong> Para utilizar o Cielo LIO Order Manager SDK, é necessário possuir um aplicativo desenvolvido em Android.</p>
+</blockquote>
+
+<p>Para mais informações e detalhes sobre o desenvolvimento de um aplicativo para a Cielo LIO, acesse a documentação Desenvolva um App para LIO.</p>
+
+<h3 id="ambiente-sandbox---emulador">Ambiente Sandbox - Emulador</h3>
+
+<p>A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualquer dispositivo Android, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.</p>
+
+<p>Faça o download do emulador no link abaixo:</p>
+
+<p><a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk">Download do Emulador</a></p>
+
+<p>Para instalar o aplicativo, basta seguir os seguintes passos:</p>
+
+<ul>
+  <li>Acesse as configurações do seu aparelho e vá até o menu “Segurança”;</li>
+  <li>Localize o item “Fontes desconhecidas”, na seção “Administração do dispositivo”</li>
+  <li>Toque na chave ao lado e confirme sua escolha para passar a permitir a instalação de arquivos APK baixados por fontes alternativas.</li>
+</ul>
+
+<h3 id="configurar-módulos-e-dependências">Configurar módulos e dependências</h3>
+
+<p>Após configurar um novo projeto no Android Studio, é necessário incluir a dependência abaixo no projeto.</p>
+
+<p>Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:</p>
+
+<blockquote>
+  <p>compile ‘com.cielo.lio:order-manager:0.15.0’</p>
+</blockquote>
+
+<h3 id="credenciais">Credenciais</h3>
+
+<p>Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">Criação</span><span class="w"> </span><span class="err">das</span><span class="w"> </span><span class="err">credenciais.</span><span class="w"> </span><span class="err">Não</span><span class="w"> </span><span class="err">se</span><span class="w"> </span><span class="err">esquecer</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">substituir</span><span class="w">
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Client-Id</span><span class="w"> </span><span class="err">e</span><span class="w"> </span><span class="err">Access-Token</span><span class="w"> </span><span class="err">por</span><span class="w"> </span><span class="err">suas</span><span class="w"> </span><span class="err">credenciais.</span><span class="w"> 
+    
+    </span><span class="err">Credentials</span><span class="w"> </span><span class="err">credentials</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">Credentials(</span><span class="s2">"Client-Id"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Access-Token"</span><span class="err">);</span><span class="w"> 
+    
+    </span><span class="err">orderManager</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">OrderManager(credentials</span><span class="p">,</span><span class="w"> </span><span class="err">context);</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Client-Id
+Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu ‘Desenvolvedor’ -&gt; ‘Client ID Cadastrados’.</li>
+  <li>Access-Token
+Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em ‘detalhes’ na coluna ‘Access Tokens’, dentro do menu ‘Desenvolvedor’ -&gt; ‘Client ID Cadastrados’.</li>
+</ul>
+
+<h3 id="release-notes">Release Notes</h3>
+
+<p>Na tabela abaixo, é possível verificar as funcionalidades do SDK disponíveis por versão da Cielo LIO e Cielo Mobile.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Funcionalidade</th>
+      <th>Versão Cielo LIO</th>
+      <th>Versão Cielo Mobile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>createDraftOrder(String reference)placeOrder(Order order)updateOrder(Order order)checkoutOrder(String orderId, PaymentListener paymentListener)checkoutOrder(String orderId,long value, PaymentListener paymentListener)</td>
+      <td>1.10.2</td>
+      <td>1.9.1</td>
+    </tr>
+    <tr>
+      <td>retrievePaymentType()checkoutOrder(String orderId,long value, String primaryCode, String secondaryCode, PaymentListener,paymentListener)</td>
+      <td>1.12.0</td>
+      <td>1.10.3</td>
+    </tr>
+    <tr>
+      <td>retrieveOrders(int pageSize, int page)</td>
+      <td>1.13.0</td>
+      <td>1.10.5</td>
+    </tr>
+    <tr>
+      <td>checkoutOrder (String orderId,long value, String primaryCode, String secondaryCode, Long installments, PaymentListener paymentListener)</td>
+      <td>1.14.0</td>
+      <td>1.12.1</td>
+    </tr>
+    <tr>
+      <td>cancelOrder (Context context, String orderId, Payment payment, CancellationListener paymentListener)cancelOrder (Context context, String orderId, Payment payment, Long amount, CancellationListener paymentListener)</td>
+      <td>1.16.7</td>
+      <td>1.12.10</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Atenção:</strong> Se for utilizada uma funcionalidade que não esteja disponível, será lançada uma exceção – UnsupportedOperationExcepetion –, que deve ser tratada pelo aplicativo.</p>
+</blockquote>
+
+<p>Para descobrir a versão do aplicativo Cielo LIO (versão do Launcher) e Cielo Mobile, bem como utilizar todas as funcionalidades do Cielo LIO Order Manager SDK, acesse “Sobre a Cielo LIO” (Ajuda -&gt; Sobre a Cielo LIO) para obter as informações sobre os aplicativos instalados na Cielo LIO.</p>
+
+<h2 id="utilização-cielo-lio-order-manager-sdk">Utilização Cielo LIO Order Manager SDK</h2>
+
+<p>O fluxo básico para utilização do SDK pode ser dividido em 7 etapas, conforme o diagrama abaixo:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-lio-sdk.png" alt="order manager sdk fluxo" /></p>
+
+<p>Abaixo, iremos mostrar como realizar cada uma dessas etapas.</p>
+
+<h3 id="criar-ordermanager">Criar OrderManager</h3>
+
+<p>Este método permite iniciar o OrderManager, que é responsável pelas principais operações do Cielo LIO Order Manager SDK. O OrderManager representa a interface com a API REST do Order Manager.</p>
+
+<p>Tudo começa com a criação do OrderManager!</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">orderManager</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">OrderManager(credentials</span><span class="p">,</span><span class="w"> </span><span class="err">context);</span><span class="w">
+</span></code></pre></div></div>
+
+<p>O construtor do OrderManager recebe 2 parâmetros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>credentials</td>
+      <td>Credenciais de acesso do Parceiro/Desenvolvedor. Depois de se registrar no Portal de Desenvolvedores e criar seu app, o Parceiro/Desenvolvedor recebe as credenciais (Client-Id e Access-Token). Elas servem para identificá-lo unicamente na plataforma LIO e diferenciar as ordens da sua aplicação.</td>
+      <td>cielo.sdk.order.Credentials</td>
+    </tr>
+    <tr>
+      <td>context</td>
+      <td>O contexto da aplicação</td>
+      <td>android.content.Context</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Atenção:</strong> Recomendamos criar/inicializar o OrderManager no aplicativo do parceiro no momento em que for utilizar as funcionalidades, visando otimizar o desempenho do aplicativo</p>
+</blockquote>
+
+<h3 id="vincular-o-contexto-da-aplicação-ao-sdk">Vincular o contexto da aplicação ao SDK</h3>
+
+<p>Com este método – Bind –, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">ServiceBindListener</span><span class="w"> </span><span class="err">serviceBindListener</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">ServiceBindListener()</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">@Override</span><span class="w">
+        </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onServiceBound()</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="err">//</span><span class="w"> </span><span class="err">O</span><span class="w"> </span><span class="err">serviço</span><span class="w"> </span><span class="err">está</span><span class="w"> </span><span class="err">vinculado</span><span class="w"> 
+        </span><span class="p">}</span><span class="w"> 
+    
+        </span><span class="err">@Override</span><span class="w">
+        </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onServiceUnbound()</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="err">//</span><span class="w"> </span><span class="err">O</span><span class="w"> </span><span class="err">serviço</span><span class="w"> </span><span class="err">foi</span><span class="w"> </span><span class="err">desvinculado</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="err">;</span><span class="w"> 
+    </span><span class="err">orderManager.bind(contextActivity</span><span class="p">,</span><span class="w"> </span><span class="err">serviceBindListener);</span><span class="w">
+</span></code></pre></div></div>
+
+<p>O método Bind recebe dois parâmetros:</p>
+
+<ul>
+  <li>
+    <p><strong>contextActivity:</strong> Activity que proverá o contexto a que o serviço será vinculado.</p>
+  </li>
+  <li>
+    <p><strong>serviceBindListener:</strong> Listener que notifica se o serviço foi vinculado ou não.</p>
+  </li>
+</ul>
+
+<p>Com o OrderManager inicializado e após a execução do método onServiceBound, se torna possível ir para a próxima etapa e criar um pedido (classe Order).</p>
+
+<h3 id="criar-um-pedido">Criar um pedido</h3>
+
+<p>A Cielo LIO trabalha com o conceito de Order (pedido). É necessário possuir um pedido para então realizar o(s) pagamento(s).</p>
+
+<p>Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">Order</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">orderManager.createDraftOrder(</span><span class="s2">"REFERÊNCIA_DO_PEDIDO"</span><span class="err">);</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="adicionar-itens-em-um-pedido">Adicionar itens em um pedido</h3>
+
+<p>Este método permite que sejam adicionados itens em um pedido.</p>
+
+<blockquote>
+  <p><strong>Atenção:</strong> É necessário adicionar no mínimo um item a um pedido para que seja possível dar continuidade ao pagamento.</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">Identificação</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">produto</span><span class="w"> </span><span class="err">(Stock</span><span class="w"> </span><span class="err">Keeping</span><span class="w"> </span><span class="err">Unit)</span><span class="w">
+    </span><span class="err">String</span><span class="w"> </span><span class="err">sku</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">"2891820317391823"</span><span class="err">;</span><span class="w">
+    </span><span class="err">String</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">"Coca-cola lata"</span><span class="err">;</span><span class="w">
+    
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Preço</span><span class="w"> </span><span class="err">unitário</span><span class="w"> </span><span class="err">em</span><span class="w"> </span><span class="err">centavos</span><span class="w">
+    </span><span class="err">int</span><span class="w"> </span><span class="err">unitPrice</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="mi">550</span><span class="err">;</span><span class="w">
+    </span><span class="err">int</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="mi">3</span><span class="err">;</span><span class="w">
+    
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Unidade</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">medida</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">produto</span><span class="w"> </span><span class="err">String</span><span class="w">
+    </span><span class="err">unityOfMeasure</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">"UNIDADE"</span><span class="err">;</span><span class="w">
+    
+    </span><span class="err">order.addItem(sku</span><span class="p">,</span><span class="w"> </span><span class="err">name</span><span class="p">,</span><span class="w"> </span><span class="err">unitPrice</span><span class="p">,</span><span class="w"> </span><span class="err">quantity</span><span class="p">,</span><span class="w"> </span><span class="err">unityOfMeasure);</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="liberar-pedido-para-pagamento">Liberar pedido para pagamento</h3>
+
+<p>Este método permite atualizar o status de um pedido e liberá-lo para pagamento. O objetivo é utilizar este método depois de adicionar todos os itens no pedido.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">orderManager.placeOrder(order);</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Após a execução desse método, o status da Order irá trocar de DRAFT para ENTERED, permitindo que a mesma seja paga.</p>
+
+<blockquote>
+  <p><strong>Atenção:</strong> É importante observar que, uma vez que uma Order tenha mudado de status para ENTERED, não será mais possível incluir itens na mesma.
+Iniciar processo de pagamento</p>
+</blockquote>
+
+<p>Este método permite iniciar o processo de pagamento na Cielo LIO.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"O pagamento começou."</span><span class="o">);</span>
+                <span class="o">}</span>
+                
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPayment</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">Order</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"Um pagamento foi realizado."</span><span class="o">);</span>
+                <span class="o">}</span> 
+                
+                <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
+                <span class="o">}</span> 
+                
+                <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"MinhaApp"</span><span class="o">,</span> <span class="s">"Houve um erro no pagamento."</span><span class="o">);</span>
+                <span class="o">}</span>
+    <span class="o">};</span> 
+    
+    <span class="n">String</span> <span class="n">orderId</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+    
+    <span class="kt">long</span> <span class="n">value</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">getPrice</span><span class="o">();</span>
+    
+    <span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h2 id="processo-de-pagamento">Processo de Pagamento</h2>
+
+<p>Existem 4 formas diferentes de chamar o método checkoutOrder:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/checkoutOrder.jpg" alt="checkoutorder formas" /></p>
+
+<h3 id="1-pagamento-parcial">1. Pagamento Parcial</h3>
+
+<p>No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).</p>
+
+<p>Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderId</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>paymentListener</td>
+      <td>Um callback que informa sobre todas as ações tomadas durante o processo de pagamento.   As seguintes ações podem ser notificadas:  * onStart - Quando se dá o início do pagamento. * onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um * pagamento. * onCancel - Quando o pagamento é cancelado. * onError - Quando acontece um erro no pagamento do pedido.</td>
+      <td>cielo.sdk.order.payment.PaymentListener</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fluxo da transação utilizando o pagamento parcial da Cielo LIO</strong></p>
+
+<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcial:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg" alt="fluxo parcial" /></p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://developercielo.github.io/">
+        <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
+        <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
+            var openedHeader = null;
+
+            $("#toc").tocify({
+                
+                selectors: "h1,h2,h3,h4,h5,h6",
+                
+                hashGenerator: "pretty",
+                ignoreSelector: ".no-toc",
+                scrollTo: 100,
+                smoothScroll: false,
+                showEffect: "none"
+            }).data("toc-tocify");
+
+            $('ul').prev('li').addClass('has-subitens');
+            $(window).scroll(function () {
+                if ($('li.active').closest('.tocify-header') !== openedHeader) {
+                    $('li.is-open').removeClass('is-open');
+
+                    openedHeader = $('li.active').closest('.tocify-header');
+                }
+
+                openedHeader.find('ul:visible').prev('li').addClass('is-open');
+            });
+
+            $('.hamburger').click(function() {
+                $('body').toggleClass('sidebar-closed');
+            });
+
+            $('.code-menu').click(function() {
+                $('body').toggleClass('code-menu-closed');
+            });
+
+            prettyPrint();
+        });
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
+        <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
+        <script src="https://developercielo.github.io/assets/js/search.js"></script>
+        
+
+        
+        <script>
+        let langs = '';
+
+        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').each(function (index) {
+            if(!$(this).parent().hasClass('language-group')) {
+                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
+            }
+        });
+
+        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+            let height = $(this).outerHeight();
+
+            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
+        });
+
+        $('.hide-btn').click(function() {
+            $('.content-container').toggleClass('no-dark-box');
+            $('.dark-box').toggle();
+
+            $('.overlay').removeClass('opened');
+            $('.code-fullscreen').removeClass('opened');
+        });
+
+        $('.expand-btn').click(function() {
+            $('.overlay').toggleClass('opened');
+            $(this).parent().parent().parent().toggleClass('opened');
+            $(this).children('i.fa').toggleClass('fa-compress');
+        });
+
+        
+        langs += "<a data-language-name='json'>JSON</a>";
+        
+
+        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://developercielo.github.io/assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                setupLanguages([  "json", ]);
+            });
+        </script>
+         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+        
+    </body>
+</html>
