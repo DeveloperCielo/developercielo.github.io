@@ -541,6 +541,37 @@ O Webservice está disponível através da URL:
 | ErrorReport.Message   | Mensagem de erro correspondente ao código informado                                            | 39 - Erro interno do sistema.<br>44 - Acesso não autorizado, IP não cadastrado<br>46 - Usuário incorreto, e/ou não tem acesso a loja. |
 | FileContent           | Para requisições com Sucess="true", será enviado o conteúdo binário codificado na base64 UTF-8 | QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==                                                                                              |
 
+## Apêndice: 
+
+### Utilizando o arquivo de Schema Definition (XSD)   
+
+Uma forma de integração com o Arquivo de Fluxo de Caixa do Conciliador no formato XML de maneira programada ou automática, é feita através do arquivo de definição de esquema, ou `XML Schema Definition File`.   
+
+O XML Schema é uma linguagem baseada no formato XML para definição de regras de validação ("esquemas") em documentos no formato XML. Foi a primeira linguagem de esquema para XML que obteve recomendação por parte do **W3C**. Esta linguagem é uma alternativa ao **DTD**, cuja sintaxe não é baseada no formato XML.   
+Foi amplamente utilizado para desenvolvimento da NF-e (Nota Fiscal Eletrônica) Brasileira.   
+
+Um arquivo contendo as definições na linguagem XML Schema é chamado de **XSD (XML Schema Definition)**, este descreve a estrutura de um documento XML.   
+
+O conciliador possui arquivos XSD para cada um de seus arquivos em XML. Desta forma, é possível, programaticamente compreender a estrutura do XML, supondo que o arquivo XSD seja corretamente interpretado pela ferramenta.   
+
+Neste manual, não serão citadas todas as formas de se trabalhar com o arquivo, entretanto, podemos demonstrar, através da utilização de uma ferramenta provida pela IDE de desenvolvimento Visual Studio, como gerar, programaticamente uma Classe em código-fonte que pode representar o conteúdo do arquivo.   
+
+Desta forma, será possível deserializar o conteúdo de qualquer arquivo dentro desta classe, e com isto utilizar os arquivos de conciliação em um sistema com código orientado a objetos.   
+
+Criando a classe do arquivo por meio do arquivo de definição de esquema   
+Com os arquivos de definição de esquema, você deverá utilizar uma ferramenta que pode ser acessada à partir da linha de comando da IDE do Visual Studio (Visual Studio Command Prompt). O nome do executável é “xsd” (sem aspas).   
+
+O executável possui uma série de parâmetros para customizar a geração da sua classe a partir do arquivo de definição de esquema. Caso você queira ver todas as opções, consulte a URL https://msdn.microsoft.com/en-us/library/x6c1kb0s(v=VS.100).aspx.   
+No exemplo abaixo, utilizamos o comando para gerar a classe da forma mais básica. Acesse o diretório onde os arquivos de esquemas estão salvos(normalmente são dois arquivos, “ConciliationFile.xsd” e “Guid.xsd”), usando o comando CD do DOS.   Uma vez dentro deste diretório, basta executar o comando conforme abaixo: 
+xsd  
+
+ConciliationFile.xsd Guid.xsd /classes   
+
+Um exemplo do efeito disto na linha de commando é demonstrado na imagem abaixo. A classe gerada terá o nome 
+**“ConciliationFile_Guid.cs”**. 
+Esta classe pode ser inserida em um projeto na linguagem C#, e com algumas alterações pode representar o conteúdo do arquivo por meio de deserialização.   
+Consulte o suporte de sua linguagem de desenvolvimento para verificar se a mesma possui algum tipo de automatização para interpretar a leitura do arquivo em XML. Isto pode facilitar seu processo de desenvolvimento e aprendizado do layout do mesmo
+
 # Arquivos Fluxo de Caixa 2.0 - CSV
 
 Teste
