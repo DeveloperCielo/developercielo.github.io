@@ -11,6 +11,50 @@ language_tabs:
   xml: XML
 ---
 
+# Arquivos de vendas Externas - CSV
+
+## Arquivo de Transações para Upload
+
+O arquivo de transações para upload é um arquivo de texto, mais especificamente um arquivo de valores separados por ponto-e-vírgula (CSV).
+As informações são guardadas em três tipos de registros, Header, Transação e Trailer.
+
+## Registro Header
+Apenas um registro deste tipo é permitido por arquivo. O registro header deve estar na primeira linha do arquivo. O registro segue o seguinte padrão:
+
+> [Tipo de Registro];[Versão do Layout];[Período Inicial];[Período Final] 
+
+| Campo            | Tamanho | Descrição                                                                                                      |
+|------------------|---------|----------------------------------------------------------------------------------------------------------------|
+| Tipo de Registro | 1       | Tipo de registro. Para o Header, este valor será sempre 0.                                                     |
+| Versão do layout | 3       | Identifica qual a versão do layout do arquivo. A versão mais atual é 001.                                      |
+| Período Inicial  | 8       | Identifica a data que corresponde à data da transação mais antiga contemplada no arquivo. Formato “yyyyMMdd”.  |
+| Período Final    | 8       | Identifica a data que corresponde à data da transação mais recente contemplada no arquivo. Formato “yyyyMMdd”. |
+
+## Registro Transação
+
+Cada transação feita pela loja será demonstrada nesse registro, que se repetirá quantas vezes forem necessárias, a partir da linha 2 (logo após o Header). O registro segue o seguinte padrão:
+
+> [Tipo de Registro];[Pedido];[Afiliação];[Adquirente];[TID];[NSU/DOC];[Código de Autorização] ; [Número do Cartão];[Valor];[Quantidade de Parcelas];[Data da Venda];[Hora da venda] ; [Identificador da filial]
+
+| Campo                    | Tipo           | Tamanho | Descrição                                                                                           |
+|--------------------------|----------------|---------|-----------------------------------------------------------------------------------------------------|
+| Tipo de Registro         | Domínio2       | N/A     | Tipo de registro. Para a transação, este valor será sempre 1.                                       |
+| Pedido                   | Texto          | 0~64    | Número do pedido.                                                                                   |
+| Afiliação1               | Inteiro3       | N/A     | Código de afiliação na adquirente.                                                                  |
+| Adquirente1              | Domínio2       | N/A     | Identificador da adquirente. <br>1 = Cielo<br>2 = Redecard<br>3 = Amex<br>4 = Losango<br>5 = GetNet |
+| TID                      | Texto          | 0~20    | TID da transação.                                                                                   |
+| NSU/DOC1                 | Inteiro longo4 | N/A     | NSU/DOC da transação.                                                                               |
+| Código de autorização    | Texto          | 0~6     | Código de autorização da transação.                                                                 |
+| Número do cartão         | Texto          | 0~24    | Número do cartão utilizado na transação (mascarado conforme normas PCI).                            |
+| Valor1                   | Inteiro3       | N/A     | Valor da transação em centavos.                                                                     |
+| Quantidade de parcelas1  | Byte5          | N/A     | Quantidade de parcelas em que a transação foi dividida. 1 = Transações à vista                      |
+| Data da venda            | Domínio2       | 8       | Data da venda da transação. Formato “yyyyMMdd”.                                                     |
+| Hora da venda            | Domínio2       | 8       | Hora da venda da transação. Formato “HH:mm:ss”.                                                     |
+| Identificador da filial1 | Texto          | 0~256   | Identificador da filial da loja.                                                                    |
+| Documento do cliente     | Texto          | 0~32    | Numero do documento de identificação do cliente.                                                    |
+| Nome do cliente          | Texto          | 0~256   | Nome do cliente.                                                                                    |
+| Email do cliente         | Texto          | 0~256   | Email de contato do cliente.                                                                        |
+
 # Arquivos Fluxo de Caixa 2.0 - XML
 
 ## Introdução
