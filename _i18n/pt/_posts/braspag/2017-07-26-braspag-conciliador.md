@@ -601,6 +601,169 @@ Este manual tem como objetivo orientar o desenvolvimento do Arquivo de Fluxo de 
 O principal insumo do Conciliador são os extratos eletrônicos gerados pelas adquirentes. Devido a isso, podem existir particularidades entre cada uma.      
 Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato eletrônico.    
 
+### Prazo de registro no extrato eletrônico (Tabela II)
+
+| Adquirente    | Captura                                         | Pagamento       | Observação                                                                                                                                                  |
+|---------------|-------------------------------------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cielo         | D+1                                             | D               | Pagamentos são realizados de Segunda à Sexta                                                                                                                |
+| Rede          | D+1                                             | D -1            | Pagamentos são realizados de Segunda à Sexta                                                                                                                |
+| Amex          | Entre D+1 à  D+2                                | Entre D-4 à D-6 | *Desconsiderar do prazo a segunda feira, pois os extratos  não são gerados. Nestes dias o arquivo do Conciliador será disponibilizado somente com o header. |
+| GetNet        | D+1                                             | D               | Pagamentos são realizados de Segunda à Sexta                                                                                                                |
+| Ticket        | D+30 ajustada ao dia de recebimento do cliente  | D               | Pagamentos são realizados de Segunda à Sexta                                                                                                                |
+| Sodexo        | D+30 ajustada ao dia de recebimento do cliente  | D               | Pagamentos são realizados de Segunda à Sexta                                                                                                                |
+| Stone         | Cartão de Débito: D+1 - Cartão de Crédito: D+30 | D               | Pagamentos são realizados de Segunda à Sexta                                                                                                                |
+| GlobalCollect | Cartão de Débito: D+1 - Cartão de Crédito: D+30 |                 | Pagamentos são realizados de Segunda à Sexta                                                                                                                |
+| FirstData     | Cartão de Débito: D+1 - Cartão de Crédito: D+30 | D               | Pagamentos são realizados de Segunda à Sexta                                                                                                                |
+
+### Registro Header (Tabela III)   
+
+| Campo                                  | Tipo               | Formato        | Descrição                                                                                                                              |
+|----------------------------------------|--------------------|----------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Identificador do Registro              | Numérico (Inteiro) | N              | Constante com valor 1                                                                                                                  |
+| Identificador da Loja                  | Numérico (Inteiro) | N              | Contém o identificador único da loja no Conciliador                                                                                    |
+| Identificador da Adquirente            | Numérico (Inteiro) | {N}            | 1 = Cielo<br>2 = Redecard<br>3 = Amex<br>5 = Getnet<br>6 = Ticket<br>7 = Stone<br>8 = Sodexo<br>9 = Global Payments<br>10 = First Data |
+| Geração do arquivo                     | Data/Hora          | ddMMyyyyHHmmss | Contém a data e a hora da geração do arquivo pelo Conciliador                                                                          |
+| Período inicial                        | Data               | ddMMyyyy       | Data inicial do período de conciliação contemplado pelo arquivo                                                                        |
+| Período final                          | Data               | ddMMyyyy       | Data final do período de conciliação contemplado pelo arquivo                                                                          |
+| Número sequencial                      | Numérico (Inteiro) | N              | Número sequencial que indica a ordem de processamento dos arquivos diários                                                             |
+| Identificador do tipo de processamento | Numérico (Inteiro) | {N}            | 1 = Arquivo diário  <br> 2 = Arquivo reprocessado                                                                                      |
+| Descrição do tipo de processamento     | Alfanumérico       | A              | “Daily” ou “Reprocessed” (Diário ou reprocessado)                                                                                      |
+| Versão do arquivo                      | Alfanumérico       | A              | Versão do arquivo (“2.0”)                                                                                                              |
+
+### Registro de Transação Conciliada (Tabela IV)
+
+| Campo                                | Tipo               | Formato | Descrição                          |
+|--------------------------------------|--------------------|---------|------------------------------------|
+| Identificador do Registro            | Numérico (Inteiro) | N       | Constante com valor  2             |
+| Identificador do tipo de conciliação | Numérico (Inteiro) | {N}     | 1   = Automática  <br>2   = Manual |
+| Descrição do tipo de conciliação     | Alfanumérico       | A       | “Automatic” ou  “Manual”           |
+
+### Registro de Conciliação Manual (Tabela V)
+
+| Campo                                | Tipo               | Formato | Descrição                          |
+|--------------------------------------|--------------------|---------|------------------------------------|
+| Identificador do Registro            | Numérico (Inteiro) | N       | Constante com valor  9             |
+| Usuario de conciliação manual        | Alfanumérico)      | A       | Login do usuario que efetuou a conciliação manual |
+| Data e hora da conciliação manual    | Data/hora          | ddmmyyyyhhmmss       | Data e hora sm que a conciliação manual foi efeturada pelo usuário  |
+
+### Registro de Informação de Venda (Tabela VI)
+
+| Campo                                           | Tipo                               | Formato  | Descrição                                                                                                           |
+|-------------------------------------------------|------------------------------------|----------|---------------------------------------------------------------------------------------------------------------------|
+| Identificador do Registro                       | Numérico (Inteiro)                 | N        | Constante com valor 3                                                                                               |
+| Identificador Único da  Venda no Conciliador    | Identificador Único  Global (GUID) | G        | Identificador único do Conciliador para as informações de venda1                                                    |
+| Identificador da Venda no  Sistema Transacional | Alfanumérico                       | A        | Identificador da Venda obtido a partir do Sistema transacional no qual a transação foi processada com a Adquirente² |
+| Identificador da Filial                         | Alfanumérico                       | A        | Identificador da Filial da loja que processou a venda3                                                              |
+| Código de Afiliação                             | Alfanumérico                       | A        | O código de afiliação da adquirente, informado nos dados da venda do cliente                                        |
+| Número do Pedido                                | Alfanumérico                       | A        | O número do pedido associado à venda no lojista4                                                                    |
+| Código de Autorização                           | Alfanumérico                       | A        | O Código de Autorização da transação que o Lojista recebeu da Adquirente                                            |
+| Data da Venda                                   | Data                               | ddMMyyyy | A data em que foi realizada a venda no lojista                                                                      |
+| Data da Captura                                 | Data                               | ddMMyyyy | A data da captura recebida pelo lojista                                                                             |
+| Valor da transação                              | Numérico (Inteiro)                 | N        | O valor da transação em centavos5                                                                                   |
+| Número de parcelas                              | Numérico (Inteiro)                 | N        | A quantidade de parcelas na qual a transação foi dividida                                                           |
+| Nome do comprador                               | Alfanumérico                       | A        | O nome do comprador do produto                                                                                      |
+| Documento do comprador                          | Alfanumérico                       | A        | Documento de identificador do comprador (RG, CPF, etc.)                                                             |
+| E-mail do comprador                             | Alfanumérico                       | A        | Endereço de e-mail do comprador                                                                                     |
+| Número do cartão                                | Alfanumérico                       | A        | Número do cartão (crédito ou débito) utilizado na venda                                                             |
+| TID                                             | Alfanumérico                       | A        | Identificador da transação e-commerce na Cielo, recebido pelo lojista                                               |
+| NSU                                             | Número                             | N        | Número sequencial da transação na  Adquirente, recebido pelo lojista                                                |
+| Valor da taxa IATA                              | Número                             | N        | Valor da taxa IATA (apenas para setor aéreo), em centavos                                                           |
+| Tipo de Integração                              | Alfanumérico                       | A        | Nome do meio de pagamento utilizado no caso da transação efetuada no  gateway Pagador                               |
+
+  	  
+1. As informações de venda são as transações enviadas pelo cliente do mundo físico, ou do  gateway/sistema transacional utilizado para efetuar as transações. São a primeira parte da conciliação. O Identificador Único da Venda pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:   
+
+> https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?SaleTransactionId=[ID] 
+
+Onde o texto [ID] deve ser substituído pelo identificador informado no registro.   
+
+2. O identificador da Venda no Sistema Transacional é o Identificador da Transação que é utilizado pelo sistema que efetuou a venda, seja ele um Gateway ou Sistema de Caixa/POS. Este valor pode ou não ser fornecido durante a importação da venda para o Conciliador. É de responsabilidade do cliente a decisão de informá-lo ou não.   
+3. O identificador da Filial deve ser fornecido pelo cliente toda vez que a importação de uma venda é realizada para o Conciliador. Apesar de não haver restrições para o formato do identificador da filial (campo Alfanumérico), é obrigatório que cada Filial possua um identificador único.   
+4. O Gerenciamento do Número do Pedido é de inteira responsabilidade do lojista. O Conciliador apenas armazena esta informação, mas nenhum tipo de validação é feito.   
+5. O Valor da Transação não é o valor das parcelas. O valor informado aqui é o valor integral da mesma, da forma como informado pelo cliente/gateway.   
+
+### Registro de Informação da Adquirente (Tabela VII)
+
+| Campo                                                              | Tipo                               | Formato  | Descrição                                                                                                            |
+|--------------------------------------------------------------------|------------------------------------|----------|----------------------------------------------------------------------------------------------------------------------|
+| Identificador do Registro                                          | Numérico (Inteiro)                 | N        | Constante com valor 4                                                                                                |
+| Identificador Único da  Transação no Conciliador                   | Identificador Único  Global (GUID) | G        | Identificador Único das  informações da Adquirente                                                                   |
+| Código de Afiliação                                                | Numérico                           | N        | O Código de Afiliação informado na venda do Extrato.                                                                 |
+| Número do Lote                                                     | Numérico (Inteiro)                 | N        | O número do Lote (Resumo de Vendas) ao qual a transação pertence na Adquirente.                                      |
+| Número do Cartão                                                   | Alfanumérico                       | A        | O número do cartão usado na compra2                                                                                  |
+| Data da Venda                                                      | Data                               | ddMMyyyy | A data em que a venda foi efetuada, segundo as informações do extrato.                                               |
+| Valor bruto da Transação                                           | Numérico (Inteiro)                 | N        | Valor bruto da transação em centavos.                                                                                |
+| Valor da taxa de adquirência deduzido da transação                 | Numérico (Inteiro)                 | N        | Valor deduzido do valor bruto da transação como taxa de adquirência, em centavos.                                    |
+| Valor líquido da transação                                         | Numérico (Inteiro)                 | N        | Valor que será recebido pelo lojista, após a dedução da taxa de Adquirência sobre o valor bruto, em centavos.        |
+| Valor bruto da parcela de arredondamento                           | Numérico (Inteiro)                 | N        | Valor bruto da parcela de arredondamento, em centavos3                                                               |
+| Valor da taxa de adquirência deduzido da parcela de arredondamento | Numérico (Inteiro)                 | N        | Valor deduzido do valor bruto da parcela de arredondamento como taxa de adquirência, em centavos.                    |
+| Valor líquido da parcela de arredondamento                         | Numérico (Inteiro)                 | N        | Valor que será recebido pelo lojista como valor da parcela de arredondamento, após a dedução da taxa de adquirência. |
+| Valor bruto das demais parcelas                                    | Numérico (Inteiro)                 | N        | Valor bruto das demais parcelas da transação, em centavos.                                                           |
+| Valor da taxa de adquirência deduzido das demais parcelas          | Numérico (Inteiro)                 | N        | Valor deduzido do valor bruto das demais parcelas como taxa de adquirência, em centavos.                             |
+| Valor líquido das demais parcelas                                  | Numérico (Inteiro)                 | N        | Valor que será recebido pelo lojista como valor das demais parcelas, após a dedução da taxa de adquirência.          |
+| Taxa de adquirência                                                | Numérico (Inteiro)                 | N        | A taxa de adquirência sobre a transação                                                                              |
+| TID                                                                | Alfanumérico                       | A        | O identificador da transação ecommerce na adquirente Cielo.                                                          |
+| NSU                                                                | Numérico (Inteiro)                 | N        | O número sequencial da transação na Adquirente                                                                       |
+| Valor da taxa IATA                                                 | Numérico (Inteiro)                 | N        | O valor da taxa IATA (apenas para setor aéreo), cobrado sobre a transação, em centavos.                              |
+| Número do Pedido                                                   | Alfanumérico                       | A        | O Número do Pedido recebido pela adquirente durante a concretização da transação.                                    |
+| Número lógico do Terminal                                          | Alfanumérico                       | A        | O número do terminal utilizado para efetuar a transação.                                                             |
+| Data de Captura                                                    | Data                               | ddMMyyyy | A data da captura da transação na Adquirente.                                                                        |
+| Identificador Único do Lote                                        | Numérico (Inteiro  Longo)          | N        | O identificador único do Lote (Resumo de Vendas) na adquirente Cielo                                                 |
+|                                                                    |                                    |          | Cielo.                                                                                                               |
+| Quantidade de Parcelas                                             | Númerico (Inteiro)                 | N        | A quantidade de parcelas na qual a transação foi dividida na Adquirente.                                             |
+| Código de Autorização                                              | Alfanumérico                       | A        | O código de autorização da transação informado pela adquirente.                                                      |
+| Identificador do Meio de  Captura                                  | Numérico (Inteiro)                 | N        | O identificador do meio  tecnológico utilizado para capturar a transação na   Adquirente5                            |
+| Descrição do Meio de Captura                                       | Alfanumérico                       | A        | A descrição do meio tecnológico utilizado para capturar a transação na  Adquirente5                                  |
+| Identificador da Bandeira                                          | Numérico (Inteiro)                 | N        | O identificador da bandeira do cartão utilizado para efetuar a transação6                                            |
+| Nome da Bandeira                                                   | Alfanumérico                       | A        | O nome da bandeira do cartão utilizado para efetuar a transação6                                                     |
+| Identificador do tipo de cartão                                    | Numérico (Inteiro)                 | N        | O identificador do tipo do cartão: - 1: Debit  - 2: Credit                                                           |
+| Nome do tipo de cartão                                             | Tipo de cartão                     | A        | O nome do tipo do cartão utilizado para efetuar a transação                                                          |
+| Código de Identificação do  Produto na Cielo                       | Numérico (Inteiro)                 | N        | O código que identifica o   Produto da Adquirente Cielo utilizado para efetuar a transação7                          |
+| Descrição do Produto na Cielo                                      | Alfanumérico                       | A        | A descrição do Produto na Adquirente Cielo utilizado para efetuar a transação7                                       |
+
+1. As informações da adquirente são os dados da venda que o Conciliador recebe dos extratos eletrônicos, o meio de integração da adquirente com os sistemas externos. São a segunda parte da conciliação. O Identificador Único da Transação pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:   
+
+> https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?AcquirerTransactionId=[I D]   
+
+Onde o texto [ID] deve ser substituído pelo identificador informado no registro.   
+
+2. Devido à restrições de segurança, o número do cartão será informado de forma mascarada.   
+3. Quando uma transação é dividida em uma quantidade de parcelas onde o valor não pode ser distribuído igualmente entre as parcelas, surge a necessidade de colocar um valor extra em uma parcela específica. Esta parcela é chamada de parcela de arredondamento. Como exemplo, podemos adotar uma transação de R$ 100,00 dividida em três parcelas. Se a primeira parcela for a parcela de arredondamento, ela terá o valor de R$ 33,34 – enquanto as duas outras parcelas terão o valor de R$ 33,33.   
+4. A taxa de adquirência normalmente é expressa em porcentagem. O campo demonstra essa porcentagem multiplicada por 100. Portanto, se o valor deste campo for expresso como 275, isto indica uma taxa de adquirência de 2,75%.   
+5. Tabelas com os meios de captura informados estão disponíveis no Apêndice do Manual.   
+6. Uma tabela com as bandeiras disponíveis está disponível no Apêndice do Manual.   
+7. Uma tabela com os tipos de produto está disponível no Apêndice do Manual.  
+
+### Registro de Evento
+
+| Campo                                         | Tipo                               | Formato  | Descrição                                                                                                                                                          |
+|-----------------------------------------------|------------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Identificador do Registro                     | Numérico (Inteiro)                 | N        | 5 = Evento Financeiro de Transação <br> 6 = Evento Informativo de Transação <br> 7 = Eventos financeiros de Afiliação <br> 8 = Eventos  informativos de Afiliação1 |
+| Identificador Único do Evento no  Conciliador | Identificador Único  Global (GUID) | G        | O identificador único do do  Evento no Conciliador2                                                                                                                |
+| Data do evento                                | Data                               | ddMMyyyy | A data em que o evento está previsto para ser realizado, ou a data em que foi realizado (no caso de evento realizado)                                              |
+| Identificador da Categoria de Evento          | Numérico (Inteiro)                 | N        | O identificador da categoria do evento3                                                                                                                            |
+| Descrição da Categoria de Evento              | Alfanumérico                       | A        | A descrição da categoria do evento3                                                                                                                                |
+| Identificador do Tipo de Evento               | Numérico (Inteiro)                 | {N}      | 1   = Realizado <br> 2 = Previsto <br> 3 = Pendente                                                                                                                |
+| Descrição do Tipo de Evento                   | Alfanumérico                       | A        | “Preview”, “Realized” ou “Pending”                                                                                                                                 |
+| Código de Afiliação                           | Numérico                           | N        | O código de afiliação do estabelecimento no qual o evento foi executado                                                                                            |
+| Parcela da Transação                          | Numérico                           | N        | A parcela da transação a qual o evento se refere4                                                                                                                  |
+| Valor Bruto                                   | Numérico                           | N        | O valor financeiro do evento contemplado, antes da dedução da taxa de adquirência, em centavos.                                                                    |
+| Valor Líquido                                 | Numérico                           | N        | O valor líquido do evento, após a redução da taxa de adquirência, em centavos.                                                                                     |
+| Valor da Taxa                                 | Numérico                           | N        | O valor da taxa de adquirência sobre o evento, em centavos                                                                                                         |
+| Banco                                         | Numérico                           | N        | O código do banco do domicílio bancário sobre o qual o evento financeiro é ou será lançado                                                                         |
+| Agência                                       | Numérico                           | N        | O código da agência do domicílio bancário sobre o qual o evento financeiro é ou será lançado                                                                       |
+| Número da Conta                               | Alfanumérico                       | A        | O número da conta do domicílio bancário sobre o qual o evento financeiro é ou será lançado                                                                         |
+| Código do Ajuste                              | Alfanumérico                       | A        | O código que identifica o tipo de ajuste (apenas para eventos de ajustes)                                                                                          |
+| Descrição do Ajuste                           | Alfanumérico                       | A        | A descrição do ajuste (apenas para eventos de ajustes)                                                                                                             |
+| Número da Operação de Antecipação na Cielo    | Numérico                           | N        | O número da Operação de Antecipação (apenas para eventos derivados de antecipações na Cielo)                                                                       |
+| Data original de pagamento                    | Data                               | ddMMyyyy | A data original para a qual o evento de pagamento estava previsto (apenas para eventos de antecipações)                                                            |
+
+1. Os eventos são divididos em 2 tipos: Eventos financeiros são eventos que informam cobranças ou pagamentos na agenda financeira da adquirente com o lojista. Eventos informacionais são avisos de alterações na agenda (reagendamentos de eventos financeiros) ou outras informações não financeiras (captura de transação). Além disso, eles podem estar ligados à transações ou não. Caso estejam ligados à transações, eles aparecerão logo abaixo dos registros de transações aos quais se referem. Caso contrário, serão mencionados no final do arquivo. Utilize corretamente o identificador do registro para saber como tratar estes eventos pela sua ligação.   
+2. O Identificador Único do Evento pode ser utilizado para visualizar os dados do evento no WebSite do Conciliador, preenchendo a URL:  https://reconciliation.braspag.com.br/WebSite/Reports/EventDetails.aspx?Id=[ID] Onde o texto [ID] deve ser substituído pelo identificador informado no registro.   
+3. Uma tabela com as categorias de evento está disponível no apêndice do Manual.   
+4. Certos eventos podem não se referir à uma parcela da transação, como Estornos ou Chargebacks.   
+Nesses casos, o campo Parcela da Transação ficará vazio.   
+
 ## Meios de Captura
 
 ### Cielo
