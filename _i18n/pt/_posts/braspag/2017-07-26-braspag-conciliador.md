@@ -271,6 +271,276 @@ A tabela abaixo é valida para:
 | 7                    | Mobile     |
 | 8                    | Outros     |
 
+## Bandeiras
+
+| Código/Identificador | Descrição               |
+|----------------------|-------------------------|
+| 0                    | Desconhecido/Indefinido |
+| 1                    | VISA                    |
+| 2                    | Mastercard              |
+| 3                    | ELO                     |
+| 4                    | Diners                  |
+| 5                    | Cabal                   |
+| 6                    | Hipercard               |
+| 7                    | Amex                    |
+| 8                    | Sicred                  |
+| 9                    | Cup                     |
+| 10                   | Agiplan                 |
+| 11                   | Banesecard              |
+| 12                   | SoroCred                |
+| 13                   | CredSystem              |
+| 14                   | Esplanada               |
+| 15                   | CredZ                   |
+| 16                   | Losango                 |
+| 17                   | AVista                  |
+| 18                   | Hiper                   |
+| 19                   | JCB                     |
+| 20                   | Aura                    |
+| 21                   | Alelo                   |
+| 22                   | Ticket                  |
+| 23                   | Sodexo                  |
+
+## Tipos de Produtos
+
+### Cielo
+
+| Código/Identificador | Descrição                          |
+|----------------------|------------------------------------|
+| 1                    | Agiplan crédito à vista            |
+| 2                    | Agiplan parcelado loja             |
+| 3                    | Banescard crédito à vista          |
+| 4                    | Banescard parcelado loja           |
+| 5                    | Esplanada crédito à vista          |
+| 6                    | CredZ crédito à vista              |
+| 7                    | Esplanada parcelado loja           |
+| 8                    | Credz parcelado loja               |
+| 9                    | Elo Crediário                      |
+| 10                   | MasterCard crédito à vista         |
+| 11                   | Maestro                            |
+| 12                   | MasterCard parcelado loja          |
+| 13                   | Elo Construcard                    |
+| 14                   | Elo Agro Débito                    |
+| 15                   | Elo Agro Custeio                   |
+| 16                   | Elo Agro Investimento              |
+| 17                   | Elo Agro Custeio + Débito          |
+| 18                   | Elo Agro Investimento + Débito     |
+| 19                   | Discover crédito à vista           |
+| 20                   | Diners crédito à vista             |
+| 21                   | Diners parcelado loja              |
+| 22                   | Agro Custeio + Electron            |
+| 23                   | Agro Investimento + Electron       |
+| 24                   | FCO Investimento                   |
+| 25                   | Agro Electron                      |
+| 26                   | Agro Custeio                       |
+| 27                   | Agro Investimento                  |
+| 28                   | FCO Giro                           |
+| 33                   | JCB                                |
+| 36                   | Saque com cartão de Débito VISA    |
+| 37                   | Flex Car Visa Vale                 |
+| 38                   | CredSystem crédito à vista         |
+| 39                   | CredSystem parcelado loja          |
+| 40                   | Visa Crédito à Vista               |
+| 41                   | Visa Electron Débito à Vista       |
+| 42                   | Visa Pedágio                       |
+| 43                   | Visa Parcelado Loja                |
+| 44                   | Visa Electron Pré-Datado           |
+| 45                   | Alelo Refeição (Bandeira Visa/Elo) |
+
+### Getnet
+
+| Código/Identificador | Descrição                        |
+|----------------------|----------------------------------|
+| 1                    | Título                           |
+| 2                    | Convênio                         |
+| 3                    | Crédito Digital                  |
+| 00/CE                | Cupom Eletrônico                 |
+| CP                   | Cupom Papel                      |
+| SM                   | Cartão de Crédito MASTERCARD     |
+| SV                   | Cartão de Crédito VISA           |
+| SR                   | Cartão de Débito MAESTRO         |
+| SE                   | Cartão de Débito VISA ELECTRON   |
+| PV                   | Pagamento Carnê – Débito VISA    |
+| ELECTRON             |                                  |
+| PM                   | Pagamento Carnê – Débito MAESTRO |
+| PR                   | Pagamento Recorrente             |
+
+### Stone
+
+| Código/Identificador | Descrição          |
+|----------------------|--------------------|
+| 1                    | Crédito Visa       |
+| 2                    | Crédito Master     |
+| 4                    | Crédito Elo        |
+| 15                   | Crédito Hipercard  |
+| 35                   | Mastercard Maestro |
+| 36                   | Visa Electron      |
+| 38                   | Débito Elo         |
+| 39                   | Débito Hipercard   |
+
+### Global Payments
+
+| Código/Identificador | Descrição          |
+|----------------------|--------------------|
+| 1                    | Crédito Visa       |
+| 2                    | Crédito Master     |
+| 35                   | Mastercard Maestro |
+| 36                   | Visa Electron      |
+
+### First Data
+
+| Código/Identificador | Descrição          |
+|----------------------|--------------------|
+| 1                    | Crédito Visa       |
+| 2                    | Crédito Master     |
+| 4                    | Crédito Elo        |
+| 11                   | Crédito Cabal      |
+| 35                   | Mastercard Maestro |
+| 36                   | Visa Electron      |
+| 37                   | Débito Cabal       |
+| 38                   | Débito Elo         |
+
+### Ticket
+
+| Código/Identificador | Descrição          |
+|----------------------|--------------------|
+| 24                   | Ticket Refeição    |
+| 25                   | Ticket Alimentação |
+| 26                   | Ticket Parceiro    |
+| 27                   | Ticket Cultura     |
+
+### Sodexo
+
+| Código/Identificador | Descrição          |
+|----------------------|--------------------|
+| 28                   | Sodexo Refeição    |
+| 29                   | Sodexo Alimentação |
+| 30                   | Sodexo Gift        |
+| 31                   | Sodexo Premium     |
+| 32                   | Sodexo Cultura     |
+
+## Categorias de Evento
+
+| Código/Identificador | Descrição                           |
+|----------------------|-------------------------------------|
+| 1                    | Ajuste                              |
+| 2                    | POS                                 |
+| 3                    | Captura                             |
+| 4                    | Pagamento                           |
+| 5                    | Pgto. Lote                          |
+| 6                    | Aceleração                          |
+| 8                    | Estorno                             |
+| 9                    | Chargeback                          |
+| 10                   | Antecipação                         |
+| 11                   | Antecip. Lote                       |
+| 13                   | Reagendamento                       |
+| 14                   | Custo de Operação de Antecipação    |
+| 15                   | Valor Retido                        |
+| 16                   | Pagamento de Valor Retido           |
+| 17                   | Débito de Valor Retido              |
+| 19                   | Arredondamento de Parcelas          |
+| 20                   | Estorno Antecipado                  |
+| 21                   | Ajuste Indefinido                   |
+| 22                   | Débito Acumulado                    |
+| 25                   | Pagamento de Aceleração Antecipada  |
+| 26                   | Débito de Antecipação de Aceleração |
+| 29                   | Antecipação de Chargeback           |
+| 30                   | Antecipação de Aluguel de POS       |
+| 31                   | Antecipação de Ajustes Lote         |
+| 32                   | Antecipação de Estornos Lote        |
+| 33                   | Antecipação de Chargeback Lote      |
+
+## Webservice Conciliador    
+
+Webservice é uma solução para integrar aplicações. 
+Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados. Atualmente no Webservice do Conciliador é possível enviar o arquivo de vendas externas e baixar o conteúdo dos Arquivos de Fluxo de Caixa.    
+
+Inicialmente o acesso deverá ser liberado pela equipe de operações, através do e-mail, senha e o cadastro dos IPs informados pelo estabelecimento.    
+   
+O Webservice está disponível através da URL: 
+
+> https://reconciliation.braspag.com.br/WebServices/ReconciliationFilesWebService.asmx   
+   
+**Método:** GetExportedFileV2 
+
+### Request
+
+``` xml
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rec="https://reconciliation.braspag.com.br">   
+   <soapenv:Header/>   
+   <soapenv:Body>   
+      <rec:GetReconciliationFile>   
+         <rec:request>   
+            <rec:RequestId>[Guid aleatório]</rec:RequestId>   
+            <rec:RequestingUserName>[Login do usuário da loja]</rec:RequestingUserName>   
+            <rec:MerchantId>[Identificador da loja, fornecido pela Braspag]</rec:MerchantId>   
+            <rec:AcquirerId>[Identificador da adquirente]</rec:AcquirerId>   
+            <rec:RequestingPassword>[Senha do usuário da loja]</rec:RequestingPassword>   
+            <rec:ReferenceDate>[Data de referência do arquivo]</rec:ReferenceDate>   
+            <rec:FileExtensionType>[Extensão do arquivo]</rec:FileExtensionType>   
+            <rec:FileType>[Tipo do arquivo]</rec:FileType>   
+         </rec:request>   
+      </rec:GetReconciliationFile>   
+   </soapenv:Body>  
+```
+
+| Descritor          | Significado                                | Exemplo                                              |
+|--------------------|--------------------------------------------|------------------------------------------------------|
+| RequestId          | Identificador Único Global (GUID)          | 4749e676-2507-442da1c6c25c08e2d2af                   |
+| RequestingUserName | Login do usuário da loja                   | user@braspag.com.br                                  |
+| MerchantId         | Identificador da loja no Conciliador       | 123                                                  |
+| AcquirerId         | Identificador da adquirente                | 1=Cielo<br>2=Rede<br>3=Amex<br>4=Losango<br>5=Getnet |
+| RequestingPassword | Senha do usuário da loja                   | Braspag@2015                                         |
+| ReferenceDate      | Data de referência do Arquivo (yyyy-mm-dd) | 12/06/2015                                           |
+| FileExtensionType  | Formato do Arquivo                         | 1=CSV <br> 2=XML                                     |
+| FileType           | Tipo de Arquivo                            | 1=Arquivo de Conciliação                             |
+
+### Response
+
+``` xml
+
+--Bem sucedido
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">    <soap:Body>   
+      <GetReconciliationFileResponse xmlns="https://reconciliation.braspag.com.br">   
+         <GetReconciliationFileResult>   
+            <CorrelatedId>124be5db-a809-47e1-b456-1f2e103caa17</CorrelatedId>   
+            <Success>true</Success>               <ErrorReportCollection/>   
+            <FileContent> QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==</FileContent>   
+         </GetReconciliationFileResult>   
+      </GetReconciliationFileResponse>   
+   </soap:Body>   
+</soap:Envelope>   
+```
+
+``` xml
+
+-- Mal Sucedida   
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">    <soap:Body>   
+      <GetReconciliationFileResponse xmlns="https://reconciliation.braspag.com.br">   
+         <GetReconciliationFileResult>   
+            <CorrelatedId>124be5db-a809-47e1-b456-1f2e103caa17</CorrelatedId>   
+            <Success>false</Success>   
+            <ErrorReportCollection>   
+               <ErrorReport>   
+                  <Code>44</Code>   
+                  <Message>Acesso não autorizado do IP para a loja fornecida na requisição.</Message></ErrorReport>   
+            </ErrorReportCollection>   
+         </GetReconciliationFileResult>   
+      </GetReconciliationFileResponse>   
+   </soap:Body>   
+</soap:Envelope>   
+```
+
+| Descritor             | Descrição                                                                                      | Exemplo                                                                                                                               |
+|-----------------------|------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| CorrelatedId          | GUID enviado na requisição                                                                     | 4749e676-2507-442d-a1c6-c25c08e2d2af                                                                                                  |
+| Success               | Indica se a operação foi concluída.                                                            | false/true                                                                                                                            |
+| ErrorReportCollection | Coleção de erros que será  retornada em caso de Sucess="false"                                 | ErrorReport.Code = 39,ErrorReport.Message  = “Erro interno do sistema”.                                                               |
+| ErrorReport.Code      | Código de erros para  Sucess="false"                                                           | 39/44/46                                                                                                                              |
+| ErrorReport.Message   | Mensagem de erro correspondente ao código informado                                            | 39 - Erro interno do sistema.<br>44 - Acesso não autorizado, IP não cadastrado<br>46 - Usuário incorreto, e/ou não tem acesso a loja. |
+| FileContent           | Para requisições com Sucess="true", será enviado o conteúdo binário codificado na base64 UTF-8 | QXJxdWl2byBkZSB0ZXN0ZSBjb25jaWxpYWRvcg==                                                                                              |
+
 # Arquivos Fluxo de Caixa 2.0 - CSV
 
 Teste
