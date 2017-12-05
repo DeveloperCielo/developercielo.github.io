@@ -209,6 +209,7 @@ Onde o texto [ID] deve ser substituído pelo identificador informado no registro
 | 9                    | Moedeiro Eletrônico |
 
 ### Amex
+
 | Código/Identificador | Descrição                           |
 |----------------------|-------------------------------------|
 | 1                    | Rede AE – Manual                    |
