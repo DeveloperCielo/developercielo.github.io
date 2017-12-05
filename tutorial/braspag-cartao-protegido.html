@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
+    <head>
     <link href="http://gmpg.org/xfn/11" rel="profile">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -46,11 +46,10 @@
     <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
 </head>
 
-
-<body>
-    
+    <body>
+        
         <div class="content-container no-dark-box">
-            
+        
             <div id="submenu">
                 <div class="submenu-container">
                     <div class="submenu-row sub-items">
@@ -61,19 +60,21 @@
                             <div class="lang">
                                 <span>Idiomas</span>
 
-                                 
-                                <a href="https://developercielo.github.io/tutorial/braspag-cartao-protegido">
+                                
+                                    
+                                    <a href="https://developercielo.github.io/tutorial/braspag-cartao-protegido">
                                     
 
-                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png" />
+                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
                                     </a>
-                                     
+                                
+                                    
                                     <a href="https://developercielo.github.io/en/tutorial/braspag-cartao-protegido">
-                                        
-
-                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png" />
-                                    </a>
                                     
+
+                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
+                                    </a>
+                                
                             </div>
                             
                         </div>
@@ -88,25 +89,42 @@
                             <ul class="search-results"></ul>
                         </div>
                     </div>
-                    
-
-                <div class="submenu-row breads">
-                    <ol class="breadcrumb">
                         
-                        <li>
-                            <a href="/">Início</a>
-                        </li>
-                                           
-                        <li class="active">&gt;
-                            <a href="https://developercielo.github.io/tutorial/braspag-cartao-protegido">Cartão Protegido</a>
-                        </li>
-                          
-                    </ol>
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/tutorial/braspag-cartao-protegido">Cartão Protegido</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="post">
+            <div class="post">
     <h1 id="introdução-ao-cartão-protegido">Introdução ao Cartão Protegido</h1>
 
 <p>A plataforma do <strong>CARTÃO PROTEGIDO</strong> é uma armazenadora segura de cartões de crédito. Os dados nela armazenados seguem as normas PCI, que garante a integridade das informações dos cartões armazenados.
@@ -959,7 +977,9 @@ deve ser abortado e o erro analisado e tratado.</p>
 </table>
 
 </div>
- <div class="footer-conteudo">
+
+
+            <div class="footer-conteudo">
     <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
             <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
     </div>
@@ -970,9 +990,9 @@ deve ser abortado e o erro analisado e tratado.</p>
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <div class="sidebar">
+        <div class="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
       <a title="Comutar a coluna da esquerda" class="hamburger">
@@ -1008,26 +1028,19 @@ deve ser abortado e o erro analisado e tratado.</p>
 </div>
 
 
-    <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
-    <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-    <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
-    <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
-    <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
-    <script>
-        $(function () {
+        <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
+        <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
+        <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
+        <script>
+        $(function() {
             var openedHeader = null;
 
             $("#toc").tocify({
-                { %
-                    if page.layout == "faq" %
-                }
-                selectors: "h1",
-                { %
-                    else %
-                }
+                
                 selectors: "h1,h2,h3,h4,h5,h6",
-                { % endif %
-                }
+                
                 hashGenerator: "pretty",
                 ignoreSelector: ".no-toc",
                 scrollTo: 100,
@@ -1046,23 +1059,24 @@ deve ser abortado e o erro analisado e tratado.</p>
                 openedHeader.find('ul:visible').prev('li').addClass('is-open');
             });
 
-            $('.hamburger').click(function () {
+            $('.hamburger').click(function() {
                 $('body').toggleClass('sidebar-closed');
             });
 
-            $('.code-menu').click(function () {
+            $('.code-menu').click(function() {
                 $('body').toggleClass('code-menu-closed');
             });
 
             prettyPrint();
         });
-    </script>
+        </script>
 
-    
-    <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
-    <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
-    <script src="https://developercielo.github.io/assets/js/search.js"></script>
-     
-</body>
+        
+        <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
+        <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
+        <script src="https://developercielo.github.io/assets/js/search.js"></script>
+        
 
+        
+    </body>
 </html>
