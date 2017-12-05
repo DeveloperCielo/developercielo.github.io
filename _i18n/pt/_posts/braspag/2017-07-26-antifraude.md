@@ -9,7 +9,10 @@ tags:
   - Documentos Braspag
 language_tabs:
   json: JSON
+  http: HTTP
   html: HTML
+  java: JAVA
+  c: Obj-C
 ---
 
 # Autenticação
@@ -1748,13 +1751,13 @@ Abaixo exemplo de mensagem que o servidor da Braspag enviará à URL cadastrada,
 
 **REQUEST:**  
 
-``` http
+```http
 POST https://urlcadastrada.loja.com.br/Notification/ HTTP/1.1
 Host: urlcadastrada.loja.com.br
 Content-Type: application/json
 ```
 
-``` json
+```json
 {  
    "Id":"9004ba26-f1f1-e611-9400-005056970d6f"
 }
@@ -1924,7 +1927,7 @@ A *caixa preta* que retornou de *+ioBegin* nunca deve estar vazio. Uma *caixa pr
 
 * Exemplo  
 
-```html
+```c
 #import "sampleViewController.h"
 #import <iovation/iovation.h>
 @implementation SampleViewController
@@ -2006,7 +2009,7 @@ Se a opção para executar o módulo não aparecer, selecione *File -> Project S
 
 O exemplo a seguir é simples, onde o mesmo possui um botão e ao clicar uma caixa de texto é preenchida com a *caixa preta*. Para obter um exemplo mais rico, consulte o aplicativo de exemplo do Android Studio incluído no SDK.  
 
-```html
+```java
 package com.iovation.mobile.android.sample;
 import android.app.Activity;
 import android.os.Bundle;
@@ -2209,7 +2212,7 @@ Content-Type: application/json
 
 Quando todas as transações de chargeback enviadas forem processadas com sucesso
 
-``` http
+```http
 HTTP/1.1 200 Ok
 ```
 
@@ -2220,7 +2223,7 @@ Quando não ocorrer o processamento de todas as transações de chargeback envia
     * Motivo igual a "Remand", a transação de chargeback deverá ser reenviada.  
     * Motivo igual a "NotFound", a transação de chargeback não deverá ser reenviada, pois a origem desta vinculada a análise de fraude não foi encontrada na base de dados.  
 
-``` http
+```http
 HTTP/1.1 300 Multiple Choices
 ```
 
@@ -2303,15 +2306,14 @@ Id: Guid  // Id da Transação no Antifraude Gateway
 
 **REQUEST:**  
 
-``` http
+```http
 GET https://riskhomolog.braspag.com.br/Transaction/{Id} HTTP/1.1
 Host: riskhomolog.braspag.com.br
 Authorization: Bearer {access_token}
 Content-Type: application/json
-
 ```
 
-``` json
+```json
 {
     "BraspagTransactionId": "a3e08eb2-2144-4e41-85d4-61f1befc7a3b"
 }
