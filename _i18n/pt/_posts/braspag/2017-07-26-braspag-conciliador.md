@@ -79,68 +79,42 @@ Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato elet
 | ConciliationType   | Descrição do tipo de conciliação     | Alfanumérico       | A       | “Automatic” ou “Manual” (Automática ou manual) |
 
 ### Registro de Conciliação Manual (Tabela V)
+
+| Campo                | Nome                              | Tipo         | Formato | Descrição                                                         |
+|----------------------|-----------------------------------|--------------|---------|-------------------------------------------------------------------|
+| ConciliationUserName | Usuário da conciliação manual     | Alfanumérico | A       | Login do usuário que efetuou a conciliação manual                 |
+| ConciliationDateTime | Data e hora da conciliação manual | Data/Hora    | DT      | Data e hora em que a conciliação manual foi efetuada pelo usuário |
+
 ### Registro de Informação de Venda
-### Registro de Informação da Adquirente
-### Registro de Evento
 
-## Meios de Captura
-### Cielo
-### Amex   
-### Rede
-### GetNet
-### Outros
+| Campo                          | Nome                                            | Tipo                               | Formato | Descrição                                                                             |
+|--------------------------------|-------------------------------------------------|------------------------------------|---------|---------------------------------------------------------------------------------------|
+| TransactionId                  | Identificador Único da  Venda no Conciliador    | Identificador Único  Global (GUID) | G       | Identificador único do Conciliador para as informações de venda1                      |
+| ExternalId                     | Identificador da Venda no  Sistema Transacional | Alfanumérico                       | A       | Identificador da Venda obtido a partir do Sistema Transacional no qual a Transação foi processada com a Adquirente-2                               |
+| BranchId                       | Identificador da Filial                         | Alfanumérico                       | A       | Identificador da Filial da loja que processou a venda-3                                |
+| AffiliationCode                | Código de Afiliação                             | Alfanumérico                       | A       | O código de afiliação da adquirente, informado nos dados da venda do cliente          |
+| OrderId                        | Número do Pedido                                | Alfanumérico                       | A       | O número do pedido associado à venda no lojista-4                                      |
+| AuthorizationCode              | Código de Autorização                           | Alfanumérico                       | A       | O Código de Autorização da transação que o Lojista recebeu da Adquirente              |
+| SaleDate                       | Data da Venda                                   | Data                               | D       | A data em que foi realizada a venda no Lojista                                        |
+| CaptureDate                    | Data da Captura                                 | Data                               | D       | A data da captura recebida pelo lojista da Adquirente                                 |
+| TransactionAmount              | Valor da transação                              | Numérico (Inteiro)                 | N       | O valor da transação em centavos5                                                     |
+| InstallmentCount               | Número de parcelas                              | Numérico (Inteiro)                 | N       | A quantidade de parcelas na qual a transação foi dividida                             |
+| CustomerName                   | Nome do comprador                               | Alfanumérico                       | A       | O nome do comprador do produto                                                        |
+| CustomerDocument               | Documento do comprador                          | Alfanumérico                       | A       | Documento de identificador do comprador (RG, CPF, etc.)                               |
+| CustomerEmail                  | E-mail do comprador                             | Alfanumérico                       | A       | Endereço de e-mail do comprador                                                       |
+| CardNumber                     | Número do cartão                                | Alfanumérico                       | A       | Número do cartão (crédito ou débito) utilizado na venda                               |
+| Tid                            | TID                                             | Alfanumérico                       | A       | Identificador da transação ecommerce na Cielo, recebido pelo lojista                  |
+| Nsu                            | NSU                                             | Número                             | N       | Número sequencial da transação na  Adquirente, recebido pelo lojista                  |
+| IataAmount                     | Valor da taxa IATA                              | Número                             | N       | Valor da taxa IATA (apenas para setor aéreo), em centavos                             |
+| PaymentMethodName              | Tipo de Integração                              | Alfanumérico                       | A       | Nome do meio de pagamento utilizado no caso da transação efetuada no  gateway Pagador |
 
-A tabela abaixo é valida para:
+1. As informações de venda são as transações enviadas pelo cliente do mundo físico, ou do  gateway/sistema transacional utilizado para efetuar as transações. São a primeira parte da conciliação. O Identificador Único da Venda pode ser utilizado para visualizar a venda no WebSite do Conciliador, preenchendo a URL:   
 
-* Stone
-* Global Payments
-* First Data
-* Ticket 
-* Sodexo
+> https://reconciliation.braspag.com.br/WebSite/Reports/TransactionDetails.aspx?SaleTransactionId=[ID]  
 
-**Observação:** Para a adquirente Losango o campo é enviado “vazio
+**OBS:**Onde o texto [ID] deve ser substituído pelo identificador informado no registro.   
 
-## Bandeiras
-
-## Tipos de Produtos
-### Cielo
-### Getnet
-### Stone
-### Global Payments
-### First Data
-### Ticket
-### Sodexo
-
-## Categorias de Evento
-
-## Webservice Conciliador    
-
-Webservice é uma solução para integrar aplicações. 
-Por meio dele, qualquer sistema pode se conectar para consultar ou inserir dados. Atualmente no Webservice do Conciliador é possível enviar o arquivo de vendas externas e baixar o conteúdo dos Arquivos de Fluxo de Caixa.    
-
-Inicialmente o acesso deverá ser liberado pela equipe de operações, através do e-mail, senha e o cadastro dos IPs informados pelo estabelecimento.    
-   
-O Webservice está disponível através da URL: 
-
-> https://reconciliation.braspag.com.br/WebServices/ReconciliationFilesWebService.asmx   
-   
-**Método:** GetExportedFileV2 
-
-``` xml
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:rec="https://reconciliation.braspag.com.br">   
-   <soapenv:Header/>   
-   <soapenv:Body>   
-      <rec:GetReconciliationFile>   
-         <rec:request>   
-            <rec:RequestId>[Guid aleatório]</rec:RequestId>   
-            <rec:RequestingUserName>[Login do usuário da loja]</rec:RequestingUserName>   
-            <rec:MerchantId>[Identificador da loja, fornecido pela Braspag]</rec:MerchantId>   
-            <rec:AcquirerId>[Identificador da adquirente]</rec:AcquirerId>   
-            <rec:RequestingPassword>[Senha do usuário da loja]</rec:RequestingPassword>   
-            <rec:ReferenceDate>[Data de referência do arquivo]</rec:ReferenceDate>   
-            <rec:FileExtensionType>[Extensão do arquivo]</rec:FileExtensionType>   
-            <rec:FileType>[Tipo do arquivo]</rec:FileType>   
-         </rec:request>   
-      </rec:GetReconciliationFile>   
-   </soapenv:Body>  
-```
+2. O identificador da Venda no Sistema Transacional é o Identificador da Transação que é utilizado pelo sistema que efetuou a venda, seja ele um Gateway ou Sistema de Caixa/POS. Este valor pode ou não ser fornecido durante a importação da venda para o Conciliador. É de responsabilidade do cliente a decisão de informá-lo ou não.   
+3. O identificador da Filial deve ser fornecido pelo cliente toda vez que a importação de uma venda é realizada para o Conciliador. Apesar de não haver restrições para o formato do identificador da filial (campo Alfanumérico), é obrigatório que cada Filial possua um identificador único.   
+4. O Gerenciamento do Número do Pedido é de inteira responsabilidade do lojista. O Conciliador apenas armazena esta informação, mas nenhum tipo de validação é feito.   
+5. O Valor da Transação não é o valor das parcelas. O valor informado aqui é o valor integral da mesma, da forma como informado pelo cliente/gateway.   
