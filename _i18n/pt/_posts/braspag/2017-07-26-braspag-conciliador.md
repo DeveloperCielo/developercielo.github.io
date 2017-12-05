@@ -192,6 +192,83 @@ Onde o texto [ID] deve ser substituído pelo identificador informado no registro
 | AnticipationOperationNumber | Número da Operação de  Antecipação na Cielo | Numérico           | N       | O número da Operação de Antecipação (apenas para eventos derivados de antecipações na Cielo)                          |
 | OriginalPaymentDate         | Data original de pagamento                  | Data               | D       | A data original para a qual o evento de pagamento estava previsto (apenas para eventos de antecipações)               |
 
+## Meios de Captura
+
+### Cielo
+
+| Código/Identificador | Descrição           |
+|----------------------|---------------------|
+| 1                    | POS                 |
+| 2                    | PDV/TEF             |
+| 3                    | E-Commerce          |
+| 4                    | EDI                 |
+| 5                    | ADP/BSP             |
+| 6                    | Manual              |
+| 7                    | URA/CVA             |
+| 8                    | Mobile              |
+| 9                    | Moedeiro Eletrônico |
+
+### Amex
+| Código/Identificador | Descrição                           |
+|----------------------|-------------------------------------|
+| 1                    | Rede AE – Manual                    |
+| 2                    | Rede AE – EDI                       |
+| 3                    | Rede AE – BSP                       |
+| 4                    | Rede AE – TEF                       |
+| 11                   | Cielo – POS                         |
+| 12                   | Cielo – TEF                         |
+| 13                   | Cielo – Autorização Manual          |
+| 14                   | Cielo – URA                         |
+| 15                   | Cielo – EDI                         |
+| 16                   | Cielo – GDS                         |
+| 17                   | Cielo – E-Commerce                  |
+| 18                   | Cielo – Mobile                      |
+| 99                   | Legado – Versão anterior do extrato |
+
+### Rede
+
+| Código/Identificador | Descrição        |
+|----------------------|------------------|
+| 1                    | Manual           |
+| 2                    | POS              |
+| 3                    | PDV              |
+| 4                    | TO               |
+| 5                    | Internet         |
+| 6                    | Leitor de Trilha |
+| 9                    | Outros           |
+
+### GetNet
+
+| Código/Identificador | Descrição |
+|----------------------|-----------|
+| 0                    | TEF       |
+| 1                    | POS       |
+| 2                    | Manual    |
+| 3                    | Internet  |
+
+### Outros
+
+A tabela abaixo é valida para:
+
+* Stone
+* Global Payments
+* First Data
+* Ticket 
+* Sodexo
+
+**Observação:** Para a adquirente Losango o campo é enviado “vazio"
+
+| Código/Identificador | Descrição  |
+|----------------------|------------|
+| 0                    | N/D        |
+| 1                    | N/A        |
+| 2                    | POS        |
+| 3                    | PDV/TEF    |
+| 4                    | E-Commerce |
+| 5                    | EDI        |
+| 6                    | Manual     |
+| 7                    | Mobile     |
+| 8                    | Outros     |
 
 # Arquivos Fluxo de Caixa 2.0 - CSV
 
