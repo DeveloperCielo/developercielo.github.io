@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-05T14:02:18+00:00</updated>
+    <updated>2017-12-05T16:08:23+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -17011,7 +17011,83 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
         <link href="https://developercielo.github.io/manual/braspag-conciliador"/>
         <updated>2017-07-26T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/manual/braspag-conciliador</id>
-        <content type="html">&lt;h1 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;arquivos-fluxo-de-caixa-20---xml&quot;&gt;Arquivos Fluxo de Caixa 2.0 - XML&lt;/h1&gt;
+
+&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
+
+&lt;p&gt;Este manual tem como objetivo orientar o desenvolvimento do Arquivo de Fluxo de Caixa da plataforma conciliador no formato XML, e a extração do seu conteúdo através do Webservice&lt;/p&gt;
+
+&lt;h2 id=&quot;legenda-para-os-tipos-de-formato&quot;&gt;Legenda para os tipos de formato&lt;/h2&gt;
+
+&lt;p&gt;Tipos de Formato (Tabela II)&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Descritor&lt;/th&gt;
+      &lt;th&gt;Significado&lt;/th&gt;
+      &lt;th&gt;Exemplo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;N&lt;/td&gt;
+      &lt;td&gt;Um ou mais algarismos (0 a 9)&lt;/td&gt;
+      &lt;td&gt;243&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;Um ou mais caracteres alfanuméricos&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;{N}&lt;/td&gt;
+      &lt;td&gt;Um  único algarismo (0 a 9)&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;{A}&lt;/td&gt;
+      &lt;td&gt;Identificador Único Global (GUID)1&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;G&lt;/td&gt;
+      &lt;td&gt;Hora em campo data/hora (0 a 23)&lt;/td&gt;
+      &lt;td&gt;4749e676-2507-442da1c6c25c08e2d2af&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DT&lt;/td&gt;
+      &lt;td&gt;Data e hora, representados no formato ISO 86012&lt;/td&gt;
+      &lt;td&gt;2015-06-09T10:08:19.1748259-03:00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;D&lt;/td&gt;
+      &lt;td&gt;Data, representada no formato ISO 86012&lt;/td&gt;
+      &lt;td&gt;2015-06-09&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Um Identificador Único Global ou GUID (do inglês, Globally Unique IDentifier) é um tipo especial de identificador utilizado em aplicações de software para providenciar um número de referência padrão mundial. Como, por exemplo, em uma definição de referência interna para um tipo de ponto de acesso em uma aplicação de software ou para a criação de chaves únicas em um banco de dados. O número total de chaves únicas (2128 ou ~3.4×1038) é tão grande que a probabilidade do mesmo número se repetir é muito pequena. Considerando que o Universo Observável contém 5x1022 estrelas, cada estrela poderia ter ~6.8×1015 dos seus próprios GUIDs. Caso seu sistema não reconheça o formato GUID, poderá trata-lo como texto.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;O formato ISO 8601 é o formato de data padrão existente na recomendação oficial para Schemas XML 
+(http://www.w3.org/TR/xmlschema-2/#dateTime). Ele consiste na representação da data no formato yyyy-MM-dd. Caso o campo também tenha a informação de hora, a data vem seguida da letra “T” para separa-la da hora, no formato HH:mm:ss:mmmmmmm, seguida finalmente pela diferença de fuso horário. Para mais informações da ISO 8601 podem ser consultadas em:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;http://en.wikipedia.org/wiki/ISO_8601.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;informações-sobre-as-adquirentes&quot;&gt;Informações sobre as adquirentes&lt;/h2&gt;
+
+&lt;p&gt;O principal insumo do Conciliador são os extratos eletrônicos gerados pelas adquirentes. Devido a isso, podem existir particularidades entre cada uma. &lt;br /&gt;
+Abaixo a estimativa de dias em que a adquirente envia os eventos no extrato eletrônico:&lt;/p&gt;
+
+&lt;p&gt;Prazo de registro no extrato eletrônico (Tabela II)&lt;/p&gt;
 </content>
     </entry>
     
