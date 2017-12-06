@@ -547,6 +547,36 @@ Um certo dia, parei para pesquisar uma solução que poupasse meu tempo, logo, p
   <p>“não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo”</p>
 </blockquote>
 
+<p>Uma das soluções encontradas foi o <strong>Azure Kubernetes Services</strong>, ele te permite montar um cluster de Kubernetes com 1 único comando, com isso sobra tempo pra focar na sua aplicação e não na configuração de máquinas
+<br />
+<strong>Mas o que é Kubernetes?</strong> Falando por alto, Kubernetes é uma ferramenta de orquestração para containers, você monta seu container com o Docker e o Kubernetes faz todo o trabalho de deploy, auto scale, service discovery e muito mais. 
+Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:</p>
+
+<blockquote>
+  <p>https://kubernetes.io/docs/tutorials/kubernetes-basics/</p>
+</blockquote>
+
+<h2 id="montando-um-cluster-em-kubernetes">Montando um Cluster em Kubernetes</h2>
+
+<p>Estou levando em consideração que você já tenha o <code class="highlighter-rouge">Azure CLI</code> configurado na sua máquina, caso não tenha segue um tutorial de configuração:</p>
+
+<blockquote>
+  <p>https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest</p>
+</blockquote>
+
+<p>Para montar um cluster utilizando o AKS basta um único comando:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos --generate-ssh-keys"
+</code></pre></div></div>
+
+<p>Substitua o <code class="highlighter-rouge">NomeDoSeuCluster</code> pelo nome do seu cluster.</p>
+
+<p>Substitua o <code class="highlighter-rouge">NomeDoGrupoDeRecursos</code> pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.</p>
+
+<p>Após alguns minutos você terá o seu cluster montado como pode ser visto na imagem abaixo:</p>
+
+<p><img src="https://i.imgur.com/CFwO4Jz.png" alt="" /></p>
+
 </div>
 
 
