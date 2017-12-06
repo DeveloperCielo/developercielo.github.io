@@ -5,7 +5,7 @@ search: true
 toc_footers: true
 categories: tutorial
 tags:
-  - Sobre E-commerce
+  - Documentos Adicionais
 ---
 
 # Meios de Pagamento
