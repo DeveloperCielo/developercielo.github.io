@@ -577,6 +577,83 @@ Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:<
 
 <p><img src="https://i.imgur.com/CFwO4Jz.png" alt="" /></p>
 
+<p>Após montar nosso cluster vamos resgaras as credenciais de acesso com o comando:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos"
+</code></pre></div></div>
+
+<p>Caso tudo dê certo você irá receber a seguinte mensagem:</p>
+
+<p><img src="https://i.imgur.com/oLSo4j4.png" alt="" /></p>
+
+<p>Vamos agora configurar o Kubectl CLI, este será utilizado para se comunicar diretamente com o Kubernetes, para fazer isso basta executar o seguinte comando:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks install-cli"
+</code></pre></div></div>
+
+<p>Se tudo ocorreu bem será exibido a seguinte mensagem:</p>
+
+<p><img src="https://i.imgur.com/pihYQw1.png" alt="" /></p>
+
+<p>Vamos verificar agora qual o estado das máquinas do nosso cluster, para isso utilizaremos o comando:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get nodes"
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/Qyygi8y.png" alt="" /></p>
+
+<p>Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando <code class="highlighter-rouge">run</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl run meu-nginx --image=nginx --replicas=1 --port=80"
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/gGNYlk2.png" alt="" /></p>
+
+<p>Vamos chamar o <code class="highlighter-rouge">get pods</code> para verificar se nossa aplicação foi deployada com sucesso:</p>
+
+<p><img src="https://i.imgur.com/IxKDQJ8.png" alt="" /></p>
+
+<p>Como vimos na imagem acima nossa aplicação foi “deployada”, porém ela ainda não está disponivel na internet
+Para disponibilizar nossa aplicação na internet vamos utilizar o comando <code class="highlighter-rouge">expose</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl expose deployment meu-nginx --port=80 --type=LoadBalancer"
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/JVJH82V.png" alt="" /></p>
+
+<p>Agora basta chamar o comando <code class="highlighter-rouge">get services</code> para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get services --watch"
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/DaKu0HU.png" alt="" /></p>
+
+<p>Como podemos ver nossa aplicação recebeu o IP: 52.179.85.102
+Por fim, vamos acessar o IP da nossa aplicação para ver se deu tudo certo!</p>
+
+<p><img src="https://i.imgur.com/5Uvpr0e.png" alt="" /></p>
+
+<p>E não é que funciona mesmo? 😊</p>
+
+<h2 id="conclusão">Conclusão:</h2>
+
+<p>Por hoje é isso galera, espero que tenham gostado, essa foi uma pequena demonstração de como o AKS/Kubernetes pode nos ajudar na orquestração de nossos containers,pretendo fazer uma parte 2 deste artigo explicando sobre como utilizar o Azure Container Instance junto com o Kubernetes, deixo logo abaixo alguns links interessantes para quem quer se aprofundar no assunto:</p>
+
+<h2 id="bibliografia">Bibliografia:</h2>
+
+<ul>
+  <li>Introducing AKS (managed Kubernetes) and Azure Container Registry improvements</li>
+  <li>
+    <p>https://azure.microsoft.com/en-us/blog/introducing-azure-container-service-aks-managed-kubernetes-and-azure-container-registry-geo-replication/</p>
+  </li>
+  <li>Kubernetes.io</li>
+  <li>
+    <p>https://kubernetes.io/docs/tutorials/kubernetes-basics/</p>
+  </li>
+  <li>Explore Multicloud Deployments with Microsoft’s ACI Connector for Kubernetes</li>
+  <li>https://thenewstack.io/explore-multicloud-deployments-aci-connector-kubernetes/</li>
+</ul>
+
 </div>
 
 
