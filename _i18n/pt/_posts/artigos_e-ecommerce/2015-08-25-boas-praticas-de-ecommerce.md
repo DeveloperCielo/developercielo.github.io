@@ -6,7 +6,7 @@ search: true
 toc_footers: true
 categories: tutorial
 tags:
-  - Sobre E-commerce
+  - Artigos e Conteúdo
 ---
 
 # Boas Práticas eCommerce
