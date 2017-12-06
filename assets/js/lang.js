@@ -23,12 +23,12 @@ under the License.
     if (!language) return;
     if (language === "") return;
 
-    $(".language-buttons a").removeClass('active');
-    $(".language-buttons a[data-language-name='" + language + "']").addClass('active');
-    for (var i=0; i < languages.length; i++) {
-      $(".language-" + languages[i]).hide();
+    $(".language-group:not(.lock) .language-buttons a").removeClass('active');
+    $(".language-group:not(.lock) .language-buttons a[data-language-name='" + language + "']").addClass('active');
+    for (var i = 0; i < languages.length; i++) {
+      $(".language-group:not(.lock) .language-" + languages[i]).hide();
     }
-    $(".language-" + language).show();
+    $(".language-group:not(.lock) .language-" + language).show();
 
     //global.toc.calculateHeights();
 
@@ -40,7 +40,9 @@ under the License.
 
   // if a button is clicked, add the state to the history
   function pushURL(language) {
-    if (!history) { return; }
+    if (!history) {
+      return;
+    }
     var hash = window.location.hash;
     if (hash) {
       hash = hash.replace(/^#+/, '');
@@ -72,10 +74,12 @@ under the License.
   }
 
   // if we click on a language tab, activate that language
-  $(function() {
-    $(".language-buttons a").on("click", function() {
+  $(function () {
+    $(".language-group:not(.lock) .language-buttons a").on("click", function () {
       var language = $(this).data("language-name");
-      var e = new CustomEvent('languagechange', { 'detail': language});
+      var e = new CustomEvent('languagechange', {
+        'detail': language
+      });
 
       pushURL(language);
       activateLanguage(language);
@@ -84,7 +88,7 @@ under the License.
 
       return false;
     });
-    window.onpopstate = function(event) {
+    window.onpopstate = function (event) {
       activateLanguage(window.location.search.substr(1));
     };
   });
