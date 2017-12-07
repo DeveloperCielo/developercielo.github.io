@@ -16,18 +16,18 @@ language_tabs:
 
 # Visão geral
 
-| AF                |                         |           |Red        |     |Cyber      |      |
-|Parametro          |Descrição                |Tipo       |Obrigatório|Size |Obrigatório|Size  |
-|-------------------|-------------------------|-----------|-----------|-----|-----------|------|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`|
+| AF                |                         |           |Red        |     |Cyber      |      ||
+|Parametro          |Descrição                |Tipo       |Obrigatório|Size |Obrigatório|Size  |Observação|
+|-------------------|-------------------------|-----------|-----------|-----|-----------|------|-|
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
