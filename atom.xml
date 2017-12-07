@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-07T12:58:30+00:00</updated>
+    <updated>2017-12-07T13:04:59+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25169,6 +25169,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;th&gt; &lt;/th&gt;
       &lt;th&gt;Cyber&lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;Parametro&lt;/th&gt;
@@ -25178,6 +25179,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;th&gt;Size&lt;/th&gt;
       &lt;th&gt;Obrigatório&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Observação&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -25189,6 +25191,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25198,6 +25201,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25207,6 +25211,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25216,6 +25221,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25225,6 +25231,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25234,6 +25241,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25243,6 +25251,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25252,6 +25261,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25261,6 +25271,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25270,6 +25281,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25279,6 +25291,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;MerchantOrderId&lt;/strong&gt;&lt;/td&gt;
@@ -25288,6 +25301,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;required&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
