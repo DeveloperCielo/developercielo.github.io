@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-07T13:23:31+00:00</updated>
+    <updated>2017-12-07T13:27:42+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -21069,6 +21069,10 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;&lt;b&gt;OBS:&lt;/b&gt; Utilizando a API Cielo Ecommerce, apenas o processo de autorização com Tokens 1.5 é permitido. Outras funcionalidades da API não estão disponiveis, como Recorrencia Programada, Renova Facil e Wallets.&lt;/aside&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;&lt;b&gt;Atenção:&lt;/b&gt; Não é possivel converter Tokens 1.5 para Tokens API Cielo E-commerce.&lt;/aside&gt;
 
 &lt;h3 id=&quot;requisição-29&quot;&gt;Requisição&lt;/h3&gt;
 
