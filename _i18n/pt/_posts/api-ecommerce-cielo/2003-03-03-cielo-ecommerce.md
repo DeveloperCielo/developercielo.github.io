@@ -5199,6 +5199,10 @@ Para uso em Sandbox, é possivel simular transações autorizadas ou negadas via
 |Autorizado|6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA|
 |Negado|6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeB|
 
+<aside class="warning"><b>OBS:</b> Utilizando a API Cielo Ecommerce, apenas o processo de autorização com Tokens 1.5 é permitido. Outras funcionalidades da API não estão disponiveis, como Recorrencia Programada, Renova Facil e Wallets.</aside>
+
+<aside class="warning"><b>Atenção:</b> Não é possivel converter Tokens 1.5 para Tokens API Cielo E-commerce.</aside>
+
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
