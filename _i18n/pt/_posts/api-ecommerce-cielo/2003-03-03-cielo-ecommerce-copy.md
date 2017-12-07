@@ -30,4 +30,4 @@ language_tabs:
 |**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
 |**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
 |**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
-|**MerchantOrderId**|Número do Pedido da Loja.|`string`   |`required` |`100`|`required` | `100`||
+|**MerchantOrderId**|Número do Pedido da Loja.<br><br>1-Cielo<br>2-Rede<br>3-Stone<br>|`string`   |`required` |`100`|`required` | `100`||
