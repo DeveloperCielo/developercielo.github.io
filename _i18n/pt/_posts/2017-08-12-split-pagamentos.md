@@ -15,6 +15,7 @@ language_tabs:
 # Split de Pagamentos
 
 ## Introdução
+
 <BR>
 O Split de Pagamentos permite a divisão de uma transação entre diferentes participantes de uma venda.
 
