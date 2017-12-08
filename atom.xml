@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-08T18:56:36+00:00</updated>
+    <updated>2017-12-08T18:57:55+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -12678,7 +12678,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 &lt;p&gt;Normalmente, o browser faz a atualização do Certificado automaticamente, caso não o faça e o cliente entre em contato deverá ser informado os seguintes passos:&lt;/p&gt;
 
-&lt;h4 id=&quot;1o-passo&quot;&gt;1o Passo:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1o Passo:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:&lt;/p&gt;
 
@@ -12689,7 +12689,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;2o-passo&quot;&gt;2o Passo:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;2o Passo:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;No “Internet Explorer”, clique no menu “Ferramentas” e acesse as “Opções da Internet”:&lt;/p&gt;
 
@@ -12703,7 +12703,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-gc-1.jpg&quot; alt=&quot;Instalar GC&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;3o-passo&quot;&gt;3o Passo:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;3o Passo:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;No Internet Explorer, em “Certificados”, clique em “Importar”.&lt;/p&gt;
 
@@ -12717,7 +12717,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-gc-2.jpg&quot; alt=&quot;Instalar GC&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;4o-passo&quot;&gt;4o Passo:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;4o Passo:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;No Internet Explorer e Chrome “Assistente para Importação de Certificados”, clique em “Avançar”.&lt;/p&gt;
 
@@ -12729,7 +12729,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ff-3.jpg&quot; alt=&quot;Instalar FF&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;5o-passo&quot;&gt;5o Passo:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;5o Passo:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “cieloecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.&lt;/p&gt;
 
@@ -12737,19 +12737,19 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-6.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;6o-passo&quot;&gt;6o Passo:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;6o Passo:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Selecionar a opção desejada: adicionar o Certificado em uma pasta padrão ou procurar a pasta de sua escolha.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-7.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;7o-passo&quot;&gt;7o Passo:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;7o Passo:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Clique em “Concluir”.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-8.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;8o-passo&quot;&gt;8o Passo:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;8o Passo:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Clique em “Ok” para concluir a importação.&lt;/p&gt;
 
@@ -12761,7 +12761,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/certificado-instalar-ie-gc-10.jpg&quot; alt=&quot;Instalar IE e GC&quot; /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;9o-passo&quot;&gt;9o Passo:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;9o Passo:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Repita o mesmo procedimento para os 3 arquivos enviados.&lt;/p&gt;
 
