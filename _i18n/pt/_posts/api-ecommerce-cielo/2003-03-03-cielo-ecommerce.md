@@ -53,11 +53,11 @@ Entre outras características, os atributos que mais se destacam na plataforma C
 
 A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT. Cada tipo de mensagem deve ser enviada para um recurso identificado através do path.
 
-|Método|Descrição|
-|---|---|
-|**POST**|O método HTTP `POST` é utilizado na criação dos recursos ou no envio de informações que serão processadas. Por exemplo, criação de uma transação.|
-|**PUT**|O método HTTP `PUT` é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.|
-|**GET**|O método HTTP `GET` é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.|
+| Método   | Descrição                                                                                                                                                  |
+|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **POST** | O método HTTP `POST` é utilizado na criação dos recursos ou no envio de informações que serão processadas. Por exemplo, criação de uma transação.          |
+| **PUT**  | O método HTTP `PUT` é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada. |
+| **GET**  | O método HTTP `GET` é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.                                             |
 
 ## Glossário
 
@@ -85,16 +85,16 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 
 A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
-|Bandeira|Crédito à vista|Crédito parcelado Loja|Débito|Voucher|
-|---|---|---|---|---|
-|Visa|Sim|Sim|Sim|*Não*|
-|Master Card|Sim|Sim|Sim|*Não*|
-|American Express|Sim|Sim|*Não*|*Não*|
-|Elo|Sim|Sim|*Não*|*Não*|
-|Diners Club|Sim|Sim|*Não*|*Não*|
-|Discover|Sim|*Não*|*Não*|*Não*|
-|JCB|Sim|Sim|*Não*|*Não*|
-|Aura|Sim|Sim|*Não*|*Não*|
+| Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito | Voucher |
+|------------------|-----------------|------------------------|--------|---------|
+| Visa             | Sim             | Sim                    | Sim    | *Não*   |
+| Master Card      | Sim             | Sim                    | Sim    | *Não*   |
+| American Express | Sim             | Sim                    | *Não*  | *Não*   |
+| Elo              | Sim             | Sim                    | *Não*  | *Não*   |
+| Diners Club      | Sim             | Sim                    | *Não*  | *Não*   |
+| Discover         | Sim             | *Não*                  | *Não*  | *Não*   |
+| JCB              | Sim             | Sim                    | *Não*  | *Não*   |
+| Aura             | Sim             | Sim                    | *Não*  | *Não*   |
 
 # Certificado Extended Validation
 
