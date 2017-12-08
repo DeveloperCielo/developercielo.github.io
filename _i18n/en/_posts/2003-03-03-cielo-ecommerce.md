@@ -51,11 +51,11 @@ Among other features, the attributes that stand out most in the Cielo eCommerce 
 
 Integration is performed through services provided as Web Services. The model employed is quite simple: There are two URLs (endpoint), a specific one for operations that cause side effects - such as authorization, capture and cancellation of transactions, and a specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a resource identified through the path.
 
-|Method|Description|
-|---|---|
-|**POST**|The `POST` HTTP method is used in the creation of resources or in sending information that will be processed. For example, creation of a transaction.|
-|**PUT**|The`PUT` HTTP method is used to update an already existing resource. For example, capture or canceltation of a previously authorized transaction.|
-|**GET**|The `GET` HTTP method is used for querying already existing resources. For example, transaction query.|
+| Method   | Description                                                                                                                                           |
+|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **POST** | The `POST` HTTP method is used in the creation of resources or in sending information that will be processed. For example, creation of a transaction. |
+| **PUT**  | The`PUT` HTTP method is used to update an already existing resource. For example, capture or canceltation of a previously authorized transaction.     |
+| **GET**  | The `GET` HTTP method is used for querying already existing resources. For example, transaction query.                                                |
 
 ## Glossary
 
@@ -83,16 +83,16 @@ In order to facilitate the understanding, we have listed below a short glossary 
 
 The current version of Cielo Webservice supports the following issuers and products:
 
-|Issuer|Demand credit|Installment credit Store|Debit|Voucher|
-|---|---|---|---|---|
-|Visa|Yes|Yes|Yes|*No*|
-|Master Card|Yes|Yes|Yes|*No*|
-|American Express|Yes|Yes|*No*|*No*|
-|Elo|Yes|Yes|*No*|*No*|
-|Diners Club|Yes|Yes|*No*|*No*|
-|Discover|Yes|*No*|*No*|*No*|
-|JCB|Yes|Yes|*No*|*No*|
-|Aura|Yes|Yes|*No*|*No*|
+| Issuer           | Demand credit | Installment credit Store | Debit | Voucher |
+|------------------|---------------|--------------------------|-------|---------|
+| Visa             | Yes           | Yes                      | Yes   | *No*    |
+| Master Card      | Yes           | Yes                      | Yes   | *No*    |
+| American Express | Yes           | Yes                      | *No*  | *No*    |
+| Elo              | Yes           | Yes                      | *No*  | *No*    |
+| Diners Club      | Yes           | Yes                      | *No*  | *No*    |
+| Discover         | Yes           | *No*                     | *No*  | *No*    |
+| JCB              | Yes           | Yes                      | *No*  | *No*    |
+| Aura             | Yes           | Yes                      | *No*  | *No*    |
 
 # Extended Validation Certificate
 
