@@ -3624,8 +3624,10 @@ seguintes informações, que irão completar o cadastro:
         
         <script>
         let langs = '';
+        let langsArray = [];
 
-        $('div.highlighter-rouge').prepend( '<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>' );
+        $('div.highlighter-rouge').prepend('<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>');
+
         $('div.highlighter-rouge').each(function (index) {
             if(!$(this).parent().hasClass('language-group')) {
                 $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
@@ -3654,6 +3656,7 @@ seguintes informações, que irão completar o cadastro:
 
         
         langs += "<a data-language-name=''></a>";
+        langsArray.push('');
         
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
@@ -3662,6 +3665,24 @@ seguintes informações, que irão completar o cadastro:
         <script src="https://developercielo.github.io/assets/js/lang.js"></script>
         <script>
             $(function() {
+                $('.language-buttons').each(function() {
+                    let parent = $(this).parent();
+
+                    langsArray.forEach((v) => {
+                        if(parent.find('.language-' + v).length === 0) {
+                            $(this).find('[data-language-name="' + v + '"]').remove();
+
+                            let firstItem = $(this).children().first();
+                            firstItem.addClass('active');
+                            parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
+                            
+                            if(parent.children('[class^="language-"]').length === 2) {
+                                parent.addClass('lock');
+                            }
+                        }
+                    });
+                });
+
                 setupLanguages([  "", ]);
             });
         </script>
