@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-08T18:59:41+00:00</updated>
+    <updated>2017-12-08T20:01:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1888,8 +1888,9 @@
 &lt;p&gt;Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Regime de Pagamento&lt;/strong&gt;: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.&lt;br /&gt;
-&lt;strong&gt;Crédito&lt;/strong&gt;: Em até 31 dias.&lt;br /&gt;
+  &lt;p&gt;&lt;strong&gt;Regime de Pagamento&lt;/strong&gt;: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.&lt;br /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Crédito&lt;/strong&gt;: Em até 31 dias.&lt;br /&gt;
 &lt;strong&gt;Crédito&lt;/strong&gt; Parcelado: 1º parcela em até 31 dias, demais a cada 30.&lt;br /&gt;
 &lt;strong&gt;Débito&lt;/strong&gt;: Em até 1 dia útil&lt;br /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
