@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T20:08:58+00:00</updated>
+    <updated>2017-12-09T20:10:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1867,7 +1867,7 @@ O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma tra
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Responsável pelo carrinho. &lt;br /&gt; Possui acordos com &lt;strong&gt;Subordinados&lt;/strong&gt; que fornecem os produtos presentes no carrinho.&lt;br /&gt; Define as taxas a serem descontados sobre a venda do &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;br /&gt; Pode participar de uma venda fornecendo seus próprios produtos.&lt;/td&gt;
+      &lt;td&gt;Responsável pelo carrinho. &lt;br /&gt; Possui acordos com &lt;strong&gt;Subordinados&lt;/strong&gt; que fornecem os produtos presentes no carrinho.&lt;br /&gt; Define as taxas a serem descontadas sobre a venda de cada &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;br /&gt; Pode participar de uma venda fornecendo seus próprios produtos.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Subordinado&lt;/strong&gt;&lt;/td&gt;
