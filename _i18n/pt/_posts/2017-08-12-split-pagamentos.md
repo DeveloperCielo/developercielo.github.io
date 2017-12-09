@@ -133,6 +133,7 @@ OBS: Neste manual serão apresentados os contratos de integração da API Cielo 
 
 ### Autorização  
 
+<BR>
 A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.
 
 Porém, para indentificar que a transação enviada se trata de uma transação de Split de Pagamentos, deve-se modificar o tipo de pagamento utilizado, conforme abaixo:
