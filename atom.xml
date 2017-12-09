@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T01:18:35+00:00</updated>
+    <updated>2017-12-09T01:24:43+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1908,13 +1908,13 @@ O Marketplace também pode ser um participante da divisão, bastando informar se
 &lt;h2 id=&quot;taxas&quot;&gt;Taxas&lt;/h2&gt;
 
 &lt;p&gt;&lt;br /&gt;
-As taxas acordadas entre os participantes, que são o &lt;strong&gt;MDR(%)&lt;/strong&gt; e uma &lt;strong&gt;Taxa Fixa(R$)&lt;/strong&gt;, devem ser definidas no momento do cadastro do &lt;strong&gt;Marketplace&lt;/strong&gt; e dos seus &lt;strong&gt;Subordinados&lt;/strong&gt; junto à Braspag.&lt;/p&gt;
+As taxas acordadas entre os participantes, podendo ser um &lt;strong&gt;MDR(%)&lt;/strong&gt; e/ou uma &lt;strong&gt;Taxa Fixa(R$)&lt;/strong&gt;, devem ser definidas no momento do cadastro do Marketplace e dos seus Subordinados junto aoà Braspag (Facilitador).&lt;/p&gt;
 
-&lt;p&gt;As mesmas poderão ser enviadas no momento transacional ou pós-transacional. Caso não sejam enviadas, a &lt;strong&gt;Braspag&lt;/strong&gt; irá considerar as taxas já cadastradas.&lt;/p&gt;
+&lt;p&gt;As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.&lt;/p&gt;
 
 &lt;h3 id=&quot;braspag-facilitador&quot;&gt;Braspag (Facilitador)&lt;/h3&gt;
 
-&lt;p&gt;A Braspag acordará um &lt;strong&gt;MDR(%)&lt;/strong&gt; e uma &lt;strong&gt;Tarifa Fixa(R$)&lt;/strong&gt; com o &lt;strong&gt;Marketplace&lt;/strong&gt; a serem descontados em cada transação.&lt;/p&gt;
+&lt;p&gt;A Braspag acordará um MDR(%) e/ou uma Tarifa Fixa(R$) com o Marketplace a serem descontadas do valor total de cada transação.&lt;/p&gt;
 
 &lt;p&gt;O &lt;strong&gt;Marketplace&lt;/strong&gt;, de conhecimento destas taxas, negociará o seu &lt;strong&gt;MDR(%)&lt;/strong&gt; e uma &lt;strong&gt;Tarifa Fixa(R$)(opcional)&lt;/strong&gt; juntamente com seus &lt;strong&gt;Subornidandos&lt;/strong&gt;, já embutindo o &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado junto à &lt;strong&gt;Braspag&lt;/strong&gt;.&lt;/p&gt;
 
