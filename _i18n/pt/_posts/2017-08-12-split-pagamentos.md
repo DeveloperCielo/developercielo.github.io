@@ -36,7 +36,7 @@ O Marketplace se integra à Braspag para transacionar e informa como será divid
 Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento\*), para cada envolvido na transação.
 
 > **Regime de Pagamento**: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.<BR>
->
+> <BR>
 > **Crédito**: Em até 31 dias.<BR>
 > **Crédito** Parcelado: 1º parcela em até 31 dias, demais a cada 30.<BR>
 > **Débito**: Em até 1 dia útil<BR>
