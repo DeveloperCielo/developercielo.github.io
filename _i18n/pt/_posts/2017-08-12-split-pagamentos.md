@@ -23,7 +23,7 @@ Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de d
 
 | **Participantes** | **Descrição** |
 |-----------|---------- |
-| **Marketplace** | Responsável pelo carrinho. <BR> Possui acordos **Subordinados** que fornecem os produtos presentes no carrinho.<BR> Define um MDR\* e uma Tarifa Fixa (opcional) a serem descontados sobre a venda do **Subordinado**.<BR> Na venda, pode fornecer produtos próprios juntamente com seus **Subordinados**. |
+| **Marketplace** | Responsável pelo carrinho. <BR> Possui acordos **Subordinados** que fornecem os produtos presentes no carrinho.<BR> Define um MDR\* e uma Tarifa Fixa (opcional) a serem descontados sobre a venda do **Subordinado**.<BR> Pode ser participante em um carrinho de compras fornecendo seus próprios produtos. |
 | **Subordinado** | Fornecedor dos produtos que compõem o carrinho.<BR>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Marketplace**.<BR>  |
 | **Braspag (Facilitador)** | Responsável pelo fluxo transacional.<BR> Define um MDR\* e uma Tarifa Fixa a serem descontados sobre o valor total da venda realizada pelo **Marketplace**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Marketplace**.|
 
