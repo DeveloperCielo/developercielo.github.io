@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T01:51:20+00:00</updated>
+    <updated>2017-12-09T01:52:05+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1921,7 +1921,8 @@ As taxas acordadas entre os participantes, podendo ser um &lt;strong&gt;MDR(%)&l
 
 &lt;h4 id=&quot;braspag-facilitador&quot;&gt;Braspag (Facilitador)&lt;/h4&gt;
 
-&lt;p&gt;A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.&lt;/p&gt;
 
 &lt;p&gt;O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).&lt;/p&gt;
 
@@ -1934,13 +1935,14 @@ O &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre um &lt;strong&gt;Marketplac
 
 &lt;h4 id=&quot;marketplace&quot;&gt;Marketplace&lt;/h4&gt;
 
-&lt;p&gt;O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace e uma Tarifa Fixa, que é opcional.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace e uma Tarifa Fixa, que é opcional.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Custo para o Subordinado:&lt;/strong&gt; MDR Marketplace(%) + Tarifa Fixa(R$), onde no MDR Marketplace(%) está embutido o MDR Braspag(%).&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;primeiro-exemplo&quot;&gt;Primeiro Exemplo&lt;/h3&gt;
+&lt;h3 id=&quot;exemplo&quot;&gt;Exemplo&lt;/h3&gt;
 
 &lt;p&gt;Uma transação de &lt;strong&gt;R$100&lt;/strong&gt;, realizada por um &lt;strong&gt;Marketplace&lt;/strong&gt; com participação do &lt;strong&gt;Subordinado 01&lt;/strong&gt;.&lt;/p&gt;
 
