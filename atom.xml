@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T14:33:25+00:00</updated>
+    <updated>2017-12-09T19:56:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1956,15 +1956,15 @@ Uma transação de &lt;strong&gt;R$100,00&lt;/strong&gt;, realizada por um &lt;s
 &lt;p&gt;Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Subordinado&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$96,20&lt;/p&gt;
+Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$1,80 [Já descontado o MDR da Braspag (Facilitador)] 
-Débito: R$0,10 [Tarifa Fixa Braspag]&lt;/p&gt;
+Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
+Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$2,00&lt;br /&gt;
-Crédito: R$0,10 [Tarifa Fixa Braspag]&lt;/p&gt;
+Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
+Crédito: R$0,10 [Tarifa Fixa acordad com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;A Tarifa Fixa acordada entre o Marketplace e o Subordinado é calculada diretamente sobre os valores que cada um tem a receber, ou seja, a tarifa é descontada após o cálculo do percentual acordado entre as duas partes. Já a Tarifa Fixa acordada entre a Braspag (Facilitador) e o Marketplace não é descontada do valor da transação, a mesma é sensibilizada na agenda de ambas as partes com um crédito e um débito, respectivamente.&lt;/p&gt;
 
