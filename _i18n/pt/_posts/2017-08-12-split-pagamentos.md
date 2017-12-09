@@ -118,18 +118,18 @@ OBS: Neste manual serão apresentados os contratos de integração da API Cielo 
 #### Sandbox
 
 <BR>
-**API Cielo E-Commerce**: https://apisandbox.cieloecommerce.cielo.com.br/
-**API Cielo E-Commerce (Consultas)**: https://apiquerysandbox.cieloecommerce.cielo.com.br/
-**API Split**: http://splitsandbox.braspag.com.br/
-**OAUTH2 Server**: https://authhomolog.braspag.com.br/
+**API Cielo E-Commerce**: https://apisandbox.cieloecommerce.cielo.com.br/<BR>
+**API Cielo E-Commerce (Consultas)**: https://apiquerysandbox.cieloecommerce.cielo.com.br/<BR>
+**API Split**: http://splitsandbox.braspag.com.br/<BR>
+**OAUTH2 Server**: https://authhomolog.braspag.com.br/<BR>
 
 #### Produção
 
 <BR>
-**API Cielo E-Commerce**: https://api.cieloecommerce.cielo.com.br/
-**API Cielo E-Commerce (Consultas)**: https://apiquery.cieloecommerce.cielo.com.br/
-**API Split**: http://split.braspag.com.br/
-**OAUTH2 Server**: https://auth.braspag.com.br/
+**API Cielo E-Commerce**: https://api.cieloecommerce.cielo.com.br/<BR>
+**API Cielo E-Commerce (Consultas)**: https://apiquery.cieloecommerce.cielo.com.br/<BR>
+**API Split**: http://split.braspag.com.br/<BR>
+**OAUTH2 Server**: https://auth.braspag.com.br/<BR>
 
 ### Autorização  
 
@@ -137,13 +137,14 @@ A autorização de uma transação no Split de Pagamentos deve ser realizada atr
 
 Porém, para indentificar que a transação enviada se trata de uma transação de Split de Pagamentos, deve-se modificar o tipo de pagamento utilizado, conforme abaixo:
 
-|=                     | **Cartão de Crédito** | **Cartão de Débito**  |
+|                     | **Cartão de Crédito** | **Cartão de Débito**  |
 |---------------------|------------------------|-----------------------|
 | **Transação Comum** | CreditCard             | DebitCard             |
 | **Transação Split** | SplittedCreditCard     | SplittedDebitCard     |
 
 > Atualmente o Split de Pagamentos está disponivel para os seguintes tipos de pagamento:
-> * Cartão de Crédito  
+> * Cartão de Crédito
+> <BR>
 > Em breve estarão disponíveis:
 > * Cartão de Débito
 > * Boleto
