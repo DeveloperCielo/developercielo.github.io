@@ -64,6 +64,7 @@ As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transa
 
 #### Braspag (Facilitador)
 
+<BR>
 A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.
 
 O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).
@@ -75,11 +76,12 @@ O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é apl
 
 #### Marketplace
 
+<BR>
 O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace e uma Tarifa Fixa, que é opcional.
 
 > **Custo para o Subordinado:** MDR Marketplace(%) + Tarifa Fixa(R$), onde no MDR Marketplace(%) está embutido o MDR Braspag(%).
 
-### Primeiro Exemplo
+### Exemplo
 
 Uma transação de **R$100**, realizada por um **Marketplace** com participação do **Subordinado 01**.
 
