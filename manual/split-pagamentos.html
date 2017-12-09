@@ -201,15 +201,15 @@ As taxas acordadas entre os participantes, podendo ser um <strong>MDR(%)</strong
 O <strong>MDR(%)</strong> acordado entre um <strong>Marketplace</strong> e um <strong>Subordinado</strong> deve ser sempre maior que o <strong>MDR(%)</strong> acordado entre a <strong>Braspag</strong> e o <strong>Marketplace</strong>.</p>
 </blockquote>
 
-<h3 id="marketplace">Marketplace</h3>
+<h4 id="marketplace">Marketplace</h4>
 
-<p>O <strong>Marketplace</strong> é responsável por acordar as taxas a serem cobradas de seus <strong>Subordinados</strong>, onde deve ser defindo um <strong>MDR(%)</strong> maior ou igual ao <strong>MDR(%)</strong> definido entre a <strong>Braspag</strong> e o <strong>Marketplace</strong> e uma <strong>Tarifa Fixa(R$)</strong>, que é opcional.</p>
+<p>O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace e uma Tarifa Fixa, que é opcional.</p>
 
 <blockquote>
   <p><strong>Custo para o Subordinado:</strong> MDR Marketplace(%) + Tarifa Fixa(R$), onde no MDR Marketplace(%) está embutido o MDR Braspag(%).</p>
 </blockquote>
 
-<p>Exemplo</p>
+<h4 id="primeiro-exemplo">Primeiro Exemplo</h4>
 
 <p>Uma transação de <strong>R$100</strong>, realizada por um <strong>Marketplace</strong> com participação do <strong>Subordinado 01</strong>.</p>
 
@@ -218,7 +218,7 @@ O <strong>MDR(%)</strong> acordado entre um <strong>Marketplace</strong> e um <s
 <p>Neste exemplo, foram assumidos os seguintes acordos:</p>
 
 <p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.</p>
+<strong>Taxa Marketplace</strong>: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.</p>
 
 <p>Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:</p>
 
@@ -233,7 +233,7 @@ Débito: R$0,30 (Tarifa Fixa Braspag)</p>
 Crédito: R$2,00 = R$100 * 2%.<br />
 Crédito: R$0,30 (Tarifa Fixa Braspag)</p>
 
-<h2 id="utilizando-o-split-de-pagamentos">Utilizando o Split de Pagamentos</h2>
+<h2 id="integração">Integração</h2>
 
 <p><br />
 O Split de Pagamentos é parte da API Cielo E-Commerce, desenvolvida utilizando a arquitetura REST e JSON como mensageria. Para mais informações sobre a API Cielo E-Commerce, consulte o <a href="https://developercielo.github.io/Webservice-3.0/#criando-uma-transação-simples" target="_blank">Manual de Integração</a> da Plataforma.</p>
