@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T20:21:33+00:00</updated>
+    <updated>2017-12-09T20:27:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1903,8 +1903,8 @@ O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma tra
   &lt;li&gt;Os &lt;strong&gt;valores de participação de cada Subordinado&lt;/strong&gt;. O somatório deverá ser igual ao valor total da transação.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Taxas&lt;/strong&gt; a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de &lt;strong&gt;Subordinado&lt;/strong&gt; e ter seus próprios produtos no carrinho.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de &lt;strong&gt;Subordinado&lt;/strong&gt; e ter seus próprios produtos no carrinho.&lt;/p&gt;
 
 &lt;h3 id=&quot;taxas&quot;&gt;Taxas&lt;/h3&gt;
 
