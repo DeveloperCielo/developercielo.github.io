@@ -82,27 +82,27 @@ O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Sub
 
 ### Exemplo
 
-Uma transação de **R$100**, realizada por um **Marketplace** com participação do **Subordinado 01**.
+Uma transação de **R$100,00**, realizada por um **Marketplace** com participação do **Subordinado 01**.
 
 ![Split](https://docsbraspag.github.io/SplitBraspag/images/Split/Split000.PNG)
 
 Neste exemplo, foram assumidos os seguintes acordos:
 
-**Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
-**Taxa Marketplace**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.
+**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.  
+**Taxa Marketplace**: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.
 
 Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:
 
 **Subordinado**:  
-Crédito: R$94,70
+Crédito: R$96,20
 
 **Marketplace**:  
-Crédito: R$3,30  
-Débito: R$0,30 (Tarifa Fixa Braspag)
+Crédito: R$1,80  
+Débito: R$0,10 (Tarifa Fixa Braspag)
 
 **Braspag (Facilitador)**:  
 Crédito: R$2,00  
-Crédito: R$0,30 (Tarifa Fixa Braspag)
+Crédito: R$0,10 (Tarifa Fixa Braspag)
 
 ## Integração
 
