@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T00:56:09+00:00</updated>
+    <updated>2017-12-09T00:59:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1851,9 +1851,9 @@
 &lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
 
 &lt;p&gt;&lt;br /&gt;
-O Split de Pagamentos permite a divisão de uma transação entre diferentes participantes de uma venda.&lt;/p&gt;
+O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma transação entre diferentes participantes de uma venda.&lt;/p&gt;
 
-&lt;p&gt;Muito utilizado em Marketplaces, onde &lt;strong&gt;o carrinho é composto por produtos de diferentes fornecedores&lt;/strong&gt; e o valor total da venda deve ser dividido entre os participantes.&lt;/p&gt;
+&lt;p&gt;Muito utilizado em Marketplaces, onde &lt;strong&gt;o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre os participantes&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
