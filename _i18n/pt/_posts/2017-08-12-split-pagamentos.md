@@ -95,15 +95,15 @@ Neste exemplo, foram assumidos os seguintes acordos:
 Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:
 
 **Subordinado**:  
-Crédito: R$96,20
+Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]
 
 **Marketplace**:  
-Crédito: R$1,80 [Já descontado o MDR da Braspag (Facilitador)] 
-Débito: R$0,10 [Tarifa Fixa Braspag]
+Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
+Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
 
 **Braspag (Facilitador)**:  
-Crédito: R$2,00  
-Crédito: R$0,10 [Tarifa Fixa Braspag]
+Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
+Crédito: R$0,10 [Tarifa Fixa acordad com o Marketplace]
 
 A Tarifa Fixa acordada entre o Marketplace e o Subordinado é calculada diretamente sobre os valores que cada um tem a receber, ou seja, a tarifa é descontada após o cálculo do percentual acordado entre as duas partes. Já a Tarifa Fixa acordada entre a Braspag (Facilitador) e o Marketplace não é descontada do valor da transação, a mesma é sensibilizada na agenda de ambas as partes com um crédito e um débito, respectivamente.  
 
