@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T20:27:15+00:00</updated>
+    <updated>2017-12-09T20:31:47+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1958,7 +1958,7 @@ Uma transação de &lt;strong&gt;R$100,00&lt;/strong&gt;, realizada por um &lt;s
 Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
+Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]&lt;br /&gt;
 Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;:&lt;br /&gt;
