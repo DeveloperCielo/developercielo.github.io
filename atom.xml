@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T00:59:15+00:00</updated>
+    <updated>2017-12-09T00:59:42+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1879,7 +1879,7 @@ O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma tra
 &lt;/table&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;MDR&lt;/strong&gt;  (&lt;em&gt;Merchant Discount Rate&lt;/em&gt;): Percentual a ser descontado sobre o valor de uma transação.&amp;lt;/aside&amp;gt;&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;MDR (&lt;em&gt;Merchant Discount Rate&lt;/em&gt;):&lt;/strong&gt; Percentual a ser descontado sobre o valor de uma transação.&amp;lt;/aside&amp;gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;No Split de Pagamentos o responsável pelo fluxo transacional é o facilitador.&lt;/p&gt;
