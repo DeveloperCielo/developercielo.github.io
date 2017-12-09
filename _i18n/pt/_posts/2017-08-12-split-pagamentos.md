@@ -105,6 +105,8 @@ Débito: R$0,10 [Tarifa Fixa Braspag]
 Crédito: R$2,00  
 Crédito: R$0,10 [Tarifa Fixa Braspag]
 
+A Tarifa Fixa acordada entre o Marketplace e o Subordinado é calculada diretamente sobre os valores que cada um tem a receber, ou seja, a tarifa é descontada após o cálculo do percentual acordado entre as duas partes. Já a Tarifa Fixa acordada entre a Braspag (Facilitador) e o Marketplace não é descontada do valor da transação, a mesma é sensibilizada na agenda de ambas as partes com um crédito e um débito, respectivamente.  
+
 ## Integração
 
 <BR>
