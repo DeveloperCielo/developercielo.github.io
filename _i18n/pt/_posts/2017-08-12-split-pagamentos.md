@@ -182,13 +182,13 @@ Caso a transação enviada seja marcada para captura automática, o nó contendo
 
 Transação no valor de **R$100,00** sem o nó contendo as regras de divisão.
 
-**Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.
+**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.
 
 ```json
 {
    "MerchantOrderId":"2014111703",
    "Customer":{
-      "Name":"Comprador crédito simples"
+      "Name":"Comprador"
    },
    "Payment":{
      "Type":"SplittedCreditCard",
