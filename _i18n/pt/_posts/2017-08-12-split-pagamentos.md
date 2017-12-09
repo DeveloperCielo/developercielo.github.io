@@ -47,7 +47,7 @@ Na divisão de uma transação, devem ser informados:
 
 * Os **identificadores dos Subordinados**.
 * Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação.
-* **Taxas** a serem aplicadas sobre o valor de cada Subordinado que serão destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.
+* As **Taxas** a serem aplicadas sobre o valor de cada Subordinado que serão destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.
 
 <BR> 
 O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
