@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T01:17:09+00:00</updated>
+    <updated>2017-12-09T01:18:35+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1894,7 +1894,7 @@ O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma tra
 
 &lt;p&gt;Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como &lt;strong&gt;MerchantId (MID)&lt;/strong&gt;, que deverá ser utlizado ao informar as regras de divisão de uma transação.&lt;/p&gt;
 
-&lt;p&gt;Na divisão de uma transação, devem ser informado:&lt;/p&gt;
+&lt;p&gt;Na divisão de uma transação, deve ser informado:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Os &lt;strong&gt;identificadores dos Subordinados&lt;/strong&gt;.&lt;/li&gt;
