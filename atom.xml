@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T01:07:05+00:00</updated>
+    <updated>2017-12-09T01:10:32+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1892,14 +1892,14 @@ O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma tra
 &lt;strong&gt;Débito&lt;/strong&gt;: Em até 1 dia útil&lt;br /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Para utilizar o Split de Pagamentos, o &lt;strong&gt;Marketplace&lt;/strong&gt; deverá se cadastrar na Braspag juntamente com seus &lt;strong&gt;Subordinados&lt;/strong&gt;. Após este processo, tanto o &lt;strong&gt;Marketplace&lt;/strong&gt; quanto seus &lt;strong&gt;Subordinados&lt;/strong&gt; possuirão um identificador único, conhecido como &lt;strong&gt;MerchantId (MID)&lt;/strong&gt;, que deverá ser utlizado ao informar as regras de divisão de uma transação.&lt;/p&gt;
+&lt;p&gt;Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como &lt;strong&gt;MerchantId (MID)&lt;/strong&gt;, que deverá ser utlizado ao informar as regras de divisão de uma transação.&lt;/p&gt;
 
 &lt;p&gt;A divisão de uma transação deve serguir as seguintes regras:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Informar os identificadores dos &lt;strong&gt;Subordinados&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;Os valores de participação de cada &lt;strong&gt;Subordinado&lt;/strong&gt;. O somatório deverá ser igual ao valor total da transação.&lt;/li&gt;
-  &lt;li&gt;MDRs + Tarifas Fixas (opcional) a serem aplicados sobre o valor de cada &lt;strong&gt;Subordinado&lt;/strong&gt; que será destinado ao &lt;strong&gt;Marketplace&lt;/strong&gt;. Deverá ser acordado previamente entre o &lt;strong&gt;Marketplace&lt;/strong&gt; e o &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Informar os &lt;strong&gt;identificadores dos Subordinados&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Os &lt;strong&gt;valores de participação de cada Subordinado&lt;/strong&gt;. O somatório deverá ser igual ao valor total da transação.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Taxas&lt;/strong&gt; a serem aplicadas sobre o valor de cada Subordinado que serão destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;O &lt;strong&gt;Marketplace&lt;/strong&gt; também pode ser um participante da divisão. Para isso basta informar seu identificador na divisão, passando o mesmo a ter também o papel de &lt;strong&gt;Subordinado&lt;/strong&gt; e ter seus próprios produtos no carrinho.&lt;/p&gt;
