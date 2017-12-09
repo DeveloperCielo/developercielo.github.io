@@ -155,13 +155,13 @@ Exemplo:
 {
    "MerchantOrderId":"2014111703",
    "Customer":{
-      "Name":"Comprador crédito simples"
+      "Name":"Comprador"
    },
    "Payment":{
      "Type":"SplittedCreditCard",
      "Amount":10000,
      "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
+     "SoftDescriptor":"Marketplace",
      "CreditCard":{
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -173,9 +173,9 @@ Exemplo:
 }
 ```
 
-Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional pela Braspag (Facilitador).
+Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).
 
-Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a **Braspag** e o **Marketplace**. Posteriormente é permitido que o **Marketplace** envie novas regras de divisão para a transação através da API de divisão pós-transacional, desde que esteja dentro do período de tempo permitido.
+Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Marketplace. Posteriormente é permitido que o Marketplace envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
 
 **Exemplo 1)**  
 
@@ -194,7 +194,7 @@ Transação no valor de **R$100,00** sem o nó contendo as regras de divisão.
      "Amount":10000,
      "Capture":true,
      "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
+     "SoftDescriptor":"Marketplace",
      "CreditCard":{
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -206,7 +206,7 @@ Transação no valor de **R$100,00** sem o nó contendo as regras de divisão.
 }
 ```
 
-Neste caso o **Marketplace** recebe o valor da transação descontado o MDR acordado com a **Braspag**. Como apresentado anteriormente, a Tarifa Fixa acordada entre o **Marketplace** e a **Braspag** é sensibilizada diretamente na agenda.
+Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
 
 ![Split](https://docsbraspag.github.io/SplitBraspag/images/Split/Split001.PNG)
 
