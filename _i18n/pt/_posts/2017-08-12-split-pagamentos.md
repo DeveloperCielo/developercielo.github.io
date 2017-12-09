@@ -75,7 +75,7 @@ O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é apl
 #### Marketplace
 
 <BR>
-O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace e uma Tarifa Fixa, que é opcional.
+O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.
 
 > **Custo Subordinado:** MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).
 
@@ -102,9 +102,7 @@ Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
 
 **Braspag (Facilitador)**:  
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
-Crédito: R$0,10 [Tarifa Fixa acordad com o Marketplace]
-
-A Tarifa Fixa acordada entre o Marketplace e o Subordinado é calculada diretamente sobre os valores que cada um tem a receber, ou seja, a tarifa é descontada após o cálculo do percentual acordado entre as duas partes. Já a Tarifa Fixa acordada entre a Braspag (Facilitador) e o Marketplace não é descontada do valor da transação, a mesma é sensibilizada na agenda de ambas as partes com um crédito e um débito, respectivamente.  
+Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
 
 ## Integração
 
