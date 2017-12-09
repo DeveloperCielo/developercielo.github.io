@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T02:12:37+00:00</updated>
+    <updated>2017-12-09T02:14:21+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1932,19 +1932,13 @@ A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descon
   &lt;p&gt;&lt;strong&gt;Custo Marketplace:&lt;/strong&gt; MDR Braspag(%) + Tarifa Fixa(R$)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;O &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre um &lt;strong&gt;Marketplace&lt;/strong&gt; e um &lt;strong&gt;Subordinado&lt;/strong&gt; deve ser sempre maior que o &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre a &lt;strong&gt;Braspag&lt;/strong&gt; e o &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
 &lt;h4 id=&quot;marketplace&quot;&gt;Marketplace&lt;/h4&gt;
 
 &lt;p&gt;&lt;br /&gt;
 O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace e uma Tarifa Fixa, que é opcional.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Custo para o Subordinado:&lt;/strong&gt; MDR Marketplace(%) + Tarifa Fixa(R$), onde no MDR Marketplace(%) está embutido o MDR Braspag(%).&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Custo Subordinado:&lt;/strong&gt; MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;exemplo&quot;&gt;Exemplo&lt;/h3&gt;
