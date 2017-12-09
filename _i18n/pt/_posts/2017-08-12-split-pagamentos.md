@@ -97,7 +97,7 @@ Após o split, cada participante terá sua agenda sensibilizada com os seguintes
 Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]
 
 **Marketplace**:  
-Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
+Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]<BR>
 Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
 
 **Braspag (Facilitador)**:  
