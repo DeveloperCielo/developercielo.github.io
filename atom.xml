@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-08T20:05:12+00:00</updated>
+    <updated>2017-12-09T00:54:31+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1865,11 +1865,11 @@ O Split de Pagamentos permite a divisão de uma transação entre diferentes par
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Responsável pelo carrinho. &lt;br /&gt; Possui &lt;strong&gt;Subordinados&lt;/strong&gt; que fornecem os produtos presentes no carrinho.&lt;br /&gt; Define um MDR* e uma Tarifa Fixa (opcional) a serem descontados sobre a venda do &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Responsável pelo carrinho. &lt;br /&gt; Possui acordos &lt;strong&gt;Subordinados&lt;/strong&gt; que fornecem os produtos presentes no carrinho.&lt;br /&gt; Define um MDR* e uma Tarifa Fixa (opcional) a serem descontados sobre a venda do &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;br /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Subordinado&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Fornecedor dos produtos que compõem o carrinho.&lt;br /&gt;Recebe parte do valor da venda, descontado o MDR* acordado com o &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Fornecedor dos produtos que compõem o carrinho.&lt;br /&gt;Recebe parte do valor da venda, descontadas as taxas acordadas com o &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;br /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;&lt;/td&gt;
