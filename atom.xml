@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T20:31:47+00:00</updated>
+    <updated>2017-12-09T20:44:24+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1968,7 +1968,9 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 &lt;h2 id=&quot;integração&quot;&gt;Integração&lt;/h2&gt;
 
 &lt;p&gt;&lt;br /&gt;
-O Split de Pagamentos é parte da API Cielo E-Commerce, desenvolvida utilizando a arquitetura REST e JSON como mensageria. Para mais informações sobre a API Cielo E-Commerce, consulte o &lt;a href=&quot;https://developercielo.github.io/Webservice-3.0/#criando-uma-transação-simples&quot; target=&quot;_blank&quot;&gt;Manual de Integração&lt;/a&gt; da Plataforma.&lt;/p&gt;
+O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.&lt;/p&gt;
+
+&lt;p&gt;Para mais informações sobre a API Cielo E-Commerce, consulte o &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce&quot; target=&quot;_blank&quot;&gt;Manual de Integração&lt;/a&gt; da Plataforma.&lt;/p&gt;
 
 &lt;p&gt;OBS: Neste manual serão apresentados os contratos de integração da API Cielo E-Commerce, porém o foco da análise será nas operações referentes ao Split de Pagamentos.&lt;/p&gt;
 
