@@ -73,6 +73,7 @@ O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é apl
 
 > **Custo Marketplace:** MDR Braspag(%) + Tarifa Fixa(R$)
 
+<BR>
 
 > O **MDR(%)** acordado entre um **Marketplace** e um **Subordinado** deve ser sempre maior que o **MDR(%)** acordado entre a **Braspag** e o **Marketplace**.
 
