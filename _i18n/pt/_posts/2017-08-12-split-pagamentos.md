@@ -41,13 +41,13 @@ Com a transação capturada, a Braspag calcula o valor destinado a cada particip
 
 Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
 
-A divisão de uma transação deve serguir as seguintes regras:
+Na divisão de uma transação, devem ser informado:
 
-* Informar os **identificadores dos Subordinados**.
+* Os **identificadores dos Subordinados**.
 * Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação.
 * **Taxas** a serem aplicadas sobre o valor de cada Subordinado que serão destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.
 
-O **Marketplace** também pode ser um participante da divisão. Para isso basta informar seu identificador na divisão, passando o mesmo a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
+O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
 
 ## Taxas
 
