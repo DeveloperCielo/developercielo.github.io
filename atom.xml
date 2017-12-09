@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T01:48:05+00:00</updated>
+    <updated>2017-12-09T01:50:40+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1940,7 +1940,7 @@ O &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre um &lt;strong&gt;Marketplac
   &lt;p&gt;&lt;strong&gt;Custo para o Subordinado:&lt;/strong&gt; MDR Marketplace(%) + Tarifa Fixa(R$), onde no MDR Marketplace(%) está embutido o MDR Braspag(%).&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;primeiro-exemplo&quot;&gt;Primeiro Exemplo&lt;/h4&gt;
+&lt;h3 id=&quot;primeiro-exemplo&quot;&gt;Primeiro Exemplo&lt;/h3&gt;
 
 &lt;p&gt;Uma transação de &lt;strong&gt;R$100&lt;/strong&gt;, realizada por um &lt;strong&gt;Marketplace&lt;/strong&gt; com participação do &lt;strong&gt;Subordinado 01&lt;/strong&gt;.&lt;/p&gt;
 
