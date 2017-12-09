@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T01:52:05+00:00</updated>
+    <updated>2017-12-09T02:02:43+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1929,8 +1929,13 @@ A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descon
 &lt;p&gt;O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Custo Marketplace:&lt;/strong&gt; MDR Braspag(%) + Tarifa Fixa(R$)
-O &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre um &lt;strong&gt;Marketplace&lt;/strong&gt; e um &lt;strong&gt;Subordinado&lt;/strong&gt; deve ser sempre maior que o &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre a &lt;strong&gt;Braspag&lt;/strong&gt; e o &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Custo Marketplace:&lt;/strong&gt; MDR Braspag(%) + Tarifa Fixa(R$)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;O &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre um &lt;strong&gt;Marketplace&lt;/strong&gt; e um &lt;strong&gt;Subordinado&lt;/strong&gt; deve ser sempre maior que o &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre a &lt;strong&gt;Braspag&lt;/strong&gt; e o &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h4 id=&quot;marketplace&quot;&gt;Marketplace&lt;/h4&gt;
@@ -1956,14 +1961,14 @@ O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Sub
 &lt;p&gt;Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Subordinado&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$94,70 = (R$100 - 5%) - R$0,30.&lt;/p&gt;
+Crédito: R$94,70&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$3,30 = R$100 * (5% - 2%) + R$0,30.&lt;br /&gt;
+Crédito: R$3,30&lt;br /&gt;
 Débito: R$0,30 (Tarifa Fixa Braspag)&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$2,00 = R$100 * 2%.&lt;br /&gt;
+Crédito: R$2,00&lt;br /&gt;
 Crédito: R$0,30 (Tarifa Fixa Braspag)&lt;/p&gt;
 
 &lt;h2 id=&quot;integração&quot;&gt;Integração&lt;/h2&gt;
