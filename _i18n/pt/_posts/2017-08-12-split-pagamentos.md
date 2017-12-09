@@ -53,13 +53,13 @@ O Marketplace também pode ser um participante da divisão, bastando informar se
 ## Taxas
 
 <BR>
-As taxas acordadas entre os participantes, que são o **MDR(%)** e uma **Taxa Fixa(R$)**, devem ser definidas no momento do cadastro do **Marketplace** e dos seus **Subordinados** junto à Braspag.  
+As taxas acordadas entre os participantes, podendo ser um **MDR(%)** e/ou uma **Taxa Fixa(R$)**, devem ser definidas no momento do cadastro do Marketplace e dos seus Subordinados junto aoà Braspag (Facilitador).  
 
-As mesmas poderão ser enviadas no momento transacional ou pós-transacional. Caso não sejam enviadas, a **Braspag** irá considerar as taxas já cadastradas.   
+As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.   
 
 ### Braspag (Facilitador)
 
-A Braspag acordará um **MDR(%)** e uma **Tarifa Fixa(R$)** com o **Marketplace** a serem descontados em cada transação.
+A Braspag acordará um MDR(%) e/ou uma Tarifa Fixa(R$) com o Marketplace a serem descontadas do valor total de cada transação.
 
 O **Marketplace**, de conhecimento destas taxas, negociará o seu **MDR(%)** e uma **Tarifa Fixa(R$)(opcional)** juntamente com seus **Subornidandos**, já embutindo o **MDR(%)** acordado junto à **Braspag**.
 
