@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T01:13:31+00:00</updated>
+    <updated>2017-12-09T01:16:08+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1906,7 +1906,8 @@ O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma tra
 
 &lt;h2 id=&quot;taxas&quot;&gt;Taxas&lt;/h2&gt;
 
-&lt;p&gt;As taxas acordadas entre os participantes, que são o &lt;strong&gt;MDR(%)&lt;/strong&gt; e uma &lt;strong&gt;Taxa Fixa(R$)&lt;/strong&gt;, devem ser definidas no momento do cadastro do &lt;strong&gt;Marketplace&lt;/strong&gt; e dos seus &lt;strong&gt;Subordinados&lt;/strong&gt; junto à Braspag.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+As taxas acordadas entre os participantes, que são o &lt;strong&gt;MDR(%)&lt;/strong&gt; e uma &lt;strong&gt;Taxa Fixa(R$)&lt;/strong&gt;, devem ser definidas no momento do cadastro do &lt;strong&gt;Marketplace&lt;/strong&gt; e dos seus &lt;strong&gt;Subordinados&lt;/strong&gt; junto à Braspag.&lt;/p&gt;
 
 &lt;p&gt;As mesmas poderão ser enviadas no momento transacional ou pós-transacional. Caso não sejam enviadas, a &lt;strong&gt;Braspag&lt;/strong&gt; irá considerar as taxas já cadastradas.&lt;/p&gt;
 
