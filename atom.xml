@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T21:01:15+00:00</updated>
+    <updated>2017-12-09T21:03:04+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1994,7 +1994,8 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 
 &lt;h3 id=&quot;autorização&quot;&gt;Autorização&lt;/h3&gt;
 
-&lt;p&gt;A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.&lt;/p&gt;
 
 &lt;p&gt;Porém, para indentificar que a transação enviada se trata de uma transação de Split de Pagamentos, deve-se modificar o tipo de pagamento utilizado, conforme abaixo:&lt;/p&gt;
 
