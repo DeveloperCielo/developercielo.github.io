@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T01:24:43+00:00</updated>
+    <updated>2017-12-09T01:27:49+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1912,11 +1912,15 @@ As taxas acordadas entre os participantes, podendo ser um &lt;strong&gt;MDR(%)&l
 
 &lt;p&gt;As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;MDR (&lt;em&gt;Merchant Discount Rate&lt;/em&gt;):&lt;/strong&gt; Percentual a ser descontado do valor de uma transação&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h3 id=&quot;braspag-facilitador&quot;&gt;Braspag (Facilitador)&lt;/h3&gt;
 
-&lt;p&gt;A Braspag acordará um MDR(%) e/ou uma Tarifa Fixa(R$) com o Marketplace a serem descontadas do valor total de cada transação.&lt;/p&gt;
+&lt;p&gt;A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.&lt;/p&gt;
 
-&lt;p&gt;O &lt;strong&gt;Marketplace&lt;/strong&gt;, de conhecimento destas taxas, negociará o seu &lt;strong&gt;MDR(%)&lt;/strong&gt; e uma &lt;strong&gt;Tarifa Fixa(R$)(opcional)&lt;/strong&gt; juntamente com seus &lt;strong&gt;Subornidandos&lt;/strong&gt;, já embutindo o &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado junto à &lt;strong&gt;Braspag&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;O Marketplace, de conhecimento destas taxas, negociará o seu MDR(%) e/ou uma Tarifa Fixa(R$) juntamente com seus Subornidandos, já considerando o MDR e/ou Tarifa acordados junto à &lt;strong&gt;Braspag&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;O desconto da &lt;strong&gt;Tarifa Fixa(R$)&lt;/strong&gt;, acordado entre o &lt;strong&gt;Marketplace&lt;/strong&gt; e a &lt;strong&gt;Braspag&lt;/strong&gt;, não é aplicado no valor total da transação, não entrando no cálculo da divisão e sim sendo debitado do montante que o &lt;strong&gt;Marketplace&lt;/strong&gt; tem para receber junto à &lt;strong&gt;Braspag&lt;/strong&gt;. O &lt;strong&gt;MDR(%)&lt;/strong&gt; entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no &lt;strong&gt;MDR(%)&lt;/strong&gt; acordado entre o &lt;strong&gt;Marketplace&lt;/strong&gt; e seus &lt;strong&gt;Subordinados.&lt;/strong&gt;&lt;/p&gt;
 
