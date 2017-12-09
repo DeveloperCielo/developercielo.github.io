@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T02:14:21+00:00</updated>
+    <updated>2017-12-09T13:52:50+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1943,27 +1943,27 @@ O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Sub
 
 &lt;h3 id=&quot;exemplo&quot;&gt;Exemplo&lt;/h3&gt;
 
-&lt;p&gt;Uma transação de &lt;strong&gt;R$100&lt;/strong&gt;, realizada por um &lt;strong&gt;Marketplace&lt;/strong&gt; com participação do &lt;strong&gt;Subordinado 01&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Uma transação de &lt;strong&gt;R$100,00&lt;/strong&gt;, realizada por um &lt;strong&gt;Marketplace&lt;/strong&gt; com participação do &lt;strong&gt;Subordinado 01&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://docsbraspag.github.io/SplitBraspag/images/Split/Split000.PNG&quot; alt=&quot;Split&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Neste exemplo, foram assumidos os seguintes acordos:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,30 Tarifa Fixa.&lt;br /&gt;
-&lt;strong&gt;Taxa Marketplace&lt;/strong&gt;: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,10 Tarifa Fixa.&lt;br /&gt;
+&lt;strong&gt;Taxa Marketplace&lt;/strong&gt;: 3,5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.&lt;/p&gt;
 
 &lt;p&gt;Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Subordinado&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$94,70&lt;/p&gt;
+Crédito: R$96,20&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$3,30&lt;br /&gt;
-Débito: R$0,30 (Tarifa Fixa Braspag)&lt;/p&gt;
+Crédito: R$1,80&lt;br /&gt;
+Débito: R$0,10 (Tarifa Fixa Braspag)&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;:&lt;br /&gt;
 Crédito: R$2,00&lt;br /&gt;
-Crédito: R$0,30 (Tarifa Fixa Braspag)&lt;/p&gt;
+Crédito: R$0,10 (Tarifa Fixa Braspag)&lt;/p&gt;
 
 &lt;h2 id=&quot;integração&quot;&gt;Integração&lt;/h2&gt;
 
