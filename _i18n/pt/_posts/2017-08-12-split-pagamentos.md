@@ -73,13 +73,13 @@ O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é apl
 > **Custo Marketplace:** MDR Braspag(%) + Tarifa Fixa(R$)
 > O **MDR(%)** acordado entre um **Marketplace** e um **Subordinado** deve ser sempre maior que o **MDR(%)** acordado entre a **Braspag** e o **Marketplace**.
 
-### Marketplace
+#### Marketplace
 
-O **Marketplace** é responsável por acordar as taxas a serem cobradas de seus **Subordinados**, onde deve ser defindo um **MDR(%)** maior ou igual ao **MDR(%)** definido entre a **Braspag** e o **Marketplace** e uma **Tarifa Fixa(R$)**, que é opcional.
+O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace e uma Tarifa Fixa, que é opcional.
 
 > **Custo para o Subordinado:** MDR Marketplace(%) + Tarifa Fixa(R$), onde no MDR Marketplace(%) está embutido o MDR Braspag(%).
 
-Exemplo
+#### Primeiro Exemplo
 
 Uma transação de **R$100**, realizada por um **Marketplace** com participação do **Subordinado 01**.
 
@@ -88,7 +88,7 @@ Uma transação de **R$100**, realizada por um **Marketplace** com participaçã
 Neste exemplo, foram assumidos os seguintes acordos:
 
 **Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
-**Taxa Marketplace**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.
+**Taxa Marketplace**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.
 
 Após o split, cada participante terá sua agenda sensibilizada com os seguintes eventos:
 
@@ -103,7 +103,7 @@ Débito: R$0,30 (Tarifa Fixa Braspag)
 Crédito: R$2,00 = R$100 * 2%.  
 Crédito: R$0,30 (Tarifa Fixa Braspag)
 
-## Utilizando o Split de Pagamentos
+## Integração
 
 <BR>
 O Split de Pagamentos é parte da API Cielo E-Commerce, desenvolvida utilizando a arquitetura REST e JSON como mensageria. Para mais informações sobre a API Cielo E-Commerce, consulte o [Manual de Integração](https://developercielo.github.io/Webservice-3.0/#criando-uma-transação-simples){:target="_blank"} da Plataforma.
