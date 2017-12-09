@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T20:51:30+00:00</updated>
+    <updated>2017-12-09T20:56:19+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1979,18 +1979,18 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 &lt;h4 id=&quot;sandbox&quot;&gt;Sandbox&lt;/h4&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://apisandbox.cieloecommerce.cielo.com.br/
-&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/
-&lt;strong&gt;API Split&lt;/strong&gt;: http://splitsandbox.braspag.com.br/
-&lt;strong&gt;OAUTH2 Server&lt;/strong&gt;: https://authhomolog.braspag.com.br/&lt;/p&gt;
+&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://apisandbox.cieloecommerce.cielo.com.br/&lt;br /&gt;
+&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;br /&gt;
+&lt;strong&gt;API Split&lt;/strong&gt;: http://splitsandbox.braspag.com.br/&lt;br /&gt;
+&lt;strong&gt;OAUTH2 Server&lt;/strong&gt;: https://authhomolog.braspag.com.br/&lt;br /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;produção&quot;&gt;Produção&lt;/h4&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/
-&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/
-&lt;strong&gt;API Split&lt;/strong&gt;: http://split.braspag.com.br/
-&lt;strong&gt;OAUTH2 Server&lt;/strong&gt;: https://auth.braspag.com.br/&lt;/p&gt;
+&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/&lt;br /&gt;
+&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/&lt;br /&gt;
+&lt;strong&gt;API Split&lt;/strong&gt;: http://split.braspag.com.br/&lt;br /&gt;
+&lt;strong&gt;OAUTH2 Server&lt;/strong&gt;: https://auth.braspag.com.br/&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;autorização&quot;&gt;Autorização&lt;/h3&gt;
 
@@ -2001,7 +2001,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;=&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Cartão de Crédito&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Cartão de Débito&lt;/strong&gt;&lt;/th&gt;
     &lt;/tr&gt;
@@ -2023,8 +2023,11 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 &lt;blockquote&gt;
   &lt;p&gt;Atualmente o Split de Pagamentos está disponivel para os seguintes tipos de pagamento:&lt;/p&gt;
   &lt;ul&gt;
-    &lt;li&gt;Cartão de Crédito&lt;br /&gt;
-Em breve estarão disponíveis:&lt;/li&gt;
+    &lt;li&gt;Cartão de Crédito&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;&lt;br /&gt;
+Em breve estarão disponíveis:&lt;/p&gt;
+  &lt;ul&gt;
     &lt;li&gt;Cartão de Débito&lt;/li&gt;
     &lt;li&gt;Boleto&lt;/li&gt;
   &lt;/ul&gt;
