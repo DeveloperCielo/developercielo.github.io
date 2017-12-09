@@ -27,7 +27,7 @@ Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de d
 | **Subordinado** | Fornecedor dos produtos que compõem o carrinho.<BR>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Marketplace**.<BR>  |
 | **Braspag (Facilitador)** | Responsável pelo fluxo transacional.<BR> Define um MDR\* e uma Tarifa Fixa a serem descontados sobre o valor total da venda realizada pelo **Marketplace**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Marketplace**.|
 
-> **MDR (*Merchant Discount Rate*):** Percentual a ser descontado sobre o valor de uma transação.</aside>
+> **MDR (*Merchant Discount Rate*):** Percentual a ser descontado sobre o valor de uma transação.
 
 No Split de Pagamentos o responsável pelo fluxo transacional é o facilitador.
 
