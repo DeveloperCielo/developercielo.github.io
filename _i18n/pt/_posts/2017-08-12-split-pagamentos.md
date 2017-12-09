@@ -16,7 +16,7 @@ language_tabs:
 
 ## Introdução
 
-### Particpantes
+### Definição
 
 <BR>
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
