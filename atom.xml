@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-09T20:10:15+00:00</updated>
+    <updated>2017-12-09T20:12:25+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1890,13 +1890,13 @@ O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma tra
   &lt;p&gt;&lt;strong&gt;Regime de Pagamento&lt;/strong&gt;: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.&lt;br /&gt;
 &lt;br /&gt;
 &lt;strong&gt;Crédito&lt;/strong&gt;: Em até 31 dias.&lt;br /&gt;
-&lt;strong&gt;Crédito&lt;/strong&gt; Parcelado: 1º parcela em até 31 dias, demais a cada 30.&lt;br /&gt;
-&lt;strong&gt;Débito&lt;/strong&gt;: Em até 1 dia útil&lt;br /&gt;&lt;/p&gt;
+&lt;strong&gt;Crédito Parcelado&lt;/strong&gt;: 1º parcela em até 31 dias, demais a cada 30.&lt;br /&gt;
+&lt;strong&gt;Débito&lt;/strong&gt;: Em até 1 dia útil.&lt;br /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como &lt;strong&gt;MerchantId (MID)&lt;/strong&gt;, que deverá ser utlizado ao informar as regras de divisão de uma transação.&lt;/p&gt;
 
-&lt;p&gt;Na divisão de uma transação, deve ser informado:&lt;/p&gt;
+&lt;p&gt;Na divisão de uma transação, devem ser informados:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Os &lt;strong&gt;identificadores dos Subordinados&lt;/strong&gt;.&lt;/li&gt;
