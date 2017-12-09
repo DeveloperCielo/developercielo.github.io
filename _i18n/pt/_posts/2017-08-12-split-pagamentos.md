@@ -131,7 +131,6 @@ OBS: Neste manual serão apresentados os contratos de integração da API Cielo 
 **API Split**: http://split.braspag.com.br/
 **OAUTH2 Server**: https://auth.braspag.com.br/
 
-
 ### Autorização  
 
 A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.
