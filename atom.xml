@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-10T17:47:06+00:00</updated>
+    <updated>2017-12-10T17:55:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2524,7 +2524,7 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo 3)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Transação no valor de &lt;strong&gt;R$100,00&lt;/strong&gt; com o nó contendo as regras de divisão e o Marketplace participando da venda.&lt;/p&gt;
 
