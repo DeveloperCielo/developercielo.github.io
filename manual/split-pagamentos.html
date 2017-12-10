@@ -653,7 +653,7 @@ Em breve estarão disponíveis:</p>
 
 <p>Abaixo como ficaram as divisões e como foram as agendas de cada participante foram sensibilizadas.</p>
 
-<p><img src="https://developercielo.github.io/images/split/split003.png =800x" alt="SplitSample003" /></p>
+<p><img src="https://developercielo.github.io/images/split/split003.png" alt="SplitSample003" /></p>
 
 <h3 id="modelos-de-split">Modelos de Split</h3>
 
@@ -801,152 +801,168 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
 <strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.<br />
 <strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
 
-<p><code class="highlighter-rouge">REQUEST</code></p>
+<p><strong>REQUEST</strong></p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{apiCieloECommerceUrl}/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito simples"</span><span class="w">
+  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
-     </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-     </span><span class="p">},</span><span class="w">
-     </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">
+  </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Marketplace"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
+          </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4551870000000181"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
-                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w"> 
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
-                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w"> 
             </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="w">
         </span><span class="p">}</span><span class="w">
-     </span><span class="p">]</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><code class="highlighter-rouge">RESPONSE</code></p>
+<p><strong>RESPONSE</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador crédito simples"</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0183"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0305023644309"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24bc8366-fc31-4d6c-8555-17049a836a07"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">
+        </span><span class="s2">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
-                    </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+                </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4500</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cd16ab8e-2173-4a16-b037-36cd04c07950"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">210</span><span class="p">,</span><span class="w">    
+                        </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4245</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5670</span><span class="p">,</span><span class="w">    
+                        </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">255</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">]</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
-                    </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+                </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cd16ab8e-2173-4a16-b037-36cd04c07950"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">95</span><span class="p">,</span><span class="w">    
+                        </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2865</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825</span><span class="p">,</span><span class="w">    
+                        </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2500</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">]</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1210035540764"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20171210035540764"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"859182"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marketplace"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-10 15:55:38"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-10 15:55:40"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34895364-e269-47ad-b779-7e122ed40a9a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SplittedCreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"split"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://splitsandbox.braspag.com.br/api/transactions/34895364-e269-47ad-b779-7e122ed40a9a/split"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"</span><span class="w">
+                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span><span class="w">
+                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/34895364-e269-47ad-b779-7e122ed40a9a/void"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Neste exemplo os cálculos do Split foram realizados sobre cada regra de divisão informada e na resposta retornaram os valores a serem recebidos pelo <strong>Marketplace</strong> e seus <strong>Subordinados</strong>.</p>
+<p>Neste exemplo, onde o Marketplace também particoa da venda, não é necessário informar as taxas a serem cobradas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o indentificador da loja informado é do próprio Marketplace e realizar os cáluclo corretamente.</p>
 
-<p><img src="https://docsbraspag.github.io/SplitBraspag/images/Split/Split003.PNG" alt="Split" /></p>
-
-<p>Divisão do valor do Subordinado <strong>0f377932-5668-4c72-8b5b-2b43760ebd38</strong>:</p>
-
-<p><strong>Marketplace</strong>: R$2,10<br />
-<strong>Subordinado</strong>: R$56,70</p>
-
-<p>Divisão do valor do Subordinado <strong>98430463-7c1e-413b-b13a-0f613af594d8</strong>:</p>
-
-<p><strong>Marketplace</strong>: R$0,95<br />
-<strong>Subordinado</strong>: R$38,25</p>
+<p><img src="https://developercielo.github.io/images/split/split004.png" alt="SplitSample004" /></p>
 
 <h4 id="split-pós-transacional">Split Pós-Transacional</h4>
 
