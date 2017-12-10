@@ -104,7 +104,7 @@ Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
 
-## Integração
+## Ambientes
 
 <BR>
 O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.
@@ -113,9 +113,7 @@ Para mais informações sobre a API Cielo E-Commerce, consulte o [Manual de Inte
 
 OBS: Neste manual serão apresentados os contratos de integração da API Cielo E-Commerce, porém o foco da análise será nas operações referentes ao Split de Pagamentos.
 
-### Ambientes
-
-#### Sandbox
+### Sandbox
 
 <BR>
 **API Cielo E-Commerce**: https://apisandbox.cieloecommerce.cielo.com.br/<BR>
@@ -123,7 +121,7 @@ OBS: Neste manual serão apresentados os contratos de integração da API Cielo 
 **API Split**: http://splitsandbox.braspag.com.br/<BR>
 **Braspag OAUTH2 Server**: https://authhomolog.braspag.com.br/<BR>
 
-#### Produção
+### Produção
 
 <BR>
 **API Cielo E-Commerce**: https://api.cieloecommerce.cielo.com.br/<BR>
@@ -131,7 +129,7 @@ OBS: Neste manual serão apresentados os contratos de integração da API Cielo 
 **API Split**: http://split.braspag.com.br/<BR>
 **Braspag OAUTH2 Server**: https://auth.braspag.com.br/<BR>
 
-### Autenticação
+## Autenticação
 
 <BR>
 O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API Cielo e-Commerce e à API do Split.
@@ -165,6 +163,8 @@ grant_type=client_credentials
 > O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
 
 O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
+
+## Integração
 
 ### Autorização  
 
