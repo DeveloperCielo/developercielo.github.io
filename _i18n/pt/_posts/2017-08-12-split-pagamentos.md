@@ -357,52 +357,152 @@ Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordad
 
 Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 
-**Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.  
+**Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.  
+**Taxa Marketplace com o Subordinado 01**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.  
+**Taxa Marketplace com o Subordinado 02**: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.  
+
+** Rquest **
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{apiCieloECommerceUrl}/1/sales/</span></aside>
 
 ```json
 {
-   "MerchantOrderId":"2014111703",
-   "Customer":{
-      "Name":"Comprador crédito simples"
+  "MerchantOrderId":"2014111701",
+  "Customer":{
+      "Name":"Comprador"
    },
-   "Payment":{
-     "Type":"SplittedCreditCard",
-     "Amount":10000,
-     "Capture":true,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-     },
-     "SplitPayments":[
+  "Payment":{
+      "Type":"SplittedCreditCard",
+      "Amount":10000,
+      "Installments":1,
+      "SoftDescriptor":"Marketplace",
+      "Capture": true,
+      "CreditCard":{
+          "CardNumber":"4551870000000181",
+          "Holder":"Teste Holder",
+          "ExpirationDate":"12/2021",
+          "SecurityCode":"123",
+          "Brand":"Visa"
+      },
+      "SplitPayments": [
         {
-            "SubordinateMerchantId" :"MID Subordinate 01",
-            "Amount":6000,
-            "Fares":{
-                "Mdr":5,
-                "Fee":30
+            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "Amount": 6000,
+            "Fares": {
+              "Mdr": 5,
+              "Fee": 30 
             }
         },
         {
-            "SubordinateMerchantId" :"MID Subordinate 02",
-            "Amount":4000,
-            "Fares":{
-                "Mdr":4,
-                "Fee":15
+            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "Amount": 4000,
+            "Fares": {
+              "Mdr": 4,
+              "Fee": 15 
             }
         }
-     ]
-   }
+    ]
+  }
 }
 ```
 
-Neste caso o cálculos do Split são realizados sobre cada regra de divisão informada. No próximo tópico serão explicados as propriedades que compõem o nó do Split de Pagamentos.
+**Response**
+
+```json
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                "Amount": 6000,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                        "Amount": 5670
+                    },
+                    {
+                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "Amount": 330
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                "Amount": 4000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                        "Amount": 3825
+                    },
+                    {
+                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "Amount": 175
+                    }
+                ]
+            }
+        ],
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "455187******0181",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "1210031135775",
+        "ProofOfSale": "20171210031135775",
+        "AuthorizationCode": "605861",
+        "SoftDescriptor": "Marketplace",
+        "Provider": "Simulado",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-10 15:11:34",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-12-10 15:11:35",
+        "Status": 2,
+        "IsSplitted": true,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "ef7a7cf9-b66b-4772-b022-052bdcf3e9b0",
+        "Type": "SplittedCreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "PUT",
+                "Rel": "split",
+                "Href": "https://splitsandbox.braspag.com.br/api/transactions/ef7a7cf9-b66b-4772-b022-052bdcf3e9b0/split"
+            },
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ef7a7cf9-b66b-4772-b022-052bdcf3e9b0"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/ef7a7cf9-b66b-4772-b022-052bdcf3e9b0/void"
+            }
+        ]
+    }
+}
+```
 
 ![Split](https://docsbraspag.github.io/SplitBraspag/images/Split/Split003.PNG)
 
