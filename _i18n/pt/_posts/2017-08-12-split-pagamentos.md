@@ -756,7 +756,7 @@ A divisão pós-transacional é possível somente para transações com **Cartã
 
 Para transações com **Cartão de Crédito**, este período é de **25 dias** se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
 
-A API de divisão pós-transacional utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.
+A API de divisão pós-transacional utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token de acesso utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.
 
 Para obter um token de acesso:
 
@@ -766,16 +766,15 @@ Para obter um token de acesso:
 
 **REQUEST**  
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
-```json
-POST https://{OAUTH2 Server}/oauth2/token  
+```shell
 --header "Authorization: Basic {base64}"  
 --header "Content-Type: application/x-www-form-urlencoded"  
 grant_type=client_credentials
 ```
 
-`RESPONSE`
+**RESPONSE**
 
 ```json
 {
@@ -791,14 +790,12 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 Com o token de acesso, é possível realizar um requisição à API do Split para enviar as regras de divisão de uma transação.  
 
-`REQUEST`  
+**REQUEST**  
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
 
 ```json
-PUT https://{API Split}/api/transactions/{PaymentId}/split
---header "Authorization: Bearer {token}"
-```
-
-```json
+--header "Authorization: Bearer {access_token}"
 [
     {
         "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
@@ -819,7 +816,7 @@ PUT https://{API Split}/api/transactions/{PaymentId}/split
 ]
 ```
 
-RESPONSE
+**RESPONSE**
 
 ```json
 [
