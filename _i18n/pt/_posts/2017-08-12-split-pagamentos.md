@@ -743,18 +743,18 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 }
 ```
 
-Neste exemplo, onde o Marketplace também particoa da venda, não é necessário informar as taxas a serem cobradas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o indentificador da loja informado é do próprio Marketplace e realizar os cáluclo corretamente.
+Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cáluclo corretamente.
 
 ![SplitSample004](https://developercielo.github.io/images/split/split004.png)
 
 #### Split Pós-Transacional
 
 <BR>
-Neste modelo o **Marketplace** poderá enviar as regras de divisão da transação após a mesma ser capturada.
+Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.
 
-A divisão pós-transacional é possível somente para transações com **Cartão de Crédito** e poderá ser realizada dentro de um intervalo de tempo a partir da data de captura da transação.
+A divisão pós-transacional é possível somente para transações com **Cartão de Crédito** e poderá ser realizada dentro de um intervalo de tempo determinado a partir da data de captura da transação.
 
-Para transações com **Cartão de Crédito**, este período é de **25 dias** se o **Marketplace** possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (**Marketplace** e **Braspag**).
+Para transações com **Cartão de Crédito**, este período é de **25 dias** se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
 
 A API de divisão pós-transacional utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.
 
@@ -764,7 +764,7 @@ Para obter um token de acesso:
 2. Codifique o resultado da concatenação em Base64.  
 3. Realize uma requisição ao servidor de autorização:  
 
-`REQUEST`  
+**REQUEST**  
 
 ```json
 POST https://{OAUTH2 Server}/oauth2/token  
