@@ -152,6 +152,8 @@ Porém, para indentificar que a transação enviada se trata de uma transação 
 
 Exemplo:
 
+**Request**
+
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{{apiCieloECommerceUrl}}/1/sales/</span></aside>
 
 ```json
@@ -175,6 +177,65 @@ Exemplo:
    }
 }
 ```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "2014111703",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "123412******1231",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "1209111409162",
+        "ProofOfSale": "1409162",
+        "AuthorizationCode": "359143",
+        "SoftDescriptor": "Marketplace",
+        "Provider": "Simulado",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-09 23:14:06",
+        "Status": 1,
+        "IsSplitted": true,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "4",
+        "PaymentId": "56b0abb3-c3e8-4383-bffd-d99ef81b13a5",
+        "Type": "SplittedCreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/56b0abb3-c3e8-4383-bffd-d99ef81b13a5"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/56b0abb3-c3e8-4383-bffd-d99ef81b13a5/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/56b0abb3-c3e8-4383-bffd-d99ef81b13a5/void"
+            }
+        ]
+    }
+}
+```
+
 
 Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).
 
