@@ -506,6 +506,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 
 ![SplitSample003](https://developercielo.github.io/images/split/split003.png)
 
+
 ### Modelos de Split
 
 O Split de Pagamentos possui dois modelos básicos de integração:
