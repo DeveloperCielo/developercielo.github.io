@@ -509,21 +509,19 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 
 ### Modelos de Split
 
-O Split de Pagamentos possui dois modelos básicos de integração:
+O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
 
-| Tipo                 | Descrição                                                                                                                          |
-|----------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Split Transacional**     | O **Marketplace** envia na autorização (captura automática) ou no momento de captura as regras de divisão.                                             |
+| Tipo                       | Descrição                                                                                                                          |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| **Split Transacional**     | O **Marketplace** envia na autorização (captura automática) ou no momento de captura as regras de divisão.                         |
 | **Split Pós-Transacional** | O **Marketplace** envia as regras de divisão após a captura da transação.
 
-> O Split de Pagamentos só é realizado para transações capturadas, ou seja, o mesmo só será considerado para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
-
-<BR>
+> No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
 
 #### Split Transacional
 
 <BR>
-Este modelo exige que o **Marketplace** envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
+No Split Transacional é necessário que o Marketplace envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
 
 ```json
 "SplitPayments":[
@@ -538,14 +536,14 @@ Este modelo exige que o **Marketplace** envie um "nó" adicional na integração
 ]
 ```
 
-| Propriedade                             | Descrição                                                                                   | Tipo   | Tamanho | Obrigatório |
-|-----------------------------------------|---------------------------------------------------------------------------------------------|--------|---------|-------------|
-| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                           | Guid   | 36      | Sim         |
-| `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Subordinado**, em centavos.              | Inteiro | -      | Sim         |
-| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Marketplace** a ser descontado do valor referente a participação do **Subordinado** | Decimal | -       | Sim         |
-| `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos.  | Inteiro | -      | Sim         |
+| Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
+|-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
+| `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
+| `SplitPayments.Amount`                  | Parte do valor total da transação referente a participação do **Subordinado**, em centavos.             | Inteiro | -       | Sim         |
+| `SplitPayments.Fares.Mdr`               | **MDR(%)** do **Marketplace** a ser descontado do valor referente a participação do **Subordinado**     | Decimal | -       | Não         |
+| `SplitPayments.Fares.Fee`               | **Tarifa Fixa(R$)** a ser descontada do valor referente a participação do **Subordinado**, em centavos. | Inteiro | -       | Não         |
 
-Como resposta, A API Cielo E-Commerce retornará na resposta um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo **Marketplace** e seus **Subordinados**:
+Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo Marketplace e seus Subordinados:
 
 ```json
 "SplitPayments": [
