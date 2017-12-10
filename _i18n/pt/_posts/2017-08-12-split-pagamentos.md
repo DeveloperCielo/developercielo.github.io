@@ -574,7 +574,7 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
 | `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
 | `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
-**Exemplo**  
+**Exemplo 3)**  
 
 Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Marketplace participando da venda.
 
