@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-10T16:54:48+00:00</updated>
+    <updated>2017-12-10T17:02:11+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2130,7 +2130,7 @@ Em breve estarão disponíveis:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{apiCieloECommerceUrl}/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -2231,7 +2231,7 @@ Em breve estarão disponíveis:&lt;/p&gt;
 
 &lt;p&gt;Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://docsbraspag.github.io/SplitBraspag/images/Split/Split001.PNG&quot; alt=&quot;Split&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/split/split002.png&quot; alt=&quot;SplitSample002&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Exemplo 2)&lt;/strong&gt;&lt;/p&gt;
 
