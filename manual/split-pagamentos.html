@@ -960,18 +960,18 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Neste exemplo, onde o Marketplace também particoa da venda, não é necessário informar as taxas a serem cobradas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o indentificador da loja informado é do próprio Marketplace e realizar os cáluclo corretamente.</p>
+<p>Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cáluclo corretamente.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split004.png" alt="SplitSample004" /></p>
 
 <h4 id="split-pós-transacional">Split Pós-Transacional</h4>
 
 <p><br />
-Neste modelo o <strong>Marketplace</strong> poderá enviar as regras de divisão da transação após a mesma ser capturada.</p>
+Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.</p>
 
-<p>A divisão pós-transacional é possível somente para transações com <strong>Cartão de Crédito</strong> e poderá ser realizada dentro de um intervalo de tempo a partir da data de captura da transação.</p>
+<p>A divisão pós-transacional é possível somente para transações com <strong>Cartão de Crédito</strong> e poderá ser realizada dentro de um intervalo de tempo determinado a partir da data de captura da transação.</p>
 
-<p>Para transações com <strong>Cartão de Crédito</strong>, este período é de <strong>25 dias</strong> se o <strong>Marketplace</strong> possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (<strong>Marketplace</strong> e <strong>Braspag</strong>).</p>
+<p>Para transações com <strong>Cartão de Crédito</strong>, este período é de <strong>25 dias</strong> se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).</p>
 
 <p>A API de divisão pós-transacional utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, onde é necessário primeiramente obter um token utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.</p>
 
@@ -983,7 +983,7 @@ Neste modelo o <strong>Marketplace</strong> poderá enviar as regras de divisão
   <li>Realize uma requisição ao servidor de autorização:</li>
 </ol>
 
-<p><code class="highlighter-rouge">REQUEST</code></p>
+<p><strong>REQUEST</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//</span><span class="p">{</span><span class="err">OAUTH</span><span class="mi">2</span><span class="w"> </span><span class="err">Server</span><span class="p">}</span><span class="err">/oauth</span><span class="mi">2</span><span class="err">/token</span><span class="w">  
 </span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">  

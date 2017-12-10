@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-10T18:19:24+00:00</updated>
+    <updated>2017-12-10T18:21:52+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2691,18 +2691,18 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Neste exemplo, onde o Marketplace também particoa da venda, não é necessário informar as taxas a serem cobradas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o indentificador da loja informado é do próprio Marketplace e realizar os cáluclo corretamente.&lt;/p&gt;
+&lt;p&gt;Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cáluclo corretamente.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/split/split004.png&quot; alt=&quot;SplitSample004&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;split-pós-transacional&quot;&gt;Split Pós-Transacional&lt;/h4&gt;
 
 &lt;p&gt;&lt;br /&gt;
-Neste modelo o &lt;strong&gt;Marketplace&lt;/strong&gt; poderá enviar as regras de divisão da transação após a mesma ser capturada.&lt;/p&gt;
+Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.&lt;/p&gt;
 
-&lt;p&gt;A divisão pós-transacional é possível somente para transações com &lt;strong&gt;Cartão de Crédito&lt;/strong&gt; e poderá ser realizada dentro de um intervalo de tempo a partir da data de captura da transação.&lt;/p&gt;
+&lt;p&gt;A divisão pós-transacional é possível somente para transações com &lt;strong&gt;Cartão de Crédito&lt;/strong&gt; e poderá ser realizada dentro de um intervalo de tempo determinado a partir da data de captura da transação.&lt;/p&gt;
 
-&lt;p&gt;Para transações com &lt;strong&gt;Cartão de Crédito&lt;/strong&gt;, este período é de &lt;strong&gt;25 dias&lt;/strong&gt; se o &lt;strong&gt;Marketplace&lt;/strong&gt; possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (&lt;strong&gt;Marketplace&lt;/strong&gt; e &lt;strong&gt;Braspag&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Para transações com &lt;strong&gt;Cartão de Crédito&lt;/strong&gt;, este período é de &lt;strong&gt;25 dias&lt;/strong&gt; se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).&lt;/p&gt;
 
 &lt;p&gt;A API de divisão pós-transacional utiliza como segurança o protocolo &lt;a href=&quot;https://oauth.net/2/&quot; target=&quot;_blank&quot;&gt;OAUTH2&lt;/a&gt;, onde é necessário primeiramente obter um token utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.&lt;/p&gt;
 
@@ -2714,7 +2714,7 @@ Neste modelo o &lt;strong&gt;Marketplace&lt;/strong&gt; poderá enviar as regras
   &lt;li&gt;Realize uma requisição ao servidor de autorização:&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;REQUEST&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;OAUTH&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/oauth&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/token&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;--header&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Basic {base64}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
