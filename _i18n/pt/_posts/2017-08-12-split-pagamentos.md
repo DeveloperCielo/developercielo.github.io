@@ -242,9 +242,13 @@ Caso a transação enviada seja marcada para captura automática, o nó contendo
 
 **Exemplo 1)**  
 
-Transação no valor de **R$100,00** sem o nó contendo as regras de divisão.
+Transação no valor de **R$100,00**, com captura automática, sem o nó contendo as regras de divisão.
 
 **Taxa Braspag**: 2% MDR + R$0,10 Tarifa Fixa.
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{apiCieloECommerceUrl}}/1/sales/</span></aside>
 
 ```json
 {
@@ -266,6 +270,82 @@ Transação no valor de **R$100,00** sem o nó contendo as regras de divisão.
          "Brand":"Visa"
      }
    }
+}
+```
+
+**Response**
+
+```json
+{
+    "MerchantOrderId": "2014111703",
+    "Customer": {
+        "Name": "Comprador"
+    },
+    "Payment": {
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                "Amount": 10000,
+                "Fares": {
+                    "Mdr": 2,
+                    "Fee": 0
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "Amount": 10000
+                    }
+                ]
+            }
+        ],
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "123412******1231",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "1209112426777",
+        "ProofOfSale": "20171209112426777",
+        "AuthorizationCode": "650711",
+        "SoftDescriptor": "Marketplace",
+        "Provider": "Simulado",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-09 23:24:24",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-12-09 23:24:26",
+        "Status": 2,
+        "IsSplitted": true,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "728e4d86-1806-4a1d-89b1-8139ff0769aa",
+        "Type": "SplittedCreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "PUT",
+                "Rel": "split",
+                "Href": "https://splitsandbox.braspag.com.br/api/transactions/728e4d86-1806-4a1d-89b1-8139ff0769aa/split"
+            },
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/728e4d86-1806-4a1d-89b1-8139ff0769aa"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/728e4d86-1806-4a1d-89b1-8139ff0769aa/void"
+            }
+        ]
+    }
 }
 ```
 
