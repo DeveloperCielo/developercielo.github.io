@@ -768,7 +768,7 @@ Para obter um token de acesso:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
-```shell
+```x-www-form-urlencoded
 --header "Authorization: Basic {base64}"  
 --header "Content-Type: application/x-www-form-urlencoded"  
 grant_type=client_credentials
