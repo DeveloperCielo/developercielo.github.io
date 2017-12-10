@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-10T17:26:20+00:00</updated>
+    <updated>2017-12-10T17:27:33+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2241,7 +2241,7 @@ Em breve estarão disponíveis:&lt;/p&gt;
 &lt;strong&gt;Taxa Marketplace com o Subordinado 01&lt;/strong&gt;: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.&lt;br /&gt;
 &lt;strong&gt;Taxa Marketplace com o Subordinado 02&lt;/strong&gt;: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.&lt;/p&gt;
 
-&lt;p&gt;** Rquest **&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{apiCieloECommerceUrl}/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
