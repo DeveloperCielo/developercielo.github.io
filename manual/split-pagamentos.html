@@ -251,7 +251,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 <strong>API Cielo E-Commerce</strong>: https://apisandbox.cieloecommerce.cielo.com.br/<br />
 <strong>API Cielo E-Commerce (Consultas)</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br/<br />
 <strong>API Split</strong>: http://splitsandbox.braspag.com.br/<br />
-<strong>OAUTH2 Server</strong>: https://authhomolog.braspag.com.br/<br /></p>
+<strong>Braspag OAUTH2 Server</strong>: https://authhomolog.braspag.com.br/<br /></p>
 
 <h4 id="produção">Produção</h4>
 
@@ -259,7 +259,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 <strong>API Cielo E-Commerce</strong>: https://api.cieloecommerce.cielo.com.br/<br />
 <strong>API Cielo E-Commerce (Consultas)</strong>: https://apiquery.cieloecommerce.cielo.com.br/<br />
 <strong>API Split</strong>: http://split.braspag.com.br/<br />
-<strong>OAUTH2 Server</strong>: https://auth.braspag.com.br/<br /></p>
+<strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/<br /></p>
 
 <h3 id="autorização">Autorização</h3>
 
@@ -984,6 +984,8 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 </ol>
 
 <p><strong>REQUEST</strong></p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//</span><span class="p">{</span><span class="err">OAUTH</span><span class="mi">2</span><span class="w"> </span><span class="err">Server</span><span class="p">}</span><span class="err">/oauth</span><span class="mi">2</span><span class="err">/token</span><span class="w">  
 </span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">  

@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-10T18:21:52+00:00</updated>
+    <updated>2017-12-10T18:24:13+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1982,7 +1982,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 &lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://apisandbox.cieloecommerce.cielo.com.br/&lt;br /&gt;
 &lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;br /&gt;
 &lt;strong&gt;API Split&lt;/strong&gt;: http://splitsandbox.braspag.com.br/&lt;br /&gt;
-&lt;strong&gt;OAUTH2 Server&lt;/strong&gt;: https://authhomolog.braspag.com.br/&lt;br /&gt;&lt;/p&gt;
+&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://authhomolog.braspag.com.br/&lt;br /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;produção&quot;&gt;Produção&lt;/h4&gt;
 
@@ -1990,7 +1990,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 &lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/&lt;br /&gt;
 &lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/&lt;br /&gt;
 &lt;strong&gt;API Split&lt;/strong&gt;: http://split.braspag.com.br/&lt;br /&gt;
-&lt;strong&gt;OAUTH2 Server&lt;/strong&gt;: https://auth.braspag.com.br/&lt;br /&gt;&lt;/p&gt;
+&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://auth.braspag.com.br/&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;autorização&quot;&gt;Autorização&lt;/h3&gt;
 
@@ -2715,6 +2715,8 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;strong&gt;REQUEST&lt;/strong&gt;&lt;/p&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{braspag-oauth2-server}/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;OAUTH&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/oauth&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/token&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;--header&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Basic {base64}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
