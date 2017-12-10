@@ -504,8 +504,9 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 }
 ```
 
-![SplitSample003](https://developercielo.github.io/images/split/split003.png)
+Abaixo como ficaram as divisões e como foram as agendas de cada participante foram sensibilizadas.
 
+![SplitSample003](https://developercielo.github.io/images/split/split003.png)
 
 ### Modelos de Split
 
