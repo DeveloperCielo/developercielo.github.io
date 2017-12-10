@@ -261,6 +261,43 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 <strong>API Split</strong>: http://split.braspag.com.br/<br />
 <strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/<br /></p>
 
+<h3 id="autenticação">Autenticação</h3>
+
+<p><br />
+O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API Cielo e-Commerce e à API do Split.</p>
+
+<p>Para obter um token de acesso:</p>
+
+<ol>
+  <li>Concatene o ClientId e ClientSecret: <code class="highlighter-rouge">ClientId:ClientSecret</code>.</li>
+  <li>Codifique o resultado da concatenação em Base64.</li>
+  <li>Realize uma requisição ao servidor de autorização:</li>
+</ol>
+
+<p><strong>REQUEST</strong></p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
+
+<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Basic {base64}"  
+--header "Content-Type: application/x-www-form-urlencoded"  
+grant_type=client_credentials
+</code></pre>
+
+<p><strong>RESPONSE</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.</p>
+</blockquote>
+
+<p>O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.</p>
+
 <h3 id="autorização">Autorização</h3>
 
 <p><br />
@@ -309,7 +346,8 @@ Em breve estarão disponíveis:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w"> 
+</span><span class="p">{</span><span class="w">
    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador"</span><span class="w">
@@ -401,7 +439,8 @@ Em breve estarão disponíveis:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador"</span><span class="w">
@@ -514,7 +553,8 @@ Em breve estarão disponíveis:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador"</span><span class="w">
@@ -805,7 +845,8 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador"</span><span class="w">
@@ -973,42 +1014,6 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 
 <p>Para transações com <strong>Cartão de Crédito</strong>, este período é de <strong>25 dias</strong> se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).</p>
 
-<p>A API de divisão pós-transacional utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, onde é necessário primeiramente obter um token de acesso utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.</p>
-
-<p>Para obter um token de acesso:</p>
-
-<ol>
-  <li>Concatene o ClientId e ClientSecret: <code class="highlighter-rouge">ClientId:ClientSecret</code>.</li>
-  <li>Codifique o resultado da concatenação em Base64.</li>
-  <li>Realize uma requisição ao servidor de autorização:</li>
-</ol>
-
-<p><strong>REQUEST</strong></p>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
-
-<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Basic {base64}"  
---header "Content-Type: application/x-www-form-urlencoded"  
-grant_type=client_credentials
-</code></pre>
-
-<p><strong>RESPONSE</strong></p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<blockquote>
-  <p>O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.</p>
-</blockquote>
-
-<p>O token retornado (access_token) deverá ser utilizado em toda requisição à API do Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.</p>
-
-<p>Com o token de acesso, é possível realizar um requisição à API do Split para enviar as regras de divisão de uma transação.</p>
-
 <p><strong>REQUEST</strong></p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
@@ -1095,7 +1100,8 @@ grant_type=client_credentials
 
 <p><strong>RESPONSE</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1189,27 +1195,30 @@ grant_type=client_credentials
 
 <h3 id="captura">Captura</h3>
 
-<p>Ao capturar uma transação do Split de Pagamentos o <strong>Marketplace</strong> deve informar as regras de divisão da mesma. Caso não informe, será gerada a divisão da transação entre o <strong>Marketplace</strong> e a <strong>Braspag</strong>, tanto para <strong>captura do valor total</strong> quanto para <strong>captura de um valor parcial</strong>.</p>
+<p><br />
+Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split irá interpretar que todo o valor é referente ao próprio Marketplace.</p>
 
 <h4 id="captura-total">Captura Total</h4>
 
 <p>Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
 
-<p><code class="highlighter-rouge">REQUEST</code></p>
+<p><strong>REQUEST</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">PUT</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//</span><span class="p">{</span><span class="err">API</span><span class="w"> </span><span class="err">Cielo</span><span class="w"> </span><span class="err">E-Commerce</span><span class="p">}</span><span class="err">/</span><span class="mi">1</span><span class="err">/sales/</span><span class="p">{</span><span class="err">PaymentId</span><span class="p">}</span><span class="err">/capture</span><span class="w">
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w"> 
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
-                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w"> 
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
                 </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
