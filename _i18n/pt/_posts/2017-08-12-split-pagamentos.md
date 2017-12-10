@@ -121,7 +121,7 @@ OBS: Neste manual serão apresentados os contratos de integração da API Cielo 
 **API Cielo E-Commerce**: https://apisandbox.cieloecommerce.cielo.com.br/<BR>
 **API Cielo E-Commerce (Consultas)**: https://apiquerysandbox.cieloecommerce.cielo.com.br/<BR>
 **API Split**: http://splitsandbox.braspag.com.br/<BR>
-**OAUTH2 Server**: https://authhomolog.braspag.com.br/<BR>
+**Braspag OAUTH2 Server**: https://authhomolog.braspag.com.br/<BR>
 
 #### Produção
 
@@ -129,7 +129,7 @@ OBS: Neste manual serão apresentados os contratos de integração da API Cielo 
 **API Cielo E-Commerce**: https://api.cieloecommerce.cielo.com.br/<BR>
 **API Cielo E-Commerce (Consultas)**: https://apiquery.cieloecommerce.cielo.com.br/<BR>
 **API Split**: http://split.braspag.com.br/<BR>
-**OAUTH2 Server**: https://auth.braspag.com.br/<BR>
+**Braspag OAUTH2 Server**: https://auth.braspag.com.br/<BR>
 
 ### Autorização  
 
