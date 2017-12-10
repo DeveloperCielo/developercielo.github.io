@@ -361,7 +361,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 **Taxa Marketplace com o Subordinado 01**: 5% MDR (embutindo os 2% do MDR Braspag) + 0,30 Tarifa Fixa.  
 **Taxa Marketplace com o Subordinado 02**: 4% MDR (embutindo os 2% do MDR Braspag) + 0,15 Tarifa Fixa.  
 
-** Rquest **
+**Request**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{apiCieloECommerceUrl}/1/sales/</span></aside>
 
