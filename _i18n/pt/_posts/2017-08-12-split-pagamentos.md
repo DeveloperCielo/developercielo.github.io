@@ -131,6 +131,41 @@ OBS: Neste manual serão apresentados os contratos de integração da API Cielo 
 **API Split**: http://split.braspag.com.br/<BR>
 **Braspag OAUTH2 Server**: https://auth.braspag.com.br/<BR>
 
+### Autenticação
+
+<BR>
+O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API Cielo e-Commerce e à API do Split.
+
+Para obter um token de acesso:
+
+1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`.  
+2. Codifique o resultado da concatenação em Base64.  
+3. Realize uma requisição ao servidor de autorização:  
+
+**REQUEST**  
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
+
+```x-www-form-urlencoded
+--header "Authorization: Basic {base64}"  
+--header "Content-Type: application/x-www-form-urlencoded"  
+grant_type=client_credentials
+```
+
+**RESPONSE**
+
+```json
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs",
+    "token_type": "bearer",
+    "expires_in": 1199
+}
+```
+
+> O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
+
+O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
+
 ### Autorização  
 
 <BR>
@@ -157,6 +192,7 @@ Exemplo:
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
+--header "Authorization: Bearer {access_token}" 
 {
    "MerchantOrderId":"2014111703",
    "Customer":{
@@ -251,6 +287,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
+--header "Authorization: Bearer {access_token}"
 {
    "MerchantOrderId":"2014111703",
    "Customer":{
@@ -366,6 +403,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
+--header "Authorization: Bearer {access_token}"
 {
   "MerchantOrderId":"2014111701",
   "Customer":{
@@ -587,6 +625,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
+--header "Authorization: Bearer {access_token}"
 {
   "MerchantOrderId":"2014111701",
   "Customer":{
@@ -756,40 +795,6 @@ A divisão pós-transacional é possível somente para transações com **Cartã
 
 Para transações com **Cartão de Crédito**, este período é de **25 dias** se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
 
-A API de divisão pós-transacional utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token de acesso utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.
-
-Para obter um token de acesso:
-
-1. Concatene o ClientId e ClientSecret: `ClientId:ClientSecret`.  
-2. Codifique o resultado da concatenação em Base64.  
-3. Realize uma requisição ao servidor de autorização:  
-
-**REQUEST**  
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
-
-```x-www-form-urlencoded
---header "Authorization: Basic {base64}"  
---header "Content-Type: application/x-www-form-urlencoded"  
-grant_type=client_credentials
-```
-
-**RESPONSE**
-
-```json
-{
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs",
-    "token_type": "bearer",
-    "expires_in": 1199
-}
-```
-
-> O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
-
-O token retornado (access_token) deverá ser utilizado em toda requisição à API do Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
-
-Com o token de acesso, é possível realizar um requisição à API do Split para enviar as regras de divisão de uma transação.  
-
 **REQUEST**  
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
@@ -877,6 +882,7 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 **RESPONSE**
 
 ```json
+--header "Authorization: Bearer {access_token}"
 {
     "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
     "MerchantOrderId": "2014111701",
@@ -971,28 +977,31 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 
 ### Captura
 
-Ao capturar uma transação do Split de Pagamentos o **Marketplace** deve informar as regras de divisão da mesma. Caso não informe, será gerada a divisão da transação entre o **Marketplace** e a **Braspag**, tanto para **captura do valor total** quanto para **captura de um valor parcial**.
+<BR>
+Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split irá interpretar que todo o valor é referente ao próprio Marketplace. 
 
 #### Captura Total
 
 Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
 
-`REQUEST`
+**REQUEST**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
 
 ```json
-PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/capture
+--header "Authorization: Bearer {access_token}" 
 {
     "SplitPayments":[
         {
-            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
-            "Amount":6000,
-            "Fares":{
-                "Mdr":5,
-                "Fee":30
+            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "Amount": 6000,
+            "Fares": {
+                "Mdr": 5,
+                "Fee": 30 
             }
         },
         {
-            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+            "SubordinateMerchantId" :"fdae3204-3999-4082-aa32-f08b6f3a01f3",
             "Amount":4000,
             "Fares":{
                 "Mdr":4,
