@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-10T17:27:33+00:00</updated>
+    <updated>2017-12-10T17:39:04+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2382,11 +2382,13 @@ Em breve estarão disponíveis:&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;Abaixo como ficaram as divisões e como foram as agendas de cada participante foram sensibilizadas.&lt;/p&gt;
+
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/split/split003.png&quot; alt=&quot;SplitSample003&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;modelos-de-split&quot;&gt;Modelos de Split&lt;/h3&gt;
 
-&lt;p&gt;O Split de Pagamentos possui dois modelos básicos de integração:&lt;/p&gt;
+&lt;p&gt;O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2408,15 +2410,13 @@ Em breve estarão disponíveis:&lt;/p&gt;
 &lt;/table&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;O Split de Pagamentos só é realizado para transações capturadas, ou seja, o mesmo só será considerado para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.&lt;/p&gt;
+  &lt;p&gt;No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;split-transacional&quot;&gt;Split Transacional&lt;/h4&gt;
 
 &lt;p&gt;&lt;br /&gt;
-Este modelo exige que o &lt;strong&gt;Marketplace&lt;/strong&gt; envie um “nó” adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.&lt;/p&gt;
+No Split Transacional é necessário que o Marketplace envie um “nó” adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SplitPayments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -2460,19 +2460,19 @@ Este modelo exige que o &lt;strong&gt;Marketplace&lt;/strong&gt; envie um “nó
       &lt;td&gt;&lt;strong&gt;MDR(%)&lt;/strong&gt; do &lt;strong&gt;Marketplace&lt;/strong&gt; a ser descontado do valor referente a participação do &lt;strong&gt;Subordinado&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Decimal&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SplitPayments.Fares.Fee&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;Tarifa Fixa(R$)&lt;/strong&gt; a ser descontada do valor referente a participação do &lt;strong&gt;Subordinado&lt;/strong&gt;, em centavos.&lt;/td&gt;
       &lt;td&gt;Inteiro&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Como resposta, A API Cielo E-Commerce retornará na resposta um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo &lt;strong&gt;Marketplace&lt;/strong&gt; e seus &lt;strong&gt;Subordinados&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de divisão enviadas e os valores a serem recebidos pelo Marketplace e seus Subordinados:&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SplitPayments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -2526,7 +2526,7 @@ Este modelo exige que o &lt;strong&gt;Marketplace&lt;/strong&gt; envie um “nó
 
 &lt;p&gt;&lt;strong&gt;Exemplo&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Transação no valor de &lt;strong&gt;R$100,00&lt;/strong&gt; com o nó contendo as regras de divisão.&lt;/p&gt;
+&lt;p&gt;Transação no valor de &lt;strong&gt;R$100,00&lt;/strong&gt; com o nó contendo as regras de divisão e o Marketplace participando da venda.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Taxa Braspag&lt;/strong&gt;: 2% MDR + R$0,30 Tarifa Fixa.&lt;br /&gt;
 &lt;strong&gt;Taxa Marketplace com o Subordinado 01&lt;/strong&gt;: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.&lt;br /&gt;
