@@ -152,6 +152,8 @@ Porém, para indentificar que a transação enviada se trata de uma transação 
 
 Exemplo:
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{apiCieloECommerceUrl}}/1/sales/</span></aside>
+
 ```json
 {
    "MerchantOrderId":"2014111703",
