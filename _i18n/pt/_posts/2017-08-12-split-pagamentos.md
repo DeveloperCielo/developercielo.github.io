@@ -766,6 +766,8 @@ Para obter um token de acesso:
 
 **REQUEST**  
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/1/sales/</span></aside>
+
 ```json
 POST https://{OAUTH2 Server}/oauth2/token  
 --header "Authorization: Basic {base64}"  
