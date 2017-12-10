@@ -248,7 +248,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{apiCieloECommerceUrl}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
 {
@@ -363,7 +363,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{apiCieloECommerceUrl}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
 {
@@ -584,7 +584,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 
 **REQUEST**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{apiCieloECommerceUrl}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
 {
@@ -872,93 +872,97 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 
 **REQUEST**
 
-```json
-GET https://{API Cielo E-Commerce (consulta)}/1/sales/{PaymentId}
-```
+<aside class="request"><span class="method get">POST</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
 
-`RESPONSE`
+**RESPONSE**
 
 ```json
 {
-    "MerchantOrderId": "2014111706",
+    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+    "MerchantOrderId": "2014111701",
+    "IsSplitted": true,
     "Customer": {
-        "Name": "Comprador Teste"
+        "Name": "Comprador",
+        "Address": {}
     },
     "Payment": {
         "ServiceTaxAmount": 0,
         "Installments": 1,
         "Interest": "ByMerchant",
-        "Capture": false,
+        "Capture": true,
         "Authenticate": false,
         "CreditCard": {
-            "CardNumber": "455187******0183",
+            "CardNumber": "455187******0181",
             "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
+            "ExpirationDate": "12/2021",
             "Brand": "Visa"
         },
-        "ProofOfSale": "674532",
-        "AuthorizationCode": "123456",
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 1000,
+        "ProofOfSale": "20171210061821319",
+        "Tid": "1210061821319",
+        "AuthorizationCode": "379918",
+        "PaymentId": "507821c5-7067-49ff-928f-a3eb1e256148",
+        "Type": "SplittedCreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2017-12-10 18:18:18",
+        "CapturedAmount": 10000,
+        "CapturedDate": "2017-12-10 18:18:21",
         "Currency": "BRL",
         "Country": "BRA",
-        "ExtraDataCollection": [],
+        "Provider": "Simulado",
         "Status": 2,
-        "SplitPayments":[
-            {
-                "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
-                "Amount":6000,
-                "Fares":{
-                    "Mdr":5,
-                    "Fee":30
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
-                        "amount": 210,    
-                    },
-                    {
-                        "MerchantId": "0f377932-5668-4c72-8b5b-2b43760ebd38",
-                        "amount": 5670,    
-                    }
-                ]
-            },
-            {
-                "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
-                "Amount":4000,
-                "Fares":{
-                    "Mdr":4,
-                    "Fee":15
-                },
-                "Splits": [
-                    {
-                        "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
-                        "amount": 95,    
-                    },
-                    {
-                        "MerchantId": "98430463-7c1e-413b-b13a-0f613af594d8",
-                        "amount": 3825,    
-                    }
-                ]
-            }
-        ],
         "Links": [
             {
                 "Method": "GET",
                 "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/507821c5-7067-49ff-928f-a3eb1e256148"
             },
             {
                 "Method": "PUT",
                 "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/507821c5-7067-49ff-928f-a3eb1e256148/void"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "sales.split",
+                "Href": "https://splitsandbox.braspag.com.br/api/transactions507821c5-7067-49ff-928f-a3eb1e256148/split"
+            }
+        ],
+        "SplitPayments": [
+            {
+                "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                "Amount": 6000,
+                "Fares": {
+                    "Mdr": 5,
+                    "Fee": 30
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                        "Amount": 5670
+                    },
+                    {
+                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "Amount": 330
+                    }
+                ]
+            },
+            {
+                "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                "Amount": 4000,
+                "Fares": {
+                    "Mdr": 4,
+                    "Fee": 15
+                },
+                "Splits": [
+                    {
+                        "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                        "Amount": 3825
+                    },
+                    {
+                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "Amount": 175
+                    }
+                ]
             }
         ]
     }
