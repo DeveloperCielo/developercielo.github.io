@@ -568,14 +568,14 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
 ]
 ```
 
-| Propriedade                             | Descrição                                                                                   | Tipo   | Tamanho | Obrigatório |
-|-----------------------------------------|---------------------------------------------------------------------------------------------|--------|---------|-------------|
-| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                                            | Guid   | 36      | Sim         |
-| `SplitPayments.Splits.Amount`            | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
+| Propriedade                                  | Descrição                                                                                   | Tipo   | Tamanho | Obrigatório |
+|----------------------------------------------|---------------------------------------------------------------------------------------------|--------|---------|-------------|
+| `SplitPayments.Splits.SubordinateMerchantId` | **MerchantId** (Identificador) do **Subordinado** ou **Marketplace**.                       | Guid   | 36      | Sim         |
+| `SplitPayments.Splits.Amount`                | Parte do valor calculado da transação a ser recebido pelo **Subordinado** ou **Marketplace**, já descontando todas as taxas (MDR e Tarifa Fixa) | Inteiro | -      | Sim         |
 
 **Exemplo**  
 
-Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
+Transação no valor de **R$100,00** com o nó contendo as regras de divisão e o Marketplace participando da venda.
 
 **Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
 **Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.  
