@@ -504,7 +504,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
 }
 ```
 
-![Split](https://docsbraspag.github.io/SplitBraspag/images/Split/Split003.PNG)
+![SplitSample003](https://developercielo.github.io/images/split/split003.png)
 
 ### Modelos de Split
 
