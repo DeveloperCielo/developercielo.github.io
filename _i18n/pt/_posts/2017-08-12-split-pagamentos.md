@@ -743,7 +743,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 }
 ```
 
-Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cáluclo corretamente.
+Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cálculos corretamente.
 
 ![SplitSample004](https://developercielo.github.io/images/split/split004.png)
 
