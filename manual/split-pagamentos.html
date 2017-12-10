@@ -973,7 +973,7 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 
 <p>Para transações com <strong>Cartão de Crédito</strong>, este período é de <strong>25 dias</strong> se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).</p>
 
-<p>A API de divisão pós-transacional utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, onde é necessário primeiramente obter um token utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.</p>
+<p>A API de divisão pós-transacional utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, onde é necessário primeiramente obter um token de acesso utlizando suas credenciais, que deverá posteriormente ser enviado à API do Split para realização da divisão pós-transacional.</p>
 
 <p>Para obter um token de acesso:</p>
 
@@ -985,15 +985,14 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 
 <p><strong>REQUEST</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">POST</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//</span><span class="p">{</span><span class="err">OAUTH</span><span class="mi">2</span><span class="w"> </span><span class="err">Server</span><span class="p">}</span><span class="err">/oauth</span><span class="mi">2</span><span class="err">/token</span><span class="w">  
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">  
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="w">  
-</span><span class="err">grant_type=client_credentials</span><span class="w">
-</span></code></pre></div></div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>  
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>  
+<span class="nv">grant_type</span><span class="o">=</span>client_credentials
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">RESPONSE</code></p>
+<p><strong>RESPONSE</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
@@ -1010,13 +1009,12 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 
 <p>Com o token de acesso, é possível realizar um requisição à API do Split para enviar as regras de divisão de uma transação.</p>
 
-<p><code class="highlighter-rouge">REQUEST</code></p>
+<p><strong>REQUEST</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">PUT</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//</span><span class="p">{</span><span class="err">API</span><span class="w"> </span><span class="err">Split</span><span class="p">}</span><span class="err">/api/transactions/</span><span class="p">{</span><span class="err">PaymentId</span><span class="p">}</span><span class="err">/split</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {token}"</span><span class="w">
-</span></code></pre></div></div>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
@@ -1036,7 +1034,7 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<p>RESPONSE</p>
+<p><strong>RESPONSE</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
