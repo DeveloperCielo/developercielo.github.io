@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-10T20:38:25+00:00</updated>
+    <updated>2017-12-10T21:28:36+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1965,7 +1965,7 @@ Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]&lt;/p&gt;
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
-&lt;h2 id=&quot;integração&quot;&gt;Integração&lt;/h2&gt;
+&lt;h2 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h2&gt;
 
 &lt;p&gt;&lt;br /&gt;
 O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.&lt;/p&gt;
@@ -1974,9 +1974,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 
 &lt;p&gt;OBS: Neste manual serão apresentados os contratos de integração da API Cielo E-Commerce, porém o foco da análise será nas operações referentes ao Split de Pagamentos.&lt;/p&gt;
 
-&lt;h3 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h3&gt;
-
-&lt;h4 id=&quot;sandbox&quot;&gt;Sandbox&lt;/h4&gt;
+&lt;h3 id=&quot;sandbox&quot;&gt;Sandbox&lt;/h3&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://apisandbox.cieloecommerce.cielo.com.br/&lt;br /&gt;
@@ -1984,7 +1982,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 &lt;strong&gt;API Split&lt;/strong&gt;: http://splitsandbox.braspag.com.br/&lt;br /&gt;
 &lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://authhomolog.braspag.com.br/&lt;br /&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;produção&quot;&gt;Produção&lt;/h4&gt;
+&lt;h3 id=&quot;produção&quot;&gt;Produção&lt;/h3&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/&lt;br /&gt;
@@ -1992,7 +1990,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 &lt;strong&gt;API Split&lt;/strong&gt;: http://split.braspag.com.br/&lt;br /&gt;
 &lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://auth.braspag.com.br/&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h3&gt;
+&lt;h2 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h2&gt;
 
 &lt;p&gt;&lt;br /&gt;
 O Split de Pagamentos utiliza como segurança o protocolo &lt;a href=&quot;https://oauth.net/2/&quot; target=&quot;_blank&quot;&gt;OAUTH2&lt;/a&gt;, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API Cielo e-Commerce e à API do Split.&lt;/p&gt;
@@ -2028,6 +2026,8 @@ grant_type=client_credentials
 &lt;/blockquote&gt;
 
 &lt;p&gt;O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.&lt;/p&gt;
+
+&lt;h2 id=&quot;integração&quot;&gt;Integração&lt;/h2&gt;
 
 &lt;h3 id=&quot;autorização&quot;&gt;Autorização&lt;/h3&gt;
 

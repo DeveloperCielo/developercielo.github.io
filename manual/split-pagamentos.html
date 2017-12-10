@@ -234,7 +234,7 @@ Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]</p>
 Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
-<h2 id="integração">Integração</h2>
+<h2 id="ambientes">Ambientes</h2>
 
 <p><br />
 O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.</p>
@@ -243,9 +243,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 
 <p>OBS: Neste manual serão apresentados os contratos de integração da API Cielo E-Commerce, porém o foco da análise será nas operações referentes ao Split de Pagamentos.</p>
 
-<h3 id="ambientes">Ambientes</h3>
-
-<h4 id="sandbox">Sandbox</h4>
+<h3 id="sandbox">Sandbox</h3>
 
 <p><br />
 <strong>API Cielo E-Commerce</strong>: https://apisandbox.cieloecommerce.cielo.com.br/<br />
@@ -253,7 +251,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 <strong>API Split</strong>: http://splitsandbox.braspag.com.br/<br />
 <strong>Braspag OAUTH2 Server</strong>: https://authhomolog.braspag.com.br/<br /></p>
 
-<h4 id="produção">Produção</h4>
+<h3 id="produção">Produção</h3>
 
 <p><br />
 <strong>API Cielo E-Commerce</strong>: https://api.cieloecommerce.cielo.com.br/<br />
@@ -261,7 +259,7 @@ O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacio
 <strong>API Split</strong>: http://split.braspag.com.br/<br />
 <strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/<br /></p>
 
-<h3 id="autenticação">Autenticação</h3>
+<h2 id="autenticação">Autenticação</h2>
 
 <p><br />
 O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth.net/2/" target="_blank">OAUTH2</a>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API Cielo e-Commerce e à API do Split.</p>
@@ -297,6 +295,8 @@ grant_type=client_credentials
 </blockquote>
 
 <p>O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.</p>
+
+<h2 id="integração">Integração</h2>
 
 <h3 id="autorização">Autorização</h3>
 
