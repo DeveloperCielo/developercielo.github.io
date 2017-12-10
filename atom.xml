@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-10T18:56:19+00:00</updated>
+    <updated>2017-12-10T20:08:05+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2718,10 +2718,10 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{braspag-oauth2-server}/oauth2/token&lt;/span&gt;&lt;/aside&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Basic {base64}&quot;&lt;/span&gt;  
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/x-www-form-urlencoded&quot;&lt;/span&gt;  
-&lt;span class=&quot;nv&quot;&gt;grant_type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;client_credentials
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code class=&quot;language-x-www-form-urlencoded&quot;&gt;--header &quot;Authorization: Basic {base64}&quot;  
+--header &quot;Content-Type: application/x-www-form-urlencoded&quot;  
+grant_type=client_credentials
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;strong&gt;RESPONSE&lt;/strong&gt;&lt;/p&gt;
 

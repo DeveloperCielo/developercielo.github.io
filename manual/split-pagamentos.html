@@ -987,10 +987,10 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>  
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>  
-<span class="nv">grant_type</span><span class="o">=</span>client_credentials
-</code></pre></div></div>
+<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Basic {base64}"  
+--header "Content-Type: application/x-www-form-urlencoded"  
+grant_type=client_credentials
+</code></pre>
 
 <p><strong>RESPONSE</strong></p>
 
