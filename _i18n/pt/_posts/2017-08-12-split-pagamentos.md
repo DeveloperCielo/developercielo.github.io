@@ -248,7 +248,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{apiCieloECommerceUrl}}/1/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{apiCieloECommerceUrl}/1/sales/</span></aside>
 
 ```json
 {
@@ -351,7 +351,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 
 Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
 
-![Split](https://docsbraspag.github.io/SplitBraspag/images/Split/Split001.PNG)
+![SplitSample002](https://developercielo.github.io/images/split/split002.png)
 
 **Exemplo 2)**  
 
