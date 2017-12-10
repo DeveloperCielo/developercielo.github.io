@@ -798,15 +798,15 @@ Com o token de acesso, é possível realizar um requisição à API do Split par
 --header "Authorization: Bearer {access_token}"
 [
     {
-        "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
-        "Amount":6000,
-        "Fares":{
-            "Mdr":5,
-            "Fee":30
+        "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+        "Amount": 6000,
+        "Fares": {
+            "Mdr": 5,
+            "Fee": 30 
         }
     },
     {
-        "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
+        "SubordinateMerchantId" :"fdae3204-3999-4082-aa32-f08b6f3a01f3",
         "Amount":4000,
         "Fares":{
             "Mdr":4,
@@ -819,61 +819,58 @@ Com o token de acesso, é possível realizar um requisição à API do Split par
 **RESPONSE**
 
 ```json
-[
-    {
-        "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
-        "Amount":6000,
-        "Fares":{
-            "Mdr":5,
-            "Fee":30
-        },
-        "Splits": [
-            {
-                "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
-                "amount": 210,    
+{
+    "PaymentId": "c96bf94c-b213-44a7-9ea3-0ee2865dc57e",
+    "SplitPayments": [
+        {
+            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "Amount": 6000,
+            "Fares": {
+                "Mdr": 5,
+                "Fee": 30
             },
-            {
-                "MerchantId": "0f377932-5668-4c72-8b5b-2b43760ebd38",
-                "amount": 5670   
-            }
-        ]
-    },
-    {
-        "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
-        "Amount":4000,
-        "Fares":{
-            "Mdr":4,
-            "Fee":0.15
+            "Splits": [
+                {
+                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "Amount": 5670
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Amount": 330
+                }
+            ]
         },
-        "Splits": [
-            {
-                "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
-                "amount": 95,    
+        {
+            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "Amount": 4000,
+            "Fares": {
+                "Mdr": 4,
+                "Fee": 15
             },
-            {
-                "MerchantId": "98430463-7c1e-413b-b13a-0f613af594d8",
-                "amount": 3825    
-            }
-        ]
-    }
-]
+            "Splits": [
+                {
+                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "Amount": 3825
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Amount": 175
+                }
+            ]
+        }
+    ]
+}
 ```
 
-Exemplo considerando transação no valor de **R$100,00** e as seguinte taxas:
+O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
 
-**Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.  
-
-O nó de Split de Pagamentos da API pós-transacional, no contrato de request e response, é o mesmo retornado na divisão no momento transacional, apresentado anteriormente.
-
-> O **Marketplace** poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **25 dias** para Cartão de Crédito. Para transações com Cartão de Débito a divisão poderá ser realizada somente no momento transacional.
+> O Marketplace poderá informar as regras de divisão da transação mais de uma vez desde que esteja dentro do período de tempo permitido, que é de **25 dias** para Cartão de Crédito se estiver enquadrado no regime de pagamento padrão. Para transações com Cartão de Débito a divisão poderá ser realizada somente no momento transacional.
 
 ### Consulta
 
 Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
 
-`REQUEST`
+**REQUEST**
 
 ```json
 GET https://{API Cielo E-Commerce (consulta)}/1/sales/{PaymentId}
