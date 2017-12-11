@@ -160,6 +160,12 @@ grant_type=client_credentials
 }
 ```
 
+| Propriedade    | Descrição                                                                                               | Tipo    | 
+|----------------|---------------------------------------------------------------------------------------------------------|---------|
+| `access_token` | Token de acesso a ser utilizado para acesso as API Cielio E-Commerce e Api Split.                       | String  |
+| `token_type`   | Tipo do token. Sempre será do tipo Bearer.                                                              | String  |
+| `expires_in`   | Tempo de expiração do token. Por padrão, 20 minutos.                                                    | Inteiro |
+
 > O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
 
 O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
