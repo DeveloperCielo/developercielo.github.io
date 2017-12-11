@@ -1180,49 +1180,109 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
 
 **REQUEST**
 
-
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
 **RESPONSE**
 
-
-
-### Cancelamento
-
-Ao cancelar uma transação do Split de Pagamentos o **Marketplace** deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada **Subpordinado** que participa da transação. Para um cancelamento total esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada **Subpordinado**.
-
-#### Cancelamento Total
-
-<BR>
-No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada **Subordinado**.
-
-`REQUEST`
-
-```
-PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void
-```
-
-`RESPONSE`
-
 ```json
 {
-    "Status": 10,
-    "ReturnCode": "9",
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "6",
     "ReturnMessage": "Operation Successful",
-    "VoidSplitPayments":[
+    "SplitPayments": [
         {
-            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
-            "VoidAmount":1500,
-        },
-        {
-            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
-            "VoidAmount":500,
+            "SubordinateMerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Amount": 8000,
+            "Fares": {
+                "Mdr": 2,
+                "Fee": 0
+            },
+            "Splits": [
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Amount": 8000
+                }
+            ]
         }
-    ]
+    ],
     "Links": [
         {
             "Method": "GET",
             "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ee849761-d758-4f12-80bf-6ceae3a751ec"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/ee849761-d758-4f12-80bf-6ceae3a751ec/void"
+        }
+    ]
+}
+```
+
+### Cancelamento
+
+Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
+
+#### Cancelamento Total
+
+<BR>
+No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado.
+
+**REQUEST**
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void</span></aside>
+
+**RESPONSE**
+
+```json
+{
+    "Status": 10,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/019efd18-c69a-4107-b5d7-e86564460cc4"
+        }
+    ],
+    "VoidSplitPayments": [
+        {
+            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "VoidedAmount": 4000,
+            "VoidedSplits": [
+                {
+                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "VoidedAmount": 3825
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "VoidedAmount": 175
+                }
+            ]
+        },
+        {
+            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "VoidedAmount": 6000,
+            "VoidedSplits": [
+                {
+                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "VoidedAmount": 5670
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "VoidedAmount": 330
+                }
+            ]
         }
     ]
 }
@@ -1231,25 +1291,80 @@ PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void
 #### Cancelamento Parcial
 
 <BR>
-No cancelamento parcial, o somatório dos valores cancelados definidos para cada **Subordinado** não poderão ultrapassar o valor total do cancelamento parcial.  
+No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial. 
 
-Os valores cancelados serão sensibilizados nas respectivas agendas dos **Subordinados**.
+**REQUEST**
 
-`REQUEST`
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
 ```json
-PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount=2000
 {
     "VoidSplitPayments":[
         {
-            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
-            "VoidAmount":1500,
+            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "VoidedAmount": 1500
         },
         {
-            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
-            "VoidAmount":500,
+            "SubordinateMerchantId" :"fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "VoidedAmount":1000
         }
      ]
+}
+````
+
+**RESPONSE**
+
+```json
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/c10ee5e5-6179-424c-bbf2-1a2319a8f7c3"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/c10ee5e5-6179-424c-bbf2-1a2319a8f7c3/void"
+        }
+    ],
+    "VoidSplitPayments": [
+        {
+            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "VoidedAmount": 1500,
+            "VoidedSplits": [
+                {
+                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "VoidedAmount": 1417
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "VoidedAmount": 83
+                }
+            ]
+        },
+        {
+            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "VoidedAmount": 1000,
+            "VoidedSplits": [
+                {
+                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "VoidedAmount": 956
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "VoidedAmount": 44
+                }
+            ]
+        }
+    ]
 }
 ```
 
