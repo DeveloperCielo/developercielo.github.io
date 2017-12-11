@@ -1314,7 +1314,7 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturaa no 
         }
      ]
 }
-````
+```
 
 **RESPONSE**
 
@@ -1372,37 +1372,25 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturaa no 
 }
 ```
 
-**RESPONSE**
+Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exmeplo acima poderia ser informado, por exemplo, apenas o segundo subordinado:
 
 ```json
 {
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
     "VoidSplitPayments":[
         {
-            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
-            "VoidAmount":1500,
+            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "VoidedAmount": 1500
         },
         {
-            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
-            "VoidAmount":500,
+            "SubordinateMerchantId" :"fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "VoidedAmount":1000
         }
-    ],
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        }
-    ]
+     ]
 }
 ```
 
-## Agenda
+> Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.
+
+## Agenda Financeira
 
 > Em breve disponibilizaremos a API de Agenda onde será possível consultar a agenda do **Markectplace** e seus **Subordinados**.
