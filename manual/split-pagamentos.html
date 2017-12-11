@@ -1196,7 +1196,7 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 <h3 id="captura">Captura</h3>
 
 <p><br />
-Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split irá interpretar que todo o valor é referente ao próprio Marketplace.</p>
+Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace.</p>
 
 <h4 id="captura-total">Captura Total</h4>
 
@@ -1229,70 +1229,68 @@ Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras d
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><code class="highlighter-rouge">RESPONSE</code></p>
+<p><strong>RESPONSE</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">6000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
-                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cd16ab8e-2173-4a16-b037-36cd04c07950"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">210</span><span class="p">,</span><span class="w">    
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5670</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5670</span><span class="p">,</span><span class="w">    
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
-                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cd16ab8e-2173-4a16-b037-36cd04c07950"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">95</span><span class="p">,</span><span class="w">    
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825</span><span class="p">,</span><span class="w">    
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/db14bf98-5ebd-43b5-8ba6-205c30ec1c16"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/db14bf98-5ebd-43b5-8ba6-205c30ec1c16/void"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<p>Exemplo considerando transação no valor de <strong>R$100,00</strong> e as seguinte taxas:</p>
-
-<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
 
 <h4 id="captura-parcial">Captura Parcial</h4>
 
