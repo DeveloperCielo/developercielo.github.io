@@ -1500,12 +1500,12 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 * **Scheduled**: Agendado 
 * **Pending**: Aguardando confirmação de liquidação
 * **Settled**: Liquidado
-* **Error** - Erro de liquidação na instituição financeira
+* **Error**: Erro de liquidação na instituição financeira
 
 <BR>
 **Request**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&finalDate=2017-12-31merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
@@ -1523,15 +1523,6 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
             "PaymentId": "24afaaaf-f2a1-40a5-bb25-f914fa623c4c",
             "CapturedDate": "2017-12-01",
             "Schedules": [
-                {
-                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "Date": "2018-01-01",
-                    "Installments": 2,
-                    "InstallmentAmount": 24357,
-                    "InstallmentNumber": 2,
-                    "Event": "Credit",
-                    "EventDescription": "Credit"
-                },
                 {
                     "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                     "Date": "2017-12-21",
@@ -1560,24 +1551,6 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "Credit"
                 },
                 {
-                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "Date": "2018-01-01",
-                    "Installments": 2,
-                    "InstallmentAmount": 38479,
-                    "InstallmentNumber": 2,
-                    "Event": "Credit",
-                    "EventDescription": "Credit"
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "Date": "2018-01-01",
-                    "Installments": 2,
-                    "InstallmentAmount": 5,
-                    "InstallmentNumber": 2,
-                    "Event": "FeeDebit",
-                    "EventDescription": "FeeDebit"
-                },
-                {
                     "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Date": "2017-12-21",
                     "Installments": 2,
@@ -1586,57 +1559,6 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "Event": "FeeDebit",
                     "EventDescription": "FeeDebit"
                 },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "Date": "2018-01-01",
-                    "Installments": 2,
-                    "InstallmentAmount": 1450,
-                    "InstallmentNumber": 2,
-                    "Event": "Credit",
-                    "EventDescription": "Credit"
-                }
-            ]
-        },
-        {
-            "PaymentId": "1129bb06-38d6-4978-93a0-fff4659032f4",
-            "CapturedDate": "2017-12-01",
-            "Schedules": [
-                {
-                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "Date": "2018-01-01",
-                    "Installments": 1,
-                    "InstallmentAmount": 17246,
-                    "InstallmentNumber": 1,
-                    "Event": "Credit",
-                    "EventDescription": "Credit"
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "Date": "2018-01-01",
-                    "Installments": 1,
-                    "InstallmentAmount": 10,
-                    "InstallmentNumber": 1,
-                    "Event": "FeeDebit",
-                    "EventDescription": "FeeDebit"
-                },
-                {
-                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-                    "Date": "2018-01-01",
-                    "Installments": 1,
-                    "InstallmentAmount": 1548,
-                    "InstallmentNumber": 1,
-                    "Event": "Credit",
-                    "EventDescription": "Credit"
-                },
-                {
-                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "Date": "2018-01-01",
-                    "Installments": 1,
-                    "InstallmentAmount": 33590,
-                    "InstallmentNumber": 1,
-                    "Event": "Credit",
-                    "EventDescription": "Credit"
-                }
             ]
         }
     ]
