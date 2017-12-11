@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-11T23:43:28+00:00</updated>
+    <updated>2017-12-11T23:51:51+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4246,6 +4246,18 @@ No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h2 id=&quot;notificação&quot;&gt;Notificação&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Em breve&lt;/strong&gt; será disponibilizado o serviço de notificação que informará os eventos que ocorrem em uma transação de Split:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Geração de agenda&lt;/li&gt;
+  &lt;li&gt;Chargeback&lt;/li&gt;
+  &lt;li&gt;Liquidação&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Para ser notificado com relação ao status de uma transação, utilize o &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação&quot;&gt;serviço de notificação&lt;/a&gt; da APi Cielo E-Commerce.&lt;/p&gt;
 </content>
     </entry>
     
