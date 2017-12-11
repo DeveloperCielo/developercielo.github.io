@@ -1941,7 +1941,7 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 <p><br />
 <strong>Request</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules/transactions?initialDate=2017-12-01&amp;finalDate=2017-12-31merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules/transactions?initialDate=2017-12-01&amp;finalDate=2017-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
 </code></pre>
@@ -2070,7 +2070,7 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 
 <p><strong>Request</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}?merchantIds={MerchantId}&amp;merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}?merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"
 </code></pre>
@@ -2109,6 +2109,14 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="consultar-eventos">Consultar Eventos</h3>
 
@@ -2182,7 +2190,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 <p><strong>Resquest</strong></p>
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules/transactions?initialDate=2017-12-01&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules/transactions?initialDate=2017-12-01&amp;finalDate=2018-12-31&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"
 </code></pre>
@@ -2190,257 +2198,57 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 <p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
     </span><span class="s2">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Schedules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a35ae71a-34e5-469e-866b-f6a1feeb7804"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41606b10-9698-4cd3-b0bd-ffa94d385acf"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
             </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
             </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddb7143b-7d29-430a-8142-f7b6e03346a0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"476ec4fb-ab2c-421f-942c-f73b298412f0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8d0c32f-aa69-4b3b-aba2-fe7004ea664e"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddb7143b-7d29-430a-8142-f7b6e03346a0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">140</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"608615f7-43f2-4c37-a095-28a3d618c0d2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeCredit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640cae2a-a3ee-4d81-8b74-f83414587b8b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">170</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d9f041b5-9ddc-4b3a-9f61-fef47a413bf4"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8d0c32f-aa69-4b3b-aba2-fe7004ea664e"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">170</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640cae2a-a3ee-4d81-8b74-f83414587b8b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddb7143b-7d29-430a-8142-f7b6e03346a0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d9f041b5-9ddc-4b3a-9f61-fef47a413bf4"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1450</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"476ec4fb-ab2c-421f-942c-f73b298412f0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1084</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a35ae71a-34e5-469e-866b-f6a1feeb7804"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">170</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"608615f7-43f2-4c37-a095-28a3d618c0d2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-04"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">54</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157b18b2-3c83-4303-a9f3-ff9158dd9dca"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-08"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1129bb06-38d6-4978-93a0-fff4659032f4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
             </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
             </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5263f052-0455-44f5-acca-f8beba90c010"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-08"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5263f052-0455-44f5-acca-f8beba90c010"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-08"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10888</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"157b18b2-3c83-4303-a9f3-ff9158dd9dca"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-08"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">167</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bca72d2e-fcd9-4328-8296-fe6b0dd7a7c5"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-11"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1187</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41606b10-9698-4cd3-b0bd-ffa94d385acf"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-11"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
             </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41606b10-9698-4cd3-b0bd-ffa94d385acf"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-11"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bca72d2e-fcd9-4328-8296-fe6b0dd7a7c5"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-11"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1129bb06-38d6-4978-93a0-fff4659032f4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d35be27-188f-49d3-92bc-ff00051ada6d"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-13"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">13668</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1548</span><span class="p">,</span><span class="w">
             </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d35be27-188f-49d3-92bc-ff00051ada6d"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-13"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24afaaaf-f2a1-40a5-bb25-f914fa623c4c"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
             </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FeeDebit"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -2511,7 +2319,8 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 <h3 id="ajustes">Ajustes</h3>
 
-<p>A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.</p>
+<p><br />
+A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.</p>
 
 <p>Quando lançado um ajusta à Crédito para um Subordinado, automaticamente é lançado um ajuste a Débito para o Marketplace na mesma data, e vice-versa.</p>
 
@@ -2590,6 +2399,14 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="chargeback">Chargeback</h2>
 
