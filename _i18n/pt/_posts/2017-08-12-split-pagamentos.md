@@ -1853,3 +1853,13 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 | Propriedade                     | Descrição                                                                                               | Tipo    | Tamanho | 
 |---------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
 | `ChargebackSplitPayments.Split` | Lista contendo a divisão do chargeback para cada participante.                                          | Guid    | 36      |
+
+## Notificação
+
+**Em breve** será disponibilizado o serviço de notificação que informará os eventos que ocorrem em uma transação de Split:
+
+* Geração de agenda
+* Chargeback
+* Liquidação
+
+Para ser notificado com relação ao status de uma transação, utilize o [serviço de notificação](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação) da APi Cielo E-Commerce.
