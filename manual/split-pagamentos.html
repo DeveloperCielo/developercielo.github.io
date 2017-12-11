@@ -936,6 +936,14 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <p><strong>RESPONSE</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -1047,6 +1055,14 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <p>Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cálculos corretamente.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split004.png" alt="SplitSample004" /></p>
@@ -1084,6 +1100,14 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>RESPONSE</strong></p>
 
@@ -1129,6 +1153,14 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <p>O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.</p>
 
@@ -1241,6 +1273,14 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="captura">Captura</h3>
 
 <p><br />
@@ -1277,6 +1317,14 @@ Na captura total de uma transação, o somatório dos valores de participação 
      </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>RESPONSE</strong></p>
 
@@ -1341,6 +1389,14 @@ Na captura total de uma transação, o somatório dos valores de participação 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="captura-parcial">Captura Parcial</h4>
 
 <p><br />
@@ -1379,6 +1435,14 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
      </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>RESPONSE</strong></p>
 
@@ -1443,6 +1507,14 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <p>Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.</p>
 
 <p><strong>REQUEST</strong></p>
@@ -1492,6 +1564,14 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="cancelamento">Cancelamento</h3>
 
@@ -1559,6 +1639,14 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="cancelamento-parcial">Cancelamento Parcial</h4>
 
@@ -1674,14 +1762,18 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado:</p>
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado, conforme exemplo abaixo:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
-        </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="mi">1000</span><span class="w">
@@ -1689,6 +1781,14 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
      </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <blockquote>
   <p>Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.</p>
