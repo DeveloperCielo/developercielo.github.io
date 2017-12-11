@@ -1965,4 +1965,56 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 ### Ajustes
 
+A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
+
+Quando lançado um ajusta à Crédito para um Subordinado, automaticamente é lançado um ajuste a Débito para o Marketplace na mesma data, e vice-versa.
+
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/schedules/adjustment/</span></aside>
+
+```json
+--header "Authorization: Bearer {access_token}"
+{
+	"SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+	"Amount": 10000,
+	"Event": "AdjustmentDebit",
+	"Date": "2017-12-20" 
+}
+```
+
+| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | 
+|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
+| `SubordinateMerchantId`           | Identificador do Subordinado.                                                                           | Guid    | 36      |
+| `Amount`                          | Valor do ajuste, em centavos.                                                                           | Inteiro | -       |
+| `Event`                           | AdjustmentDebit (Débito) ou AdjustamentCredit (Crédito).                                                | String  | -       |
+| `Date`                            | Data prevista de liquidação.                                                                            | Data    | -       |
+
+**Response**
+
+```json
+{
+    "Schedules" : [
+        {
+            "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "Date": "2017-12-20",
+            "Installments": 1,
+            "InstallmentAmount": 10000,
+            "InstallmentNumber": 1,
+            "Event": 12,
+            "EventDescription": "AdjustmentDebit"
+        },
+        {
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-20",
+            "Installments": 1,
+            "InstallmentAmount": 10000,
+            "InstallmentNumber": 1,
+            "Event": 11,
+            "EventDescription": "AdjustmentCredit"
+        }
+    ]
+}
+```
+
 ## Chargeback
