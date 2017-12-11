@@ -1098,10 +1098,12 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 
 <aside class="request"><span class="method get">POST</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
 
+<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
+</code></pre>
+
 <p><strong>RESPONSE</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1299,22 +1301,29 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 
 <p><strong>REQUEST</strong></p>
 
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
+
+<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
+</code></pre>
+
+<p>O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00.</p>
+
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
-                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w"> 
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">3000</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
                 </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">15</span><span class="w">
@@ -1324,60 +1333,114 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><code class="highlighter-rouge">RESPONSE</code></p>
+<p><strong>RESPONSE</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
-                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mi">30</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cd16ab8e-2173-4a16-b037-36cd04c07950"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w">    
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4720</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3770</span><span class="p">,</span><span class="w">    
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">280</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">4000</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fares"</span><span class="p">:{</span><span class="w">
-                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="mf">0.15</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cd16ab8e-2173-4a16-b037-36cd04c07950"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">95</span><span class="p">,</span><span class="w">    
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2865</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825</span><span class="p">,</span><span class="w">    
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">135</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/7bd7fc3a-4385-45cf-8a45-ec0349716b68"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/7bd7fc3a-4385-45cf-8a45-ec0349716b68/void"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.</p>
+
+<p><strong>REQUEST</strong></p>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
+
+<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
+</code></pre>
+
+<p><strong>RESPONSE</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/ee849761-d758-4f12-80bf-6ceae3a751ec"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/ee849761-d758-4f12-80bf-6ceae3a751ec/void"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1385,39 +1448,65 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 
 <h3 id="cancelamento">Cancelamento</h3>
 
-<p>Ao cancelar uma transação do Split de Pagamentos o <strong>Marketplace</strong> deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada <strong>Subpordinado</strong> que participa da transação. Para um cancelamento total esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada <strong>Subpordinado</strong>.</p>
+<p>Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.</p>
 
 <h4 id="cancelamento-total">Cancelamento Total</h4>
 
 <p><br />
-No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada <strong>Subordinado</strong>.</p>
+No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado.</p>
 
-<p><code class="highlighter-rouge">REQUEST</code></p>
+<p><strong>REQUEST</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void
-</code></pre></div></div>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void</span></aside>
 
-<p><code class="highlighter-rouge">RESPONSE</code></p>
+<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
+</code></pre>
+
+<p><strong>RESPONSE</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"VoidAmount"</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"VoidAmount"</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
     </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/019efd18-c69a-4107-b5d7-e86564460cc4"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"VoidSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3825</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">175</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5670</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1426,28 +1515,35 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 <h4 id="cancelamento-parcial">Cancelamento Parcial</h4>
 
 <p><br />
-No cancelamento parcial, o somatório dos valores cancelados definidos para cada <strong>Subordinado</strong> não poderão ultrapassar o valor total do cancelamento parcial.</p>
+No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial.</p>
 
-<p>Os valores cancelados serão sensibilizados nas respectivas agendas dos <strong>Subordinados</strong>.</p>
+<p><strong>REQUEST</strong></p>
 
-<p><code class="highlighter-rouge">REQUEST</code></p>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">PUT</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//</span><span class="p">{</span><span class="err">API</span><span class="w"> </span><span class="err">Cielo</span><span class="w"> </span><span class="err">E-Commerce</span><span class="p">}</span><span class="err">/</span><span class="mi">1</span><span class="err">/sales/</span><span class="p">{</span><span class="err">PaymentId</span><span class="p">}</span><span class="err">/void?amount=</span><span class="mi">2000</span><span class="w">
+<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
+</code></pre>
+
+<p>No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.</p>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount=2500</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"VoidAmount"</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"VoidAmount"</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="mi">1000</span><span class="w">
         </span><span class="p">}</span><span class="w">
      </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><code class="highlighter-rouge">RESPONSE</code></p>
+<p><strong>RESPONSE</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -1457,27 +1553,72 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
     </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"0f377932-5668-4c72-8b5b-2b43760ebd38"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"VoidAmount"</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"98430463-7c1e-413b-b13a-0f613af594d8"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"VoidAmount"</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
     </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/c10ee5e5-6179-424c-bbf2-1a2319a8f7c3"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/c10ee5e5-6179-424c-bbf2-1a2319a8f7c3/void"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"VoidSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1417</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">83</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">956</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="agenda">Agenda</h2>
+<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exmeplo acima poderia ser informado, por exemplo, apenas o segundo subordinado:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="w"> </span><span class="p">:</span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"VoidedAmount"</span><span class="p">:</span><span class="mi">1000</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+     </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.</p>
+</blockquote>
+
+<h2 id="agenda-financeira">Agenda Financeira</h2>
 
 <blockquote>
   <p>Em breve disponibilizaremos a API de Agenda onde será possível consultar a agenda do <strong>Markectplace</strong> e seus <strong>Subordinados</strong>.</p>
