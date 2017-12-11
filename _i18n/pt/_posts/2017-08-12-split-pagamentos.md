@@ -879,10 +879,13 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 
 <aside class="request"><span class="method get">POST</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
 
+```x-www-form-urlencoded
+--header "Authorization: Bearer {access_token}"  
+```
+
 **RESPONSE**
 
 ```json
---header "Authorization: Bearer {access_token}"
 {
     "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
     "MerchantOrderId": "2014111701",
@@ -1085,6 +1088,10 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
+```x-www-form-urlencoded
+--header "Authorization: Bearer {access_token}"  
+```
+
 O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
@@ -1176,11 +1183,16 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
     ]
 }
 ```
+
 Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
 
 **REQUEST**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
+
+```x-www-form-urlencoded
+--header "Authorization: Bearer {access_token}"  
+```
 
 **RESPONSE**
 
@@ -1236,6 +1248,10 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 **REQUEST**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void</span></aside>
+
+```x-www-form-urlencoded
+--header "Authorization: Bearer {access_token}"  
+```
 
 **RESPONSE**
 
@@ -1296,12 +1312,15 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 **REQUEST**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
-
-No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturaa no valor de R$100,00.
+```x-www-form-urlencoded
+--header "Authorization: Bearer {access_token}"  
+```
+No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount=2500</span></aside>
 
 ```json
+--header "Authorization: Bearer {access_token}"
 {
     "VoidSplitPayments":[
         {
