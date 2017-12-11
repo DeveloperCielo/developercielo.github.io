@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-11T14:28:55+00:00</updated>
+    <updated>2017-12-11T14:38:33+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3766,7 +3766,8 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 
 &lt;h3 id=&quot;consultar-eventos&quot;&gt;Consultar Eventos&lt;/h3&gt;
 
-&lt;p&gt;A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/schedules?initialDate={initialDate}&amp;amp;finalDate={finalDate}&amp;amp;pageIndex={pageIndex}&amp;amp;pageSize={pageSize}&amp;amp;scheduleStatus={scheduleStatus}&amp;amp;merchantIds={merchantId}&lt;/span&gt;&lt;/aside&gt;
 
