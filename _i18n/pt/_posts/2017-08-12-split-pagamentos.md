@@ -606,11 +606,11 @@ Como resposta, A API Cielo E-Commerce retornará um nó contento as regras de di
         "Splits": [                
             {
                 "MerchantId": "MID do Marketplace",
-                "amount": 500,
+                "Amount": 500,
             },
             {
                 "MerchantId": "MID Subordinate 01",
-                "amount": 9500,
+                "Amount": 9500,
             }
         ]
     }
@@ -1808,4 +1808,48 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 
 ```
 
+| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | 
+|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
+| `SubordinateMerchantId`           | Identificador do Subordinado.                                                                           | Guid    | 36      |
+| `ChargebackAmount`                | Valor do chargeback que deverá ser repassado ao Subordinado, em centavos.                               | Inteiro | -       |
+
 **Response**
+
+```json
+{
+	"ChargebackSplitPayments": [
+		{
+			"SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+			"ChargebackAmount": 4000,
+			"ChargebackSplits": [
+				{
+					"MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+					"ChargebackAmount": 3780 
+				},
+				{
+					"MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+					"ChargebackAmount": 220
+				}
+			]
+		},
+		{
+			"SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+			"ChargebackAmount": 2000,
+			"ChargebackSplits": [
+				{
+					"MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+					"ChargebackAmount": 1912 
+				},
+				{
+					"MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+					"ChargebackAmount": 88
+				}
+			]
+		}
+	]
+}
+```
+
+| Propriedade                     | Descrição                                                                                               | Tipo    | Tamanho | 
+|---------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
+| `ChargebackSplitPayments.Split` | Lista contendo a divisão do chargeback para cada participante.                                          | Guid    | 36      |
