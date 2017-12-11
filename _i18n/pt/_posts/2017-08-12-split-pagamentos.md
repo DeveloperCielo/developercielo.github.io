@@ -1450,13 +1450,14 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
 
-| Parâmetro | Descrição | Tipo | Formato | Obrigatório | Valor Padrão
-| `InitialDate` | Data inicial a ser consultada, considerando a data de captura das transações. | Data | YYYY-MM-DD | Não | CurrentDate
-| `FinalDate` | Data final a ser consultada, considerando a data de captura das transações. | Data | YYYY-MM-DD | Não | CurrentDate
-| `PageIndex` | Página a ser consultada. | Inteiro | - | Não | 1
-| `PageSize` | Tamanho da página. | Inteiro | -| Não | 25
-| `ScheduleStatus` | Status do evento. Vide status possíveis abaixo | String | - | Não | Scheduled
-| `MerchantIds` | Lojas a seren consideradas na consulta | Guid | - | Não | -
+| Parâmetro        | Descrição                                                                     | Tipo    | Formato    | Obrigatório | Valor Padrão
+|------------------|-------------------------------------------------------------------------------|---------|------------|-------------|
+| `InitialDate`    | Data inicial a ser consultada, considerando a data de captura das transações. | Data    | YYYY-MM-DD | Não         | CurrentDate
+| `FinalDate`      | Data final a ser consultada, considerando a data de captura das transações.   | Data    | YYYY-MM-DD | Não         | CurrentDate
+| `PageIndex`      | Página a ser consultada.                                                      | Inteiro | -          | Não         | 1
+| `PageSize`       | Tamanho da página.                                                            | Inteiro | -          | Não         | 25
+| `ScheduleStatus` | Status do evento. Vide status possíveis abaixo.                               | String  | -          | Não         | Scheduled
+| `MerchantIds`    | Lojas a seren consideradas na consulta.                                       | Guid    | -          | Não         | -
 
 Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds".Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
 
@@ -1469,7 +1470,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 
 **REQUEST**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate=2017-12-01&merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
