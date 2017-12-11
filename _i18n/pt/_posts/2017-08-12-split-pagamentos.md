@@ -1458,14 +1458,14 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 | `ScheduleStatus` | Status do evento. Vide status possíveis abaixo.                               | String  | -          | Não         | Scheduled
 | `MerchantIds`    | Lojas a seren consideradas na consulta.                                       | Guid    | -          | Não         | -
 
-Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds".Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
+Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds". Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
 
 Um evento poderá estar em um dos seguintes status na agenda financeira:
 
-* **Scheduled**: Agendada 
+* **Scheduled**: Agendado 
 * **Pending**: Aguardando confirmação de liquidação
-* **Settled**: Liquidada
-* **Error** - Erro na liquidação na instituição financeira
+* **Settled**: Liquidado
+* **Error** - Erro de liquidação na instituição financeira
 
 <BR>
 **REQUEST**
@@ -1616,7 +1616,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 | `Transactions[].Schedules[].Date`                | Data de liquidação prevista.                                                                            | Data    | -       |
 | `Transactions[].Schedules[].Installments`        | Número de parcelas a liquidar.                                                                          | Inteiro | -       |
 | `Transactions[].Schedules[].InstallmentsAmount`  | Valor da parcela a liquidar.                                                                            | Inteiro | -       |
-| `Transactions[].Schedules[].InstallmentNumber`   | Número da parcela a liquidar                                                                            | Inteiro | -       |
+| `Transactions[].Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
 | `Transactions[].Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
 | `Transactions[].Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
 
