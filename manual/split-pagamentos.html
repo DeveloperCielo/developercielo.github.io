@@ -270,7 +270,7 @@ O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth
   <li>Realize uma requisição ao servidor de autorização:</li>
 </ol>
 
-<p><strong>REQUEST</strong></p>
+<p><strong>Request</strong></p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
@@ -279,7 +279,7 @@ O Split de Pagamentos utiliza como segurança o protocolo <a href="https://oauth
 grant_type=client_credentials
 </code></pre>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbG.....WE1igNAQRuHAs"</span><span class="p">,</span><span class="w">
@@ -887,7 +887,7 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
 <strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.<br />
 <strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
 
-<p><strong>REQUEST</strong></p>
+<p><strong>Request</strong></p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -944,7 +944,7 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
   </tbody>
 </table>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
@@ -1076,7 +1076,7 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 
 <p>Para transações com <strong>Cartão de Crédito</strong>, este período é de <strong>25 dias</strong> se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).</p>
 
-<p><strong>REQUEST</strong></p>
+<p><strong>Request</strong></p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
 
@@ -1109,7 +1109,7 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
   </tbody>
 </table>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c96bf94c-b213-44a7-9ea3-0ee2865dc57e"</span><span class="p">,</span><span class="w">
@@ -1172,14 +1172,14 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 
 <p>Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.</p>
 
-<p><strong>REQUEST</strong></p>
+<p><strong>Request</strong></p>
 
 <aside class="request"><span class="method get">POST</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
 </code></pre>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
@@ -1291,7 +1291,7 @@ Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras d
 <p><br />
 Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.</p>
 
-<p><strong>REQUEST</strong></p>
+<p><strong>Request</strong></p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
 
@@ -1326,7 +1326,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
   </tbody>
 </table>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -1402,7 +1402,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 <p><br />
 Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.</p>
 
-<p><strong>REQUEST</strong></p>
+<p><strong>Request</strong></p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
@@ -1444,7 +1444,7 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
   </tbody>
 </table>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -1517,14 +1517,14 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 
 <p>Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.</p>
 
-<p><strong>REQUEST</strong></p>
+<p><strong>Request</strong></p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
 </code></pre>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -1583,14 +1583,14 @@ Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, 
 <p><br />
 No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado.</p>
 
-<p><strong>REQUEST</strong></p>
+<p><strong>Request</strong></p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
 </code></pre>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -1653,7 +1653,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 <p><br />
 No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial.</p>
 
-<p><strong>REQUEST</strong></p>
+<p><strong>Request</strong></p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
@@ -1707,7 +1707,7 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
   </tbody>
 </table>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -1939,14 +1939,14 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 </ul>
 
 <p><br />
-<strong>REQUEST</strong></p>
+<strong>Request</strong></p>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules/transactions?initialDate=2017-12-01&amp;merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&amp;merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&amp;merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"  
 </code></pre>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -2265,7 +2265,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"
 </code></pre>
 
-<p><strong>RESPONSE</strong></p>
+<p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
