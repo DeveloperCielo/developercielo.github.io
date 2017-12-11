@@ -1337,6 +1337,11 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 }
 ```
 
+| Propriedade                                 | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
+| `VoidSplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
+| `VoidedAmount.Amount`                       | Total ou parte do valor destinado ao **Subordinado** a ser cancelado, em centavos.                      | Inteiro | -       | Sim         |
+
 **RESPONSE**
 
 ```json
@@ -1393,7 +1398,7 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 }
 ```
 
-Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exmeplo acima poderia ser informado, por exemplo, apenas o segundo subordinado:
+Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado:
 
 ```json
 {
