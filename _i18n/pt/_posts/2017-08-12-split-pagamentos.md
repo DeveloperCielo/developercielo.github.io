@@ -1442,7 +1442,6 @@ Eventos de Débito:
 | `RefundDebit`     | Lançamento de débito de um cancelamento.                                                                |
 | `ChargebackDebit` | Lançamento de débito de um chargeback.                                                                  |
 
-
 ### Consultar Transações
 
 <BR>
