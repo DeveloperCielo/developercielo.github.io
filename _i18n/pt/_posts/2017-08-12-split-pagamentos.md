@@ -680,6 +680,8 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 }
 ```
 
+||
+
 **RESPONSE**
 
 ```json
@@ -792,6 +794,8 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 }
 ```
 
+||
+
 Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cálculos corretamente.
 
 ![SplitSample004](https://developercielo.github.io/images/split/split004.png)
@@ -830,6 +834,8 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
     }
 ]
 ```
+
+||
 
 **RESPONSE**
 
@@ -876,6 +882,8 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
     ]
 }
 ```
+
+||
 
 O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
 
@@ -988,6 +996,8 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 }
 ```
 
+||
+
 ### Captura
 
 <BR>
@@ -1025,6 +1035,8 @@ Na captura total de uma transação, o somatório dos valores de participação 
      ]
 }
 ```
+
+||
 
 **RESPONSE**
 
@@ -1090,6 +1102,8 @@ Na captura total de uma transação, o somatório dos valores de participação 
 }
 ```
 
+||
+
 #### Captura Parcial
 
 <BR>
@@ -1130,6 +1144,8 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
      ]
 }
 ```
+
+||
 
 **RESPONSE**
 
@@ -1195,6 +1211,8 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 }
 ```
 
+||
+
 Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
 
 **REQUEST**
@@ -1246,6 +1264,8 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
     ]
 }
 ```
+
+||
 
 ### Cancelamento
 
@@ -1315,6 +1335,8 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
     ]
 }
 ```
+
+||
 
 #### Cancelamento Parcial
 
@@ -1410,15 +1432,13 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 }
 ```
 
-Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado:
+||
+
+Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado, conforme exemplo abaixo:
 
 ```json
 {
     "VoidSplitPayments":[
-        {
-            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-            "VoidedAmount": 1500
-        },
         {
             "SubordinateMerchantId" :"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "VoidedAmount":1000
@@ -1426,6 +1446,8 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
      ]
 }
 ```
+
+||
 
 > Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.
 
