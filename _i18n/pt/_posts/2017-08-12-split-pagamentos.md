@@ -1668,5 +1668,32 @@ Para consultar a agenda de uma transação específica basta informar o identifi
 
 ### Consultar Eventos 
 
-## Chargeback
+A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.
 
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
+
+| Parâmetro        | Descrição                                                                            | Tipo    | Formato    | Obrigatório | Valor Padrão
+|------------------|--------------------------------------------------------------------------------------|---------|------------|-------------|
+| `InitialDate`    | Data inicial a ser consultada, considerando a data prevista de liquidação do evento. | Data    | YYYY-MM-DD | Não         | CurrentDate
+| `FinalDate`      | Data final a ser consultada, considerando a data prevista de liquidação do evento.   | Data    | YYYY-MM-DD | Não         | CurrentDate
+| `PageIndex`      | Página a ser consultada. Valores possíveis: 25, 50, 100.                             | Inteiro | -          | Não         | 1
+| `PageSize`       | Tamanho da página.                                                                   | Inteiro | -          | Não         | 25
+| `ScheduleStatus` | Status do evento. Vide status possíveis abaixo.                                      | String  | -          | Não         | Scheduled
+| `MerchantIds`    | Lojas a seren consideradas na consulta.                                              | Guid    | -          | Não         | -
+
+**Resquest**
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate=2017-12-01&merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
+
+```x-www-form-urlencoded
+--header "Authorization: Bearer {access_token}"
+```
+
+**RESPONSE**
+
+```json
+```
+
+### Ajustes
+
+## Chargeback
