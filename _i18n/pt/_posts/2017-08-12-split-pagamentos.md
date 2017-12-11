@@ -1312,9 +1312,11 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 **REQUEST**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
+
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
+
 No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no valor de R$100,00.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount=2500</span></aside>
