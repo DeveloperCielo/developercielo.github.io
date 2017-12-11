@@ -2018,3 +2018,24 @@ Quando lançado um ajusta à Crédito para um Subordinado, automaticamente é la
 ```
 
 ## Chargeback
+
+<BR>
+No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o repassará para seus Subordinados, desde que acordado previamente entre as partes.
+
+Se o Marketplace optar por repassar para os Subordinados, o Chargeback Total é sensibilizado automaticamente na agenda dos mesmos. Caso contrário o chargeback será sensibilizado automaticamente na agenda do Marketplace, como acontece com um Charback Parcial.
+
+O Marketplace pode decidir ainda repassar o Chargeback para seus subordinados. Para isso A API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.  
+
+**REQUEST**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">http://localhost:6060/api/chargebacks/{ChargebackId}/split</span></aside>
+
+```json
+[
+  {
+    "SubordinateMerchantId": "2B8E9C38-0D9E-4F30-ADAC-FEF3601632E4",
+    "ChargebackAmount": 0
+  }
+]
+
+```
