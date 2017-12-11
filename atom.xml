@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-11T12:20:25+00:00</updated>
+    <updated>2017-12-11T12:33:48+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3769,7 +3769,7 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
         <link href="https://developercielo.github.io/manual/cielo-lio"/>
         <updated>2017-01-01T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/manual/cielo-lio</id>
-        <content type="html">&lt;h1 id=&quot;bem-vindo-a-cielo&quot;&gt;Bem-vindo a Cielo!&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;bem-vindo-a-cielo-teste&quot;&gt;Bem-vindo a Cielo! teste&lt;/h1&gt;
 
 &lt;p&gt;Nessa documentação você tem acesso a todas as informações sobre as plataformas de desenvolvimento da Cielo bem como suas principais funcionalidades para integrar com seu negócio.&lt;/p&gt;
 
