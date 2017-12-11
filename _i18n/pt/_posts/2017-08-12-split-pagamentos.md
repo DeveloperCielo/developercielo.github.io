@@ -1850,9 +1850,9 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 }
 ```
 
-| Propriedade                     | Descrição                                                                                               | Tipo    | Tamanho | 
-|---------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
-| `ChargebackSplitPayments.Split` | Lista contendo a divisão do chargeback para cada participante.                                          | Guid    | 36      |
+| Propriedade                                | Descrição                                                                                               | Tipo    | Tamanho | 
+|--------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
+| `ChargebackSplitPayments.ChargebackSplits` | Lista contendo a divisão do chargeback para cada participante.                                          | Guid    | 36      |
 
 ## Notificação
 
