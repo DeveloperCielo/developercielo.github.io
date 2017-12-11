@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-11T22:48:28+00:00</updated>
+    <updated>2017-12-11T22:49:48+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1849,8 +1849,6 @@
         <content type="html">&lt;h1 id=&quot;split-de-pagamentos&quot;&gt;Split de Pagamentos&lt;/h1&gt;
 
 &lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
-
-&lt;h3 id=&quot;definição&quot;&gt;Definição&lt;/h3&gt;
 
 &lt;p&gt;&lt;br /&gt;
 O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma transação entre diferentes participantes de uma venda.&lt;/p&gt;
