@@ -2026,16 +2026,24 @@ Se o Marketplace optar por repassar para os Subordinados, o Chargeback Total é 
 
 O Marketplace pode decidir ainda repassar o Chargeback para seus subordinados. Para isso A API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.  
 
-**REQUEST**
+No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transação com valor capturado de R$100,00.
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">http://localhost:6060/api/chargebacks/{ChargebackId}/split</span></aside>
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/chargebacks/{ChargebackId}/split</span></aside>
 
 ```json
 [
   {
-    "SubordinateMerchantId": "2B8E9C38-0D9E-4F30-ADAC-FEF3601632E4",
-    "ChargebackAmount": 0
+    "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+    "ChargebackAmount": 4000
+  },
+  {
+    "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+    "ChargebackAmount": 2000
   }
 ]
 
 ```
+
+**Response**
