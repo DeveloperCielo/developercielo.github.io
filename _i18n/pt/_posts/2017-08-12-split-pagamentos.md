@@ -138,7 +138,7 @@ Para obter um token de acesso:
 2. Codifique o resultado da concatenação em Base64.  
 3. Realize uma requisição ao servidor de autorização:  
 
-**REQUEST**  
+**Request**  
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
@@ -148,7 +148,7 @@ Para obter um token de acesso:
 grant_type=client_credentials
 ```
 
-**RESPONSE**
+**Response**
 
 ```json
 {
@@ -630,7 +630,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 **Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.  
 **Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.  
 
-**REQUEST**
+**Request**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
@@ -682,7 +682,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 
 ||
 
-**RESPONSE**
+**Response**
 
 ```json
 {
@@ -809,7 +809,7 @@ A divisão pós-transacional é possível somente para transações com **Cartã
 
 Para transações com **Cartão de Crédito**, este período é de **25 dias** se o Marketplace possuir um regime padrão de pagamentos. Caso tenha um regime personalizado, o período deverá ser acordado entre as partes (Marketplace e Braspag (Facilitador)).
 
-**REQUEST**  
+**Request**  
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/transactions/{PaymentId}/split</span></aside>
 
@@ -837,7 +837,7 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
 
 ||
 
-**RESPONSE**
+**Response**
 
 ```json
 {
@@ -893,7 +893,7 @@ O nó referente ao Split no Split Pós-transacional, tanto no contrato de reques
 
 Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
 
-**REQUEST**
+**Request**
 
 <aside class="request"><span class="method get">POST</span> <span class="endpoint">{api-cielo-ecommerce-consulta}/1/sales/{PaymentId}</span></aside>
 
@@ -901,7 +901,7 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 --header "Authorization: Bearer {access_token}"  
 ```
 
-**RESPONSE**
+**Response**
 
 ```json
 {
@@ -1008,7 +1008,7 @@ Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras d
 <BR>
 Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
 
-**REQUEST**
+**Request**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
 
@@ -1038,7 +1038,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 
 ||
 
-**RESPONSE**
+**Response**
 
 ```json
 {
@@ -1109,7 +1109,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 <BR>
 Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.
 
-**REQUEST**
+**Request**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
 
@@ -1147,7 +1147,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 
 ||
 
-**RESPONSE**
+**Response**
 
 ```json
 {
@@ -1215,7 +1215,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 
 Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
 
-**REQUEST**
+**Request**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
@@ -1223,7 +1223,7 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
 --header "Authorization: Bearer {access_token}"  
 ```
 
-**RESPONSE**
+**Response**
 
 ```json
 {
@@ -1277,7 +1277,7 @@ Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, 
 <BR>
 No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado.
 
-**REQUEST**
+**Request**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void</span></aside>
 
@@ -1285,7 +1285,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 --header "Authorization: Bearer {access_token}"  
 ```
 
-**RESPONSE**
+**Response**
 
 ```json
 {
@@ -1343,7 +1343,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 <BR>
 No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial. 
 
-**REQUEST**
+**Request**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
@@ -1376,7 +1376,7 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 | `VoidSplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
 | `VoidedAmount.Amount`                       | Total ou parte do valor destinado ao **Subordinado** a ser cancelado, em centavos.                      | Inteiro | -       | Sim         |
 
-**RESPONSE**
+**Response**
 
 ```json
 {
@@ -1503,7 +1503,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 * **Error** - Erro de liquidação na instituição financeira
 
 <BR>
-**REQUEST**
+**Request**
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
@@ -1511,7 +1511,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 --header "Authorization: Bearer {access_token}"  
 ```
 
-**RESPONSE**
+**Response**
 
 ```json
 {
@@ -1725,7 +1725,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 --header "Authorization: Bearer {access_token}"
 ```
 
-**RESPONSE**
+**Response**
 
 ```json
 {
