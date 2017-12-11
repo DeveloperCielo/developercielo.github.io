@@ -1238,6 +1238,7 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
 
 ### Cancelamento
 
+<BR>
 Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
 
 #### Cancelamento Total
