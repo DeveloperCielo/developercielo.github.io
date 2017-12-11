@@ -1447,7 +1447,7 @@ Eventos de Débito:
 <BR>
 O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
 
 | Parâmetro        | Descrição                                                                     | Tipo    | Formato    | Obrigatório | Valor Padrão
 |------------------|-------------------------------------------------------------------------------|---------|------------|-------------|
@@ -1467,6 +1467,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 * **Settled**: Liquidada
 * **Error** - Erro na liquidação na instituição financeira
 
+<BR>
 **REQUEST**
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
@@ -1613,9 +1614,9 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 | `Transactions[].CaptureDate`                     | Data de captura da transação.                                                                           | Data    | -       |
 | `Transactions[].Schedules[].MerchantId`          | Identificador da loja.                                                                                  | Guid    | 36      |
 | `Transactions[].Schedules[].Date`                | Data de liquidação prevista.                                                                            | Data    | -       |
-| `Transactions[].Schedules[].Installments`        | Número de parcelas a liquidar.                                                                          | Inteiro | 36      |
-| `Transactions[].Schedules[].InstallmentsAmount`  | Valor da parcela a liquidar.                                                                            | Inteiro | 36      |
-| `Transactions[].Schedules[].InstallmentNumber`   | Número da parcela a liquidar                                                                            | Inteiro | 36      |
+| `Transactions[].Schedules[].Installments`        | Número de parcelas a liquidar.                                                                          | Inteiro | -       |
+| `Transactions[].Schedules[].InstallmentsAmount`  | Valor da parcela a liquidar.                                                                            | Inteiro | -       |
+| `Transactions[].Schedules[].InstallmentNumber`   | Número da parcela a liquidar                                                                            | Inteiro | -       |
 | `Transactions[].Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
 | `Transactions[].Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
 
@@ -1629,9 +1630,9 @@ Para consultar a agenda de uma transação específica basta informar o identifi
 --header "Authorization: Bearer {access_token}"
 ```
 
-```
 **Response**
 
+```json
 {
     "PageCount": 1,
     "PageSize": 25,
