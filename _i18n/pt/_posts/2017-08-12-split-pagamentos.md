@@ -1668,6 +1668,7 @@ Para consultar a agenda de uma transação específica basta informar o identifi
 
 ### Consultar Eventos 
 
+<BR>
 A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
