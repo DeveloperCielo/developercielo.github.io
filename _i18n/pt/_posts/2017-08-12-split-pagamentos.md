@@ -1950,6 +1950,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
     ]
 }
 ```
+
 | Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | 
 |-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
 | `Schedules[].PaymentId`           | Identificador da transação.                                                                             | Guid    | 36      |
