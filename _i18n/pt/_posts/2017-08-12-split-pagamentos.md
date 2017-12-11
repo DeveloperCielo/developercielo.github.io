@@ -585,8 +585,6 @@ No Split Transacional é necessário que o Marketplace envie um "nó" adicional 
 ]
 ```
 
-||
-
 | Propriedade                             | Descrição                                                                                               | Tipo    | Tamanho | Obrigatório |
 |-----------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|-------------|
 | `SplitPayments.SubordinateMerchantId`   | **MerchantId** (Identificador) do **Subordinado**.                                                      | Guid    | 36      | Sim         |
