@@ -1976,10 +1976,10 @@ Quando lançado um ajusta à Crédito para um Subordinado, automaticamente é la
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-  "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
-  "Amount": 10000,
-  "Event": "AdjustmentDebit",
-  "Date": "2017-12-20" 
+    "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+    "Amount": 10000,
+    "Event": "AdjustmentDebit",
+    "Date": "2017-12-20" 
 }
 ```
 
