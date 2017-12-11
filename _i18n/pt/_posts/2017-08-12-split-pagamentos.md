@@ -49,7 +49,7 @@ Na divisão de uma transação, devem ser informados:
 * Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação.
 * **Taxas** a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.
 <BR>
-O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
+O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de Subordinado e ter seus próprios produtos no carrinho.
 
 ### Taxas
 
@@ -68,7 +68,7 @@ A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descon
 
 O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).
 
-O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.
+O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem a receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.
 
 > **Custo Marketplace:** MDR Braspag(%) + Tarifa Fixa(R$)
 
