@@ -1314,8 +1314,7 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount={amount}</span></aside>
 
-``` json
-x-www-form-urlencoded
+```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
 ```
 
@@ -1495,10 +1494,51 @@ No exemplo acima, foi retornada a agenda do Marketplace para a transação. Por 
 
 Um Marketplace pode consultar a agenda dos seus subordinados, bastando informar o identificador dos subordinados no momento da consulta.
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}?merchantIds={MerchantId}&merchantIds={merchantId}</span></aside>
+
 **Request**
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}?merchantIds={MerchantId}&merchantIds={merchantId}</span></aside>
+
+```x-www-form-urlencoded
+--header "Authorization: Bearer {access_token}"
+```
+
+```
 **Response**
 
+{
+    "PageCount": 1,
+    "PageSize": 25,
+    "PageIndex": 1,
+    "Transactions": [
+        {
+            "PaymentId": "cd2309d3-3fec-4816-aec7-bcb6d51a0988",
+            "CapturedDate": "2017-12-11",
+            "Schedules": [
+                {
+                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "Date": "2018-01-11",
+                    "Installments": 1,
+                    "InstallmentAmount": 5790,
+                    "InstallmentNumber": 1,
+                    "Event": "Credit",
+                    "EventDescription": "Credit"
+                },
+                {
+                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "Date": "2018-01-11",
+                    "Installments": 1,
+                    "InstallmentAmount": 3790,
+                    "InstallmentNumber": 1,
+                    "Event": "Credit",
+                    "EventDescription": "Credit"
+                }
+            ]
+        }
+    ]
+}
+```
 
 
 
