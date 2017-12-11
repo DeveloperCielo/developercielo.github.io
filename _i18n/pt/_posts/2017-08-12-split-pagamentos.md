@@ -1424,7 +1424,7 @@ No Split de Pagamentos, o responsável por realizar o repasse dos valores (liqui
 
 A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.
 
-A agenda é composta por eventos de Crédito e Débito que são gerados de acordo as operações efetuadas e o regime de pagamento acordado.
+A agenda é composta por eventos de Crédito e Débito que são gerados de acordo com as operações efetuadas e o regime de pagamento acordado.
 
 Eventos de Crédito:
 
@@ -1441,4 +1441,68 @@ Eventos de Débito:
 | `RefundDebit`     | Lançamento de débito de um cancelamento.                                                                |
 | `ChargebackDebit` | Lançamento de débito de um chargeback.                                                                  |
 
+
+### Consultar Transações
+
+O Split de Pgamentos permite consultar a agenda financeira de uma transação específica ou de transações que foram capturadas em um intervalo de tempo definido.
+
+**REQUEST**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}</span></aside>
+
+```x-www-form-urlencoded
+--header "Authorization: Bearer {access_token}"  
+```
+
+**RESPONSE**
+
+```json
+{
+    "PageCount": 1,
+    "PageSize": 25,
+    "PageIndex": 1,
+    "Transactions": [
+        {
+            "PaymentId": "cd2309d3-3fec-4816-aec7-bcb6d51a0988",
+            "CapturedDate": "2017-12-11",
+            "Schedules": [
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Date": "2018-01-11",
+                    "Installments": 1,
+                    "InstallmentAmount": 220,
+                    "InstallmentNumber": 1,
+                    "Event": "1",
+                    "EventDescription": "Credit"
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Date": "2018-01-11",
+                    "Installments": 1,
+                    "InstallmentAmount": 10,
+                    "InstallmentNumber": 1,
+                    "Event": "FeeDebit",
+                    "EventDescription": "FeeDebit"
+                }
+            ]
+        }
+    ]
+}
+```
+
+No exemplo acima, foi retornada a agenda do Marketplace para a transação. Por padrão, o Split irá retornar a agenda de acordo com as credenciais utilizadas na autenticação. 
+
+Um Marketplace pode consultar a agenda dos seus subordinados, bastando informar o identificador dos subordinados no momento da consulta.
+
+**Request**
+
+**Response**
+
+
+
+
+
+### Consultar Eventos 
+
 ## Chargeback
+
