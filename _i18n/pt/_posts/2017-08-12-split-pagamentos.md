@@ -101,7 +101,7 @@ Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR ac
 Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
 
 **Braspag (Facilitador)**:  
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
+Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]<BR>
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
 
 ## Ambientes
