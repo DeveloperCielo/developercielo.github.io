@@ -557,7 +557,7 @@ O Split de Pagamentos disponibiliza dois modelos para divisão da transação en
 
 > No Split de Pagamentos a divisão é realizada somente para transações capturadas, ou seja, as regras de divisão só serão consideradas para autorizações com captura automática e no momento da captura de uma transação. Caso seja informado no momento de uma autorização sem captura automática, as regras de divisão serão desconsideradas.
 
-#### Split Transacional
+#### Transacional
 
 <BR>
 No Split Transacional é necessário que o Marketplace envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
@@ -786,7 +786,7 @@ Neste exemplo, onde o Marketplace também participa da venda, não é necessári
 
 ![SplitSample004](https://developercielo.github.io/images/split/split004.png)
 
-#### Split Pós-Transacional
+#### Pós-Transacional
 
 <BR>
 Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.
