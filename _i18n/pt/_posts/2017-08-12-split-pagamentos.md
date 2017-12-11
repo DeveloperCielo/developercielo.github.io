@@ -1420,6 +1420,7 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 ## Agenda Financeira
 
+<BR>
 No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).
 
 A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.
@@ -1444,18 +1445,31 @@ Eventos de Débito:
 
 ### Consultar Transações
 
+<BR>
 O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.
-
-**REQUEST**
-
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
 
+| Parâmetro | Descrição | Tipo | Formato | Obrigatório | Valor Padrão
+| `InitialDate` | Data inicial a ser consultada, considerando a data de captura das transações. | Data | YYYY-MM-DD | Não | CurrentDate
+| `FinalDate` | Data final a ser consultada, considerando a data de captura das transações. | Data | YYYY-MM-DD | Não | CurrentDate
+| `PageIndex` | Página a ser consultada. | Inteiro | - | Não | 1
+| `PageSize` | Tamanho da página. | Inteiro | -| Não | 25
+| `ScheduleStatus` | Status do evento. Vide status possíveis abaixo | String | - | Não | Scheduled
+| `MerchantIds` | Lojas a seren consideradas na consulta | Guid | - | Não | -
 
+Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds".Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.
+
+Um evento poderá estar em um dos seguintes status na agenda financeira:
+
+* **Scheduled**: Agendada 
+* **Pending**: Aguardando confirmação de liquidação
+* **Settled**: Liquidada
+* **Error** - Erro na liquidação na instituição financeira
 
 **REQUEST**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate=2017-12-01&merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
@@ -1470,26 +1484,122 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
     "PageIndex": 1,
     "Transactions": [
         {
-            "PaymentId": "cd2309d3-3fec-4816-aec7-bcb6d51a0988",
-            "CapturedDate": "2017-12-11",
+            "PaymentId": "24afaaaf-f2a1-40a5-bb25-f914fa623c4c",
+            "CapturedDate": "2017-12-01",
             "Schedules": [
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
-                    "Date": "2018-01-11",
-                    "Installments": 1,
-                    "InstallmentAmount": 220,
+                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "Date": "2018-01-01",
+                    "Installments": 2,
+                    "InstallmentAmount": 24357,
+                    "InstallmentNumber": 2,
+                    "Event": "Credit",
+                    "EventDescription": "Credit"
+                },
+                {
+                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "Date": "2017-12-21",
+                    "Installments": 2,
+                    "InstallmentAmount": 24357,
                     "InstallmentNumber": 1,
-                    "Event": 1,
+                    "Event": "Credit",
                     "EventDescription": "Credit"
                 },
                 {
                     "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
-                    "Date": "2018-01-11",
+                    "Date": "2017-12-21",
+                    "Installments": 2,
+                    "InstallmentAmount": 1450,
+                    "InstallmentNumber": 1,
+                    "Event": "Credit",
+                    "EventDescription": "Credit"
+                },
+                {
+                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "Date": "2017-12-21",
+                    "Installments": 2,
+                    "InstallmentAmount": 38480,
+                    "InstallmentNumber": 1,
+                    "Event": "Credit",
+                    "EventDescription": "Credit"
+                },
+                {
+                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "Date": "2018-01-01",
+                    "Installments": 2,
+                    "InstallmentAmount": 38479,
+                    "InstallmentNumber": 2,
+                    "Event": "Credit",
+                    "EventDescription": "Credit"
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Date": "2018-01-01",
+                    "Installments": 2,
+                    "InstallmentAmount": 5,
+                    "InstallmentNumber": 2,
+                    "Event": "FeeDebit",
+                    "EventDescription": "FeeDebit"
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Date": "2017-12-21",
+                    "Installments": 2,
+                    "InstallmentAmount": 5,
+                    "InstallmentNumber": 1,
+                    "Event": "FeeDebit",
+                    "EventDescription": "FeeDebit"
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Date": "2018-01-01",
+                    "Installments": 2,
+                    "InstallmentAmount": 1450,
+                    "InstallmentNumber": 2,
+                    "Event": "Credit",
+                    "EventDescription": "Credit"
+                }
+            ]
+        },
+        {
+            "PaymentId": "1129bb06-38d6-4978-93a0-fff4659032f4",
+            "CapturedDate": "2017-12-01",
+            "Schedules": [
+                {
+                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "Date": "2018-01-01",
+                    "Installments": 1,
+                    "InstallmentAmount": 17246,
+                    "InstallmentNumber": 1,
+                    "Event": "Credit",
+                    "EventDescription": "Credit"
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Date": "2018-01-01",
                     "Installments": 1,
                     "InstallmentAmount": 10,
                     "InstallmentNumber": 1,
-                    "Event": 4,
+                    "Event": "FeeDebit",
                     "EventDescription": "FeeDebit"
+                },
+                {
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Date": "2018-01-01",
+                    "Installments": 1,
+                    "InstallmentAmount": 1548,
+                    "InstallmentNumber": 1,
+                    "Event": "Credit",
+                    "EventDescription": "Credit"
+                },
+                {
+                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "Date": "2018-01-01",
+                    "Installments": 1,
+                    "InstallmentAmount": 33590,
+                    "InstallmentNumber": 1,
+                    "Event": "Credit",
+                    "EventDescription": "Credit"
                 }
             ]
         }
