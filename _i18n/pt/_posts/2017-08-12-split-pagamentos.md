@@ -327,7 +327,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
     "Payment": {
         "SplitPayments": [
             {
-                "SubordinateMerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                 "Amount": 10000,
                 "Fares": {
                     "Mdr": 2,
@@ -335,7 +335,7 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
                 },
                 "Splits": [
                     {
-                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                         "Amount": 10000
                     }
                 ]
@@ -432,7 +432,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
       },
       "SplitPayments": [
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "Amount": 6000,
             "Fares": {
               "Mdr": 5,
@@ -440,7 +440,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
             }
         },
         {
-            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "Amount": 4000,
             "Fares": {
               "Mdr": 4,
@@ -465,7 +465,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
     "Payment": {
         "SplitPayments": [
             {
-                "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                 "Amount": 6000,
                 "Fares": {
                     "Mdr": 5,
@@ -473,17 +473,17 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
                 },
                 "Splits": [
                     {
-                        "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                         "Amount": 5670
                     },
                     {
-                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                         "Amount": 330
                     }
                 ]
             },
             {
-                "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                 "Amount": 4000,
                 "Fares": {
                     "Mdr": 4,
@@ -491,11 +491,11 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
                 },
                 "Splits": [
                     {
-                        "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                         "Amount": 3825
                     },
                     {
-                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                         "Amount": 175
                     }
                 ]
@@ -658,7 +658,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
       },
       "SplitPayments": [
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "Amount": 4500,
             "Fares": {
               "Mdr": 5,
@@ -666,7 +666,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
             }
         },
         {
-            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "Amount": 3000,
             "Fares": {
               "Mdr": 4,
@@ -674,7 +674,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
             }
         },
         {
-            "SubordinateMerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Amount": 2500
         }
     ]
@@ -693,7 +693,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
     "Payment": {
         "SplitPayments": [
             {
-                "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                 "Amount": 4500,
                 "Fares": {
                     "Mdr": 5,
@@ -701,17 +701,17 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
                 },
                 "Splits": [
                     {
-                        "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                         "Amount": 4245
                     },
                     {
-                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                         "Amount": 255
                     }
                 ]
             },
             {
-                "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                 "Amount": 3000,
                 "Fares": {
                     "Mdr": 4,
@@ -719,17 +719,17 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
                 },
                 "Splits": [
                     {
-                        "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                         "Amount": 2865
                     },
                     {
-                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                         "Amount": 135
                     }
                 ]
             },
             {
-                "SubordinateMerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                 "Amount": 2500,
                 "Fares": {
                     "Mdr": 2,
@@ -737,7 +737,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
                 },
                 "Splits": [
                     {
-                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                         "Amount": 2500
                     }
                 ]
@@ -815,7 +815,7 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
 --header "Authorization: Bearer {access_token}"
 [
     {
-        "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+        "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
         "Amount": 6000,
         "Fares": {
             "Mdr": 5,
@@ -823,7 +823,7 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
         }
     },
     {
-        "SubordinateMerchantId" :"fdae3204-3999-4082-aa32-f08b6f3a01f3",
+        "SubordinateMerchantId" :"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
         "Amount":4000,
         "Fares":{
             "Mdr":4,
@@ -840,7 +840,7 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
     "PaymentId": "c96bf94c-b213-44a7-9ea3-0ee2865dc57e",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "Amount": 6000,
             "Fares": {
                 "Mdr": 5,
@@ -848,17 +848,17 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
             },
             "Splits": [
                 {
-                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                     "Amount": 5670
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Amount": 330
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "Amount": 4000,
             "Fares": {
                 "Mdr": 4,
@@ -866,11 +866,11 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
             },
             "Splits": [
                 {
-                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                     "Amount": 3825
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Amount": 175
                 }
             ]
@@ -899,7 +899,7 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 
 ```json
 {
-    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
     "MerchantOrderId": "2014111701",
     "IsSplitted": true,
     "Customer": {
@@ -950,7 +950,7 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
         ],
         "SplitPayments": [
             {
-                "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                 "Amount": 6000,
                 "Fares": {
                     "Mdr": 5,
@@ -958,17 +958,17 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
                 },
                 "Splits": [
                     {
-                        "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                        "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                         "Amount": 5670
                     },
                     {
-                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                         "Amount": 330
                     }
                 ]
             },
             {
-                "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                 "Amount": 4000,
                 "Fares": {
                     "Mdr": 4,
@@ -976,11 +976,11 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
                 },
                 "Splits": [
                     {
-                        "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                        "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                         "Amount": 3825
                     },
                     {
-                        "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                        "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                         "Amount": 175
                     }
                 ]
@@ -1009,7 +1009,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 {
     "SplitPayments":[
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "Amount": 6000,
             "Fares": {
                 "Mdr": 5,
@@ -1017,7 +1017,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
             }
         },
         {
-            "SubordinateMerchantId" :"fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId" :"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "Amount":4000,
             "Fares":{
                 "Mdr":4,
@@ -1041,7 +1041,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
     "ReturnMessage": "Operation Successful",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "Amount": 6000,
             "Fares": {
                 "Mdr": 5,
@@ -1049,17 +1049,17 @@ Na captura total de uma transação, o somatório dos valores de participação 
             },
             "Splits": [
                 {
-                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                     "Amount": 5670
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Amount": 330
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "Amount": 4000,
             "Fares": {
                 "Mdr": 4,
@@ -1067,11 +1067,11 @@ Na captura total de uma transação, o somatório dos valores de participação 
             },
             "Splits": [
                 {
-                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                     "Amount": 3825
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Amount": 175
                 }
             ]
@@ -1114,7 +1114,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 {
     "SplitPayments":[
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "Amount": 5000,
             "Fares": {
                 "Mdr": 5,
@@ -1122,7 +1122,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
             }
         },
         {
-            "SubordinateMerchantId" :"fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId" :"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "Amount":3000,
             "Fares":{
                 "Mdr":4,
@@ -1146,7 +1146,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
     "ReturnMessage": "Operation Successful",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "Amount": 5000,
             "Fares": {
                 "Mdr": 5,
@@ -1154,17 +1154,17 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
             },
             "Splits": [
                 {
-                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                     "Amount": 4720
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Amount": 280
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "Amount": 3000,
             "Fares": {
                 "Mdr": 4,
@@ -1172,11 +1172,11 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
             },
             "Splits": [
                 {
-                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                     "Amount": 2865
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Amount": 135
                 }
             ]
@@ -1220,7 +1220,7 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
     "ReturnMessage": "Operation Successful",
     "SplitPayments": [
         {
-            "SubordinateMerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "SubordinateMerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Amount": 8000,
             "Fares": {
                 "Mdr": 2,
@@ -1228,7 +1228,7 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
             },
             "Splits": [
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Amount": 8000
                 }
             ]
@@ -1287,29 +1287,29 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
     ],
     "VoidSplitPayments": [
         {
-            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "VoidedAmount": 4000,
             "VoidedSplits": [
                 {
-                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                     "VoidedAmount": 3825
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "VoidedAmount": 175
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "VoidedAmount": 6000,
             "VoidedSplits": [
                 {
-                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                     "VoidedAmount": 5670
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "VoidedAmount": 330
                 }
             ]
@@ -1340,11 +1340,11 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 {
     "VoidSplitPayments":[
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "VoidedAmount": 1500
         },
         {
-            "SubordinateMerchantId" :"fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId" :"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "VoidedAmount":1000
         }
      ]
@@ -1381,29 +1381,29 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
     ],
     "VoidSplitPayments": [
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "VoidedAmount": 1500,
             "VoidedSplits": [
                 {
-                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                     "VoidedAmount": 1417
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "VoidedAmount": 83
                 }
             ]
         },
         {
-            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "VoidedAmount": 1000,
             "VoidedSplits": [
                 {
-                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                     "VoidedAmount": 956
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "VoidedAmount": 44
                 }
             ]
@@ -1418,11 +1418,11 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 {
     "VoidSplitPayments":[
         {
-            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "VoidedAmount": 1500
         },
         {
-            "SubordinateMerchantId" :"fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "SubordinateMerchantId" :"2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
             "VoidedAmount":1000
         }
      ]
@@ -1483,7 +1483,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 <BR>
 **REQUEST**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
@@ -1502,7 +1502,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
             "CapturedDate": "2017-12-01",
             "Schedules": [
                 {
-                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                     "Date": "2018-01-01",
                     "Installments": 2,
                     "InstallmentAmount": 24357,
@@ -1511,7 +1511,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "Credit"
                 },
                 {
-                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                     "Date": "2017-12-21",
                     "Installments": 2,
                     "InstallmentAmount": 24357,
@@ -1520,7 +1520,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "Credit"
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Date": "2017-12-21",
                     "Installments": 2,
                     "InstallmentAmount": 1450,
@@ -1529,7 +1529,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "Credit"
                 },
                 {
-                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                     "Date": "2017-12-21",
                     "Installments": 2,
                     "InstallmentAmount": 38480,
@@ -1538,7 +1538,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "Credit"
                 },
                 {
-                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                     "Date": "2018-01-01",
                     "Installments": 2,
                     "InstallmentAmount": 38479,
@@ -1547,7 +1547,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "Credit"
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Date": "2018-01-01",
                     "Installments": 2,
                     "InstallmentAmount": 5,
@@ -1556,7 +1556,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "FeeDebit"
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Date": "2017-12-21",
                     "Installments": 2,
                     "InstallmentAmount": 5,
@@ -1565,7 +1565,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "FeeDebit"
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Date": "2018-01-01",
                     "Installments": 2,
                     "InstallmentAmount": 1450,
@@ -1580,7 +1580,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
             "CapturedDate": "2017-12-01",
             "Schedules": [
                 {
-                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                     "Date": "2018-01-01",
                     "Installments": 1,
                     "InstallmentAmount": 17246,
@@ -1589,7 +1589,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "Credit"
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Date": "2018-01-01",
                     "Installments": 1,
                     "InstallmentAmount": 10,
@@ -1598,7 +1598,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "FeeDebit"
                 },
                 {
-                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
                     "Date": "2018-01-01",
                     "Installments": 1,
                     "InstallmentAmount": 1548,
@@ -1607,7 +1607,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
                     "EventDescription": "Credit"
                 },
                 {
-                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                     "Date": "2018-01-01",
                     "Installments": 1,
                     "InstallmentAmount": 33590,
@@ -1656,7 +1656,7 @@ Para consultar a agenda de uma transação específica basta informar o identifi
             "CapturedDate": "2017-12-11",
             "Schedules": [
                 {
-                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
                     "Date": "2018-01-11",
                     "Installments": 1,
                     "InstallmentAmount": 5790,
@@ -1665,7 +1665,7 @@ Para consultar a agenda de uma transação específica basta informar o identifi
                     "EventDescription": "Credit"
                 },
                 {
-                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
                     "Date": "2018-01-11",
                     "Installments": 1,
                     "InstallmentAmount": 3790,
@@ -1697,7 +1697,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 **Resquest**
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate=2017-12-01&merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate=2017-12-01&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"
@@ -1713,7 +1713,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
     "Schedules": [
         {
             "PaymentId": "a35ae71a-34e5-469e-866b-f6a1feeb7804",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 10,
             "InstallmentAmount": 1,
@@ -1723,7 +1723,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "ddb7143b-7d29-430a-8142-f7b6e03346a0",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 6,
             "InstallmentAmount": 16,
@@ -1733,7 +1733,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "476ec4fb-ab2c-421f-942c-f73b298412f0",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 10,
             "InstallmentAmount": 1,
@@ -1743,7 +1743,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "b8d0c32f-aa69-4b3b-aba2-fe7004ea664e",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 10,
             "InstallmentAmount": 1,
@@ -1753,7 +1753,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "ddb7143b-7d29-430a-8142-f7b6e03346a0",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 6,
             "InstallmentAmount": 140,
@@ -1763,7 +1763,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "608615f7-43f2-4c37-a095-28a3d618c0d2",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 3,
             "InstallmentAmount": 4,
@@ -1773,7 +1773,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "640cae2a-a3ee-4d81-8b74-f83414587b8b",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 10,
             "InstallmentAmount": 170,
@@ -1783,7 +1783,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "d9f041b5-9ddc-4b3a-9f61-fef47a413bf4",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 2,
             "InstallmentAmount": 5,
@@ -1793,7 +1793,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "b8d0c32f-aa69-4b3b-aba2-fe7004ea664e",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 10,
             "InstallmentAmount": 170,
@@ -1803,7 +1803,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "640cae2a-a3ee-4d81-8b74-f83414587b8b",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 10,
             "InstallmentAmount": 1,
@@ -1813,7 +1813,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "ddb7143b-7d29-430a-8142-f7b6e03346a0",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 6,
             "InstallmentAmount": 5,
@@ -1823,7 +1823,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "d9f041b5-9ddc-4b3a-9f61-fef47a413bf4",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 2,
             "InstallmentAmount": 1450,
@@ -1833,7 +1833,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "476ec4fb-ab2c-421f-942c-f73b298412f0",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 10,
             "InstallmentAmount": 1084,
@@ -1843,7 +1843,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "a35ae71a-34e5-469e-866b-f6a1feeb7804",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 10,
             "InstallmentAmount": 170,
@@ -1853,7 +1853,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "608615f7-43f2-4c37-a095-28a3d618c0d2",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-04",
             "Installments": 3,
             "InstallmentAmount": 54,
@@ -1863,7 +1863,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "157b18b2-3c83-4303-a9f3-ff9158dd9dca",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-08",
             "Installments": 1,
             "InstallmentAmount": 10,
@@ -1873,7 +1873,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "5263f052-0455-44f5-acca-f8beba90c010",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-08",
             "Installments": 1,
             "InstallmentAmount": 10,
@@ -1883,7 +1883,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "5263f052-0455-44f5-acca-f8beba90c010",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-08",
             "Installments": 1,
             "InstallmentAmount": 10888,
@@ -1893,7 +1893,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "157b18b2-3c83-4303-a9f3-ff9158dd9dca",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-08",
             "Installments": 1,
             "InstallmentAmount": 167,
@@ -1903,7 +1903,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "bca72d2e-fcd9-4328-8296-fe6b0dd7a7c5",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-11",
             "Installments": 1,
             "InstallmentAmount": 1187,
@@ -1913,7 +1913,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "41606b10-9698-4cd3-b0bd-ffa94d385acf",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-11",
             "Installments": 10,
             "InstallmentAmount": 20,
@@ -1923,7 +1923,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "41606b10-9698-4cd3-b0bd-ffa94d385acf",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-11",
             "Installments": 10,
             "InstallmentAmount": 1,
@@ -1933,7 +1933,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "bca72d2e-fcd9-4328-8296-fe6b0dd7a7c5",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-11",
             "Installments": 1,
             "InstallmentAmount": 10,
@@ -1943,7 +1943,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "2d35be27-188f-49d3-92bc-ff00051ada6d",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-13",
             "Installments": 1,
             "InstallmentAmount": 13668,
@@ -1953,7 +1953,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
         },
         {
             "PaymentId": "2d35be27-188f-49d3-92bc-ff00051ada6d",
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-13",
             "Installments": 1,
             "InstallmentAmount": 10,
@@ -1989,7 +1989,7 @@ Quando lançado um ajusta à Crédito para um Subordinado, automaticamente é la
 ```json
 --header "Authorization: Bearer {access_token}"
 {
-    "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+    "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
     "Amount": 10000,
     "Event": "AdjustmentDebit",
     "Date": "2017-12-20" 
@@ -2009,7 +2009,7 @@ Quando lançado um ajusta à Crédito para um Subordinado, automaticamente é la
 {
     "Schedules" : [
         {
-            "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
             "Date": "2017-12-20",
             "Installments": 1,
             "InstallmentAmount": 10000,
@@ -2018,7 +2018,7 @@ Quando lançado um ajusta à Crédito para um Subordinado, automaticamente é la
             "EventDescription": "AdjustmentDebit"
         },
         {
-            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
             "Date": "2017-12-20",
             "Installments": 1,
             "InstallmentAmount": 10000,
@@ -2048,11 +2048,11 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 ```json
 [
   {
-    "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+    "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
     "ChargebackAmount": 4000
   },
   {
-    "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+    "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
     "ChargebackAmount": 2000
   }
 ]
