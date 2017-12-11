@@ -1439,3 +1439,5 @@ Eventos de Débito:
 | `FeeDebit`        | Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).             |
 | `RefundDebit`     | Lançamento de débito de um cancelamento.                                                                |
 | `ChargebackDebit` | Lançamento de débito de um chargeback.                                                                  |
+
+## Chargeback
