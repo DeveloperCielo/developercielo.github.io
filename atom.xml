@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-11T10:39:20+00:00</updated>
+    <updated>2017-12-11T11:17:40+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3379,9 +3379,57 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 &lt;h2 id=&quot;agenda-financeira&quot;&gt;Agenda Financeira&lt;/h2&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Em breve disponibilizaremos a API de Agenda onde será possível consultar a agenda do &lt;strong&gt;Markectplace&lt;/strong&gt; e seus &lt;strong&gt;Subordinados&lt;/strong&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).&lt;/p&gt;
+
+&lt;p&gt;A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.&lt;/p&gt;
+
+&lt;p&gt;A agenda é composta por eventos de Crédito e Débito que são gerados de acordo as operações efetuadas e o regime de pagamento acordado.&lt;/p&gt;
+
+&lt;p&gt;Eventos de Crédito:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Evento&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Credit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Lançamento de crédito das parcelas de uma transação.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FeeCredit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Eventos de Débito:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Evento&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FeeDebit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RefundDebit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Lançamento de débito de um cancelamento.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ChargebackDebit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Lançamento de débito de um chargeback.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     

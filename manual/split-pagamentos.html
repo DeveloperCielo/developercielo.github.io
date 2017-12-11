@@ -1648,9 +1648,57 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 
 <h2 id="agenda-financeira">Agenda Financeira</h2>
 
-<blockquote>
-  <p>Em breve disponibilizaremos a API de Agenda onde será possível consultar a agenda do <strong>Markectplace</strong> e seus <strong>Subordinados</strong>.</p>
-</blockquote>
+<p>No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).</p>
+
+<p>A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.</p>
+
+<p>A agenda é composta por eventos de Crédito e Débito que são gerados de acordo as operações efetuadas e o regime de pagamento acordado.</p>
+
+<p>Eventos de Crédito:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Credit</code></td>
+      <td>Lançamento de crédito das parcelas de uma transação.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FeeCredit</code></td>
+      <td>Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Eventos de Débito:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">FeeDebit</code></td>
+      <td>Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RefundDebit</code></td>
+      <td>Lançamento de débito de um cancelamento.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ChargebackDebit</code></td>
+      <td>Lançamento de débito de um chargeback.</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
