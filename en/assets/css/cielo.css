@@ -70,3 +70,41 @@ a.btn {
 .code-menu-closed .content-container {
     padding-right: 80px;
 }
+
+.dev-hub-title h2 {
+    color: #00aeef;
+}
+
+.home ul h2 {
+  font-weight: bold;
+  color: #00aeef;
+}
+
+.home ul.doc {
+    border-top: 2px solid #00aeef;
+}
+
+li.doc-title {
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e1e1;
+    color: #00aeef;
+}
+
+li.doc-title:last-child {
+  border-bottom: 0;
+}
+
+.home li.product {
+    height: 100%;
+}
+
+input.hub-search:after {
+  color: #00aeef;
+}
+
+header.logo img {
+    height: 25px;
+    width: auto;
+    padding: 0;
+    margin: 20px 0;
+}

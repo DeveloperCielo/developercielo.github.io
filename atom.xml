@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-11T18:19:11+00:00</updated>
+    <updated>2017-12-11T22:18:33+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1884,7 +1884,7 @@ O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma tra
 
 &lt;p&gt;O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.&lt;/p&gt;
 
-&lt;p&gt;Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação.&lt;/p&gt;
+&lt;p&gt;Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento), para cada envolvido na transação.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Regime de Pagamento&lt;/strong&gt;: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.&lt;br /&gt;
@@ -1904,7 +1904,7 @@ O &lt;strong&gt;Split de Pagamentos&lt;/strong&gt; permite a divisão de uma tra
   &lt;li&gt;&lt;strong&gt;Taxas&lt;/strong&gt; a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;br /&gt;
-O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de &lt;strong&gt;Subordinado&lt;/strong&gt; e ter seus próprios produtos no carrinho.&lt;/p&gt;
+O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de Subordinado e ter seus próprios produtos no carrinho.&lt;/p&gt;
 
 &lt;h3 id=&quot;taxas&quot;&gt;Taxas&lt;/h3&gt;
 
@@ -1925,7 +1925,7 @@ A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descon
 
 &lt;p&gt;O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).&lt;/p&gt;
 
-&lt;p&gt;O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.&lt;/p&gt;
+&lt;p&gt;O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem a receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Custo Marketplace:&lt;/strong&gt; MDR Braspag(%) + Tarifa Fixa(R$)&lt;/p&gt;
@@ -1937,7 +1937,7 @@ A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descon
 O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Custo Subordinado:&lt;/strong&gt; MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Custo Subordinado:&lt;/strong&gt; MDR Marketplace(%) + Tarifa Fixa(R$), onde está embutido no MDR Marketplace(%) o MDR Braspag(%).&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;exemplo&quot;&gt;Exemplo&lt;/h3&gt;
@@ -1962,7 +1962,7 @@ Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR ac
 Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
+Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]&lt;br /&gt;
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;h2 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h2&gt;
@@ -2020,6 +2020,33 @@ grant_type=client_credentials
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;expires_in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1199&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;access_token&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Token de acesso a ser utilizado para acesso as API Cielio E-Commerce e Api Split.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;token_type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Tipo do token. Sempre será do tipo Bearer.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;expires_in&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Tempo de expiração do token. Por padrão, 20 minutos.&lt;/td&gt;
+      &lt;td&gt;Inteiro&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.&lt;/p&gt;
@@ -13241,49 +13268,34 @@ Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://
 
 &lt;p&gt;Portanto, abaixo disponibilizamos algumas alternativas que podem a vir substituir a ausência desses recursos.&lt;/p&gt;
 
-&lt;nav style=&quot;display:flex;justify-content:space-between&quot;&gt;
-&lt;nav style=&quot;max-width:240px;&quot;&gt;
-
-### Push-Notifications
-
-Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.
-
-**Alternativa**: JobScheduler
-
-**Descrição**: É uma API para agendar vários tipos de trabalhos contra a estrutura que será executada no próprio processo da sua aplicação. Permitindo a cada ciclo de tempo que o aplicativo realize uma busca em nossos serviços de Backend.
-
-O JobScheduler é o mais indicado devido a performance em relação ao uso de bateria, fora as muitas outras opções que ele disponibiliza (Ex: Job rodar somente quando o smartphone estiver carregando).
-
-Referência: https://developer.android.com/reference/android/app/job/JobScheduler.html
-
+&lt;nav style=&quot;display:flex;justify-content:space-between;&quot;&gt;
+    &lt;nav style=&quot;max-width:240px;&quot;&gt;
+        &lt;h3 id=&quot;push-notifications&quot;&gt;Push-Notifications&lt;/h3&gt;
+        &lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: JobScheduler&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: É uma API para agendar vários tipos de trabalhos contra a estrutura que será executada no próprio processo da sua aplicação. Permitindo a cada ciclo de tempo que o aplicativo realize uma busca em nossos serviços de Backend.&lt;/p&gt;
+        &lt;p&gt;O JobScheduler é o mais indicado devido a performance em relação ao uso de bateria, fora as muitas outras opções que ele disponibiliza (Ex: Job rodar somente quando o smartphone estiver carregando).&lt;/p&gt;
+        &lt;a href=&quot;https://developer.android.com/reference/android/app/job/JobScheduler.html&quot;&gt;Referência&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;nav style=&quot;max-width:240px;&quot;&gt;
+        &lt;h3 id=&quot;serviços-de-localização-gps&quot;&gt;Serviços de Localização (GPS)&lt;/h3&gt;
+        &lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: Location Manager&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Essa classe fornece acesso aos serviços de localização do sistema. Esses serviços permitem que os aplicativos obtenham atualizações periódicas da localização geográfica do dispositivo ou que iniciem uma Intenção especificada pela aplicação quando o dispositivo entra na proximidade de uma determinada localização geográfica.&lt;/p&gt;
+        &lt;a href=&quot;https://developer.android.com/reference/android/location/LocationManager.html&quot;&gt;Referência&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;nav style=&quot;max-width:240px;&quot;&gt;
+        &lt;h3 id=&quot;serviços-de-mapas&quot;&gt;Serviços de Mapas&lt;/h3&gt;
+        &lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: MapBox&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Uma plataforma de mapeamento de código aberto para mapas personalizados. Nossas APIs e SDKs são os blocos de construção para integrar a localização em qualquer aplicativo móvel ou web.&lt;/p&gt;
+        &lt;a href=&quot;https://www.mapbox.com&quot;&gt;Referência&lt;/a&gt;
+    &lt;/nav&gt;
 &lt;/nav&gt;
-&lt;nav style=&quot;max-width:240px;&quot;&gt;
 
-### Serviços de Localização (GPS)
+&lt;p&gt;Agora que você já tem as informações necessárias para desenvolver um aplicativo para, acesse a documentação da Integração Local para saber como se integrar com o SDK da Cielo LIO.&lt;/p&gt;
 
-Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.
-
-**Alternativa**: Location Manager
-
-**Descrição**: Essa classe fornece acesso aos serviços de localização do sistema. Esses serviços permitem que os aplicativos obtenham atualizações periódicas da localização geográfica do dispositivo ou que iniciem uma Intenção especificada pela aplicação quando o dispositivo entra na proximidade de uma determinada localização geográfica.
-
-Referência: https://developer.android.com/reference/android/location/LocationManager.html
-
-&lt;/nav&gt;
-&lt;nav style=&quot;max-width:240px;&quot;&gt;
-
-### Serviços de Mapas
-
-Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.
-
-**Alternativa**: MapBox
-
-**Descrição**: Uma plataforma de mapeamento de código aberto para mapas personalizados. Nossas APIs e SDKs são os blocos de construção para integrar a localização em qualquer aplicativo móvel ou web.
-
-Referência: https://www.mapbox.com
-
-&lt;/nav&gt;
-&lt;/nav&gt;
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-local&quot;&gt;Clique aqui&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;integração-remota&quot;&gt;Integração Remota&lt;/h1&gt;
 

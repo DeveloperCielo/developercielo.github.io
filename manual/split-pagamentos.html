@@ -153,7 +153,7 @@ O <strong>Split de Pagamentos</strong> permite a divisão de uma transação ent
 
 <p>O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.</p>
 
-<p>Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação.</p>
+<p>Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento), para cada envolvido na transação.</p>
 
 <blockquote>
   <p><strong>Regime de Pagamento</strong>: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.<br />
@@ -173,7 +173,7 @@ O <strong>Split de Pagamentos</strong> permite a divisão de uma transação ent
   <li><strong>Taxas</strong> a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.</li>
 </ul>
 <p><br />
-O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de <strong>Subordinado</strong> e ter seus próprios produtos no carrinho.</p>
+O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de Subordinado e ter seus próprios produtos no carrinho.</p>
 
 <h3 id="taxas">Taxas</h3>
 
@@ -194,7 +194,7 @@ A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descon
 
 <p>O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).</p>
 
-<p>O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.</p>
+<p>O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem a receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.</p>
 
 <blockquote>
   <p><strong>Custo Marketplace:</strong> MDR Braspag(%) + Tarifa Fixa(R$)</p>
@@ -206,7 +206,7 @@ A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descon
 O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.</p>
 
 <blockquote>
-  <p><strong>Custo Subordinado:</strong> MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).</p>
+  <p><strong>Custo Subordinado:</strong> MDR Marketplace(%) + Tarifa Fixa(R$), onde está embutido no MDR Marketplace(%) o MDR Braspag(%).</p>
 </blockquote>
 
 <h3 id="exemplo">Exemplo</h3>
@@ -231,7 +231,7 @@ Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR ac
 Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]</p>
 
 <p><strong>Braspag (Facilitador)</strong>:<br />
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
+Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]<br />
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <h2 id="ambientes">Ambientes</h2>
@@ -289,6 +289,33 @@ grant_type=client_credentials
     </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">access_token</code></td>
+      <td>Token de acesso a ser utilizado para acesso as API Cielio E-Commerce e Api Split.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">token_type</code></td>
+      <td>Tipo do token. Sempre será do tipo Bearer.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">expires_in</code></td>
+      <td>Tempo de expiração do token. Por padrão, 20 minutos.</td>
+      <td>Inteiro</td>
+    </tr>
+  </tbody>
+</table>
 
 <blockquote>
   <p>O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.</p>
