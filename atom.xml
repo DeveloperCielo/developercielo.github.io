@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-11T17:37:31+00:00</updated>
+    <updated>2017-12-11T17:55:59+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2933,7 +2933,8 @@ Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras d
 
 &lt;h4 id=&quot;captura-total&quot;&gt;Captura Total&lt;/h4&gt;
 
-&lt;p&gt;Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;REQUEST&lt;/strong&gt;&lt;/p&gt;
 
