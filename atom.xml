@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-11T14:22:00+00:00</updated>
+    <updated>2017-12-11T14:23:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3503,15 +3503,15 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Para informar várias lojas na consulta, basta repetir o parâmetro “merchantIds”.Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.&lt;/p&gt;
+&lt;p&gt;Para informar várias lojas na consulta, basta repetir o parâmetro “merchantIds”. Caso não seja informada nenhuma loja, será considerada a loja utilizada na autenticação à API Split.&lt;/p&gt;
 
 &lt;p&gt;Um evento poderá estar em um dos seguintes status na agenda financeira:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Scheduled&lt;/strong&gt;: Agendada&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Scheduled&lt;/strong&gt;: Agendado&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Pending&lt;/strong&gt;: Aguardando confirmação de liquidação&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Settled&lt;/strong&gt;: Liquidada&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Error&lt;/strong&gt; - Erro na liquidação na instituição financeira&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Settled&lt;/strong&gt;: Liquidado&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Error&lt;/strong&gt; - Erro de liquidação na instituição financeira&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;
@@ -3701,7 +3701,7 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Transactions[].Schedules[].InstallmentNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Número da parcela a liquidar&lt;/td&gt;
+      &lt;td&gt;Número da parcela a liquidar.&lt;/td&gt;
       &lt;td&gt;Inteiro&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
     &lt;/tr&gt;
