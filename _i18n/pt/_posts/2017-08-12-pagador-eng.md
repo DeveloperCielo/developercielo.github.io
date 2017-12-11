@@ -53,8 +53,8 @@ Ready to GoLive!
 
 <aside class="notice">Braspag offers high availability support (Monday to Friday, from 9AM to 7PM, 24x7), emergency contact, and online support portal. We have a team that can help you in Portuguese, English or Spanish.</aside>
 
-* Online Support: [Braspag's Online Support](http://suporte.braspag.com.br/)
-* E-mail: [mailto:suporte@braspag.com.br](suporte@braspag.com.br)
+* Online Support: http://suporte.braspag.com.br
+* E-mail: suporte@braspag.com.br
 * Support Contact: (11)2184-0550
 
 ## About API
