@@ -978,7 +978,7 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 ### Captura
 
 <BR>
-Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split irá interpretar que todo o valor é referente ao próprio Marketplace. 
+Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace. 
 
 #### Captura Total
 
@@ -1012,71 +1012,69 @@ Na captura total de uma transação, o somatório dos valores de participação 
 }
 ```
 
-`RESPONSE`
+**RESPONSE**
 
 ```json
 {
     "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
     "ReturnCode": "6",
     "ReturnMessage": "Operation Successful",
-    "SplitPayments":[
+    "SplitPayments": [
         {
-            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
-            "Amount":6000,
-            "Fares":{
-                "Mdr":5,
-                "Fee":30
+            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "Amount": 6000,
+            "Fares": {
+                "Mdr": 5,
+                "Fee": 30
             },
             "Splits": [
                 {
-                    "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
-                    "amount": 210,    
+                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "Amount": 5670
                 },
                 {
-                    "MerchantId": "0f377932-5668-4c72-8b5b-2b43760ebd38",
-                    "amount": 5670,    
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Amount": 330
                 }
             ]
         },
         {
-            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
-            "Amount":4000,
-            "Fares":{
-                "Mdr":4,
-                "Fee":15
+            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "Amount": 4000,
+            "Fares": {
+                "Mdr": 4,
+                "Fee": 15
             },
             "Splits": [
                 {
-                    "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
-                    "amount": 95,    
+                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "Amount": 3825
                 },
                 {
-                    "MerchantId": "98430463-7c1e-413b-b13a-0f613af594d8",
-                    "amount": 3825,    
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Amount": 175
                 }
             ]
         }
-    ]
+    ],
     "Links": [
         {
             "Method": "GET",
             "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/db14bf98-5ebd-43b5-8ba6-205c30ec1c16"
         },
         {
             "Method": "PUT",
             "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/db14bf98-5ebd-43b5-8ba6-205c30ec1c16/void"
         }
     ]
 }
 ```
-
-Exemplo considerando transação no valor de **R$100,00** e as seguinte taxas:
-
-**Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.
 
 #### Captura Parcial
 
