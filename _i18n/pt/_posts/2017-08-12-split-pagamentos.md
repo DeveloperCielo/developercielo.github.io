@@ -1441,7 +1441,6 @@ Eventos de Débito:
 | `RefundDebit`     | Lançamento de débito de um cancelamento.                                                                |
 | `ChargebackDebit` | Lançamento de débito de um chargeback.                                                                  |
 
-
 ### Consultar Transações
 
 O Split de Pgamentos permite consultar a agenda financeira de uma transação específica ou de transações que foram capturadas em um intervalo de tempo definido.
@@ -1540,10 +1539,6 @@ Um Marketplace pode consultar a agenda dos seus subordinados, bastando informar 
 }
 ```
 
-
-
-
 ### Consultar Eventos 
 
 ## Chargeback
-
