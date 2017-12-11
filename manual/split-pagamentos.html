@@ -1543,6 +1543,34 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">VoidSplitPayments.SubordinateMerchantId</code></td>
+      <td><strong>MerchantId</strong> (Identificador) do <strong>Subordinado</strong>.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VoidedAmount.Amount</code></td>
+      <td>Total ou parte do valor destinado ao <strong>Subordinado</strong> a ser cancelado, em centavos.</td>
+      <td>Inteiro</td>
+      <td>-</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
 <p><strong>RESPONSE</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -1598,7 +1626,7 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exmeplo acima poderia ser informado, por exemplo, apenas o segundo subordinado:</p>
+<p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"VoidSplitPayments"</span><span class="p">:[</span><span class="w">
