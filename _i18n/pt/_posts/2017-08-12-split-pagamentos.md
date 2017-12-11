@@ -1469,7 +1469,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 
 **REQUEST**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"  
@@ -1623,7 +1623,7 @@ Para consultar a agenda de uma transação específica basta informar o identifi
 
 **Request**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}?merchantIds={MerchantId}&merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}?merchantIds={MerchantId}&merchantIds={merchantId}</span></aside>
 
 ```x-www-form-urlencoded
 --header "Authorization: Bearer {access_token}"
