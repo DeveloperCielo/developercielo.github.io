@@ -33,7 +33,7 @@ No Split de Pagamentos o responsável pelo fluxo transacional é o facilitador.
 
 O Marketplace se integra à Braspag para transacionar e informa como será dividida a transação entre cada participante, podendo ser no momento de captura ou em um momento posterior, conhecido como split pós-transacional, desde que seja dentro de um limite de tempo pré-estabelecido.
 
-Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento), para cada envolvido na transação.
+Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento\*), para cada envolvido na transação.
 
 > **Regime de Pagamento**: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.<BR>
 > <BR>
@@ -49,7 +49,7 @@ Na divisão de uma transação, devem ser informados:
 * Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação.
 * **Taxas** a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.
 <BR>
-O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de Subordinado e ter seus próprios produtos no carrinho.
+O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
 
 ### Taxas
 
@@ -68,7 +68,7 @@ A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descon
 
 O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).
 
-O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem a receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.
+O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é aplicado no valor total da transação, ou seja, a mesma não entra no cálculo da divisão e sim é debitada diretamente do montante que o Marketplace tem para receber junto à Braspag (Facilitador). O MDR entra no cálculo de divisão da transação, já que o mesmo deve estar embutido no MDR acordado entre o Marketplace e seus Subordinados.
 
 > **Custo Marketplace:** MDR Braspag(%) + Tarifa Fixa(R$)
 
@@ -77,7 +77,7 @@ O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é apl
 <BR>
 O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.
 
-> **Custo Subordinado:** MDR Marketplace(%) + Tarifa Fixa(R$), onde está embutido no MDR Marketplace(%) o MDR Braspag(%).
+> **Custo Subordinado:** MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).
 
 ### Exemplo
 
@@ -101,7 +101,7 @@ Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR ac
 Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
 
 **Braspag (Facilitador)**:  
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]<BR>
+Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
 
 ## Ambientes
@@ -160,12 +160,6 @@ grant_type=client_credentials
 }
 ```
 
-| Propriedade    | Descrição                                                                                               | Tipo    | 
-|----------------|---------------------------------------------------------------------------------------------------------|---------|
-| `access_token` | Token de acesso a ser utilizado para acesso as API Cielio E-Commerce e Api Split.                       | String  |
-| `token_type`   | Tipo do token. Sempre será do tipo Bearer.                                                              | String  |
-| `expires_in`   | Tempo de expiração do token. Por padrão, 20 minutos.                                                    | Inteiro |
-
 > O ClientId é o mesmo utilizado na integração com a API Cielo E-Commerce, conhecido como MerchantId. O ClientSecret deve ser obtido junto à Braspag.
 
 O token retornado (access_token) deverá ser utilizado em toda requisição à API Cielo e-Commerce ou à API Split como uma chave de autorização. O mesmo possui uma validade de 20 minutos e deverá ser obtido um novo token toda vez que o mesmo expirar.  
@@ -219,6 +213,8 @@ Exemplo:
    }
 }
 ```
+
+| |
 
 **Response**
 
