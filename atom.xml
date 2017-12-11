@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-11T23:04:54+00:00</updated>
+    <updated>2017-12-11T23:06:31+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3552,6 +3552,10 @@ No Split de Pagamentos, o responsável por realizar o repasse dos valores (liqui
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FeeCredit&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AdjustmentCredit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Lançamento de um crédito como ajuste&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -3576,6 +3580,10 @@ No Split de Pagamentos, o responsável por realizar o repasse dos valores (liqui
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ChargebackDebit&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Lançamento de débito de um chargeback.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AdjustmentDebit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Lançamento de um débito como ajuste.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
