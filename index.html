@@ -4,7 +4,23 @@ title: Home
 ---
 <header class="logo">
     <div class="home-header-container">
-        <a href="#" class="help">{% t global.support %}</a>
+        <div class="help-lang">
+            <a href="http://www.braspag.com.br/fale-conosco/" class="help">{% t global.support %}</a>
+        <div class="lang">
+            <span>{% t global.languages %}</span>
+
+           {% for lang in site.language_names %}
+                {% if lang[0] == site.default_lang %}
+                <a href="{{ site.baseurl_root }}{{page.url}}">
+                {% else %}
+                <a href="{{ site.baseurl_root }}/{{ lang[0] }}{{page.url}}">
+                {% endif %}
+
+                   <img alt="{{ lang[1] }}" src="{{ site.baseurl }}/assets/images/{{ lang[0] }}.png"/>
+                </a>
+            {% endfor %}
+        </div>
+        </div>
         <a href="{{ site.baseurl }}/">
             <img src="{{ site.baseurl }}/assets/images/logo.png" alt="{{ site.title }}">
         </a>
@@ -12,6 +28,18 @@ title: Home
 </header>
 
 {% assign sorted = site.tags | sort %}
+
+<div class="dev-hub-title">
+    <div class="dev-hub-info">
+        <h2>
+            Developer Hub
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fringilla consequat est. 
+Vestibulum tempor pellentesque nibh, at bibendum massa. Vivamus velit urna, feugiat id dignissim.
+        </p>
+    </div>
+</div>
 
 <div class="post-list home">
     <ul class="product-list">
@@ -24,6 +52,7 @@ title: Home
             {% for post in pages_list %}
                 <li class="doc-title">
                     <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </li>
             {% endfor %}
             </ul>
