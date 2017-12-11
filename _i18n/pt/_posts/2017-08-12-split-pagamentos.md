@@ -1607,13 +1607,19 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 }
 ```
 
+| Propriedade                                      | Descrição                                                                                               | Tipo    | Tamanho | 
+|--------------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
+| `Transactions[].PaymentId`                       | Identificador da transação.                                                                             | Guid    | 36      |
+| `Transactions[].CaptureDate`                     | Data de captura da transação.                                                                           | Data    | -       |
+| `Transactions[].Schedules[].MerchantId`          | Identificador da loja.                                                                                  | Guid    | 36      |
+| `Transactions[].Schedules[].Date`                | Data de liquidação prevista.                                                                            | Data    | -       |
+| `Transactions[].Schedules[].Installments`        | Número de parcelas a liquidar.                                                                          | Inteiro | 36      |
+| `Transactions[].Schedules[].InstallmentsAmount`  | Valor da parcela a liquidar.                                                                            | Inteiro | 36      |
+| `Transactions[].Schedules[].InstallmentNumber`   | Número da parcela a liquidar                                                                            | Inteiro | 36      |
+| `Transactions[].Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
+| `Transactions[].Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
 
-
-No exemplo acima, foi retornada a agenda do Marketplace para a transação. Por padrão, o Split irá retornar a agenda de acordo com as credenciais utilizadas na autenticação. 
-
-Um Marketplace pode consultar a agenda dos seus subordinados, bastando informar o identificador dos subordinados no momento da consulta.
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/schedules/transactions/{PaymentId}?merchantIds={MerchantId}&merchantIds={merchantId}</span></aside>
+Para consultar a agenda de uma transação específica basta informar o identificador da transação na requisição.
 
 **Request**
 
