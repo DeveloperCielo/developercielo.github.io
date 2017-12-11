@@ -2434,7 +2434,115 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 <h3 id="ajustes">Ajustes</h3>
 
+<p>A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.</p>
+
+<p>Quando lançado um ajusta à Crédito para um Subordinado, automaticamente é lançado um ajuste a Débito para o Marketplace na mesma data, e vice-versa.</p>
+
+<p><strong>Request</strong></p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/schedules/adjustment/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AdjustmentDebit"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-20"</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">SubordinateMerchantId</code></td>
+      <td>Identificador do Subordinado.</td>
+      <td>Guid</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Amount</code></td>
+      <td>Valor do ajuste, em centavos.</td>
+      <td>Inteiro</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Event</code></td>
+      <td>AdjustmentDebit (Débito) ou AdjustamentCredit (Crédito).</td>
+      <td>String</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Date</code></td>
+      <td>Data prevista de liquidação.</td>
+      <td>Data</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Response</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Schedules"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-20"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AdjustmentDebit"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b8e9c38-0d9e-4f30-adac-fef3601632e4"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-20"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AdjustmentCredit"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <h2 id="chargeback">Chargeback</h2>
+
+<p><br />
+No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o repassará para seus Subordinados, desde que acordado previamente entre as partes.</p>
+
+<p>Se o Marketplace optar por repassar para os Subordinados, o Chargeback Total é sensibilizado automaticamente na agenda dos mesmos. Caso contrário o chargeback será sensibilizado automaticamente na agenda do Marketplace, como acontece com um Charback Parcial.</p>
+
+<p>O Marketplace pode decidir ainda repassar o Chargeback para seus subordinados. Para isso A API Split disponibiliza um serviço onde o Marketplace pode informar como dividir o valor do chargeback entre os subordinados, caso seja um Chargeback Parcial.</p>
+
+<p>No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transação com valor capturado de R$100,00.</p>
+
+<p><strong>Request</strong></p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-split}/api/chargebacks/{ChargebackId}/split</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre></div></div>
+
+<p><strong>Response</strong></p>
 
 </div>
 
