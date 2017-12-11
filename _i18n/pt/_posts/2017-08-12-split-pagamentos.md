@@ -21,7 +21,7 @@ language_tabs:
 <BR>
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
-Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre os todos participantes**.
+Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
 
 | **Participantes** | **Descrição** |
 |-----------|---------- |
@@ -1441,9 +1441,17 @@ Eventos de Débito:
 | `RefundDebit`     | Lançamento de débito de um cancelamento.                                                                |
 | `ChargebackDebit` | Lançamento de débito de um chargeback.                                                                  |
 
+
 ### Consultar Transações
 
-O Split de Pgamentos permite consultar a agenda financeira de uma transação específica ou de transações que foram capturadas em um intervalo de tempo definido.
+O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.
+
+**REQUEST**
+
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
+
+
 
 **REQUEST**
 
@@ -1471,7 +1479,7 @@ O Split de Pgamentos permite consultar a agenda financeira de uma transação es
                     "Installments": 1,
                     "InstallmentAmount": 220,
                     "InstallmentNumber": 1,
-                    "Event": "1",
+                    "Event": 1,
                     "EventDescription": "Credit"
                 },
                 {
@@ -1480,7 +1488,7 @@ O Split de Pgamentos permite consultar a agenda financeira de uma transação es
                     "Installments": 1,
                     "InstallmentAmount": 10,
                     "InstallmentNumber": 1,
-                    "Event": "FeeDebit",
+                    "Event": 4,
                     "EventDescription": "FeeDebit"
                 }
             ]
@@ -1488,6 +1496,8 @@ O Split de Pgamentos permite consultar a agenda financeira de uma transação es
     ]
 }
 ```
+
+
 
 No exemplo acima, foi retornada a agenda do Marketplace para a transação. Por padrão, o Split irá retornar a agenda de acordo com as credenciais utilizadas na autenticação. 
 
@@ -1521,7 +1531,7 @@ Um Marketplace pode consultar a agenda dos seus subordinados, bastando informar 
                     "Installments": 1,
                     "InstallmentAmount": 5790,
                     "InstallmentNumber": 1,
-                    "Event": "Credit",
+                    "Event": 1,
                     "EventDescription": "Credit"
                 },
                 {
@@ -1530,7 +1540,7 @@ Um Marketplace pode consultar a agenda dos seus subordinados, bastando informar 
                     "Installments": 1,
                     "InstallmentAmount": 3790,
                     "InstallmentNumber": 1,
-                    "Event": "Credit",
+                    "Event": 1,
                     "EventDescription": "Credit"
                 }
             ]
@@ -1542,3 +1552,4 @@ Um Marketplace pode consultar a agenda dos seus subordinados, bastando informar 
 ### Consultar Eventos 
 
 ## Chargeback
+
