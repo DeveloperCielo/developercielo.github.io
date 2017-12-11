@@ -1707,7 +1707,7 @@ No Split de Pagamentos, o responsável por realizar o repasse dos valores (liqui
 <p><br />
 O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.</p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/schedules/transactions?initialDate={initialDate}&amp;finalDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;scheduleStatus={scheduleStatus}&amp;merchantIds={merchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules/transactions?initialDate={initialDate}&amp;finalDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;scheduleStatus={scheduleStatus}&amp;merchantIds={merchantId}</span></aside>
 
 <table>
   <thead>
@@ -1783,7 +1783,8 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
   <li><strong>Error</strong> - Erro na liquidação na instituição financeira</li>
 </ul>
 
-<p><strong>REQUEST</strong></p>
+<p><br />
+<strong>REQUEST</strong></p>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules/transactions?initialDate=2017-12-01&amp;merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&amp;merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&amp;merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
 
@@ -1959,19 +1960,19 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
       <td><code class="highlighter-rouge">Transactions[].Schedules[].Installments</code></td>
       <td>Número de parcelas a liquidar.</td>
       <td>Inteiro</td>
-      <td>36</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].InstallmentsAmount</code></td>
       <td>Valor da parcela a liquidar.</td>
       <td>Inteiro</td>
-      <td>36</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].InstallmentNumber</code></td>
       <td>Número da parcela a liquidar</td>
       <td>Inteiro</td>
-      <td>36</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Transactions[].Schedules[].Event</code></td>
@@ -1997,40 +1998,40 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 <pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"
 </code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>**Response**
+<p><strong>Response</strong></p>
 
-{
-    "PageCount": 1,
-    "PageSize": 25,
-    "PageIndex": 1,
-    "Transactions": [
-        {
-            "PaymentId": "cd2309d3-3fec-4816-aec7-bcb6d51a0988",
-            "CapturedDate": "2017-12-11",
-            "Schedules": [
-                {
-                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
-                    "Date": "2018-01-11",
-                    "Installments": 1,
-                    "InstallmentAmount": 5790,
-                    "InstallmentNumber": 1,
-                    "Event": 1,
-                    "EventDescription": "Credit"
-                },
-                {
-                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
-                    "Date": "2018-01-11",
-                    "Installments": 1,
-                    "InstallmentAmount": 3790,
-                    "InstallmentNumber": 1,
-                    "Event": 1,
-                    "EventDescription": "Credit"
-                }
-            ]
-        }
-    ]
-}
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"PageCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"PageSize"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"PageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cd2309d3-3fec-4816-aec7-bcb6d51a0988"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-11"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Schedules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44f68284-27cf-43cb-9d14-1b1ee3f36838"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5790</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fdae3204-3999-4082-aa32-f08b6f3a01f3"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-11"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"InstallmentAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3790</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"InstallmentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"EventDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="consultar-eventos">Consultar Eventos</h3>
 
