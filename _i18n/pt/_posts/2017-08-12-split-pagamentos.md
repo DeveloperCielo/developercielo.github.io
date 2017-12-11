@@ -1419,4 +1419,23 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 ## Agenda Financeira
 
-> Em breve disponibilizaremos a API de Agenda onde será possível consultar a agenda do **Markectplace** e seus **Subordinados**.
+No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).
+
+A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.
+
+A agenda é composta por eventos de Crédito e Débito que são gerados de acordo as operações efetuadas e o regime de pagamento acordado.
+
+Eventos de Crédito:
+
+| Evento      | Descrição                                                                                               | 
+|-------------|---------------------------------------------------------------------------------------------------------|
+| `Credit`    | Lançamento de crédito das parcelas de uma transação.                                                    |
+| `FeeCredit` | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
+
+Eventos de Débito:
+
+| Evento            | Descrição                                                                                               | 
+|-------------------|---------------------------------------------------------------------------------------------------------|
+| `FeeDebit`        | Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).             |
+| `RefundDebit`     | Lançamento de débito de um cancelamento.                                                                |
+| `ChargebackDebit` | Lançamento de débito de um chargeback.                                                                  |
