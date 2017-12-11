@@ -985,6 +985,7 @@ Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras d
 
 #### Captura Total
 
+<BR>
 Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
 
 **REQUEST**
