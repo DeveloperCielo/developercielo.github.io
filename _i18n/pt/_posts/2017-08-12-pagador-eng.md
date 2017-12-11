@@ -6401,9 +6401,11 @@ Domain:
 ‹session ID›: use the same value used for “DeviceFingerprintID”
 
 ### PNG image
+
 ```html
 ‹p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&session_id=‹merchant id›‹session ID›&m=1)"›‹/p›
 ‹img src="https://h.online-metrix.net/fp/clear.png?org_id=‹org ID›&session_id=‹merchant id›‹session ID›&m=2" alt=""›
+
 ```
 
 ```html
