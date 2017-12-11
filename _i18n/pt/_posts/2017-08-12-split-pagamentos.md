@@ -1083,6 +1083,10 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 
 **REQUEST**
 
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount={amount}</span></aside>
+
+O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação realizada no valor de R$100,00.
+
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
 ```json
@@ -1090,16 +1094,16 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 {
     "SplitPayments":[
         {
-            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
-            "Amount":4000,
-            "Fares":{
-                "Mdr":5,
-                "Fee":30
+            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "Amount": 5000,
+            "Fares": {
+                "Mdr": 5,
+                "Fee": 30 
             }
         },
         {
-            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
-            "Amount":4000,
+            "SubordinateMerchantId" :"fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "Amount":3000,
             "Fares":{
                 "Mdr":4,
                 "Fee":15
@@ -1109,65 +1113,78 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 }
 ```
 
-`RESPONSE`
+**RESPONSE**
 
 ```json
 {
     "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
     "ReturnCode": "6",
     "ReturnMessage": "Operation Successful",
-    "SplitPayments":[
+    "SplitPayments": [
         {
-            "SubordinateMerchantId" :"0f377932-5668-4c72-8b5b-2b43760ebd38",
-            "Amount":4000,
-            "Fares":{
-                "Mdr":5,
-                "Fee":30
+            "SubordinateMerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+            "Amount": 5000,
+            "Fares": {
+                "Mdr": 5,
+                "Fee": 30
             },
             "Splits": [
                 {
-                    "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
-                    "amount": 150,    
+                    "MerchantId": "44f68284-27cf-43cb-9d14-1b1ee3f36838",
+                    "Amount": 4720
                 },
                 {
-                    "MerchantId": "0f377932-5668-4c72-8b5b-2b43760ebd38",
-                    "amount": 3770,    
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Amount": 280
                 }
             ]
         },
         {
-            "SubordinateMerchantId" :"98430463-7c1e-413b-b13a-0f613af594d8",
-            "Amount":4000,
-            "Fares":{
-                "Mdr":4,
-                "Fee":0.15
+            "SubordinateMerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+            "Amount": 3000,
+            "Fares": {
+                "Mdr": 4,
+                "Fee": 15
             },
             "Splits": [
                 {
-                    "MerchantId": "cd16ab8e-2173-4a16-b037-36cd04c07950",
-                    "amount": 95,    
+                    "MerchantId": "fdae3204-3999-4082-aa32-f08b6f3a01f3",
+                    "Amount": 2865
                 },
                 {
-                    "MerchantId": "98430463-7c1e-413b-b13a-0f613af594d8",
-                    "amount": 3825,    
+                    "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+                    "Amount": 135
                 }
             ]
         }
-    ]
+    ],
     "Links": [
         {
             "Method": "GET",
             "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/7bd7fc3a-4385-45cf-8a45-ec0349716b68"
         },
         {
             "Method": "PUT",
             "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/7bd7fc3a-4385-45cf-8a45-ec0349716b68/void"
         }
     ]
 }
 ```
+Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
+
+**REQUEST**
+
+
+
+**RESPONSE**
+
+
 
 ### Cancelamento
 
@@ -1236,7 +1253,7 @@ PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/void?amount=2000
 }
 ```
 
-`RESPONSE`
+**RESPONSE**
 
 ```json
 {
