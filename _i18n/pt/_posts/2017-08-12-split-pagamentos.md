@@ -1692,7 +1692,274 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 **RESPONSE**
 
 ```json
+{
+    "PageCount": 8,
+    "PageSize": 25,
+    "PageIndex": 1,
+    "Schedules": [
+        {
+            "PaymentId": "a35ae71a-34e5-469e-866b-f6a1feeb7804",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 10,
+            "InstallmentAmount": 1,
+            "InstallmentNumber": 1,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        },
+        {
+            "PaymentId": "ddb7143b-7d29-430a-8142-f7b6e03346a0",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 6,
+            "InstallmentAmount": 16,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "476ec4fb-ab2c-421f-942c-f73b298412f0",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 10,
+            "InstallmentAmount": 1,
+            "InstallmentNumber": 2,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        },
+        {
+            "PaymentId": "b8d0c32f-aa69-4b3b-aba2-fe7004ea664e",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 10,
+            "InstallmentAmount": 1,
+            "InstallmentNumber": 1,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        },
+        {
+            "PaymentId": "ddb7143b-7d29-430a-8142-f7b6e03346a0",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 6,
+            "InstallmentAmount": 140,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "608615f7-43f2-4c37-a095-28a3d618c0d2",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 3,
+            "InstallmentAmount": 4,
+            "InstallmentNumber": 1,
+            "Event": 3,
+            "EventDescription": "FeeCredit"
+        },
+        {
+            "PaymentId": "640cae2a-a3ee-4d81-8b74-f83414587b8b",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 10,
+            "InstallmentAmount": 170,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "d9f041b5-9ddc-4b3a-9f61-fef47a413bf4",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 2,
+            "InstallmentAmount": 5,
+            "InstallmentNumber": 1,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        },
+        {
+            "PaymentId": "b8d0c32f-aa69-4b3b-aba2-fe7004ea664e",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 10,
+            "InstallmentAmount": 170,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "640cae2a-a3ee-4d81-8b74-f83414587b8b",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 10,
+            "InstallmentAmount": 1,
+            "InstallmentNumber": 1,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        },
+        {
+            "PaymentId": "ddb7143b-7d29-430a-8142-f7b6e03346a0",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 6,
+            "InstallmentAmount": 5,
+            "InstallmentNumber": 1,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        },
+        {
+            "PaymentId": "d9f041b5-9ddc-4b3a-9f61-fef47a413bf4",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 2,
+            "InstallmentAmount": 1450,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "476ec4fb-ab2c-421f-942c-f73b298412f0",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 10,
+            "InstallmentAmount": 1084,
+            "InstallmentNumber": 2,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "a35ae71a-34e5-469e-866b-f6a1feeb7804",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 10,
+            "InstallmentAmount": 170,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "608615f7-43f2-4c37-a095-28a3d618c0d2",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-04",
+            "Installments": 3,
+            "InstallmentAmount": 54,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "157b18b2-3c83-4303-a9f3-ff9158dd9dca",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-08",
+            "Installments": 1,
+            "InstallmentAmount": 10,
+            "InstallmentNumber": 1,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        },
+        {
+            "PaymentId": "5263f052-0455-44f5-acca-f8beba90c010",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-08",
+            "Installments": 1,
+            "InstallmentAmount": 10,
+            "InstallmentNumber": 1,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        },
+        {
+            "PaymentId": "5263f052-0455-44f5-acca-f8beba90c010",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-08",
+            "Installments": 1,
+            "InstallmentAmount": 10888,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "157b18b2-3c83-4303-a9f3-ff9158dd9dca",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-08",
+            "Installments": 1,
+            "InstallmentAmount": 167,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "bca72d2e-fcd9-4328-8296-fe6b0dd7a7c5",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-11",
+            "Installments": 1,
+            "InstallmentAmount": 1187,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "41606b10-9698-4cd3-b0bd-ffa94d385acf",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-11",
+            "Installments": 10,
+            "InstallmentAmount": 20,
+            "InstallmentNumber": 2,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "41606b10-9698-4cd3-b0bd-ffa94d385acf",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-11",
+            "Installments": 10,
+            "InstallmentAmount": 1,
+            "InstallmentNumber": 2,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        },
+        {
+            "PaymentId": "bca72d2e-fcd9-4328-8296-fe6b0dd7a7c5",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-11",
+            "Installments": 1,
+            "InstallmentAmount": 10,
+            "InstallmentNumber": 1,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        },
+        {
+            "PaymentId": "2d35be27-188f-49d3-92bc-ff00051ada6d",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-13",
+            "Installments": 1,
+            "InstallmentAmount": 13668,
+            "InstallmentNumber": 1,
+            "Event": 1,
+            "EventDescription": "Credit"
+        },
+        {
+            "PaymentId": "2d35be27-188f-49d3-92bc-ff00051ada6d",
+            "MerchantId": "2b8e9c38-0d9e-4f30-adac-fef3601632e4",
+            "Date": "2017-12-13",
+            "Installments": 1,
+            "InstallmentAmount": 10,
+            "InstallmentNumber": 1,
+            "Event": 4,
+            "EventDescription": "FeeDebit"
+        }
+    ]
+}
 ```
+| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | 
+|-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
+| `Schedules[].PaymentId`           | Identificador da transação.                                                                             | Guid    | 36      |
+| `Schedules[].MerchantId`          | Identificador da loja.                                                                                  | Guid    | 36      |
+| `Schedules[].Date`                | Data de liquidação prevista.                                                                            | Data    | -       |
+| `Schedules[].Installments`        | Número de parcelas a liquidar.                                                                          | Inteiro | -       |
+| `Schedules[].InstallmentsAmount`  | Valor da parcela a liquidar.                                                                            | Inteiro | -       |
+| `Schedules[].InstallmentNumber`   | Número da parcela a liquidar.                                                                           | Inteiro | -       |
+| `Schedules[].Event`               | Identificador do evento.                                                                                | Inteiro | -       |
+| `Schedules[].EventDescription`    | Descrição do evento.                                                                                    | String  | -       |
 
 ### Ajustes
 
