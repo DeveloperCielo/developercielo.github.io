@@ -986,7 +986,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 
 **REQUEST**
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
 
 ```json
 --header "Authorization: Bearer {access_token}" 
@@ -1078,12 +1078,15 @@ Na captura total de uma transação, o somatório dos valores de participação 
 
 #### Captura Parcial
 
-Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado.
+<BR>
+Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.
 
-`REQUEST`
+**REQUEST**
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
 
 ```json
-PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/capture?amount=8000
+--header "Authorization: Bearer {access_token}"
 {
     "SplitPayments":[
         {
@@ -1165,12 +1168,6 @@ PUT https://{API Cielo E-Commerce}/1/sales/{PaymentId}/capture?amount=8000
     ]
 }
 ```
-
-Exemplo considerando transação no valor de **R$100,00**, captura parcial de **R$80,00** e as seguintes taxas:
-
-**Taxa Braspag**: 2% MDR + R$0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 01**: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.  
-**Taxa Marketplace com o Subordinado 02**: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.
 
 ### Cancelamento
 
