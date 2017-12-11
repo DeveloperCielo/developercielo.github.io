@@ -2035,8 +2035,87 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 
 <h3 id="consultar-eventos">Consultar Eventos</h3>
 
-<h2 id="chargeback">Chargeback</h2>
+<p>A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.</p>
 
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules?initialDate={initialDate}&amp;finalDate={finalDate}&amp;pageIndex={pageIndex}&amp;pageSize={pageSize}&amp;scheduleStatus={scheduleStatus}&amp;merchantIds={merchantId}</span></aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Formato</th>
+      <th>Obrigatório</th>
+      <th>Valor Padrão</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">InitialDate</code></td>
+      <td>Data inicial a ser consultada, considerando a data prevista de liquidação do evento.</td>
+      <td>Data</td>
+      <td>YYYY-MM-DD</td>
+      <td>Não</td>
+      <td>CurrentDate</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FinalDate</code></td>
+      <td>Data final a ser consultada, considerando a data prevista de liquidação do evento.</td>
+      <td>Data</td>
+      <td>YYYY-MM-DD</td>
+      <td>Não</td>
+      <td>CurrentDate</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PageIndex</code></td>
+      <td>Página a ser consultada. Valores possíveis: 25, 50, 100.</td>
+      <td>Inteiro</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PageSize</code></td>
+      <td>Tamanho da página.</td>
+      <td>Inteiro</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ScheduleStatus</code></td>
+      <td>Status do evento. Vide status possíveis abaixo.</td>
+      <td>String</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Scheduled</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantIds</code></td>
+      <td>Lojas a seren consideradas na consulta.</td>
+      <td>Guid</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Resquest</strong></p>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/schedules/transactions?initialDate=2017-12-01&amp;merchantIds=2b8e9c38-0d9e-4f30-adac-fef3601632e4&amp;merchantIds=44f68284-27cf-43cb-9d14-1b1ee3f36838&amp;merchantIds=fdae3204-3999-4082-aa32-f08b6f3a01f3</span></aside>
+
+<pre><code class="language-x-www-form-urlencoded">--header "Authorization: Bearer {access_token}"
+</code></pre>
+
+<p><strong>RESPONSE</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
+
+<h3 id="ajustes">Ajustes</h3>
+
+<h2 id="chargeback">Chargeback</h2>
 
 </div>
 
