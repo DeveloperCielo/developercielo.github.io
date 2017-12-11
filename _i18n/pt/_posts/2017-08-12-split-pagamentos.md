@@ -1817,36 +1817,36 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 
 ```json
 {
-	"ChargebackSplitPayments": [
-		{
-			"SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-			"ChargebackAmount": 4000,
-			"ChargebackSplits": [
-				{
-					"MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-					"ChargebackAmount": 3780 
-				},
-				{
-					"MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-					"ChargebackAmount": 220
-				}
-			]
-		},
-		{
-			"SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-			"ChargebackAmount": 2000,
-			"ChargebackSplits": [
-				{
-					"MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-					"ChargebackAmount": 1912 
-				},
-				{
-					"MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
-					"ChargebackAmount": 88
-				}
-			]
-		}
-	]
+    "ChargebackSplitPayments": [
+        {
+            "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+            "ChargebackAmount": 4000,
+            "ChargebackSplits": [
+                {
+                    "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
+                    "ChargebackAmount": 3780 
+                },
+                {
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                    "ChargebackAmount": 220
+                }
+            ]
+        },
+        {
+            "SubordinateMerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+            "ChargebackAmount": 2000,
+            "ChargebackSplits": [
+                {
+                    "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
+                    "ChargebackAmount": 1912 
+                },
+                {
+                    "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
+                    "ChargebackAmount": 88
+                }
+            ]
+        }
+    ]
 }
 ```
 
