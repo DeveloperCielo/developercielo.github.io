@@ -1462,10 +1462,11 @@ A agenda é composta por eventos de Crédito e Débito que são gerados de acord
 
 Eventos de Crédito:
 
-| Evento      | Descrição                                                                                               | 
-|-------------|---------------------------------------------------------------------------------------------------------|
-| `Credit`    | Lançamento de crédito das parcelas de uma transação.                                                    |
-| `FeeCredit` | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
+| Evento             | Descrição                                                                                               | 
+|--------------------|---------------------------------------------------------------------------------------------------------|
+| `Credit`           | Lançamento de crédito das parcelas de uma transação.                                                    |
+| `FeeCredit`        | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
+| `AdjustmentCredit` | Lançamento de um crédito como ajuste                                                                    |
 
 Eventos de Débito:
 
@@ -1474,6 +1475,7 @@ Eventos de Débito:
 | `FeeDebit`        | Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).             |
 | `RefundDebit`     | Lançamento de débito de um cancelamento.                                                                |
 | `ChargebackDebit` | Lançamento de débito de um chargeback.                                                                  |
+| `AdjustmentDebit` | Lançamento de um débito como ajuste.                                                                    |
 
 ### Consultar Transações
 
