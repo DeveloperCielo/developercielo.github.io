@@ -1204,7 +1204,7 @@ Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras d
 
 <p><strong>REQUEST</strong></p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w"> 
 </span><span class="p">{</span><span class="w">
@@ -1294,11 +1294,14 @@ Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras d
 
 <h4 id="captura-parcial">Captura Parcial</h4>
 
-<p>Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado.</p>
+<p><br />
+Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.</p>
 
-<p><code class="highlighter-rouge">REQUEST</code></p>
+<p><strong>REQUEST</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">PUT</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//</span><span class="p">{</span><span class="err">API</span><span class="w"> </span><span class="err">Cielo</span><span class="w"> </span><span class="err">E-Commerce</span><span class="p">}</span><span class="err">/</span><span class="mi">1</span><span class="err">/sales/</span><span class="p">{</span><span class="err">PaymentId</span><span class="p">}</span><span class="err">/capture?amount=</span><span class="mi">8000</span><span class="w">
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture?amount=8000</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1379,12 +1382,6 @@ Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras d
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<p>Exemplo considerando transação no valor de <strong>R$100,00</strong>, captura parcial de <strong>R$80,00</strong> e as seguintes taxas:</p>
-
-<p><strong>Taxa Braspag</strong>: 2% MDR + R$0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 01</strong>: 5% MDR, já embutindo os 2% do MDR Braspag + 0,30 Tarifa Fixa.<br />
-<strong>Taxa Marketplace com o Subordinado 02</strong>: 4% MDR, já embutindo os 2% do MDR Braspag + 0,15 Tarifa Fixa.</p>
 
 <h3 id="cancelamento">Cancelamento</h3>
 
