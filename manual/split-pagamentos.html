@@ -840,11 +840,11 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
         </span><span class="s2">"Splits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">                
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MID do Marketplace"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MID Subordinate 01"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9500</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">9500</span><span class="p">,</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2436,7 +2436,85 @@ No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o
 
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">SubordinateMerchantId</code></td>
+      <td>Identificador do Subordinado.</td>
+      <td>Guid</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ChargebackAmount</code></td>
+      <td>Valor do chargeback que deverá ser repassado ao Subordinado, em centavos.</td>
+      <td>Inteiro</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 <p><strong>Response</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"ChargebackSplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ChargebackSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3780</span><span class="w"> 
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">220</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ChargebackSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1912</span><span class="w"> 
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">88</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">ChargebackSplitPayments.Split</code></td>
+      <td>Lista contendo a divisão do chargeback para cada participante.</td>
+      <td>Guid</td>
+      <td>36</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
