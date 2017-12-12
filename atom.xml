@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T01:46:27+00:00</updated>
+    <updated>2017-12-12T10:26:39+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4921,30 +4921,37 @@ Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://
 
 &lt;p&gt;Portanto, abaixo disponibilizamos algumas alternativas que podem a vir substituir a ausência desses recursos.&lt;/p&gt;
 
-&lt;nav style=&quot;display:flex;justify-content:space-between;&quot;&gt;
-    &lt;nav style=&quot;max-width:240px;&quot;&gt;
-        &lt;h3 id=&quot;push-notifications&quot;&gt;Push-Notifications&lt;/h3&gt;
-        &lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: JobScheduler&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: É uma API para agendar vários tipos de trabalhos contra a estrutura que será executada no próprio processo da sua aplicação. Permitindo a cada ciclo de tempo que o aplicativo realize uma busca em nossos serviços de Backend.&lt;/p&gt;
-        &lt;p&gt;O JobScheduler é o mais indicado devido a performance em relação ao uso de bateria, fora as muitas outras opções que ele disponibiliza (Ex: Job rodar somente quando o smartphone estiver carregando).&lt;/p&gt;
-        &lt;a href=&quot;https://developer.android.com/reference/android/app/job/JobScheduler.html&quot;&gt;Referência&lt;/a&gt;
-    &lt;/nav&gt;
-    &lt;nav style=&quot;max-width:240px;&quot;&gt;
-        &lt;h3 id=&quot;serviços-de-localização-gps&quot;&gt;Serviços de Localização (GPS)&lt;/h3&gt;
-        &lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: Location Manager&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Essa classe fornece acesso aos serviços de localização do sistema. Esses serviços permitem que os aplicativos obtenham atualizações periódicas da localização geográfica do dispositivo ou que iniciem uma Intenção especificada pela aplicação quando o dispositivo entra na proximidade de uma determinada localização geográfica.&lt;/p&gt;
-        &lt;a href=&quot;https://developer.android.com/reference/android/location/LocationManager.html&quot;&gt;Referência&lt;/a&gt;
-    &lt;/nav&gt;
-    &lt;nav style=&quot;max-width:240px;&quot;&gt;
-        &lt;h3 id=&quot;serviços-de-mapas&quot;&gt;Serviços de Mapas&lt;/h3&gt;
-        &lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: MapBox&lt;/p&gt;
-        &lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Uma plataforma de mapeamento de código aberto para mapas personalizados. Nossas APIs e SDKs são os blocos de construção para integrar a localização em qualquer aplicativo móvel ou web.&lt;/p&gt;
-        &lt;a href=&quot;https://www.mapbox.com&quot;&gt;Referência&lt;/a&gt;
-    &lt;/nav&gt;
-&lt;/nav&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Push-Notifications&lt;/th&gt;
+      &lt;th&gt;Serviços de Localização (GPS)&lt;/th&gt;
+      &lt;th&gt;Serviços de Mapas&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/td&gt;
+      &lt;td&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/td&gt;
+      &lt;td&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: JobScheduler&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: Location Manager&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: MapBox&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: É uma API para agendar vários tipos de trabalhos contra a estruturaque será executada no próprio processo da sua aplicação.Permitindo a cada ciclo de tempo que o aplicativo realize uma buscaem nossos serviços de Backend.O JobScheduler éo mais indicado devido a performance em relação ao uso de bateria,fora as muitas outras opções que ele disponibiliza (Ex: Job rodarsomente quando o smartphone estiver carregando).&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Essa classe fornece acesso aos serviços de localização do sistema.Esses serviços permitem que os aplicativos obtenham atualizaçõesperiódicas da localização geográfica do dispositivo ou queiniciem uma Intenção especificada pela aplicação quando odispositivo entra na proximidade de uma determinada localizaçãogeográfica.&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Uma plataforma de mapeamento de código aberto para mapaspersonalizados. Nossas APIs e SDKs são os blocos de construçãopara integrar a localização em qualquer aplicativo móvel ou web.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Referência&lt;/strong&gt;: &lt;a href=&quot;https://developer.android.com/reference/android/app/job/JobScheduler.html&quot;&gt;Clique aqui&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Referência&lt;/strong&gt;: &lt;a href=&quot;https://developer.android.com/reference/android/location/LocationManager.html&quot;&gt;Clique aqui&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Referência&lt;/strong&gt;: &lt;a href=&quot;https://www.mapbox.com&quot;&gt;Clique aqui&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;p&gt;Agora que você já tem as informações necessárias para desenvolver um aplicativo para, acesse a documentação da Integração Local para saber como se integrar com o SDK da Cielo LIO.&lt;/p&gt;
 
