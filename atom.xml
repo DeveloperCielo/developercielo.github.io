@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T00:09:04+00:00</updated>
+    <updated>2017-12-12T00:09:51+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6680,7 +6680,8 @@ No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o
   &lt;li&gt;Liquidação&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Para ser notificado com relação ao status de uma transação, utilize o &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação&quot;&gt;serviço de notificação&lt;/a&gt; da API Cielo E-Commerce.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+Para ser notificado com relação ao status de uma transação, utilize o &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação&quot;&gt;serviço de notificação&lt;/a&gt; da API Cielo E-Commerce.&lt;/p&gt;
 </content>
     </entry>
     
