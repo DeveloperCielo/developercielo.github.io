@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T00:09:51+00:00</updated>
+    <updated>2017-12-12T00:11:37+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6475,7 +6475,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 &lt;p&gt;&lt;br /&gt;
 A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.&lt;/p&gt;
 
-&lt;p&gt;Quando lançado um ajusta à Crédito para um Subordinado, automaticamente é lançado um ajuste a Débito para o Marketplace na mesma data, e vice-versa.&lt;/p&gt;
+&lt;p&gt;Quando lançado um ajuste a Crédito para um Subordinado, automaticamente é lançado um ajuste a Débito para o Marketplace na mesma data, e vice-versa.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Request&lt;/strong&gt;&lt;/p&gt;
 
