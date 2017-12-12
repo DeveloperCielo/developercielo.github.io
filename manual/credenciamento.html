@@ -1200,7 +1200,6 @@
         
         <script>
         let langs = '';
-        let langsArray = [];
 
         $('div.highlighter-rouge').prepend('<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>');
 
@@ -1234,10 +1233,8 @@
 
         
         langs += "<a data-language-name='json'>JSON</a>";
-        langsArray.push('json');
         
         langs += "<a data-language-name='shell'>cURL</a>";
-        langsArray.push('shell');
         
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
@@ -1245,27 +1242,9 @@
 
         <script src="https://developercielo.github.io/assets/js/lang.js"></script>
         <script>
-            $(function() {
-                $('.language-buttons').each(function() {
-                    let parent = $(this).parent();
-
-                    langsArray.forEach((v) => {
-                        if(parent.find('.language-' + v).length === 0) {
-                            $(this).find('[data-language-name="' + v + '"]').remove();
-
-                            let firstItem = $(this).children().first();
-                            firstItem.addClass('active');
-                            parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
-
-                            if(parent.children('[class^="language-"]').length === 2) {
-                                parent.addClass('lock');
-                            }
-                        }
-                    });
-                });
-
-                setupLanguages([  "json",  "shell", ]);
-            });
+        $(function() {
+            setupLanguages([  "json",  "shell", ]);
+        });
         </script>
         
 

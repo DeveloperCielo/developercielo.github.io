@@ -3329,7 +3329,6 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
         
         <script>
         let langs = '';
-        let langsArray = [];
 
         $('div.highlighter-rouge').prepend('<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>');
 
@@ -3363,7 +3362,6 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 
         
         langs += "<a data-language-name='json'>JSON</a>";
-        langsArray.push('json');
         
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
@@ -3371,27 +3369,9 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 
         <script src="https://developercielo.github.io/assets/js/lang.js"></script>
         <script>
-            $(function() {
-                $('.language-buttons').each(function() {
-                    let parent = $(this).parent();
-
-                    langsArray.forEach((v) => {
-                        if(parent.find('.language-' + v).length === 0) {
-                            $(this).find('[data-language-name="' + v + '"]').remove();
-
-                            let firstItem = $(this).children().first();
-                            firstItem.addClass('active');
-                            parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
-
-                            if(parent.children('[class^="language-"]').length === 2) {
-                                parent.addClass('lock');
-                            }
-                        }
-                    });
-                });
-
-                setupLanguages([  "json", ]);
-            });
+        $(function() {
+            setupLanguages([  "json", ]);
+        });
         </script>
         
 
