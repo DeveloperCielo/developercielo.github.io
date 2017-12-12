@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T00:49:39+00:00</updated>
+    <updated>2017-12-12T01:00:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1841,11 +1841,11 @@
     </entry>
     
     <entry>
-        <title>Teste</title>
-        <category term="manual" />
-        <link href="https://developercielo.github.io/manual/teste"/>
+        <title>Tutoriais</title>
+        <category term="tutorial" />
+        <link href="https://developercielo.github.io/tutorial/teste"/>
         <updated>2017-08-12T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/teste</id>
+        <id>https://developercielo.github.io/tutorial/teste</id>
         <content type="html">&lt;h1 id=&quot;split-de-pagamentos&quot;&gt;Split de Pagamentos&lt;/h1&gt;
 
 &lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
@@ -2071,7 +2071,7 @@ Em breve estarão disponíveis:&lt;/p&gt;
 
 &lt;p&gt;Exemplo:&lt;/p&gt;
 
-&lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-cielo-ecommerce}/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -2097,7 +2097,7 @@ Em breve estarão disponíveis:&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
