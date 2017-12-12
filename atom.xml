@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T19:48:05+00:00</updated>
+    <updated>2017-12-12T21:10:04+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1555,15 +1555,15 @@
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Marketplace&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Responsável pelo carrinho.  Possui acordos com &lt;strong&gt;Subordinados&lt;/strong&gt; que fornecem os produtos presentes no carrinho. Define as taxas a serem descontadas sobre a venda de cada &lt;strong&gt;Subordinado&lt;/strong&gt;. Pode participar de uma venda fornecendo seus próprios produtos.&lt;/td&gt;
+      &lt;td&gt;Responsável pelo carrinho. &lt;br /&gt; Possui acordos com &lt;strong&gt;Subordinados&lt;/strong&gt; que fornecem os produtos presentes no carrinho.&lt;br /&gt; Define as taxas a serem descontadas sobre a venda de cada &lt;strong&gt;Subordinado&lt;/strong&gt;.&lt;br /&gt; Pode participar de uma venda fornecendo seus próprios produtos.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Subordinado&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Fornecedor dos produtos que compõem o carrinho.Recebe parte do valor da venda, descontadas as taxas acordadas com o &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/td&gt;
+      &lt;td&gt;Fornecedor dos produtos que compõem o carrinho.&lt;br /&gt;Recebe parte do valor da venda, descontadas as taxas acordadas com o &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Responsável pelo fluxo transacional. Define as taxas a serem descontadas sobre o valor total da venda realizada pelo &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;br /&gt; Responsável pela liquidação dos pagamentos para os &lt;strong&gt;Subordinados&lt;/strong&gt; e &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/td&gt;
+      &lt;td&gt;Responsável pelo fluxo transacional.&lt;br /&gt; Define as taxas a serem descontadas sobre o valor total da venda realizada pelo &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;br /&gt; Responsável pela liquidação dos pagamentos para os &lt;strong&gt;Subordinados&lt;/strong&gt; e &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1575,9 +1575,9 @@
 &lt;p&gt;Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Regime de Pagamento&lt;/strong&gt;: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Crédito&lt;/strong&gt;: Em até 31 dias.
+  &lt;p&gt;&lt;strong&gt;Regime de Pagamento&lt;/strong&gt;: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
+&lt;br /&gt;
+&lt;strong&gt;Crédito&lt;/strong&gt;: Em até 31 dias.
 &lt;strong&gt;Crédito Parcelado&lt;/strong&gt;: 1º parcela em até 31 dias, demais a cada 30.
 &lt;strong&gt;Débito&lt;/strong&gt;: Em até 1 dia útil.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1646,7 +1646,7 @@ Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR ac
 Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;:&lt;br /&gt;
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
+Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;h2 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h2&gt;
@@ -1659,17 +1659,21 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]&lt;/p&gt;
 
 &lt;h3 id=&quot;sandbox&quot;&gt;Sandbox&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://apisandbox.cieloecommerce.cielo.com.br/
-&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/
-&lt;strong&gt;API Split&lt;/strong&gt;: http://splitsandbox.braspag.com.br/
-&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://authhomolog.braspag.com.br/&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://apisandbox.cieloecommerce.cielo.com.br/&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;API Split&lt;/strong&gt;: http://splitsandbox.braspag.com.br/&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://authhomolog.braspag.com.br/&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;produção&quot;&gt;Produção&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/
-&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/
-&lt;strong&gt;API Split&lt;/strong&gt;: http://split.braspag.com.br/
-&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://auth.braspag.com.br/&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;API Cielo E-Commerce&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;API Cielo E-Commerce (Consultas)&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;API Split&lt;/strong&gt;: http://split.braspag.com.br/&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Braspag OAUTH2 Server&lt;/strong&gt;: https://auth.braspag.com.br/&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h2&gt;
 
@@ -1740,11 +1744,9 @@ grant_type=client_credentials
 &lt;blockquote&gt;
   &lt;p&gt;Atualmente o Split de Pagamentos está disponivel para os seguintes tipos de pagamento:&lt;/p&gt;
   &lt;ul&gt;
-    &lt;li&gt;Cartão de Crédito&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;p&gt;Em breve estarão disponíveis:&lt;/p&gt;
-  &lt;ul&gt;
+    &lt;li&gt;Cartão de Crédito
+&lt;br /&gt;
+Em breve estarão disponíveis:&lt;/li&gt;
     &lt;li&gt;Cartão de Débito&lt;/li&gt;
     &lt;li&gt;Boleto&lt;/li&gt;
   &lt;/ul&gt;
@@ -1756,7 +1758,7 @@ grant_type=client_credentials
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-cielo-ecommerce}/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;--header&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Bearer {access_token}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;--header&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Bearer {access_token}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -1988,7 +1990,7 @@ grant_type=client_credentials
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fares&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mdr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-              &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+              &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -1996,7 +1998,7 @@ grant_type=client_credentials
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fares&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mdr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-              &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+              &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -2279,7 +2281,7 @@ grant_type=client_credentials
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fares&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mdr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-              &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+              &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -2287,7 +2289,7 @@ grant_type=client_credentials
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fares&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mdr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-              &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+              &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -2433,7 +2435,7 @@ grant_type=client_credentials
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fares&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mdr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -2615,7 +2617,7 @@ grant_type=client_credentials
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;{api-cielo-ecommerce}/1/sales/{PaymentId}/capture&lt;/span&gt;&lt;/aside&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;--header&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Bearer {access_token}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;--header&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Bearer {access_token}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SplitPayments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -2623,7 +2625,7 @@ grant_type=client_credentials
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fares&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                 &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mdr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -2724,7 +2726,7 @@ grant_type=client_credentials
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fares&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                 &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Mdr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+                &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fee&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -3572,7 +3574,7 @@ grant_type=client_credentials
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SubordinateMerchantId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;7c7e5e7b-8a5d-41bf-ad91-b346e077f769&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Event&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AdjustmentDebit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017-12-20&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017-12-20&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -3701,7 +3703,7 @@ grant_type=client_credentials
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChargebackSplits&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;7c7e5e7b-8a5d-41bf-ad91-b346e077f769&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChargebackAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3780&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+                    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChargebackAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3780&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;e4db3e1b-985f-4e33-80cf-a19d559f0f60&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -3715,7 +3717,7 @@ grant_type=client_credentials
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChargebackSplits&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2b9f5bea-5504-40a0-8ae7-04c154b06b8b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChargebackAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1912&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+                    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChargebackAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1912&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
                     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;e4db3e1b-985f-4e33-80cf-a19d559f0f60&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -7077,19 +7079,19 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;s2&quot;&gt;&quot;não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo&quot;&lt;/span&gt;
 
 &lt;span class=&quot;nx&quot;&gt;Uma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;das&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;soluções&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encontradas&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foi&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Azure&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Services&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;te&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;permite&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;montar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cluster&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;único&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;comando&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sobra&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tempo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pra&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;focar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sua&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;aplicação&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;não&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configuração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;máquinas&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Mas&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;é&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?**&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Falando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;por&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;alto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;é&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ferramenta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orquestração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;para&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;containers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;você&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;monta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;seu&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Docker&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;faz&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;trabalho&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;discovery&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;muito&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mais&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; 
-&lt;span class=&quot;nx&quot;&gt;Caso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;queira&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;saber&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mais&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sobre&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;da&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;documentação&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
+
+&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Mas&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;é&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?**&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Falando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;por&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;alto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;é&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ferramenta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orquestração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;para&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;containers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;você&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;monta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;seu&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Docker&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;faz&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;trabalho&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;discovery&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;muito&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mais&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Caso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;queira&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;saber&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mais&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sobre&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;da&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;documentação&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tutorials&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;basics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;## Montando um Cluster em Kubernetes
 &lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;Estou&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;levando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;em&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;consideração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;você&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;já&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tenha&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`Azure CLI`&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configurado&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sua&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;máquina&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;caso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;não&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tenha&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tutorial&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configuração&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
+&lt;span class=&quot;nx&quot;&gt;Estou&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;levando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;em&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;consideração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;você&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;já&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tenha&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`Azure CLI`&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configurado&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sua&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;máquina&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;caso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;não&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tenha&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tutorial&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configuração&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;microsoft&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;en&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;us&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;
 
-&lt;span class=&quot;nx&quot;&gt;Para&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;montar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cluster&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utilizando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AKS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;basta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;único&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;comando&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
+&lt;span class=&quot;nx&quot;&gt;Para&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;montar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cluster&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utilizando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AKS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;basta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;único&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;comando&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;“az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos –generate-ssh-keys”&lt;/p&gt;
@@ -7137,7 +7139,7 @@ Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Par
 Vamos chamar o `get pods` para verificar se nossa aplicação foi deployada com sucesso:
 
 ![](https://i.imgur.com/IxKDQJ8.png)
- 
+
 Como vimos na imagem acima nossa aplicação foi &quot;deployada&quot;, porém ela ainda não está disponivel na internet
 Para disponibilizar nossa aplicação na internet vamos utilizar o comando `expose`:
 
@@ -12823,7 +12825,7 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Status da Transação&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Cancelado&lt;/strong&gt; - Transação cancelada pelo lojista&lt;br /&gt;&lt;strong&gt;Estornado&lt;/strong&gt; - Transações canceladas com menos de 24 horas&lt;br /&gt;&lt;strong&gt;Não Autorizado&lt;/strong&gt; - Transações negadas pelo Autorizador Cielo&lt;br /&gt;&lt;strong&gt;Não Pago&lt;/strong&gt; - Transações autorizadas, mas não capturadas&lt;br /&gt;&lt;strong&gt;Pago&lt;/strong&gt; - Transações capturadas&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Cancelado&lt;/strong&gt; - Transação cancelada pelo lojista&lt;br /&gt;&lt;strong&gt;Estornado&lt;/strong&gt; - Transações canceladas com menos de 24 horas&lt;br /&gt;&lt;strong&gt;Não Autorizado&lt;/strong&gt; - Transações negadas pelo Autorizador Cielo&lt;br /&gt;&lt;strong&gt;Não Pago&lt;/strong&gt; - Transações autorizadas, mas não capturadas&lt;br /&gt;&lt;strong&gt;Pago&lt;/strong&gt; - Transações capturadas&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -13904,11 +13906,11 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Cartão de débito&lt;/td&gt;
-      &lt;td&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; utilizado deve ser &lt;strong&gt;SIMULADO&lt;/strong&gt; &lt;br /&gt;&lt;br /&gt; A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação&lt;/td&gt;
+      &lt;td&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; utilizado deve ser &lt;strong&gt;SIMULADO&lt;/strong&gt; &lt;br /&gt; A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Transferência online&lt;/td&gt;
-      &lt;td&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; utilizado deve ser &lt;strong&gt;SIMULADO&lt;/strong&gt; &lt;br /&gt;&lt;br /&gt; A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação&lt;/td&gt;
+      &lt;td&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; utilizado deve ser &lt;strong&gt;SIMULADO&lt;/strong&gt; &lt;br /&gt; A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -24593,19 +24595,19 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;HTTP Status Code&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;São códigos do padrão HTTP. Eles informam se as informações enviadas a API estão de &lt;strong&gt;fato obtendo sucesso ao atingir nossos ENDPOINTs&lt;/strong&gt;. Se valores diferentes de 200 ou 201 estejam aparecendo, há algum empecilho com a comunicação com a API &lt;em&gt;Retornado no momento da requisição a API&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;São códigos do padrão HTTP. Eles informam se as informações enviadas a API estão de &lt;strong&gt;fato obtendo sucesso ao atingir nossos ENDPOINTs&lt;/strong&gt;. Se valores diferentes de 200 ou 201 estejam aparecendo, há algum empecilho com a comunicação com a API&lt;br /&gt; &lt;em&gt;Retornado no momento da requisição a API&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Erros da API&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Esses códigos são respostas a &lt;strong&gt;validação do conteúdo dos dados enviados&lt;/strong&gt;. Se eles estão sendo exibidos, as chamadas a nossa API foram identificadas e estão sendo validadas. Se esse código for exibido, a requisição contem erros (EX: tamanho/condições/erros de cadastro) que impedem a criação da transação&lt;em&gt;Retornado no momento da requisição a API&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Esses códigos são respostas a &lt;strong&gt;validação do conteúdo dos dados enviados&lt;/strong&gt;. Se eles estão sendo exibidos, as chamadas a nossa API foram identificadas e estão sendo validadas. Se esse código for exibido, a requisição contem erros (EX: tamanho/condições/erros de cadastro) que impedem a criação da transação&lt;br /&gt;&lt;em&gt;Retornado no momento da requisição a API&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Status&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Depois de criada a transação, esses códigos serão retornados, informando como se encontra a transação no momento (EX: &lt;code class=&quot;highlighter-rouge&quot;&gt;Autorizada&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Capturada&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Cancelada&lt;/code&gt;)*Retornado no campo &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; *&lt;/td&gt;
+      &lt;td&gt;Depois de criada a transação, esses códigos serão retornados, informando como se encontra a transação no momento (EX: &lt;code class=&quot;highlighter-rouge&quot;&gt;Autorizada&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Capturada&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Cancelada&lt;/code&gt;)&lt;br /&gt;*Retornado no campo &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; *&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Retorno das Vendas&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Formado por um &lt;strong&gt;código de Retorno&lt;/strong&gt; e uma &lt;strong&gt;mensagem&lt;/strong&gt;, esses códigos indicam o &lt;strong&gt;motivo&lt;/strong&gt; de um determinado &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; dentro de uma transação. Eles indicam, por exemplo, se uma transação com &lt;code class=&quot;highlighter-rouge&quot;&gt;status&lt;/code&gt; negada não foi autorizada devido saldo negativo no banco emissor. &lt;em&gt;Retornados nos campos &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnMessage&lt;/code&gt;&lt;/em&gt; &lt;em&gt;Ocorrem somente em Cartões de crédito e Débito&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Formado por um &lt;strong&gt;código de Retorno&lt;/strong&gt; e uma &lt;strong&gt;mensagem&lt;/strong&gt;, esses códigos indicam o &lt;strong&gt;motivo&lt;/strong&gt; de um determinado &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; dentro de uma transação. Eles indicam, por exemplo, se uma transação com &lt;code class=&quot;highlighter-rouge&quot;&gt;status&lt;/code&gt; negada não foi autorizada devido saldo negativo no banco emissor. &lt;br /&gt;&lt;em&gt;Retornados nos campos &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnMessage&lt;/code&gt;&lt;/em&gt;&lt;br /&gt; &lt;em&gt;Ocorrem somente em Cartões de crédito e Débito&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -27270,7 +27272,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Relatórios&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Nesta pagina é possível gerar 05 tipos de relatórios: “Relatório financeiro”“Detalhado de vendas”“Listagem de clientes”* “Extrato de Cobrança”“Relatório de Recorrência”&lt;/td&gt;
+      &lt;td&gt;Nesta pagina é possível gerar 05 tipos de relatórios: &lt;br /&gt;“Relatório financeiro”&lt;br /&gt;“Detalhado de vendas”&lt;br /&gt;“Listagem de clientes”&lt;br /&gt;* “Extrato de Cobrança”&lt;br /&gt;“Relatório de Recorrência”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Manuais&lt;/strong&gt;&lt;/td&gt;
@@ -27607,7 +27609,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Valor minimo parcela&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Caso o valor da parcela da compra seja inferior ao minimo, o Checkout exibirá apenas a parcela superior ao minimo &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;EX:&lt;/strong&gt; Parcela minima de R$5,00, Em uma compra de R$10, não será exibida a opção de parcelamento em 3X, apenas em 2X&lt;/td&gt;
+      &lt;td&gt;Caso o valor da parcela da compra seja inferior ao minimo, o Checkout exibirá apenas a parcela superior ao minimo &lt;br /&gt; &lt;strong&gt;EX:&lt;/strong&gt; Parcela minima de R$5,00, Em uma compra de R$10, não será exibida a opção de parcelamento em 3X, apenas em 2X&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Valor mínimo para pagamento com boleto&lt;/strong&gt;&lt;/td&gt;
@@ -27793,7 +27795,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Específico&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional &lt;strong&gt;Exemplo:&lt;/strong&gt; Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas&lt;/td&gt;
+      &lt;td&gt;Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional &lt;br /&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;número do Pedido do Checkout&lt;/strong&gt;&lt;/td&gt;
@@ -28135,7 +28137,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Tela transacional&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. &lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Registro de Compradores&lt;/strong&gt;&lt;/td&gt;
@@ -28155,7 +28157,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Meios de pagamentos&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;O Checkout Cielo possui uma variada gama de meios de pagamento: &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;Cartões de crédito&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Cartão de Débito&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Débito Online&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Boleto Bradesco e Banco do Brasil&lt;/strong&gt;&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;O Checkout Cielo possui uma variada gama de meios de pagamento: &lt;br /&gt; &lt;strong&gt;Cartões de crédito&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Cartão de Débito&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Débito Online&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Boleto Bradesco e Banco do Brasil&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Backoffice Simplificado&lt;/strong&gt;&lt;/td&gt;
@@ -28171,7 +28173,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Relatórios transacionais&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;Relatório de Recorrências&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Relatório de compradores&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Extrato de vendas&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Relatório de vendas&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: &lt;br /&gt; &lt;strong&gt;Relatório de Recorrências&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Relatório de compradores&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Extrato de vendas&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Relatório de vendas&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -28273,11 +28275,11 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Visa&lt;/td&gt;
-      &lt;td&gt;Bradesco&lt;br /&gt;Banco do Brasil&lt;br /&gt;HSBC&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Safra&lt;br /&gt;Banco da Amazônia&lt;br /&gt;Sicredi&lt;br /&gt;Banco do Espirito Santo&lt;br /&gt;Banco do Nordeste&lt;br /&gt;Mercantil&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Bradesco&lt;br /&gt;Banco do Brasil&lt;br /&gt;HSBC&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Safra&lt;br /&gt;Banco da Amazônia&lt;br /&gt;Sicredi&lt;br /&gt;Banco do Espirito Santo&lt;br /&gt;Banco do Nordeste&lt;br /&gt;Mercantil&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Mastercard&lt;/td&gt;
-      &lt;td&gt;Banco do Brasil&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Sicredi&lt;br /&gt;Bancoob&lt;br /&gt;CitiBank&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Banco do Brasil&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Sicredi&lt;br /&gt;Bancoob&lt;br /&gt;CitiBank&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -28986,7 +28988,7 @@ Esses dados são separados nos seguintes “nós principais”:&lt;/p&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Tipo do item no carrinho: &lt;code class=&quot;highlighter-rouge&quot;&gt;Asset&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digital&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Service&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Tipo do item no carrinho: &lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Asset&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digital&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Service&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -29445,7 +29447,7 @@ Os descontos disponíveis no Checkout Cielo são:&lt;/p&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Tipo do frete: &lt;code class=&quot;highlighter-rouge&quot;&gt;Correios&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FixedAmount&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Free&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShippingPickUp&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShipping&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Tipo do frete: &lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Correios&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FixedAmount&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Free&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShippingPickUp&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShipping&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -29590,7 +29592,7 @@ Os descontos disponíveis no Checkout Cielo são:&lt;/p&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Obrigatório&lt;/td&gt;
       &lt;td&gt;Inteiro&lt;/td&gt;
-      &lt;td&gt;Tipo de pacote: &lt;code class=&quot;highlighter-rouge&quot;&gt;BOX&lt;/code&gt;- Caixa  &lt;code class=&quot;highlighter-rouge&quot;&gt;ROL&lt;/code&gt; - Cilindro ou ENVELOPE&lt;/td&gt;
+      &lt;td&gt;Tipo de pacote: &lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BOX&lt;/code&gt;- Caixa &lt;br /&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ROL&lt;/code&gt; - Cilindro ou ENVELOPE&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -29719,7 +29721,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;**Específico **&lt;/td&gt;
-      &lt;td&gt;Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional &lt;strong&gt;Exemplo:&lt;/strong&gt; Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas&lt;/td&gt;
+      &lt;td&gt;Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional &lt;br /&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;número do Pedido do Checkout&lt;/strong&gt;&lt;/td&gt;
@@ -29908,7 +29910,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
     &lt;tr&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;AUTORIZADO / NEGADO&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Resultado do processo de autorização. &lt;strong&gt;AUTORIZADO&lt;/strong&gt; - Crédito foi reservado para a compra  &lt;strong&gt;NEGADO&lt;/strong&gt; - Cartão não autorizado pelo emissor a continuar a transação&lt;/td&gt;
+      &lt;td&gt;Resultado do processo de autorização. &lt;br /&gt;&lt;strong&gt;AUTORIZADO&lt;/strong&gt; - Crédito foi reservado para a compra &lt;br /&gt; &lt;strong&gt;NEGADO&lt;/strong&gt; - Cartão não autorizado pelo emissor a continuar a transação&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;3&lt;/td&gt;
@@ -30183,17 +30185,17 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;URL de Retorno&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Página web na qual o comprador será redirecionado ao fim da compra. Nenhum dado é trocado ou enviado para essa URL. Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.&lt;/td&gt;
-      &lt;td&gt;Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo  Pode ser enviada via API - Ver “Integração por API”&lt;/td&gt;
+      &lt;td&gt;Página web na qual o comprador será redirecionado ao fim da compra. &lt;br /&gt;Nenhum dado é trocado ou enviado para essa URL.&lt;br /&gt; Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.&lt;/td&gt;
+      &lt;td&gt;Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo &lt;br /&gt; Pode ser enviada via API - Ver “Integração por API”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;URL de Notificação&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação. O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do status da transação**&lt;/td&gt;
+      &lt;td&gt;Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.&lt;br /&gt; O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do status da transação**&lt;/td&gt;
       &lt;td&gt;Utilizada na Notificação via &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt;e &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;URL de Mudança de Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status. O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido&lt;/td&gt;
+      &lt;td&gt;Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.&lt;br /&gt; O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido&lt;/td&gt;
       &lt;td&gt;Utilizada somente na Notificação via &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -30916,11 +30918,11 @@ Alguns exemplos de negócios são:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Parceladas&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Se trata de &lt;strong&gt;uma transação dividida em vários meses&lt;/strong&gt;. O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial. O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.&lt;br /&gt;&lt;br /&gt; &lt;strong&gt;EX&lt;/strong&gt;: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada&lt;/td&gt;
+      &lt;td&gt;Se trata de &lt;strong&gt;uma transação dividida em vários meses&lt;/strong&gt;. &lt;br /&gt;O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.&lt;br /&gt; O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.&lt;br /&gt; &lt;strong&gt;EX&lt;/strong&gt;: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Recorrentes&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;São &lt;strong&gt;transações diferentes realizadas no mesmo cartão em momentos previamente agendados&lt;/strong&gt;. A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.  A cada intervalo haverá uma cobrança no cartão de crédito.  O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.&lt;br /&gt;&lt;br /&gt; &lt;strong&gt;EX&lt;/strong&gt;: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.&lt;/td&gt;
+      &lt;td&gt;São &lt;strong&gt;transações diferentes realizadas no mesmo cartão em momentos previamente agendados&lt;/strong&gt;.&lt;br /&gt; A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.&lt;br /&gt;  A cada intervalo haverá uma cobrança no cartão de crédito. &lt;br /&gt; O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.&lt;br /&gt; &lt;strong&gt;EX&lt;/strong&gt;: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -31131,9 +31133,9 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
   &lt;li&gt;Entrar em Detalhes (o símbolo de “+”)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Pedido de recorrência&quot; /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;https://developercielo.github.io/images/checkout/pedidoreccance.png&quot; alt=&quot;Cancelamento de recorrência&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Pedido de recorrência&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/pedidoreccance.png&quot; alt=&quot;Cancelamento de recorrência&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Tela de detalhes da Recorrência&lt;/p&gt;
 

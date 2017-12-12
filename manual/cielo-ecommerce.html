@@ -640,11 +640,11 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td>Cartão de débito</td>
-      <td>O <code class="highlighter-rouge">provider</code> utilizado deve ser <strong>SIMULADO</strong> <br /><br /> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação</td>
+      <td>O <code class="highlighter-rouge">provider</code> utilizado deve ser <strong>SIMULADO</strong> <br /> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação</td>
     </tr>
     <tr>
       <td>Transferência online</td>
-      <td>O <code class="highlighter-rouge">provider</code> utilizado deve ser <strong>SIMULADO</strong> <br /><br /> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação</td>
+      <td>O <code class="highlighter-rouge">provider</code> utilizado deve ser <strong>SIMULADO</strong> <br /> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação</td>
     </tr>
   </tbody>
 </table>
@@ -11329,19 +11329,19 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
   <tbody>
     <tr>
       <td><strong>HTTP Status Code</strong></td>
-      <td>São códigos do padrão HTTP. Eles informam se as informações enviadas a API estão de <strong>fato obtendo sucesso ao atingir nossos ENDPOINTs</strong>. Se valores diferentes de 200 ou 201 estejam aparecendo, há algum empecilho com a comunicação com a API <em>Retornado no momento da requisição a API</em></td>
+      <td>São códigos do padrão HTTP. Eles informam se as informações enviadas a API estão de <strong>fato obtendo sucesso ao atingir nossos ENDPOINTs</strong>. Se valores diferentes de 200 ou 201 estejam aparecendo, há algum empecilho com a comunicação com a API<br /> <em>Retornado no momento da requisição a API</em></td>
     </tr>
     <tr>
       <td><strong>Erros da API</strong></td>
-      <td>Esses códigos são respostas a <strong>validação do conteúdo dos dados enviados</strong>. Se eles estão sendo exibidos, as chamadas a nossa API foram identificadas e estão sendo validadas. Se esse código for exibido, a requisição contem erros (EX: tamanho/condições/erros de cadastro) que impedem a criação da transação<em>Retornado no momento da requisição a API</em></td>
+      <td>Esses códigos são respostas a <strong>validação do conteúdo dos dados enviados</strong>. Se eles estão sendo exibidos, as chamadas a nossa API foram identificadas e estão sendo validadas. Se esse código for exibido, a requisição contem erros (EX: tamanho/condições/erros de cadastro) que impedem a criação da transação<br /><em>Retornado no momento da requisição a API</em></td>
     </tr>
     <tr>
       <td><strong>Status</strong></td>
-      <td>Depois de criada a transação, esses códigos serão retornados, informando como se encontra a transação no momento (EX: <code class="highlighter-rouge">Autorizada</code> &gt; <code class="highlighter-rouge">Capturada</code> &gt; <code class="highlighter-rouge">Cancelada</code>)*Retornado no campo <code class="highlighter-rouge">Status</code> *</td>
+      <td>Depois de criada a transação, esses códigos serão retornados, informando como se encontra a transação no momento (EX: <code class="highlighter-rouge">Autorizada</code> &gt; <code class="highlighter-rouge">Capturada</code> &gt; <code class="highlighter-rouge">Cancelada</code>)<br />*Retornado no campo <code class="highlighter-rouge">Status</code> *</td>
     </tr>
     <tr>
       <td><strong>Retorno das Vendas</strong></td>
-      <td>Formado por um <strong>código de Retorno</strong> e uma <strong>mensagem</strong>, esses códigos indicam o <strong>motivo</strong> de um determinado <code class="highlighter-rouge">Status</code> dentro de uma transação. Eles indicam, por exemplo, se uma transação com <code class="highlighter-rouge">status</code> negada não foi autorizada devido saldo negativo no banco emissor. <em>Retornados nos campos <code class="highlighter-rouge">ReturnCode</code> e <code class="highlighter-rouge">ReturnMessage</code></em> <em>Ocorrem somente em Cartões de crédito e Débito</em></td>
+      <td>Formado por um <strong>código de Retorno</strong> e uma <strong>mensagem</strong>, esses códigos indicam o <strong>motivo</strong> de um determinado <code class="highlighter-rouge">Status</code> dentro de uma transação. Eles indicam, por exemplo, se uma transação com <code class="highlighter-rouge">status</code> negada não foi autorizada devido saldo negativo no banco emissor. <br /><em>Retornados nos campos <code class="highlighter-rouge">ReturnCode</code> e <code class="highlighter-rouge">ReturnMessage</code></em><br /> <em>Ocorrem somente em Cartões de crédito e Débito</em></td>
     </tr>
   </tbody>
 </table>

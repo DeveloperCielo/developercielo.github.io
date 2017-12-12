@@ -668,11 +668,11 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td>Debit cardo</td>
-      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong> <br /><br /> The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
+      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong> <br /> The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
     </tr>
     <tr>
       <td>Online transfer</td>
-      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong> <br /><br /> The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
+      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong> <br /> The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
     </tr>
   </tbody>
 </table>
@@ -4002,9 +4002,9 @@ Below we specify any existing differences:</p>
 <p>For all text fields, including the instructions field and the ones related with address, these are accepted as valid characters:</p>
 <ul>
   <li>The letters from A to Z (CAPITAL LETTERS)</li>
-  <li>Special characters of conjunction:  <strong>hyphen (-)</strong> / <strong>apostrophe (‘)</strong> / When used it can not contain spaces between the letters: <br /><br />
+  <li>Special characters of conjunction:  <strong>hyphen (-)</strong> / <strong>apostrophe (‘)</strong> / When used it can not contain spaces between the letters: <br />
  <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA<br />
- <strong>Incorrect examples</strong>: D’EL - REI<br /><br /></li>
+ <strong>Incorrect examples</strong>: D’EL - REI<br /></li>
   <li>At most one blank space between words</li>
 </ul>
 
@@ -4552,7 +4552,7 @@ Below we specify any existing differences:</p>
     <tr>
       <td><strong>NOTE 3:</strong></td>
       <td>The API Cielo truncates automatically</td>
-      <td><strong>Valid characters:</strong>  Letters from A to Z - CAPITAL LETTERS  <strong>Special characters:</strong> hyphen (-) and apostrophe (‘)  When used, it can not contain spaces between letters;  <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA. <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words</td>
+      <td><strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words</td>
     </tr>
     <tr>
       <td><strong>NOTE 4:</strong></td>
@@ -4727,15 +4727,15 @@ In this model, the merchant’ system is in charge of defining the period, the t
     </tr>
     <tr>
       <td><strong>Identification</strong></td>
-      <td>Scheduled Recurrence transactions generate two types of identification:<br /><br /><strong>PAYMENTID</strong>: Identify 1 transaction. It is the same identifier of the other transactions in the API    <br /><br /><strong>RECURRENTPAYMENTID</strong>: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence</td>
+      <td>Scheduled Recurrence transactions generate two types of identification:<br /><strong>PAYMENTID</strong>: Identify 1 transaction. It is the same identifier of the other transactions in the API    <br /><strong>RECURRENTPAYMENTID</strong>: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence</td>
     </tr>
     <tr>
       <td><strong>Consulting</strong></td>
-      <td>To consult, just use one of two types of identification:<br /><br /><strong>PAYMENTID</strong>: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br /><br /><strong>RECURRENTPAYMENTID</strong>: Used to consult THE RECURRENCE.</td>
+      <td>To consult, just use one of two types of identification:<br /><strong>PAYMENTID</strong>: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br /><strong>RECURRENTPAYMENTID</strong>: Used to consult THE RECURRENCE.</td>
     </tr>
     <tr>
       <td><strong>Cancellation</strong></td>
-      <td>A Scheduled Recurrence can be canceled in two ways: <br /><br /><strong>Merchant</strong>: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br /><br /><strong>By invalid card</strong>: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. <br /><br /> <strong>NOTE:</strong> Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the <strong>RecurrentPaymentID</strong> ends future schedules.</td>
+      <td>A Scheduled Recurrence can be canceled in two ways: <br /><strong>Merchant</strong>: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br /><strong>By invalid card</strong>: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. <br /> <strong>NOTE:</strong> Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the <strong>RecurrentPaymentID</strong> ends future schedules.</td>
     </tr>
   </tbody>
 </table>
@@ -8337,7 +8337,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       <td>Recurrent order status</td>
       <td>Number</td>
       <td>1</td>
-      <td><br /><em>1</em> - Active <br /><em>2</em> - Finished <br /><em>3</em>- Deactivated by the Merchant <br /> <em>4</em> - Disabled by number of retries  <em>5</em> - Disabled by expired credit card</td>
+      <td><br /><em>1</em> - Active <br /><em>2</em> - Finished <br /><em>3</em>- Deactivated by the Merchant <br /> <em>4</em> - Disabled by number of retries <br /> <em>5</em> - Disabled by expired credit card</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RecurrencyDay</code></td>
@@ -11836,19 +11836,19 @@ More information and complete integration, you can find in the link: https://dev
   <tbody>
     <tr>
       <td><strong>HTTP Status Code</strong></td>
-      <td>They are standard HTTP codes. It report if the information sent to the API is <strong>actually being successful in reaching our ENDPOINTs</strong>. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API <em>Returned at time of API request</em></td>
+      <td>They are standard HTTP codes. It report if the information sent to the API is <strong>actually being successful in reaching our ENDPOINTs</strong>. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API<br /> <em>Returned at time of API request</em></td>
     </tr>
     <tr>
       <td><strong>API Errors</strong></td>
-      <td>These codes are responses to <strong>content validation of sent data</strong>. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction<em>Returned at time of API request</em></td>
+      <td>These codes are responses to <strong>content validation of sent data</strong>. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction<br /><em>Returned at time of API request</em></td>
     </tr>
     <tr>
       <td><strong>Status</strong></td>
-      <td>After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. <code class="highlighter-rouge">Authorized</code> &gt;<code class="highlighter-rouge"> Captured</code> &gt; <code class="highlighter-rouge">Canceled</code>)*Returned in the <code class="highlighter-rouge">Status</code> field *</td>
+      <td>After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. <code class="highlighter-rouge">Authorized</code> &gt;<code class="highlighter-rouge"> Captured</code> &gt; <code class="highlighter-rouge">Canceled</code>)<br />*Returned in the <code class="highlighter-rouge">Status</code> field *</td>
     </tr>
     <tr>
       <td><strong>Sales Return</strong></td>
-      <td>Formed by a <strong>Return code</strong> and a <strong>message</strong>, these codes indicate the <strong>reason</strong> of a given <code class="highlighter-rouge">Status</code> within a transaction. They indicate, for example, whether a transaction with denied <code class="highlighter-rouge">status</code> was not authorized because of a negative balance at the issuing bank. <em>Returned in the <code class="highlighter-rouge">ReturnCode</code> and<code class="highlighter-rouge"> ReturnMessage</code> fields</em> <em>They occur only in Credit and Debit cards</em></td>
+      <td>Formed by a <strong>Return code</strong> and a <strong>message</strong>, these codes indicate the <strong>reason</strong> of a given <code class="highlighter-rouge">Status</code> within a transaction. They indicate, for example, whether a transaction with denied <code class="highlighter-rouge">status</code> was not authorized because of a negative balance at the issuing bank. <br /><em>Returned in the <code class="highlighter-rouge">ReturnCode</code> and<code class="highlighter-rouge"> ReturnMessage</code> fields</em><br /> <em>They occur only in Credit and Debit cards</em></td>
     </tr>
   </tbody>
 </table>
@@ -13699,7 +13699,7 @@ More information and complete integration, you can find in the link: https://dev
     <tr>
       <td>4</td>
       <td>Sales Channel</td>
-      <td>Values: “Call Center” = purchase by phone  “Web” = purchase by  web  “Portal” = an agent making the purchase for the customer  “Kiosk” = Purchases in kiosks  “Mobile” = Purchases made on smartphones or tablets</td>
+      <td>Values: “Call Center” = purchase by phone <br /> “Web” = purchase by  web <br /> “Portal” = an agent making the purchase for the customer <br /> “Kiosk” = Purchases in kiosks <br /> “Mobile” = Purchases made on smartphones or tablets</td>
       <td>String</td>
     </tr>
     <tr>

@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2017-12-12T19:48:09+00:00</updated>
+    <updated>2017-12-12T21:10:07+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3847,11 +3847,11 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Debit cardo&lt;/td&gt;
-      &lt;td&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; used must be &lt;strong&gt;SIMULATED&lt;/strong&gt; &lt;br /&gt;&lt;br /&gt; The redirection URL for the bank environment will actually be a screen for choosing the authentication status&lt;/td&gt;
+      &lt;td&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; used must be &lt;strong&gt;SIMULATED&lt;/strong&gt; &lt;br /&gt; The redirection URL for the bank environment will actually be a screen for choosing the authentication status&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Online transfer&lt;/td&gt;
-      &lt;td&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; used must be &lt;strong&gt;SIMULATED&lt;/strong&gt; &lt;br /&gt;&lt;br /&gt; The redirection URL for the bank environment will actually be a screen for choosing the authentication status&lt;/td&gt;
+      &lt;td&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; used must be &lt;strong&gt;SIMULATED&lt;/strong&gt; &lt;br /&gt; The redirection URL for the bank environment will actually be a screen for choosing the authentication status&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -7181,9 +7181,9 @@ Below we specify any existing differences:&lt;/p&gt;
 &lt;p&gt;For all text fields, including the instructions field and the ones related with address, these are accepted as valid characters:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;The letters from A to Z (CAPITAL LETTERS)&lt;/li&gt;
-  &lt;li&gt;Special characters of conjunction:  &lt;strong&gt;hyphen (-)&lt;/strong&gt; / &lt;strong&gt;apostrophe (‘)&lt;/strong&gt; / When used it can not contain spaces between the letters: &lt;br /&gt;&lt;br /&gt;
+  &lt;li&gt;Special characters of conjunction:  &lt;strong&gt;hyphen (-)&lt;/strong&gt; / &lt;strong&gt;apostrophe (‘)&lt;/strong&gt; / When used it can not contain spaces between the letters: &lt;br /&gt;
  &lt;strong&gt;Correct examples&lt;/strong&gt;: D’EL-REI, D’ALCORTIVO, SANT’ANA&lt;br /&gt;
- &lt;strong&gt;Incorrect examples&lt;/strong&gt;: D’EL - REI&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+ &lt;strong&gt;Incorrect examples&lt;/strong&gt;: D’EL - REI&lt;br /&gt;&lt;/li&gt;
   &lt;li&gt;At most one blank space between words&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -7731,7 +7731,7 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;NOTE 3:&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;The API Cielo truncates automatically&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Valid characters:&lt;/strong&gt;  Letters from A to Z - CAPITAL LETTERS  &lt;strong&gt;Special characters:&lt;/strong&gt; hyphen (-) and apostrophe (‘)  When used, it can not contain spaces between letters;  &lt;strong&gt;Correct examples&lt;/strong&gt;: D’EL-REI, D’ALCORTIVO, SANT’ANA. &lt;strong&gt;Incorrect examples&lt;/strong&gt;: D’EL - REI; at most one blank space between words&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Valid characters:&lt;/strong&gt; &lt;br /&gt; Letters from A to Z - CAPITAL LETTERS &lt;br /&gt; &lt;strong&gt;Special characters:&lt;/strong&gt; hyphen (-) and apostrophe (‘) &lt;br /&gt; When used, it can not contain spaces between letters; &lt;br /&gt; &lt;strong&gt;Correct examples&lt;/strong&gt;: D’EL-REI, D’ALCORTIVO, SANT’ANA.&lt;br /&gt; &lt;strong&gt;Incorrect examples&lt;/strong&gt;: D’EL - REI; at most one blank space between words&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;NOTE 4:&lt;/strong&gt;&lt;/td&gt;
@@ -7906,15 +7906,15 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Identification&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Scheduled Recurrence transactions generate two types of identification:&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;PAYMENTID&lt;/strong&gt;: Identify 1 transaction. It is the same identifier of the other transactions in the API    &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;RECURRENTPAYMENTID&lt;/strong&gt;: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence&lt;/td&gt;
+      &lt;td&gt;Scheduled Recurrence transactions generate two types of identification:&lt;br /&gt;&lt;strong&gt;PAYMENTID&lt;/strong&gt;: Identify 1 transaction. It is the same identifier of the other transactions in the API    &lt;br /&gt;&lt;strong&gt;RECURRENTPAYMENTID&lt;/strong&gt;: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Consulting&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;To consult, just use one of two types of identification:&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;PAYMENTID&lt;/strong&gt;: Used to consult A TRANSACTION WITHIN THE RECURRENCE    &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;RECURRENTPAYMENTID&lt;/strong&gt;: Used to consult THE RECURRENCE.&lt;/td&gt;
+      &lt;td&gt;To consult, just use one of two types of identification:&lt;br /&gt;&lt;strong&gt;PAYMENTID&lt;/strong&gt;: Used to consult A TRANSACTION WITHIN THE RECURRENCE    &lt;br /&gt;&lt;strong&gt;RECURRENTPAYMENTID&lt;/strong&gt;: Used to consult THE RECURRENCE.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Cancellation&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;A Scheduled Recurrence can be canceled in two ways: &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Merchant&lt;/strong&gt;: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;By invalid card&lt;/strong&gt;: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;NOTE:&lt;/strong&gt; Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the &lt;strong&gt;RecurrentPaymentID&lt;/strong&gt; ends future schedules.&lt;/td&gt;
+      &lt;td&gt;A Scheduled Recurrence can be canceled in two ways: &lt;br /&gt;&lt;strong&gt;Merchant&lt;/strong&gt;: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  &lt;br /&gt;&lt;strong&gt;By invalid card&lt;/strong&gt;: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. &lt;br /&gt; &lt;strong&gt;NOTE:&lt;/strong&gt; Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the &lt;strong&gt;RecurrentPaymentID&lt;/strong&gt; ends future schedules.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -11516,7 +11516,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       &lt;td&gt;Recurrent order status&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;&lt;br /&gt;&lt;em&gt;1&lt;/em&gt; - Active &lt;br /&gt;&lt;em&gt;2&lt;/em&gt; - Finished &lt;br /&gt;&lt;em&gt;3&lt;/em&gt;- Deactivated by the Merchant &lt;br /&gt; &lt;em&gt;4&lt;/em&gt; - Disabled by number of retries  &lt;em&gt;5&lt;/em&gt; - Disabled by expired credit card&lt;/td&gt;
+      &lt;td&gt;&lt;br /&gt;&lt;em&gt;1&lt;/em&gt; - Active &lt;br /&gt;&lt;em&gt;2&lt;/em&gt; - Finished &lt;br /&gt;&lt;em&gt;3&lt;/em&gt;- Deactivated by the Merchant &lt;br /&gt; &lt;em&gt;4&lt;/em&gt; - Disabled by number of retries &lt;br /&gt; &lt;em&gt;5&lt;/em&gt; - Disabled by expired credit card&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrencyDay&lt;/code&gt;&lt;/td&gt;
@@ -15015,19 +15015,19 @@ More information and complete integration, you can find in the link: https://dev
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;HTTP Status Code&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;They are standard HTTP codes. It report if the information sent to the API is &lt;strong&gt;actually being successful in reaching our ENDPOINTs&lt;/strong&gt;. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API &lt;em&gt;Returned at time of API request&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;They are standard HTTP codes. It report if the information sent to the API is &lt;strong&gt;actually being successful in reaching our ENDPOINTs&lt;/strong&gt;. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API&lt;br /&gt; &lt;em&gt;Returned at time of API request&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;API Errors&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;These codes are responses to &lt;strong&gt;content validation of sent data&lt;/strong&gt;. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction&lt;em&gt;Returned at time of API request&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;These codes are responses to &lt;strong&gt;content validation of sent data&lt;/strong&gt;. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction&lt;br /&gt;&lt;em&gt;Returned at time of API request&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Status&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;Authorized&lt;/code&gt; &amp;gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Captured&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Canceled&lt;/code&gt;)*Returned in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; field *&lt;/td&gt;
+      &lt;td&gt;After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;Authorized&lt;/code&gt; &amp;gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Captured&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Canceled&lt;/code&gt;)&lt;br /&gt;*Returned in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; field *&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Sales Return&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Formed by a &lt;strong&gt;Return code&lt;/strong&gt; and a &lt;strong&gt;message&lt;/strong&gt;, these codes indicate the &lt;strong&gt;reason&lt;/strong&gt; of a given &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; within a transaction. They indicate, for example, whether a transaction with denied &lt;code class=&quot;highlighter-rouge&quot;&gt;status&lt;/code&gt; was not authorized because of a negative balance at the issuing bank. &lt;em&gt;Returned in the &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt; and&lt;code class=&quot;highlighter-rouge&quot;&gt; ReturnMessage&lt;/code&gt; fields&lt;/em&gt; &lt;em&gt;They occur only in Credit and Debit cards&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Formed by a &lt;strong&gt;Return code&lt;/strong&gt; and a &lt;strong&gt;message&lt;/strong&gt;, these codes indicate the &lt;strong&gt;reason&lt;/strong&gt; of a given &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; within a transaction. They indicate, for example, whether a transaction with denied &lt;code class=&quot;highlighter-rouge&quot;&gt;status&lt;/code&gt; was not authorized because of a negative balance at the issuing bank. &lt;br /&gt;&lt;em&gt;Returned in the &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt; and&lt;code class=&quot;highlighter-rouge&quot;&gt; ReturnMessage&lt;/code&gt; fields&lt;/em&gt;&lt;br /&gt; &lt;em&gt;They occur only in Credit and Debit cards&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -16878,7 +16878,7 @@ More information and complete integration, you can find in the link: https://dev
     &lt;tr&gt;
       &lt;td&gt;4&lt;/td&gt;
       &lt;td&gt;Sales Channel&lt;/td&gt;
-      &lt;td&gt;Values: “Call Center” = purchase by phone  “Web” = purchase by  web  “Portal” = an agent making the purchase for the customer  “Kiosk” = Purchases in kiosks  “Mobile” = Purchases made on smartphones or tablets&lt;/td&gt;
+      &lt;td&gt;Values: “Call Center” = purchase by phone &lt;br /&gt; “Web” = purchase by  web &lt;br /&gt; “Portal” = an agent making the purchase for the customer &lt;br /&gt; “Kiosk” = Purchases in kiosks &lt;br /&gt; “Mobile” = Purchases made on smartphones or tablets&lt;/td&gt;
       &lt;td&gt;String&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -17570,7 +17570,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Transactional screen&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Checkout Cielo has its own transactional screen, with an optimized layout, shortening the steps to pay for your transactions. &lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Checkout Cielo has its own transactional screen, with an optimized layout, shortening the steps to pay for your transactions.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Buyer Registration&lt;/strong&gt;&lt;/td&gt;
@@ -17590,7 +17590,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Means of payment&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Checkout Cielo has a wide range of payment means: &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;Credit cards&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Debit card&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Online Debit&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Bradesco e Banco do Brasil Bank slip&lt;/strong&gt;&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Checkout Cielo has a wide range of payment means: &lt;br /&gt; &lt;strong&gt;Credit cards&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Debit card&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Online Debit&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Bradesco e Banco do Brasil Bank slip&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Simplified Backoffice&lt;/strong&gt;&lt;/td&gt;
@@ -17606,7 +17606,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Transactional reports&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Within Backoffice, it is possible to generate transactional reports that make it easy to manage your sales: &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;Recurrence Report&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Buyer Report&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Sales statement&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Sales report&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Within Backoffice, it is possible to generate transactional reports that make it easy to manage your sales: &lt;br /&gt; &lt;strong&gt;Recurrence Report&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Buyer Report&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Sales statement&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Sales report&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17708,11 +17708,11 @@ The Cielo payments page provides a high level of confidence, following PCI secur
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Visa&lt;/td&gt;
-      &lt;td&gt;Bradesco&lt;br /&gt;Banco do Brasil&lt;br /&gt;HSBC&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Safra&lt;br /&gt;Banco da Amazônia&lt;br /&gt;Sicredi&lt;br /&gt;Banco do Espirito Santo&lt;br /&gt;Banco do Nordeste&lt;br /&gt;Mercantil&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Bradesco&lt;br /&gt;Banco do Brasil&lt;br /&gt;HSBC&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Safra&lt;br /&gt;Banco da Amazônia&lt;br /&gt;Sicredi&lt;br /&gt;Banco do Espirito Santo&lt;br /&gt;Banco do Nordeste&lt;br /&gt;Mercantil&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Mastercard&lt;/td&gt;
-      &lt;td&gt;Banco do Brasil&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Sicredi&lt;br /&gt;Bancoob&lt;br /&gt;CitiBank&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Banco do Brasil&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Sicredi&lt;br /&gt;Bancoob&lt;br /&gt;CitiBank&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -18244,7 +18244,7 @@ These data are separated into the following “main nodes”:&lt;/p&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cart&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Discount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Percent&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Items&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
@@ -18420,7 +18420,7 @@ These data are separated into the following “main nodes”:&lt;/p&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Item type in cart: &lt;code class=&quot;highlighter-rouge&quot;&gt;Asset&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digital&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Service&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Item type in cart: &lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Asset&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digital&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Service&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -18678,7 +18678,7 @@ The discounts available at Checkout Cielo are:&lt;/p&gt;
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Discount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Percent&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -18887,7 +18887,7 @@ The discounts available at Checkout Cielo are:&lt;/p&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Freight type: &lt;code class=&quot;highlighter-rouge&quot;&gt;Post office&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FixedAmount&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Free&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShippingPickUp&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShipping&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Freight type: &lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Post office&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FixedAmount&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Free&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShippingPickUp&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShipping&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -19032,7 +19032,7 @@ The discounts available at Checkout Cielo are:&lt;/p&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Required&lt;/td&gt;
       &lt;td&gt;Integer&lt;/td&gt;
-      &lt;td&gt;Type of package: &lt;code class=&quot;highlighter-rouge&quot;&gt;BOX&lt;/code&gt;- Box  &lt;code class=&quot;highlighter-rouge&quot;&gt;ROL&lt;/code&gt; - Cylinder or ENVELOPE&lt;/td&gt;
+      &lt;td&gt;Type of package: &lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BOX&lt;/code&gt;- Box &lt;br /&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ROL&lt;/code&gt; - Cylinder or ENVELOPE&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -19161,7 +19161,7 @@ This type of integration is accomplished through the registration of a set of it
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Specific&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Each generated button only suits for a particular product or group of products. The quantity and volume of products sold is defined in the Button register, and it is not possible to change the quantity in the transactional screen &lt;strong&gt;Example:&lt;/strong&gt; It will be necessary to create a button to sell 1 shirt. If the buyer desires 3 shirts, he will need to use the button 2X or The merchant should create a button with 2 shirts&lt;/td&gt;
+      &lt;td&gt;Each generated button only suits for a particular product or group of products. The quantity and volume of products sold is defined in the Button register, and it is not possible to change the quantity in the transactional screen &lt;br /&gt;&lt;strong&gt;Example:&lt;/strong&gt; It will be necessary to create a button to sell 1 shirt. If the buyer desires 3 shirts, he will need to use the button 2X or The merchant should create a button with 2 shirts&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Checkout Order Number&lt;/strong&gt;&lt;/td&gt;
@@ -19384,7 +19384,7 @@ Just follow the path below:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;AUTHORIZED / DENIED&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Result of the authorization process. &lt;strong&gt;AUTHORIZED&lt;/strong&gt; - Credit was reserved for purchase  &lt;strong&gt;DENIED&lt;/strong&gt; - Card not authorized by the issuer to continue the transaction&lt;/td&gt;
+      &lt;td&gt;Result of the authorization process. &lt;br /&gt;&lt;strong&gt;AUTHORIZED&lt;/strong&gt; - Credit was reserved for purchase &lt;br /&gt; &lt;strong&gt;DENIED&lt;/strong&gt; - Card not authorized by the issuer to continue the transaction&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;3&lt;/td&gt;
@@ -19683,17 +19683,17 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Return URL&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Web page to where the buyer will be redirected at the end of the purchase. No data is exchanged or sent to this URL. This URL only takes the buyer, after completing the purchase, to a page set by the store.&lt;/td&gt;
-      &lt;td&gt;If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo  Can be sent via API - See “Integration via API”&lt;/td&gt;
+      &lt;td&gt;Web page to where the buyer will be redirected at the end of the purchase. &lt;br /&gt;No data is exchanged or sent to this URL.&lt;br /&gt; This URL only takes the buyer, after completing the purchase, to a page set by the store.&lt;/td&gt;
+      &lt;td&gt;If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo &lt;br /&gt; Can be sent via API - See “Integration via API”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Notification URL&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL. The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed**&lt;/td&gt;
+      &lt;td&gt;At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL.&lt;br /&gt; The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed**&lt;/td&gt;
       &lt;td&gt;Used in the Notification via &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; and&lt;code class=&quot;highlighter-rouge&quot;&gt; JSON&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status Change URL&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;When an order has its status changed, a HTTP post will be sent to the Status Change URL. The status change POST does not contain cart data, only order identification data&lt;/td&gt;
+      &lt;td&gt;When an order has its status changed, a HTTP post will be sent to the Status Change URL.&lt;br /&gt; The status change POST does not contain cart data, only order identification data&lt;/td&gt;
       &lt;td&gt;Used only in Notification via &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -20416,11 +20416,11 @@ Some business examples are:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Installment&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;This is a &lt;strong&gt;transaction divided into several months&lt;/strong&gt;. The total value of the sale compromises the limit of the buyer’s credit card regardless of the value of the initial installment. The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied.&lt;br /&gt;&lt;br /&gt; &lt;strong&gt;e.g.&lt;/strong&gt;: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied&lt;/td&gt;
+      &lt;td&gt;This is a &lt;strong&gt;transaction divided into several months&lt;/strong&gt;. &lt;br /&gt;The total value of the sale compromises the limit of the buyer’s credit card regardless of the value of the initial installment.&lt;br /&gt; The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied.&lt;br /&gt; &lt;strong&gt;e.g.&lt;/strong&gt;: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Recurrent&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;They are &lt;strong&gt;different transactions performed on the same card at previously scheduled times&lt;/strong&gt;. The first sale schedules future sales from a pre-defined time interval.  At each interval there will be a charge on the credit card.  The recurring payment blocks from the card limit only the value debited on the date of the first recurring sale and from the total value of the sale.&lt;br /&gt;&lt;br /&gt; &lt;strong&gt;e.g.&lt;/strong&gt;: Sale of R$1,000.00 on 01/15/2015, with monthly recurrence and final date on 06/01/2015. Every day of 15 there will be a new charge of R$1,000.00 on the buyer’s card, repeating until 05/15/2015, the last valid date before the end date.&lt;/td&gt;
+      &lt;td&gt;They are &lt;strong&gt;different transactions performed on the same card at previously scheduled times&lt;/strong&gt;.&lt;br /&gt; The first sale schedules future sales from a pre-defined time interval.&lt;br /&gt;  At each interval there will be a charge on the credit card. &lt;br /&gt; The recurring payment blocks from the card limit only the value debited on the date of the first recurring sale and from the total value of the sale.&lt;br /&gt; &lt;strong&gt;e.g.&lt;/strong&gt;: Sale of R$1,000.00 on 01/15/2015, with monthly recurrence and final date on 06/01/2015. Every day of 15 there will be a new charge of R$1,000.00 on the buyer’s card, repeating until 05/15/2015, the last valid date before the end date.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -20637,9 +20637,9 @@ If there is a recurrence node in the technical contract, the &lt;code class=&quo
   &lt;li&gt;Enter Details (the “+” symbol)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Recurrence order&quot; /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/pedidoreccance.png&quot; alt=&quot;Recurrence cancellation&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Recurrence order&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/pedidoreccance.png&quot; alt=&quot;Recurrence cancellation&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Recurrence detail screen&lt;/p&gt;
 

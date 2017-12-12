@@ -124,15 +124,15 @@
   <tbody>
     <tr>
       <td><strong>Marketplace</strong></td>
-      <td>Responsável pelo carrinho.  Possui acordos com <strong>Subordinados</strong> que fornecem os produtos presentes no carrinho. Define as taxas a serem descontadas sobre a venda de cada <strong>Subordinado</strong>. Pode participar de uma venda fornecendo seus próprios produtos.</td>
+      <td>Responsável pelo carrinho. <br /> Possui acordos com <strong>Subordinados</strong> que fornecem os produtos presentes no carrinho.<br /> Define as taxas a serem descontadas sobre a venda de cada <strong>Subordinado</strong>.<br /> Pode participar de uma venda fornecendo seus próprios produtos.</td>
     </tr>
     <tr>
       <td><strong>Subordinado</strong></td>
-      <td>Fornecedor dos produtos que compõem o carrinho.Recebe parte do valor da venda, descontadas as taxas acordadas com o <strong>Marketplace</strong>.</td>
+      <td>Fornecedor dos produtos que compõem o carrinho.<br />Recebe parte do valor da venda, descontadas as taxas acordadas com o <strong>Marketplace</strong>.</td>
     </tr>
     <tr>
       <td><strong>Braspag (Facilitador)</strong></td>
-      <td>Responsável pelo fluxo transacional. Define as taxas a serem descontadas sobre o valor total da venda realizada pelo <strong>Marketplace</strong>.<br /> Responsável pela liquidação dos pagamentos para os <strong>Subordinados</strong> e <strong>Marketplace</strong>.</td>
+      <td>Responsável pelo fluxo transacional.<br /> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo <strong>Marketplace</strong>.<br /> Responsável pela liquidação dos pagamentos para os <strong>Subordinados</strong> e <strong>Marketplace</strong>.</td>
     </tr>
   </tbody>
 </table>
@@ -144,9 +144,9 @@
 <p>Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento*), para cada envolvido na transação.</p>
 
 <blockquote>
-  <p><strong>Regime de Pagamento</strong>: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.</p>
-
-  <p><strong>Crédito</strong>: Em até 31 dias.
+  <p><strong>Regime de Pagamento</strong>: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
+<br />
+<strong>Crédito</strong>: Em até 31 dias.
 <strong>Crédito Parcelado</strong>: 1º parcela em até 31 dias, demais a cada 30.
 <strong>Débito</strong>: Em até 1 dia útil.</p>
 </blockquote>
@@ -215,7 +215,7 @@ Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR ac
 Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]</p>
 
 <p><strong>Braspag (Facilitador)</strong>:<br />
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
+Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <h2 id="ambientes">Ambientes</h2>
@@ -228,17 +228,21 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <h3 id="sandbox">Sandbox</h3>
 
-<p><strong>API Cielo E-Commerce</strong>: https://apisandbox.cieloecommerce.cielo.com.br/
-<strong>API Cielo E-Commerce (Consultas)</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br/
-<strong>API Split</strong>: http://splitsandbox.braspag.com.br/
-<strong>Braspag OAUTH2 Server</strong>: https://authhomolog.braspag.com.br/</p>
+<ul>
+  <li><strong>API Cielo E-Commerce</strong>: https://apisandbox.cieloecommerce.cielo.com.br/</li>
+  <li><strong>API Cielo E-Commerce (Consultas)</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br/</li>
+  <li><strong>API Split</strong>: http://splitsandbox.braspag.com.br/</li>
+  <li><strong>Braspag OAUTH2 Server</strong>: https://authhomolog.braspag.com.br/</li>
+</ul>
 
 <h3 id="produção">Produção</h3>
 
-<p><strong>API Cielo E-Commerce</strong>: https://api.cieloecommerce.cielo.com.br/
-<strong>API Cielo E-Commerce (Consultas)</strong>: https://apiquery.cieloecommerce.cielo.com.br/
-<strong>API Split</strong>: http://split.braspag.com.br/
-<strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/</p>
+<ul>
+  <li><strong>API Cielo E-Commerce</strong>: https://api.cieloecommerce.cielo.com.br/</li>
+  <li><strong>API Cielo E-Commerce (Consultas)</strong>: https://apiquery.cieloecommerce.cielo.com.br/</li>
+  <li><strong>API Split</strong>: http://split.braspag.com.br/</li>
+  <li><strong>Braspag OAUTH2 Server</strong>: https://auth.braspag.com.br/</li>
+</ul>
 
 <h2 id="autenticação">Autenticação</h2>
 
@@ -309,11 +313,9 @@ grant_type=client_credentials
 <blockquote>
   <p>Atualmente o Split de Pagamentos está disponivel para os seguintes tipos de pagamento:</p>
   <ul>
-    <li>Cartão de Crédito</li>
-  </ul>
-
-  <p>Em breve estarão disponíveis:</p>
-  <ul>
+    <li>Cartão de Crédito
+<br />
+Em breve estarão disponíveis:</li>
     <li>Cartão de Débito</li>
     <li>Boleto</li>
   </ul>
@@ -325,7 +327,7 @@ grant_type=client_credentials
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w"> 
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
@@ -557,7 +559,7 @@ grant_type=client_credentials
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w"> 
+              </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -565,7 +567,7 @@ grant_type=client_credentials
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w"> 
+              </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -848,7 +850,7 @@ grant_type=client_credentials
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">4500</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w"> 
+              </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -856,7 +858,7 @@ grant_type=client_credentials
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w"> 
+              </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1002,7 +1004,7 @@ grant_type=client_credentials
         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w"> 
+            </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1184,7 +1186,7 @@ grant_type=client_credentials
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w"> 
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Bearer {access_token}"</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"SplitPayments"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1192,7 +1194,7 @@ grant_type=client_credentials
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w"> 
+                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1293,7 +1295,7 @@ grant_type=client_credentials
             </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w"> 
+                </span><span class="s2">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -2141,7 +2143,7 @@ grant_type=client_credentials
     </span><span class="s2">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AdjustmentDebit"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-20"</span><span class="w"> 
+    </span><span class="s2">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-20"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -2270,7 +2272,7 @@ grant_type=client_credentials
             </span><span class="s2">"ChargebackSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7c7e5e7b-8a5d-41bf-ad91-b346e077f769"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3780</span><span class="w"> 
+                    </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3780</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
@@ -2284,7 +2286,7 @@ grant_type=client_credentials
             </span><span class="s2">"ChargebackSplits"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b9f5bea-5504-40a0-8ae7-04c154b06b8b"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1912</span><span class="w"> 
+                    </span><span class="s2">"ChargebackAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1912</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e4db3e1b-985f-4e33-80cf-a19d559f0f60"</span><span class="p">,</span><span class="w">
