@@ -1727,7 +1727,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 <BR>
 A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
 
-Quando lançado um ajusta à Crédito para um Subordinado, automaticamente é lançado um ajuste a Débito para o Marketplace na mesma data, e vice-versa.
+Quando lançado um ajuste a Crédito para um Subordinado, automaticamente é lançado um ajuste a Débito para o Marketplace na mesma data, e vice-versa.
 
 **Request**
 
