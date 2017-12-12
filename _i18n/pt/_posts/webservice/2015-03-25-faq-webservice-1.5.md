@@ -5,7 +5,7 @@ description: Respostas para dúvidas comuns sobre Webservice 1.5
 search: true
 toc_footers: true
 categories: faq
-sort_order: 2
+sort_order: 3
 tags:
   - Webservice 1.5
 ---
