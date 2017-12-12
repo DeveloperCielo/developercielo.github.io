@@ -308,6 +308,7 @@
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
+            
             $(window).scroll(function () {
                 if ($('li.active').closest('.tocify-header') !== openedHeader) {
                     $('li.is-open').removeClass('is-open');

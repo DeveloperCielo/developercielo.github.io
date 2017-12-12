@@ -262,11 +262,11 @@ No <strong>Checkout Cielo</strong> não há <code class="highlighter-rouge">Merc
   <tbody>
     <tr>
       <td>Sandbox</td>
-      <td><strong>Envio de transação</strong>:  https://apisandbox.cieloecommerce.cielo.com.br  <strong>Consulta transação</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br/</td>
+      <td><strong>Envio de transação</strong>:  https://apisandbox.cieloecommerce.cielo.com.br <br /> <strong>Consulta transação</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br/</td>
     </tr>
     <tr>
       <td>Produção</td>
-      <td><strong>Envio de transação</strong>: https://api.cieloecommerce.cielo.com.br/  <strong>Consulta transação</strong>: https://apiquery.cieloecommerce.cielo.com.br/</td>
+      <td><strong>Envio de transação</strong>: https://api.cieloecommerce.cielo.com.br/ <br /> <strong>Consulta transação</strong>: https://apiquery.cieloecommerce.cielo.com.br/</td>
     </tr>
   </tbody>
 </table>
@@ -437,6 +437,7 @@ No <strong>Checkout Cielo</strong> não há <code class="highlighter-rouge">Merc
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
+            
             $(window).scroll(function () {
                 if ($('li.active').closest('.tocify-header') !== openedHeader) {
                     $('li.is-open').removeClass('is-open');

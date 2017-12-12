@@ -315,7 +315,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
     <ul>
       <li><strong>Para</strong>: <a href="mailto:homologacao@scopus.com.br">homologacao@scopus.com.br</a>; <a href="mailto:kit@scopus.com.br">kit@scopus.com.br</a></li>
       <li><strong>Assunto</strong>: Dados do ambiente de produção Débito SPS</li>
-      <li><strong>Corpo do email</strong>:Prezados,Favor liberar o cliente abaixo no ambiente de produção:Razão Social: XXXXXCNPJ: XXXXNome da loja: XXXXXNúmero da loja: XXXXXManager: XXXXXSenha: XXXXXXXURL da Loja: https://www.XXXXXXXXXMeio de Pagamento para Homologar: Débito em Conta</li>
+      <li><strong>Corpo do email</strong>:<br />Prezados,<br /><br />Favor liberar o cliente abaixo no ambiente de produção:<br /><br />Razão Social: XXXXX<br />CNPJ: XXXX<br />Nome da loja: XXXXX<br />Número da loja: XXXXX<br />Manager: XXXXX<br />Senha: XXXXXXX<br />URL da Loja: https://www.XXXXXXXXX<br />Meio de Pagamento para Homologar: Débito em Conta<br /></li>
     </ul>
   </li>
   <li>Receber os dados de produção:
@@ -460,6 +460,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
+            
             $(window).scroll(function () {
                 if ($('li.active').closest('.tocify-header') !== openedHeader) {
                     $('li.is-open').removeClass('is-open');

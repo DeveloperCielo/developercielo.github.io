@@ -155,7 +155,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
   <tbody>
     <tr>
       <td><strong>Transactional screen</strong></td>
-      <td>Checkout Cielo has its own transactional screen, with an optimized layout, shortening the steps to pay for your transactions.</td>
+      <td>Checkout Cielo has its own transactional screen, with an optimized layout, shortening the steps to pay for your transactions. <br /></td>
     </tr>
     <tr>
       <td><strong>Buyer Registration</strong></td>
@@ -167,7 +167,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
     </tr>
     <tr>
       <td><strong>Recurrence</strong></td>
-      <td>Checkout Cielo has the Scheduled Recurrence available in the API Cielo Ecommerce.  The merchant just needs to define that a transaction must be repeated, that Checkout will run it again within the defined range</td>
+      <td>Checkout Cielo has the Scheduled Recurrence available in the API Cielo Ecommerce. <br /> The merchant just needs to define that a transaction must be repeated, that Checkout will run it again within the defined range</td>
     </tr>
     <tr>
       <td><strong>Anti fraud</strong></td>
@@ -175,7 +175,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
     </tr>
     <tr>
       <td><strong>Means of payment</strong></td>
-      <td>Checkout Cielo has a wide range of payment means:  <strong>Credit cards</strong>  <strong>Debit card</strong><strong>Online Debit</strong><strong>Bradesco e Banco do Brasil Bank slip</strong></td>
+      <td>Checkout Cielo has a wide range of payment means: <br /><br /> <strong>Credit cards</strong> <br /> <strong>Debit card</strong><br /><strong>Online Debit</strong><br /><strong>Bradesco e Banco do Brasil Bank slip</strong><br /></td>
     </tr>
     <tr>
       <td><strong>Simplified Backoffice</strong></td>
@@ -191,7 +191,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
     </tr>
     <tr>
       <td><strong>Transactional reports</strong></td>
-      <td>Within Backoffice, it is possible to generate transactional reports that make it easy to manage your sales:  <strong>Recurrence Report</strong>  <strong>Buyer Report</strong><strong>Sales statement</strong><strong>Sales report</strong></td>
+      <td>Within Backoffice, it is possible to generate transactional reports that make it easy to manage your sales: <br /><br /> <strong>Recurrence Report</strong> <br /> <strong>Buyer Report</strong><br /><strong>Sales statement</strong><br /><strong>Sales report</strong><br /><br /></td>
     </tr>
   </tbody>
 </table>
@@ -293,11 +293,11 @@ The Cielo payments page provides a high level of confidence, following PCI secur
   <tbody>
     <tr>
       <td>Visa</td>
-      <td>BradescoBanco do BrasilHSBCSantanderItaúBRBSafraBanco da AmazôniaSicrediBanco do Espirito SantoBanco do NordesteMercantil</td>
+      <td>Bradesco<br />Banco do Brasil<br />HSBC<br />Santander<br />Itaú<br />BRB<br />Safra<br />Banco da Amazônia<br />Sicredi<br />Banco do Espirito Santo<br />Banco do Nordeste<br />Mercantil<br /></td>
     </tr>
     <tr>
       <td>Mastercard</td>
-      <td>Banco do BrasilSantanderItaúBRBSicrediBancoobCitiBank</td>
+      <td>Banco do Brasil<br />Santander<br />Itaú<br />BRB<br />Sicredi<br />Bancoob<br />CitiBank<br /></td>
     </tr>
   </tbody>
 </table>
@@ -570,7 +570,7 @@ Below we list points that must be ready before integration:</p>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">API</code></td>
-      <td>An Integration via API allows the merchant to send the web site <strong>“Shopping cart”</strong> with all the data that he wants to display on the transactional screen.  In this type of integration the merchant has more control over how the order will be generated.</td>
+      <td>An Integration via API allows the merchant to send the web site <strong>“Shopping cart”</strong> with all the data that he wants to display on the transactional screen. <br /> In this type of integration the merchant has more control over how the order will be generated.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Botão / QR Code / Link</code></td>
@@ -1984,7 +1984,7 @@ Just follow the path below:</p>
     <tr>
       <td>N/A</td>
       <td><strong>CHARGEBACK</strong></td>
-      <td>Not automatic status. If the merchant is notified of ChargeBack, he can mark this transaction as lost. This Status is only a markup, not affecting payment processes</td>
+      <td>Not automatic status. If the merchant is notified of ChargeBack, he can mark this transaction as lost.<br /> This Status is only a markup, not affecting payment processes</td>
     </tr>
   </tbody>
 </table>
@@ -3001,11 +3001,11 @@ Some business examples are:</p>
   <tbody>
     <tr>
       <td><strong>Installment</strong></td>
-      <td>This is a <strong>transaction divided into several months</strong>. The total value of the sale compromises the limit of the buyer’s credit card regardless of the value of the initial installment. The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied. <strong>e.g.</strong>: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied</td>
+      <td>This is a <strong>transaction divided into several months</strong>. The total value of the sale compromises the limit of the buyer’s credit card regardless of the value of the initial installment. The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied.<br /><br /> <strong>e.g.</strong>: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied</td>
     </tr>
     <tr>
       <td><strong>Recurrent</strong></td>
-      <td>They are <strong>different transactions performed on the same card at previously scheduled times</strong>. The first sale schedules future sales from a pre-defined time interval.  At each interval there will be a charge on the credit card.  The recurring payment blocks from the card limit only the value debited on the date of the first recurring sale and from the total value of the sale. <strong>e.g.</strong>: Sale of R$1,000.00 on 01/15/2015, with monthly recurrence and final date on 06/01/2015. Every day of 15 there will be a new charge of R$1,000.00 on the buyer’s card, repeating until 05/15/2015, the last valid date before the end date.</td>
+      <td>They are <strong>different transactions performed on the same card at previously scheduled times</strong>. The first sale schedules future sales from a pre-defined time interval.  At each interval there will be a charge on the credit card.  The recurring payment blocks from the card limit only the value debited on the date of the first recurring sale and from the total value of the sale.<br /><br /> <strong>e.g.</strong>: Sale of R$1,000.00 on 01/15/2015, with monthly recurrence and final date on 06/01/2015. Every day of 15 there will be a new charge of R$1,000.00 on the buyer’s card, repeating until 05/15/2015, the last valid date before the end date.</td>
     </tr>
   </tbody>
 </table>
@@ -3222,9 +3222,9 @@ If there is a recurrence node in the technical contract, the <code class="highli
   <li>Enter Details (the “+” symbol)</li>
 </ol>
 
-<p><img src="https://developercielo.github.io/en/images/checkout-cancelar-recorrencia.png" alt="Recurrence order" /></p>
-
-<p><img src="https://developercielo.github.io/en/images/Checkout/pedidoreccance.png" alt="Recurrence cancellation" /></p>
+<p><img src="https://developercielo.github.io/en/images/checkout-cancelar-recorrencia.png" alt="Recurrence order" />
+<br />
+<img src="https://developercielo.github.io/en/images/Checkout/pedidoreccance.png" alt="Recurrence cancellation" /></p>
 
 <p>Recurrence detail screen</p>
 
@@ -3343,6 +3343,7 @@ If there is a recurrence node in the technical contract, the <code class="highli
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
+            
             $(window).scroll(function () {
                 if ($('li.active').closest('.tocify-header') !== openedHeader) {
                     $('li.is-open').removeClass('is-open');
@@ -3374,6 +3375,7 @@ If there is a recurrence node in the technical contract, the <code class="highli
         
         <script>
         let langs = '';
+        let langsArray = [];
 
         $('div.highlighter-rouge').prepend('<a class="fa expand-btn" title="Toggle"><i class="fa fa-expand" aria-hidden=true></i></a>');
 
@@ -3407,9 +3409,41 @@ If there is a recurrence node in the technical contract, the <code class="highli
 
         
         langs += "<a data-language-name='json'>JSON</a>";
+        langsArray.push('json');
         
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://developercielo.github.io/en/assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                $('.language-buttons').each(function() {
+                    let parent = $(this).parent();
+
+                    parent.addClass('selectable');
+
+                    if(parent.hasClass('language-tabs')) {
+                        return true;
+                    }
+
+                    langsArray.forEach((v) => {
+                        if(parent.find('.language-' + v).length === 0) {
+                            $(this).find('[data-language-name="' + v + '"]').remove();
+
+                            let firstItem = $(this).children().first();
+                            firstItem.addClass('active');
+                            parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
+                            
+                            if(parent.children('[class^="language-"]').length === 2) {
+                                parent.removeClass('selectable');
+                            }
+                        }
+                    });
+                });
+
+                setupLanguages([  "json", ]);
+            });
         </script>
 
         <script src="https://developercielo.github.io/en/assets/js/lang.js"></script>

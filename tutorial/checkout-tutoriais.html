@@ -491,7 +491,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   <tbody>
     <tr>
       <td><strong>Valor minimo parcela</strong></td>
-      <td>Caso o valor da parcela da compra seja inferior ao minimo, o Checkout exibirá apenas a parcela superior ao minimo  <strong>EX:</strong> Parcela minima de R$5,00, Em uma compra de R$10, não será exibida a opção de parcelamento em 3X, apenas em 2X</td>
+      <td>Caso o valor da parcela da compra seja inferior ao minimo, o Checkout exibirá apenas a parcela superior ao minimo <br /><br /> <strong>EX:</strong> Parcela minima de R$5,00, Em uma compra de R$10, não será exibida a opção de parcelamento em 3X, apenas em 2X</td>
     </tr>
     <tr>
       <td><strong>Valor mínimo para pagamento com boleto</strong></td>
@@ -508,7 +508,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   </tbody>
 </table>
 
-<aside class="warning">Se valor da compra for inferior, caso não haja outro meio de pagamento disponivel, não haverá opção para o comprador, obrigando-o a retornar a loja criar um carrinho com o valor acima do minimo. Para evitar essa situação sugerimos:Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor minimo do boleto.Adquira outros meios de pagamento como Cartões de crédito (procedimento realizado pelo Checkout Cielo) ou débito online.</aside>
+<aside class="warning">Se valor da compra for inferior, caso não haja outro meio de pagamento disponivel, não haverá opção para o comprador, obrigando-o a retornar a loja criar um carrinho com o valor acima do minimo. Para evitar essa situação sugerimos:<br /><br />Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor minimo do boleto.Adquira outros meios de pagamento como Cartões de crédito (procedimento realizado pelo Checkout Cielo) ou débito online.</aside>
 
 <aside class="warning">O valor minimo do boleto não funciona em caso de descontos definidos pelo lojista. Caso o lojista defina valor minimo de boleto de R$100,00 e um desconto de 10%,  será gerado um boleto de R$90,00 (inferior ao minimo)</aside>
 
@@ -913,6 +913,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
+            
             $(window).scroll(function () {
                 if ($('li.active').closest('.tocify-header') !== openedHeader) {
                     $('li.is-open').removeClass('is-open');

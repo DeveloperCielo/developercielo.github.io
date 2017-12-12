@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T19:37:09+00:00</updated>
+    <updated>2017-12-12T19:48:05+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1563,7 +1563,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Braspag (Facilitador)&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Responsável pelo fluxo transacional. Define as taxas a serem descontadas sobre o valor total da venda realizada pelo &lt;strong&gt;Marketplace&lt;/strong&gt;. Responsável pela liquidação dos pagamentos para os &lt;strong&gt;Subordinados&lt;/strong&gt; e &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/td&gt;
+      &lt;td&gt;Responsável pelo fluxo transacional. Define as taxas a serem descontadas sobre o valor total da venda realizada pelo &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;br /&gt; Responsável pela liquidação dos pagamentos para os &lt;strong&gt;Subordinados&lt;/strong&gt; e &lt;strong&gt;Marketplace&lt;/strong&gt;.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3927,11 +3927,11 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Sandbox&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Envio de transação&lt;/strong&gt;:  https://apisandbox.cieloecommerce.cielo.com.br  &lt;strong&gt;Consulta transação&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Envio de transação&lt;/strong&gt;:  https://apisandbox.cieloecommerce.cielo.com.br &lt;br /&gt; &lt;strong&gt;Consulta transação&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Produção&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Envio de transação&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/  &lt;strong&gt;Consulta transação&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Envio de transação&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/ &lt;br /&gt; &lt;strong&gt;Consulta transação&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -6646,7 +6646,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;Para&lt;/strong&gt;: &lt;a href=&quot;mailto:homologacao@scopus.com.br&quot;&gt;homologacao@scopus.com.br&lt;/a&gt;; &lt;a href=&quot;mailto:kit@scopus.com.br&quot;&gt;kit@scopus.com.br&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;Assunto&lt;/strong&gt;: Dados do ambiente de produção Débito SPS&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Corpo do email&lt;/strong&gt;:Prezados,Favor liberar o cliente abaixo no ambiente de produção:Razão Social: XXXXXCNPJ: XXXXNome da loja: XXXXXNúmero da loja: XXXXXManager: XXXXXSenha: XXXXXXXURL da Loja: https://www.XXXXXXXXXMeio de Pagamento para Homologar: Débito em Conta&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Corpo do email&lt;/strong&gt;:&lt;br /&gt;Prezados,&lt;br /&gt;&lt;br /&gt;Favor liberar o cliente abaixo no ambiente de produção:&lt;br /&gt;&lt;br /&gt;Razão Social: XXXXX&lt;br /&gt;CNPJ: XXXX&lt;br /&gt;Nome da loja: XXXXX&lt;br /&gt;Número da loja: XXXXX&lt;br /&gt;Manager: XXXXX&lt;br /&gt;Senha: XXXXXXX&lt;br /&gt;URL da Loja: https://www.XXXXXXXXX&lt;br /&gt;Meio de Pagamento para Homologar: Débito em Conta&lt;br /&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Receber os dados de produção:
@@ -7077,7 +7077,7 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;s2&quot;&gt;&quot;não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo&quot;&lt;/span&gt;
 
 &lt;span class=&quot;nx&quot;&gt;Uma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;das&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;soluções&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encontradas&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foi&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Azure&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Services&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;te&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;permite&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;montar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cluster&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;único&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;comando&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sobra&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tempo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pra&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;focar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sua&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;aplicação&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;não&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configuração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;máquinas&lt;/span&gt;
-
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Mas&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;é&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?**&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Falando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;por&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;alto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;é&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ferramenta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orquestração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;para&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;containers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;você&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;monta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;seu&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Docker&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;faz&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;trabalho&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;discovery&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;muito&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mais&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; 
 &lt;span class=&quot;nx&quot;&gt;Caso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;queira&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;saber&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mais&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sobre&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;da&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;documentação&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; 
 
@@ -12823,7 +12823,7 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Status da Transação&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Cancelado&lt;/strong&gt; - Transação cancelada pelo lojista&lt;strong&gt;Estornado&lt;/strong&gt; - Transações canceladas com menos de 24 horas&lt;strong&gt;Não Autorizado&lt;/strong&gt; - Transações negadas pelo Autorizador Cielo&lt;strong&gt;Não Pago&lt;/strong&gt; - Transações autorizadas, mas não capturadas&lt;strong&gt;Pago&lt;/strong&gt; - Transações capturadas&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Cancelado&lt;/strong&gt; - Transação cancelada pelo lojista&lt;br /&gt;&lt;strong&gt;Estornado&lt;/strong&gt; - Transações canceladas com menos de 24 horas&lt;br /&gt;&lt;strong&gt;Não Autorizado&lt;/strong&gt; - Transações negadas pelo Autorizador Cielo&lt;br /&gt;&lt;strong&gt;Não Pago&lt;/strong&gt; - Transações autorizadas, mas não capturadas&lt;br /&gt;&lt;strong&gt;Pago&lt;/strong&gt; - Transações capturadas&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -13160,7 +13160,7 @@ Caso uma transação não seja capturada dentro desse limite, ela deixa de ser v
   &lt;li&gt;Posterior à autorização (captura total ou parcial) - Já no segundo caso, é preciso fazer uma “captura posterior”, através de uma nova requisição ao Webservice da Cielo para confirmar a transação e receber o valor da venda.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;Atenção!Na modalidade de débito não existe a opção de captura. Toda transação de débito autorizada é capturada automaticamente.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;Atenção!&lt;br /&gt;&lt;br /&gt;Na modalidade de débito não existe a opção de captura. Toda transação de débito autorizada é capturada automaticamente.&lt;/aside&gt;
 
 &lt;h2 id=&quot;32-É-possível-cancelar-uma-transação&quot;&gt;32. É possível cancelar uma transação?&lt;/h2&gt;
 
@@ -13828,7 +13828,7 @@ Com esse meio de pagamento é possível simular os fluxos de:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Autorizado&lt;/td&gt;
-      &lt;td&gt;0000.0000.0000.00010000.0000.0000.0004&lt;/td&gt;
+      &lt;td&gt;0000.0000.0000.0001&lt;br /&gt;0000.0000.0000.0004&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
       &lt;td&gt;Operação realizada com sucesso&lt;/td&gt;
     &lt;/tr&gt;
@@ -13904,11 +13904,11 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Cartão de débito&lt;/td&gt;
-      &lt;td&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; utilizado deve ser &lt;strong&gt;SIMULADO&lt;/strong&gt;  A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação&lt;/td&gt;
+      &lt;td&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; utilizado deve ser &lt;strong&gt;SIMULADO&lt;/strong&gt; &lt;br /&gt;&lt;br /&gt; A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Transferência online&lt;/td&gt;
-      &lt;td&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; utilizado deve ser &lt;strong&gt;SIMULADO&lt;/strong&gt;  A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação&lt;/td&gt;
+      &lt;td&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; utilizado deve ser &lt;strong&gt;SIMULADO&lt;/strong&gt; &lt;br /&gt;&lt;br /&gt; A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -16425,21 +16425,21 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Resultado da análise.&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Número:100 - Operação bem sucedida.101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.481 - O pedido foi rejeitado pelo Gerenciador de Decisão&lt;/td&gt;
+      &lt;td&gt;Número:&lt;br /&gt;100 - Operação bem sucedida.101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.481 - O pedido foi rejeitado pelo Gerenciador de Decisão&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AddressInfoCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Combinação de códigos que indicam erro no endereço de cobrança e/ou entrega. Os códigos são concatenados usando o caractere ^.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Ex: COR-BA^MM-BINCOR-BA - O endereço de cobrança pode ser normalizado.COR-SA - O endereço de entrega pode ser normalizado.INTL-BA - O país de cobrança é fora dos U.S.INTL-SA - O país de entrega é fora dos U.S.MIL-USA - Este é um endereço militar nos U.S.MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.MM-C - Os endereços de cobrança e entrega usam cidades diferentes.MM-CO - Os endereços de cobrança e entrega usam países diferentes.MM-ST - Os endereços de cobrança e entrega usam estados diferentes.MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.UNV-ADDR - O endereço é inverificável.&lt;/td&gt;
+      &lt;td&gt;Ex: COR-BA^MM-BIN&lt;br /&gt;COR-BA - O endereço de cobrança pode ser normalizado.COR-SA - O endereço de entrega pode ser normalizado.INTL-BA - O país de cobrança é fora dos U.S.INTL-SA - O país de entrega é fora dos U.S.MIL-USA - Este é um endereço militar nos U.S.MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.MM-C - Os endereços de cobrança e entrega usam cidades diferentes.MM-CO - Os endereços de cobrança e entrega usam países diferentes.MM-ST - Os endereços de cobrança e entrega usam estados diferentes.MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.UNV-ADDR - O endereço é inverificável.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FactorCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;Ex: B^D^R^ZA - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.&lt;/td&gt;
+      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Score&lt;/code&gt;&lt;/td&gt;
@@ -16481,7 +16481,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Sequência de códigos que indicam que existe uma excessiva alteração de identidades do comprador. Os códigos são concatenados usando o caractere ^.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Ex: MORPH-B - O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-C - O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-E - O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos. MORPH-I O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-P - O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos.MORPH-S - O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos.&lt;/td&gt;
+      &lt;td&gt;Ex: &lt;br /&gt;MORPH-B - O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-C - O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-E - O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos. MORPH-I O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-P - O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos.MORPH-S - O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IpRoutingMethod&lt;/code&gt;&lt;/td&gt;
@@ -18661,7 +18661,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Intervalo da recorrência.Monthly (Default) Bimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
+      &lt;td&gt;Intervalo da recorrência.&lt;br /&gt;Monthly (Default) Bimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -20861,7 +20861,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Intervalo da recorrência.Monthly (Default) Bimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
+      &lt;td&gt;Intervalo da recorrência.&lt;br /&gt;Monthly (Default) Bimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -21801,14 +21801,14 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       &lt;td&gt;Resultado da análise.&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Número:100 - Operação bem sucedida.101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.481 - O pedido foi rejeitado pelo Gerenciador de Decisão&lt;/td&gt;
+      &lt;td&gt;Número:&lt;br /&gt;100 - Operação bem sucedida.101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.481 - O pedido foi rejeitado pelo Gerenciador de Decisão&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.FactorCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;Ex: B^D^R^ZA - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.&lt;/td&gt;
+      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Score&lt;/code&gt;&lt;/td&gt;
@@ -27607,7 +27607,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Valor minimo parcela&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Caso o valor da parcela da compra seja inferior ao minimo, o Checkout exibirá apenas a parcela superior ao minimo  &lt;strong&gt;EX:&lt;/strong&gt; Parcela minima de R$5,00, Em uma compra de R$10, não será exibida a opção de parcelamento em 3X, apenas em 2X&lt;/td&gt;
+      &lt;td&gt;Caso o valor da parcela da compra seja inferior ao minimo, o Checkout exibirá apenas a parcela superior ao minimo &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;EX:&lt;/strong&gt; Parcela minima de R$5,00, Em uma compra de R$10, não será exibida a opção de parcelamento em 3X, apenas em 2X&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Valor mínimo para pagamento com boleto&lt;/strong&gt;&lt;/td&gt;
@@ -27624,7 +27624,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;Se valor da compra for inferior, caso não haja outro meio de pagamento disponivel, não haverá opção para o comprador, obrigando-o a retornar a loja criar um carrinho com o valor acima do minimo. Para evitar essa situação sugerimos:Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor minimo do boleto.Adquira outros meios de pagamento como Cartões de crédito (procedimento realizado pelo Checkout Cielo) ou débito online.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;Se valor da compra for inferior, caso não haja outro meio de pagamento disponivel, não haverá opção para o comprador, obrigando-o a retornar a loja criar um carrinho com o valor acima do minimo. Para evitar essa situação sugerimos:&lt;br /&gt;&lt;br /&gt;Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor minimo do boleto.Adquira outros meios de pagamento como Cartões de crédito (procedimento realizado pelo Checkout Cielo) ou débito online.&lt;/aside&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;O valor minimo do boleto não funciona em caso de descontos definidos pelo lojista. Caso o lojista defina valor minimo de boleto de R$100,00 e um desconto de 10%,  será gerado um boleto de R$90,00 (inferior ao minimo)&lt;/aside&gt;
 
@@ -28135,7 +28135,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Tela transacional&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações.&lt;/td&gt;
+      &lt;td&gt;O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. &lt;br /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Registro de Compradores&lt;/strong&gt;&lt;/td&gt;
@@ -28147,7 +28147,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Recorrência&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;O Checkout Cielo possui a Recorrência Programada disponível na API Cielo Ecommerce.  Basta que o lojista defina que uma transação deve se repetir, que o Checkout vai executa-la novamente no intervalo definido&lt;/td&gt;
+      &lt;td&gt;O Checkout Cielo possui a Recorrência Programada disponível na API Cielo Ecommerce. &lt;br /&gt; Basta que o lojista defina que uma transação deve se repetir, que o Checkout vai executa-la novamente no intervalo definido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Antifraude&lt;/strong&gt;&lt;/td&gt;
@@ -28155,7 +28155,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Meios de pagamentos&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;O Checkout Cielo possui uma variada gama de meios de pagamento:  &lt;strong&gt;Cartões de crédito&lt;/strong&gt;  &lt;strong&gt;Cartão de Débito&lt;/strong&gt;&lt;strong&gt;Débito Online&lt;/strong&gt;&lt;strong&gt;Boleto Bradesco e Banco do Brasil&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;O Checkout Cielo possui uma variada gama de meios de pagamento: &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;Cartões de crédito&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Cartão de Débito&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Débito Online&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Boleto Bradesco e Banco do Brasil&lt;/strong&gt;&lt;br /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Backoffice Simplificado&lt;/strong&gt;&lt;/td&gt;
@@ -28171,7 +28171,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Relatórios transacionais&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas:  &lt;strong&gt;Relatório de Recorrências&lt;/strong&gt;  &lt;strong&gt;Relatório de compradores&lt;/strong&gt;&lt;strong&gt;Extrato de vendas&lt;/strong&gt;&lt;strong&gt;Relatório de vendas&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;Relatório de Recorrências&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Relatório de compradores&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Extrato de vendas&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Relatório de vendas&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -28273,11 +28273,11 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Visa&lt;/td&gt;
-      &lt;td&gt;BradescoBanco do BrasilHSBCSantanderItaúBRBSafraBanco da AmazôniaSicrediBanco do Espirito SantoBanco do NordesteMercantil&lt;/td&gt;
+      &lt;td&gt;Bradesco&lt;br /&gt;Banco do Brasil&lt;br /&gt;HSBC&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Safra&lt;br /&gt;Banco da Amazônia&lt;br /&gt;Sicredi&lt;br /&gt;Banco do Espirito Santo&lt;br /&gt;Banco do Nordeste&lt;br /&gt;Mercantil&lt;br /&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Mastercard&lt;/td&gt;
-      &lt;td&gt;Banco do BrasilSantanderItaúBRBSicrediBancoobCitiBank&lt;/td&gt;
+      &lt;td&gt;Banco do Brasil&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Sicredi&lt;br /&gt;Bancoob&lt;br /&gt;CitiBank&lt;br /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -28550,7 +28550,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;API&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;É utilizada uma Integração via API que permite o lojista enviar o &lt;strong&gt;“Carrinho de compras”&lt;/strong&gt; do seu site com todos os dados que ele deseja apresentar na tela transacional.  Neste tipo de integração o lojista possui maior controle sobre como o pedido será gerado.&lt;/td&gt;
+      &lt;td&gt;É utilizada uma Integração via API que permite o lojista enviar o &lt;strong&gt;“Carrinho de compras”&lt;/strong&gt; do seu site com todos os dados que ele deseja apresentar na tela transacional. &lt;br /&gt; Neste tipo de integração o lojista possui maior controle sobre como o pedido será gerado.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Botão / QR Code / Link&lt;/code&gt;&lt;/td&gt;
@@ -29923,7 +29923,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
     &lt;tr&gt;
       &lt;td&gt;N/A&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;CHARGEBACK&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Status não automatico. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida. Este Status é apenas uma marcação, não afetando processos de pagamento&lt;/td&gt;
+      &lt;td&gt;Status não automatico. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.&lt;br /&gt; Este Status é apenas uma marcação, não afetando processos de pagamento&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -30916,11 +30916,11 @@ Alguns exemplos de negócios são:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Parceladas&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Se trata de &lt;strong&gt;uma transação dividida em vários meses&lt;/strong&gt;. O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial. O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada. &lt;strong&gt;EX&lt;/strong&gt;: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada&lt;/td&gt;
+      &lt;td&gt;Se trata de &lt;strong&gt;uma transação dividida em vários meses&lt;/strong&gt;. O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial. O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.&lt;br /&gt;&lt;br /&gt; &lt;strong&gt;EX&lt;/strong&gt;: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Recorrentes&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;São &lt;strong&gt;transações diferentes realizadas no mesmo cartão em momentos previamente agendados&lt;/strong&gt;. A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.  A cada intervalo haverá uma cobrança no cartão de crédito.  O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda. &lt;strong&gt;EX&lt;/strong&gt;: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.&lt;/td&gt;
+      &lt;td&gt;São &lt;strong&gt;transações diferentes realizadas no mesmo cartão em momentos previamente agendados&lt;/strong&gt;. A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.  A cada intervalo haverá uma cobrança no cartão de crédito.  O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.&lt;br /&gt;&lt;br /&gt; &lt;strong&gt;EX&lt;/strong&gt;: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -31131,9 +31131,9 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
   &lt;li&gt;Entrar em Detalhes (o símbolo de “+”)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Pedido de recorrência&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout/pedidoreccance.png&quot; alt=&quot;Cancelamento de recorrência&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Pedido de recorrência&quot; /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/checkout/pedidoreccance.png&quot; alt=&quot;Cancelamento de recorrência&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Tela de detalhes da Recorrência&lt;/p&gt;
 

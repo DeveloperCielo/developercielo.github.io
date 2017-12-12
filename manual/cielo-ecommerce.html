@@ -564,7 +564,7 @@ Com esse meio de pagamento é possível simular os fluxos de:</p>
   <tbody>
     <tr>
       <td>Autorizado</td>
-      <td>0000.0000.0000.00010000.0000.0000.0004</td>
+      <td>0000.0000.0000.0001<br />0000.0000.0000.0004</td>
       <td>4</td>
       <td>Operação realizada com sucesso</td>
     </tr>
@@ -640,11 +640,11 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td>Cartão de débito</td>
-      <td>O <code class="highlighter-rouge">provider</code> utilizado deve ser <strong>SIMULADO</strong>  A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação</td>
+      <td>O <code class="highlighter-rouge">provider</code> utilizado deve ser <strong>SIMULADO</strong> <br /><br /> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação</td>
     </tr>
     <tr>
       <td>Transferência online</td>
-      <td>O <code class="highlighter-rouge">provider</code> utilizado deve ser <strong>SIMULADO</strong>  A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação</td>
+      <td>O <code class="highlighter-rouge">provider</code> utilizado deve ser <strong>SIMULADO</strong> <br /><br /> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação</td>
     </tr>
   </tbody>
 </table>
@@ -3161,21 +3161,21 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Resultado da análise.</td>
       <td>Byte</td>
       <td>—</td>
-      <td>Número:100 - Operação bem sucedida.101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.481 - O pedido foi rejeitado pelo Gerenciador de Decisão</td>
+      <td>Número:<br />100 - Operação bem sucedida.101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.481 - O pedido foi rejeitado pelo Gerenciador de Decisão</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AddressInfoCode</code></td>
       <td>Combinação de códigos que indicam erro no endereço de cobrança e/ou entrega. Os códigos são concatenados usando o caractere ^.</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Ex: COR-BA^MM-BINCOR-BA - O endereço de cobrança pode ser normalizado.COR-SA - O endereço de entrega pode ser normalizado.INTL-BA - O país de cobrança é fora dos U.S.INTL-SA - O país de entrega é fora dos U.S.MIL-USA - Este é um endereço militar nos U.S.MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.MM-C - Os endereços de cobrança e entrega usam cidades diferentes.MM-CO - Os endereços de cobrança e entrega usam países diferentes.MM-ST - Os endereços de cobrança e entrega usam estados diferentes.MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.UNV-ADDR - O endereço é inverificável.</td>
+      <td>Ex: COR-BA^MM-BIN<br />COR-BA - O endereço de cobrança pode ser normalizado.COR-SA - O endereço de entrega pode ser normalizado.INTL-BA - O país de cobrança é fora dos U.S.INTL-SA - O país de entrega é fora dos U.S.MIL-USA - Este é um endereço militar nos U.S.MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.MM-C - Os endereços de cobrança e entrega usam cidades diferentes.MM-CO - Os endereços de cobrança e entrega usam países diferentes.MM-ST - Os endereços de cobrança e entrega usam estados diferentes.MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.UNV-ADDR - O endereço é inverificável.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FactorCode</code></td>
       <td>Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^.</td>
       <td>Texto</td>
       <td>100</td>
-      <td>Ex: B^D^R^ZA - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</td>
+      <td>Ex: B^D^R^Z<br />A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Score</code></td>
@@ -3217,7 +3217,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Sequência de códigos que indicam que existe uma excessiva alteração de identidades do comprador. Os códigos são concatenados usando o caractere ^.</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Ex: MORPH-B - O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-C - O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-E - O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos. MORPH-I O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-P - O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos.MORPH-S - O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos.</td>
+      <td>Ex: <br />MORPH-B - O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-C - O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-E - O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos. MORPH-I O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos.MORPH-P - O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos.MORPH-S - O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">IpRoutingMethod</code></td>
@@ -5397,7 +5397,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
-      <td>Intervalo da recorrência.Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
+      <td>Intervalo da recorrência.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
@@ -7597,7 +7597,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
-      <td>Intervalo da recorrência.Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
+      <td>Intervalo da recorrência.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
       <td>Texto</td>
       <td>10</td>
       <td>Não</td>
@@ -8537,14 +8537,14 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       <td>Resultado da análise.</td>
       <td>Byte</td>
       <td>—</td>
-      <td>Número:100 - Operação bem sucedida.101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.481 - O pedido foi rejeitado pelo Gerenciador de Decisão</td>
+      <td>Número:<br />100 - Operação bem sucedida.101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.481 - O pedido foi rejeitado pelo Gerenciador de Decisão</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.FactorCode</code></td>
       <td>Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^.</td>
       <td>Texto</td>
       <td>100</td>
-      <td>Ex: B^D^R^ZA - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</td>
+      <td>Ex: B^D^R^Z<br />A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.E - Lista positiva. O cliente está na sua lista positiva.F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.O - Obscenidades. Dados do cliente contém palavras obscenas.P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Score</code></td>
@@ -14048,6 +14048,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
+            
             $(window).scroll(function () {
                 if ($('li.active').closest('.tocify-header') !== openedHeader) {
                     $('li.is-open').removeClass('is-open');
@@ -14079,6 +14080,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
         
         <script>
         let langs = '';
+        let langsArray = [];
 
         $('div.highlighter-rouge').prepend('<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>');
 
@@ -14112,11 +14114,44 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
 
         
         langs += "<a data-language-name='json'>JSON</a>";
+        langsArray.push('json');
         
         langs += "<a data-language-name='shell'>cURL</a>";
+        langsArray.push('shell');
         
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://developercielo.github.io/assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                $('.language-buttons').each(function() {
+                    let parent = $(this).parent();
+
+                    parent.addClass('selectable');
+
+                    if(parent.hasClass('language-tabs')) {
+                        return true;
+                    }
+
+                    langsArray.forEach((v) => {
+                        if(parent.find('.language-' + v).length === 0) {
+                            $(this).find('[data-language-name="' + v + '"]').remove();
+
+                            let firstItem = $(this).children().first();
+                            firstItem.addClass('active');
+                            parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
+                            
+                            if(parent.children('[class^="language-"]').length === 2) {
+                                parent.removeClass('selectable');
+                            }
+                        }
+                    });
+                });
+
+                setupLanguages([  "json",  "shell", ]);
+            });
         </script>
 
         <script src="https://developercielo.github.io/assets/js/lang.js"></script>

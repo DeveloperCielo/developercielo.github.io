@@ -553,7 +553,7 @@ With this means of payment it is possible to simulate the flows of:</p>
   <tbody>
     <tr>
       <td>Authorized</td>
-      <td>0000.0000.0000.00010000.0000.0000.0004</td>
+      <td>0000.0000.0000.0001<br />0000.0000.0000.0004</td>
       <td>4/6</td>
       <td>Operation performed successfully</td>
       <td> </td>
@@ -668,11 +668,11 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td>Debit cardo</td>
-      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong>  The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
+      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong> <br /><br /> The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
     </tr>
     <tr>
       <td>Online transfer</td>
-      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong>  The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
+      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong> <br /><br /> The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
     </tr>
   </tbody>
 </table>
@@ -3368,21 +3368,21 @@ Below we specify any existing differences:</p>
       <td>Analysis result.</td>
       <td>Byte</td>
       <td>—</td>
-      <td>Number:100 - Successful operation.101 - The order is missing one or more required fields. Possible action: See the missing fields in the AntiFraudResponse list.MissingFieldCollection. Resend order with complete information.102 - One or more of order fields contain invalid data. Possible action: View the invalid fields in the AntiFraudResponse list.InvalidFieldCollection. Resend the order with the correct information.150 General system failure. Possible action: Wait a few minutes and try resending the order.151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiration date does not match the date on file of the issuing bank. If the payment processor allows you to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.231 The account number is invalid. Possible action: Request a card or other form of payment.234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.400 The fraud score goes beyond their limit. Possible action: Review customer’s order.480 The order has been marked for review by the Decision Manager.481 - The order was rejected by the Decision Manager</td>
+      <td>Number:<br />100 - Successful operation.101 - The order is missing one or more required fields. Possible action: See the missing fields in the AntiFraudResponse list.MissingFieldCollection. Resend order with complete information.102 - One or more of order fields contain invalid data. Possible action: View the invalid fields in the AntiFraudResponse list.InvalidFieldCollection. Resend the order with the correct information.150 General system failure. Possible action: Wait a few minutes and try resending the order.151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiration date does not match the date on file of the issuing bank. If the payment processor allows you to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.231 The account number is invalid. Possible action: Request a card or other form of payment.234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.400 The fraud score goes beyond their limit. Possible action: Review customer’s order.480 The order has been marked for review by the Decision Manager.481 - The order was rejected by the Decision Manager</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AddressInfoCode</code></td>
       <td>Combination of codes indicating error in the billing and/or delivery address. The codes are concatenated using the character ^ character.</td>
       <td>Text</td>
       <td>255</td>
-      <td>Ex: COR-BA^MM-BINCOR-BA - The billing address can be normalized.COR-SA - The delivery address can be normalized.INTL-BA - The country of charge is outside the U.S.INTL-SA - The country of delivery is outside the U.S.MIL-USA - This is a military address in the U.S.MM-A - Billing and delivery addresses use different street names.MM-BIN - The BIN of the card (the first six digits of the number) does not match the country.MM-C - Billing and delivery addresses use different cities.MM-CO - Billing and delivery addresses use different countries.MM-ST - Billing and delivery addresses use different states.MM-Z - Billing and delivery addresses use different postal codes.UNV-ADDR - The address is unverifiable.</td>
+      <td>Ex: COR-BA^MM-BIN<br />COR-BA - The billing address can be normalized.COR-SA - The delivery address can be normalized.INTL-BA - The country of charge is outside the U.S.INTL-SA - The country of delivery is outside the U.S.MIL-USA - This is a military address in the U.S.MM-A - Billing and delivery addresses use different street names.MM-BIN - The BIN of the card (the first six digits of the number) does not match the country.MM-C - Billing and delivery addresses use different cities.MM-CO - Billing and delivery addresses use different countries.MM-ST - Billing and delivery addresses use different states.MM-Z - Billing and delivery addresses use different postal codes.UNV-ADDR - The address is unverifiable.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FactorCode</code></td>
       <td>Combination of codes that indicate the order’s score. The codes are concatenated using the ^ character.</td>
       <td>Text</td>
       <td>100</td>
-      <td>Ex: B^D^R^ZA - Excessive address change. Customer changed billing address two or more times in the last six months.B - BIN of the card or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.D - Impact of e-mail address. The customer uses a free email provider or the email address is risky.E - Positive list. The customer is on your positive list.F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.G - Geo-inconsistencies. Email client domain, phone number, billing address, shipping address or IP address is suspect.H - Excessive name changes. The customer has changed the name two or more times in the last six months.I - Internet inconsistencies. The IP address and e-mail domain are not consistent with the billing address.N - Meaningless entry. Client name and address fields contain nonsense words or language.O - Obscenities. Customer data contains obscene words.P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.Q - Phone inconsistencies. Customer’s telephone number is suspect.R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.T - Time Coverage. The customer is attempting a purchase outside of the expected time.U - Unverifiable address. The billing or delivery address can not be verified.V - Velocity. The account number was used many times in the last 15 minutes.W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.Y - The address, city, state or country of the billing and delivery addresses do not correlate.Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the order carefully for any anomalies.</td>
+      <td>Ex: B^D^R^Z<br />A - Excessive address change. Customer changed billing address two or more times in the last six months.B - BIN of the card or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.D - Impact of e-mail address. The customer uses a free email provider or the email address is risky.E - Positive list. The customer is on your positive list.F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.G - Geo-inconsistencies. Email client domain, phone number, billing address, shipping address or IP address is suspect.H - Excessive name changes. The customer has changed the name two or more times in the last six months.I - Internet inconsistencies. The IP address and e-mail domain are not consistent with the billing address.N - Meaningless entry. Client name and address fields contain nonsense words or language.O - Obscenities. Customer data contains obscene words.P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.Q - Phone inconsistencies. Customer’s telephone number is suspect.R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.T - Time Coverage. The customer is attempting a purchase outside of the expected time.U - Unverifiable address. The billing or delivery address can not be verified.V - Velocity. The account number was used many times in the last 15 minutes.W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.Y - The address, city, state or country of the billing and delivery addresses do not correlate.Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the order carefully for any anomalies.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Score</code></td>
@@ -3424,7 +3424,7 @@ Below we specify any existing differences:</p>
       <td>Sequence of codes that indicate that there is an excessive change of identities of the buyer. The codes are concatenated using the ^ character.</td>
       <td>Text</td>
       <td>255</td>
-      <td>Ex: MORPH-B - The same billing address has been used multiple times with multiple customer identities.MORPH-C - The same account number has been used multiple times with multiple client identities.MORPH-E - The same e-mail address has been used multiple times with multiple customer identities. MORPH-I The same IP address has been used multiple times with multiple client identities.MORPH-P - The same phone number has been used multiple times with multiple customer identities.MORPH-S - The same delivery address has been used multiple times with multiple customer identities.</td>
+      <td>Ex: <br />MORPH-B - The same billing address has been used multiple times with multiple customer identities.MORPH-C - The same account number has been used multiple times with multiple client identities.MORPH-E - The same e-mail address has been used multiple times with multiple customer identities. MORPH-I The same IP address has been used multiple times with multiple client identities.MORPH-P - The same phone number has been used multiple times with multiple customer identities.MORPH-S - The same delivery address has been used multiple times with multiple customer identities.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">IpRoutingMethod</code></td>
@@ -4002,9 +4002,9 @@ Below we specify any existing differences:</p>
 <p>For all text fields, including the instructions field and the ones related with address, these are accepted as valid characters:</p>
 <ul>
   <li>The letters from A to Z (CAPITAL LETTERS)</li>
-  <li>Special characters of conjunction:  <strong>hyphen (-)</strong> / <strong>apostrophe (‘)</strong> / When used it can not contain spaces between the letters: 
- <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA
- <strong>Incorrect examples</strong>: D’EL - REI</li>
+  <li>Special characters of conjunction:  <strong>hyphen (-)</strong> / <strong>apostrophe (‘)</strong> / When used it can not contain spaces between the letters: <br /><br />
+ <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA<br />
+ <strong>Incorrect examples</strong>: D’EL - REI<br /><br /></li>
   <li>At most one blank space between words</li>
 </ul>
 
@@ -4698,7 +4698,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Interval</code></td>
-      <td>Recurrence interval.Monthly - Mensal Bimonthly - Bimestral Quarterly - Trimestral SemiAnnual - Semestral Annual - Anual</td>
+      <td>Recurrence interval.<br />Monthly - Mensal Bimonthly - Bimestral Quarterly - Trimestral SemiAnnual - Semestral Annual - Anual</td>
     </tr>
   </tbody>
 </table>
@@ -4727,15 +4727,15 @@ In this model, the merchant’ system is in charge of defining the period, the t
     </tr>
     <tr>
       <td><strong>Identification</strong></td>
-      <td>Scheduled Recurrence transactions generate two types of identification:<strong>PAYMENTID</strong>: Identify 1 transaction. It is the same identifier of the other transactions in the API    <strong>RECURRENTPAYMENTID</strong>: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence</td>
+      <td>Scheduled Recurrence transactions generate two types of identification:<br /><br /><strong>PAYMENTID</strong>: Identify 1 transaction. It is the same identifier of the other transactions in the API    <br /><br /><strong>RECURRENTPAYMENTID</strong>: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence</td>
     </tr>
     <tr>
       <td><strong>Consulting</strong></td>
-      <td>To consult, just use one of two types of identification:<strong>PAYMENTID</strong>: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <strong>RECURRENTPAYMENTID</strong>: Used to consult THE RECURRENCE.</td>
+      <td>To consult, just use one of two types of identification:<br /><br /><strong>PAYMENTID</strong>: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br /><br /><strong>RECURRENTPAYMENTID</strong>: Used to consult THE RECURRENCE.</td>
     </tr>
     <tr>
       <td><strong>Cancellation</strong></td>
-      <td>A Scheduled Recurrence can be canceled in two ways: <strong>Merchant</strong>: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <strong>By invalid card</strong>: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment.  <strong>NOTE:</strong> Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the <strong>RecurrentPaymentID</strong> ends future schedules.</td>
+      <td>A Scheduled Recurrence can be canceled in two ways: <br /><br /><strong>Merchant</strong>: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br /><br /><strong>By invalid card</strong>: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. <br /><br /> <strong>NOTE:</strong> Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the <strong>RecurrentPaymentID</strong> ends future schedules.</td>
     </tr>
   </tbody>
 </table>
@@ -5386,7 +5386,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
-      <td>Recurrence interval.Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
+      <td>Recurrence interval.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
@@ -7158,7 +7158,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
-      <td>Recurrence interval.Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
+      <td>Recurrence interval.<br />Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
@@ -8098,14 +8098,14 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       <td>Analysis result.</td>
       <td>Byte</td>
       <td>—</td>
-      <td>Number:100 - Successful operation.101 - The order is missing one or more required fields. Possible action: See the fields that are missing on the AntiFraudResponse.MissingFieldCollection list. Resend the order with complete information.102 - One or more order fields contain invalid data. Possible action: See the invalid fields on the AntiFraudResponse.InvalidFieldCollection list. Resend the order with the correct information.150 General system failure. Possible action: Wait a few minutes and try resending the order.151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiry date does not match the date on file of the issuing bank. If the payment processor allows to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.231 The account number is invalid. Possible action: Request a card or other form of payment.234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.400 The fraud score goes beyond its limit. Possible action: Review customer’s order.480 The order has been marked for review by the Decision Manager.481 - The order was rejected by the Decision Manager</td>
+      <td>Number:<br />100 - Successful operation.101 - The order is missing one or more required fields. Possible action: See the fields that are missing on the AntiFraudResponse.MissingFieldCollection list. Resend the order with complete information.102 - One or more order fields contain invalid data. Possible action: See the invalid fields on the AntiFraudResponse.InvalidFieldCollection list. Resend the order with the correct information.150 General system failure. Possible action: Wait a few minutes and try resending the order.151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiry date does not match the date on file of the issuing bank. If the payment processor allows to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.231 The account number is invalid. Possible action: Request a card or other form of payment.234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.400 The fraud score goes beyond its limit. Possible action: Review customer’s order.480 The order has been marked for review by the Decision Manager.481 - The order was rejected by the Decision Manager</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.FactorCode</code></td>
       <td>Combination of codes that indicate the order’s score. The codes are concatenated using the ^ character.</td>
       <td>Text</td>
       <td>100</td>
-      <td>E.g.: B^D^R^ZA - Excessive address change. Customer changed billing address two or more times in the last six months.B - Card BIN or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.D - Impact of e-mail address. The customer uses a free email provider or the e-mail address is risky.E - Positive list. The customer is on your positive list.F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.G - Inconsistencies of geolocation. The client e-mail domain, phone number, billing address, shipping address or IP address is suspect.H - Excessive name changes. The customer has changed the name two or more times in the last six months.I - Inconsistencies of internet. The IP address and e-mail domain are not consistent with the billing address.N - Meaningless entry. Client name and address fields contain nonsense words or language.O - Obscenities. Customer data contains obscene words.P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.Q - Phone inconsistencies. Customer’s telephone number is suspect.R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.T - Time coverage. The customer is attempting a purchase outside of the expected time.U - Unverifiable address. The billing or delivery address can not be verified.V - Velocity. The account number was used many times in the last 15 minutes.W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.Y - The address, city, state or country of the billing and delivery addresses do not correlate.Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, do examine the order carefully for any anomalies.</td>
+      <td>E.g.: B^D^R^Z<br />A - Excessive address change. Customer changed billing address two or more times in the last six months.B - Card BIN or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.D - Impact of e-mail address. The customer uses a free email provider or the e-mail address is risky.E - Positive list. The customer is on your positive list.F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.G - Inconsistencies of geolocation. The client e-mail domain, phone number, billing address, shipping address or IP address is suspect.H - Excessive name changes. The customer has changed the name two or more times in the last six months.I - Inconsistencies of internet. The IP address and e-mail domain are not consistent with the billing address.N - Meaningless entry. Client name and address fields contain nonsense words or language.O - Obscenities. Customer data contains obscene words.P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.Q - Phone inconsistencies. Customer’s telephone number is suspect.R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.T - Time coverage. The customer is attempting a purchase outside of the expected time.U - Unverifiable address. The billing or delivery address can not be verified.V - Velocity. The account number was used many times in the last 15 minutes.W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.Y - The address, city, state or country of the billing and delivery addresses do not correlate.Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, do examine the order carefully for any anomalies.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Score</code></td>
@@ -8337,7 +8337,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       <td>Recurrent order status</td>
       <td>Number</td>
       <td>1</td>
-      <td><em>1</em> - Active <em>2</em> - Finished <em>3</em>- Deactivated by the Merchant  <em>4</em> - Disabled by number of retries  <em>5</em> - Disabled by expired credit card</td>
+      <td><br /><em>1</em> - Active <br /><em>2</em> - Finished <br /><em>3</em>- Deactivated by the Merchant <br /> <em>4</em> - Disabled by number of retries  <em>5</em> - Disabled by expired credit card</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RecurrencyDay</code></td>
@@ -14437,6 +14437,7 @@ More information and complete integration, you can find in the link: https://dev
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
+            
             $(window).scroll(function () {
                 if ($('li.active').closest('.tocify-header') !== openedHeader) {
                     $('li.is-open').removeClass('is-open');
@@ -14468,6 +14469,7 @@ More information and complete integration, you can find in the link: https://dev
         
         <script>
         let langs = '';
+        let langsArray = [];
 
         $('div.highlighter-rouge').prepend('<a class="fa expand-btn" title="Toggle"><i class="fa fa-expand" aria-hidden=true></i></a>');
 
@@ -14501,11 +14503,44 @@ More information and complete integration, you can find in the link: https://dev
 
         
         langs += "<a data-language-name='json'>JSON</a>";
+        langsArray.push('json');
         
         langs += "<a data-language-name='shell'>cURL</a>";
+        langsArray.push('shell');
         
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="https://developercielo.github.io/en/assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                $('.language-buttons').each(function() {
+                    let parent = $(this).parent();
+
+                    parent.addClass('selectable');
+
+                    if(parent.hasClass('language-tabs')) {
+                        return true;
+                    }
+
+                    langsArray.forEach((v) => {
+                        if(parent.find('.language-' + v).length === 0) {
+                            $(this).find('[data-language-name="' + v + '"]').remove();
+
+                            let firstItem = $(this).children().first();
+                            firstItem.addClass('active');
+                            parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
+                            
+                            if(parent.children('[class^="language-"]').length === 2) {
+                                parent.removeClass('selectable');
+                            }
+                        }
+                    });
+                });
+
+                setupLanguages([  "json",  "shell", ]);
+            });
         </script>
 
         <script src="https://developercielo.github.io/en/assets/js/lang.js"></script>

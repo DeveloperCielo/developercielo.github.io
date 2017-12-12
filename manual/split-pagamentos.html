@@ -132,7 +132,7 @@
     </tr>
     <tr>
       <td><strong>Braspag (Facilitador)</strong></td>
-      <td>Responsável pelo fluxo transacional. Define as taxas a serem descontadas sobre o valor total da venda realizada pelo <strong>Marketplace</strong>. Responsável pela liquidação dos pagamentos para os <strong>Subordinados</strong> e <strong>Marketplace</strong>.</td>
+      <td>Responsável pelo fluxo transacional. Define as taxas a serem descontadas sobre o valor total da venda realizada pelo <strong>Marketplace</strong>.<br /> Responsável pela liquidação dos pagamentos para os <strong>Subordinados</strong> e <strong>Marketplace</strong>.</td>
     </tr>
   </tbody>
 </table>
@@ -2405,6 +2405,7 @@ grant_type=client_credentials
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
+            
             $(window).scroll(function () {
                 if ($('li.active').closest('.tocify-header') !== openedHeader) {
                     $('li.is-open').removeClass('is-open');

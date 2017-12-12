@@ -359,7 +359,7 @@ Caso uma transação não seja capturada dentro desse limite, ela deixa de ser v
   <li>Posterior à autorização (captura total ou parcial) - Já no segundo caso, é preciso fazer uma “captura posterior”, através de uma nova requisição ao Webservice da Cielo para confirmar a transação e receber o valor da venda.</li>
 </ol>
 
-<aside class="warning">Atenção!Na modalidade de débito não existe a opção de captura. Toda transação de débito autorizada é capturada automaticamente.</aside>
+<aside class="warning">Atenção!<br /><br />Na modalidade de débito não existe a opção de captura. Toda transação de débito autorizada é capturada automaticamente.</aside>
 
 <h2 id="32-É-possível-cancelar-uma-transação">32. É possível cancelar uma transação?</h2>
 
@@ -691,6 +691,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
+            
             $(window).scroll(function () {
                 if ($('li.active').closest('.tocify-header') !== openedHeader) {
                     $('li.is-open').removeClass('is-open');
