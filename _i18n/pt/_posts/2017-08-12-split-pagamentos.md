@@ -1813,7 +1813,7 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 ## Notificação
 
 <BR>
-**Em breve** será disponibilizado o serviço de notificação que informará os eventos que ocorrem em uma transação de Split:
+**Em breve** será disponibilizado o serviço de notificação que informará os eventos que ocorrerem em uma transação de Split:
 
 * Geração de agenda
 * Pré-chargeback
