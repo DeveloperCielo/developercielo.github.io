@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T12:16:18+00:00</updated>
+    <updated>2017-12-12T12:18:00+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4812,7 +4812,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;14&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Possible values:&lt;br /&gt;AnalyseFirst&lt;br /&gt;AuthorizeFirst&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Possible values:&lt;br /&gt;AnalyseFirst&lt;br /&gt;AuthorizeFirst&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4820,7 +4820,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Flow criteria.&lt;br /&gt;OnSuccess - on success of chosen sequence&lt;br /&gt;Always - analyse independently the result of chosen sequence&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Flow criteria.&lt;br /&gt;OnSuccess - on success of chosen sequence&lt;br /&gt;Always - analyse independently the result of chosen sequence&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4908,7 +4908,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Field that will evaluate the billing address and delivery to different cities, states or countries&lt;br /&gt;Yes (In case of divergence between billing and delivery addresses, mark as low risk)&lt;br /&gt;No (In case of divergence between billing and delivery addresses, mark as hight risk)&lt;br /&gt;Off (Ignores risk analysis for divergent addresses)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Field that will evaluate the billing address and delivery to different cities, states or countries&lt;br /&gt;Yes (In case of divergence between billing and delivery addresses, mark as low risk)&lt;br /&gt;No (In case of divergence between billing and delivery addresses, mark as hight risk)&lt;br /&gt;Off (Ignores risk analysis for divergent addresses)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4916,7 +4916,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Importance level of the e-mail and customer IP addresses for risk level&lt;br /&gt;Low (low importance)&lt;br /&gt;Normal (medium importace)&lt;br /&gt;High (very important)&lt;br /&gt;Off (ignore this criteria)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Importance level of the e-mail and customer IP addresses for risk level&lt;br /&gt;Low (low importance)&lt;br /&gt;Normal (medium importace)&lt;br /&gt;High (very important)&lt;br /&gt;Off (ignore this criteria)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4924,7 +4924,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Level of tests performed on the customer’s data with applications received meaningless &lt;br /&gt;Low (low importance)&lt;br /&gt;Normal (medium importance)&lt;br /&gt;High (very important)&lt;br /&gt;Off (ignore this criteria)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Level of tests performed on the customer’s data with applications received meaningless &lt;br /&gt;Low (low importance)&lt;br /&gt;Normal (medium importance)&lt;br /&gt;High (very important)&lt;br /&gt;Off (ignore this criteria)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4932,7 +4932,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Obscenity level of requests received&lt;br /&gt;Low (low importance)&lt;br /&gt;Normal (medium importance)&lt;br /&gt;High (very important)&lt;br /&gt;Off (ignore this criteria)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Obscenity level of requests received&lt;br /&gt;Low (low importance)&lt;br /&gt;Normal (medium importance)&lt;br /&gt;High (very important)&lt;br /&gt;Off (ignore this criteria)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4940,7 +4940,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Level of testing carried out with phone numbers &lt;br /&gt;Low (Low importance)&lt;br /&gt;Normal (medium importance)&lt;br /&gt;High (very important)&lt;br /&gt;Off (ignore this criteria)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Level of testing carried out with phone numbers &lt;br /&gt;Low (Low importance)&lt;br /&gt;Normal (medium importance)&lt;br /&gt;High (very important)&lt;br /&gt;Off (ignore this criteria)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4980,7 +4980,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Product risk level &lt;br /&gt;Low (lowr risk)&lt;br /&gt;Normal (medium risk)&lt;br /&gt;High (hight risk)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Product risk level &lt;br /&gt;Low (lowr risk)&lt;br /&gt;Normal (medium risk)&lt;br /&gt;High (hight risk)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4988,7 +4988,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Importance level of customer order per time of day &lt;br /&gt;Low (lowr risk)&lt;br /&gt;Normal (medium risk)&lt;br /&gt;High (hight risk)&lt;/td&gt;
+      &lt;td&gt;Importance level of customer order per time of day &lt;br /&gt;Low (lowr risk)&lt;br /&gt;Normal (medium risk)&lt;br /&gt;High (hight risk)&amp;lt;/LI&amp;gt;&amp;lt;Off (ignore this criteria)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4996,7 +4996,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Product Type&lt;br /&gt;AdultContent&lt;br /&gt;Coupon&lt;br /&gt;Default&lt;br /&gt;EletronicGood&lt;br /&gt;EletronicSoftware&lt;br /&gt;GiftCertificate&lt;br /&gt;HandlingOnly&lt;br /&gt;Service&lt;br /&gt;ShippingAndHandling&lt;br /&gt;ShippingOnly&lt;br /&gt;Subscription&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Product Type&lt;br /&gt;AdultContent&lt;br /&gt;Coupon&lt;br /&gt;Default&lt;br /&gt;EletronicGood&lt;br /&gt;EletronicSoftware&lt;br /&gt;GiftCertificate&lt;br /&gt;HandlingOnly&lt;br /&gt;Service&lt;br /&gt;ShippingAndHandling&lt;br /&gt;ShippingOnly&lt;br /&gt;Subscription&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -5004,7 +5004,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Importance level of customer purchase frequency&lt;br /&gt;Low (low relevance for last 15 minutes)&lt;br /&gt;Normal (medium relevance for last 15 minutes)&lt;br /&gt;High (hight relevance for last 15 minutes)&lt;br /&gt;Off (ignore this criteria)&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Importance level of customer purchase frequency&lt;br /&gt;Low (low relevance for last 15 minutes)&lt;br /&gt;Normal (medium relevance for last 15 minutes)&lt;br /&gt;High (hight relevance for last 15 minutes)&lt;br /&gt;Off (ignore this criteria)&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -5036,7 +5036,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Passenger classification&lt;br /&gt;Adult&lt;br /&gt;Child&lt;br /&gt;Infant&lt;br /&gt;Youth&lt;br /&gt;Student)&lt;br /&gt;SeniorCitizen&lt;br /&gt;Military&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Passenger classification&lt;br /&gt;Adult&lt;br /&gt;Child&lt;br /&gt;Infant&lt;br /&gt;Youth&lt;br /&gt;Student)&lt;br /&gt;SeniorCitizen&lt;br /&gt;Military&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -5084,7 +5084,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Shippint type&lt;br /&gt;SameDay&lt;br /&gt;OneDay&lt;br /&gt;TwoDay&lt;br /&gt;ThreeDay&lt;br /&gt;LowCost(&lt;br /&gt;Pickup&lt;br /&gt;Other&lt;br /&gt;None&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Shippint type&lt;br /&gt;SameDay&lt;br /&gt;OneDay&lt;br /&gt;TwoDay&lt;br /&gt;ThreeDay&lt;br /&gt;LowCost(&lt;br /&gt;Pickup&lt;br /&gt;Other&lt;br /&gt;None&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
