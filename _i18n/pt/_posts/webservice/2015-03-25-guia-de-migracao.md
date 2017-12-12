@@ -4,6 +4,7 @@ title: Tutorial - Guia de Migração
 search: true
 toc_footers: true
 categories: tutorial
+sort_order: 2
 tags:
   - Webservice 1.5
 ---
