@@ -24,16 +24,16 @@ O Checkout possui as seguintes Funcionalidades:
 
 |Funcionalidade|Descrição|
 |---|---|
-|**Tela transacional**|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. <br>|
+|**Tela transacional**|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. |
 |**Registro de Compradores**|O Checkout Cielo possui a capacidade de salvar cartões e dados de pagamento de compradores, permitindo que em compras futuras, os dados ja estejam preenchidos na tela transacional|
 |**Compra com 1 Clique**|Com o comprador cadastrado, o Checkout permite que a compra seja concluída rapidamente, utilizando os dados de pagamento e endereço favoritos do comprador|
 |**Recorrência**|O Checkout Cielo possui a Recorrência Programada disponível na API Cielo Ecommerce. <br> Basta que o lojista defina que uma transação deve se repetir, que o Checkout vai executa-la novamente no intervalo definido|
 |**Antifraude**|O Checkout já possui uma integração com o Antifraude da CyberSource, permitindo a análise de transações de crédito sem uma integração adicional|
-|**Meios de pagamentos**|O Checkout Cielo possui uma variada gama de meios de pagamento: <br><br> **Cartões de crédito** <br> **Cartão de Débito**<br>**Débito Online**<br>**Boleto Bradesco e Banco do Brasil**<br>|
+|**Meios de pagamentos**|O Checkout Cielo possui uma variada gama de meios de pagamento: <br> **Cartões de crédito** <br> **Cartão de Débito**<br>**Débito Online**<br>**Boleto Bradesco e Banco do Brasil**|
 |**Backoffice Simplificado**|O Backoffice do Checkout Cielo possui um layout simplificado e dinâmico que permite uma navegação rápida e confortável para que o Lojista possa acompanhar as vendas sem dificuldade|
 |**Integração com Botão e QR Code**|Sem integração técnica ou o programação, o Checkout disponibiliza uma integração que torna possível realizar a criação de um link gerador de pedidos apenas com um cadastro de produtos dentro do Backoffice Checkout.|
 |**Integração com Plataformas Ecommerce**|. Possui integração com a Loja Virtual Terra e outras plataformas, já estando presente nas principais plataformas ecommerce do mercado brasileiro|
-|**Relatórios transacionais**|Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: <br><br> **Relatório de Recorrências** <br> **Relatório de compradores**<br>**Extrato de vendas**<br>**Relatório de vendas**<br><br>|
+|**Relatórios transacionais**|Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: <br> **Relatório de Recorrências** <br> **Relatório de compradores**<br>**Extrato de vendas**<br>**Relatório de vendas**|
 
 O Checkout Cielo é uma funcionalidade indicada para:
 
@@ -63,8 +63,8 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 
 |Bandeira|Banco|
 |---|---|
-|Visa|Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil<br>|
-|Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank<br>|
+|Visa|Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil|
+|Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank|
 
 **Boleto**
 
@@ -498,7 +498,7 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 |`Cart.Items.Description`|Alphanumeric|Opcional|256|Descrição do item no carrinho.||
 |`Cart.Items.UnitPrice`|Numeric|Sim|18|Preço unitário do produto em centavos. Ex: R$ 1,00 = 100||
 |`Cart.Items.Quantity`|Numeric|Sim|9|Quantidade do item no carrinho.||
-|`Cart.Items.Type`|Alphanumeric|Sim|255|Tipo do item no carrinho: <BR>`Asset`<BR>`Digital`<BR>`Service`<BR>`Payment`<BR>||
+|`Cart.Items.Type`|Alphanumeric|Sim|255|Tipo do item no carrinho: <br>`Asset`<br>`Digital`<br>`Service`<br>`Payment`||
 |`Cart.Items.Sku`|Alphanumeric|Opcional|32|Sku do item no carrinho.||
 |`Cart.Items.Weight`|Numeric|Condicional|9|Peso em gramas do item no carrinho.|Necessário caso Shipping.Type for "Correios".|
 |`Payment.BoletoDiscount`|Numeric|Condicional|3|Desconto, em porcentagem, para pagamentos a serem realizados com boleto.||
@@ -658,7 +658,7 @@ Os nós que formam as informações de frete abaixo:
 
 |Campo|Tipo|Obrigatório|Tamanho|Descrição|Condicional|
 |---|---|---|---|---|---|
-|`Shipping.Type`|Alphanumeric|Sim|255|Tipo do frete: <BR>`Correios`<BR>`FixedAmount`<BR>`Free`<BR>`WithoutShippingPickUp`<BR>`WithoutShipping`<BR>||
+|`Shipping.Type`|Alphanumeric|Sim|255|Tipo do frete: <br>`Correios`<br>`FixedAmount`<br>`Free`<br>`WithoutShippingPickUp`<br>`WithoutShipping`||
 |`Shipping.SourceZipCode`|Numeric|Condicional|8|CEP de origem do carrinho de compras.|Obrigatório caso Shipping.Type for "Correios".|
 |`Shipping.TargetZipCode`|Numeric|Opcional|8|CEP do endereço de entrega do comprador.||
 
@@ -692,7 +692,7 @@ Para utilizar o frete volumétrico, basta enviar o nó `Shipping.Measures`, segu
 
 |Campo|Tipo|Obrigatório|Tamanho|Descrição|Condicional|
 |---|---|---|---|---|---|
-|`Shipping.Package`|Alphanumeric|Obrigatório|Inteiro|Tipo de pacote: <BR>`BOX`- Caixa <BR> `ROL` - Cilindro ou ENVELOPE||
+|`Shipping.Package`|Alphanumeric|Obrigatório|Inteiro|Tipo de pacote: <br>`BOX`- Caixa <br> `ROL` - Cilindro ou ENVELOPE||
 |`Shipping.Lenght`|Numeric|Obrigatório|Inteiro|Comprimento do pacote||
 |`Shipping.Height`|Numeric|Condicional|Inteiro|Altura do pacote enviado|Obrigatório caso Shipping.Package como BOX|
 |`Shipping.Width`|Numeric|Condicional|Inteiro|Largura do pacote.|Obrigatório caso Shipping.Package como BOX ou ENVELOPE|
@@ -744,7 +744,7 @@ Cada botão possui um código único que só permite comprar aquele determinado 
 
 |Característica|Explicação|
 |---|---|
-|**Específico **|Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <BR><BR>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
+|**Específico **|Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
 |**número do Pedido do Checkout**|O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada|
 |**Criação de pedidos**|Um botão gera vários pedidos independentes, ou seja, não é possível limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido|
 
@@ -821,7 +821,7 @@ Transações de cartão de crédito serão incluídas no [Backoffice Cielo Check
 |Ordem|Status|Explicação|
 |---|---|---|
 |1|**PENDENTE**|Status original. A transação está ocorrendo, esperando resposta do processo de autorização|
-|2|**AUTORIZADO / NEGADO**|Resultado do processo de autorização. <BR><BR>**AUTORIZADO** - Crédito foi reservado para a compra <BR> **NEGADO** - Cartão não autorizado pelo emissor a continuar a transação|
+|2|**AUTORIZADO / NEGADO**|Resultado do processo de autorização. <br>**AUTORIZADO** - Crédito foi reservado para a compra <br> **NEGADO** - Cartão não autorizado pelo emissor a continuar a transação|
 |3|**PAGO**|Ocorre pós captura. Indica que o crédito reservado no cartão será depositado na conta do lojista|
 |N/A|**EXPIRADO**|Ocorre caso a transação não seja capturada em 15 dias pós autorização. Nessa situação a transação é perdida.|
 |N/A|**CHARGEBACK**|Status não automatico. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.<br> Este Status é apenas uma marcação, não afetando processos de pagamento|
@@ -958,9 +958,9 @@ O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.
 
 |Tipo|Descrição|Observação|
 |---|---|---|
-|`URL de Retorno`|Página web na qual o comprador será redirecionado ao fim da compra. <BR><BR>Nenhum dado é trocado ou enviado para essa URL.<BR><BR> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.|Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <BR><BR> Pode ser enviada via API - Ver "Integração por API"|
-|`URL de Notificação`|Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<BR><BR> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do status da transação**|Utilizada na Notificação via `POST`e `JSON`|
-|`URL de Mudança de Status`|Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<BR><BR> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido|Utilizada somente na Notificação via `POST`|
+|`URL de Retorno`|Página web na qual o comprador será redirecionado ao fim da compra. <br>Nenhum dado é trocado ou enviado para essa URL.<br> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.|Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br> Pode ser enviada via API - Ver "Integração por API"|
+|`URL de Notificação`|Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do status da transação**|Utilizada na Notificação via `POST`e `JSON`|
+|`URL de Mudança de Status`|Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido|Utilizada somente na Notificação via `POST`|
 
 **OBS:** Caso uma `URL de retorno` seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo `via Botão`, só é possível usar a opção de URL de retorno via backoffice.
 
@@ -1264,8 +1264,8 @@ Alguns exemplos de negócios são:
 
 |Tipo|Descrição|
 |---|---|
-|**Parceladas**|Se trata de **uma transação dividida em vários meses**. <BR>O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<BR> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br><br> **EX**: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada|
-|**Recorrentes**|São **transações diferentes realizadas no mesmo cartão em momentos previamente agendados**.<BR> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<BR>  A cada intervalo haverá uma cobrança no cartão de crédito. <BR> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br><br> **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.|
+|**Parceladas**|Se trata de **uma transação dividida em vários meses**. <br>O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<br> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br> **EX**: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada|
+|**Recorrentes**|São **transações diferentes realizadas no mesmo cartão em momentos previamente agendados**.<br> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<br>  A cada intervalo haverá uma cobrança no cartão de crédito. <br> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br> **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.|
 
 ## Recorrência por API
 
@@ -1425,7 +1425,7 @@ O cancelamento da recorrência ocorre dentro do Backoffice do Checkout Cielo, ta
 2. Entrar em Detalhes (o símbolo de “+”)
 
 ![Pedido de recorrência]({{ site.baseurl_root }}/images/checkout-cancelar-recorrencia.png)
-<br>
+
 ![Cancelamento de recorrência]({{ site.baseurl_root }}/images/checkout/pedidoreccance.png)
 
 Tela de detalhes da Recorrência

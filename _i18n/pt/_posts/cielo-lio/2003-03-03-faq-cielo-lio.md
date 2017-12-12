@@ -78,9 +78,9 @@ A partir desse momento ele estará disponível para todas as LIOs vinculadas à 
 
 ## Existe algum aplicativo de exemplo disponível?
 
-Disponibilizamos no GitHub um aplicativo Sample de forma que o desenvolvedor consiga ver como funciona as chamadas para utilização do SDK. 
+Disponibilizamos no GitHub um aplicativo Sample de forma que o desenvolvedor consiga ver como funciona as chamadas para utilização do SDK.
 
-Download do aplicativo Sample: 
+Download do aplicativo Sample:
 
 > https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local.
 
@@ -97,8 +97,6 @@ A Cielo LIO funciona com o conceito de Pedido (Order). Assim, o procedimento dev
 3. Preparar a ordem para pagamento (place order)
 4. Executar o checkout.
 
-<BR>
-
 Se você tem uma variedade de produtos, é interessante criar itens separados para status de relatório na Cielo LIO do lojista.
 
 ## Preciso de uma máquina Cielo LIO para realizar os testes de integração local?
@@ -107,7 +105,7 @@ Não é necessário ter uma máquina Cielo LIO para realizar os testes.
 
 A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualquer dispositivo Android, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.
 
-Download do Emulador: 
+Download do Emulador:
 
 > https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk
 
@@ -137,8 +135,6 @@ O desenvolvedor deverá escolher de acordo com o propósito de distribuição de
 
 * Aplicativo Privado na Loja Privada
 * Aplicativo Público na Cielo Store
-
-<BR>
 
 Caso decida por Aplicativo Privado na Loja Privada, envie um ticket no Portal de Desenvolvedores e escolha no assunto: “Criação Loja Privada” e preenche os campos necessários.
 Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o upload do aplicativo e enviá-lo para Certificação.

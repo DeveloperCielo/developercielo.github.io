@@ -41,7 +41,7 @@ O Backoffice é formado por 6 Abas diferentes de administração do Checkout Cie
 | **DashBoard**          | Pagina inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações realizadas em sua loja.                                                                 |
 | **Pedidos**            | Nessa pagina fica contida toda a listagem de transações realizadas no Checkout Cielo. Aqui é possivel pesquisar um determinado pedido ou transação.                                              |
 | **Link de Pagamentos** | Nessa pagina são listados todos os Botões/Links cadastrados no Checkout Cielo                                                                                                                    |
-| **Relatórios**         | Nesta pagina é possível gerar 05 tipos de relatórios: <BR>“Relatório financeiro"<BR>“Detalhado de vendas”<BR>“Listagem de clientes”<BR>* “Extrato de Cobrança”<BR>“Relatório de Recorrência”<BR> |
+| **Relatórios**         | Nesta pagina é possível gerar 05 tipos de relatórios: <br>“Relatório financeiro"<br>“Detalhado de vendas”<br>“Listagem de clientes”<br>* “Extrato de Cobrança”<br>“Relatório de Recorrência”|
 | **Manuais**            | Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.                      |
 | **Configurações**      | Pagina onde é possivel fazer alterações nas configurações da Loja , dos seus dados cadastrais e Alterar sua Senha.                                                                               |
 
@@ -279,7 +279,7 @@ Nesta parte da aba de configurações é possível configurar 4 valores mínimos
 
 | Tipo | Descrição|
 |-----|------|
-|**Valor minimo parcela**| Caso o valor da parcela da compra seja inferior ao minimo, o Checkout exibirá apenas a parcela superior ao minimo <br><br> **EX:** Parcela minima de R$5,00, Em uma compra de R$10, não será exibida a opção de parcelamento em 3X, apenas em 2X|
+|**Valor minimo parcela**| Caso o valor da parcela da compra seja inferior ao minimo, o Checkout exibirá apenas a parcela superior ao minimo <br> **EX:** Parcela minima de R$5,00, Em uma compra de R$10, não será exibida a opção de parcelamento em 3X, apenas em 2X|
 |**Valor mínimo para pagamento com boleto**|Valor minimo para que a opção de pagamento em boleto seja Exibida|
 |**Desconto para pagamento com boleto**| Define um valor % para desconto caso o Boleto seja o meio de pagamento escolhido|
 |**Desconto para pagamento com débito online**|Define um valor % para desconto caso o Débito online seja o meio de pagamento escolhido|
@@ -377,7 +377,7 @@ Cada botão possui um código único que só permite comprar aquele determinado 
 
 |Característica|Explicação|
 |---|---|
-|**Específico**|Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <BR><BR>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
+|**Específico**|Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
 |**número do Pedido do Checkout**|O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada|
 |**Criação de pedidos**|Um botão gera vários pedidos independentes, ou seja, não é possível limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido|
 
@@ -396,8 +396,6 @@ Para utilizar este recurso, é necessário cadastrar o produto que se deseja ven
 * **Serviço** – Serviços a serem prestados. Ex:  Entrega delivery, projetos e orçamentos.
 * **Recorrência** - Transações que se repetem em um determinado intervalo de tempo EX: Assinaturas, mensalidades etc
 * **Pagamentos** - Pagamentos unicos ou transferência de valores Ex: quitação de dividas etc
-
-<BR>
 
 **Tela de Cadastro**
 

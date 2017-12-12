@@ -6,6 +6,9 @@ body
   color: #888;
 }
 
+br {
+    line-height: 2.2em;
+}
 
 p {
     color: #76797a;
@@ -45,7 +48,7 @@ strong {
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 40px;
-    margin-bottom: 5px;
+    margin-bottom: 25px;
 }
 
 h1 {

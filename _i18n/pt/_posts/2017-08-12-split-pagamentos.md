@@ -14,16 +14,15 @@ tags:
 
 ## Introdução
 
-<BR>
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
 Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
 
 | **Participantes** | **Descrição** |
 |-----------|---------- |
-| **Marketplace** | Responsável pelo carrinho. <BR> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<BR> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<BR> Pode participar de uma venda fornecendo seus próprios produtos. |
-| **Subordinado** | Fornecedor dos produtos que compõem o carrinho.<BR>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Marketplace**.<BR>  |
-| **Braspag (Facilitador)** | Responsável pelo fluxo transacional.<BR> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Marketplace**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Marketplace**.|
+| **Marketplace** | Responsável pelo carrinho. <br> Possui acordos com **Subordinados** que fornecem os produtos presentes no carrinho.<br> Define as taxas a serem descontadas sobre a venda de cada **Subordinado**.<br> Pode participar de uma venda fornecendo seus próprios produtos. |
+| **Subordinado** | Fornecedor dos produtos que compõem o carrinho.<br>Recebe parte do valor da venda, descontadas as taxas acordadas com o **Marketplace**.|
+| **Braspag (Facilitador)** | Responsável pelo fluxo transacional.<br> Define as taxas a serem descontadas sobre o valor total da venda realizada pelo **Marketplace**.<br> Responsável pela liquidação dos pagamentos para os **Subordinados** e **Marketplace**.|
 
 No Split de Pagamentos o responsável pelo fluxo transacional é o facilitador.
 
@@ -31,11 +30,11 @@ O Marketplace se integra à Braspag para transacionar e informa como será divid
 
 Com a transação capturada, a Braspag calcula o valor destinado a cada participante e repassa esses valores, no prazo estabelecido de acordo com cada produto (regime de pagamento\*), para cada envolvido na transação.
 
-> **Regime de Pagamento**: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.<BR>
-> <BR>
-> **Crédito**: Em até 31 dias.<BR>
-> **Crédito Parcelado**: 1º parcela em até 31 dias, demais a cada 30.<BR>
-> **Débito**: Em até 1 dia útil.<BR>
+> **Regime de Pagamento**: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
+> <br>
+> **Crédito**: Em até 31 dias.
+> **Crédito Parcelado**: 1º parcela em até 31 dias, demais a cada 30.
+> **Débito**: Em até 1 dia útil.
 
 Para utilizar o Split de Pagamentos, o Marketplace deverá se cadastrar na Braspag juntamente com seus Subordinados. Após este processo, tanto o Marketplace quanto seus Subordinados possuirão um identificador único, conhecido como **MerchantId (MID)**, que deverá ser utlizado ao informar as regras de divisão de uma transação.
 
@@ -44,22 +43,20 @@ Na divisão de uma transação, devem ser informados:
 * Os **identificadores dos Subordinados**.
 * Os **valores de participação de cada Subordinado**. O somatório deverá ser igual ao valor total da transação.
 * **Taxas** a serem aplicadas sobre o valor de cada Subordinado destinadas ao Marketplace. Estas deverão ser acordadas previamente entre o Marketplace e o Subordinado.
-<BR>
+
 O Marketplace também pode ser um participante da divisão, bastando informar seu identificador, passando o mesmo a ter também o papel de **Subordinado** e ter seus próprios produtos no carrinho.
 
 ### Taxass
 
-<BR>
 As taxas acordadas entre os participantes, podendo ser um **MDR(%)** e/ou uma **Taxa Fixa(R$)**, devem ser definidas no momento do cadastro do Marketplace e dos seus Subordinados junto à Braspag (Facilitador).
 
 As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.
 
-> **MDR (*Merchant Discount Rate*):** Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento.<BR>
+> **MDR (*Merchant Discount Rate*):** Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento.
 > **Tarifa Fixa:** Valor em centavos a ser cobrado por transação capturada.
 
 #### Braspag (Facilitador)
 
-<BR>
 A Braspag acordará um MDR e/ou uma Tarifa Fixa com o Marketplace a serem descontadas do valor total de cada transação.
 
 O Marketplace, de conhecimento destas taxas, negociará também um MDR e/ou uma Tarifa Fixa juntamente com cada Subordinado, embutindo o MDR e/ou Tarifa acordados junto à Braspag (Facilitador).
@@ -70,14 +67,12 @@ O desconto da Tarifa Fixa, acordada entre o Marketplace e a Braspag, não é apl
 
 #### Marketplace
 
-<BR>
 O Marketplace é responsável por acordar as taxas a serem cobradas dos seus Subordinados, onde deve ser defindo um MDR maior ou igual ao MDR definido entre a Braspag (Facilitador) e o Marketplace, e uma Tarifa Fixa, que é opcional.
 
 > **Custo Subordinado:** MDR Marketplace(%) + Tarifa Fixa(R$), onde o MDR Marketplace(%) considera o MDR Braspag(%).
 
 ### Exemplo
 
-<BR>
 Uma transação de **R$100,00**, realizada por um **Marketplace** com participação do **Subordinado 01**.
 
 ![SplitSample001](https://developercielo.github.io/images/split/split001.png)
@@ -93,16 +88,15 @@ Após o split, cada participante terá sua agenda sensibilizada com os seguintes
 Crédito: R$96,20 [Descontados o MDR e a Tarifa Fixa acordados com o Marketplace]
 
 **Marketplace**:  
-Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]<BR>
+Crédito: R$1,80 [MDR aplicado sobre o valor do subordinado descontando o MDR acordado com a Braspag (Facilitador)]
 Débito: R$0,10 [Tarifa Fixa acordada com a Braspag (Facilitador)]
 
 **Braspag (Facilitador)**:  
-Crédito: R$2,00 [MDR aplicado sobre o valor total da transação] 
+Crédito: R$2,00 [MDR aplicado sobre o valor total da transação]
 Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]
 
 ## Ambientes
 
-<BR>
 O Split de Pagamentos é parte da API Cielo E-Commerce. As operações transacionais continuam sendo realizadas pela API Cielo, sendo necessárias poucas alterações para utlização do Split de Pagamentos.
 
 Para mais informações sobre a API Cielo E-Commerce, consulte o [Manual de Integração](https://developercielo.github.io/manual/cielo-ecommerce){:target="_blank"} da Plataforma.
@@ -111,23 +105,20 @@ OBS: Neste manual serão apresentados os contratos de integração da API Cielo 
 
 ### Sandbox
 
-<BR>
-**API Cielo E-Commerce**: https://apisandbox.cieloecommerce.cielo.com.br/<BR>
-**API Cielo E-Commerce (Consultas)**: https://apiquerysandbox.cieloecommerce.cielo.com.br/<BR>
-**API Split**: http://splitsandbox.braspag.com.br/<BR>
-**Braspag OAUTH2 Server**: https://authhomolog.braspag.com.br/<BR>
+* **API Cielo E-Commerce**: https://apisandbox.cieloecommerce.cielo.com.br/
+* **API Cielo E-Commerce (Consultas)**: https://apiquerysandbox.cieloecommerce.cielo.com.br/
+* **API Split**: http://splitsandbox.braspag.com.br/
+* **Braspag OAUTH2 Server**: https://authhomolog.braspag.com.br/
 
 ### Produção
 
-<BR>
-**API Cielo E-Commerce**: https://api.cieloecommerce.cielo.com.br/<BR>
-**API Cielo E-Commerce (Consultas)**: https://apiquery.cieloecommerce.cielo.com.br/<BR>
-**API Split**: http://split.braspag.com.br/<BR>
-**Braspag OAUTH2 Server**: https://auth.braspag.com.br/<BR>
+* **API Cielo E-Commerce**: https://api.cieloecommerce.cielo.com.br/
+* **API Cielo E-Commerce (Consultas)**: https://apiquery.cieloecommerce.cielo.com.br/
+* **API Split**: http://split.braspag.com.br/
+* **Braspag OAUTH2 Server**: https://auth.braspag.com.br/
 
 ## Autenticação
 
-<BR>
 O Split de Pagamentos utiliza como segurança o protocolo [OAUTH2](https://oauth.net/2/){:target="_blank"}, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API Cielo e-Commerce e à API do Split.
 
 Para obter um token de acesso:
@@ -164,7 +155,6 @@ O token retornado (access_token) deverá ser utilizado em toda requisição à A
 
 ### Autorização  
 
-<BR>
 A autorização de uma transação no Split de Pagamentos deve ser realizada através da API Cielo E-Commerce seguindo os mesmos contratos descritos na documentação da plataforma.
 
 Porém, para indentificar que a transação enviada se trata de uma transação de Split de Pagamentos, deve-se modificar o tipo de pagamento utilizado, conforme abaixo:
@@ -176,7 +166,7 @@ Porém, para indentificar que a transação enviada se trata de uma transação 
 
 > Atualmente o Split de Pagamentos está disponivel para os seguintes tipos de pagamento:
 > * Cartão de Crédito
-> <BR>
+> <br>
 > Em breve estarão disponíveis:
 > * Cartão de Débito
 > * Boleto
@@ -188,7 +178,7 @@ Exemplo:
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/</span></aside>
 
 ```json
---header "Authorization: Bearer {access_token}" 
+--header "Authorization: Bearer {access_token}"
 {
    "MerchantOrderId":"2014111703",
    "Customer":{
@@ -424,7 +414,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
             "Amount": 6000,
             "Fares": {
               "Mdr": 5,
-              "Fee": 30 
+              "Fee": 30
             }
         },
         {
@@ -432,7 +422,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
             "Amount": 4000,
             "Fares": {
               "Mdr": 4,
-              "Fee": 15 
+              "Fee": 15
             }
         }
     ]
@@ -544,7 +534,6 @@ Abaixo como ficaram as divisões e como foram as agendas de cada participante fo
 
 ### Modelos de Split
 
-<BR>
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
 
 | Tipo                       | Descrição                                                                                                                          |
@@ -556,7 +545,6 @@ O Split de Pagamentos disponibiliza dois modelos para divisão da transação en
 
 #### Transacional
 
-<BR>
 No Split Transacional é necessário que o Marketplace envie um "nó" adicional na integração da API Cielo E-Commerce, como apresentado em exemplos anteriores, informando as regras de divisão da transação.
 
 ```json
@@ -647,7 +635,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
             "Amount": 4500,
             "Fares": {
               "Mdr": 5,
-              "Fee": 30 
+              "Fee": 30
             }
         },
         {
@@ -655,7 +643,7 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
             "Amount": 3000,
             "Fares": {
               "Mdr": 4,
-              "Fee": 15 
+              "Fee": 15
             }
         },
         {
@@ -785,7 +773,6 @@ Neste exemplo, onde o Marketplace também participa da venda, não é necessári
 
 #### Pós-Transacional
 
-<BR>
 Neste modelo o Marketplace poderá enviar as regras de divisão da transação após a mesma ser capturada.
 
 A divisão pós-transacional é possível somente para transações com **Cartão de Crédito** e poderá ser realizada dentro de um intervalo de tempo determinado a partir da data de captura da transação.
@@ -804,7 +791,7 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
         "Amount": 6000,
         "Fares": {
             "Mdr": 5,
-            "Fee": 30 
+            "Fee": 30
         }
     },
     {
@@ -870,7 +857,6 @@ O nó referente ao Split no Split Pós-transacional, tanto no contrato de reques
 
 ### Consulta
 
-<BR>
 Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
 
 **Request**
@@ -978,12 +964,10 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 
 ### Captura
 
-<BR>
-Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace. 
+Ao capturar uma transação do Split de Pagamentos, deve-se informar as regras de divisão da transação. Caso as regras não sejam informadas, o Split interpretará que todo o valor é referente ao próprio Marketplace.
 
 #### Captura Total
 
-<BR>
 Na captura total de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total da transação enviado no momento da autorização.
 
 **Request**
@@ -991,7 +975,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">{api-cielo-ecommerce}/1/sales/{PaymentId}/capture</span></aside>
 
 ```json
---header "Authorization: Bearer {access_token}" 
+--header "Authorization: Bearer {access_token}"
 {
     "SplitPayments":[
         {
@@ -999,7 +983,7 @@ Na captura total de uma transação, o somatório dos valores de participação 
             "Amount": 6000,
             "Fares": {
                 "Mdr": 5,
-                "Fee": 30 
+                "Fee": 30
             }
         },
         {
@@ -1080,7 +1064,6 @@ Na captura total de uma transação, o somatório dos valores de participação 
 
 #### Captura Parcial
 
-<BR>
 Na captura parcial de uma transação, o somatório dos valores de participação de cada subordinado deverá ser igual ao valor total a ser capturado. Caso nenhuma divisão seja informada, o Split interpretará que todo o valor é referente ao próprio Marketplace.
 
 **Request**
@@ -1104,7 +1087,7 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
             "Amount": 5000,
             "Fares": {
                 "Mdr": 5,
-                "Fee": 30 
+                "Fee": 30
             }
         },
         {
@@ -1237,12 +1220,10 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
 
 ### Cancelamento
 
-<BR>
 Ao cancelar uma transação do Split de Pagamentos o Marketplace deve informar, para um cancelamento parcial, qual o valor deve ser cancelado de cada participante da transação. Para um cancelamento total, esta informação não é necessária, já que será cancelado o valor total e consequentemente o valor total de cada Subordinado.
 
 #### Cancelamento Total
 
-<BR>
 No cancelamento total de uma transação, será cancelado o valor total da transação e consequentemente o valor total de cada Subordinado.
 
 **Request**
@@ -1306,8 +1287,7 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
 
 #### Cancelamento Parcial
 
-<BR>
-No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial. 
+No cancelamento parcial, o somatório dos valores cancelados definidos para cada Subordinado deve ser igual ao valor do cancelamento parcial.
 
 **Request**
 
@@ -1415,7 +1395,6 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
 
 ## Agenda Financeira
 
-<BR>
 No Split de Pagamentos, o responsável por realizar o repasse dos valores (liquidação) a cada um dos participantes de uma venda é a Braspag (Facilitador).
 
 A Braspag irá gerar uma agenda financeira que poderá ser consultada a qualquer momento pelo Marketplace e/ou Subordinados.
@@ -1424,7 +1403,7 @@ A agenda é composta por eventos de Crédito e Débito que são gerados de acord
 
 Eventos de Crédito:
 
-| Evento             | Descrição                                                                                               | 
+| Evento             | Descrição                                                                                               |
 |--------------------|---------------------------------------------------------------------------------------------------------|
 | `Credit`           | Lançamento de crédito das parcelas de uma transação.                                                    |
 | `FeeCredit`        | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
@@ -1432,7 +1411,7 @@ Eventos de Crédito:
 
 Eventos de Débito:
 
-| Evento            | Descrição                                                                                               | 
+| Evento            | Descrição                                                                                               |
 |-------------------|---------------------------------------------------------------------------------------------------------|
 | `FeeDebit`        | Lançamento de débito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).             |
 | `RefundDebit`     | Lançamento de débito de um cancelamento.                                                                |
@@ -1441,7 +1420,6 @@ Eventos de Débito:
 
 ### Consultar Transações
 
-<BR>
 O Split de Pgamentos permite consultar a agenda financeira de várias transações ou de uma transação específica.
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules/transactions?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
@@ -1459,12 +1437,11 @@ Para informar várias lojas na consulta, basta repetir o parâmetro "merchantIds
 
 Um evento poderá estar em um dos seguintes status na agenda financeira:
 
-* **Scheduled**: Agendado 
+* **Scheduled**: Agendado
 * **Pending**: Aguardando confirmação de liquidação
 * **Settled**: Liquidado
 * **Error**: Erro de liquidação na instituição financeira
 
-<BR>
 **Request**
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{api-split}}/schedules/transactions?initialDate=2017-12-01&finalDate=2017-12-31&merchantIds=e4db3e1b-985f-4e33-80cf-a19d559f0f60&merchantIds=7c7e5e7b-8a5d-41bf-ad91-b346e077f769&merchantIds=2b9f5bea-5504-40a0-8ae7-04c154b06b8b</span></aside>
@@ -1527,7 +1504,7 @@ Um evento poderá estar em um dos seguintes status na agenda financeira:
 }
 ```
 
-| Propriedade                                      | Descrição                                                                                               | Tipo    | Tamanho | 
+| Propriedade                                      | Descrição                                                                                               | Tipo    | Tamanho |
 |--------------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
 | `Transactions[].PaymentId`                       | Identificador da transação.                                                                             | Guid    | 36      |
 | `Transactions[].CaptureDate`                     | Data de captura da transação.                                                                           | Data    | -       |
@@ -1585,9 +1562,8 @@ Para consultar a agenda de uma transação específica basta informar o identifi
 }
 ```
 
-### Consultar Eventos 
+### Consultar Eventos
 
-<BR>
 A API Split permite consultar o que uma loja tem a receber dentro de um intervalo de datas.
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">{{apiSplit}}/schedules?initialDate={initialDate}&finalDate={finalDate}&pageIndex={pageIndex}&pageSize={pageSize}&scheduleStatus={scheduleStatus}&merchantIds={merchantId}</span></aside>
@@ -1671,7 +1647,7 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 }
 ```
 
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | 
+| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
 | `Schedules[].PaymentId`           | Identificador da transação.                                                                             | Guid    | 36      |
 | `Schedules[].MerchantId`          | Identificador da loja.                                                                                  | Guid    | 36      |
@@ -1684,7 +1660,6 @@ A API Split permite consultar o que uma loja tem a receber dentro de um interval
 
 ### Ajustes
 
-<BR>
 A API do Split permite que sejam lançados ajustes à crédito e à débito nas agendas dos Subordinados.
 
 Quando lançado um ajuste à Crédito para um Subordinado, automaticamente é lançado um ajuste à Débito para o Marketplace na mesma data, e vice-versa.
@@ -1699,11 +1674,11 @@ Quando lançado um ajuste à Crédito para um Subordinado, automaticamente é la
     "SubordinateMerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
     "Amount": 10000,
     "Event": "AdjustmentDebit",
-    "Date": "2017-12-20" 
+    "Date": "2017-12-20"
 }
 ```
 
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | 
+| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
 | `SubordinateMerchantId`           | Identificador do Subordinado.                                                                           | Guid    | 36      |
 | `Amount`                          | Valor do ajuste, em centavos.                                                                           | Inteiro | -       |
@@ -1739,7 +1714,6 @@ Quando lançado um ajuste à Crédito para um Subordinado, automaticamente é la
 
 ## Chargeback
 
-<BR>
 No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o repassará para seus Subordinados, desde que acordado previamente entre as partes.
 
 Se o Marketplace optar por repassar para os Subordinados, o Chargeback Total é sensibilizado automaticamente na agenda dos mesmos. Caso contrário o chargeback será sensibilizado automaticamente na agenda do Marketplace, como acontece com um Charback Parcial.
@@ -1766,7 +1740,7 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 
 ```
 
-| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho | 
+| Propriedade                       | Descrição                                                                                               | Tipo    | Tamanho |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
 | `SubordinateMerchantId`           | Identificador do Subordinado.                                                                           | Guid    | 36      |
 | `ChargebackAmount`                | Valor do chargeback que deverá ser repassado ao Subordinado, em centavos.                               | Inteiro | -       |
@@ -1782,7 +1756,7 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
             "ChargebackSplits": [
                 {
                     "MerchantId": "7c7e5e7b-8a5d-41bf-ad91-b346e077f769",
-                    "ChargebackAmount": 3780 
+                    "ChargebackAmount": 3780
                 },
                 {
                     "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
@@ -1796,7 +1770,7 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
             "ChargebackSplits": [
                 {
                     "MerchantId": "2b9f5bea-5504-40a0-8ae7-04c154b06b8b",
-                    "ChargebackAmount": 1912 
+                    "ChargebackAmount": 1912
                 },
                 {
                     "MerchantId": "e4db3e1b-985f-4e33-80cf-a19d559f0f60",
@@ -1810,13 +1784,12 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 
 > O Marketplace tem 1 dia, contado a partir da data de efetivação do chargeback, para informar como deseja repassar os valores aos subordinados.
 
-| Propriedade                                | Descrição                                                                                               | Tipo    | Tamanho | 
+| Propriedade                                | Descrição                                                                                               | Tipo    | Tamanho |
 |--------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
 | `ChargebackSplitPayments.ChargebackSplits` | Lista contendo a divisão do chargeback para cada participante.                                          | Guid    | 36      |
 
 ## Notificação
 
-<BR>
 **Em breve** será disponibilizado o serviço de notificação que informará os eventos que ocorrerem em uma transação de Split:
 
 * Geração de agenda
@@ -1824,5 +1797,4 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 * Chargeback
 * Liquidação
 
-<BR>
 Para ser notificado com relação ao status de uma transação, utilize o [serviço de notificação](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação) da API Cielo E-Commerce.

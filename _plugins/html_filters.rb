@@ -7,7 +7,7 @@ module Jekyll
       end
 
       def convert(content)
-        content.gsub(/<(?!(\/?(span|aside|br)))[^>]*>/, "")
+        content.gsub(/\n(<br>){1,}/i, '').gsub(/(<br>){1,}/i, '<br>').gsub(/<(?!(\/?(span|aside|br)))[^>]*>/, "")
       end
 
       def output_ext(ext)

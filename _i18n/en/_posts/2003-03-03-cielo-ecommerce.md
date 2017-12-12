@@ -307,8 +307,8 @@ Below we specify any existing differences:
 |Means of payment|Differences|
 |---|---|
 |Bank slip|There is no bank validation. The bank slip behaves as a bank slip without registration|
-|Debit cardo|The `provider` used must be **SIMULATED** <br><br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
-|Online transfer|The `provider` used must be **SIMULATED** <br><br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
+|Debit cardo|The `provider` used must be **SIMULATED** <br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
+|Online transfer|The `provider` used must be **SIMULATED** <br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
 
 ## Notification Post
 
@@ -2029,9 +2029,9 @@ In the **Banco do Brasil Registered Bank slip**, the digitable line will not be 
 
 For all text fields, including the instructions field and the ones related with address, these are accepted as valid characters:
 * The letters from A to Z (CAPITAL LETTERS)
-* Special characters of conjunction:  **hyphen (-)** / **apostrophe (')** / When used it can not contain spaces between the letters: <br><br>
+* Special characters of conjunction:  **hyphen (-)** / **apostrophe (')** / When used it can not contain spaces between the letters: <br>
    **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA<br>
-   **Incorrect examples**: D'EL - REI<br><br>
+   **Incorrect examples**: D'EL - REI<br>
 * At most one blank space between words
 
 ### Request
@@ -2270,7 +2270,7 @@ Number of characters per field and Provider:
 |---|---|---|
 |**NOTE 1:**|Only letters, numbers and characters like "_" and "$"|Not sent to the bank|
 |**NOTE 2:**|The value is persisted in the bank|When sent above 9 positions, the API Cielo truncates automatically, considering the last 9 digits|
-|**NOTE 3:**|The API Cielo truncates automatically|**Valid characters:** <BR> Letters from A to Z - CAPITAL LETTERS <BR> **Special characters:** hyphen (-) and apostrophe (') <BR><BR> When used, it can not contain spaces between letters; <BR><BR><BR> **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Incorrect examples**: D'EL - REI; at most one blank space between words|
+|**NOTE 3:**|The API Cielo truncates automatically|**Valid characters:** <br> Letters from A to Z - CAPITAL LETTERS <br> **Special characters:** hyphen (-) and apostrophe (') <br> When used, it can not contain spaces between letters; <br><br> **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<br> **Incorrect examples**: D'EL - REI; at most one blank space between words|
 |**NOTE 4:**|The value is persisted in the API Cielo|N/A|
 
 # Recurring Payments
@@ -2365,9 +2365,9 @@ Important features of **Scheduled Recurrence**:
 |---|---|
 |**Creation**|The first transaction is called **"Scheduling Transaction"**, all subsequent transactions will be copies of the first transaction. It does not need to be captured for the recurrence to be created, just be **AUTHORIZED**|
 |**Capture**|Scheduled Recurrence transactions do not need to be captured. After the first transaction, all recurrence transactions are automatically captured by the API|
-|**Identification**|Scheduled Recurrence transactions generate two types of identification:<br><br>**PAYMENTID**: Identify 1 transaction. It is the same identifier of the other transactions in the API    <br><br>**RECURRENTPAYMENTID**: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence|
-|**Consulting**|To consult, just use one of two types of identification:<br><br>**PAYMENTID**: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br><br>**RECURRENTPAYMENTID**: Used to consult THE RECURRENCE.|
-|**Cancellation**|A Scheduled Recurrence can be canceled in two ways: <br><br>**Merchant**: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br><br>**By invalid card**: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. <br><br> **NOTE:** Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the **RecurrentPaymentID** ends future schedules.
+|**Identification**|Scheduled Recurrence transactions generate two types of identification:<br>**PAYMENTID**: Identify 1 transaction. It is the same identifier of the other transactions in the API    <br>**RECURRENTPAYMENTID**: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence|
+|**Consulting**|To consult, just use one of two types of identification:<br>**PAYMENTID**: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br>**RECURRENTPAYMENTID**: Used to consult THE RECURRENCE.|
+|**Cancellation**|A Scheduled Recurrence can be canceled in two ways: <br>**Merchant**: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br>**By invalid card**: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. <br> **NOTE:** Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the **RecurrentPaymentID** ends future schedules.
 
 **RecurrentPaymentID Structure**
 
@@ -4319,7 +4319,7 @@ curl
 |`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`CurrentRecurrencyTry `|Indicates the number of attempts of the current recurrence|Number|1|1|
 |`OrderNumber`|Order identification at the store|Text|50|2017051101|
-|`Status`|Recurrent order status|Number|1|<br>*1* - Active <br>*2* - Finished <br>*3*- Deactivated by the Merchant <br> *4* - Disabled by number of retries <BR> *5* - Disabled by expired credit card|
+|`Status`|Recurrent order status|Number|1|<br>*1* - Active <br>*2* - Finished <br>*3*- Deactivated by the Merchant <br> *4* - Disabled by number of retries <br> *5* - Disabled by expired credit card|
 |`RecurrencyDay`|Recurrence day|Number|2|22|
 |`SuccessfulRecurrences`|Successful amount of recurrence|Number|2|5|
 |`RecurrentTransactions.RecurrentPaymentId`|Recurrence Id|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
@@ -6194,10 +6194,10 @@ Below we explain them in the order in which they can occur:
 
 |Code|Description|
 |---|---|
-|**HTTP Status Code**|They are standard HTTP codes. It report if the information sent to the API is **actually being successful in reaching our ENDPOINTs**. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API<BR><BR> *Returned at time of API request*|
-|**API Errors**|These codes are responses to **content validation of sent data**. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction<BR><BR>*Returned at time of API request*|
-|**Status**|After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. `Authorized` >` Captured` > `Canceled`)<BR><BR>*Returned in the `Status` field *|
-|**Sales Return**|Formed by a **Return code** and a **message**, these codes indicate the **reason** of a given `Status` within a transaction. They indicate, for example, whether a transaction with denied `status` was not authorized because of a negative balance at the issuing bank. <BR><BR>*Returned in the `ReturnCode` and` ReturnMessage` fields*<BR> *They occur only in Credit and Debit cards*|
+|**HTTP Status Code**|They are standard HTTP codes. It report if the information sent to the API is **actually being successful in reaching our ENDPOINTs**. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API<br> *Returned at time of API request*|
+|**API Errors**|These codes are responses to **content validation of sent data**. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction<br>*Returned at time of API request*|
+|**Status**|After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. `Authorized` >` Captured` > `Canceled`)<br>*Returned in the `Status` field *|
+|**Sales Return**|Formed by a **Return code** and a **message**, these codes indicate the **reason** of a given `Status` within a transaction. They indicate, for example, whether a transaction with denied `status` was not authorized because of a negative balance at the issuing bank. <br>*Returned in the `ReturnCode` and` ReturnMessage` fields*<br> *They occur only in Credit and Debit cards*|
 
 **NOTE**: In the old **Webservice 1.5 Cielo**, the `ReturnCode` was considered as *Transaction Status*. In the **API CIELO ECOMMERCE**, the `Status` field has its own codes, thus, the **field to be considered as the basis for identifying the status of a transaction**
 
@@ -6535,7 +6535,7 @@ The table below lists all possible codes to be sent in the MerchantDefinedData p
 |1|Customer logged in|If the final customer logged in on the site to buy, send: their login. If the customer made a purchase as a visitor, send: "Guest". If the sale was made direct by a third party, an agent for example, do not send the field|String|
 |2|Customer of the establishment since: #days|Number of days|Number|
 |3|Purchase Made in (installments)|Number of installments|Number|
-|4|Sales Channel|Values: "Call Center" = purchase by phone <BR> "Web" = purchase by  web <BR> "Portal" = an agent making the purchase for the customer <BR> "Kiosk" = Purchases in kiosks <BR> "Mobile" = Purchases made on smartphones or tablets|String|
+|4|Sales Channel|Values: "Call Center" = purchase by phone <br> "Web" = purchase by  web <br> "Portal" = an agent making the purchase for the customer <br> "Kiosk" = Purchases in kiosks <br> "Mobile" = Purchases made on smartphones or tablets|String|
 |5|Coupon Code/Discount|If the buyer is to use coupon, send the coupon code|String|
 |6|Last purchase made|MM DD YYYY|Date|
 |7|Affiliation|Name or code of dealer or broker|String|

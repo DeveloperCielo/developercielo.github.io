@@ -23,16 +23,16 @@ Checkout has the following Features:
 
 |Feature|Description|
 |---|---|
-|**Transactional screen**|Checkout Cielo has its own transactional screen, with an optimized layout, shortening the steps to pay for your transactions. <br>|
+|**Transactional screen**|Checkout Cielo has its own transactional screen, with an optimized layout, shortening the steps to pay for your transactions. |
 |**Buyer Registration**|The Checkout Cielo has the ability to save cards and payment data from buyers, allowing for future purchases that the data already are filled at the transactional screen|
 |**1-click buy**|With the registered buyer, Checkout allows the purchase to be completed quickly, using the buyer's preferred payment and address data|
 |**Recurrence**|Checkout Cielo has the Scheduled Recurrence available in the API Cielo Ecommerce. <br> The merchant just needs to define that a transaction must be repeated, that Checkout will run it again within the defined range|
 |**Anti fraud**|Checkout already has an integration with CyberSource Anti Fraud, enabling analysis of credit transactions without additional integration|
-|**Means of payment**|Checkout Cielo has a wide range of payment means: <br><br> **Credit cards** <br> **Debit card**<br>**Online Debit**<br>**Bradesco e Banco do Brasil Bank slip**<br>|
+|**Means of payment**|Checkout Cielo has a wide range of payment means: <br> **Credit cards** <br> **Debit card**<br>**Online Debit**<br>**Bradesco e Banco do Brasil Bank slip**|
 |**Simplified Backoffice**|Checkout Cielo Backoffice has a simplified and dynamic layout that allows a fast and comfortable browsing so that the Merchant can follow the sales without difficulty|
 |**Integration with Button and QR Code**|Without technical integration or programming, Checkout provides an integration that makes it possible to create an order generator link with only onde product registration inside the Backoffice Checkout.|
 |**Integration with E-commerce Platforms**|. It has integration with Terra Virtual Store and other platforms, already present in the main e-commerce platforms of the Brazilian market|
-|**Transactional reports**|Within Backoffice, it is possible to generate transactional reports that make it easy to manage your sales: <br><br> **Recurrence Report** <br> **Buyer Report**<br>**Sales statement**<br>**Sales report**<br><br>|
+|**Transactional reports**|Within Backoffice, it is possible to generate transactional reports that make it easy to manage your sales: <br> **Recurrence Report** <br> **Buyer Report**<br>**Sales statement**<br>**Sales report**|
 
 Checkout Cielo is a functionality indicated for:
 
@@ -62,8 +62,8 @@ The current version of Checkout Cielo supports the following payment means:
 
 |Issuer|Bank|
 |---|---|
-|Visa|Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil<br>|
-|Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank<br>|
+|Visa|Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil|
+|Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank|
 
 **Bank slip**
 
@@ -414,7 +414,7 @@ Endpoint is the URL to where requests with the cart data will be sent. All reque
    "Cart":{  
       "Discount":{  
          "Type":"Percent",
-         "Value":00
+         "Value":0
       },
       "Items":[  
          {  
@@ -496,7 +496,7 @@ Endpoint is the URL to where requests with the cart data will be sent. All reque
 |`Cart.Items.Description`|Alphanumeric|Optional|256|Item description in cart.||
 |`Cart.Items.UnitPrice`|Numeric|Yes|18|Unit price of the product in cents. e.g.: R$ 1,00 = 100||
 |`Cart.Items.Quantity`|Numeric|Yes|9|Item quantity in cart.||
-|`Cart.Items.Type`|Alphanumeric|Yes|255|Item type in cart: <BR>`Asset`<BR>`Digital`<BR>`Service`<BR>`Payment`<BR>||
+|`Cart.Items.Type`|Alphanumeric|Yes|255|Item type in cart: <br>`Asset`<br>`Digital`<br>`Service`<br>`Payment`||
 |`Cart.Items.Sku`|Alphanumeric|Optional|32|Item Sku in cart.||
 |`Cart.Items.Weight`|Numeric|Conditional|9|Weight in grams of item in cart.|Required in case of Shipping.Type is "Post office".|
 |`Payment.BoletoDiscount`|Numeric|Conditional|3|Discount, in percentage, for payments to be performed with bank slip.||
@@ -590,7 +590,7 @@ To send a Discount on the `Cart` just send the node below inside the `Cart` node
       {
        "Discount": {  
          "Type":"Percent",
-         "Value":00
+         "Value":0
        },
       }
 ```
@@ -662,7 +662,7 @@ The nodes that compound the freight information below:
 
 |Field|Type|Required|Size|Description|Conditional|
 |---|---|---|---|---|---|
-|`Shipping.Type`|Alphanumeric|Yes|255|Freight type: <BR>`Post office`<BR>`FixedAmount`<BR>`Free`<BR>`WithoutShippingPickUp`<BR>`WithoutShipping`<BR>||
+|`Shipping.Type`|Alphanumeric|Yes|255|Freight type: <br>`Post office`<br>`FixedAmount`<br>`Free`<br>`WithoutShippingPickUp`<br>`WithoutShipping`||
 |`Shipping.SourceZipCode`|Numeric|Conditional|8|Shopping cart origin zip code.|Obrigatório caso Shipping.Type for "Correios".|
 |`Shipping.TargetZipCode`|Numeric|Optional|8|Buyer's delivery address zip code.||
 
@@ -696,7 +696,7 @@ To use volumetric freight, just send the `Shipping.Measures` node, following the
 
 |Field|Type|Required|Size|Description|Conditional|
 |---|---|---|---|---|---|
-|`Shipping.Package`|Alphanumeric|Required|Integer|Type of package: <BR>`BOX`- Box <BR> `ROL` - Cylinder or ENVELOPE||
+|`Shipping.Package`|Alphanumeric|Required|Integer|Type of package: <br>`BOX`- Box <br> `ROL` - Cylinder or ENVELOPE||
 |`Shipping.Lenght`|Numeric|Required|Integer|Package length||
 |`Shipping.Height`|Numeric|Conditional|Integer|Package height|Required in case of Shipping.Package as BOX|
 |`Shipping.Width`|Numeric|Conditional|Integer|Package width.|Required in case of Shipping.Package as BOX or ENVELOPE|
@@ -748,7 +748,7 @@ Each button has a unique code that only allows to buy that particular product in
 
 |Feature|Explanation|
 |---|---|
-|**Specific**|Each generated button only suits for a particular product or group of products. The quantity and volume of products sold is defined in the Button register, and it is not possible to change the quantity in the transactional screen <BR><BR>**Example:** It will be necessary to create a button to sell 1 shirt. If the buyer desires 3 shirts, he will need to use the button 2X or The merchant should create a button with 2 shirts|
+|**Specific**|Each generated button only suits for a particular product or group of products. The quantity and volume of products sold is defined in the Button register, and it is not possible to change the quantity in the transactional screen <br>**Example:** It will be necessary to create a button to sell 1 shirt. If the buyer desires 3 shirts, he will need to use the button 2X or The merchant should create a button with 2 shirts|
 |**Checkout Order Number**|The button does not allow the register of the Merchant's order number. Since Cielo will trigger its own Checkout, a unique order number (a `GUID`) will be generated. The Merchant will receive this order number as a link to the performed sale|
 |**Creation of orders**|One button generates multiple independent orders, i.e. it is not possible to limit the number of orders generated by a button, QRCODE or created Link. Button is a method of calling the API Checkout. Each time it is triggered, a new request is performed to the API, thus creating a new order|
 
@@ -855,7 +855,7 @@ Credit card transactions will be included in the Backoffice Cielo Checkout as PE
 |Order|Status|Explanation|
 |---|---|---|
 |1|**PENDING**|Original status. The transaction is occurring, awaiting response from the authorization process|
-|2|**AUTHORIZED / DENIED**|Result of the authorization process. <BR><BR>**AUTHORIZED** - Credit was reserved for purchase <BR> **DENIED** - Card not authorized by the issuer to continue the transaction|
+|2|**AUTHORIZED / DENIED**|Result of the authorization process. <br>**AUTHORIZED** - Credit was reserved for purchase <br> **DENIED** - Card not authorized by the issuer to continue the transaction|
 |3|**PAID**|It occurs after capture. Indicates that the credit booked on the card will be deposited in the merchant's account|
 |N/A|**EXPIRED**|Occurs if the transaction is not captured within 15 days after authorization. In this situation the transaction is lost.|
 |N/A|**CHARGEBACK**|Not automatic status. If the merchant is notified of ChargeBack, he can mark this transaction as lost.<br> This Status is only a markup, not affecting payment processes|
@@ -997,9 +997,9 @@ Checkout has 3 types of URLs that can impact the notification process.
 
 |Type|Description|Note|
 |---|---|---|
-|`Return URL`|Web page to where the buyer will be redirected at the end of the purchase. <BR><BR>No data is exchanged or sent to this URL.<BR><BR> This URL only takes the buyer, after completing the purchase, to a page set by the store.|If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo <BR><BR> Can be sent via API - See "Integration via API"|
-|`Notification URL`|At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL.<BR><BR> The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed**|Used in the Notification via `POST` and` JSON`|
-|`Status Change URL`|When an order has its status changed, a HTTP post will be sent to the Status Change URL.<BR><BR> The status change POST does not contain cart data, only order identification data|Used only in Notification via `POST`|
+|`Return URL`|Web page to where the buyer will be redirected at the end of the purchase. <br>No data is exchanged or sent to this URL.<br> This URL only takes the buyer, after completing the purchase, to a page set by the store.|If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo <br> Can be sent via API - See "Integration via API"|
+|`Notification URL`|At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL.<br> The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed**|Used in the Notification via `POST` and` JSON`|
+|`Status Change URL`|When an order has its status changed, a HTTP post will be sent to the Status Change URL.<br> The status change POST does not contain cart data, only order identification data|Used only in Notification via `POST`|
 
 **NOTE:** If a `Return URL` is sent to the API, it will have priority over the URL registered in the Backoffice / In the integration Cielo `via Button`, you can only use the return URL option via backoffice.
 
@@ -1303,8 +1303,8 @@ Some business examples are:
 
 |Type|Description|
 |---|---|
-|**Installment**|This is a **transaction divided into several months**. <BR>The total value of the sale compromises the limit of the buyer's credit card regardless of the value of the initial installment.<BR> The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied.<br><br> **e.g.**: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied|
-|**Recurrent**|They are **different transactions performed on the same card at previously scheduled times**.<BR> The first sale schedules future sales from a pre-defined time interval.<BR>  At each interval there will be a charge on the credit card. <BR> The recurring payment blocks from the card limit only the value debited on the date of the first recurring sale and from the total value of the sale.<br><br> **e.g.**: Sale of R$1,000.00 on 01/15/2015, with monthly recurrence and final date on 06/01/2015. Every day of 15 there will be a new charge of R$1,000.00 on the buyer's card, repeating until 05/15/2015, the last valid date before the end date.|
+|**Installment**|This is a **transaction divided into several months**. <br>The total value of the sale compromises the limit of the buyer's credit card regardless of the value of the initial installment.<br> The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied.<br> **e.g.**: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied|
+|**Recurrent**|They are **different transactions performed on the same card at previously scheduled times**.<br> The first sale schedules future sales from a pre-defined time interval.<br>  At each interval there will be a charge on the credit card. <br> The recurring payment blocks from the card limit only the value debited on the date of the first recurring sale and from the total value of the sale.<br> **e.g.**: Sale of R$1,000.00 on 01/15/2015, with monthly recurrence and final date on 06/01/2015. Every day of 15 there will be a new charge of R$1,000.00 on the buyer's card, repeating until 05/15/2015, the last valid date before the end date.|
 
 ## Recurrence by API
 
@@ -1466,7 +1466,7 @@ Recurrence cancellation occurs within Checkout Cielo's Backoffice, also on the "
 2. Enter Details (the “+” symbol)
 
 ![Recurrence order]({{ site.baseurl }}/images/checkout-cancelar-recorrencia.png)
-<br>
+
 ![Recurrence cancellation]({{ site.baseurl }}/images/Checkout/pedidoreccance.png)
 
 Recurrence detail screen
