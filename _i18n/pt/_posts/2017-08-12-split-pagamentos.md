@@ -14,7 +14,6 @@ tags:
 
 ## Introdução
 
-<BR>
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
 Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
