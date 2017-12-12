@@ -14,6 +14,7 @@ tags:
 
 ## Introdução
 
+<BR>
 O **Split de Pagamentos** permite a divisão de uma transação entre diferentes participantes de uma venda.
 
 Muito utilizado em Marketplaces, onde **o carrinho é composto por produtos de diferentes fornecedores e o valor total da venda deve ser dividido entre todos os participantes**.
@@ -1425,7 +1426,7 @@ Eventos de Crédito:
 |--------------------|---------------------------------------------------------------------------------------------------------|
 | `Credit`           | Lançamento de crédito das parcelas de uma transação.                                                    |
 | `FeeCredit`        | Lançamento de crédito da Tarifa Fixa acordada entre o Marketplace e a Braspag (Facilitador).            |
-| `AdjustmentCredit` | Lançamento de um crédito como ajuste                                                                    |
+| `AdjustmentCredit` | Lançamento de um crédito como ajuste.                                                                   |
 
 Eventos de Débito:
 
