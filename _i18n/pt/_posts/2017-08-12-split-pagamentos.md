@@ -1824,5 +1824,5 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
 * Chargeback
 * Liquidação
 
-<BR><BR>
+<BR>
 Para ser notificado com relação ao status de uma transação, utilize o [serviço de notificação](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notificação) da API Cielo E-Commerce.
