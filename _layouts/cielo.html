@@ -118,6 +118,7 @@
             }).data("toc-tocify");
 
             $('ul').prev('li').addClass('has-subitens');
+            
             $(window).scroll(function () {
                 if ($('li.active').closest('.tocify-header') !== openedHeader) {
                     $('li.is-open').removeClass('is-open');
@@ -149,6 +150,7 @@
         {% if page.language_tabs %}
         <script>
         let langs = '';
+        let langsArray = [];
 
         $('div.highlighter-rouge').prepend('<a class="fa expand-btn" title="{% t global.toggle_code %}"><i class="fa fa-expand" aria-hidden=true></i></a>');
 
@@ -182,9 +184,41 @@
 
         {% for lang in page.language_tabs %}
         langs += "<a data-language-name='{{ lang[0] }}'>{{ lang[1] }}</a>";
+        langsArray.push('{{ lang[0] }}');
         {% endfor %}
 
         $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+        </script>
+
+        <script src="{{ site.baseurl }}/assets/js/lang.js"></script>
+        <script>
+            $(function() {
+                $('.language-buttons').each(function() {
+                    let parent = $(this).parent();
+
+                    parent.addClass('selectable');
+
+                    if(parent.hasClass('language-tabs')) {
+                        return true;
+                    }
+
+                    langsArray.forEach((v) => {
+                        if(parent.find('.language-' + v).length === 0) {
+                            $(this).find('[data-language-name="' + v + '"]').remove();
+
+                            let firstItem = $(this).children().first();
+                            firstItem.addClass('active');
+                            parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
+                            
+                            if(parent.children('[class^="language-"]').length === 2) {
+                                parent.removeClass('selectable');
+                            }
+                        }
+                    });
+                });
+
+                setupLanguages([ {% for lang in page.language_tabs %} "{{ lang[0] }}", {% endfor %}]);
+            });
         </script>
 
         <script src="{{ site.baseurl }}/assets/js/lang.js"></script>
