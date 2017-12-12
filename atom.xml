@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T00:26:38+00:00</updated>
+    <updated>2017-12-12T00:44:47+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1842,10 +1842,10 @@
     
     <entry>
         <title>Teste</title>
-        <category term="manual" />
-        <link href="https://developercielo.github.io/manual/teste"/>
+        <category term="tutorial" />
+        <link href="https://developercielo.github.io/tutorial/teste"/>
         <updated>2017-08-12T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/teste</id>
+        <id>https://developercielo.github.io/tutorial/teste</id>
         <content type="html">&lt;h1 id=&quot;split-de-pagamentos&quot;&gt;Split de Pagamentos&lt;/h1&gt;
 
 &lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
