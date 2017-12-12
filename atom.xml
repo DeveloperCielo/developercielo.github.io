@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T12:42:42+00:00</updated>
+    <updated>2017-12-12T12:45:30+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7471,7 +7471,7 @@
       &lt;td&gt;Codes that identifies the score level of an order&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.&amp;lt;/LI&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;&lt;br /&gt;A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.&amp;lt;/LI&amp;gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -11800,7 +11800,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10 &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Interval between recurrences&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly (Default) &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &lt;/td&gt;
+      &lt;td&gt;Interval between recurrences&lt;br /&gt; (Default) &lt;br /&gt;Bimonthly &lt;br /&gt;Quarterly &lt;br /&gt;SemiAnnual &lt;br /&gt;Annual&lt;br /&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -12027,7 +12027,7 @@
       &lt;td&gt;Recurrency Interval &lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10 &lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &lt;/td&gt;
+      &lt;td&gt;&lt;br /&gt;Monthly&lt;br /&gt;Bimonthly &lt;br /&gt;Quarterly &lt;br /&gt;SemiAnnual &lt;br /&gt;Annual&lt;br /&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -12202,7 +12202,7 @@
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10 &lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Interval between recurrencies.&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly (Default) &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &lt;/td&gt;
+      &lt;td&gt;Interval between recurrencies.&lt;br /&gt; (Default) &lt;br /&gt;Bimonthly &lt;br /&gt;Quarterly &lt;br /&gt;SemiAnnual &lt;br /&gt;Annual&lt;br /&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.AuthorizeNow&lt;/code&gt;Boolean &lt;/td&gt;
@@ -12386,7 +12386,7 @@
       &lt;td&gt;Interval between recurrences &lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10 &lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &lt;/td&gt;
+      &lt;td&gt;&lt;br /&gt;Monthly&lt;br /&gt;Bimonthly &lt;br /&gt;Quarterly &lt;br /&gt;SemiAnnual &lt;br /&gt;Annual&lt;br /&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -12843,7 +12843,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Interval between recurrencies. &amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Interval between recurrencies. &lt;br /&gt;Monthly&lt;br /&gt;Bimonthly &lt;br /&gt;Quarterly &lt;br /&gt;SemiAnnual &lt;br /&gt;Annual&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2 &lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -14314,7 +14314,7 @@ New Next scheduled recurrence date: Oct 2th &lt;br /&gt;
       &lt;td&gt;Recurrence Status&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;1 &lt;/td&gt;
-      &lt;td&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;1 - Active&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;2 - Finished&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;3,4,5 - Disabled&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt; &lt;/td&gt;
+      &lt;td&gt;&lt;br /&gt;1 - Active&lt;br /&gt;2 - Finished&lt;br /&gt;3,4,5 - Disabled&lt;br /&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrencyDay&lt;/code&gt;&lt;/td&gt;
@@ -15593,7 +15593,7 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;What is the difference between Status, ReasonCode and ProviderReturnCode?&lt;/td&gt;
-      &lt;td&gt;The answer is:&lt;br /&gt;&amp;lt;UL&amp;gt;&amp;lt;LI&amp;gt;Status: represents the current status of the transaction.&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ReasonCode: represents the status of the request.&amp;lt;/LI&amp;gt;&amp;lt;LI&amp;gt;ProviderReturnCode: represents the response code from the acquirer or bank.&amp;lt;/LI&amp;gt;&amp;lt;/UL&amp;gt;For example, an authorization request may have a return with ReasonCode = 0 (Sucessfull), ie the request has been successfully completed, but the Status may be 0-Denied, for having the transaction not authorized by the buyer, ProviderReturnCode 57 (one of Cielo’s denied codes)&lt;/td&gt;
+      &lt;td&gt;The answer is:&lt;br /&gt;&lt;br /&gt;Status: represents the current status of the transaction.&lt;br /&gt;ReasonCode: represents the status of the request.&lt;br /&gt;ProviderReturnCode: represents the response code from the acquirer or bank.&lt;br /&gt;For example, an authorization request may have a return with ReasonCode = 0 (Sucessfull), ie the request has been successfully completed, but the Status may be 0-Denied, for having the transaction not authorized by the buyer, ProviderReturnCode 57 (one of Cielo’s denied codes)&lt;/td&gt;
       &lt;td&gt;Integration&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
