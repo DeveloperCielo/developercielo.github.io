@@ -8,8 +8,6 @@ categories: manual
 sort_order: 3
 tags:
   - Split de Pagamentos
-language_tabs:
-  json: JSON
 ---
 
 # Split de Pagamentos
