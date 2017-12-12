@@ -146,7 +146,7 @@
 <p>Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à Cielo
 para iniciar a operação no ambiente de produção.</p>
 
-<aside class="notice">Veja a seção <a href="#testes-e-homologação">Homologação</a> para instruções sobre o processo de homologação</aside>
+<aside class="notice">Veja a seção Homologação para instruções sobre o processo de homologação</aside>
 
 <h2 id="suporte-cielo">Suporte Cielo</h2>
 
@@ -459,14 +459,14 @@ para iniciar a operação no ambiente de produção.</p>
 <ul>
   <li>A mensagem em formato XML, definida de acordo com a funcionalidade.</li>
   <li>O destino (ambiente de teste ou de produção).</li>
-  <li>O retorno em formato XML, que pode ser: <code class="highlighter-rouge">&lt;transacao/&gt;</code>, <code class="highlighter-rouge">&lt;retorno-token&gt;</code> ou <code class="highlighter-rouge">&lt;erro/&gt;</code>.</li>
+  <li>O retorno em formato XML, que pode ser: <code class="highlighter-rouge">,</code> ou ``.</li>
 </ul>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /servicos/ecommwsec.do HTTP/1.1
 Host: eCommerce.cielo.com.br
 Content-Type: application/x-www-form-urlencoded
 Content-Length: length
-mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura id="3e22bdd0-2017-4756-80b7-35a532e6c973" versao="1.2.1"&gt;&lt;tid&gt;10069930690101012005&lt;/tid&gt;&lt;dados-ec&gt;&lt;numero&gt;1006993069&lt;/numero&gt;&lt;chave&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&lt;/chave&gt;&lt;/dados-ec&gt;&lt;valor&gt;3880&lt;/valor&gt;&lt;/requisicao-captura&gt;
+mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f33880
 </code></pre></div></div>
 
 <h2 id="transação">Transação</h2>
@@ -481,58 +481,57 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h1 id="criando-transações">Criando transações</h1>
 
-<p>Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML <code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>, cujo conjunto de TAGS determinam as configurações de uma transação.</p>
+<p>Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML ``, cujo conjunto de TAGS determinam as configurações de uma transação.</p>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;dados-ec&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;chave&gt;</span>25fbb997438630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
-  <span class="nt">&lt;/dados-ec&gt;</span>
-  <span class="nt">&lt;dados-portador&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>4012001038443335<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;validade&gt;</span>201508<span class="nt">&lt;/validade&gt;</span>
-    <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
-    <span class="nt">&lt;codigo-seguranca&gt;</span>973<span class="nt">&lt;/codigo-seguranca&gt;</span>
-    <span class="nt">&lt;token/&gt;</span>
-  <span class="nt">&lt;/dados-portador&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>178148599<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-    <span class="nt">&lt;data-hora&gt;</span>2011-12-07T11:43:37<span class="nt">&lt;/data-hora&gt;</span>
-    <span class="nt">&lt;descricao&gt;</span>[origem:10.50.54.156]<span class="nt">&lt;/descricao&gt;</span>
-    <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-    <span class="nt">&lt;taxa-embarque/&gt;</span>
-    <span class="nt">&lt;soft-descriptor/&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="nt">&lt;forma-pagamento&gt;</span>
-    <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-    <span class="nt">&lt;produto&gt;</span>A<span class="nt">&lt;/produto&gt;</span>
-    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-  <span class="nt">&lt;/forma-pagamento&gt;</span>
-  <span class="nt">&lt;url-retorno&gt;</span>http://localhost/lojaexemplo/retorno.jsp<span class="nt">&lt;/url-retorno&gt;</span>
-  <span class="nt">&lt;autorizar&gt;</span>1<span class="nt">&lt;/autorizar&gt;</span>
-  <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
-  <span class="nt">&lt;campo-livre&gt;</span>Informações extras<span class="nt">&lt;/campo-livre&gt;</span>
-  <span class="nt">&lt;bin&gt;</span>455187<span class="nt">&lt;/bin&gt;</span>
-  <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
-  <span class="nt">&lt;avs&gt;</span>
-  <span class="cp">&lt;![CDATA[
-    &lt;dados-avs&gt;</span>
-      <span class="nt">&lt;endereco&gt;</span>Rua Teste AVS<span class="nt">&lt;/endereco&gt;</span>
-      <span class="nt">&lt;complemento&gt;</span>Casa<span class="nt">&lt;/complemento&gt;</span>
-      <span class="nt">&lt;numero&gt;</span>123<span class="nt">&lt;/numero&gt;</span>
-      <span class="nt">&lt;bairro&gt;</span>Vila AVS<span class="nt">&lt;/bairro&gt;</span>
-      <span class="nt">&lt;cep&gt;</span>12345-123<span class="nt">&lt;/cep&gt;</span>
-      <span class="nt">&lt;cpf&gt;</span>11111111111<span class="nt">&lt;/cpf&gt;</span>
-    <span class="nt">&lt;/dados-avs&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+  
+    4012001038443335
+    201508
+    1
+    973
+    
+  
+  
+    178148599
+    1000
+    986
+    2011-12-07T11:43:37
+    [origem:10.50.54.156]
+    PT
+    
+    
+  
+  
+    visa
+    A
+    1
+  
+  http://localhost/lojaexemplo/retorno.jsp
+  1
+  false
+  Informações extras
+  455187
+  false
+  
+  
+      Rua Teste AVS
+      Casa
+      123
+      Vila AVS
+      12345-123
+      11111111111
+    
   ]]&gt;
-  <span class="nt">&lt;/avs&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+  
+
 </code></pre></div></div>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="https://developercielo.github.io/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no XML Schema eCommerce.xsd</aside>
 
 <h3 id="raiz">raiz</h3>
 
@@ -825,11 +824,11 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>Após a transação ter sido criada, o fluxo de navegação pode ser direcionado ao ambiente da Cielo caso o lojista solicite a autenticação na mensagem XML.</p>
 
-<p>Nessa situação, o sistema do lojista deve obter o valor da TAG <url-autenticacao> do XML de retorno para realizar um redirect no browser do cliente e dar continuidade ao processo. O redirecionamento deve ser realizado em modo Full Screen. Ou seja, não há mais suporte a abertura de pop up. Dessa forma, a partir da tela de checkout deve ser realizado um redirecionamento à URL retornada na criação da transação.</url-autenticacao></p>
+<p>Nessa situação, o sistema do lojista deve obter o valor da TAG  do XML de retorno para realizar um redirect no browser do cliente e dar continuidade ao processo. O redirecionamento deve ser realizado em modo Full Screen. Ou seja, não há mais suporte a abertura de pop up. Dessa forma, a partir da tela de checkout deve ser realizado um redirecionamento à URL retornada na criação da transação.</p>
 
 <aside class="notice">Esse redirecionamento pode ser através de um Http Redirect (como no código da Loja Exemplo) ou através de um Javascript.</aside>
 
-<p>Após o processo de autenticação, o fluxo é devolvido ao lojista através da informação presente na TAG <url-retorno>, enviada na primeira requisição para a Cielo.</url-retorno></p>
+<p>Após o processo de autenticação, o fluxo é devolvido ao lojista através da informação presente na TAG , enviada na primeira requisição para a Cielo.</p>
 
 <p>O diagrama abaixo facilita a visualização do fluxo completo de navegação:</p>
 
@@ -846,51 +845,51 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <p>Há três tipos de retorno que podem ser gerados na resposta do Web Service:</p>
 
 <ol>
-  <li><code class="highlighter-rouge">&lt;transacao&gt;</code></li>
-  <li><code class="highlighter-rouge">&lt;retorno-token&gt;</code></li>
-  <li><code class="highlighter-rouge">&lt;erro&gt;</code></li>
+  <li>``</li>
+  <li>``</li>
+  <li>``</li>
 </ol>
 
-<p>Para as operações relacionadas a uma transação (consultas, autorização, captura e cancelamento), a resposta, em caso de sucesso, é sempre um XML do tipo <code class="highlighter-rouge">&lt;transacao&gt;</code>. No caso de uma requisição exclusiva para criação de token, a resposta esperada é <code class="highlighter-rouge">&lt;retorno-token&gt;</code>.</p>
+<p>Para as operações relacionadas a uma transação (consultas, autorização, captura e cancelamento), a resposta, em caso de sucesso, é sempre um XML do tipo <code class="highlighter-rouge">. No caso de uma requisição exclusiva para criação de token, a resposta esperada é</code>.</p>
 
-<p>O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo <code class="highlighter-rouge">&lt;transacao&gt;</code>. Basicamente, ela é composta pelos dados do pedido e dados da configuração da transação.</p>
+<p>O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo ``. Basicamente, ela é composta pelos dados do pedido e dados da configuração da transação.</p>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"af32f93c-5e9c-4f44-9478-ccc5aca9319e"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;tid&gt;</span>100699306908642F1001<span class="nt">&lt;/tid&gt;</span>
-    <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
-    <span class="nt">&lt;dados-pedido&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>2132385784<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2013-02-18T16:51:30.852-03:00<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;descricao&gt;</span>[origem:0:0:0:0:0:0:0:1]<span class="nt">&lt;/descricao&gt;</span>
-        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-        <span class="nt">&lt;taxa-embarque&gt;</span>0<span class="nt">&lt;/taxa-embarque&gt;</span>
-    <span class="nt">&lt;/dados-pedido&gt;</span>
-    <span class="nt">&lt;forma-pagamento&gt;</span>
-        <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-    <span class="nt">&lt;/forma-pagamento&gt;</span>
-    <span class="nt">&lt;status&gt;</span>4<span class="nt">&lt;/status&gt;</span>
-    <span class="nt">&lt;autenticacao&gt;</span>
-        <span class="nt">&lt;codigo&gt;</span>4<span class="nt">&lt;/codigo&gt;</span>
-        <span class="nt">&lt;mensagem&gt;</span>Transacao sem autenticacao<span class="nt">&lt;/mensagem&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2013-02-18T16:51:31.158-03:00<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;eci&gt;</span>7<span class="nt">&lt;/eci&gt;</span>
-    <span class="nt">&lt;/autenticacao&gt;</span>
-    <span class="nt">&lt;autorizacao&gt;</span>
-        <span class="nt">&lt;codigo&gt;</span>4<span class="nt">&lt;/codigo&gt;</span>
-        <span class="nt">&lt;mensagem&gt;</span>Transação autorizada<span class="nt">&lt;/mensagem&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2013-02-18T16:51:31.460-03:00<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;lr&gt;</span>00<span class="nt">&lt;/lr&gt;</span>
-        <span class="nt">&lt;arp&gt;</span>123456<span class="nt">&lt;/arp&gt;</span>
-        <span class="nt">&lt;nsu&gt;</span>549935<span class="nt">&lt;/nsu&gt;</span>
-    <span class="nt">&lt;/autorizacao&gt;</span>
-<span class="nt">&lt;/transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+    100699306908642F1001
+    uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
+    
+        2132385784
+        1000
+        986
+        2013-02-18T16:51:30.852-03:00
+        [origem:0:0:0:0:0:0:0:1]
+        PT
+        0
+    
+    
+        visa
+        1
+        1
+    
+    4
+    
+        4
+        Transacao sem autenticacao
+        2013-02-18T16:51:31.158-03:00
+        1000
+        7
+    
+    
+        4
+        Transação autorizada
+        2013-02-18T16:51:31.460-03:00
+        1000
+        00
+        123456
+        549935
+    
+
 </code></pre></div></div>
 
 <p>As informações mais importantes são:</p>
@@ -901,7 +900,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <li><strong>Status</strong>: é a informação base para a loja controlar a transação.</li>
 </ul>
 
-<p>A tabela abaixo detalha as TAGS do XML básico de retorno, identificado pelo nó raiz <code class="highlighter-rouge">&lt;transação&gt;</code>:</p>
+<p>A tabela abaixo detalha as TAGS do XML básico de retorno, identificado pelo nó raiz ``:</p>
 
 <table>
   <thead>
@@ -946,14 +945,14 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </tbody>
 </table>
 
-<p>Por fim, há outro tipo de retorno que é empregado toda vez que uma requisição não pode ser executada, seja porque era inválida ou por ter ocorrido falha no seu processamento. Nesse cenário o nó raiz do XML de resposta é do tipo <code class="highlighter-rouge">&lt;erro&gt;</code>.</p>
+<p>Por fim, há outro tipo de retorno que é empregado toda vez que uma requisição não pode ser executada, seja porque era inválida ou por ter ocorrido falha no seu processamento. Nesse cenário o nó raiz do XML de resposta é do tipo ``.</p>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;erro</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;codigo&gt;</span>001<span class="nt">&lt;/codigo&gt;</span>
-  <span class="nt">&lt;mensagem&gt;</span><span class="cp">&lt;![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '&lt;xml-fragment/&gt;]]&gt;</span>
-  <span class="nt">&lt;/mensagem&gt;</span>
-<span class="nt">&lt;/erro&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  001
+  ]]&gt;
+  
+
 </code></pre></div></div>
 
 <p>Quando a transação é inválida, podemos classificar os erros em dois tipos:</p>
@@ -971,7 +970,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>Ela acontece sempre no site do banco (Internet Banking), utilizando mecanismos e tecnologias independentes da Cielo. Dessa forma, é possível que o banco utilize token eletrônico e senha, enquanto outro utilize os cartões de senhas ou CPF para autenticar uma transação.</p>
 
-<p>Conforme mostrado anteriormente, a mecânica do redirecionamento é obtida através da tag <code class="highlighter-rouge">&lt;url-autenticacao&gt;</code> que é retornada pela Cielo no XML <transação> no momento da solicitação de autorização ao Web Service.</transação></p>
+<p>Conforme mostrado anteriormente, a mecânica do redirecionamento é obtida através da tag `` que é retornada pela Cielo no XML  no momento da solicitação de autorização ao Web Service.</p>
 
 <p>A autenticação é obrigatória para transações de débito e opcional para o crédito. Atualmente somente Visa e MasterCard suportam essa funcionalidade e consequentemente, somente essas duas bandeiras possuem o produto débito.</p>
 
@@ -983,12 +982,12 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <ol>
   <li>fecharPedido() – acontece quando o portador do cartão finaliza o pedido e dá início ao pagamento da compra</li>
-  <li>criarTransacao(autenticada) – o sistema do lojista envia uma requisição XML <code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code> solicitando uma transação autenticada, ou seja, a TAG <autorizar> será 0, 1 ou 2. Em seguida, a Cielo informará no XML de retorno o campo <url-autenticacao> com o endereço que o portador deverá ser redirecionado.</url-autenticacao></autorizar></li>
+  <li>criarTransacao(autenticada) – o sistema do lojista envia uma requisição XML `` solicitando uma transação autenticada, ou seja, a TAG  será 0, 1 ou 2. Em seguida, a Cielo informará no XML de retorno o campo  com o endereço que o portador deverá ser redirecionado.</li>
   <li>acessar(url-atenticacao) – o browser do portador é redirecionado ao ambiente da Cielo. Assim que a página da Cielo é acessada, automaticamente ela já é direcionada para o banco emissor (3.1). Esse redirect é tão rápido que é praticamente imperceptível.</li>
   <li>autenticar(token, cpf) – o portador estará no ambiente do banco e utilizará algum mecanismo provido pelo próprio emissor para realizar a autenticação da transação (geralmente token, cartão de bingo, cpf, assinatura eletrônica, etc).</li>
   <li>resultadoAutenticacao() – o banco emissor redireciona o fluxo para a Cielo com o resultado da autenticação. A partir daí, o fluxo volta ao normal, conforme disposto no item “2.3 Arquitetura de integração”.
     1.processar() – o sistema da Cielo processa o retorno da autenticação e submete á autorização e, opcionalmente, à captura automática.
-    2. enviarRedirect(url-retorno) – o sistema da Cielo envia um redirect ao browser do cliente para o endereço especificado na URL de retorno, fornecida na primeira requisição (<code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>)
+    2. enviarRedirect(url-retorno) – o sistema da Cielo envia um redirect ao browser do cliente para o endereço especificado na URL de retorno, fornecida na primeira requisição (``)
     <ol>
       <li>acessar(url-retorno) – o browser do portador acessar a URL no ambiente da loja, onde recomendamos que exista uma requisição de consulta via TID ao Web Service da Cielo.</li>
     </ol>
@@ -1009,56 +1008,56 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <ul>
   <li>Banco e Bandeira devem ser participantes do programa de autenticação;</li>
   <li>O BIN do cartão deve ser participante do programa de autenticação;</li>
-  <li>A configuração da <requisicao-transacao>//<autorizar> deve ser 0, 1 ou 2.</autorizar></requisicao-transacao></li>
+  <li>A configuração da // deve ser 0, 1 ou 2.</li>
 </ul>
 
-<p>Observando o diagrama da seção <a href="#transação">Transação</a>, é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó <code class="highlighter-rouge">&lt;autenticacao&gt;</code> no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:</p>
+<p>Observando o diagrama da seção <a href="#transação">Transação</a>, é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó `` no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:</p>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"5e445904-963e-4fa1-95cd-55ef88c289cc"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;tid&gt;</span>10069930690864281001<span class="nt">&lt;/tid&gt;</span>
-    <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
-    <span class="nt">&lt;dados-pedido&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>1739114311<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2013-02-18T15:06:27.523-03:00<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;descricao&gt;</span>[origem:172.16.34.66]<span class="nt">&lt;/descricao&gt;</span>
-        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-        <span class="nt">&lt;taxa-embarque&gt;</span>0<span class="nt">&lt;/taxa-embarque&gt;</span>
-    <span class="nt">&lt;/dados-pedido&gt;</span>
-    <span class="nt">&lt;forma-pagamento&gt;</span>
-        <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-    <span class="nt">&lt;/forma-pagamento&gt;</span>
-    <span class="nt">&lt;status&gt;</span>6<span class="nt">&lt;/status&gt;</span>
-    <span class="nt">&lt;autenticacao&gt;</span>
-        <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
-        <span class="nt">&lt;mensagem&gt;</span>Transacao sem autenticacao<span class="nt">&lt;/mensagem&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2013-02-18T15:06:28.013-03:00<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;eci&gt;</span>7<span class="nt">&lt;/eci&gt;</span>
-    <span class="nt">&lt;/autenticacao&gt;</span>
-    <span class="nt">&lt;autorizacao&gt;</span>
-        <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
-        <span class="nt">&lt;mensagem&gt;</span>Transação autorizada<span class="nt">&lt;/mensagem&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2013-02-18T15:06:28.807-03:00<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;lr&gt;</span>00<span class="nt">&lt;/lr&gt;</span>
-        <span class="nt">&lt;arp&gt;</span>123456<span class="nt">&lt;/arp&gt;</span>
-        <span class="nt">&lt;nsu&gt;</span>549928<span class="nt">&lt;/nsu&gt;</span>
-    <span class="nt">&lt;/autorizacao&gt;</span>
-    <span class="nt">&lt;captura&gt;</span>
-        <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
-        <span class="nt">&lt;mensagem&gt;</span>Transacao capturada com sucesso<span class="nt">&lt;/mensagem&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2013-02-18T15:08:23.031-03:00<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;/captura&gt;</span>
-<span class="nt">&lt;/transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+    10069930690864281001
+    uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
+    
+        1739114311
+        1000
+        986
+        2013-02-18T15:06:27.523-03:00
+        [origem:172.16.34.66]
+        PT
+        0
+    
+    
+        visa
+        1
+        1
+    
+    6
+    
+        6
+        Transacao sem autenticacao
+        2013-02-18T15:06:28.013-03:00
+        1000
+        7
+    
+    
+        6
+        Transação autorizada
+        2013-02-18T15:06:28.807-03:00
+        1000
+        00
+        123456
+        549928
+    
+    
+        6
+        Transacao capturada com sucesso
+        2013-02-18T15:08:23.031-03:00
+        1000
+    
+
 </code></pre></div></div>
 
-<p>Os campos apenas do nó <code class="highlighter-rouge">&lt;autenticacao&gt;</code> estão listados na tabela abaixo:</p>
+<p>Os campos apenas do nó `` estão listados na tabela abaixo:</p>
 
 <table>
   <thead>
@@ -1884,7 +1883,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h2 id="códigos-de-erros">Códigos de Erros</h2>
 
-<p>Os erros que podem ser apresentados na mensagem XML, através da TAG <code class="highlighter-rouge">&lt;erro&gt;</code>, estão dispostos a seguir:</p>
+<p>Os erros que podem ser apresentados na mensagem XML, através da TAG ``, estão dispostos a seguir:</p>
 
 <h3 id="tabela-de-erros-de-integração">Tabela de erros de integração</h3>
 
@@ -2295,34 +2294,34 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="notice">Para os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="https://developercielo.github.io/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no XML Schema eCommerce.xsd</aside>
 
 <h2 id="autorização-direta">Autorização Direta</h2>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;dados-ec&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;chave&gt;</span>25fbb997438630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
-  <span class="nt">&lt;/dados-ec&gt;</span>
-  <span class="nt">&lt;dados-portador&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>4012001038443335<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;validade&gt;</span>201508<span class="nt">&lt;/validade&gt;</span>
-    <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
-    <span class="nt">&lt;codigo-seguranca&gt;</span>973<span class="nt">&lt;/codigo-seguranca&gt;</span>
-  <span class="nt">&lt;/dados-portador&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="nt">&lt;forma-pagamento&gt;</span>
-    <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-    <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-  <span class="nt">&lt;/forma-pagamento&gt;</span>
-  <span class="nt">&lt;url-retorno&gt;</span>http://localhost/lojaexemplo/retorno.jsp<span class="nt">&lt;/url-retorno&gt;</span>
-  <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
-  <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+  
+    4012001038443335
+    201508
+    1
+    973
+  
+  
+    
+  
+  
+    visa
+    1
+    1
+  
+  http://localhost/lojaexemplo/retorno.jsp
+  3
+  false
+
 </code></pre></div></div>
 
 <p>A autorização direta caracteriza-se por ser uma transação onde não há a autenticação do portador, seja por opção (e risco) do lojista, seja porque a bandeira ou emissor não tem suporte. A autorização direta pode ser feita de duas formas: tradicional (com os dados do cartão) ou através de um token.</p>
@@ -2334,7 +2333,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <li><strong>Regras</strong>
     <ul>
       <li>O cadastro da loja virtual deve estar habilitado para envio dos dados do cartão.</li>
-      <li>Enviar a TAG <code class="highlighter-rouge">&lt;autorizar&gt;</code> com o valor “3”.</li>
+      <li>Enviar a TAG `` com o valor “3”.</li>
       <li>Somente válido para Crédito.</li>
       <li>O lojista deve estar atento às regras para envio do cartão.</li>
       <li>Na autorização direta, o nível de segurança da transação (ECI) é definido como:
@@ -2349,37 +2348,37 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h2 id="autorização-recorrente">Autorização Recorrente</h2>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;dados-ec&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;chave&gt;</span>25fbb997438630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
-  <span class="nt">&lt;/dados-ec&gt;</span>
-  <span class="nt">&lt;dados-portador&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>4012001038443335<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;validade&gt;</span>201508<span class="nt">&lt;/validade&gt;</span>
-    <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
-    <span class="nt">&lt;codigo-seguranca&gt;</span>973<span class="nt">&lt;/codigo-seguranca&gt;</span>
-  <span class="nt">&lt;/dados-portador&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="nt">&lt;forma-pagamento&gt;</span>
-    <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-    <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-  <span class="nt">&lt;/forma-pagamento&gt;</span>
-  <span class="nt">&lt;url-retorno&gt;</span>http://localhost/lojaexemplo/retorno.jsp<span class="nt">&lt;/url-retorno&gt;</span>
-  <span class="nt">&lt;autorizar&gt;</span>4<span class="nt">&lt;/autorizar&gt;</span>
-  <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+  
+    4012001038443335
+    201508
+    1
+    973
+  
+  
+    
+  
+  
+    visa
+    1
+    1
+  
+  http://localhost/lojaexemplo/retorno.jsp
+  4
+  false
+
 </code></pre></div></div>
 
 <p>A autorização recorrente pode ser feita de duas formas: através do envio de um token previamente cadastrado, ou através de um cartão. A transação recorrente é praticamente igual à transação tradicional, as mudanças consistem nas regras que o emissor e a bandeira utilizam para autorizar ou negar uma transação. Outra diferença está relacionada ao Renova Fácil.</p>
 
 <aside class="notice">Para saber se sua loja é elegível a utilizar a autorização recorrente, consulte nossa central de relacionamento ou o Suporte Web Cielo eCommerce.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="https://developercielo.github.io/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no XML Schema eCommerce.xsd</aside>
 
 <h3 id="autorização-recorrente-com-cartão">Autorização recorrente com Cartão</h3>
 
@@ -2387,7 +2386,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <li><strong>Objetivo</strong> - Submeter uma transação recorrente com o uso de um cartão de crédito.</li>
   <li><strong>Regras</strong>
     <ul>
-      <li>Enviar a TAG <code class="highlighter-rouge">&lt;autorizar&gt;</code> com o valor “4”.</li>
+      <li>Enviar a TAG `` com o valor “4”.</li>
       <li>Somente válido para crédito à vista.</li>
     </ul>
   </li>
@@ -2395,32 +2394,32 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="renova-fácil">Renova Fácil</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"d35b67189442"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;tid&gt;</span>10069930690362461001<span class="nt">&lt;/tid&gt;</span>
-  <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="nt">&lt;forma-pagamento&gt;</span>
-    <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;/forma-pagamento&gt;</span>
-  <span class="nt">&lt;status&gt;</span>5<span class="nt">&lt;/status&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;autorizacao&gt;</span>
-    <span class="nt">&lt;codigo&gt;</span>5<span class="nt">&lt;/codigo&gt;</span>
-    <span class="nt">&lt;mensagem&gt;</span>Autorização negada<span class="nt">&lt;/mensagem&gt;</span>
-    <span class="nt">&lt;data-hora&gt;</span>2011-12-09T10:58:45.847-02:00<span class="nt">&lt;/data-hora&gt;</span>
-    <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;lr&gt;</span>57<span class="nt">&lt;/lr&gt;</span>
-    <span class="nt">&lt;nsu&gt;</span>221766<span class="nt">&lt;/nsu&gt;</span>
-  <span class="nt">&lt;/autorizacao&gt;</span>
-  <span class="nt">&lt;dados-portador&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>4012001038443335<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;validade&gt;</span>201508<span class="nt">&lt;/validade&gt;</span>
-    <span class="nt">&lt;codigo-seguranca/&gt;</span>
-  <span class="nt">&lt;/dados-portador&gt;</span>
-<span class="nt">&lt;/transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  10069930690362461001
+  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
+  
+    
+  
+  
+    
+  
+  5
+  
+  
+    5
+    Autorização negada
+    2011-12-09T10:58:45.847-02:00
+    1000
+    57
+    221766
+  
+  
+    4012001038443335
+    201508
+    
+  
+
 </code></pre></div></div>
 
 <p>Essa funcionalidade facilita a identificação de um cartão que tenha sido substituído por outro no banco emissor. Dessa forma, quando uma transação recorrente é submetida ao Web Service e a Cielo identifica que o cartão utilizado está desatualizado, o sistema terá o seguinte comportamento:</p>
@@ -2433,18 +2432,18 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="notice">O Renova Fácil só está disponível para transações recorrentes. A efetividade do Renova Fácil depende do uso correto das transações recorrentes devidamente sinalizadas como tal. Consulte os bancos e bandeiras participantes com o Suporte Web Cielo eCommerce.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="https://developercielo.github.io/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no XML Schema eCommerce.xsd</aside>
 
 <h3 id="autorização-de-uma-transação-previamente-gerada">Autorização de uma transação previamente gerada</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-autorizacao-tid</span> <span class="na">id=</span><span class="s">"a387cb68-b33a-4113-b7c4-9b7dfde871ec"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;tid&gt;</span>100699306908642E1001<span class="nt">&lt;/tid&gt;</span>
-    <span class="nt">&lt;dados-ec&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;chave&gt;</span>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
-    <span class="nt">&lt;/dados-ec&gt;</span>
-<span class="nt">&lt;/requisicao-autorizacao-tid&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+    100699306908642E1001
+    
+        1006993069
+        25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+    
+
 </code></pre></div></div>
 
 <p>Para os estabelecimentos utilizando o processo de autenticação, é possível solicitar a autorização
@@ -2453,7 +2452,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="notice">Requisições para transações que não foram submetidas ao processo de autenticação ou foram interrompidas, pois o portador errou a senha não serão aceitas.</aside>
 
-<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="https://developercielo.github.io/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no XML Schema eCommerce.xsd</aside>
 
 <table>
   <thead>
@@ -2492,18 +2491,18 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h2 id="transação-com-token">Transação com Token</h2>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-token</span> <span class="na">id=</span><span class="s">"8fc889c7-004f-42f1-963a-31aa26f75e5c"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;dados-ec&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;chave&gt;</span>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
-  <span class="nt">&lt;/dados-ec&gt;</span>
-  <span class="nt">&lt;dados-portador&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>4012001038443335<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;validade&gt;</span>201508<span class="nt">&lt;/validade&gt;</span>
-    <span class="nt">&lt;nome-portador&gt;</span>FULANO DA SILVA<span class="nt">&lt;/nome-portador&gt;</span>
-  <span class="nt">&lt;/dados-portador&gt;</span>
-<span class="nt">&lt;/requisicao-token&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+    1006993069
+    25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+  
+  
+    4012001038443335
+    201508
+    FULANO DA SILVA
+  
+
 </code></pre></div></div>
 
 <ul>
@@ -2579,19 +2578,19 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="retorno">Retorno</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;retorno-token</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"57239017"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;token&gt;</span>
-    <span class="nt">&lt;dados-token&gt;</span>
-      <span class="nt">&lt;codigo-token&gt;</span>TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=<span class="nt">&lt;/codigo-token&gt;</span>
-      <span class="nt">&lt;status&gt;</span>1<span class="nt">&lt;/status&gt;</span>
-      <span class="nt">&lt;numero-cartao-truncado&gt;</span>455187******0183<span class="nt">&lt;/numero-cartao-truncado&gt;</span>
-    <span class="nt">&lt;/dados-token&gt;</span>
-  <span class="nt">&lt;/token&gt;</span>
-<span class="nt">&lt;/retorno-token&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+    
+      TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
+      1
+      455187******0183
+    
+  
+
 </code></pre></div></div>
 
-<p>O retorno será do tipo <retorno-token> quando a solicitação tenha sido concluída com sucesso, ou <erro> em caso de fracasso.</erro></retorno-token></p>
+<p>O retorno será do tipo  quando a solicitação tenha sido concluída com sucesso, ou  em caso de fracasso.</p>
 
 <table>
   <thead>
@@ -2626,34 +2625,34 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="autorização-direta-via-token">Autorização Direta via Token</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;dados-ec&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;chave&gt;</span>25fbb997438630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
-  <span class="nt">&lt;/dados-ec&gt;</span>
-  <span class="nt">&lt;dados-portador&gt;</span>
-    <span class="nt">&lt;token&gt;</span>TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=<span class="nt">&lt;/token&gt;</span>
-  <span class="nt">&lt;/dados-portador&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="nt">&lt;forma-pagamento&gt;</span>
-    <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-    <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-  <span class="nt">&lt;/forma-pagamento&gt;</span>
-  <span class="nt">&lt;url-retorno&gt;</span>http://localhost/lojaexemplo/retorno.jsp<span class="nt">&lt;/url-retorno&gt;</span>
-  <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
-  <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+  
+    TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
+  
+  
+    
+  
+  
+    visa
+    1
+    1
+  
+  http://localhost/lojaexemplo/retorno.jsp
+  3
+  true
+
 </code></pre></div></div>
 
 <ul>
   <li><strong>Objetico</strong> - Submeter uma transação direta (sem autenticação) com o uso de um token previamente cadastrado</li>
   <li><strong>Regras</strong>
     <ul>
-      <li>Enviar a TAG <code class="highlighter-rouge">&lt;autorizar&gt;</code> com o valor “3”.</li>
+      <li>Enviar a TAG `` com o valor “3”.</li>
       <li>O token deve estar desbloqueado.</li>
       <li>Válido somente para crédito.</li>
     </ul>
@@ -2662,27 +2661,27 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="autorização-recorrente-com-token">Autorização recorrente com Token</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;dados-ec&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;chave&gt;</span>25fbb997438630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
-  <span class="nt">&lt;/dados-ec&gt;</span>
-  <span class="nt">&lt;dados-portador&gt;</span>
-    <span class="nt">&lt;token&gt;</span>TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=<span class="nt">&lt;/token&gt;</span>
-  <span class="nt">&lt;/dados-portador&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="nt">&lt;forma-pagamento&gt;</span>
-    <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-    <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-  <span class="nt">&lt;/forma-pagamento&gt;</span>
-  <span class="nt">&lt;url-retorno&gt;</span>http://localhost/lojaexemplo/retorno.jsp<span class="nt">&lt;/url-retorno&gt;</span>
-  <span class="nt">&lt;autorizar&gt;</span>4<span class="nt">&lt;/autorizar&gt;</span>
-  <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+  
+    TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
+  
+  
+    
+  
+  
+    visa
+    1
+    1
+  
+  http://localhost/lojaexemplo/retorno.jsp
+  4
+  true
+
 
 </code></pre></div></div>
 
@@ -2690,7 +2689,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   <li><strong>Objetivo</strong> - Submeter uma transação recorrente com o uso de um token previamente cadastrado.</li>
   <li><strong>Regras</strong>
     <ul>
-      <li>Enviar a TAG <code class="highlighter-rouge">&lt;autorizar&gt;</code> com o valor “4”.</li>
+      <li>Enviar a TAG `` com o valor “4”.</li>
       <li>O token deve estar desbloqueado.</li>
       <li>Somente válido para crédito à vista.</li>
     </ul>
@@ -2699,34 +2698,34 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="renova-fácil-com-token">Renova Fácil com Token</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"d35b67189442"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;tid&gt;</span>10069930690362461001<span class="nt">&lt;/tid&gt;</span>
-  <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="nt">&lt;forma-pagamento&gt;</span>
-    <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;/forma-pagamento&gt;</span>
-  <span class="nt">&lt;status&gt;</span>5<span class="nt">&lt;/status&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;autorizacao&gt;</span>
-    <span class="nt">&lt;codigo&gt;</span>5<span class="nt">&lt;/codigo&gt;</span>
-    <span class="nt">&lt;mensagem&gt;</span>Autorização negada<span class="nt">&lt;/mensagem&gt;</span>
-    <span class="nt">&lt;data-hora&gt;</span>2011-12-09T10:58:45.847-02:00<span class="nt">&lt;/data-hora&gt;</span>
-    <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;lr&gt;</span>57<span class="nt">&lt;/lr&gt;</span>
-    <span class="nt">&lt;nsu&gt;</span>221766<span class="nt">&lt;/nsu&gt;</span>
-  <span class="nt">&lt;/autorizacao&gt;</span>
-  <span class="nt">&lt;token&gt;</span>
-    <span class="nt">&lt;dados-token&gt;</span>
-      <span class="nt">&lt;codigo-token&gt;</span>TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=<span class="nt">&lt;/codigo-token&gt;</span>
-      <span class="nt">&lt;status&gt;</span>1<span class="nt">&lt;/status&gt;</span>
-      <span class="nt">&lt;numero-cartao-truncado&gt;</span>455187******0183<span class="nt">&lt;/numero-cartao-truncado&gt;</span>
-    <span class="nt">&lt;/dados-token&gt;</span>
-  <span class="nt">&lt;/token&gt;</span>
-<span class="nt">&lt;/transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  10069930690362461001
+  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
+  
+    
+  
+  
+    
+  
+  5
+  
+  
+    5
+    Autorização negada
+    2011-12-09T10:58:45.847-02:00
+    1000
+    57
+    221766
+  
+  
+    
+      TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
+      1
+      455187******0183
+    
+  
+
 </code></pre></div></div>
 
 <p>Essa funcionalidade facilita a identificação de um cartão que tenha sido substituído por outro no banco emissor. Dessa forma, quando uma transação recorrente é submetida ao Web Service e a Cielo identifica que o cartão utilizado está desatualizado, o sistema terá o seguinte comportamento:</p>
@@ -2739,17 +2738,17 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="geração-de-token">Geração de Token</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.0"</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;gerar-token&gt;</span>true<span class="nt">&lt;/gerar-token&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+  true
+
 </code></pre></div></div>
 
 <aside class="warning">este serviço adicional está sujeito a cobrança a partir do momento em que a geração de token é solicitada.</aside>
 
 <ul>
-  <li><strong>Objetivo</strong> - Além da mensagem específica para criação de um token, descrita em Transação com Token, é possível aproveitar uma requisição de autorização para solicitar a geração do token, acrescentando a informação <code class="highlighter-rouge">&lt;gerar-token&gt;</code> no nó de requisição de transação.</li>
+  <li><strong>Objetivo</strong> - Além da mensagem específica para criação de um token, descrita em Transação com Token, é possível aproveitar uma requisição de autorização para solicitar a geração do token, acrescentando a informação `` no nó de requisição de transação.</li>
   <li><strong>Regras</strong>
     <ul>
       <li>Caso um cartão seja submetido mais de uma vez pelo mesmo lojista, o Token gerado será sempre o mesmo.</li>
@@ -2761,17 +2760,17 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="autenticação-e-transações-com-cartões-de-débito">Autenticação e Transações com Cartões de Débito</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;forma-pagamento&gt;</span>
-    <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-    <span class="nt">&lt;produto&gt;</span>A<span class="nt">&lt;/produto&gt;</span>
-    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-  <span class="nt">&lt;/forma-pagamento&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;autorizar&gt;</span>1<span class="nt">&lt;/autorizar&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+  
+    visa
+    A
+    1
+  
+  
+  1
+
 </code></pre></div></div>
 
 <p>A autenticação da transação garantirá uma segurança extra ao lojista contra Chargebacks, porém, conforme apresentando no capítulo “2.5 – Autenticação e nível de segurança”, nem todas as bandeiras e emissores disponibilizam esse tipo de serviço.</p>
@@ -2782,8 +2781,8 @@ das transações que pararam após a execução deste processo. A mensagem para 
   <li><strong>Objetivo</strong> - Tornar elegível uma transação para autenticação.</li>
   <li><strong>Regras</strong>
     <ul>
-      <li>Enviar a flag <autorizar> de acordo com o domínio abaixo, para tentar:
-</autorizar>        <ul>
+      <li>Enviar a flag  de acordo com o domínio abaixo, para tentar:
+        <ul>
           <li>0 – Somente autenticar a transação.</li>
           <li>1 – Submeter à autorização somente se a transação for autenticada.</li>
           <li>2 – Submeter à autorização se a transação for autenticada ou não.</li>
@@ -2799,19 +2798,19 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="permite-que-o-lojista-envie-um-texto-soft-descriptor">Permite que o lojista envie um texto (Soft Descriptor)</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>178148599<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-    <span class="nt">&lt;data-hora&gt;</span>2011-12-07T11:43:37<span class="nt">&lt;/data-hora&gt;</span>
-    <span class="nt">&lt;descricao&gt;</span>[origem:10.50.54.156]<span class="nt">&lt;/descricao&gt;</span>
-    <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-    <span class="nt">&lt;soft-descriptor&gt;</span>soft-descriptor<span class="nt">&lt;/soft-descriptor&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  
+  
+    178148599
+    1000
+    986
+    2011-12-07T11:43:37
+    [origem:10.50.54.156]
+    PT
+    soft-descriptor
+  
+  
+
 </code></pre></div></div>
 
 <ul>
@@ -2834,16 +2833,16 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="captura-automática">Captura Automática</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+  true
+  
+
 </code></pre></div></div>
 
 <ul>
-  <li><strong>Objetivo</strong> - A captura automática permite que uma requisição de autorização seja capturada imediatamente após sua aprovação. Dessa forma, não é preciso realizar uma <code class="highlighter-rouge">&lt;requisicao-captura&gt;</code>.</li>
+  <li><strong>Objetivo</strong> - A captura automática permite que uma requisição de autorização seja capturada imediatamente após sua aprovação. Dessa forma, não é preciso realizar uma ``.</li>
   <li><strong>Regras</strong>
     <ul>
       <li>Somente autorizações aprovadas serão capturadas automaticamente.</li>
@@ -2853,27 +2852,27 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="taxa-de-embarque">Taxa de embarque</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>178148599<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-    <span class="nt">&lt;data-hora&gt;</span>2011-12-07T11:43:37<span class="nt">&lt;/data-hora&gt;</span>
-    <span class="nt">&lt;descricao&gt;</span>[origem:10.50.54.156]<span class="nt">&lt;/descricao&gt;</span>
-    <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-    <span class="nt">&lt;soft-descriptor&gt;</span>softdescriptor<span class="nt">&lt;/soft-descriptor&gt;</span>
-    <span class="nt">&lt;taxa-embarque&gt;</span>1000<span class="nt">&lt;/taxa-embarque&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+  
+    178148599
+    10000
+    986
+    2011-12-07T11:43:37
+    [origem:10.50.54.156]
+    PT
+    softdescriptor
+    1000
+  
+  
+
 </code></pre></div></div>
 
 <ul>
   <li><strong>Objetivo</strong> A taxa de embarque é um campo informativo que define o montante do total da transação (informado na tag dados-pedido//valor) que deve ser destinado ao pagamento da taxa à Infraero.
     <ul>
-      <li>O valor da taxa de embarque não é acumulado ao valor da autorização. Por exemplo, em uma venda de passagem aérea de R$ 200,00 com taxa de embarque de R$ 25,00 deve-se enviar o campo <code class="highlighter-rouge">&lt;valor&gt;22500&lt;/valor&gt;</code> e <code class="highlighter-rouge">&lt;taxa-embarque&gt;2500&lt;/taxa-embarque&gt;</code>.</li>
+      <li>O valor da taxa de embarque não é acumulado ao valor da autorização. Por exemplo, em uma venda de passagem aérea de R$ 200,00 com taxa de embarque de R$ 25,00 deve-se enviar o campo <code class="highlighter-rouge">22500</code> e <code class="highlighter-rouge">2500</code>.</li>
     </ul>
   </li>
   <li><strong>Regras</strong>
@@ -2888,33 +2887,32 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="avs-address-verification-service">AVS (Address Verification Service)</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>178148599<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-    <span class="nt">&lt;data-hora&gt;</span>2011-12-07T11:43:37<span class="nt">&lt;/data-hora&gt;</span>
-    <span class="nt">&lt;descricao&gt;</span>[origem:10.50.54.156]<span class="nt">&lt;/descricao&gt;</span>
-    <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-    <span class="nt">&lt;soft-descriptor&gt;</span>softdescriptor<span class="nt">&lt;/soft-descriptor&gt;</span>
-    <span class="nt">&lt;taxa-embarque&gt;</span>1000<span class="nt">&lt;/taxa-embarque&gt;</span>
-    <span class="nt">&lt;avs&gt;</span>
-  <span class="cp">&lt;![CDATA[
-      &lt;dados-avs&gt;</span>
-        <span class="nt">&lt;endereco&gt;</span>Rua Teste AVS<span class="nt">&lt;/endereco&gt;</span>
-        <span class="nt">&lt;complemento&gt;</span>Casa<span class="nt">&lt;/complemento&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>123<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;bairro&gt;</span>Vila AVS<span class="nt">&lt;/bairro&gt;</span>
-        <span class="nt">&lt;cep&gt;</span>12345-123<span class="nt">&lt;/cep&gt;</span>
-        <span class="nt">&lt;dados-avs&gt;</span>11111111111<span class="nt">&lt;/dados-avs&gt;</span>
-      <span class="nt">&lt;/dados-avs&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  
+  
+    178148599
+    10000
+    986
+    2011-12-07T11:43:37
+    [origem:10.50.54.156]
+    PT
+    softdescriptor
+    1000
+    
+  
+        Rua Teste AVS
+        Casa
+        123
+        Vila AVS
+        12345-123
+        11111111111
+      
   ]]&gt;
-    <span class="nt">&lt;/avs&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+    
+  
+  
+
 </code></pre></div></div>
 
 <ul>
@@ -2950,7 +2948,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h2 id="consulta">Consulta</h2>
 
-<p>A operação de consulta é essencial na integração, pois ela que garantirá a situação atual de uma transação. Ela deve ser executada ao término do processo de autorização, no momento em que a Loja Virtual recebe o fluxo de execução na URL informada na primeira requisição (através da TAG <url-retorno>). O E-commerce pode levar até 25 segundos para processar completamente uma transação.</url-retorno></p>
+<p>A operação de consulta é essencial na integração, pois ela que garantirá a situação atual de uma transação. Ela deve ser executada ao término do processo de autorização, no momento em que a Loja Virtual recebe o fluxo de execução na URL informada na primeira requisição (através da TAG ). O E-commerce pode levar até 25 segundos para processar completamente uma transação.</p>
 
 <h3 id="consulta-por-tid">Consulta por TID</h3>
 
@@ -2966,15 +2964,15 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h4 id="requisição">Requisição</h4>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-consulta</span> <span class="na">id=</span><span class="s">"6fcf758e-bc60-4d6a-acf4-496593a40441"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;tid&gt;</span>100699306903609A1001<span class="nt">&lt;/tid&gt;</span>
-  <span class="nt">&lt;dados-ec&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;chave&gt;</span>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
-    <span class="nt">&lt;/chave&gt;</span>
-  <span class="nt">&lt;/dados-ec&gt;</span>
-<span class="nt">&lt;/requisicao-consulta&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  100699306903609A1001
+  
+    1006993069
+    25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+    
+  
+
 </code></pre></div></div>
 
 <table>
@@ -3025,19 +3023,19 @@ das transações que pararam após a execução deste processo. A mensagem para 
   </li>
 </ul>
 
-<aside class="notice"><strong>INFORMAÇÃO</strong>: A consulta por Número do Pedido deve ser usada apenas como contingência à Consulta por TID, pois esta pode não garantir unicidade da transação, tendo em vista que este campo é enviado pela loja virtual e apenas acatado pela Cielo.</aside>
+<aside class="notice">INFORMAÇÃO: A consulta por Número do Pedido deve ser usada apenas como contingência à Consulta por TID, pois esta pode não garantir unicidade da transação, tendo em vista que este campo é enviado pela loja virtual e apenas acatado pela Cielo.</aside>
 
 <h4 id="requisição-1">Requisição</h4>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;requisicao-consulta-chsec</span> <span class="na">id=</span><span class="s">"a51489b1-93d5-437f-bb4f-5b932fade248"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;numero-pedido&gt;</span>1663784368<span class="nt">&lt;/numero-pedido&gt;</span>
-  <span class="nt">&lt;dados-ec&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;chave&gt;</span>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
-    <span class="nt">&lt;/chave&gt;</span>
-  <span class="nt">&lt;/dados-ec&gt;</span>
-<span class="nt">&lt;/requisicao-consulta-chsec&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  1663784368
+  
+    1006993069
+    25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+    
+  
+
 </code></pre></div></div>
 
 <table>
@@ -3086,7 +3084,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   <li>Posterior à autorização (captura total ou parcial).</li>
 </ul>
 
-<p>No primeiro caso, não é necessário enviar uma requisição de captura, pois ela é feita automaticamente pela Cielo após a autorização da transação. Para tanto, é preciso configurar a requisição de transação definindo-se o valor “true” para a TAG <code class="highlighter-rouge">&lt;capturar&gt;</code>, conforme visto na seção “Criando uma transação”.</p>
+<p>No primeiro caso, não é necessário enviar uma requisição de captura, pois ela é feita automaticamente pela Cielo após a autorização da transação. Para tanto, é preciso configurar a requisição de transação definindo-se o valor “true” para a TAG ``, conforme visto na seção “Criando uma transação”.</p>
 
 <p>Já no segundo caso, é preciso fazer uma “captura posterior”, através de uma nova requisição ao Webservice da Cielo para confirmar a transação e receber o valor da venda.</p>
 
@@ -3096,16 +3094,16 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="captura-total-e-parcial">Captura Total e Parcial</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-captura</span> <span class="na">id=</span><span class="s">"adbc9961-8a39-452b-b7fd-15b44b464a97"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;tid&gt;</span>10069930690864281001<span class="nt">&lt;/tid&gt;</span>
-    <span class="nt">&lt;dados-ec&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;chave&gt;</span>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
-    <span class="nt">&lt;/dados-ec&gt;</span>
-    <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;taxa-embarque&gt;</span>0<span class="nt">&lt;/taxa-embarque&gt;</span>
-<span class="nt">&lt;/requisicao-captura&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+    10069930690864281001
+    
+        1006993069
+        25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+    
+    1000
+    0
+
 </code></pre></div></div>
 
 <ul>
@@ -3121,7 +3119,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
         <ul>
           <li>Na requisição de captura, o valor da taxa de embarque indica o montante do total que será capturado que deve ser destinado a esse fim.</li>
           <li>Obrigatório caso seja captura parcial.</li>
-          <li>Caso a captura seja total, o sistema irá considerar o valor da taxa de embarque informado no requisição de autorização (<code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>).</li>
+          <li>Caso a captura seja total, o sistema irá considerar o valor da taxa de embarque informado no requisição de autorização (``).</li>
         </ul>
       </li>
     </ul>
@@ -3130,22 +3128,22 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="retorno-1">Retorno</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"0378c8cf4d"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;tid&gt;</span>10069930690360EF1001<span class="nt">&lt;/tid&gt;</span>
-  <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;captura&gt;</span>
-    <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
-    <span class="nt">&lt;mensagem&gt;</span>Transacao capturada com sucesso<span class="nt">&lt;/mensagem&gt;</span>
-    <span class="nt">&lt;data-hora&gt;</span>2011-12-08T14:23:08.779-02:00<span class="nt">&lt;/data-hora&gt;</span>
-    <span class="nt">&lt;valor&gt;</span>900<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;taxa-embarque&gt;</span>900<span class="nt">&lt;/taxa-embarque&gt;</span>
-  <span class="nt">&lt;/captura&gt;</span>
-<span class="nt">&lt;/transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  10069930690360EF1001
+  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
+  
+  
+    6
+    Transacao capturada com sucesso
+    2011-12-08T14:23:08.779-02:00
+    900
+    900
+  
+
 </code></pre></div></div>
 
-<p>Os campos do nó <captura> estão detalhados a seguir:</captura></p>
+<p>Os campos do nó  estão detalhados a seguir:</p>
 
 <table>
   <thead>
@@ -3204,15 +3202,15 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h3 id="cancelamento-total-e-parcial">Cancelamento Total e Parcial</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-cancelamento</span> <span class="na">id=</span><span class="s">"39d36eb6-5ae9-4308-89a1-455d299460c0"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;tid&gt;</span>100699306908642E1001<span class="nt">&lt;/tid&gt;</span>
-    <span class="nt">&lt;dados-ec&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;chave&gt;</span>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
-    <span class="nt">&lt;/dados-ec&gt;</span>
-    <span class="nt">&lt;valor&gt;</span>0<span class="nt">&lt;/valor&gt;</span>
-<span class="nt">&lt;/requisicao-cancelamento&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+    100699306908642E1001
+    
+        1006993069
+        25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+    
+    0
+
 </code></pre></div></div>
 
 <ul>
@@ -3223,7 +3221,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
       <li>O prazo de cancelamento é de até 300 dias para a modalidade crédito e D+0 para débito.</li>
       <li>O cancelamento total, quando realizado com sucesso, altera o status da transação para “9 – Cancelada”, enquanto que o parcial não altera o status da transação, mantendo-a como “6 – Capturada”.</li>
       <li>Em caso de cancelamento na versão 1.6.1 (esta versão é exclusiva para cancelamento), o status de cancelamento parcial será diferente, ou seja: se cancelado com sucesso, retorna status 9; caso ocorra um erro no cancelamento parcial, o código de status será 6. Estas regras aplicam-se apenas para o cancelamento parcial.</li>
-      <li>Caso a TAG <code class="highlighter-rouge">&lt;valor&gt;</code> não seja fornecida, o sistema assumirá um cancelamento total.</li>
+      <li>Caso a TAG `` não seja fornecida, o sistema assumirá um cancelamento total.</li>
       <li>O cancelamento parcial está disponível para todas as bandeiras suportadas no e-Commerce.</li>
       <li>Para a modalidade débito, não existe a possibilidade de efetuar cancelamento parcial.</li>
       <li><strong>Transações com Taxa de embarque:</strong>
@@ -3279,20 +3277,20 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <h4 id="retorno-2">Retorno</h4>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"2c18f00a-3ff6-4c85-8865-a4fde599b2b2"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;tid&gt;</span>100699306903613E1001<span class="nt">&lt;/tid&gt;</span>
-  <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;cancelamentos&gt;</span>
-    <span class="nt">&lt;cancelamento&gt;</span>
-      <span class="nt">&lt;codigo&gt;</span>9<span class="nt">&lt;/codigo&gt;</span>
-      <span class="nt">&lt;mensagem&gt;</span>Transacao cancelada com sucesso<span class="nt">&lt;/mensagem&gt;</span>
-      <span class="nt">&lt;data-hora&gt;</span>2011-12-08T16:46:35.109-02:00<span class="nt">&lt;/data-hora&gt;</span>
-      <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;/cancelamento&gt;</span>
-  <span class="nt">&lt;/cancelamentos&gt;</span>
-<span class="nt">&lt;/transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  100699306903613E1001
+  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
+  
+  
+    
+      9
+      Transacao cancelada com sucesso
+      2011-12-08T16:46:35.109-02:00
+      1000
+    
+  
+
 </code></pre></div></div>
 
 <aside class="notice">Os cancelamentos (parciais ou totais) das transações com taxa de embarque e captura parcial não serão acatadas automaticamente pelo sistema.</aside>

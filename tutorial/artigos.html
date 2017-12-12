@@ -488,143 +488,83 @@
 
 <p>Porém, mesmo tendo o plugin verificador no frontend, é fundamental, até por considerações de segurança, que uma validação de fato ocorra no backend. Para isso, a função abaixo irá ajudá-lo a fazer essa validação:</p>
 
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="k">function</span> <span class="nf">cardIsValid</span><span class="p">(</span><span class="nv">$cardNumber</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="nv">$number</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$cardNumber</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-    <span class="nv">$doubles</span> <span class="o">=</span> <span class="p">[];</span>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="s2">"não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo"</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$t</span> <span class="o">=</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$number</span><span class="p">);</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$t</span><span class="p">;</span> <span class="o">++</span><span class="nv">$i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$doubles</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$number</span><span class="p">,</span> <span class="nv">$i</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">?</span> <span class="mi">2</span><span class="o">:</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="nx">Uma</span> <span class="nx">das</span> <span class="nx">soluções</span> <span class="nx">encontradas</span> <span class="nx">foi</span> <span class="nx">o</span> <span class="o">**</span><span class="nx">Azure</span> <span class="nx">Kubernetes</span> <span class="nx">Services</span><span class="o">**</span><span class="p">,</span> <span class="nx">ele</span> <span class="nx">te</span> <span class="nx">permite</span> <span class="nx">montar</span> <span class="nx">um</span> <span class="nx">cluster</span> <span class="nx">de</span> <span class="nx">Kubernetes</span> <span class="nx">com</span> <span class="mi">1</span> <span class="nx">único</span> <span class="nx">comando</span><span class="p">,</span> <span class="nx">com</span> <span class="nx">isso</span> <span class="nx">sobra</span> <span class="nx">tempo</span> <span class="nx">pra</span> <span class="nx">focar</span> <span class="nx">na</span> <span class="nx">sua</span> <span class="nx">aplicação</span> <span class="nx">e</span> <span class="nx">não</span> <span class="nx">na</span> <span class="nx">configuração</span> <span class="nx">de</span> <span class="nx">máquinas</span>
 
-    <span class="nv">$sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="o">**</span><span class="nx">Mas</span> <span class="nx">o</span> <span class="nx">que</span> <span class="nx">é</span> <span class="nx">Kubernetes</span><span class="o">?**</span> <span class="nx">Falando</span> <span class="nx">por</span> <span class="nx">alto</span><span class="p">,</span> <span class="nx">Kubernetes</span> <span class="nx">é</span> <span class="nx">uma</span> <span class="nx">ferramenta</span> <span class="nx">de</span> <span class="nx">orquestração</span> <span class="nx">para</span> <span class="nx">containers</span><span class="p">,</span> <span class="nx">você</span> <span class="nx">monta</span> <span class="nx">seu</span> <span class="nx">container</span> <span class="nx">com</span> <span class="nx">o</span> <span class="nx">Docker</span> <span class="nx">e</span> <span class="nx">o</span> <span class="nx">Kubernetes</span> <span class="nx">faz</span> <span class="nx">todo</span> <span class="nx">o</span> <span class="nx">trabalho</span> <span class="nx">de</span> <span class="nx">deploy</span><span class="p">,</span> <span class="nx">auto</span> <span class="nx">scale</span><span class="p">,</span> <span class="nx">service</span> <span class="nx">discovery</span> <span class="nx">e</span> <span class="nx">muito</span> <span class="nx">mais</span><span class="o">.</span> 
+<span class="nx">Caso</span> <span class="nx">queira</span> <span class="nx">saber</span> <span class="nx">mais</span> <span class="nx">sobre</span> <span class="nx">o</span> <span class="nx">Kubernetes</span> <span class="nx">segue</span> <span class="nx">o</span> <span class="nb">link</span> <span class="nx">da</span> <span class="nx">documentação</span> <span class="nx">deles</span><span class="o">:</span> 
 
-    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$doubles</span> <span class="k">as</span> <span class="nv">$double</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$t</span> <span class="o">=</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$double</span><span class="p">);</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$t</span><span class="p">;</span> <span class="o">++</span><span class="nv">$i</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$sum</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$double</span><span class="p">,</span> <span class="nv">$i</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="o">&gt;</span> <span class="nx">https</span><span class="o">://</span><span class="nx">kubernetes</span><span class="o">.</span><span class="nx">io</span><span class="o">/</span><span class="nx">docs</span><span class="o">/</span><span class="nx">tutorials</span><span class="o">/</span><span class="nx">kubernetes</span><span class="o">-</span><span class="nx">basics</span><span class="o">/</span>
 
-    <span class="k">return</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$cardNumber</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">10</span><span class="o">-</span><span class="nv">$sum</span><span class="o">%</span><span class="mi">10</span><span class="p">)</span><span class="o">%</span><span class="mi">10</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="c1">## Montando um Cluster em Kubernetes
+</span>
+<span class="nx">Estou</span> <span class="nx">levando</span> <span class="nx">em</span> <span class="nx">consideração</span> <span class="nx">que</span> <span class="nx">você</span> <span class="nx">já</span> <span class="nx">tenha</span> <span class="nx">o</span> <span class="sb">`Azure CLI`</span> <span class="nx">configurado</span> <span class="nx">na</span> <span class="nx">sua</span> <span class="nx">máquina</span><span class="p">,</span> <span class="nx">caso</span> <span class="nx">não</span> <span class="nx">tenha</span> <span class="nx">segue</span> <span class="nx">um</span> <span class="nx">tutorial</span> <span class="nx">de</span> <span class="nx">configuração</span><span class="o">:</span> 
+
+<span class="o">&gt;</span> <span class="nx">https</span><span class="o">://</span><span class="nx">docs</span><span class="o">.</span><span class="nx">microsoft</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">en</span><span class="o">-</span><span class="nx">us</span><span class="o">/</span><span class="nx">cli</span><span class="o">/</span><span class="nx">azure</span><span class="o">/</span><span class="nx">install</span><span class="o">-</span><span class="nx">azure</span><span class="o">-</span><span class="nx">cli</span><span class="o">?</span><span class="nx">view</span><span class="o">=</span><span class="nx">azure</span><span class="o">-</span><span class="nx">cli</span><span class="o">-</span><span class="nx">latest</span>
+
+<span class="nx">Para</span> <span class="nx">montar</span> <span class="nx">um</span> <span class="nx">cluster</span> <span class="nx">utilizando</span> <span class="nx">o</span> <span class="nx">AKS</span> <span class="nx">basta</span> <span class="nx">um</span> <span class="nx">único</span> <span class="nx">comando</span><span class="o">:</span> 
+
 </code></pre></div></div>
+<p>“az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos –generate-ssh-keys”</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Substitua o `NomeDoSeuCluster` pelo nome do seu cluster.
 
-<p>Para utilizá-la, basta testar o número do cartão enviado pelo cliente:</p>
+Substitua o `NomeDoGrupoDeRecursos` pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.
 
-<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">cardIsValid</span><span class="p">(</span><span class="nv">$customerCardNumber</span><span class="p">))</span> <span class="p">{</span>
-  <span class="c1">// o cartão é válido e podemos dar andamento na integração
-</span><span class="p">}</span>
+Após alguns minutos você terá o seu cluster montado como pode ser visto na imagem abaixo:
+
+![](https://i.imgur.com/CFwO4Jz.png)
+
+Após montar nosso cluster vamos resgaras as credenciais de acesso com o comando:
+
 </code></pre></div></div>
+<p>“az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos”</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Caso tudo dê certo você irá receber a seguinte mensagem:
 
-<h1 id="como-usar-azure-kubernetes-services">Como usar Azure Kubernetes Services</h1>
+![](https://i.imgur.com/oLSo4j4.png)
 
-<h2 id="sobre-o-autor">Sobre o Autor:</h2>
+Vamos agora configurar o Kubectl CLI, este será utilizado para se comunicar diretamente com o Kubernetes, para fazer isso basta executar o seguinte comando:
 
-<table>
-  <tbody>
-    <tr>
-      <td><strong>Tiago Rosendo</strong></td>
-      <td>Desenvolvedor na Braspag e Cielo, backend de coração e apaixonado pelo frontend, entusiasta de JS e Docker e nas horas vagas não dispensa uma jogatina online.</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><strong>LinkedIn:</strong> https://www.linkedin.com/in/trosendo / <strong>E-mail:</strong> trosendo@braspag.com.br</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="introdução">Introdução</h2>
-
-<p>Vamos falar um pouco sobre o Azure Kubernetes Services, vulgo AKS.
-O utilizamos para realizar deploys em nossas principais aplicações, desde as mais básicas as mais complexas tudo com alta disponibilidade!</p>
-
-<p>Rodar containers Docker em um computador local é muito simples, basta um comando <code class="highlighter-rouge">docker run nginx</code> e pronto, você tem seu container lindo rodando, porém quando você tem a necessidade de rodar esse mesmo container em um ambiente de nuvem a história muda… 
-Você tem que montar seu cluster, configurar o auto-scale, configurar o load balance… MEU DEUS QUANTA COISA!
-Um certo dia, parei para pesquisar uma solução que poupasse meu tempo, logo, pensei comigo:</p>
-
-<blockquote>
-  <p>“não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo”</p>
-</blockquote>
-
-<p>Uma das soluções encontradas foi o <strong>Azure Kubernetes Services</strong>, ele te permite montar um cluster de Kubernetes com 1 único comando, com isso sobra tempo pra focar na sua aplicação e não na configuração de máquinas
-<br />
-<strong>Mas o que é Kubernetes?</strong> Falando por alto, Kubernetes é uma ferramenta de orquestração para containers, você monta seu container com o Docker e o Kubernetes faz todo o trabalho de deploy, auto scale, service discovery e muito mais. 
-Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:</p>
-
-<blockquote>
-  <p>https://kubernetes.io/docs/tutorials/kubernetes-basics/</p>
-</blockquote>
-
-<h2 id="montando-um-cluster-em-kubernetes">Montando um Cluster em Kubernetes</h2>
-
-<p>Estou levando em consideração que você já tenha o <code class="highlighter-rouge">Azure CLI</code> configurado na sua máquina, caso não tenha segue um tutorial de configuração:</p>
-
-<blockquote>
-  <p>https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest</p>
-</blockquote>
-
-<p>Para montar um cluster utilizando o AKS basta um único comando:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos --generate-ssh-keys"
 </code></pre></div></div>
+<p>“az aks install-cli”</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Se tudo ocorreu bem será exibido a seguinte mensagem:
 
-<p>Substitua o <code class="highlighter-rouge">NomeDoSeuCluster</code> pelo nome do seu cluster.</p>
+![](https://i.imgur.com/pihYQw1.png)
 
-<p>Substitua o <code class="highlighter-rouge">NomeDoGrupoDeRecursos</code> pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.</p>
+Vamos verificar agora qual o estado das máquinas do nosso cluster, para isso utilizaremos o comando:
 
-<p>Após alguns minutos você terá o seu cluster montado como pode ser visto na imagem abaixo:</p>
-
-<p><img src="https://i.imgur.com/CFwO4Jz.png" alt="" /></p>
-
-<p>Após montar nosso cluster vamos resgaras as credenciais de acesso com o comando:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos"
 </code></pre></div></div>
+<p>“kubectl get nodes”</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+![](https://i.imgur.com/Qyygi8y.png)
 
-<p>Caso tudo dê certo você irá receber a seguinte mensagem:</p>
+Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando `run`:
 
-<p><img src="https://i.imgur.com/oLSo4j4.png" alt="" /></p>
-
-<p>Vamos agora configurar o Kubectl CLI, este será utilizado para se comunicar diretamente com o Kubernetes, para fazer isso basta executar o seguinte comando:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks install-cli"
 </code></pre></div></div>
+<p>“kubectl run meu-nginx –image=nginx –replicas=1 –port=80”</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+![](https://i.imgur.com/gGNYlk2.png)
 
-<p>Se tudo ocorreu bem será exibido a seguinte mensagem:</p>
+Vamos chamar o `get pods` para verificar se nossa aplicação foi deployada com sucesso:
 
-<p><img src="https://i.imgur.com/pihYQw1.png" alt="" /></p>
+![](https://i.imgur.com/IxKDQJ8.png)
+ 
+Como vimos na imagem acima nossa aplicação foi "deployada", porém ela ainda não está disponivel na internet
+Para disponibilizar nossa aplicação na internet vamos utilizar o comando `expose`:
 
-<p>Vamos verificar agora qual o estado das máquinas do nosso cluster, para isso utilizaremos o comando:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get nodes"
 </code></pre></div></div>
+<p>“kubectl expose deployment meu-nginx –port=80 –type=LoadBalancer”</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+![](https://i.imgur.com/JVJH82V.png)
 
-<p><img src="https://i.imgur.com/Qyygi8y.png" alt="" /></p>
+Agora basta chamar o comando `get services` para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:
 
-<p>Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando <code class="highlighter-rouge">run</code>:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl run meu-nginx --image=nginx --replicas=1 --port=80"
 </code></pre></div></div>
-
-<p><img src="https://i.imgur.com/gGNYlk2.png" alt="" /></p>
-
-<p>Vamos chamar o <code class="highlighter-rouge">get pods</code> para verificar se nossa aplicação foi deployada com sucesso:</p>
-
-<p><img src="https://i.imgur.com/IxKDQJ8.png" alt="" /></p>
-
-<p>Como vimos na imagem acima nossa aplicação foi “deployada”, porém ela ainda não está disponivel na internet
-Para disponibilizar nossa aplicação na internet vamos utilizar o comando <code class="highlighter-rouge">expose</code>:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl expose deployment meu-nginx --port=80 --type=LoadBalancer"
-</code></pre></div></div>
-
-<p><img src="https://i.imgur.com/JVJH82V.png" alt="" /></p>
-
-<p>Agora basta chamar o comando <code class="highlighter-rouge">get services</code> para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get services --watch"
-</code></pre></div></div>
+<p>“kubectl get services –watch”
+```</p>
 
 <p><img src="https://i.imgur.com/DaKu0HU.png" alt="" /></p>
 

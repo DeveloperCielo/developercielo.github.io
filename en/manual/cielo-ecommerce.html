@@ -537,7 +537,7 @@ With this means of payment it is possible to simulate the flows of:</p>
 
 <p>For best use of the Simulated Payment Means, we are providing <strong>test cards</strong> in the table below.</p>
 
-<aside class="notice">The <code>status</code> of the transactions are defined by the FINALS of each card, as well as the <code>ReturnCode</code>.</aside>
+<aside class="notice">The status of the transactions are defined by the FINALS of each card, as well as the ReturnCode.</aside>
 
 <table>
   <thead>
@@ -552,7 +552,7 @@ With this means of payment it is possible to simulate the flows of:</p>
   <tbody>
     <tr>
       <td>Authorized</td>
-      <td>0000.0000.0000.0001<br />0000.0000.0000.0004</td>
+      <td>0000.0000.0000.00010000.0000.0000.0004</td>
       <td>4/6</td>
       <td>Operation performed successfully</td>
       <td> </td>
@@ -613,9 +613,9 @@ With this means of payment it is possible to simulate the flows of:</p>
 
 <p>The information of <strong>Security Code (CVV)</strong> and validity may be random, keeping the format - CVV (3 digits) Validity (MM/YYYY).</p>
 
-<aside class="notice"><strong>Warning:</strong> The **sandbox** environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.</aside>
+<aside class="notice">Warning: The **sandbox** environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.</aside>
 
-<aside class="notice"><strong>Tokenization:</strong> Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process</aside>
+<aside class="notice">Tokenization: Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process</aside>
 
 <h2 id="debit-card---sandbox">Debit card - Sandbox</h2>
 
@@ -646,7 +646,7 @@ With this means of payment it is possible to simulate the flows of:</p>
   </tbody>
 </table>
 
-<aside class="notice"><strong>Online Transfer:</strong> The same behavior of the Debit card in Sanbox is valid for debit card</aside>
+<aside class="notice">Online Transfer: The same behavior of the Debit card in Sanbox is valid for debit card</aside>
 
 <h2 id="other-means-of-payment---sandbox">Other means of payment - Sandbox</h2>
 
@@ -667,11 +667,11 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td>Debit cardo</td>
-      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong> <br /><br /> The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
+      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong>  The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
     </tr>
     <tr>
       <td>Online transfer</td>
-      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong> <br /><br /> The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
+      <td>The <code class="highlighter-rouge">provider</code> used must be <strong>SIMULATED</strong>  The redirection URL for the bank environment will actually be a screen for choosing the authentication status</td>
     </tr>
   </tbody>
 </table>
@@ -737,7 +737,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<aside class="notice"><strong>Debit card:</strong> We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a `GET` to be run by searching for order information in the API Cielo</aside>
+<aside class="notice">Debit card: We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a `GET` to be run by searching for order information in the API Cielo</aside>
 
 <p>An <code class="highlighter-rouge">URL Status Payment</code> must be registered by Cielo Support, so that the notification POST is executed.</p>
 
@@ -872,7 +872,7 @@ Below we specify any existing differences:</p>
 
 <p>To create a transaction that will use a credit card, it is necessary to send a request using the <code class="highlighter-rouge">POST</code> method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.</p>
 
-<aside class="notice"><strong>Warning:</strong> It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
+<aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
 <h3 id="request">Request</h3>
 
@@ -1861,7 +1861,7 @@ Below we specify any existing differences:</p>
 
 <p>To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the <code class="highlighter-rouge">POST</code> method for the Payment feature as shown.</p>
 
-<aside class="notice"><strong>Authentication:</strong> In this mode, the card carrier is directed to the authentication environment of the card issuing bank where the inclusion of the card password will be requested.</aside>
+<aside class="notice">Authentication: In this mode, the card carrier is directed to the authentication environment of the card issuing bank where the inclusion of the card password will be requested.</aside>
 
 <h3 id="request-2">Request</h3>
 
@@ -3367,21 +3367,21 @@ Below we specify any existing differences:</p>
       <td>Analysis result.</td>
       <td>Byte</td>
       <td>—</td>
-      <td>Number:<br />&lt;ul&gt;&lt;li&gt;100 - Successful operation.&lt;/li&gt;&lt;li&gt;101 - The order is missing one or more required fields. Possible action: See the missing fields in the AntiFraudResponse list.MissingFieldCollection. Resend order with complete information.&lt;/li&gt;&lt;li&gt;102 - One or more of order fields contain invalid data. Possible action: View the invalid fields in the AntiFraudResponse list.InvalidFieldCollection. Resend the order with the correct information.&lt;/li&gt;&lt;li&gt;150 General system failure. Possible action: Wait a few minutes and try resending the order.&lt;/li&gt;&lt;li&gt;151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.&lt;/li&gt;&lt;li&gt;152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.&lt;/li&gt;&lt;li&gt;202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiration date does not match the date on file of the issuing bank. If the payment processor allows you to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.&lt;/li&gt;&lt;li&gt;231 The account number is invalid. Possible action: Request a card or other form of payment.&lt;/li&gt;&lt;li&gt;234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.&lt;/li&gt;&lt;li&gt;400 The fraud score goes beyond their limit. Possible action: Review customer’s order.&lt;/li&gt;&lt;li&gt;480 The order has been marked for review by the Decision Manager.&lt;/li&gt;&lt;li&gt;481 - The order was rejected by the Decision Manager&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Number:100 - Successful operation.101 - The order is missing one or more required fields. Possible action: See the missing fields in the AntiFraudResponse list.MissingFieldCollection. Resend order with complete information.102 - One or more of order fields contain invalid data. Possible action: View the invalid fields in the AntiFraudResponse list.InvalidFieldCollection. Resend the order with the correct information.150 General system failure. Possible action: Wait a few minutes and try resending the order.151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiration date does not match the date on file of the issuing bank. If the payment processor allows you to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.231 The account number is invalid. Possible action: Request a card or other form of payment.234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.400 The fraud score goes beyond their limit. Possible action: Review customer’s order.480 The order has been marked for review by the Decision Manager.481 - The order was rejected by the Decision Manager</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AddressInfoCode</code></td>
       <td>Combination of codes indicating error in the billing and/or delivery address. The codes are concatenated using the character ^ character.</td>
       <td>Text</td>
       <td>255</td>
-      <td>Ex: COR-BA^MM-BIN<br />&lt;ul&gt;&lt;li&gt;COR-BA - The billing address can be normalized.&lt;/li&gt;&lt;li&gt;COR-SA - The delivery address can be normalized.&lt;/li&gt;&lt;li&gt;INTL-BA - The country of charge is outside the U.S.&lt;/li&gt;&lt;li&gt;INTL-SA - The country of delivery is outside the U.S.&lt;/li&gt;&lt;li&gt;MIL-USA - This is a military address in the U.S.&lt;/li&gt;&lt;li&gt;MM-A - Billing and delivery addresses use different street names.&lt;/li&gt;&lt;li&gt;MM-BIN - The BIN of the card (the first six digits of the number) does not match the country.&lt;/li&gt;&lt;li&gt;MM-C - Billing and delivery addresses use different cities.&lt;/li&gt;&lt;li&gt;MM-CO - Billing and delivery addresses use different countries.&lt;/li&gt;&lt;li&gt;MM-ST - Billing and delivery addresses use different states.&lt;/li&gt;&lt;li&gt;MM-Z - Billing and delivery addresses use different postal codes.&lt;/li&gt;&lt;li&gt;UNV-ADDR - The address is unverifiable.&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Ex: COR-BA^MM-BINCOR-BA - The billing address can be normalized.COR-SA - The delivery address can be normalized.INTL-BA - The country of charge is outside the U.S.INTL-SA - The country of delivery is outside the U.S.MIL-USA - This is a military address in the U.S.MM-A - Billing and delivery addresses use different street names.MM-BIN - The BIN of the card (the first six digits of the number) does not match the country.MM-C - Billing and delivery addresses use different cities.MM-CO - Billing and delivery addresses use different countries.MM-ST - Billing and delivery addresses use different states.MM-Z - Billing and delivery addresses use different postal codes.UNV-ADDR - The address is unverifiable.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FactorCode</code></td>
       <td>Combination of codes that indicate the order’s score. The codes are concatenated using the ^ character.</td>
       <td>Text</td>
       <td>100</td>
-      <td>Ex: B^D^R^Z<br />&lt;ul&gt;&lt;li&gt;A - Excessive address change. Customer changed billing address two or more times in the last six months.&lt;/li&gt;&lt;li&gt;B - BIN of the card or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.&lt;/li&gt;&lt;li&gt;C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.&lt;/li&gt;&lt;li&gt;D - Impact of e-mail address. The customer uses a free email provider or the email address is risky.&lt;/li&gt;&lt;li&gt;E - Positive list. The customer is on your positive list.&lt;/li&gt;&lt;li&gt;F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.&lt;/li&gt;&lt;li&gt;G - Geo-inconsistencies. Email client domain, phone number, billing address, shipping address or IP address is suspect.&lt;/li&gt;&lt;li&gt;H - Excessive name changes. The customer has changed the name two or more times in the last six months.&lt;/li&gt;&lt;li&gt;I - Internet inconsistencies. The IP address and e-mail domain are not consistent with the billing address.&lt;/li&gt;&lt;li&gt;N - Meaningless entry. Client name and address fields contain nonsense words or language.&lt;/li&gt;&lt;li&gt;O - Obscenities. Customer data contains obscene words.&lt;/li&gt;&lt;li&gt;P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.&lt;/li&gt;&lt;li&gt;Q - Phone inconsistencies. Customer’s telephone number is suspect.&lt;/li&gt;&lt;li&gt;R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.&lt;/li&gt;&lt;li&gt;T - Time Coverage. The customer is attempting a purchase outside of the expected time.&lt;/li&gt;&lt;li&gt;U - Unverifiable address. The billing or delivery address can not be verified.&lt;/li&gt;&lt;li&gt;V - Velocity. The account number was used many times in the last 15 minutes.&lt;/li&gt;&lt;li&gt;W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.&lt;/li&gt;&lt;li&gt;Y - The address, city, state or country of the billing and delivery addresses do not correlate.&lt;/li&gt;&lt;li&gt;Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the order carefully for any anomalies.&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Ex: B^D^R^ZA - Excessive address change. Customer changed billing address two or more times in the last six months.B - BIN of the card or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.D - Impact of e-mail address. The customer uses a free email provider or the email address is risky.E - Positive list. The customer is on your positive list.F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.G - Geo-inconsistencies. Email client domain, phone number, billing address, shipping address or IP address is suspect.H - Excessive name changes. The customer has changed the name two or more times in the last six months.I - Internet inconsistencies. The IP address and e-mail domain are not consistent with the billing address.N - Meaningless entry. Client name and address fields contain nonsense words or language.O - Obscenities. Customer data contains obscene words.P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.Q - Phone inconsistencies. Customer’s telephone number is suspect.R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.T - Time Coverage. The customer is attempting a purchase outside of the expected time.U - Unverifiable address. The billing or delivery address can not be verified.V - Velocity. The account number was used many times in the last 15 minutes.W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.Y - The address, city, state or country of the billing and delivery addresses do not correlate.Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the order carefully for any anomalies.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Score</code></td>
@@ -3409,7 +3409,7 @@ Below we specify any existing differences:</p>
       <td>Issuer type</td>
       <td>Text</td>
       <td>20</td>
-      <td>&lt;ul&gt;&lt;li&gt;MaestroInternational - Maestro International&lt;/li&gt;&lt;li&gt;MaestroUkDomestic - Maestro UK Domestic&lt;/li&gt;&lt;li&gt;MastercardCredit - MasterCard Credit&lt;/li&gt;&lt;li&gt;MastercardDebit - MasterCard Debit&lt;/li&gt;&lt;li&gt;VisaCredit - Visa Credit&lt;/li&gt;&lt;li&gt;VisaDebit - Visa Debit&lt;/li&gt;&lt;li&gt;VisaElectron - Visa Electron&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>MaestroInternational - Maestro InternationalMaestroUkDomestic - Maestro UK DomesticMastercardCredit - MasterCard CreditMastercardDebit - MasterCard DebitVisaCredit - Visa CreditVisaDebit - Visa DebitVisaElectron - Visa Electron</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">HostSeverity</code></td>
@@ -3423,14 +3423,14 @@ Below we specify any existing differences:</p>
       <td>Sequence of codes that indicate that there is an excessive change of identities of the buyer. The codes are concatenated using the ^ character.</td>
       <td>Text</td>
       <td>255</td>
-      <td>Ex: <br />&lt;ul&gt;&lt;li&gt;MORPH-B - The same billing address has been used multiple times with multiple customer identities.&lt;/li&gt;&lt;li&gt;MORPH-C - The same account number has been used multiple times with multiple client identities.&lt;/li&gt;&lt;li&gt;MORPH-E - The same e-mail address has been used multiple times with multiple customer identities. MORPH-I The same IP address has been used multiple times with multiple client identities.&lt;/li&gt;&lt;li&gt;MORPH-P - The same phone number has been used multiple times with multiple customer identities.&lt;/li&gt;&lt;li&gt;MORPH-S - The same delivery address has been used multiple times with multiple customer identities.&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Ex: MORPH-B - The same billing address has been used multiple times with multiple customer identities.MORPH-C - The same account number has been used multiple times with multiple client identities.MORPH-E - The same e-mail address has been used multiple times with multiple customer identities. MORPH-I The same IP address has been used multiple times with multiple client identities.MORPH-P - The same phone number has been used multiple times with multiple customer identities.MORPH-S - The same delivery address has been used multiple times with multiple customer identities.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">IpRoutingMethod</code></td>
       <td>Type of IP routing used by the computer.</td>
       <td>Text</td>
       <td>—</td>
-      <td>&lt;ul&gt;&lt;li&gt;Anonymizer&lt;/li&gt;&lt;li&gt;AolBased&lt;/li&gt;&lt;li&gt;CacheProxy&lt;/li&gt;&lt;li&gt;Fixed&lt;/li&gt;&lt;li&gt;InternationalProxy&lt;/li&gt;&lt;li&gt;MobileGateway&lt;/li&gt;&lt;li&gt;Pop&lt;/li&gt;&lt;li&gt;RegionalProxy&lt;/li&gt;&lt;li&gt;Satellite&lt;/li&gt;&lt;li&gt;SuperPop&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>AnonymizerAolBasedCacheProxyFixedInternationalProxyMobileGatewayPopRegionalProxySatelliteSuperPop</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ScoreModelUsed</code></td>
@@ -4001,9 +4001,9 @@ Below we specify any existing differences:</p>
 <p>For all text fields, including the instructions field and the ones related with address, these are accepted as valid characters:</p>
 <ul>
   <li>The letters from A to Z (CAPITAL LETTERS)</li>
-  <li>Special characters of conjunction:  <strong>hyphen (-)</strong> / <strong>apostrophe (‘)</strong> / When used it can not contain spaces between the letters: <br /><br />
- <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA<br />
- <strong>Incorrect examples</strong>: D’EL - REI<br /><br /></li>
+  <li>Special characters of conjunction:  <strong>hyphen (-)</strong> / <strong>apostrophe (‘)</strong> / When used it can not contain spaces between the letters: 
+ <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA
+ <strong>Incorrect examples</strong>: D’EL - REI</li>
   <li>At most one blank space between words</li>
 </ul>
 
@@ -4551,7 +4551,7 @@ Below we specify any existing differences:</p>
     <tr>
       <td><strong>NOTE 3:</strong></td>
       <td>The API Cielo truncates automatically</td>
-      <td><strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /><br /> When used, it can not contain spaces between letters; <br /><br /><br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /><br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words</td>
+      <td><strong>Valid characters:</strong>  Letters from A to Z - CAPITAL LETTERS  <strong>Special characters:</strong> hyphen (-) and apostrophe (‘)  When used, it can not contain spaces between letters;  <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA. <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words</td>
     </tr>
     <tr>
       <td><strong>NOTE 4:</strong></td>
@@ -4697,7 +4697,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Interval</code></td>
-      <td>Recurrence interval.<br />&lt;ul&gt;&lt;li&gt;Monthly - Mensal &lt;/li&gt;&lt;li&gt;Bimonthly - Bimestral &lt;/li&gt;&lt;li&gt;Quarterly - Trimestral &lt;/li&gt;&lt;li&gt;SemiAnnual - Semestral &lt;/li&gt;&lt;li&gt;Annual - Anual &lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Recurrence interval.Monthly - Mensal Bimonthly - Bimestral Quarterly - Trimestral SemiAnnual - Semestral Annual - Anual</td>
     </tr>
   </tbody>
 </table>
@@ -4726,15 +4726,15 @@ In this model, the merchant’ system is in charge of defining the period, the t
     </tr>
     <tr>
       <td><strong>Identification</strong></td>
-      <td>Scheduled Recurrence transactions generate two types of identification:<br /><br /><strong>PAYMENTID</strong>: Identify 1 transaction. It is the same identifier of the other transactions in the API    <br /><br /><strong>RECURRENTPAYMENTID</strong>: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence</td>
+      <td>Scheduled Recurrence transactions generate two types of identification:<strong>PAYMENTID</strong>: Identify 1 transaction. It is the same identifier of the other transactions in the API    <strong>RECURRENTPAYMENTID</strong>: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence</td>
     </tr>
     <tr>
       <td><strong>Consulting</strong></td>
-      <td>To consult, just use one of two types of identification:<br /><br /><strong>PAYMENTID</strong>: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br /><br /><strong>RECURRENTPAYMENTID</strong>: Used to consult THE RECURRENCE.</td>
+      <td>To consult, just use one of two types of identification:<strong>PAYMENTID</strong>: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <strong>RECURRENTPAYMENTID</strong>: Used to consult THE RECURRENCE.</td>
     </tr>
     <tr>
       <td><strong>Cancellation</strong></td>
-      <td>A Scheduled Recurrence can be canceled in two ways: <br /><br /><strong>Merchant</strong>: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br /><br /><strong>By invalid card</strong>: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. <br /><br /> <strong>NOTE:</strong> Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the <strong>RecurrentPaymentID</strong> ends future schedules.</td>
+      <td>A Scheduled Recurrence can be canceled in two ways: <strong>Merchant</strong>: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <strong>By invalid card</strong>: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment.  <strong>NOTE:</strong> Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the <strong>RecurrentPaymentID</strong> ends future schedules.</td>
     </tr>
   </tbody>
 </table>
@@ -5232,7 +5232,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To create a recurring sale whose first recurrence is authorized with the form of payment as credit card, just do a POST as the example.</p>
 
-<aside class="notice"><strong>Warning:</strong> In this recurrence mode, the first transaction must be
+<aside class="notice">Warning: In this recurrence mode, the first transaction must be
 
  of. All subsequent transactions will be automatically captured.</aside>
 
@@ -5385,7 +5385,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
-      <td>Recurrence interval.<br />&lt;ul&gt;&lt;li&gt;Monthly (Default) &lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Recurrence interval.Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
@@ -5608,7 +5608,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
       <td>Interval between recurrences.</td>
       <td>Text</td>
       <td>10</td>
-      <td>&lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AuthorizeNow</code></td>
@@ -6017,7 +6017,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
       <td>Interval between recurrences.</td>
       <td>Text</td>
       <td>10</td>
-      <td>&lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AuthorizeNow</code></td>
@@ -6445,7 +6445,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Interval</code></td>
-      <td>Recurrence interval. &lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Recurrence interval. MonthlyBimonthly Quarterly SemiAnnual Annual</td>
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
@@ -6464,7 +6464,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To modify the day of recurrence, just do a Put as the example.</p>
 
-<aside class="notice"><strong>Rule:</strong> If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03</aside>
+<aside class="notice">Rule: If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03</aside>
 
 <h3 id="request-13">Request</h3>
 
@@ -6702,7 +6702,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the payment data of the Recurrence, just do a Put as the example.</p>
 
-<aside class="notice"><strong>Warning:</strong> This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.</aside>
+<aside class="notice">Warning: This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.</aside>
 
 <h3 id="request-16">Request</h3>
 
@@ -6999,7 +6999,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 <p>The use of this feature allows the automatic replacement of an expired card .
 That way, when a transaction with recurrent markup is submitted to the API and Cielo identifies that the used card has been replaced, its authorization will be denied and the new card data will be returned as the example.</p>
 
-<aside class="notice"><strong>Warning:</strong> It is necessary to request enabling this feature in the register  </aside>
+<aside class="notice">Warning: It is necessary to request enabling this feature in the register  </aside>
 
 <h3 id="request-19">Request</h3>
 
@@ -7157,7 +7157,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
-      <td>Recurrence interval.<br />&lt;ul&gt;&lt;li&gt;Monthly (Default) &lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Recurrence interval.Monthly (Default) Bimonthly Quarterly SemiAnnual Annual</td>
       <td>Text</td>
       <td>10</td>
       <td>No</td>
@@ -7373,7 +7373,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       <td>Interval between recurrences.</td>
       <td>Text</td>
       <td>10</td>
-      <td>&lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AuthorizeNow</code></td>
@@ -8097,14 +8097,14 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       <td>Analysis result.</td>
       <td>Byte</td>
       <td>—</td>
-      <td>Number:<br />&lt;ul&gt;&lt;li&gt;100 - Successful operation.&lt;/li&gt;&lt;li&gt;101 - The order is missing one or more required fields. Possible action: See the fields that are missing on the AntiFraudResponse.MissingFieldCollection list. Resend the order with complete information.&lt;/li&gt;&lt;li&gt;102 - One or more order fields contain invalid data. Possible action: See the invalid fields on the AntiFraudResponse.InvalidFieldCollection list. Resend the order with the correct information.&lt;/li&gt;&lt;li&gt;150 General system failure. Possible action: Wait a few minutes and try resending the order.&lt;/li&gt;&lt;li&gt;151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.&lt;/li&gt;&lt;li&gt;152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.&lt;/li&gt;&lt;li&gt;202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiry date does not match the date on file of the issuing bank. If the payment processor allows to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.&lt;/li&gt;&lt;li&gt;231 The account number is invalid. Possible action: Request a card or other form of payment.&lt;/li&gt;&lt;li&gt;234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.&lt;/li&gt;&lt;li&gt;400 The fraud score goes beyond its limit. Possible action: Review customer’s order.&lt;/li&gt;&lt;li&gt;480 The order has been marked for review by the Decision Manager.&lt;/li&gt;&lt;li&gt;481 - The order was rejected by the Decision Manager&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>Number:100 - Successful operation.101 - The order is missing one or more required fields. Possible action: See the fields that are missing on the AntiFraudResponse.MissingFieldCollection list. Resend the order with complete information.102 - One or more order fields contain invalid data. Possible action: See the invalid fields on the AntiFraudResponse.InvalidFieldCollection list. Resend the order with the correct information.150 General system failure. Possible action: Wait a few minutes and try resending the order.151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiry date does not match the date on file of the issuing bank. If the payment processor allows to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.231 The account number is invalid. Possible action: Request a card or other form of payment.234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.400 The fraud score goes beyond its limit. Possible action: Review customer’s order.480 The order has been marked for review by the Decision Manager.481 - The order was rejected by the Decision Manager</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.FactorCode</code></td>
       <td>Combination of codes that indicate the order’s score. The codes are concatenated using the ^ character.</td>
       <td>Text</td>
       <td>100</td>
-      <td>E.g.: B^D^R^Z<br />&lt;ul&gt;&lt;li&gt;A - Excessive address change. Customer changed billing address two or more times in the last six months.&lt;/li&gt;&lt;li&gt;B - Card BIN or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.&lt;/li&gt;&lt;li&gt;C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.&lt;/li&gt;&lt;li&gt;D - Impact of e-mail address. The customer uses a free email provider or the e-mail address is risky.&lt;/li&gt;&lt;li&gt;E - Positive list. The customer is on your positive list.&lt;/li&gt;&lt;li&gt;F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.&lt;/li&gt;&lt;li&gt;G - Inconsistencies of geolocation. The client e-mail domain, phone number, billing address, shipping address or IP address is suspect.&lt;/li&gt;&lt;li&gt;H - Excessive name changes. The customer has changed the name two or more times in the last six months.&lt;/li&gt;&lt;li&gt;I - Inconsistencies of internet. The IP address and e-mail domain are not consistent with the billing address.&lt;/li&gt;&lt;li&gt;N - Meaningless entry. Client name and address fields contain nonsense words or language.&lt;/li&gt;&lt;li&gt;O - Obscenities. Customer data contains obscene words.&lt;/li&gt;&lt;li&gt;P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.&lt;/li&gt;&lt;li&gt;Q - Phone inconsistencies. Customer’s telephone number is suspect.&lt;/li&gt;&lt;li&gt;R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.&lt;/li&gt;&lt;li&gt;T - Time coverage. The customer is attempting a purchase outside of the expected time.&lt;/li&gt;&lt;li&gt;U - Unverifiable address. The billing or delivery address can not be verified.&lt;/li&gt;&lt;li&gt;V - Velocity. The account number was used many times in the last 15 minutes.&lt;/li&gt;&lt;li&gt;W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.&lt;/li&gt;&lt;li&gt;Y - The address, city, state or country of the billing and delivery addresses do not correlate.&lt;/li&gt;&lt;li&gt;Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, do examine the order carefully for any anomalies.&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>E.g.: B^D^R^ZA - Excessive address change. Customer changed billing address two or more times in the last six months.B - Card BIN or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.D - Impact of e-mail address. The customer uses a free email provider or the e-mail address is risky.E - Positive list. The customer is on your positive list.F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.G - Inconsistencies of geolocation. The client e-mail domain, phone number, billing address, shipping address or IP address is suspect.H - Excessive name changes. The customer has changed the name two or more times in the last six months.I - Inconsistencies of internet. The IP address and e-mail domain are not consistent with the billing address.N - Meaningless entry. Client name and address fields contain nonsense words or language.O - Obscenities. Customer data contains obscene words.P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.Q - Phone inconsistencies. Customer’s telephone number is suspect.R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.T - Time coverage. The customer is attempting a purchase outside of the expected time.U - Unverifiable address. The billing or delivery address can not be verified.V - Velocity. The account number was used many times in the last 15 minutes.W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.Y - The address, city, state or country of the billing and delivery addresses do not correlate.Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, do examine the order carefully for any anomalies.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Score</code></td>
@@ -8315,7 +8315,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       <td>Interval between recurrences.</td>
       <td>Text</td>
       <td>10</td>
-      <td>&lt;ul&gt;&lt;li&gt;Monthly&lt;/li&gt;&lt;li&gt;Bimonthly &lt;/li&gt;&lt;li&gt;Quarterly &lt;/li&gt;&lt;li&gt;SemiAnnual &lt;/li&gt;&lt;li&gt;Annual&lt;/li&gt;&lt;/ul&gt;</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CurrentRecurrencyTry </code></td>
@@ -8336,7 +8336,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       <td>Recurrent order status</td>
       <td>Number</td>
       <td>1</td>
-      <td><br /><em>1</em> - Active <br /><em>2</em> - Finished <br /><em>3</em>- Deactivated by the Merchant <br /> <em>4</em> - Disabled by number of retries <br /> <em>5</em> - Disabled by expired credit card</td>
+      <td><em>1</em> - Active <em>2</em> - Finished <em>3</em>- Deactivated by the Merchant  <em>4</em> - Disabled by number of retries  <em>5</em> - Disabled by expired credit card</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RecurrencyDay</code></td>
@@ -8397,7 +8397,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   <li>Only captured transactions are paid by Cielo to the merchant</li>
 </ul>
 
-<aside class="notice"><strong>Warning:</strong> Capture is a deadline process. Check in without Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture</aside>
+<aside class="notice">Warning: Capture is a deadline process. Check in without Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture</aside>
 
 <h2 id="total-capture">Total capture</h2>
 
@@ -8563,7 +8563,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>Just do a <code class="highlighter-rouge">POST</code> sending the value to be captured.</p>
 
-<aside class="notice"><strong>Warning:</strong> Partial capture available for credit transactions only</aside>
+<aside class="notice">Warning: Partial capture available for credit transactions only</aside>
 
 <h3 id="request---partial-capture">Request - Partial Capture</h3>
 
@@ -8739,7 +8739,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<aside class="notice"><strong>Capture of Boarding fee</strong> To carry out the capture of *boarding fee*, just add the ServiveTaxAmount value to be captured</aside>
+<aside class="notice">Capture of Boarding fee To carry out the capture of *boarding fee*, just add the ServiveTaxAmount value to be captured</aside>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
 
@@ -8888,7 +8888,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>To cancel a sale that uses a credit card, it is necessary to do a PUT for the Payment feature. Cancellation can be made via PaymentID or MerchantOrderId (order number).</p>
 
-<aside class="notice"><strong>Warning:</strong> Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method</aside>
+<aside class="notice">Warning: Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method</aside>
 
 <h3 id="request-25">Request</h3>
 
@@ -9030,9 +9030,9 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>Just do a <code class="highlighter-rouge">POST</code> sending the value to be canceled.</p>
 
-<aside class="notice"><strong>Warning:</strong> Partial cancellation available only for *CAPTURED* credit transactions</aside>
+<aside class="notice">Warning: Partial cancellation available only for *CAPTURED* credit transactions</aside>
 
-<aside class="notice"><strong>Warning:</strong> The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
+<aside class="notice">Warning: The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
 
 <h3 id="request---partial-cancellation">Request - partial cancellation</h3>
 
@@ -9196,7 +9196,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<aside class="notice"><strong>Cancellation of Boarding Fee</strong> To cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled</aside>
+<aside class="notice">Cancellation of Boarding Fee To cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled</aside>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&amp;serviceTaxAmount=xxx
 </code></pre></div></div>
@@ -10706,11 +10706,11 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
 
 <p>API Cielo eCommerce supports two payment wallets: VisaCheckout and Masterpass.</p>
 
-<aside class="notice"><strong>Warning:</strong> When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
+<aside class="notice">Warning: When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 
-<aside class="notice"><strong>Warning:</strong> For debit card, when the “Wallet” node is sent in the request, the “DebitCard” node will be needed containing the “ReturnUrl”.</aside>
+<aside class="notice">Warning: For debit card, when the “Wallet” node is sent in the request, the “DebitCard” node will be needed containing the “ReturnUrl”.</aside>
 
-<aside class="notice"><strong>Warning:</strong>  For Visa Chekcout, the Wallet node can be sent only with the "Type", thus marking the transaction as being from wallet. In this context, the credit card must be sent. </aside>
+<aside class="notice">Warning:  For Visa Chekcout, the Wallet node can be sent only with the "Type", thus marking the transaction as being from wallet. In this context, the credit card must be sent. </aside>
 
 <h2 id="how-to-perform-transaction-with-visacheckout">How to perform transaction with VisaCheckout</h2>
 
@@ -11835,19 +11835,19 @@ More information and complete integration, you can find in the link: https://dev
   <tbody>
     <tr>
       <td><strong>HTTP Status Code</strong></td>
-      <td>They are standard HTTP codes. It report if the information sent to the API is <strong>actually being successful in reaching our ENDPOINTs</strong>. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API<br /><br /> <em>Returned at time of API request</em></td>
+      <td>They are standard HTTP codes. It report if the information sent to the API is <strong>actually being successful in reaching our ENDPOINTs</strong>. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API <em>Returned at time of API request</em></td>
     </tr>
     <tr>
       <td><strong>API Errors</strong></td>
-      <td>These codes are responses to <strong>content validation of sent data</strong>. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction<br /><br /><em>Returned at time of API request</em></td>
+      <td>These codes are responses to <strong>content validation of sent data</strong>. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction<em>Returned at time of API request</em></td>
     </tr>
     <tr>
       <td><strong>Status</strong></td>
-      <td>After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. <code class="highlighter-rouge">Authorized</code> &gt;<code class="highlighter-rouge"> Captured</code> &gt; <code class="highlighter-rouge">Canceled</code>)<br /><br />*Returned in the <code class="highlighter-rouge">Status</code> field *</td>
+      <td>After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. <code class="highlighter-rouge">Authorized</code> &gt;<code class="highlighter-rouge"> Captured</code> &gt; <code class="highlighter-rouge">Canceled</code>)*Returned in the <code class="highlighter-rouge">Status</code> field *</td>
     </tr>
     <tr>
       <td><strong>Sales Return</strong></td>
-      <td>Formed by a <strong>Return code</strong> and a <strong>message</strong>, these codes indicate the <strong>reason</strong> of a given <code class="highlighter-rouge">Status</code> within a transaction. They indicate, for example, whether a transaction with denied <code class="highlighter-rouge">status</code> was not authorized because of a negative balance at the issuing bank. <br /><br /><em>Returned in the <code class="highlighter-rouge">ReturnCode</code> and<code class="highlighter-rouge"> ReturnMessage</code> fields</em><br /> <em>They occur only in Credit and Debit cards</em></td>
+      <td>Formed by a <strong>Return code</strong> and a <strong>message</strong>, these codes indicate the <strong>reason</strong> of a given <code class="highlighter-rouge">Status</code> within a transaction. They indicate, for example, whether a transaction with denied <code class="highlighter-rouge">status</code> was not authorized because of a negative balance at the issuing bank. <em>Returned in the <code class="highlighter-rouge">ReturnCode</code> and<code class="highlighter-rouge"> ReturnMessage</code> fields</em> <em>They occur only in Credit and Debit cards</em></td>
     </tr>
   </tbody>
 </table>
@@ -13698,7 +13698,7 @@ More information and complete integration, you can find in the link: https://dev
     <tr>
       <td>4</td>
       <td>Sales Channel</td>
-      <td>Values: “Call Center” = purchase by phone <br /> “Web” = purchase by  web <br /> “Portal” = an agent making the purchase for the customer <br /> “Kiosk” = Purchases in kiosks <br /> “Mobile” = Purchases made on smartphones or tablets</td>
+      <td>Values: “Call Center” = purchase by phone  “Web” = purchase by  web  “Portal” = an agent making the purchase for the customer  “Kiosk” = Purchases in kiosks  “Mobile” = Purchases made on smartphones or tablets</td>
       <td>String</td>
     </tr>
     <tr>

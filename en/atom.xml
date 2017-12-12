@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2017-12-12T16:42:55+00:00</updated>
+    <updated>2017-12-12T17:11:19+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -30,7 +30,7 @@
 
 &lt;p&gt;Finally, after the development, to start the operation on production environment, first, it’s necessary start the homologation at Cielo.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Look at section &lt;a href=&quot;#testing-and-homologation&quot;&gt;Testing and homologation&lt;/a&gt; to more instruction about the homologation process&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Look at section Testing and homologation to more instruction about the homologation process&lt;/aside&gt;
 
 &lt;h2 id=&quot;cielo-support&quot;&gt;Cielo Support&lt;/h2&gt;
 
@@ -339,14 +339,14 @@
 &lt;ul&gt;
   &lt;li&gt;The message in XML format, defined according to the functionality.&lt;/li&gt;
   &lt;li&gt;The destiny (testing environment or production).&lt;/li&gt;
-  &lt;li&gt;The return on XML format, can be: &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;transacao/&amp;gt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;retorno-token&amp;gt;&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;erro/&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;The return on XML format, can be: &lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt; or ``.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST /servicos/ecommwsec.do HTTP/1.1
 Host: ecommerce.cielo.com.br
 Content-Type: application/x-www-form-urlencoded
 Content-Length: length
-mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&amp;lt;requisicao-captura id=&quot;3e22bdd0-2017-4756-80b7-35a532e6c973&quot; versao=&quot;1.2.1&quot;&amp;gt;&amp;lt;tid&amp;gt;10069930690101012005&amp;lt;/tid&amp;gt;&amp;lt;dados-ec&amp;gt;&amp;lt;numero&amp;gt;1006993069&amp;lt;/numero&amp;gt;&amp;lt;chave&amp;gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&amp;lt;/chave&amp;gt;&amp;lt;/dados-ec&amp;gt;&amp;lt;valor&amp;gt;3880&amp;lt;/valor&amp;gt;&amp;lt;/requisicao-captura&amp;gt;
+mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f33880
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;transaction&quot;&gt;Transaction&lt;/h2&gt;
@@ -361,58 +361,57 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h1 id=&quot;creating-transactions&quot;&gt;Creating transactions&lt;/h1&gt;
 
-&lt;p&gt;Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservice at Cielo with a XML message &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;requisicao-transacao&amp;gt;&lt;/code&gt;, which group of TAGS defines a transaction configuration:&lt;/p&gt;
+&lt;p&gt;Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservice at Cielo with a XML message ``, which group of TAGS defines a transaction configuration:&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;4012001038443335&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;validade&amp;gt;&lt;/span&gt;201508&lt;span class=&quot;nt&quot;&gt;&amp;lt;/validade&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;indicador&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/indicador&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-seguranca&amp;gt;&lt;/span&gt;973&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo-seguranca&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;token/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;178148599&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;A&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-retorno&amp;gt;&lt;/span&gt;http://localhost/lojaexemplo/retorno.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-retorno&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;false&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;campo-livre&amp;gt;&lt;/span&gt;Informações extras&lt;span class=&quot;nt&quot;&gt;&amp;lt;/campo-livre&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;bin&amp;gt;&lt;/span&gt;455187&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bin&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;gerar-token&amp;gt;&lt;/span&gt;false&lt;span class=&quot;nt&quot;&gt;&amp;lt;/gerar-token&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;avs&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[
-    &amp;lt;dados-avs&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;endereco&amp;gt;&lt;/span&gt;Rua Teste AVS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/endereco&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;complemento&amp;gt;&lt;/span&gt;Casa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/complemento&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;123&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;bairro&amp;gt;&lt;/span&gt;Vila AVS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bairro&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;cep&amp;gt;&lt;/span&gt;12345-123&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cep&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;cpf&amp;gt;&lt;/span&gt;11111111111&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cpf&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-avs&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+  
+    4012001038443335
+    201508
+    1
+    973
+    
+  
+  
+    178148599
+    1000
+    986
+    2011-12-07T11:43:37
+    [origem:10.50.54.156]
+    PT
+    
+    
+  
+  
+    visa
+    A
+    1
+  
+  http://localhost/lojaexemplo/retorno.jsp
+  1
+  false
+  Informações extras
+  455187
+  false
+  
+  
+      Rua Teste AVS
+      Casa
+      123
+      Vila AVS
+      12345-123
+      11111111111
+    
   ]]&amp;gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/avs&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema ecommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on XML Schema ecommerce.xsd&lt;/aside&gt;
 
 &lt;h3 id=&quot;root-node&quot;&gt;ROOT Node&lt;/h3&gt;
 
@@ -705,7 +704,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;p&gt;After creating a transaction, the browsing flux can be directed to Cielo environment, if the retailer requests the authentication on XML message.&lt;/p&gt;
 
-&lt;p&gt;In this situation, the retailer’ system will obtain the amount of TAG of XML &lt;url-autenticacao&gt; returned to realize a redirection on customer browser and continues the process. The redirecting must be realized in &quot;Full Screen&quot; mode. In the other words, there is no more support to the pop up window. This way, from a checkout screen must be realized a redirecting to URL returned at transaction's creation.&lt;/url-autenticacao&gt;&lt;/p&gt;
+&lt;p&gt;In this situation, the retailer’ system will obtain the amount of TAG of XML  returned to realize a redirection on customer browser and continues the process. The redirecting must be realized in “Full Screen” mode. In the other words, there is no more support to the pop up window. This way, from a checkout screen must be realized a redirecting to URL returned at transaction’s creation.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;This redirection can be done through Http Redirect (as in the code Model) or through a Javascript.&lt;/aside&gt;
 
@@ -726,34 +725,34 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 &lt;p&gt;There are three types of return that can be created on WebService response:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;transacao&amp;gt;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;retorno-token&amp;gt;&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;erro&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;``&lt;/li&gt;
+  &lt;li&gt;``&lt;/li&gt;
+  &lt;li&gt;``&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;To operations related to a transaction (consults, authorization, capture and cancellation) in case of success the response is always a XML of type &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;transacao&amp;gt;&lt;/code&gt;. In case of an exclusive request to create a token, the response expected is &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;retorno-token&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To operations related to a transaction (consults, authorization, capture and cancellation) in case of success the response is always a XML of type &lt;code class=&quot;highlighter-rouge&quot;&gt;. In case of an exclusive request to create a token, the response expected is&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;The next example shows the more reduced way of a message of return such &lt;transaction&gt;. Basically, it's composed by order data and data from transaction's configuration.&lt;/transaction&gt;&lt;/p&gt;
+&lt;p&gt;The next example shows the more reduced way of a message of return such . Basically, it’s composed by order data and data from transaction’s configuration.&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;transaction&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.3.0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;af32f93c-5e9c-4f44-9478-ccc5aca9319e&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10017348980735271001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1130006436&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-05T16:01:28.655-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-autenticacao&amp;gt;&lt;/span&gt;https://ecommerce.cielo.com.br/web/index.cbmp?id=a783251&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-autenticacao&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  10017348980735271001
+  
+    1130006436
+    1000
+    986
+    2011-12-05T16:01:28.655-02:00
+    [origem:10.50.54.156]
+    PT
+  
+  
+    visa
+    1
+    1
+  
+  0
+  https://ecommerce.cielo.com.br/web/index.cbmp?id=a783251
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The more important information are:&lt;/p&gt;
@@ -764,7 +763,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
   &lt;li&gt;&lt;strong&gt;Status&lt;/strong&gt;: it’s the base information to store control the transaction.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The table below details TAGS from basic-XML of return, identified by source node &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;transacao&amp;gt;&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;The table below details TAGS from basic-XML of return, identified by source node ``:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -809,14 +808,14 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Finally, there is another type of return which is employed every time a request can’t be executed, because it’s invalid or for some failure in its process. In this scenario, root node of XML response is like this &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;erro&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Finally, there is another type of return which is employed every time a request can’t be executed, because it’s invalid or for some failure in its process. In this scenario, root node of XML response is like this ``.&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;erro&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;messagem&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '&amp;lt;xml-fragment/&amp;gt;]]&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/erro&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  001
+  ]]&amp;gt;
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;When the transaction is invalid, we can classify the error in two types:&lt;/p&gt;
@@ -836,7 +835,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;p&gt;This happens always on the bank website (Internet Banking), using mechanisms and technologies independently from Cielo. In this way, it’s possible for bank use an electronic token and password meanwhile another uses the password cards or CPF [c]to authenticate a transaction.&lt;/p&gt;
 
-&lt;p&gt;As shown previously, the mechanic of redirection is obtained through a tag &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;url-autenticacao&amp;gt;&lt;/code&gt; that is returned by Cielo on XML &lt;transação&gt; in the moment of a request of authorization to Web Service.&lt;/transação&gt;&lt;/p&gt;
+&lt;p&gt;As shown previously, the mechanic of redirection is obtained through a tag `` that is returned by Cielo on XML  in the moment of a request of authorization to Web Service.&lt;/p&gt;
 
 &lt;p&gt;The authentication is mandatory for debt transactions and optional for credit. Nowadays only Visa and MasterCard support this functionality and consequently, only these two card issuers have the debt product.&lt;/p&gt;
 
@@ -848,12 +847,12 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;ol&gt;
   &lt;li&gt;finishOrder() - it happens when a cardholder finishes the order and starts the payment purchase.&lt;/li&gt;
-  &lt;li&gt;createTransaction (authenticated) - the retailer system send a XML request &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;requisicao-transacao&amp;gt;&lt;/code&gt; requesting an authenticated transaction, in other words, the TAG &lt;autorizar&gt; will be 0,1 or 2. After this, Cielo will inform at XML returned a field &lt;url-autenticacao&gt; with the address which the holder must be redirected for.&lt;/url-autenticacao&gt;&lt;/autorizar&gt;&lt;/li&gt;
+  &lt;li&gt;createTransaction (authenticated) - the retailer system send a XML request `` requesting an authenticated transaction, in other words, the TAG  will be 0,1 or 2. After this, Cielo will inform at XML returned a field  with the address which the holder must be redirected for.&lt;/li&gt;
   &lt;li&gt;access (url-authentication) - the holder’s browser is redirected to Cielo environment. Thereby, the Cielo’s page is accessed, it automatically is directed to an issuer bank (3.1). This redirect is so fast that is practically imperceptible.&lt;/li&gt;
   &lt;li&gt;authenticate (token, cpf) - the holder will be on bank environment and will use some mechanism provided by his/her own issuer to realize the authentication of the transaction (generally token, “bingo card”/security card, cpf, electronic sign, etc).&lt;/li&gt;
   &lt;li&gt;resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item “2.3 Architecture of integration”.
     1.process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.
-    2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;requisicao-transacao&amp;gt;&lt;/code&gt;)
+    2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (``)
     &lt;ol&gt;
       &lt;li&gt;access (url-return) - the holder’s browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.&lt;/li&gt;
     &lt;/ol&gt;
@@ -874,41 +873,41 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 &lt;ul&gt;
   &lt;li&gt;Bank and card issuer should be participating in the authentication program;&lt;/li&gt;
   &lt;li&gt;The BIN card must be participant in authentication program;&lt;/li&gt;
-  &lt;li&gt;Setting the // &lt;allow&gt; is 0, 1 or 2.&lt;/allow&gt;&lt;/li&gt;
+  &lt;li&gt;Setting the //  is 0, 1 or 2.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Looking at the diagram of section &lt;a href=&quot;#transaction&quot;&gt;Transaction&lt;/a&gt;, you can see that all transactions will pass through status “Authenticated” or “not authenticated”. Consequently, all receive the node &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;autenticacao&amp;gt;&lt;/code&gt; in the merchant response XML. Below the XML with the authentication node:&lt;/p&gt;
+&lt;p&gt;Looking at the diagram of section &lt;a href=&quot;#transaction&quot;&gt;Transaction&lt;/a&gt;, you can see that all transactions will pass through status “Authenticated” or “not authenticated”. Consequently, all receive the node `` in the merchant response XML. Below the XML with the authentication node:&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.3.0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5e445904-963e-4fa1-95cd-55ef88c289cc&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;1001734898073E931001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;IqVz7P9zaIgTYdU41HaW/OB/d7Idwttqwb2vaTt8MT0=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1196683550&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-08T10:44:24.244-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autenticacao&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Autenticada com sucesso&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-08T10:44:47.311-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;eci&amp;gt;&lt;/span&gt;5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/eci&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/autenticacao&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  1001734898073E931001
+  IqVz7P9zaIgTYdU41HaW/OB/d7Idwttqwb2vaTt8MT0=
+  
+    1196683550
+    1000
+    986
+    2011-12-08T10:44:24.244-02:00
+    [origem:10.50.54.156]
+    PT
+    1000
+  
+  
+    visa
+    1
+    1
+  
+  2
+  
+    2
+    Autenticada com sucesso
+    2011-12-08T10:44:47.311-02:00
+    1000
+    5
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Just the “node” fields &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;autenticacao&amp;gt;&lt;/code&gt; are listed on the table below:&lt;/p&gt;
+&lt;p&gt;Just the “node” fields `` are listed on the table below:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -1826,7 +1825,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h2 id=&quot;error-codes&quot;&gt;Error Codes&lt;/h2&gt;
 
-&lt;p&gt;The errors that may appear in the XML message through the TAG ‘&lt;error&gt;' are arranged as follows:&lt;/error&gt;&lt;/p&gt;
+&lt;p&gt;The errors that may appear in the XML message through the TAG ‘’ are arranged as follows:&lt;/p&gt;
 
 &lt;h3 id=&quot;table-integration-errors&quot;&gt;Table integration errors&lt;/h3&gt;
 
@@ -2237,34 +2236,34 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;aside class=&quot;notice&quot;&gt;For the response codes of the authorization, consult the Directory of Response Codes of Authorization  os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on XML Schema eCommerce.xsd&lt;/aside&gt;
 
 &lt;h2 id=&quot;direct-authorization&quot;&gt;Direct authorization&lt;/h2&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;4012001038443335&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;validade&amp;gt;&lt;/span&gt;201508&lt;span class=&quot;nt&quot;&gt;&amp;lt;/validade&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;indicador&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/indicador&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-seguranca&amp;gt;&lt;/span&gt;973&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo-seguranca&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-retorno&amp;gt;&lt;/span&gt;http://localhost/lojaexemplo/retorno.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-retorno&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;false&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+  
+    4012001038443335
+    201508
+    1
+    973
+  
+  
+    
+  
+  
+    visa
+    1
+    1
+  
+  http://localhost/lojaexemplo/retorno.jsp
+  3
+  false
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The direct authorization is characterized for being a transaction without authentication from holder, because it’s a retailer option (and risk), or because the card issuer or emitter don’t have support. The direct authorization can be done in two ways: traditional (with card data) or using a token.&lt;/p&gt;
@@ -2276,7 +2275,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
   &lt;li&gt;&lt;strong&gt;Rules&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;The online store register must be enable to send card data.&lt;/li&gt;
-      &lt;li&gt;Send a TAG &lt;authorize&gt; with the value &quot;3&quot;.&lt;/authorize&gt;&lt;/li&gt;
+      &lt;li&gt;Send a TAG  with the value “3”.&lt;/li&gt;
       &lt;li&gt;Valid only for credit.&lt;/li&gt;
       &lt;li&gt;The retailer must pay attention on sending card rules.&lt;/li&gt;
       &lt;li&gt;In direct authorization, the security level of transaction (ECI) is defined as:
@@ -2291,37 +2290,37 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h2 id=&quot;recurrent-authorization&quot;&gt;Recurrent authorization&lt;/h2&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;4012001038443335&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;validade&amp;gt;&lt;/span&gt;201508&lt;span class=&quot;nt&quot;&gt;&amp;lt;/validade&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;indicador&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/indicador&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-seguranca&amp;gt;&lt;/span&gt;973&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo-seguranca&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-retorno&amp;gt;&lt;/span&gt;http://localhost/lojaexemplo/retorno.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-retorno&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;4&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;false&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+  
+    4012001038443335
+    201508
+    1
+    973
+  
+  
+    
+  
+  
+    visa
+    1
+    1
+  
+  http://localhost/lojaexemplo/retorno.jsp
+  4
+  false
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The recurrent authorization must be done in two ways: sending a token previously registered, or using a card. The recurrent transaction is very similar than traditional transaction, the changes consist on the rules that emitter and card issuer use to authorize or deny a transaction. Another difference is related to “Renova Fácil” (Easy Renew).&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;To know if your store is eligible to use a recurrent authorization, check with our service center or Cielo E-commerce Web Support.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on XML Schema eCommerce.xsd&lt;/aside&gt;
 
 &lt;h3 id=&quot;recurrent-authorization-with-card&quot;&gt;Recurrent authorization with card&lt;/h3&gt;
 
@@ -2329,7 +2328,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
   &lt;li&gt;&lt;strong&gt;Purpose&lt;/strong&gt; - Submit a recurrent transaction using a credit card.**&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Rules&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;Send a TAG ‘&lt;autorizar&gt;' with value &quot;4&quot;.&lt;/autorizar&gt;&lt;/li&gt;
+      &lt;li&gt;Send a TAG ‘’ with value “4”.&lt;/li&gt;
       &lt;li&gt;Valid just for lump sum.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -2337,32 +2336,32 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;easy-renew-renova-fácil&quot;&gt;EASY RENEW (Renova Fácil):&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;d35b67189442&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10069930690362461001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizacao&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Autorização negada&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-09T10:58:45.847-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;lr&amp;gt;&lt;/span&gt;57&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lr&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;nsu&amp;gt;&lt;/span&gt;221766&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nsu&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizacao&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;4012001038443335&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;validade&amp;gt;&lt;/span&gt;201508&lt;span class=&quot;nt&quot;&gt;&amp;lt;/validade&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-seguranca/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  10069930690362461001
+  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
+  
+    
+  
+  
+    
+  
+  5
+  
+  
+    5
+    Autorização negada
+    2011-12-09T10:58:45.847-02:00
+    1000
+    57
+    221766
+  
+  
+    4012001038443335
+    201508
+    
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This functionality makes easier to identify a card which has been replaced for another at emitter bank. In this way, when a recurrent transaction is submitted to Web Service and Cielo identifies that the card used is outdated, the system will behave like that:&lt;/p&gt;
@@ -2375,27 +2374,27 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;aside class=&quot;notice&quot;&gt;The &quot;Renova Fácil&quot; (Easy Renew) is only available on recurrent transactions. The Easy Renew effectiveness depends of correct usage of recurrent transactions properly signalized. Consult banks and card issuers participants with Cielo E-commerce Web Support.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema ecommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on XML Schema ecommerce.xsd&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All the messages must be formatted correctly, according specified on XML Schema eCommerce.xsd&lt;/aside&gt;
 
 &lt;h3 id=&quot;authorization-of-a-transaction-previously-created&quot;&gt;Authorization of a transaction previously created&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-autorizacao-tid&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0000000000&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;1006993069990BCAA001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-autorizacao-tid&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  1006993069990BCAA001
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;To the establishments that use the authentication process of authentication it’s possible to request an authorization of transaction that stopped after the execution of this process. The message to perform this operation is “requisicao-autorizacao-tid”, as described below:&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Requests to transactions that weren't submit to the authentication process or have been interrupted, because the holder made a mistake on the password won't be accepted.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on &lt;a href=&quot;https://developercielo.github.io/en/attachment/ecommerce.xsd&quot;&gt;XML Schema eCommerce.xsd&lt;/a&gt;&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;All messages must be formatted correctly according to specified on XML Schema eCommerce.xsd&lt;/aside&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2434,18 +2433,18 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h2 id=&quot;transaction-with-token&quot;&gt;Transaction with token&lt;/h2&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-token&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;8fc889c7-004f-42f1-963a-31aa26f75e5c&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;4012001038443335&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;validade&amp;gt;&lt;/span&gt;201508&lt;span class=&quot;nt&quot;&gt;&amp;lt;/validade&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;nome-portador&amp;gt;&lt;/span&gt;FULANO DA SILVA&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nome-portador&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-token&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+    1006993069
+    25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+  
+  
+    4012001038443335
+    201508
+    FULANO DA SILVA
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -2521,19 +2520,19 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;retorno-token&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;57239017&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;token&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-token&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-token&amp;gt;&lt;/span&gt;TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo-token&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero-cartao-truncado&amp;gt;&lt;/span&gt;455187******0183&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero-cartao-truncado&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-token&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/token&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/retorno-token&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+    
+      TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
+      1
+      455187******0183
+    
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;The return will be like: &lt;retorno-token&gt; when a request has been concluded with success, or in case of failure &lt;error&gt;.&lt;/error&gt;&lt;/retorno-token&gt;&lt;/p&gt;
+&lt;p&gt;The return will be like:  when a request has been concluded with success, or in case of failure .&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -2568,34 +2567,34 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;direct-authorization-via-token&quot;&gt;Direct Authorization via TOKEN&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;token&amp;gt;&lt;/span&gt;TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/token&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-retorno&amp;gt;&lt;/span&gt;http://localhost/lojaexemplo/retorno.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-retorno&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+  
+    TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
+  
+  
+    
+  
+  
+    visa
+    1
+    1
+  
+  http://localhost/lojaexemplo/retorno.jsp
+  3
+  true
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Purpose&lt;/strong&gt; - To submit a direct transaction (without authentication) using a token previously registered.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Rules&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;To send a TAG &lt;autorizar&gt; with the value &quot;3&quot;.&lt;/autorizar&gt;&lt;/li&gt;
+      &lt;li&gt;To send a TAG  with the value “3”.&lt;/li&gt;
       &lt;li&gt;Token must be unlocked&lt;/li&gt;
       &lt;li&gt;Valid just for lump sum.&lt;/li&gt;
     &lt;/ul&gt;
@@ -2604,27 +2603,27 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;recurrent-authorization-with-token&quot;&gt;Recurrent Authorization with TOKEN&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;token&amp;gt;&lt;/span&gt;TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/token&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-retorno&amp;gt;&lt;/span&gt;http://localhost/lojaexemplo/retorno.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-retorno&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;4&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+    1006993069
+    25fbb997438630f30b112d033ce2e621b34f3
+  
+  
+    TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
+  
+  
+    
+  
+  
+    visa
+    1
+    1
+  
+  http://localhost/lojaexemplo/retorno.jsp
+  4
+  true
+
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -2632,7 +2631,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
   &lt;li&gt;&lt;strong&gt;Purpose&lt;/strong&gt; - To submit a recurrent transaction using a token previously registered.** - Submeter uma transação recorrente com o uso de um token previamente cadastrado.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Rules&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;To send a TAG &lt;autorizar&gt; with the value &quot;4&quot;.&lt;/autorizar&gt;&lt;/li&gt;
+      &lt;li&gt;To send a TAG  with the value “4”.&lt;/li&gt;
       &lt;li&gt;Token must be unlocked.&lt;/li&gt;
       &lt;li&gt;Valid just for lump sum.&lt;/li&gt;
     &lt;/ul&gt;
@@ -2641,34 +2640,34 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;easy-renew-with-token&quot;&gt;Easy Renew with TOKEN&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;d35b67189442&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10069930690362461001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizacao&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Autorização negada&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-09T10:58:45.847-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;lr&amp;gt;&lt;/span&gt;57&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lr&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;nsu&amp;gt;&lt;/span&gt;221766&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nsu&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizacao&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;token&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-token&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-token&amp;gt;&lt;/span&gt;TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo-token&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero-cartao-truncado&amp;gt;&lt;/span&gt;455187******0183&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero-cartao-truncado&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-token&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/token&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  10069930690362461001
+  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
+  
+    
+  
+  
+    
+  
+  5
+  
+  
+    5
+    Autorização negada
+    2011-12-09T10:58:45.847-02:00
+    1000
+    57
+    221766
+  
+  
+    
+      TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
+      1
+      455187******0183
+    
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This functionality makes easier to identify a card which has been replaced for another in emitter bank. So, when a recurrent transaction is submitted to Web Service and Cielo identifies a card in use outdated, the system will behave like that:&lt;/p&gt;
@@ -2681,17 +2680,17 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;creating-token&quot;&gt;Creating TOKEN&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;gerar-token&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/gerar-token&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+  true
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;This additional service is subjected to a charge from the moment of a token create request.&lt;/aside&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Purpose&lt;/strong&gt; - Beyond the specific message to creation of a token, described in a transaction with token, it’s possible to employ an authorization request to ask a creation of token, adding the information &lt;gerar-token&gt; in the node of request of a transaction.&lt;/gerar-token&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Purpose&lt;/strong&gt; - Beyond the specific message to creation of a token, described in a transaction with token, it’s possible to employ an authorization request to ask a creation of token, adding the information  in the node of request of a transaction.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Rules&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;In case of a card being submitted more than once for the same retailer, the Token created will be the same.&lt;/li&gt;
@@ -2703,17 +2702,17 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;authentication-and-transaction-with-debit-card&quot;&gt;Authentication and transaction with debit card&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;A&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+  
+    visa
+    A
+    1
+  
+  
+  1
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The authenticated transaction will ensure an extra security for the retailer against Chargebacks, however, according to presented on chapter “2.5 - Authentication and security level”, neither all card issuers and emitters make this kind of service available.&lt;/p&gt;
@@ -2741,19 +2740,19 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;allows-the-retailer-to-send-a-text-soft-descriptor&quot;&gt;Allows the retailer to send a text (Soft Descriptor)&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;178148599&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor&amp;gt;&lt;/span&gt;soft-descriptor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soft-descriptor&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+  
+  
+    178148599
+    1000
+    986
+    2011-12-07T11:43:37
+    [origem:10.50.54.156]
+    PT
+    soft-descriptor
+  
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -2776,16 +2775,16 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;automatic-capture&quot;&gt;Automatic Capture&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+  true
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Purpose&lt;/strong&gt; - The automatic capture allows a request of authorization to be captured immediately after its approval. So it’s not necessary realize a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;requisicao-captura&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Purpose&lt;/strong&gt; - The automatic capture allows a request of authorization to be captured immediately after its approval. So it’s not necessary realize a ``.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Rules&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;Just approved authorizations can be captured automatically.&lt;/li&gt;
@@ -2795,27 +2794,27 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;boarding-fee&quot;&gt;Boarding fee&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;178148599&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;10000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor&amp;gt;&lt;/span&gt;softdescriptor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soft-descriptor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+  
+    178148599
+    10000
+    986
+    2011-12-07T11:43:37
+    [origem:10.50.54.156]
+    PT
+    softdescriptor
+    1000
+  
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Purpose&lt;/strong&gt;: the boarding fee is the informative field that defines the total amount of transaction  (informed on tag data-order//value) that must be destined to payment of Infraero tax.
     &lt;ul&gt;
-      &lt;li&gt;The boarding fee is not accumulated to authorization value. For example, in a airplane ticket sale of R$ 200,00 with boarding fee of R$ 25,00 you have to send the field &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;valor&amp;gt;22500&amp;lt;/valor&amp;gt;&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;taxa-embarque&amp;gt;2500&amp;lt;/taxa-embarque&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;The boarding fee is not accumulated to authorization value. For example, in a airplane ticket sale of R$ 200,00 with boarding fee of R$ 25,00 you have to send the field &lt;code class=&quot;highlighter-rouge&quot;&gt;22500&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;2500&lt;/code&gt;.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Rules&lt;/strong&gt;
@@ -2830,33 +2829,32 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;avs-address-verification-service&quot;&gt;AVS (Address Verification Service)&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;178148599&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;10000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor&amp;gt;&lt;/span&gt;softdescriptor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soft-descriptor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;avs&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[
-      &amp;lt;dados-avs&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;endereco&amp;gt;&lt;/span&gt;Rua Teste AVS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/endereco&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;complemento&amp;gt;&lt;/span&gt;Casa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/complemento&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;123&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;bairro&amp;gt;&lt;/span&gt;Vila AVS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bairro&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;cep&amp;gt;&lt;/span&gt;12345-123&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cep&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;cpf&amp;gt;&lt;/span&gt;11111111111&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cpf&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-avs&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  
+  
+    178148599
+    10000
+    986
+    2011-12-07T11:43:37
+    [origem:10.50.54.156]
+    PT
+    softdescriptor
+    1000
+    
+  
+        Rua Teste AVS
+        Casa
+        123
+        Vila AVS
+        12345-123
+        11111111111
+      
   ]]&amp;gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/avs&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
+    
+  
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -2901,7 +2899,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
   &lt;li&gt;After the authorization (total capture or partial).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;In the first case, it’s not necessary to send a request to capture, because it’s done automatically by Cielo after the authorization of transaction. For this purpose, it’s necessary configure the request of transaction defining the value “true” for a TAG &lt;capturar&gt;, according to section &quot;Creating a transaction&quot;.&lt;/capturar&gt;&lt;/p&gt;
+&lt;p&gt;In the first case, it’s not necessary to send a request to capture, because it’s done automatically by Cielo after the authorization of transaction. For this purpose, it’s necessary configure the request of transaction defining the value “true” for a TAG , according to section “Creating a transaction”.&lt;/p&gt;
 
 &lt;p&gt;In the second case, it’s necessary to do a “later capture”, through the new request to Cielo Webservice to confirm the transaction and receive the sale value.&lt;/p&gt;
 
@@ -2911,16 +2909,16 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;total-and-partial-capture&quot;&gt;Total and Partial Capture&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-captura&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0374f305-0e23-4aad-82a2-055788c8cf4d&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10069930690360EF1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;10000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-captura&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  10069930690360EF1001
+  
+    1006993069
+    25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+  
+  10000
+  1000
+
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -2937,7 +2935,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
         &lt;ul&gt;
           &lt;li&gt;On the request capture, the boarding fee indicates the total of amount that will be captured that must be destined to this purpose.&lt;/li&gt;
           &lt;li&gt;It’s mandatory in case of partial capture.&lt;/li&gt;
-          &lt;li&gt;In case of total capture, the system will consider the value of boarding fee informed to request of authorization (&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;requisicao-transacao&amp;gt;&lt;/code&gt;).&lt;/li&gt;
+          &lt;li&gt;In case of total capture, the system will consider the value of boarding fee informed to request of authorization (``).&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -2946,22 +2944,22 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;return&quot;&gt;Return&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0378c8cf4d&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10069930690360EF1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;captura&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Transacao capturada com sucesso&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-08T14:23:08.779-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;900&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;900&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/captura&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  10069930690360EF1001
+  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
+  
+  
+    6
+    Transacao capturada com sucesso
+    2011-12-08T14:23:08.779-02:00
+    900
+    900
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;The field of node &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;captura&amp;gt;&lt;/code&gt; are detailed below:&lt;/p&gt;
+&lt;p&gt;The field of node `` are detailed below:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -3020,16 +3018,16 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h3 id=&quot;total-and-partial-cancellation&quot;&gt;Total and Partial Cancellation&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-cancelamento&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;13368079-dedc-4cdf-9140-84473faf83d4&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;100699306903613D1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;200&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-cancelamento&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  100699306903613D1001
+  
+    1006993069
+    25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+
+  
+  200
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -3041,7 +3039,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
       &lt;li&gt;The total cancellation, when realized with success changes the transaction status to “9-Cancelled”, while the partial doesn’t change the transaction status, keeping it as “6-Captured”.&lt;/li&gt;
       &lt;li&gt;In case of XML version 1.6.1 (this version is only for cancellation), the status of partial cancellation will be different: If cancellation OK, the code of status will be 9. In case of error on partial cancellation, the code of status will be 6. This rules are only for partial cancellation&lt;/li&gt;
       &lt;li&gt;Do not use the version 1.6.1 to send transactions. This versions is only to cancellation.&lt;/li&gt;
-      &lt;li&gt;If the TAG &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;valor&amp;gt;&lt;/code&gt; doesn’t be provided, the system will assume the total cancellation.&lt;/li&gt;
+      &lt;li&gt;If the TAG `` doesn’t be provided, the system will assume the total cancellation.&lt;/li&gt;
       &lt;li&gt;To Amex issuer it’s available just the total cancellation.&lt;/li&gt;
       &lt;li&gt;To debit modality, doesn’t exist the possibility of effective the partial cancellation.&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;Transaction with boarding fees:&lt;/strong&gt;
@@ -3097,20 +3095,20 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
 
 &lt;h4 id=&quot;return-1&quot;&gt;Return&lt;/h4&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2c18f00a-3ff6-4c85-8865-a4fde599b2b2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;100699306903613E1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;cancelamentos&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;cancelamento&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;9&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Transacao cancelada com sucesso&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-08T16:46:35.109-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/cancelamento&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/cancelamentos&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  100699306903613E1001
+  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
+  
+  
+    
+      9
+      Transacao cancelada com sucesso
+      2011-12-08T16:46:35.109-02:00
+      1000
+    
+  
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;The cancellations (partial or total) of transaction with boarding fee and partial capture are not be accepted automatically by the system.&lt;/aside&gt;
@@ -3719,7 +3717,7 @@ With this means of payment it is possible to simulate the flows of:&lt;/p&gt;
 
 &lt;p&gt;For best use of the Simulated Payment Means, we are providing &lt;strong&gt;test cards&lt;/strong&gt; in the table below.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;The &lt;code&gt;status&lt;/code&gt; of the transactions are defined by the FINALS of each card, as well as the &lt;code&gt;ReturnCode&lt;/code&gt;.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;The status of the transactions are defined by the FINALS of each card, as well as the ReturnCode.&lt;/aside&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -3734,7 +3732,7 @@ With this means of payment it is possible to simulate the flows of:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Authorized&lt;/td&gt;
-      &lt;td&gt;0000.0000.0000.0001&lt;br /&gt;0000.0000.0000.0004&lt;/td&gt;
+      &lt;td&gt;0000.0000.0000.00010000.0000.0000.0004&lt;/td&gt;
       &lt;td&gt;4/6&lt;/td&gt;
       &lt;td&gt;Operation performed successfully&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -3795,9 +3793,9 @@ With this means of payment it is possible to simulate the flows of:&lt;/p&gt;
 
 &lt;p&gt;The information of &lt;strong&gt;Security Code (CVV)&lt;/strong&gt; and validity may be random, keeping the format - CVV (3 digits) Validity (MM/YYYY).&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; The **sandbox** environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: The **sandbox** environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Tokenization:&lt;/strong&gt; Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Tokenization: Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process&lt;/aside&gt;
 
 &lt;h2 id=&quot;debit-card---sandbox&quot;&gt;Debit card - Sandbox&lt;/h2&gt;
 
@@ -3828,7 +3826,7 @@ With this means of payment it is possible to simulate the flows of:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Online Transfer:&lt;/strong&gt; The same behavior of the Debit card in Sanbox is valid for debit card&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Online Transfer: The same behavior of the Debit card in Sanbox is valid for debit card&lt;/aside&gt;
 
 &lt;h2 id=&quot;other-means-of-payment---sandbox&quot;&gt;Other means of payment - Sandbox&lt;/h2&gt;
 
@@ -3849,11 +3847,11 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Debit cardo&lt;/td&gt;
-      &lt;td&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; used must be &lt;strong&gt;SIMULATED&lt;/strong&gt; &lt;br /&gt;&lt;br /&gt; The redirection URL for the bank environment will actually be a screen for choosing the authentication status&lt;/td&gt;
+      &lt;td&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; used must be &lt;strong&gt;SIMULATED&lt;/strong&gt;  The redirection URL for the bank environment will actually be a screen for choosing the authentication status&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Online transfer&lt;/td&gt;
-      &lt;td&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; used must be &lt;strong&gt;SIMULATED&lt;/strong&gt; &lt;br /&gt;&lt;br /&gt; The redirection URL for the bank environment will actually be a screen for choosing the authentication status&lt;/td&gt;
+      &lt;td&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; used must be &lt;strong&gt;SIMULATED&lt;/strong&gt;  The redirection URL for the bank environment will actually be a screen for choosing the authentication status&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3919,7 +3917,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Debit card:&lt;/strong&gt; We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a `GET` to be run by searching for order information in the API Cielo&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Debit card: We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a `GET` to be run by searching for order information in the API Cielo&lt;/aside&gt;
 
 &lt;p&gt;An &lt;code class=&quot;highlighter-rouge&quot;&gt;URL Status Payment&lt;/code&gt; must be registered by Cielo Support, so that the notification POST is executed.&lt;/p&gt;
 
@@ -4054,7 +4052,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;p&gt;To create a transaction that will use a credit card, it is necessary to send a request using the &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; It is not possible to carry out a transaction with its value as (`Amount`) 0.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.&lt;/aside&gt;
 
 &lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
 
@@ -5043,7 +5041,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;p&gt;To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; method for the Payment feature as shown.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Authentication:&lt;/strong&gt; In this mode, the card carrier is directed to the authentication environment of the card issuing bank where the inclusion of the card password will be requested.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Authentication: In this mode, the card carrier is directed to the authentication environment of the card issuing bank where the inclusion of the card password will be requested.&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
 
@@ -6549,21 +6547,21 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Analysis result.&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Number:&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;100 - Successful operation.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;101 - The order is missing one or more required fields. Possible action: See the missing fields in the AntiFraudResponse list.MissingFieldCollection. Resend order with complete information.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;102 - One or more of order fields contain invalid data. Possible action: View the invalid fields in the AntiFraudResponse list.InvalidFieldCollection. Resend the order with the correct information.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;150 General system failure. Possible action: Wait a few minutes and try resending the order.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiration date does not match the date on file of the issuing bank. If the payment processor allows you to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;231 The account number is invalid. Possible action: Request a card or other form of payment.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;400 The fraud score goes beyond their limit. Possible action: Review customer’s order.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;480 The order has been marked for review by the Decision Manager.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;481 - The order was rejected by the Decision Manager&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Number:100 - Successful operation.101 - The order is missing one or more required fields. Possible action: See the missing fields in the AntiFraudResponse list.MissingFieldCollection. Resend order with complete information.102 - One or more of order fields contain invalid data. Possible action: View the invalid fields in the AntiFraudResponse list.InvalidFieldCollection. Resend the order with the correct information.150 General system failure. Possible action: Wait a few minutes and try resending the order.151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiration date does not match the date on file of the issuing bank. If the payment processor allows you to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.231 The account number is invalid. Possible action: Request a card or other form of payment.234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.400 The fraud score goes beyond their limit. Possible action: Review customer’s order.480 The order has been marked for review by the Decision Manager.481 - The order was rejected by the Decision Manager&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AddressInfoCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Combination of codes indicating error in the billing and/or delivery address. The codes are concatenated using the character ^ character.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Ex: COR-BA^MM-BIN&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;COR-BA - The billing address can be normalized.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;COR-SA - The delivery address can be normalized.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;INTL-BA - The country of charge is outside the U.S.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;INTL-SA - The country of delivery is outside the U.S.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MIL-USA - This is a military address in the U.S.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-A - Billing and delivery addresses use different street names.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-BIN - The BIN of the card (the first six digits of the number) does not match the country.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-C - Billing and delivery addresses use different cities.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-CO - Billing and delivery addresses use different countries.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-ST - Billing and delivery addresses use different states.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MM-Z - Billing and delivery addresses use different postal codes.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;UNV-ADDR - The address is unverifiable.&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Ex: COR-BA^MM-BINCOR-BA - The billing address can be normalized.COR-SA - The delivery address can be normalized.INTL-BA - The country of charge is outside the U.S.INTL-SA - The country of delivery is outside the U.S.MIL-USA - This is a military address in the U.S.MM-A - Billing and delivery addresses use different street names.MM-BIN - The BIN of the card (the first six digits of the number) does not match the country.MM-C - Billing and delivery addresses use different cities.MM-CO - Billing and delivery addresses use different countries.MM-ST - Billing and delivery addresses use different states.MM-Z - Billing and delivery addresses use different postal codes.UNV-ADDR - The address is unverifiable.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FactorCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Combination of codes that indicate the order’s score. The codes are concatenated using the ^ character.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;Ex: B^D^R^Z&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;A - Excessive address change. Customer changed billing address two or more times in the last six months.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;B - BIN of the card or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;D - Impact of e-mail address. The customer uses a free email provider or the email address is risky.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;E - Positive list. The customer is on your positive list.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;G - Geo-inconsistencies. Email client domain, phone number, billing address, shipping address or IP address is suspect.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;H - Excessive name changes. The customer has changed the name two or more times in the last six months.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;I - Internet inconsistencies. The IP address and e-mail domain are not consistent with the billing address.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;N - Meaningless entry. Client name and address fields contain nonsense words or language.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;O - Obscenities. Customer data contains obscene words.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Q - Phone inconsistencies. Customer’s telephone number is suspect.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;T - Time Coverage. The customer is attempting a purchase outside of the expected time.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;U - Unverifiable address. The billing or delivery address can not be verified.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;V - Velocity. The account number was used many times in the last 15 minutes.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Y - The address, city, state or country of the billing and delivery addresses do not correlate.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the order carefully for any anomalies.&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Ex: B^D^R^ZA - Excessive address change. Customer changed billing address two or more times in the last six months.B - BIN of the card or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.D - Impact of e-mail address. The customer uses a free email provider or the email address is risky.E - Positive list. The customer is on your positive list.F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.G - Geo-inconsistencies. Email client domain, phone number, billing address, shipping address or IP address is suspect.H - Excessive name changes. The customer has changed the name two or more times in the last six months.I - Internet inconsistencies. The IP address and e-mail domain are not consistent with the billing address.N - Meaningless entry. Client name and address fields contain nonsense words or language.O - Obscenities. Customer data contains obscene words.P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.Q - Phone inconsistencies. Customer’s telephone number is suspect.R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.T - Time Coverage. The customer is attempting a purchase outside of the expected time.U - Unverifiable address. The billing or delivery address can not be verified.V - Velocity. The account number was used many times in the last 15 minutes.W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.Y - The address, city, state or country of the billing and delivery addresses do not correlate.Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the order carefully for any anomalies.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Score&lt;/code&gt;&lt;/td&gt;
@@ -6591,7 +6589,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Issuer type&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;MaestroInternational - Maestro International&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MaestroUkDomestic - Maestro UK Domestic&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MastercardCredit - MasterCard Credit&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MastercardDebit - MasterCard Debit&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;VisaCredit - Visa Credit&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;VisaDebit - Visa Debit&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;VisaElectron - Visa Electron&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;MaestroInternational - Maestro InternationalMaestroUkDomestic - Maestro UK DomesticMastercardCredit - MasterCard CreditMastercardDebit - MasterCard DebitVisaCredit - Visa CreditVisaDebit - Visa DebitVisaElectron - Visa Electron&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HostSeverity&lt;/code&gt;&lt;/td&gt;
@@ -6605,14 +6603,14 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Sequence of codes that indicate that there is an excessive change of identities of the buyer. The codes are concatenated using the ^ character.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Ex: &lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;MORPH-B - The same billing address has been used multiple times with multiple customer identities.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MORPH-C - The same account number has been used multiple times with multiple client identities.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MORPH-E - The same e-mail address has been used multiple times with multiple customer identities. MORPH-I The same IP address has been used multiple times with multiple client identities.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MORPH-P - The same phone number has been used multiple times with multiple customer identities.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MORPH-S - The same delivery address has been used multiple times with multiple customer identities.&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Ex: MORPH-B - The same billing address has been used multiple times with multiple customer identities.MORPH-C - The same account number has been used multiple times with multiple client identities.MORPH-E - The same e-mail address has been used multiple times with multiple customer identities. MORPH-I The same IP address has been used multiple times with multiple client identities.MORPH-P - The same phone number has been used multiple times with multiple customer identities.MORPH-S - The same delivery address has been used multiple times with multiple customer identities.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;IpRoutingMethod&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Type of IP routing used by the computer.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Anonymizer&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AolBased&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;CacheProxy&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Fixed&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;InternationalProxy&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MobileGateway&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Pop&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;RegionalProxy&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Satellite&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SuperPop&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;AnonymizerAolBasedCacheProxyFixedInternationalProxyMobileGatewayPopRegionalProxySatelliteSuperPop&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ScoreModelUsed&lt;/code&gt;&lt;/td&gt;
@@ -7183,9 +7181,9 @@ Below we specify any existing differences:&lt;/p&gt;
 &lt;p&gt;For all text fields, including the instructions field and the ones related with address, these are accepted as valid characters:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;The letters from A to Z (CAPITAL LETTERS)&lt;/li&gt;
-  &lt;li&gt;Special characters of conjunction:  &lt;strong&gt;hyphen (-)&lt;/strong&gt; / &lt;strong&gt;apostrophe (‘)&lt;/strong&gt; / When used it can not contain spaces between the letters: &lt;br /&gt;&lt;br /&gt;
- &lt;strong&gt;Correct examples&lt;/strong&gt;: D’EL-REI, D’ALCORTIVO, SANT’ANA&lt;br /&gt;
- &lt;strong&gt;Incorrect examples&lt;/strong&gt;: D’EL - REI&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;Special characters of conjunction:  &lt;strong&gt;hyphen (-)&lt;/strong&gt; / &lt;strong&gt;apostrophe (‘)&lt;/strong&gt; / When used it can not contain spaces between the letters: 
+ &lt;strong&gt;Correct examples&lt;/strong&gt;: D’EL-REI, D’ALCORTIVO, SANT’ANA
+ &lt;strong&gt;Incorrect examples&lt;/strong&gt;: D’EL - REI&lt;/li&gt;
   &lt;li&gt;At most one blank space between words&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -7733,7 +7731,7 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;NOTE 3:&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;The API Cielo truncates automatically&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Valid characters:&lt;/strong&gt; &lt;br /&gt; Letters from A to Z - CAPITAL LETTERS &lt;br /&gt; &lt;strong&gt;Special characters:&lt;/strong&gt; hyphen (-) and apostrophe (‘) &lt;br /&gt;&lt;br /&gt; When used, it can not contain spaces between letters; &lt;br /&gt;&lt;br /&gt;&lt;br /&gt; &lt;strong&gt;Correct examples&lt;/strong&gt;: D’EL-REI, D’ALCORTIVO, SANT’ANA.&lt;br /&gt;&lt;br /&gt; &lt;strong&gt;Incorrect examples&lt;/strong&gt;: D’EL - REI; at most one blank space between words&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Valid characters:&lt;/strong&gt;  Letters from A to Z - CAPITAL LETTERS  &lt;strong&gt;Special characters:&lt;/strong&gt; hyphen (-) and apostrophe (‘)  When used, it can not contain spaces between letters;  &lt;strong&gt;Correct examples&lt;/strong&gt;: D’EL-REI, D’ALCORTIVO, SANT’ANA. &lt;strong&gt;Incorrect examples&lt;/strong&gt;: D’EL - REI; at most one blank space between words&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;NOTE 4:&lt;/strong&gt;&lt;/td&gt;
@@ -7879,7 +7877,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Recurrence interval.&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly - Mensal &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly - Bimestral &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly - Trimestral &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual - Semestral &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual - Anual &amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Recurrence interval.Monthly - Mensal Bimonthly - Bimestral Quarterly - Trimestral SemiAnnual - Semestral Annual - Anual&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -7908,15 +7906,15 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Identification&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Scheduled Recurrence transactions generate two types of identification:&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;PAYMENTID&lt;/strong&gt;: Identify 1 transaction. It is the same identifier of the other transactions in the API    &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;RECURRENTPAYMENTID&lt;/strong&gt;: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence&lt;/td&gt;
+      &lt;td&gt;Scheduled Recurrence transactions generate two types of identification:&lt;strong&gt;PAYMENTID&lt;/strong&gt;: Identify 1 transaction. It is the same identifier of the other transactions in the API    &lt;strong&gt;RECURRENTPAYMENTID&lt;/strong&gt;: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Consulting&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;To consult, just use one of two types of identification:&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;PAYMENTID&lt;/strong&gt;: Used to consult A TRANSACTION WITHIN THE RECURRENCE    &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;RECURRENTPAYMENTID&lt;/strong&gt;: Used to consult THE RECURRENCE.&lt;/td&gt;
+      &lt;td&gt;To consult, just use one of two types of identification:&lt;strong&gt;PAYMENTID&lt;/strong&gt;: Used to consult A TRANSACTION WITHIN THE RECURRENCE    &lt;strong&gt;RECURRENTPAYMENTID&lt;/strong&gt;: Used to consult THE RECURRENCE.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Cancellation&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;A Scheduled Recurrence can be canceled in two ways: &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Merchant&lt;/strong&gt;: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;By invalid card&lt;/strong&gt;: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;NOTE:&lt;/strong&gt; Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the &lt;strong&gt;RecurrentPaymentID&lt;/strong&gt; ends future schedules.&lt;/td&gt;
+      &lt;td&gt;A Scheduled Recurrence can be canceled in two ways: &lt;strong&gt;Merchant&lt;/strong&gt;: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  &lt;strong&gt;By invalid card&lt;/strong&gt;: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment.  &lt;strong&gt;NOTE:&lt;/strong&gt; Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the &lt;strong&gt;RecurrentPaymentID&lt;/strong&gt; ends future schedules.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -8414,7 +8412,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;To create a recurring sale whose first recurrence is authorized with the form of payment as credit card, just do a POST as the example.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; In this recurrence mode, the first transaction must be
+&lt;aside class=&quot;notice&quot;&gt;Warning: In this recurrence mode, the first transaction must be
 
  of. All subsequent transactions will be automatically captured.&lt;/aside&gt;
 
@@ -8567,7 +8565,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Recurrence interval.&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly (Default) &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Recurrence interval.Monthly (Default) Bimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -8790,7 +8788,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
       &lt;td&gt;Interval between recurrences.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -9199,7 +9197,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
       &lt;td&gt;Interval between recurrences.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -9627,7 +9625,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Recurrence interval. &amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Recurrence interval. MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -9646,7 +9644,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;To modify the day of recurrence, just do a Put as the example.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Rule:&lt;/strong&gt; If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Rule: If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-13&quot;&gt;Request&lt;/h3&gt;
 
@@ -9884,7 +9882,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;To change the payment data of the Recurrence, just do a Put as the example.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-16&quot;&gt;Request&lt;/h3&gt;
 
@@ -10181,7 +10179,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 &lt;p&gt;The use of this feature allows the automatic replacement of an expired card .
 That way, when a transaction with recurrent markup is submitted to the API and Cielo identifies that the used card has been replaced, its authorization will be denied and the new card data will be returned as the example.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; It is necessary to request enabling this feature in the register  &lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: It is necessary to request enabling this feature in the register  &lt;/aside&gt;
 
 &lt;h3 id=&quot;request-19&quot;&gt;Request&lt;/h3&gt;
 
@@ -10339,7 +10337,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.RecurrentPayment.Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Recurrence interval.&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly (Default) &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Recurrence interval.Monthly (Default) Bimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -10555,7 +10553,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       &lt;td&gt;Interval between recurrences.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -11279,14 +11277,14 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       &lt;td&gt;Analysis result.&lt;/td&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Number:&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;100 - Successful operation.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;101 - The order is missing one or more required fields. Possible action: See the fields that are missing on the AntiFraudResponse.MissingFieldCollection list. Resend the order with complete information.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;102 - One or more order fields contain invalid data. Possible action: See the invalid fields on the AntiFraudResponse.InvalidFieldCollection list. Resend the order with the correct information.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;150 General system failure. Possible action: Wait a few minutes and try resending the order.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiry date does not match the date on file of the issuing bank. If the payment processor allows to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;231 The account number is invalid. Possible action: Request a card or other form of payment.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;400 The fraud score goes beyond its limit. Possible action: Review customer’s order.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;480 The order has been marked for review by the Decision Manager.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;481 - The order was rejected by the Decision Manager&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;Number:100 - Successful operation.101 - The order is missing one or more required fields. Possible action: See the fields that are missing on the AntiFraudResponse.MissingFieldCollection list. Resend the order with complete information.102 - One or more order fields contain invalid data. Possible action: See the invalid fields on the AntiFraudResponse.InvalidFieldCollection list. Resend the order with the correct information.150 General system failure. Possible action: Wait a few minutes and try resending the order.151 - The order was received, but time-out occurred on the server. This error does not include time-out between the customer and the server. Possible action: Wait a few minutes and try resending the order.152 The order was received, but time-out occurred. Possible action: Wait a few minutes and resend the order.202 – Fraud Prevention declined the order because the card has expired. You can also receive this code if the expiry date does not match the date on file of the issuing bank. If the payment processor allows to issue credits to expired cards, CyberSource does not limit this functionality. Possible action: Request a card or other form of payment.231 The account number is invalid. Possible action: Request a card or other form of payment.234 - There is a problem with the merchant configuration. Possible action: Do not send the order. Contact Customer Support to correct the setup problem.400 The fraud score goes beyond its limit. Possible action: Review customer’s order.480 The order has been marked for review by the Decision Manager.481 - The order was rejected by the Decision Manager&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.FactorCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Combination of codes that indicate the order’s score. The codes are concatenated using the ^ character.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;E.g.: B^D^R^Z&lt;br /&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;A - Excessive address change. Customer changed billing address two or more times in the last six months.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;B - Card BIN or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;D - Impact of e-mail address. The customer uses a free email provider or the e-mail address is risky.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;E - Positive list. The customer is on your positive list.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;G - Inconsistencies of geolocation. The client e-mail domain, phone number, billing address, shipping address or IP address is suspect.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;H - Excessive name changes. The customer has changed the name two or more times in the last six months.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;I - Inconsistencies of internet. The IP address and e-mail domain are not consistent with the billing address.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;N - Meaningless entry. Client name and address fields contain nonsense words or language.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;O - Obscenities. Customer data contains obscene words.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Q - Phone inconsistencies. Customer’s telephone number is suspect.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;T - Time coverage. The customer is attempting a purchase outside of the expected time.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;U - Unverifiable address. The billing or delivery address can not be verified.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;V - Velocity. The account number was used many times in the last 15 minutes.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Y - The address, city, state or country of the billing and delivery addresses do not correlate.&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, do examine the order carefully for any anomalies.&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;E.g.: B^D^R^ZA - Excessive address change. Customer changed billing address two or more times in the last six months.B - Card BIN or risk authorization. Risk factors are related to credit card BIN and/or card authorization checks.C - High number of credit cards. The customer has used more than six credit card numbers in the last six months.D - Impact of e-mail address. The customer uses a free email provider or the e-mail address is risky.E - Positive list. The customer is on your positive list.F - Negative list. The account number, address, e-mail address or IP address for this purpose appears on your negative list.G - Inconsistencies of geolocation. The client e-mail domain, phone number, billing address, shipping address or IP address is suspect.H - Excessive name changes. The customer has changed the name two or more times in the last six months.I - Inconsistencies of internet. The IP address and e-mail domain are not consistent with the billing address.N - Meaningless entry. Client name and address fields contain nonsense words or language.O - Obscenities. Customer data contains obscene words.P - Morphing identity. Multiple values of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.Q - Phone inconsistencies. Customer’s telephone number is suspect.R - Risky order. The transaction, the customer and the merchant show correlated high-risk information.T - Time coverage. The customer is attempting a purchase outside of the expected time.U - Unverifiable address. The billing or delivery address can not be verified.V - Velocity. The account number was used many times in the last 15 minutes.W - Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.Y - The address, city, state or country of the billing and delivery addresses do not correlate.Z - Invalid value. Because the request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, do examine the order carefully for any anomalies.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Score&lt;/code&gt;&lt;/td&gt;
@@ -11497,7 +11495,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       &lt;td&gt;Interval between recurrences.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Monthly&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Bimonthly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Quarterly &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SemiAnnual &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Annual&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&lt;/td&gt;
+      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CurrentRecurrencyTry &lt;/code&gt;&lt;/td&gt;
@@ -11518,7 +11516,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       &lt;td&gt;Recurrent order status&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;&lt;br /&gt;&lt;em&gt;1&lt;/em&gt; - Active &lt;br /&gt;&lt;em&gt;2&lt;/em&gt; - Finished &lt;br /&gt;&lt;em&gt;3&lt;/em&gt;- Deactivated by the Merchant &lt;br /&gt; &lt;em&gt;4&lt;/em&gt; - Disabled by number of retries &lt;br /&gt; &lt;em&gt;5&lt;/em&gt; - Disabled by expired credit card&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;1&lt;/em&gt; - Active &lt;em&gt;2&lt;/em&gt; - Finished &lt;em&gt;3&lt;/em&gt;- Deactivated by the Merchant  &lt;em&gt;4&lt;/em&gt; - Disabled by number of retries  &lt;em&gt;5&lt;/em&gt; - Disabled by expired credit card&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrencyDay&lt;/code&gt;&lt;/td&gt;
@@ -11579,7 +11577,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;li&gt;Only captured transactions are paid by Cielo to the merchant&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Capture is a deadline process. Check in without Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: Capture is a deadline process. Check in without Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture&lt;/aside&gt;
 
 &lt;h2 id=&quot;total-capture&quot;&gt;Total capture&lt;/h2&gt;
 
@@ -11745,7 +11743,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;p&gt;Just do a &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; sending the value to be captured.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Partial capture available for credit transactions only&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: Partial capture available for credit transactions only&lt;/aside&gt;
 
 &lt;h3 id=&quot;request---partial-capture&quot;&gt;Request - Partial Capture&lt;/h3&gt;
 
@@ -11921,7 +11919,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Capture of Boarding fee&lt;/strong&gt; To carry out the capture of *boarding fee*, just add the ServiveTaxAmount value to be captured&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Capture of Boarding fee To carry out the capture of *boarding fee*, just add the ServiveTaxAmount value to be captured&lt;/aside&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{paymentId}/capture?amount={Valor}&amp;amp;serviceTaxAmount=xxx&lt;/span&gt;&lt;/aside&gt;
 
@@ -12070,7 +12068,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;p&gt;To cancel a sale that uses a credit card, it is necessary to do a PUT for the Payment feature. Cancellation can be made via PaymentID or MerchantOrderId (order number).&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method&lt;/aside&gt;
 
 &lt;h3 id=&quot;request-25&quot;&gt;Request&lt;/h3&gt;
 
@@ -12212,9 +12210,9 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;p&gt;Just do a &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; sending the value to be canceled.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Partial cancellation available only for *CAPTURED* credit transactions&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: Partial cancellation available only for *CAPTURED* credit transactions&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled&lt;/aside&gt;
 
 &lt;h3 id=&quot;request---partial-cancellation&quot;&gt;Request - partial cancellation&lt;/h3&gt;
 
@@ -12378,7 +12376,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Cancellation of Boarding Fee&lt;/strong&gt; To cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Cancellation of Boarding Fee To cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled&lt;/aside&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&amp;amp;serviceTaxAmount=xxx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -13888,11 +13886,11 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
 
 &lt;p&gt;API Cielo eCommerce supports two payment wallets: VisaCheckout and Masterpass.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt; For debit card, when the “Wallet” node is sent in the request, the “DebitCard” node will be needed containing the “ReturnUrl”.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning: For debit card, when the “Wallet” node is sent in the request, the “DebitCard” node will be needed containing the “ReturnUrl”.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;&lt;strong&gt;Warning:&lt;/strong&gt;  For Visa Chekcout, the Wallet node can be sent only with the &quot;Type&quot;, thus marking the transaction as being from wallet. In this context, the credit card must be sent. &lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning:  For Visa Chekcout, the Wallet node can be sent only with the &quot;Type&quot;, thus marking the transaction as being from wallet. In this context, the credit card must be sent. &lt;/aside&gt;
 
 &lt;h2 id=&quot;how-to-perform-transaction-with-visacheckout&quot;&gt;How to perform transaction with VisaCheckout&lt;/h2&gt;
 
@@ -15017,19 +15015,19 @@ More information and complete integration, you can find in the link: https://dev
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;HTTP Status Code&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;They are standard HTTP codes. It report if the information sent to the API is &lt;strong&gt;actually being successful in reaching our ENDPOINTs&lt;/strong&gt;. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API&lt;br /&gt;&lt;br /&gt; &lt;em&gt;Returned at time of API request&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;They are standard HTTP codes. It report if the information sent to the API is &lt;strong&gt;actually being successful in reaching our ENDPOINTs&lt;/strong&gt;. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API &lt;em&gt;Returned at time of API request&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;API Errors&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;These codes are responses to &lt;strong&gt;content validation of sent data&lt;/strong&gt;. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction&lt;br /&gt;&lt;br /&gt;&lt;em&gt;Returned at time of API request&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;These codes are responses to &lt;strong&gt;content validation of sent data&lt;/strong&gt;. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction&lt;em&gt;Returned at time of API request&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Status&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;Authorized&lt;/code&gt; &amp;gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Captured&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Canceled&lt;/code&gt;)&lt;br /&gt;&lt;br /&gt;*Returned in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; field *&lt;/td&gt;
+      &lt;td&gt;After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;Authorized&lt;/code&gt; &amp;gt;&lt;code class=&quot;highlighter-rouge&quot;&gt; Captured&lt;/code&gt; &amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Canceled&lt;/code&gt;)*Returned in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; field *&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Sales Return&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Formed by a &lt;strong&gt;Return code&lt;/strong&gt; and a &lt;strong&gt;message&lt;/strong&gt;, these codes indicate the &lt;strong&gt;reason&lt;/strong&gt; of a given &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; within a transaction. They indicate, for example, whether a transaction with denied &lt;code class=&quot;highlighter-rouge&quot;&gt;status&lt;/code&gt; was not authorized because of a negative balance at the issuing bank. &lt;br /&gt;&lt;br /&gt;&lt;em&gt;Returned in the &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt; and&lt;code class=&quot;highlighter-rouge&quot;&gt; ReturnMessage&lt;/code&gt; fields&lt;/em&gt;&lt;br /&gt; &lt;em&gt;They occur only in Credit and Debit cards&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Formed by a &lt;strong&gt;Return code&lt;/strong&gt; and a &lt;strong&gt;message&lt;/strong&gt;, these codes indicate the &lt;strong&gt;reason&lt;/strong&gt; of a given &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; within a transaction. They indicate, for example, whether a transaction with denied &lt;code class=&quot;highlighter-rouge&quot;&gt;status&lt;/code&gt; was not authorized because of a negative balance at the issuing bank. &lt;em&gt;Returned in the &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt; and&lt;code class=&quot;highlighter-rouge&quot;&gt; ReturnMessage&lt;/code&gt; fields&lt;/em&gt; &lt;em&gt;They occur only in Credit and Debit cards&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -16880,7 +16878,7 @@ More information and complete integration, you can find in the link: https://dev
     &lt;tr&gt;
       &lt;td&gt;4&lt;/td&gt;
       &lt;td&gt;Sales Channel&lt;/td&gt;
-      &lt;td&gt;Values: “Call Center” = purchase by phone &lt;br /&gt; “Web” = purchase by  web &lt;br /&gt; “Portal” = an agent making the purchase for the customer &lt;br /&gt; “Kiosk” = Purchases in kiosks &lt;br /&gt; “Mobile” = Purchases made on smartphones or tablets&lt;/td&gt;
+      &lt;td&gt;Values: “Call Center” = purchase by phone  “Web” = purchase by  web  “Portal” = an agent making the purchase for the customer  “Kiosk” = Purchases in kiosks  “Mobile” = Purchases made on smartphones or tablets&lt;/td&gt;
       &lt;td&gt;String&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -17572,7 +17570,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Transactional screen&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Checkout Cielo has its own transactional screen, with an optimized layout, shortening the steps to pay for your transactions. &lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Checkout Cielo has its own transactional screen, with an optimized layout, shortening the steps to pay for your transactions.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Buyer Registration&lt;/strong&gt;&lt;/td&gt;
@@ -17584,7 +17582,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Recurrence&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Checkout Cielo has the Scheduled Recurrence available in the API Cielo Ecommerce. &lt;br /&gt; The merchant just needs to define that a transaction must be repeated, that Checkout will run it again within the defined range&lt;/td&gt;
+      &lt;td&gt;Checkout Cielo has the Scheduled Recurrence available in the API Cielo Ecommerce.  The merchant just needs to define that a transaction must be repeated, that Checkout will run it again within the defined range&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Anti fraud&lt;/strong&gt;&lt;/td&gt;
@@ -17592,7 +17590,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Means of payment&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Checkout Cielo has a wide range of payment means: &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;Credit cards&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Debit card&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Online Debit&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Bradesco e Banco do Brasil Bank slip&lt;/strong&gt;&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Checkout Cielo has a wide range of payment means:  &lt;strong&gt;Credit cards&lt;/strong&gt;  &lt;strong&gt;Debit card&lt;/strong&gt;&lt;strong&gt;Online Debit&lt;/strong&gt;&lt;strong&gt;Bradesco e Banco do Brasil Bank slip&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Simplified Backoffice&lt;/strong&gt;&lt;/td&gt;
@@ -17608,7 +17606,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Transactional reports&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Within Backoffice, it is possible to generate transactional reports that make it easy to manage your sales: &lt;br /&gt;&lt;br /&gt; &lt;strong&gt;Recurrence Report&lt;/strong&gt; &lt;br /&gt; &lt;strong&gt;Buyer Report&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Sales statement&lt;/strong&gt;&lt;br /&gt;&lt;strong&gt;Sales report&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Within Backoffice, it is possible to generate transactional reports that make it easy to manage your sales:  &lt;strong&gt;Recurrence Report&lt;/strong&gt;  &lt;strong&gt;Buyer Report&lt;/strong&gt;&lt;strong&gt;Sales statement&lt;/strong&gt;&lt;strong&gt;Sales report&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17710,11 +17708,11 @@ The Cielo payments page provides a high level of confidence, following PCI secur
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Visa&lt;/td&gt;
-      &lt;td&gt;Bradesco&lt;br /&gt;Banco do Brasil&lt;br /&gt;HSBC&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Safra&lt;br /&gt;Banco da Amazônia&lt;br /&gt;Sicredi&lt;br /&gt;Banco do Espirito Santo&lt;br /&gt;Banco do Nordeste&lt;br /&gt;Mercantil&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;BradescoBanco do BrasilHSBCSantanderItaúBRBSafraBanco da AmazôniaSicrediBanco do Espirito SantoBanco do NordesteMercantil&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Mastercard&lt;/td&gt;
-      &lt;td&gt;Banco do Brasil&lt;br /&gt;Santander&lt;br /&gt;Itaú&lt;br /&gt;BRB&lt;br /&gt;Sicredi&lt;br /&gt;Bancoob&lt;br /&gt;CitiBank&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Banco do BrasilSantanderItaúBRBSicrediBancoobCitiBank&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17987,7 +17985,7 @@ Below we list points that must be ready before integration:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;API&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;An Integration via API allows the merchant to send the web site &lt;strong&gt;“Shopping cart”&lt;/strong&gt; with all the data that he wants to display on the transactional screen. &lt;br /&gt; In this type of integration the merchant has more control over how the order will be generated.&lt;/td&gt;
+      &lt;td&gt;An Integration via API allows the merchant to send the web site &lt;strong&gt;“Shopping cart”&lt;/strong&gt; with all the data that he wants to display on the transactional screen.  In this type of integration the merchant has more control over how the order will be generated.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Botão / QR Code / Link&lt;/code&gt;&lt;/td&gt;
@@ -18422,7 +18420,7 @@ These data are separated into the following “main nodes”:&lt;/p&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Item type in cart: &lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Asset&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digital&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Service&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt;&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Item type in cart: &lt;code class=&quot;highlighter-rouge&quot;&gt;Asset&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Digital&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Service&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -18889,7 +18887,7 @@ The discounts available at Checkout Cielo are:&lt;/p&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Freight type: &lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Post office&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FixedAmount&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Free&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShippingPickUp&lt;/code&gt;&lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShipping&lt;/code&gt;&lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Freight type: &lt;code class=&quot;highlighter-rouge&quot;&gt;Post office&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FixedAmount&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Free&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShippingPickUp&lt;/code&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutShipping&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -19034,7 +19032,7 @@ The discounts available at Checkout Cielo are:&lt;/p&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Required&lt;/td&gt;
       &lt;td&gt;Integer&lt;/td&gt;
-      &lt;td&gt;Type of package: &lt;br /&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BOX&lt;/code&gt;- Box &lt;br /&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ROL&lt;/code&gt; - Cylinder or ENVELOPE&lt;/td&gt;
+      &lt;td&gt;Type of package: &lt;code class=&quot;highlighter-rouge&quot;&gt;BOX&lt;/code&gt;- Box  &lt;code class=&quot;highlighter-rouge&quot;&gt;ROL&lt;/code&gt; - Cylinder or ENVELOPE&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -19163,7 +19161,7 @@ This type of integration is accomplished through the registration of a set of it
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Specific&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Each generated button only suits for a particular product or group of products. The quantity and volume of products sold is defined in the Button register, and it is not possible to change the quantity in the transactional screen &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Example:&lt;/strong&gt; It will be necessary to create a button to sell 1 shirt. If the buyer desires 3 shirts, he will need to use the button 2X or The merchant should create a button with 2 shirts&lt;/td&gt;
+      &lt;td&gt;Each generated button only suits for a particular product or group of products. The quantity and volume of products sold is defined in the Button register, and it is not possible to change the quantity in the transactional screen &lt;strong&gt;Example:&lt;/strong&gt; It will be necessary to create a button to sell 1 shirt. If the buyer desires 3 shirts, he will need to use the button 2X or The merchant should create a button with 2 shirts&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Checkout Order Number&lt;/strong&gt;&lt;/td&gt;
@@ -19293,13 +19291,11 @@ This type of integration is accomplished through the registration of a set of it
   &lt;p&gt;&lt;strong&gt;Button&lt;/strong&gt; - An HTML code like the one below will be created.:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'&amp;gt;&amp;lt;input type='hidden' name='id' value=00000000-0000-0000-000000000000/&amp;gt;&amp;lt;input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Contentimages/botao_comprar_3.jpg' /&amp;gt;
-&amp;lt;/form&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Example of a Functional Button:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;form method=&quot;post&quot; action=&quot;https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow&quot; target=&quot;blank&quot;&gt;&lt;input type=&quot;hidden&quot; name=&quot;id&quot; value=&quot;937874c6-a4d7-477e-9272-a4cb8b0c5f79&quot; /&gt;&lt;input type=&quot;image&quot; name=&quot;submit&quot; alt=&quot;Comprar&quot; src=&quot;https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png&quot; /&gt;&lt;/form&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;QR CODE AND LINK&lt;/strong&gt; - The link and the QRCODE has the same behavior as the button, leading to the same transactional screen.&lt;/li&gt;
@@ -19314,7 +19310,7 @@ This type of integration is accomplished through the registration of a set of it
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;data:image/jpeg;base64,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&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;http://bit.ly/2tRkSxZ&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -19388,7 +19384,7 @@ Just follow the path below:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;AUTHORIZED / DENIED&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Result of the authorization process. &lt;br /&gt;&lt;br /&gt;&lt;strong&gt;AUTHORIZED&lt;/strong&gt; - Credit was reserved for purchase &lt;br /&gt; &lt;strong&gt;DENIED&lt;/strong&gt; - Card not authorized by the issuer to continue the transaction&lt;/td&gt;
+      &lt;td&gt;Result of the authorization process. &lt;strong&gt;AUTHORIZED&lt;/strong&gt; - Credit was reserved for purchase  &lt;strong&gt;DENIED&lt;/strong&gt; - Card not authorized by the issuer to continue the transaction&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;3&lt;/td&gt;
@@ -19403,7 +19399,7 @@ Just follow the path below:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;N/A&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;CHARGEBACK&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Not automatic status. If the merchant is notified of ChargeBack, he can mark this transaction as lost.&lt;br /&gt; This Status is only a markup, not affecting payment processes&lt;/td&gt;
+      &lt;td&gt;Not automatic status. If the merchant is notified of ChargeBack, he can mark this transaction as lost. This Status is only a markup, not affecting payment processes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -19687,17 +19683,17 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Return URL&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Web page to where the buyer will be redirected at the end of the purchase. &lt;br /&gt;&lt;br /&gt;No data is exchanged or sent to this URL.&lt;br /&gt;&lt;br /&gt; This URL only takes the buyer, after completing the purchase, to a page set by the store.&lt;/td&gt;
-      &lt;td&gt;If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo &lt;br /&gt;&lt;br /&gt; Can be sent via API - See “Integration via API”&lt;/td&gt;
+      &lt;td&gt;Web page to where the buyer will be redirected at the end of the purchase. No data is exchanged or sent to this URL. This URL only takes the buyer, after completing the purchase, to a page set by the store.&lt;/td&gt;
+      &lt;td&gt;If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo  Can be sent via API - See “Integration via API”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Notification URL&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL.&lt;br /&gt;&lt;br /&gt; The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed**&lt;/td&gt;
+      &lt;td&gt;At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL. The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed**&lt;/td&gt;
       &lt;td&gt;Used in the Notification via &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; and&lt;code class=&quot;highlighter-rouge&quot;&gt; JSON&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status Change URL&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;When an order has its status changed, a HTTP post will be sent to the Status Change URL.&lt;br /&gt;&lt;br /&gt; The status change POST does not contain cart data, only order identification data&lt;/td&gt;
+      &lt;td&gt;When an order has its status changed, a HTTP post will be sent to the Status Change URL. The status change POST does not contain cart data, only order identification data&lt;/td&gt;
       &lt;td&gt;Used only in Notification via &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -20396,7 +20392,7 @@ Below is an example of the Node&lt;/p&gt;
 
 &lt;p&gt;Recurrence is a process of automatic scheduling of credit transactions, that is, it is a transaction that will be repeated automatically, without the need of the buyer to access the transactional screen, according to the rules defined at the time of the scheduling.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;If one of the transactions is not authorized, Checkout Cielo performs the retentative automatically; for details on automatic retentative, see section &lt;a href=&quot;#retry-of-recurrences&quot;&gt;Retry of Recurrences&lt;/a&gt;.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;If one of the transactions is not authorized, Checkout Cielo performs the retentative automatically; for details on automatic retentative, see section Retry of Recurrences.&lt;/aside&gt;
 
 &lt;p&gt;Recurrent transactions are ideal for business models that involve the &lt;strong&gt;concept of subscription, plan or monthly fee&lt;/strong&gt; in its form of &lt;strong&gt;charge&lt;/strong&gt;.
 Some business examples are:&lt;/p&gt;
@@ -20420,11 +20416,11 @@ Some business examples are:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Installment&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;This is a &lt;strong&gt;transaction divided into several months&lt;/strong&gt;. &lt;br /&gt;The total value of the sale compromises the limit of the buyer’s credit card regardless of the value of the initial installment.&lt;br /&gt; The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied.&lt;br /&gt;&lt;br /&gt; &lt;strong&gt;e.g.&lt;/strong&gt;: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied&lt;/td&gt;
+      &lt;td&gt;This is a &lt;strong&gt;transaction divided into several months&lt;/strong&gt;. The total value of the sale compromises the limit of the buyer’s credit card regardless of the value of the initial installment. The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied. &lt;strong&gt;e.g.&lt;/strong&gt;: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Recurrent&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;They are &lt;strong&gt;different transactions performed on the same card at previously scheduled times&lt;/strong&gt;.&lt;br /&gt; The first sale schedules future sales from a pre-defined time interval.&lt;br /&gt;  At each interval there will be a charge on the credit card. &lt;br /&gt; The recurring payment blocks from the card limit only the value debited on the date of the first recurring sale and from the total value of the sale.&lt;br /&gt;&lt;br /&gt; &lt;strong&gt;e.g.&lt;/strong&gt;: Sale of R$1,000.00 on 01/15/2015, with monthly recurrence and final date on 06/01/2015. Every day of 15 there will be a new charge of R$1,000.00 on the buyer’s card, repeating until 05/15/2015, the last valid date before the end date.&lt;/td&gt;
+      &lt;td&gt;They are &lt;strong&gt;different transactions performed on the same card at previously scheduled times&lt;/strong&gt;. The first sale schedules future sales from a pre-defined time interval.  At each interval there will be a charge on the credit card.  The recurring payment blocks from the card limit only the value debited on the date of the first recurring sale and from the total value of the sale. &lt;strong&gt;e.g.&lt;/strong&gt;: Sale of R$1,000.00 on 01/15/2015, with monthly recurrence and final date on 06/01/2015. Every day of 15 there will be a new charge of R$1,000.00 on the buyer’s card, repeating until 05/15/2015, the last valid date before the end date.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -20641,9 +20637,9 @@ If there is a recurrence node in the technical contract, the &lt;code class=&quo
   &lt;li&gt;Enter Details (the “+” symbol)&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Recurrence order&quot; /&gt;
-&lt;br /&gt;
-&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/pedidoreccance.png&quot; alt=&quot;Recurrence cancellation&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/checkout-cancelar-recorrencia.png&quot; alt=&quot;Recurrence order&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/en/images/Checkout/pedidoreccance.png&quot; alt=&quot;Recurrence cancellation&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Recurrence detail screen&lt;/p&gt;
 
