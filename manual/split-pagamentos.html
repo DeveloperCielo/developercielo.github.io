@@ -355,14 +355,6 @@ Em breve estarão disponíveis:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -420,14 +412,6 @@ Em breve estarão disponíveis:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <p>Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).</p>
 
 <p>Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Marketplace. Posteriormente é permitido que o Marketplace envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.</p>
@@ -464,14 +448,6 @@ Em breve estarão disponíveis:</p>
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <p><strong>Response</strong></p>
 
@@ -548,14 +524,6 @@ Em breve estarão disponíveis:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <p>Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split002.png" alt="SplitSample002" /></p>
@@ -612,14 +580,6 @@ Em breve estarão disponíveis:</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <p><strong>Response</strong></p>
 
@@ -717,14 +677,6 @@ Em breve estarão disponíveis:</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <p>Abaixo como ficaram as divisões e como foram as agendas de cada participante foram sensibilizadas.</p>
 
@@ -925,14 +877,6 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <p><strong>Response</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -1044,14 +988,6 @@ No Split Transacional é necessário que o Marketplace envie um “nó” adicio
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <p>Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cálculos corretamente.</p>
 
 <p><img src="https://developercielo.github.io/images/split/split004.png" alt="SplitSample004" /></p>
@@ -1089,14 +1025,6 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <p><strong>Response</strong></p>
 
@@ -1142,14 +1070,6 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <p>O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.</p>
 
@@ -1262,14 +1182,6 @@ Neste modelo o Marketplace poderá enviar as regras de divisão da transação a
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="captura">Captura</h3>
 
 <p><br />
@@ -1306,14 +1218,6 @@ Na captura total de uma transação, o somatório dos valores de participação 
      </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <p><strong>Response</strong></p>
 
@@ -1378,14 +1282,6 @@ Na captura total de uma transação, o somatório dos valores de participação 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h4 id="captura-parcial">Captura Parcial</h4>
 
 <p><br />
@@ -1424,14 +1320,6 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
      </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <p><strong>Response</strong></p>
 
@@ -1496,14 +1384,6 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <p>Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.</p>
 
 <p><strong>Request</strong></p>
@@ -1553,14 +1433,6 @@ Na captura parcial de uma transação, o somatório dos valores de participaçã
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <h3 id="cancelamento">Cancelamento</h3>
 
@@ -1628,14 +1500,6 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <h4 id="cancelamento-parcial">Cancelamento Parcial</h4>
 
@@ -1751,14 +1615,6 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <p>Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado, conforme exemplo abaixo:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -1770,14 +1626,6 @@ No cancelamento parcial, o somatório dos valores cancelados definidos para cada
      </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <blockquote>
   <p>Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.</p>
@@ -2099,14 +1947,6 @@ O Split de Pgamentos permite consultar a agenda financeira de várias transaçõ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="consultar-eventos">Consultar Eventos</h3>
 
 <p><br />
@@ -2388,14 +2228,6 @@ A API do Split permite que sejam lançados ajustes à crédito e à débito nas 
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <tbody>
-    <tr>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <h2 id="chargeback">Chargeback</h2>
 
