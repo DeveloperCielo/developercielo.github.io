@@ -544,6 +544,7 @@ Abaixo como ficaram as divisões e como foram as agendas de cada participante fo
 
 ### Modelos de Split
 
+<BR>
 O Split de Pagamentos disponibiliza dois modelos para divisão da transação entre os participantes:
 
 | Tipo                       | Descrição                                                                                                                          |
@@ -869,6 +870,7 @@ O nó referente ao Split no Split Pós-transacional, tanto no contrato de reques
 
 ### Consulta
 
+<BR>
 Para consultar uma transação, utilize o próprio serviço de consulta da API Cielo E-Commerce.
 
 **Request**
@@ -1805,6 +1807,8 @@ No exemplo abaixo ocorreu um Chargeack Parcial no valor de R$60,00 de uma transa
     ]
 }
 ```
+
+> O Marketplace tem 1 dia, contado a partir da data de efetivação do chargeback, para informar como deseja repassar os débito aos subordinados.
 
 | Propriedade                                | Descrição                                                                                               | Tipo    | Tamanho | 
 |--------------------------------------------|---------------------------------------------------------------------------------------------------------|---------|---------|
