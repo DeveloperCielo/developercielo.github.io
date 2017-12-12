@@ -3542,11 +3542,13 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
             }
         });
 
-        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
-            let height = $(this).outerHeight();
-
-            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
-        });
+        
+        if ( $(window).width() >= 1660) {
+            $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+                $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + $(this).outerHeight() + 'px;"></div> ');
+            });
+        }
+        
 
         $('.hide-btn').click(function() {
             $('.content-container').toggleClass('no-dark-box');
@@ -3583,7 +3585,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
                             let firstItem = $(this).children().first();
                             firstItem.addClass('active');
                             parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
-                            
+
                             if(parent.children('[class^="language-"]').length === 2) {
                                 parent.addClass('lock');
                             }
@@ -3594,7 +3596,9 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
                 setupLanguages([  "", ]);
             });
         </script>
-         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
 <script>
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -3605,6 +3609,6 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
-        
+
     </body>
 </html>

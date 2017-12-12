@@ -3339,11 +3339,13 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
             }
         });
 
-        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
-            let height = $(this).outerHeight();
-
-            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
-        });
+        
+        if ( $(window).width() >= 1660) {
+            $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+                $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + $(this).outerHeight() + 'px;"></div> ');
+            });
+        }
+        
 
         $('.hide-btn').click(function() {
             $('.content-container').toggleClass('no-dark-box');
@@ -3380,7 +3382,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
                             let firstItem = $(this).children().first();
                             firstItem.addClass('active');
                             parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
-                            
+
                             if(parent.children('[class^="language-"]').length === 2) {
                                 parent.addClass('lock');
                             }
@@ -3391,7 +3393,9 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
                 setupLanguages([  "json", ]);
             });
         </script>
-         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
 <script>
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -3402,6 +3406,6 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
-        
+
     </body>
 </html>
