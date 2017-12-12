@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T10:38:41+00:00</updated>
+    <updated>2017-12-12T11:23:06+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4924,9 +4924,9 @@ Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Push-Notifications&lt;/th&gt;
-      &lt;th&gt;Serviços de Localização (GPS)&lt;/th&gt;
-      &lt;th&gt;Serviços de Mapas&lt;/th&gt;
+      &lt;th style=&quot;width:33%;&quot;&gt;Push-Notifications&lt;/th&gt;
+      &lt;th style=&quot;width:33%;&quot;&gt;Serviços de Localização (GPS)&lt;/th&gt;
+      &lt;th style=&quot;width:33%;&quot;&gt;Serviços de Mapas&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -4940,7 +4940,7 @@ Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://
       &lt;td&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: Location Manager&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: MapBox&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
+    &lt;tr style=&quot;vertical-align:top;&quot;&gt;
       &lt;td&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: É uma API para agendar vários tipos de trabalhos contra a estrutura que será executada no próprio processo da sua aplicação. Permitindo a cada ciclo de tempo que o aplicativo realize uma busca em nossos serviços de Backend. O JobScheduler é o mais indicado devido a performance em relação ao uso de bateria, fora as muitas outras opções que ele disponibiliza (Ex: Job rodar somente quando o smartphone estiver carregando).&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Essa classe fornece acesso aos serviços de localização do sistema. Esses serviços permitem que os aplicativos obtenham atualizações periódicas da localização geográfica do dispositivo ou que iniciem uma Intenção especificada pela aplicação quando o dispositivo entra na proximidade de uma determinada localização geográfica.&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Uma plataforma de mapeamento de código aberto para mapas personalizados. Nossas APIs e SDKs são os blocos de construção para integrar a localização em qualquer aplicativo móvel ou web.&lt;/td&gt;
