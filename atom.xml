@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T16:39:30+00:00</updated>
+    <updated>2017-12-12T16:42:51+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4082,7 +4082,7 @@ No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o
 &lt;h2 id=&quot;notificação&quot;&gt;Notificação&lt;/h2&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;strong&gt;Em breve&lt;/strong&gt; será disponibilizado o serviço de notificação que informará os eventos que ocorrem em uma transação de Split:&lt;/p&gt;
+&lt;strong&gt;Em breve&lt;/strong&gt; será disponibilizado o serviço de notificação que informará os eventos que ocorrerem em uma transação de Split:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Geração de agenda&lt;/li&gt;
