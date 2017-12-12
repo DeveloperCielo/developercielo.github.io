@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T00:06:49+00:00</updated>
+    <updated>2017-12-12T00:07:36+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1843,9 +1843,9 @@
     <entry>
         <title>Manual de Integração</title>
         <category term="manual" />
-        <link href="https://developercielo.github.io/manual/split-pagamentos"/>
+        <link href="https://developercielo.github.io/manual/teste"/>
         <updated>2017-08-12T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/split-pagamentos</id>
+        <id>https://developercielo.github.io/manual/teste</id>
         <content type="html">&lt;h1 id=&quot;split-de-pagamentos&quot;&gt;Split de Pagamentos&lt;/h1&gt;
 
 &lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
@@ -4265,9 +4265,9 @@ No Split de Pagamentos o Marketplace pode definir se assumirá o chargeback ou o
     <entry>
         <title>Manual de Integração</title>
         <category term="manual" />
-        <link href="https://developercielo.github.io/manual/split-pagamentos-copy"/>
+        <link href="https://developercielo.github.io/manual/split-pagamentos"/>
         <updated>2017-08-12T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/split-pagamentos-copy</id>
+        <id>https://developercielo.github.io/manual/split-pagamentos</id>
         <content type="html">&lt;h1 id=&quot;split-de-pagamentos&quot;&gt;Split de Pagamentos&lt;/h1&gt;
 
 &lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
