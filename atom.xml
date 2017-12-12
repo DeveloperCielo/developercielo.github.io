@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T11:56:18+00:00</updated>
+    <updated>2017-12-12T12:03:38+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6335,25 +6335,6 @@ in risk assessment. High - High significance of the purchaser's order obscenitie
 |`FraudAnalysis.Id`|Indentificação da Transação no Antifraud|Text|300|Alphanumeric Text|
 |`FraudAnalysis.Status`|Transaction Status|Byte|3|Ex.: 500|
 |`FraudAnalysis.ReplyData.FactorCode`|Codes that identifies the score level of an order|Text|100|Ex: B^D^R^Z&lt;br /&gt;&lt;ul&gt;&lt;li&gt;A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.&lt;/li&gt;
-&lt;li&gt;B - BIN card or risk authorization. Risk factors are related to credit card and BIN / or card authorization checks.&lt;/li&gt;
-&lt;li&gt;C - High numbers of credit cards.The customer has used more than six numbers of credit cards in the past six months.&lt;/li&gt;
-&lt;li&gt;D - Impact of the e-mail address.The customer uses a free email provider or e-mail address is risky.&lt;/li&gt;
-&lt;li&gt;E - Positive list. The customer is in its positive list.&lt;/li&gt;
-&lt;li&gt;F - Negative list. The account number, address, email address or IP address for this purpose appears in its negative list.&lt;/li&gt;
-&lt;li&gt;G - geolocation inconsistencies.The email client domain, phone number, billing address, shipping address or IP address is suspect.&lt;/li&gt;
-&lt;li&gt;H - excessive name changes.The customer changed its name twice or more in the past six months.&lt;/li&gt;
-&lt;li&gt;I - Internet inconsistencies.The IP address and e-mail domain are not consistent with the billing address.&lt;/li&gt;
-&lt;li&gt;N - Entrance meaningless.The customer name and address fields contain meaningless words or language.&lt;/li&gt;
-&lt;li&gt;The - obscenities.Customer data contains obscene words.&lt;/li&gt;
-&lt;li&gt;P - morphing identity. Various amounts of an identity element are attached to a different value of an identity element. For example, various telephone numbers are connected to a single account number.&lt;/li&gt;
-&lt;li&gt;Q - Inconsistencies phone. The customer’s phone number is suspect.&lt;/li&gt;
-&lt;li&gt;R - risky Order.The transaction, the customer and the merchant show information correlated high risk.&lt;/li&gt;
-&lt;li&gt;T - Time Coverage. The client is attempting a purchase outside the expected time.&lt;/li&gt;
-&lt;li&gt;U - unverifiable address. The billing address or delivery can not be verified.&lt;/li&gt;
-&lt;li&gt;V - Velocity.The account number was used many times in the last 15 minutes.&lt;/li&gt;
-&lt;li&gt;W - marked as suspect. The billing address and delivery is similar to an address previously marked suspect.&lt;/li&gt;
-&lt;li&gt;Y - The address, city, state or country of billing and shipping addresses do not correlate.&lt;/li&gt;
-&lt;li&gt;Z - Invalid value. As the request it contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the application carefully to detect abnormalities.&lt;/li&gt;&lt;/ul&gt;|
 
 ## Saving a Credit Card
 
@@ -10141,7 +10122,7 @@ id=‹merchant id›‹session ID›&quot; type=&quot;text/javascript&quot;›
 |Questions|Answeres|Theme|
 |---|---|---|
 |What is the difference between Status, ReasonCode and ProviderReturnCode?|The answer is:&lt;br /&gt;&lt;ul&gt;&lt;li&gt;Status: represents the current status of the transaction.&lt;/li&gt;&lt;li&gt;ReasonCode: represents the status of the request.&lt;/li&gt;&lt;li&gt;ProviderReturnCode: represents the response code from the acquirer or bank.&lt;/li&gt;&lt;/ul&gt;For example, an authorization request may have a return with ReasonCode = 0 (Sucessfull), ie the request has been successfully completed, but the Status may be 0-Denied, for having the transaction not authorized by the buyer, ProviderReturnCode 57 (one of Cielo's denied codes)|Integration|
-&lt;/body&gt;&lt;/li&gt;&lt;/li&gt;&lt;/li&gt;&lt;/li&gt;
+&lt;/body&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/li&gt;&lt;/li&gt;&lt;/li&gt;
 </content>
     </entry>
     

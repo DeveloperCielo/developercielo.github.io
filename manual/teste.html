@@ -4624,25 +4624,6 @@ in risk assessment. High - High significance of the purchaser's order obscenitie
 |`FraudAnalysis.Id`|Indentificação da Transação no Antifraud|Text|300|Alphanumeric Text|
 |`FraudAnalysis.Status`|Transaction Status|Byte|3|Ex.: 500|
 |`FraudAnalysis.ReplyData.FactorCode`|Codes that identifies the score level of an order|Text|100|Ex: B^D^R^Z<br /><ul><li>A - Excessive Change of Address.The customer has changed the billing address two or more times in the last six months.</li>
-<li>B - BIN card or risk authorization. Risk factors are related to credit card and BIN / or card authorization checks.</li>
-<li>C - High numbers of credit cards.The customer has used more than six numbers of credit cards in the past six months.</li>
-<li>D - Impact of the e-mail address.The customer uses a free email provider or e-mail address is risky.</li>
-<li>E - Positive list. The customer is in its positive list.</li>
-<li>F - Negative list. The account number, address, email address or IP address for this purpose appears in its negative list.</li>
-<li>G - geolocation inconsistencies.The email client domain, phone number, billing address, shipping address or IP address is suspect.</li>
-<li>H - excessive name changes.The customer changed its name twice or more in the past six months.</li>
-<li>I - Internet inconsistencies.The IP address and e-mail domain are not consistent with the billing address.</li>
-<li>N - Entrance meaningless.The customer name and address fields contain meaningless words or language.</li>
-<li>The - obscenities.Customer data contains obscene words.</li>
-<li>P - morphing identity. Various amounts of an identity element are attached to a different value of an identity element. For example, various telephone numbers are connected to a single account number.</li>
-<li>Q - Inconsistencies phone. The customer’s phone number is suspect.</li>
-<li>R - risky Order.The transaction, the customer and the merchant show information correlated high risk.</li>
-<li>T - Time Coverage. The client is attempting a purchase outside the expected time.</li>
-<li>U - unverifiable address. The billing address or delivery can not be verified.</li>
-<li>V - Velocity.The account number was used many times in the last 15 minutes.</li>
-<li>W - marked as suspect. The billing address and delivery is similar to an address previously marked suspect.</li>
-<li>Y - The address, city, state or country of billing and shipping addresses do not correlate.</li>
-<li>Z - Invalid value. As the request it contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the application carefully to detect abnormalities.</li></ul>|
 
 ## Saving a Credit Card
 
@@ -8430,7 +8411,7 @@ id=‹merchant id›‹session ID›" type="text/javascript"›
 |Questions|Answeres|Theme|
 |---|---|---|
 |What is the difference between Status, ReasonCode and ProviderReturnCode?|The answer is:<br /><ul><li>Status: represents the current status of the transaction.</li><li>ReasonCode: represents the status of the request.</li><li>ProviderReturnCode: represents the response code from the acquirer or bank.</li></ul>For example, an authorization request may have a return with ReasonCode = 0 (Sucessfull), ie the request has been successfully completed, but the Status may be 0-Denied, for having the transaction not authorized by the buyer, ProviderReturnCode 57 (one of Cielo's denied codes)|Integration|
-</body></li></li></li></li>
+</body></ul></li></li></li></li>
 
 </div>
 
