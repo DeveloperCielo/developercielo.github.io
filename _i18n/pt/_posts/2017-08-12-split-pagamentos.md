@@ -209,8 +209,6 @@ Exemplo:
 }
 ```
 
-| |
-
 **Response**
 
 ```json
@@ -269,8 +267,6 @@ Exemplo:
 }
 ```
 
-| |
-
 Ao informar um tipo de pagamento referente ao Split, a API Cielo e-Commerce automaticamente identifica que a transação é referente ao Split de Pagamentos e realiza o fluxo transacional através da Braspag (Facilitador).
 
 Caso a transação enviada seja marcada para captura automática, o nó contendo as regras de divisão deverá ser enviado, caso contrário a transação será dividida entre a Braspag (Facilitador) e o Marketplace. Posteriormente é permitido que o Marketplace envie novas regras de divisão para a transação através da API Split, desde que esteja dentro do período de tempo permitido.
@@ -308,8 +304,6 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
    }
 }
 ```
-
-| |
 
 **Response**
 
@@ -387,8 +381,6 @@ Transação no valor de **R$100,00**, com captura automática, sem o nó contend
 }
 ```
 
-| |
-
 Neste caso, o Marketplace recebe o valor da transação descontado o MDR acordado com a Braspag (Facilitador). Como apresentado anteriormente, a Tarifa Fixa acordada entre o Marketplace e a Braspag é sensibilizada diretamente na agenda de ambas as partes.
 
 ![SplitSample002](https://developercielo.github.io/images/split/split002.png)
@@ -446,8 +438,6 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
   }
 }
 ```
-
-| |
 
 **Response**
 
@@ -546,8 +536,6 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão.
     }
 }
 ```
-
-| |
 
 Abaixo como ficaram as divisões e como foram as agendas de cada participante foram sensibilizadas.
 
@@ -677,8 +665,6 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 }
 ```
 
-||
-
 **Response**
 
 ```json
@@ -791,8 +777,6 @@ Transação no valor de **R$100,00** com o nó contendo as regras de divisão e 
 }
 ```
 
-||
-
 Neste exemplo, onde o Marketplace também participa da venda, não é necessário informar as taxas a serem descontadas sobre o valor da venda referente ao próprio marketplace. O Split indentifica que o valor informado é do próprio Marketplace, através do seu identificador, e realiza os cálculos corretamente.
 
 ![SplitSample004](https://developercielo.github.io/images/split/split004.png)
@@ -831,8 +815,6 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
     }
 ]
 ```
-
-||
 
 **Response**
 
@@ -879,8 +861,6 @@ Para transações com **Cartão de Crédito**, este período é de **25 dias** s
     ]
 }
 ```
-
-||
 
 O nó referente ao Split no Split Pós-transacional, tanto no contrato de request quanto de response, é o mesmo retornado na divisão no Split Transacional, apresentado anteriormente.
 
@@ -993,8 +973,6 @@ Para consultar uma transação, utilize o próprio serviço de consulta da API C
 }
 ```
 
-||
-
 ### Captura
 
 <BR>
@@ -1032,8 +1010,6 @@ Na captura total de uma transação, o somatório dos valores de participação 
      ]
 }
 ```
-
-||
 
 **Response**
 
@@ -1099,8 +1075,6 @@ Na captura total de uma transação, o somatório dos valores de participação 
 }
 ```
 
-||
-
 #### Captura Parcial
 
 <BR>
@@ -1141,8 +1115,6 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
      ]
 }
 ```
-
-||
 
 **Response**
 
@@ -1208,8 +1180,6 @@ O exemplo abaixo captura parcialmente o valor de R$80,00 de uma transação real
 }
 ```
 
-||
-
 Como explicitado anteriormente, se realizada uma captura total ou parcial sem informar as regras de divisão, o Split interpreta que todo o valor é destinado ao próprio Marketplace.
 
 **Request**
@@ -1261,8 +1231,6 @@ Como explicitado anteriormente, se realizada uma captura total ou parcial sem in
     ]
 }
 ```
-
-||
 
 ### Cancelamento
 
@@ -1332,8 +1300,6 @@ No cancelamento total de uma transação, será cancelado o valor total da trans
     ]
 }
 ```
-
-||
 
 #### Cancelamento Parcial
 
@@ -1429,8 +1395,6 @@ No exempo abaixo é cancelado o valor de R$25,00 de uma transação capturada no
 }
 ```
 
-||
-
 Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pode-se informar apenas os subordinados para os quais se deseja cancelar totalmente ou parte do valor destinado aos mesmos na transação. No exemplo acima poderia ser informado, por exemplo, apenas o segundo subordinado, conforme exemplo abaixo:
 
 ```json
@@ -1443,8 +1407,6 @@ Não é obrigatório informar todos os Subordinados no cancelamento parcial. Pod
      ]
 }
 ```
-
-||
 
 > Ao cancelar parcialmente parte de um valor destinado a um Subordinado, é cancelada proporcionalmente também a Tarifa Fixa que o Marketplace tem a receber.
 
@@ -1620,8 +1582,6 @@ Para consultar a agenda de uma transação específica basta informar o identifi
 }
 ```
 
-||
-
 ### Consultar Eventos 
 
 <BR>
@@ -1773,8 +1733,6 @@ Quando lançado um ajuste à Crédito para um Subordinado, automaticamente é la
     ]
 }
 ```
-
-||
 
 ## Chargeback
 
