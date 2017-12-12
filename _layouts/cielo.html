@@ -160,11 +160,13 @@
             }
         });
 
-        $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
-            let height = $(this).outerHeight();
-
-            $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + height + 'px;"></div> ');
-        });
+        {% if page.language_tabs %}
+        if ( $(window).width() >= 1660) {
+            $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
+                $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + $(this).outerHeight() + 'px;"></div> ');
+            });
+        }
+        {% endif %}
 
         $('.hide-btn').click(function() {
             $('.content-container').toggleClass('no-dark-box');
