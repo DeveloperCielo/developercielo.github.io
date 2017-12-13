@@ -1622,142 +1622,142 @@ Os erros que podem ser apresentados na mensagem XML, através da TAG <erro>, est
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns="http://ecommerce.cbmp.com.br"
-	targetNamespace="http://ecommerce.cbmp.com.br"
-	elementFormDefault="qualified">
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://ecommerce.cbmp.com.br"
+    targetNamespace="http://ecommerce.cbmp.com.br"
+    elementFormDefault="qualified">
 
-	<xsd:include schemaLocation="ecm-ec.xsd"></xsd:include>
-
-
-	<xsd:simpleType name="numeroLoteType">
-		<xsd:restriction base="xsd:int">
-			<xsd:minExclusive value="0"></xsd:minExclusive>
-
-			<xsd:maxInclusive value="999999999"></xsd:maxInclusive>
-		</xsd:restriction>
-	</xsd:simpleType>
+    <xsd:include schemaLocation="ecm-ec.xsd"></xsd:include>
 
 
+    <xsd:simpleType name="numeroLoteType">
+        <xsd:restriction base="xsd:int">
+            <xsd:minExclusive value="0"></xsd:minExclusive>
 
-	<xsd:element name="requisicao-lote" type="RequisicaoLote"></xsd:element>
+            <xsd:maxInclusive value="999999999"></xsd:maxInclusive>
+        </xsd:restriction>
+    </xsd:simpleType>
 
-	<xsd:element name="retorno-lote" type="RetornoLote"></xsd:element>
 
-	<xsd:complexType name="RequisicaoLote">
-		<xsd:sequence>
-			<xsd:element name="dados-ec" type="DadosEc"
-				maxOccurs="1" minOccurs="1">
-			</xsd:element>
-			<xsd:element name="numero-lote" type="numeroLoteType"
-				maxOccurs="1" minOccurs="1">
-			</xsd:element>            
+
+    <xsd:element name="requisicao-lote" type="RequisicaoLote"></xsd:element>
+
+    <xsd:element name="retorno-lote" type="RetornoLote"></xsd:element>
+
+    <xsd:complexType name="RequisicaoLote">
+        <xsd:sequence>
+            <xsd:element name="dados-ec" type="DadosEc"
+                maxOccurs="1" minOccurs="1">
+            </xsd:element>
+            <xsd:element name="numero-lote" type="numeroLoteType"
+                maxOccurs="1" minOccurs="1">
+            </xsd:element>            
             <xsd:element name="tipo-operacao" minOccurs="1" maxOccurs="1">
-            	<xsd:annotation>
-    				<xsd:documentation>
-    					2: Autorização 3:Cancelamento 4:Captura 5:Tokenização 6:Consulta 7:ConsultaChSec 8:AutorizacaoTid
-    				</xsd:documentation>
-    			</xsd:annotation>
-    			<xsd:simpleType>
-    				<xsd:restriction base="xsd:string">
-    					<xsd:pattern value="(2|3|4|5|6|7|8)"></xsd:pattern>    					
-    				</xsd:restriction>
-    			</xsd:simpleType>
+                <xsd:annotation>
+                    <xsd:documentation>
+                        2: Autorização 3:Cancelamento 4:Captura 5:Tokenização 6:Consulta 7:ConsultaChSec 8:AutorizacaoTid
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="(2|3|4|5|6|7|8)"></xsd:pattern>                        
+                    </xsd:restriction>
+                </xsd:simpleType>
             </xsd:element>
             <xsd:element name="lista-requisicoes"
-				type="ListaRequisicoesLote" maxOccurs="unbounded"
-				minOccurs="1">
-			</xsd:element>
+                type="ListaRequisicoesLote" maxOccurs="unbounded"
+                minOccurs="1">
+            </xsd:element>
 
-		</xsd:sequence>
-	</xsd:complexType>
+        </xsd:sequence>
+    </xsd:complexType>
 
-	<xsd:complexType name="RetornoLote">
-		<xsd:sequence>
-			<xsd:element name="dados-ec" type="DadosEc"></xsd:element>
-			<xsd:element name="numero-lote" type="numeroLoteType"></xsd:element>
-			<xsd:element name="lista" type="ListaRetornoLote"></xsd:element>
-		</xsd:sequence>
-	</xsd:complexType>
-	
+    <xsd:complexType name="RetornoLote">
+        <xsd:sequence>
+            <xsd:element name="dados-ec" type="DadosEc"></xsd:element>
+            <xsd:element name="numero-lote" type="numeroLoteType"></xsd:element>
+            <xsd:element name="lista" type="ListaRetornoLote"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
     <xsd:complexType name="ListaRequisicoesLote">
-    	<xsd:sequence>
-    		<xsd:element name="requisicao-transacao"
-    			type="RequisicaoNovaTransacao" maxOccurs="unbounded"
-    			minOccurs="0">
-    		</xsd:element>
-    		<xsd:element name="requisicao-token" type="RequisicaoToken"
-    			maxOccurs="unbounded" minOccurs="0">
-    		</xsd:element>
-    		<xsd:element name="requisicao-consulta"
-    			type="RequisicaoConsulta" maxOccurs="unbounded" minOccurs="0">
-    		</xsd:element>
-    		<xsd:element name="requisicao-cancelamento"
-    			type="RequisicaoCancelamento" maxOccurs="unbounded"
-    			minOccurs="0">
-    		</xsd:element>
-    		<xsd:element name="requisicao-captura"
-    			type="RequisicaoCaptura" maxOccurs="unbounded" minOccurs="0">
-    		</xsd:element>
+        <xsd:sequence>
+            <xsd:element name="requisicao-transacao"
+                type="RequisicaoNovaTransacao" maxOccurs="unbounded"
+                minOccurs="0">
+            </xsd:element>
+            <xsd:element name="requisicao-token" type="RequisicaoToken"
+                maxOccurs="unbounded" minOccurs="0">
+            </xsd:element>
+            <xsd:element name="requisicao-consulta"
+                type="RequisicaoConsulta" maxOccurs="unbounded" minOccurs="0">
+            </xsd:element>
+            <xsd:element name="requisicao-cancelamento"
+                type="RequisicaoCancelamento" maxOccurs="unbounded"
+                minOccurs="0">
+            </xsd:element>
+            <xsd:element name="requisicao-captura"
+                type="RequisicaoCaptura" maxOccurs="unbounded" minOccurs="0">
+            </xsd:element>
 
-    		<xsd:element name="requisicao-consulta-chsec"
-    			type="RequisicaoConsultaChSec" maxOccurs="unbounded"
-    			minOccurs="0">
-    		</xsd:element>
-    		<xsd:element name="requisicao-autorizacao-tid"
-    			type="RequisicaoAutorizacaoTid" maxOccurs="unbounded" minOccurs="0">
-    		</xsd:element>
-    	</xsd:sequence>
+            <xsd:element name="requisicao-consulta-chsec"
+                type="RequisicaoConsultaChSec" maxOccurs="unbounded"
+                minOccurs="0">
+            </xsd:element>
+            <xsd:element name="requisicao-autorizacao-tid"
+                type="RequisicaoAutorizacaoTid" maxOccurs="unbounded" minOccurs="0">
+            </xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="ListaRetornoLote">
-    	<xsd:sequence>
-    		<xsd:element name="transacao" type="Retorno" maxOccurs="unbounded" minOccurs="0"></xsd:element>
-    		<xsd:element name="retorno-token" type="RetornoToken" maxOccurs="unbounded" minOccurs="0"></xsd:element>
-    		<xsd:element name="erro" type="RequisicaoErro" maxOccurs="unbounded" minOccurs="0"></xsd:element>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="transacao" type="Retorno" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+            <xsd:element name="retorno-token" type="RetornoToken" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+            <xsd:element name="erro" type="RequisicaoErro" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="RequisicaoDownloadRetornoLote">
-    	<xsd:complexContent>
-    		<xsd:extension base="Mensagem">
-    			<xsd:sequence>
-    				<xsd:element name="dados-ec" type="DadosEc" maxOccurs="1" minOccurs="1"></xsd:element>
-    				<xsd:element name="numero-lote" type="numeroLoteType" maxOccurs="1" minOccurs="1"></xsd:element>
-    			</xsd:sequence>
-    		</xsd:extension>
-    	</xsd:complexContent>
+        <xsd:complexContent>
+            <xsd:extension base="Mensagem">
+                <xsd:sequence>
+                    <xsd:element name="dados-ec" type="DadosEc" maxOccurs="1" minOccurs="1"></xsd:element>
+                    <xsd:element name="numero-lote" type="numeroLoteType" maxOccurs="1" minOccurs="1"></xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
     </xsd:complexType>
 
     <xsd:complexType name="RetornoDownloadLote">
-    	<xsd:sequence>
-    		<xsd:element name="erro" type="RequisicaoErro" maxOccurs="1"
-    			minOccurs="0">
-    		</xsd:element>
-    		<xsd:element name="arquivo" type="xsd:string" maxOccurs="1"
-    			minOccurs="0">
-    		</xsd:element>
-    		<xsd:element name="mensagem" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
-    	</xsd:sequence>
+        <xsd:sequence>
+            <xsd:element name="erro" type="RequisicaoErro" maxOccurs="1"
+                minOccurs="0">
+            </xsd:element>
+            <xsd:element name="arquivo" type="xsd:string" maxOccurs="1"
+                minOccurs="0">
+            </xsd:element>
+            <xsd:element name="mensagem" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+        </xsd:sequence>
     </xsd:complexType>
 
     <xsd:element name="requisicao-download-retorno-lote"
-    	type="RequisicaoDownloadRetornoLote">
+        type="RequisicaoDownloadRetornoLote">
     </xsd:element>
 
     <xsd:element name="retorno-download-lote"
-    	type="RetornoDownloadLote">
+        type="RetornoDownloadLote">
     </xsd:element>
     
-	<xsd:complexType name="RetornoUploadLote">
-		<xsd:sequence>
-			<xsd:element name="data-envio" type="xsd:dateTime" maxOccurs="1" minOccurs="1"></xsd:element>
-			<xsd:element name="data-retorno" type="xsd:dateTime" maxOccurs="1" minOccurs="1"></xsd:element>            
-			<xsd:element name="mensagem" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>            
-		</xsd:sequence>
-	</xsd:complexType>
+    <xsd:complexType name="RetornoUploadLote">
+        <xsd:sequence>
+            <xsd:element name="data-envio" type="xsd:dateTime" maxOccurs="1" minOccurs="1"></xsd:element>
+            <xsd:element name="data-retorno" type="xsd:dateTime" maxOccurs="1" minOccurs="1"></xsd:element>            
+            <xsd:element name="mensagem" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>            
+        </xsd:sequence>
+    </xsd:complexType>
 
-	<xsd:element name="retorno-upload-lote" type="RetornoUploadLote"></xsd:element>
+    <xsd:element name="retorno-upload-lote" type="RetornoUploadLote"></xsd:element>
 </xsd:schema>
 ```
 
