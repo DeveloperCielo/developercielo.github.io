@@ -8,6 +8,8 @@ sort_order: 5
 tags:
   - Documentos Adicionais
   - API e-Commerce Cielo
+  - Checkout Cielo
+  - Webservice 1.5
 ---
 
 # SDKs Api e-Commerce Cielo
