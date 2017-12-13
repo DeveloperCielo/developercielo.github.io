@@ -262,7 +262,7 @@ A chamada ao Web Service é resumida por:
 * O destino (ambiente de teste ou de produção).
 * O retorno em formato XML, que pode ser: `<transacao/>`, `<retorno-token>` ou `<erro/>`.
 
-```
+``` xml
 POST /servicos/ecommwsec.do HTTP/1.1
 Host: eCommerce.cielo.com.br
 Content-Type: application/x-www-form-urlencoded
@@ -284,7 +284,7 @@ As transições de status podem ser realizadas através da troca de mensagens en
 
 Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML `<requisicao-transacao>`, cujo conjunto de TAGS determinam as configurações de uma transação.
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <dados-ec>
@@ -332,6 +332,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
   ]]>
   </avs>
 </requisicao-transacao>
+
 ```
 
 <aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
@@ -426,7 +427,7 @@ Para as operações relacionadas a uma transação (consultas, autorização, ca
 
 O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo `<transacao>`. Basicamente, ela é composta pelos dados do pedido e dados da configuração da transação.
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <transacao versao="1.3.0" id="af32f93c-5e9c-4f44-9478-ccc5aca9319e" xmlns="http://ecommerce.cbmp.com.br">
     <tid>100699306908642F1001</tid>
@@ -483,7 +484,7 @@ A tabela abaixo detalha as TAGS do XML básico de retorno, identificado pelo nó
 
 Por fim, há outro tipo de retorno que é empregado toda vez que uma requisição não pode ser executada, seja porque era inválida ou por ter ocorrido falha no seu processamento. Nesse cenário o nó raiz do XML de resposta é do tipo `<erro>`.
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <erro xmlns="http://ecommerce.cbmp.com.br">
   <codigo>001</codigo>
@@ -539,7 +540,7 @@ Os pré-requisitos para que uma transação seja autenticada estão relacionados
 
 Observando o diagrama da seção [Transação](#transação), é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó `<autenticacao>` no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <transacao versao="1.3.0" id="5e445904-963e-4fa1-95cd-55ef88c289cc" xmlns="http://ecommerce.cbmp.com.br">
     <tid>10069930690864281001</tid>
@@ -813,7 +814,7 @@ A requisição de autorização é a principal operação do Cielo eCommerce, po
 
 ## Autorização Direta
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <dados-ec>
@@ -856,7 +857,7 @@ A autorização direta caracteriza-se por ser uma transação onde não há a au
 
 ## Autorização Recorrente
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <dados-ec>
@@ -898,7 +899,7 @@ A autorização recorrente pode ser feita de duas formas: através do envio de u
 
 ### Renova Fácil
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="d35b67189442">
   <tid>10069930690362461001</tid>
@@ -939,7 +940,7 @@ Essa funcionalidade facilita a identificação de um cartão que tenha sido subs
 
 ### Autorização de uma transação previamente gerada
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-autorizacao-tid id="a387cb68-b33a-4113-b7c4-9b7dfde871ec" versao="1.3.0">
     <tid>100699306908642E1001</tid>
@@ -966,7 +967,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 ## Transação com Token
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-token id="8fc889c7-004f-42f1-963a-31aa26f75e5c" versao="1.2.1">
   <dados-ec>
@@ -1002,7 +1003,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 ### Retorno
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <retorno-token xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="57239017">
   <token>
@@ -1025,7 +1026,7 @@ O retorno será do tipo <retorno-token> quando a solicitação tenha sido conclu
 
 ### Autorização Direta via Token
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <dados-ec>
@@ -1057,7 +1058,7 @@ O retorno será do tipo <retorno-token> quando a solicitação tenha sido conclu
 
 ### Autorização recorrente com Token
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <dados-ec>
@@ -1090,7 +1091,7 @@ O retorno será do tipo <retorno-token> quando a solicitação tenha sido conclu
 
 ### Renova Fácil com Token
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="d35b67189442">
   <tid>10069930690362461001</tid>
@@ -1129,7 +1130,7 @@ Essa funcionalidade facilita a identificação de um cartão que tenha sido subs
 
 ### Geração de Token
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.0">
   <!-- ... -->
@@ -1147,7 +1148,7 @@ Essa funcionalidade facilita a identificação de um cartão que tenha sido subs
 
 ### Autenticação e Transações com Cartões de Débito
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <!-- ... -->
@@ -1178,7 +1179,7 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
 
 ### Permite que o lojista envie um texto (Soft Descriptor)
 
-```xml
+``` xml
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <!-- ... -->
   <dados-pedido>
@@ -1206,7 +1207,7 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
 
 ### Captura Automática
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <!-- ... -->
@@ -1221,7 +1222,7 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
 
 ### Taxa de embarque
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <!-- ... -->
@@ -1249,7 +1250,7 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
 
 ### AVS (Address Verification Service)
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <!-- ... -->
@@ -1312,7 +1313,7 @@ A operação de consulta é essencial na integração, pois ela que garantirá a
 
 #### Requisição
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-consulta id="6fcf758e-bc60-4d6a-acf4-496593a40441" versao="1.2.1">
   <tid>100699306903609A1001</tid>
@@ -1342,7 +1343,7 @@ A operação de consulta é essencial na integração, pois ela que garantirá a
 
 #### Requisição
 
-```xml
+``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <requisicao-consulta-chsec id="a51489b1-93d5-437f-bb4f-5b932fade248" versao="1.2.1">
   <numero-pedido>1663784368</numero-pedido>
@@ -1379,7 +1380,7 @@ Já no segundo caso, é preciso fazer uma “captura posterior”, através de u
 
 ### Captura Total e Parcial
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-captura id="adbc9961-8a39-452b-b7fd-15b44b464a97" versao="1.3.0">
     <tid>10069930690864281001</tid>
@@ -1406,7 +1407,7 @@ Já no segundo caso, é preciso fazer uma “captura posterior”, através de u
 
 ### Retorno
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="0378c8cf4d">
   <tid>10069930690360EF1001</tid>
@@ -1441,7 +1442,7 @@ O cancelamento é utilizado quando o lojista decide não efetivar um pedido de c
 
 ### Cancelamento Total e Parcial
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-cancelamento id="39d36eb6-5ae9-4308-89a1-455d299460c0" versao="1.3.0">
     <tid>100699306908642E1001</tid>
@@ -1474,7 +1475,7 @@ O cancelamento é utilizado quando o lojista decide não efetivar um pedido de c
 
 #### Retorno
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="2c18f00a-3ff6-4c85-8865-a4fde599b2b2">
   <tid>100699306903613E1001</tid>
@@ -1542,7 +1543,7 @@ Exemplo: `ECOMM_1006993069_02_20121002_0000000086.xml`
 
 ### Mensagem de Upload de Arquivo
 
-```xml
+``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <retorno-upload-lote xmlns="http://ecommerce.cbmp.com.br ">
     <data-envio>2012-10-08T09:38:04.284-03:00</data-envio>
@@ -1557,7 +1558,7 @@ Após o envio, o Estabelecimento Comercial receberá o seguinte XML de retorno:
 
 ### Mensagem de Solicitação de Download de Retorno
 
-```xml
+``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <requisicao-download-retorno-lote versao="Versao da msg" id=“session id”>
    <dados-ec>
