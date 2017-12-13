@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-13T12:32:18+00:00</updated>
+    <updated>2017-12-13T12:49:12+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6498,7 +6498,7 @@ Iniciar processo de pagamento&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#promover-aplicativo-para-produção&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;2 - Produção&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3 - Produção&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Assim que o aplicativo for aprovado na certificação, o desenvolvedor poderá promover para produção.&lt;/p&gt;
 
