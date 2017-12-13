@@ -1521,16 +1521,17 @@ Processamento em Lote deverá seguir as seguintes regras:
 1. O XML para processamento em lote está definido através do [ecm-lote.xsd](./attachment/ecm-lote.xsd) que possui dependência com o ecommerce.xsd.
 2. O arquivo deverá respeitar o limite de 20MB (aprox.: 27.000 transações).
 3. O processamento em lote suporta os mesmos tipos de operações do transacional online. Veja a tabela em anexo.
-   - Os dados do Estabelecimento Comercial serão informados uma única vez dentro do lote, ou seja, o pacote de transações pertence exclusivamente ao Estabelecimento informado no arquivo.
-   - O lote a ser gerado deverá conter uma ou mais transações do mesmo tipo de operação, caso mais de um tipo seja enviado no lote, o arquivo será rejeitado.
+- Os dados do Estabelecimento Comercial serão informados uma única vez dentro do lote, ou seja, o pacote de transações pertence exclusivamente ao Estabelecimento informado no arquivo.
+- O lote a ser gerado deverá conter uma ou mais transações do mesmo tipo de operação, caso mais de um tipo seja enviado no lote, o arquivo será rejeitado.
 4. A nomenclatura do arquivo deverá respeitar a regra abaixo e conter a seguinte estrutura e tamanhos de campo:
-   - Exemplo: `ECOMM_1006993069_02_20121002_0000000086.xml`
-       - a) Prefixo – obrigatoriamente deve iniciar com “ECOMM”;
-       - b) N.o Afiliação EC – número de afiliação do Estabelecimento Comercial, com a Cielo, deverá conter dez dígitos;
-       - c) Tipo de operação – deverá conter dois dígitos e para o código do tipo de operação vide tabela acima;
-       - d) Data de geração do arquivo – data em que o arquivo foi gerado, deve ser no formato yyyymmdd;
-       - e) Numero do lote – número do lote deverá ser sequencial e conter dez dígitos preenchidos com zeros à esquerda;
-       - f) Extensão do arquivo – deve ser XML obrigatoriamente.
+
+- Exemplo: `ECOMM_1006993069_02_20121002_0000000086.xml`
+ - a) Prefixo – obrigatoriamente deve iniciar com “ECOMM”;
+ - b) N.o Afiliação EC – número de afiliação do Estabelecimento Comercial, com a Cielo, deverá conter dez dígitos;
+ - c) Tipo de operação – deverá conter dois dígitos e para o código do tipo de operação vide tabela acima;
+ - d) Data de geração do arquivo – data em que o arquivo foi gerado, deve ser no formato yyyymmdd;
+ - e) Numero do lote – número do lote deverá ser sequencial e conter dez dígitos preenchidos com zeros à esquerda;
+ - f) Extensão do arquivo – deve ser XML obrigatoriamente.
 
 ## Mensagens
 
