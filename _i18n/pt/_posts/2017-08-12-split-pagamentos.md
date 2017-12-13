@@ -32,7 +32,7 @@ Com a transação capturada, a Braspag calcula o valor destinado a cada particip
 
 > **Regime de Pagamento**: Prazo estabelecido para liquidação de acordo com o produto (crédito ou débito) e bandeira.
 > <br>
-> **Crédito**: Em até 31 dias.
+> **Crédito**: Em até 31 dias. <br>
 > **Crédito Parcelado**: 1º parcela em até 31 dias, demais a cada 30.
 > **Débito**: Em até 1 dia útil.
 
