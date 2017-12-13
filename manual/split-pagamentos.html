@@ -260,10 +260,10 @@ Crédito: R$0,10 [Tarifa Fixa acordada com o Marketplace]</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">{braspag-oauth2-server}/oauth2/token</span></aside>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
---header "Authorization: Basic {base64}"  
---header "Content-Type: application/x-www-form-urlencoded"  
-grant_type=client_credentials
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x-www-form-urlencoded
+<span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>  
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span>  
+<span class="nv">grant_type</span><span class="o">=</span>client_credentials
 </code></pre></div></div>
 
 <p><strong>Response</strong></p>
