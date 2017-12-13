@@ -63,23 +63,23 @@ A integração é realizada através de serviços disponibilizados como Web Serv
 
 Para facilitar o entendimento, listamos abaixo um pequeno glossário com os principais termos relacionados ao eCommerce, ao mercado de cartões e adquirencia:
 
-|Termo|Descrição|
-|---|---|
-|**Autenticação**|processo para assegurar que o comprador é realmente aquele quem diz ser (portador legítimo), geralmente ocorre no banco emissor com uso de um token digital ou cartão com chaves de segurança.|
-|**Autorização**|processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios, etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação.|
-|**Cancelamento**|processo para cancelar uma compra realizada com cartão.|
-|**Captura**|processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizá-la em seu extrato ou fatura.|
-|**Chave de acesso**|é um código de segurança específico de cada loja, gerado pela Cielo, usada para realizar a autenticação e comunicação em todas as mensagens trocadas com a Cielo. Também conhecido como chave de produção e key data.|
-|**Comprador**|é o aquele que efetua compra na loja virtual.|
-|**Emissor (ou banco emissor)**|É a instituição financeira que emite o cartão de crédito, débito ou voucher.|
-|**Estabelecimento comercial ou EC**|Entidade que responde pela loja virtual.|
-|**Gateway de pagamentos**|Empresa responsável pelo integração técnica e processamento das transações.|
-|**Número de credenciamento**|é um número identificador que o lojista recebe após seu credenciamento junto à Cielo.|
-|**Portador**|é a pessoa que tem o porte do cartão no momento da venda.|
-|**SecureCode**|programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce.|
-|**TID (Transaction Identifier)**|código composto por 20 caracteres que identificada unicamente uma transação Cielo eCommerce.|
-|**Transação**|é o pedido de compra do portador do cartão na Cielo.|
-|**VBV (Verified by Visa)**|Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.|
+| Termo                               | Descrição                                                                                                                                                                                                             |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Autenticação**                    | processo para assegurar que o comprador é realmente aquele quem diz ser (portador legítimo), geralmente ocorre no banco emissor com uso de um token digital ou cartão com chaves de segurança.                        |
+| **Cancelamento**                    | processo para cancelar uma compra realizada com cartão.                                                                                                                                                               |
+| **Captura**                         | processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizá-la em seu extrato ou fatura.                                                 |
+| **Chave de acesso**                 | é um código de segurança específico de cada loja, gerado pela Cielo, usada para realizar a autenticação e comunicação em todas as mensagens trocadas com a Cielo. Também conhecido como chave de produção e key data. |
+| **Comprador**                       | é o aquele que efetua compra na loja virtual.                                                                                                                                                                         |
+| **Emissor (ou banco emissor)**      | É a instituição financeira que emite o cartão de crédito, débito ou voucher.                                                                                                                                          |
+| **Estabelecimento comercial ou EC** | Entidade que responde pela loja virtual.                                                                                                                                                                              |
+| **Gateway de pagamentos**           | Empresa responsável pelo integração técnica e processamento das transações.                                                                                                                                           |
+| **Número de credenciamento**        | é um número identificador que o lojista recebe após seu credenciamento junto à Cielo.                                                                                                                                 |
+| **Portador**                        | é a pessoa que tem o porte do cartão no momento da venda.                                                                                                                                                             |
+| **SecureCode**                      | programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce.                                                                                    |
+| **TID (Transaction Identifier)**    | código composto por 20 caracteres que identificada unicamente uma transação Cielo eCommerce.                                                                                                                          |
+| **Transação**                       | é o pedido de compra do portador do cartão na Cielo.                                                                                                                                                                  |
+| **VBV (Verified by Visa)**          | Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.                                                                                            |
+| **Autorização**                     |processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios, etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação.|
 
 ## Produtos e Bandeiras suportadas
 
@@ -278,16 +278,16 @@ Para melhor utilização do Meio de Pagamento Simulado, estamos disponibilizando
 
 **Os `status` das transações são definidos pelos FINAIS de cada cartão, assim como o `ReturnCode` .**
 
-|Status da Transação|Final do Cartão|Código de Retorno|Mensagem de Retorno|
-|---|---|---|---|
-|Autorizado|0000.0000.0000.0001<br>0000.0000.0000.0004|4|Operação realizada com sucesso|
-|Não Autorizado|0000.0000.0000.0002|2|Não Autorizada|
-|Autorização Aleatória|0000.0000.0000.0009|4 / 99|Operation Successful / Time Out|
-|Não Autorizado|0000.0000.0000.0007|77|Cartão Cancelado|
-|Não Autorizado|0000.0000.0000.0008|70|Problemas com o Cartão de Crédito|
-|Não Autorizado|0000.0000.0000.0005|78|Cartão Bloqueado|
-|Não Autorizado|0000.0000.0000.0003|57|Cartão Expirado|
-|Não Autorizado|0000.0000.0000.0006|99|Time Out|
+| Status da Transação   | Final do Cartão                            | Código de Retorno | Mensagem de Retorno               |
+|-----------------------|--------------------------------------------|-------------------|-----------------------------------|
+| Autorizado            | 0000.0000.0000.0001<br>0000.0000.0000.0004 | 4                 | Operação realizada com sucesso    |
+| Não Autorizado        | 0000.0000.0000.0002                        | 2                 | Não Autorizada                    |
+| Autorização Aleatória | 0000.0000.0000.0009                        | 4 / 99            | Operation Successful / Time Out   |
+| Não Autorizado        | 0000.0000.0000.0007                        | 77                | Cartão Cancelado                  |
+| Não Autorizado        | 0000.0000.0000.0008                        | 70                | Problemas com o Cartão de Crédito |
+| Não Autorizado        | 0000.0000.0000.0005                        | 78                | Cartão Bloqueado                  |
+| Não Autorizado        | 0000.0000.0000.0003                        | 57                | Cartão Expirado                   |
+| Não Autorizado        | 0000.0000.0000.0006                        | 99                | Time Out                          |
 
 Exemplo de um Cartão de teste - 4024.0071.5376.3191
 
@@ -302,11 +302,11 @@ As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, 
 Outros meios de pagamento não possuem cartões ou dados específicos simulados, como no caso do cartão de crédito.
 Abaixo especificamos qualquer diferença existente:
 
-|Meio de pagamento|Diferenças|
-|---|---|
-|Boleto|Não há diferenças de integração.|
-|Cartão de débito|O `provider` utilizado deve ser **SIMULADO** <br> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação|
-|Transferência online|O `provider` utilizado deve ser **SIMULADO** <br> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação|
+| Meio de pagamento    | Diferenças                                                                                                                                                           |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Boleto               | Não há diferenças de integração.                                                                                                                                     |
+| Cartão de débito     | O `provider` utilizado deve ser **SIMULADO** <br> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação |
+| Transferência online | O `provider` utilizado deve ser **SIMULADO** <br> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação |
 
 # Pagamentos com Cartão de Crédito
 
@@ -381,23 +381,23 @@ curl
 --verbose
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
-|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
-|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+| Propriedade                 | Tipo   | Tamanho | Obrigatório | Descrição                                                                                              |
+|-----------------------------|--------|---------|-------------|--------------------------------------------------------------------------------------------------------|
+| `MerchantId`                | Guid   | 36      | Sim         | Identificador da loja na Cielo.                                                                        |
+| `MerchantKey`               | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Cielo.                                                        |
+| `RequestId`                 | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. |
+| `MerchantOrderId`           | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                     |
+| `Customer.Name`             | Texto  | 255     | Não         | Nome do Comprador.                                                                                     |
+| `Customer.Status`           | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                               |
+| `Payment.Type`              | Texto  | 100     | Sim         | Tipo do Meio de Pagamento.                                                                             |
+| `Payment.Amount`            | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                             |
+| `Payment.Provider`          | Texto  | 15      | ---         | Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.                    |
+| `Payment.Installments`      | Número | 2       | Sim         | Número de Parcelas.                                                                                    |
+| `CreditCard.CardNumber`     | Texto  | 19      | Sim         | Número do Cartão do Comprador.                                                                         |
+| `CreditCard.Holder`         | Texto  | 25      | Não         | Nome do Comprador impresso no cartão.                                                                  |
+| `CreditCard.ExpirationDate` | Texto  | 7       | Sim         | Data de validade impresso no cartão.                                                                   |
+| `CreditCard.SecurityCode`   | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                                           |
+| `CreditCard.Brand`          | Texto  | 10      | Sim         | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).                      |
 
 ### Resposta
 
@@ -508,17 +508,17 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|20|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|40|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|300|Texto alfanumérico|
-|`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
+| Propriedade         | Descrição                                                                                                                      | Tipo  | Tamanho | Formato                              |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
+| `ProofOfSale`       | Número da autorização, identico ao NSU.                                                                                        | Texto | 20      | Texto alfanumérico                   |
+| `Tid`               | Id da transação na adquirente.                                                                                                 | Texto | 40      | Texto alfanumérico                   |
+| `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 300     | Texto alfanumérico                   |
+| `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
+| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
+| `Status`            | Status da Transação.                                                                                                           | Byte  | ---     | 2                                    |
+| `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
+| `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 
 ## Criando uma transação completa
 
