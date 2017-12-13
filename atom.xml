@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-13T16:19:55+00:00</updated>
+    <updated>2017-12-13T16:23:13+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4026,65 +4026,6 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 &lt;p&gt;Atualmente a Cielo LIO está disponível em 2 modelos: LIO V1 e LIO V2&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v1_v2.png&quot; alt=&quot;Comparação - LIO V1 e LIO V2&quot; /&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;LIO V1&lt;/th&gt;
-      &lt;th&gt;LIO V2&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;1&lt;/strong&gt;: Gerencie suas vendas&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;1&lt;/strong&gt;: Gerencie suas vendas&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;2&lt;/strong&gt;: Wi-Fi + 3G&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;2&lt;/strong&gt;: Wi-Fi + 3G&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;3&lt;/strong&gt;: Tela touch&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;3&lt;/strong&gt;: Tela touch&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;4&lt;/strong&gt;: loja de aplicativos Cielo Store&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;4&lt;/strong&gt;: loja de aplicativos Cielo Store&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;5&lt;/strong&gt;: Sistema operacional Cielo OS (Android)&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;5&lt;/strong&gt;: Sistema operacional Cielo OS (Android)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;6&lt;/strong&gt;: Aceita um monte de cartões&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;6&lt;/strong&gt;: Aceita um monte de cartões&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;7&lt;/strong&gt;: Teclado físico&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;7&lt;/strong&gt;: Teclado físico&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;8&lt;/strong&gt;: Câmera com leitor de código de barras&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;8&lt;/strong&gt;: Câmera com leitor de código de barras&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;9&lt;/strong&gt;: Flash integrado&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;9&lt;/strong&gt;: Flash integrado&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;10&lt;/strong&gt;: Carregador&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;10&lt;/strong&gt;: Carregador&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;11&lt;/strong&gt;: Impressora térmica&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;12&lt;/strong&gt;: NFC&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
 
 &lt;p&gt;Ambos os modelos foram desenvolvidos pela Cielo pensando em atender as necessidades específicas de alguns clientes.&lt;/p&gt;
 
