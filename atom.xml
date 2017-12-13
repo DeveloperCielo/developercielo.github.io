@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-13T13:03:36+00:00</updated>
+    <updated>2017-12-13T13:04:42+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29009,7 +29009,7 @@ Basta acessar nosso &lt;a href=&quot;https://developercielo.github.io/Tutorial//
 
 &lt;p&gt;Abaixo, é demonstrado como o fluxo de compra ocorre na integração via API:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.iohttps://developercielo.github.io/images/checkout/intapi.png&quot; alt=&quot;Integração Via API&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.iohttps://developercielo.github.io/images/checkout/int-api.png&quot; alt=&quot;Integração Via API&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;criando-o-carrinho&quot;&gt;Criando o Carrinho&lt;/h3&gt;
 
