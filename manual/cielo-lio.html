@@ -2563,6 +2563,259 @@ Iniciar processo de pagamento</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg" alt="fluxo parcial" /></p>
 
+<h1 id="cielo-store">Cielo Store</h1>
+
+<h2 id="sobre-3">Sobre</h2>
+
+<p>A Cielo Store é a loja de aplicativos da Cielo LIO.</p>
+
+<p>Foi um ambiente criado para parceiros, empresas de software e desenvolvedores possam criar seus aplicativos, publicar e disponibilizar seus aplicativos na Cielo Store para serem utilizados por clientes que usam a plataforma Cielo LIO.</p>
+
+<p>Os lojistas poderão acessar a Cielo Store por meio da Cielo LIO e fazer download dos aplicativos que melhor atendem seu modelo de negócio e que têm por objetivo facilitar a gestão e controle de suas vendas, melhorar o relacionamento deles com seus clientes e impulsionar suas vendas</p>
+
+<p>Os desenvolvedores poderão acessar o Dev Console para fazer a publicação de seus aplicativos e disponibilizar na Cielo Store.</p>
+
+<h2 id="arquitetura-1">Arquitetura</h2>
+
+<p>Para entender a arquitetura da Cielo Store é necessário entender os 3 conceitos abaixo:</p>
+
+<ul>
+  <li>
+    <p><strong>Dev Console</strong>
+ Ambiente exclusivo para o desenvolvedor fazer o upload dos seus aplicativos.
+ <a href="https://developercielo.github.io/manual/cielo-lio#dev-console">Saiba mais</a></p>
+  </li>
+  <li>
+    <p><strong>Aplicativo Próprios</strong>
+ Aplicativos desenvolvidos para serem distribuídos a clientes específicos. Os aplicativos próprios não estarão disponíveis para download na Cielo Store.
+ <a href="https://developercielo.github.io/manual/cielo-lio#aplicativos-próprios">Saiba mais</a></p>
+  </li>
+  <li>
+    <p><strong>Loja Privada</strong>
+ Modelo específico utilizado para distribuição de aplicativos próprios para os lojistas.
+ <a href="https://developercielo.github.io/manual/cielo-lio#loja-privada">Saiba mais</a></p>
+  </li>
+  <li>
+    <p><strong>Aplicativos Públicos</strong>
+ Aplicativos desenvolvidos para serem disponibilizados na loja de aplicativo Cielo Store. Esses aplicativos poderão ser baixados por estabelecimentos comerciais (lojistas) acessando a Cielo Store via Cielo LIO.
+ <a href="https://developercielo.github.io/manual/cielo-lio#aplicativos-públicos">Saiba mais</a></p>
+  </li>
+</ul>
+
+<h2 id="dev-console">Dev Console</h2>
+
+<h3 id="sobre-4">Sobre</h3>
+
+<p>O Dev Console é o ambiente exclusivo para o desenvolvedor realizar o upload e gestão dos aplicativos desenvolvidos para a Cielo LIO.</p>
+
+<p>No Dev Console o desenvolvedor consegue visualizar todos os seus aplicativos publicados sejam eles aplicativos próprios ou públicos.</p>
+
+<p>Acesse agora o Dev Console: https://www.cieloliostore.com.br</p>
+
+<h3 id="status-de-um-aplicativo">Status de um aplicativo</h3>
+
+<p>Todos os aplicativos publicados no Dev Console possuem os seguintes status:</p>
+
+<p><strong>1 - Desenvolvimento</strong></p>
+
+<p>Nesse estágio o desenvolvedor consegue realizar testes do seu aplicativo em uma Cielo LIO. E caso precise fazer alguma correção, basta publicar uma nova versão do aplicativo pelo Dev Console e então atualizar na Cielo LIO.</p>
+
+<p>Para obter uma LIO durante o desenvolvimento, o desenvolvedor pode se credenciar na Cielo e solicitar uma Cielo LIO. Após o recebimento da LIO, basta solicitar a habilitação para LIO de Dev.</p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#lio-para-desenvolvedores">Saiba mais</a></p>
+
+<p><strong>2 - Certificação</strong></p>
+
+<p>Uma vez concluído os testes o desenvolvedor envia o aplicativo para Certificação. Nessa etapa o time da Ceritficação da Cielo entra em ação e irá validar o fluxo de funcionamento do aplicativo principalmente nas etapas integradas ao pagamento.</p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#promover-aplicativo-para-produção">Saiba mais</a></p>
+
+<p><strong>2 - Produção</strong></p>
+
+<p>Assim que o aplicativo for aprovado na certificação, o desenvolvedor poderá promover para produção.</p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#certificação-de-aplicativos">Saiba mais</a></p>
+
+<p>No caso de Aplicativo Público em produção este estará disponpivel para download na Cielo Store</p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#aplicativos-públicos">Saiba mais</a></p>
+
+<p>No caso de Aplicativo Próprio o desenvolvedor deverá solicitar a distribuição para as LIOs que devem receber seu aplicativo.</p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-póprios">Saiba mais</a></p>
+
+<h3 id="lio-para-desenvolvedores">LIO para Desenvolvedores</h3>
+
+<p>Os desenvolvedores que desejam obter uma Cielo LIO, podem se credenciar na Cielo e solicitar o equipamento. Todo esse procedimento pode ser realizados via <a href="https://www.cielo.com.br/">site da Cielo</a>.</p>
+
+<p>Após o recebimento da Cielo LIO, o desenvolvedor deve entrar em contato via canal do Portal de Desenvolvedores e solicitar a habilitação de sua LIO para LIO de Dev preenchendo as informações necessárias.</p>
+
+<p><em>É preciso ter uma conta criado no Dev Console para fazer essa solicitação</em>.</p>
+
+<p>Nosso time irá realizar os procedimentos necessários e então, todos os aplicativos publicados pelo desenvolvedor que estejam no status de Desenvolvimento poderão ser baixados em sua Cielo LIO de desenvolvimento.</p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev">CLIQUE AQUI</a> para solicitar a habilitação de sua LIO para LIO de Dev.</p>
+
+<h3 id="loja-privada">Loja Privada</h3>
+
+<p>A loja privada foi um modelo criado para permitir a distribuição dos aplicativos próprios desenvolvidos pelo parceiro. É necessário solicitar a criação da Loja Privada para então ser possível fazer o upload de um aplicativo próprio no Dev Console.</p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev">CLIQUE AQUI</a> para solicitar a criação da Loja Privada.</p>
+
+<p>A partir da Loja Privada criada, o desenvolvedor poderá publicar seu aplicativo no Dev Console selecionando sua loja privada.</p>
+
+<p>A loja privada é essencial para realizar a distribuição de aplicativos próprios lojistas específicos.</p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-próprios">SAIBA MAIS</a></p>
+
+<h3 id="certificação-de-aplicativos">Certificação de Aplicativos</h3>
+
+<p>O objetivo da certificação de aplicativos é garantir que todos os aplicativos presentes na plataforma Cielo LIO, sejam próprios ou públicos, estejam de acordo com as regras e critérios estabelecidos pela Cielo.</p>
+
+<p>A certificação de aplicativos da Cielo LIO visa garantir os seguintes pontos:</p>
+
+<ul>
+  <li>Fluxo de pagamento funcione corretamente</li>
+  <li>Os conteúdos no aplicativos não violem as regras da Cielo</li>
+  <li>Os SKUs dos produtos são enviados corretamente</li>
+  <li>Informações para vitrine da Cielo Store estejam preenchidas corretamente, exclusivo para aplicativos públicos</li>
+</ul>
+
+<h3 id="promover-aplicativo-para-produção">Promover Aplicativo para Produção</h3>
+
+<p>Assim que o aplicativo for aprovado na certificação, o desenvolvedor receberá um e-mail de notificação e então, deverá promover seu aplicativo para produção de forma que este fique:</p>
+
+<ul>
+  <li>Disponível para download na Cielo Store (Aplicativo Público)</li>
+  <li>Disponível para distribuição à lojistas específicos (Aplicativo Próprio)</li>
+</ul>
+
+<h3 id="mensagens-de-erro">Mensagens de Erro</h3>
+
+<p>A tabela apresenta os possíveis erros que o desenvolvedor pode encontrar durante a utilização do Dev Console:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Referência</th>
+      <th>Mensagem</th>
+      <th>Cenário</th>
+      <th>O que fazer?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>APP CREATED_ERROR</td>
+      <td>Aplicativo com esse package name já existe</td>
+      <td>Desenvolvedor tentou enviar uma aplicação com package name já existente na loja.</td>
+      <td>Alterar no arquivo Manifest o packageName da aplicação</td>
+    </tr>
+    <tr>
+      <td>APP APK_PARSER_ERROR</td>
+      <td>O arquivo .apk é obrigatório</td>
+      <td>Desenvolvedor tentou executar o upload de uma aplicação e não anexou o arquivo .apk</td>
+      <td>Clicar no botão “Adicione um APK” e certificar de que foi escolhido o arquivo correto.</td>
+    </tr>
+    <tr>
+      <td>APP APK_PARSER_ERROR</td>
+      <td>Não foi possível obter o atributo Name / Não foi possível obter o atributo Package Name / Não foi possível obter o atributo Version Name / Não foi possível obter o atributo Version Code</td>
+      <td>Desenvolvedor tentou executar o upload de uma aplicação onde o arquivo manifest ou o apk está corrompido ou com problemas na configuração do arquivo manifest</td>
+      <td>Rebuildar o apk e verificar se não existem erros no arquivo Manifest do Android</td>
+    </tr>
+    <tr>
+      <td>SCREENSHOTS CREATED_WARNING</td>
+      <td>Aplicativo criado, porém as screenshots não foram salvas!</td>
+      <td>Na criação do app, o Desenvolvedor enviou screenshots onde os arquivos de imagem contém extensões incomuns ou desconhecidas.</td>
+      <td>Editar o app e enviar arquivos de imagens com extensões conhecidas.</td>
+    </tr>
+    <tr>
+      <td>SCREENSHOTS UPDATED_WARNING</td>
+      <td>Aplicativo atualizado, porém as screenshots não foram salvas!</td>
+      <td>Na edição do app, o Desenvolvedor enviou screenshots onde os arquivos de imagem contém extensões incomuns ou desconhecidas.</td>
+      <td>Editar novamente o app e enviar arquivos de imagens com extensões conhecidas.</td>
+    </tr>
+    <tr>
+      <td>VERSION PROMOTE_ERROR (esse cenário só ocorre com aplicativos públicos)</td>
+      <td>É necessário um EC cadastrado para promover essa versão para produção.</td>
+      <td>Após a aplicação ter tido a certificação aprovada, o Desenvolvedor tentou promover o app para produção, porém ainda não possui um EC.</td>
+      <td>Solicitar à Cielo a criação de um EC para poder promover a aplicação para promoção.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Caso você desenvolvedor não encontre o erro nesta tabela, abra um ticket para a equipe de suporte reportando o problema encontrado e lembre-se de listar as evidências do erro como prints de tela e mensagens de erro recebidas.</p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev">CLIQUE AQUI</a></p>
+
+<h2 id="aplicativos-próprios">Aplicativos Próprios</h2>
+
+<p>Os aplicativos próprios atendem especificamente aqueles desenvolvedores que desejam disponibilizar seu aplicativo apenas para alguns lojistas específicos. O aplicativo próprio não é disponibilizado na Cielo Store e nem utilizado por outros lojistas que não tenham sido solicitados pelo desenvolvedor.</p>
+
+<p>Para conhecer mais sobre o modelo de distribuição de aplicativos próprios, <a href="https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-próprios">CLIQUE AQUI</a></p>
+
+<h3 id="upload-de-novos-aplicativos-próprios-e-novas-versões">Upload de novos Aplicativos Próprios e novas versões</h3>
+
+<p>Para realizar o upload de novos aplicativos próprios, acesse o Dev Console e adicione um novo aplicativo selecionando a opção de loja privada e em seguida selecione a loja privada referente a sua empresa.</p>
+
+<p>Caso o desenvolvedor esteja realizando uma alteração ou atualização no aplicativo próprio, o desenvolvedor deverá fazer o upload de uma nova versão do aplicativo. Para isso clique em Detalhes do seu aplicativo e inicie o procedimento para adicionar uma nova versão.</p>
+
+<p>Para enviar uma nova versão do aplicativo é obrigatório que:</p>
+
+<ul>
+  <li>
+    <p>Garantir que a versão mais recente do aplicativo esteja com o mesmo package name da versão anterior;</p>
+  </li>
+  <li>
+    <p>Alterar o “version code” e o “version name” dentro do arquivo manifest do aplicativo.</p>
+  </li>
+</ul>
+
+<h3 id="distribuição-de-aplicativos-próprios">Distribuição de Aplicativos Próprios</h3>
+
+<p>Aqueles desenvolvedores que optarem por desenvolver aplicativos próprios e distribuir apenas para lojistas específicos devem solicitar via canal do Portal de Desenvolvedores informando quais os números ECs (número com 16 dígitos) e lógicos das LIOs que devem receber o aplicativo.</p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev">CLIQUE AQUI</a> para solicitar a distribuição de seu aplicativo.</p>
+
+<h3 id="download-de-aplicativo-próprios-na-cielo-lio">Download de Aplicativo Próprios na Cielo LIO</h3>
+
+<p>Para realizar o download de aplicativos próprios na Cielo LIO, execute o seguinte procedimento</p>
+
+<p>Clique na aba Ajuda -&gt; Minha LIO -&gt; Buscar atualizações</p>
+
+<h2 id="aplicativos-públicos">Aplicativos Públicos</h2>
+
+<p>Os aplicativos públicos são indicados para aqueles desenvolvedores e parceiros que desejam disponibilizar e escalar sua aplicação e permitir o download em todas os equipamentos de Cielo LIO distribuídos nos estabelecimentos comerciais (lojistas) no Brasil via aplicativo da Cielo Store.</p>
+
+<p>Para conhecer mais sobre a Cielo Store, <a href="https://developercielo.github.io/manual/cielo-lio#cielo-store">CLIQUE AQUI</a></p>
+
+<h3 id="upload-de-novos-aplicativos-públicos-e-novas-versões">Upload de novos Aplicativos Públicos e novas versões</h3>
+
+<p>Para realizar o upload de novos aplicativos públicos, acesse o Dev Console e adicione um novo aplicativo selecionando a opção de loja pública e em seguida selecione o arquivo do aplicativo.</p>
+
+<p>Caso o desenvolvedor esteja realizando uma alteração ou atualização no aplicativo público, o desenvolvedor deverá fazer o upload de uma nova versão do aplicativo. Para isso clique em Detalhes do seu aplicativo e inicie o procedimento para adicionar uma nova versão.</p>
+
+<p>Para enviar uma nova versão do aplicativo é obrigatório que:</p>
+
+<ul>
+  <li>
+    <p>Garantir que a versão mais recente do aplicativo esteja com o mesmo package name da versão anterior;</p>
+  </li>
+  <li>
+    <p>Alterar o “version code” e o “version name” dentro do arquivo manifest do aplicativo.</p>
+  </li>
+</ul>
+
+<h3 id="aplicativos-públicos-na-cielo-store">Aplicativos Públicos na Cielo Store</h3>
+
+<p>Assim que o aplicativo público for certificado, o desenvolvedor deverá promover para produção seu aplicativo e a partir desse momento este será adicionado na vitrine da Cielo Store e disponível para download via Cielo LIO.</p>
+
+<p>Ou seja, estabelecimentos comerciais (lojistas) poderão acessar a Cielo Store via Cielo LIO, realizar o download de sua aplicação e então começar a utilização.</p>
+
+<h3 id="download-de-aplicativo-públicos-na-cielo-lio">Download de Aplicativo Públicos na Cielo LIO</h3>
+
+<p>Para realizar o download de aplicativos públicos na Cielo LIO, execute o seguinte procedimento
+Clique na aba Apps -&gt; Clique no aplicativo Cielo Store -&gt; Escolha o aplicativo que deseja realizar o download</p>
+
 </div>
 
 
