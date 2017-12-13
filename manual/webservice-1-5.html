@@ -3296,6 +3296,387 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="notice">Os cancelamentos (parciais ou totais) das transações com taxa de embarque e captura parcial não serão acatadas automaticamente pelo sistema.</aside>
 
+<h1 id="processamento-em-lote">Processamento em lote</h1>
+
+<p>O Processamento em Lote permite que sejam transmitidas em uma única chamada um conjunto
+com várias transações, essas transações serão processadas e disponibilizadas através de um arquivo de
+retorno no formato XML.</p>
+
+<h2 id="o-que-é-o-processamento-em-lote">O que é o Processamento em Lote</h2>
+
+<p>O Processamento em Lote é baseado em um arquivo XML, o qual deve conter uma lista com as transações que compõem o lote, estas transações não devem exigir autenticação, pois será executada diretamente pela Cielo, após a geração do arquivo pelo Estabelecimento Comercial, deve ser enviado para Cielo utilizando o protocolo HTTPS.</p>
+
+<p>Após o recebimento do arquivo, é feita uma pré-validação pela Cielo e o mesmo entra em uma fila para processamento, sendo que este processo é agendado para ser executado de hora em hora.</p>
+
+<p>No momento da pré-validação arquivo poderá ser rejeitado, caso seja enviado em branco ou com formatação inválida.</p>
+
+<aside class="notice">Após o prazo de doze horas o Estabelecimento Comercial poderá solicitar o download do arquivo de retorno.</aside>
+
+<h2 id="integração">Integração</h2>
+
+<h3 id="regras">Regras</h3>
+
+<p>Processamento em Lote deverá seguir as seguintes regras:</p>
+
+<aside class="warning">O lote deverá respeitar os limites informados abaixo. Caso não sejam respeitados, o arquivo será rejeitado.</aside>
+
+<p>1 - O XML para processamento em lote está definido através do “ecm-lote.xsd” que possui dependência com o ecommerce.xsd.
+2 - O arquivo deverá respeitar o limite de 20MB (aprox.: 27.000 transações).
+3 - O processamento em lote suporta os mesmos tipos de operações do transacional online. Veja a tabela em anexo.</p>
+
+<p>Os dados do Estabelecimento Comercial serão informados uma única vez dentro do lote, ou seja, o pacote de transações pertence exclusivamente ao Estabelecimento informado no arquivo.
+O lote a ser gerado deverá conter uma ou mais transações do mesmo tipo de operação, caso mais de um tipo seja enviado no lote, o arquivo será rejeitado.</p>
+
+<p>4 - A nomenclatura do arquivo deverá respeitar a regra abaixo e conter a seguinte estrutura e tamanhos de campo:</p>
+
+<p>Exemplo: <code class="highlighter-rouge">ECOMM_1006993069_02_20121002_0000000086.xml</code></p>
+
+<ul>
+  <li>a) Prefixo – obrigatoriamente deve iniciar com “ECOMM”;</li>
+  <li>b) N.o Afiliação EC – número de afiliação do Estabelecimento Comercial, com a Cielo, deverá conter dez dígitos;</li>
+  <li>c) Tipo de operação – deverá conter dois dígitos e para o código do tipo de operação vide tabela acima;</li>
+  <li>d) Data de geração do arquivo – data em que o arquivo foi gerado, deve ser no formato yyyymmdd;</li>
+  <li>e) Numero do lote – número do lote deverá ser sequencial e conter dez dígitos preenchidos com zeros à esquerda;</li>
+  <li>f) Extensão do arquivo – deve ser XML obrigatoriamente.</li>
+</ul>
+
+<h2 id="mensagens">Mensagens</h2>
+
+<h3 id="mensagem-de-upload-de-arquivo">Mensagem de Upload de Arquivo</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+    2012-10-08T09:38:04.284-03:00
+    2012-10-09T09:38:04.284-03:00
+    Seu lote está válido para processamento. Favor aguardar o determinado para retorno.
+
+</code></pre></div></div>
+
+<p>Após a geração do arquivo, o Estabelecimento Comercial deverá efetuar o seu upload através do protocolo HTTPS, utilizando o método POST, na seguinte URL <a href="http://ecommerce.cbmp.com.br/lote/ecommwsecLoteUpload.do">http://ecommerce.cbmp.com.br/lote/ecommwsecLoteUpload.do</a>.</p>
+
+<p>Após o envio, o Estabelecimento Comercial receberá o seguinte XML de retorno:</p>
+
+<h3 id="mensagem-de-solicitação-de-download-de-retorno">Mensagem de Solicitação de Download de Retorno</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+   
+   1006993069 
+   25fbb997438630f30b112d033ce2e621b34f3
+   
+   0000000086
+
+</code></pre></div></div>
+
+<p>O Estabelecimento Comercial poderá solicitar o download do arquivo de retorno, após doze horas no mínimo, montando a seguinte mensagem:</p>
+
+<p>A tabela abaixo detalha as TAGS do XML que podem ser enviadas na mensagem para definir as configurações da transação para o Processamento em Lote:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Elemento</th>
+      <th>Tipo</th>
+      <th>Obrigatoriedade</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data-envio</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Data e horário de envio da mensagem de upload de arquivo pelo Estabelecimento Comercial</td>
+    </tr>
+    <tr>
+      <td>data-retorno</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Data e horário que a Cielo respondeu para o Estabelecimento Comercial o recebimento do arquivo</td>
+    </tr>
+    <tr>
+      <td>mensagem</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Mensagem de resposta enviado pela Cielo</td>
+    </tr>
+    <tr>
+      <td>numero-lote</td>
+      <td>N</td>
+      <td>Sim</td>
+      <td>1..10</td>
+      <td>Número do lote que foi solicitado o upload</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ao receber esta mensagem, a plataforma Cielo eCommerce verificará se o lote está processado e o se o arquivo está gerado no outbox, com as validações positivas, o arquivo de retorno é devolvido para o Estabelecimento Comercial, caso contrário, será retornado um XML cuja mensagem informa em qual etapa o processo está pendente.</p>
+
+<p>Caso o arquivo tenha sido gerado, porem não está no outbox, pode ter ocorrido limpeza do storage, neste caso, automaticamente, ocorre um evento que solicita a segunda via do arquivo. O Estabelecimento Comercial será informado através de uma mensagem XML retorno, que uma nova requisição deverá ser feita mais tarde, para que um novo arquivo seja gerado.</p>
+
+<h2 id="anexo">Anexo</h2>
+
+<h3 id="tipos-de-operações-do-transacional-online">Tipos de operações do transacional online</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de operação</th>
+      <th>Código</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Autorização</td>
+      <td>02</td>
+    </tr>
+    <tr>
+      <td>Cancelamento</td>
+      <td>03</td>
+    </tr>
+    <tr>
+      <td>Captura</td>
+      <td>04</td>
+    </tr>
+    <tr>
+      <td>Tokenização</td>
+      <td>05</td>
+    </tr>
+    <tr>
+      <td>Consulta</td>
+      <td>06</td>
+    </tr>
+    <tr>
+      <td>ConsultaChSeq</td>
+      <td>07</td>
+    </tr>
+    <tr>
+      <td>AutorizaçãoTid</td>
+      <td>08</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="códigos-de-resposta">Códigos de resposta</h3>
+
+<p>Os erros que podem ser apresentados na mensagem XML, através da TAG , estão dispostos a seguir:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Erro</th>
+      <th>Descrição</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>071</td>
+      <td>Inconsistência no formato do arquivo</td>
+      <td>Lote inválido, arquivo não é um XML com formato inválido</td>
+      <td>Rever a formatação do arquivo</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>Este arquivo já foi enviado para processamento</td>
+      <td>Lote duplicado, já existe um lote com o mesmo numero para o EC</td>
+      <td>Rever a sequência numérica dos lotes</td>
+    </tr>
+    <tr>
+      <td>073</td>
+      <td>Tipo de transação inválido</td>
+      <td>Mais de um único tipo de operação no lote</td>
+      <td>Rever os tipos de transações que estão contemplados no lote</td>
+    </tr>
+    <tr>
+      <td>074</td>
+      <td>Arquivo inexistente</td>
+      <td>Arquivo não consta na plataforma Cielo eCommerce</td>
+      <td>Rever informações do arquivo enviado anteriormente</td>
+    </tr>
+    <tr>
+      <td>075</td>
+      <td>Formatação do XML inválida</td>
+      <td>Erro de parse do arquivo, formatação do xml no arquivo inválida</td>
+      <td>Rever a formatação do xml</td>
+    </tr>
+    <tr>
+      <td>076</td>
+      <td>Nomenclatura incorreta</td>
+      <td>Nomenclatura do arquivo incorreta</td>
+      <td>Rever estrutura do nome do arquivo</td>
+    </tr>
+    <tr>
+      <td>079</td>
+      <td>Erro inesperado</td>
+      <td>Falha no Sistema</td>
+      <td>Persistindo, entrar em contato com o Suporte.</td>
+    </tr>
+    <tr>
+      <td>080</td>
+      <td>Inconsistência no conteúdo e nomenclatura</td>
+      <td>Tipos diferentes de operações presentes no conteúdo arquivo e na nomenclatura</td>
+      <td>Rever conteúdo e nomenclatura do arquivo</td>
+    </tr>
+    <tr>
+      <td>081</td>
+      <td>Lote em processamento</td>
+      <td>Lote ainda não processado</td>
+      <td>Enviar nova requisição mais tarde</td>
+    </tr>
+    <tr>
+      <td>082</td>
+      <td>Arquivo expirado</td>
+      <td>Arquivo de lote expirado</td>
+      <td>Enviar nova requisição mais tarde</td>
+    </tr>
+    <tr>
+      <td>083</td>
+      <td>Numero de lote inválido</td>
+      <td>Numero de lote inválido</td>
+      <td>Rever número de lote</td>
+    </tr>
+    <tr>
+      <td>084</td>
+      <td>Número de EC Inválido</td>
+      <td>Número de EC Inválido</td>
+      <td>Rever número do EC</td>
+    </tr>
+    <tr>
+      <td>085</td>
+      <td>Credenciais inválidas</td>
+      <td>Credenciais inválidas</td>
+      <td>Rever credenciais</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="arquivo-ecm-lotexsd">Arquivo ECM-LOTE.XSD</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+
+    
+
+
+    
+        
+            
+
+            
+        
+    
+
+
+
+    
+
+    
+
+    
+        
+            
+            
+            
+                        
+            
+                
+                    
+                        2: Autorização 3:Cancelamento 4:Captura 5:Tokenização 6:Consulta 7:ConsultaChSec 8:AutorizacaoTid
+                    
+                
+                
+                    
+                                                
+                    
+                
+            
+            
+            
+
+        
+    
+
+    
+        
+            
+            
+            
+        
+    
+    
+    
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+        
+    
+
+    
+        
+            
+            
+            
+        
+    
+
+    
+        
+            
+                
+                    
+                    
+                
+            
+        
+    
+
+    
+        
+            
+            
+            
+            
+            
+        
+    
+
+    
+    
+
+    
+    
+    
+    
+        
+            
+                        
+                        
+        
+    
+
+    
+
+</code></pre></div></div>
+
 <h1 id="testes-e-homologação">Testes e Homologação</h1>
 
 <h2 id="endpoint">Endpoint</h2>
