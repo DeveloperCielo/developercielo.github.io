@@ -1503,7 +1503,6 @@ retorno no formato XML.
 
 O Processamento em Lote é baseado em um arquivo XML, o qual deve conter uma lista com as transações que compõem o lote, estas transações não devem exigir autenticação, pois será executada diretamente pela Cielo, após a geração do arquivo pelo Estabelecimento Comercial, deve ser enviado para Cielo utilizando o protocolo HTTPS.
 
-
 Após o recebimento do arquivo, é feita uma pré-validação pela Cielo e o mesmo entra em uma fila para processamento, sendo que este processo é agendado para ser executado de hora em hora.
 
 No momento da pré-validação arquivo poderá ser rejeitado, caso seja enviado em branco ou com formatação inválida.
