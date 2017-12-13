@@ -52,7 +52,7 @@ As taxas acordadas entre os participantes, podendo ser um **MDR(%)** e/ou uma **
 
 As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.
 
-> **MDR (*Merchant Discount Rate*):** Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento.
+> **MDR (*Merchant Discount Rate*):** Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento. <br>
 > **Tarifa Fixa:** Valor em centavos a ser cobrado por transação capturada.
 
 #### Braspag (Facilitador)
