@@ -7,6 +7,7 @@ categories: tutorial
 sort_order: 5
 tags:
   - Documentos Adicionais
+  - API e-Commerce Cielo
 ---
 
 # SDKs Api e-Commerce Cielo
