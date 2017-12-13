@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-12T21:10:04+00:00</updated>
+    <updated>2017-12-13T01:45:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1601,7 +1601,7 @@
 &lt;p&gt;As mesmas poderão ser enviadas no momento transacional (captura) ou pós-transacional. Caso não sejam enviadas, serão consideradas as taxas cadastradas e acordadas previamente entre o participantes.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;MDR (&lt;em&gt;Merchant Discount Rate&lt;/em&gt;):&lt;/strong&gt; Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento.
+  &lt;p&gt;&lt;strong&gt;MDR (&lt;em&gt;Merchant Discount Rate&lt;/em&gt;):&lt;/strong&gt; Percentual a ser descontado do valor de uma transação, definido por produto (Crédito / Débito), Bandeira e Faixa de Parcelamento. &lt;br /&gt;
 &lt;strong&gt;Tarifa Fixa:&lt;/strong&gt; Valor em centavos a ser cobrado por transação capturada.&lt;/p&gt;
 &lt;/blockquote&gt;
 
