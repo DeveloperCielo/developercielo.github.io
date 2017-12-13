@@ -1,14 +1,14 @@
 ---
 layout: tutorial
-title:  SDKs Cielo
+title:  SDKs
 description: Lista de Sdks Api cielo ecommerce
 toc_footers: true
 categories: tutorial
 sort_order: 5
 tags:
-  - Documentos Adicionais
   - API e-Commerce Cielo
   - Webservice 1.5
+  - Cielo LIO
 ---
 
 # SDKs Api e-Commerce Cielo
