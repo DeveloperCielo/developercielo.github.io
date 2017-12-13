@@ -382,7 +382,7 @@ Se você não possui um carrinho de compras implementado, veja a seção de **In
 
 Abaixo, é demonstrado como o fluxo de compra ocorre na integração via API:
 
-![Integração Via API]({{site.baseurl_root}}{{ site.baseurl_root }}/images/checkout/int-api.png)
+![Integração Via API]({{site.baseurl_root}}/images/checkout/int-api.png)
 
 ### Criando o Carrinho
 
