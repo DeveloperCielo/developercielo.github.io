@@ -1773,19 +1773,18 @@ Os testes de integração deverão ser realizados antes do início da homologaç
 
 A massa de dados para realizar os testes neste ambiente está disposta na tabela abaixo:
 
-|Bandeira|Autenticação|Número do cartão de teste|Validade|Código de segurança - CVC|
-|---|---|---|---|---|
-|Visa|Sim|4012001037141112|05/2018|123|
-|Mastercard|Sim|5453010000066167|05/2018|123|
-|Visa|Não|4012001038443335|05/2018|123|
-|Mastercard|Não|5453010000066167|05/2018|123|
-|Amex|Não|376449047333005|05/2018|1234|
-|Diners|Não|36490102462661|05/2017|123|
-|Elo|Não|6362970000457013|05/2018|123|
-|Diners|Não||
-|Discover|Não|6011020000245045|05/2018|123|
-|JCB|Não|3566007770004971|05/2018|123|
-|Aura|Não|5078601912345600019|05/2018|123|
+| Bandeira   | Autenticação | Número do cartão de teste | Validade | Código de segurança - CVC |
+|------------|--------------|---------------------------|----------|---------------------------|
+| Visa       | Sim          | 4012001037141112          | 05/2018  | 123                       |
+| Mastercard | Sim          | 5453010000066167          | 05/2018  | 123                       |
+| Visa       | Não          | 4012001038443335          | 05/2018  | 123                       |
+| Mastercard | Não          | 5453010000066167          | 05/2018  | 123                       |
+| Amex       | Não          | 376449047333005           | 05/2018  | 1234                      |
+| Diners     | Não          | 36490102462661            | 05/2017  | 123                       |
+| Elo        | Não          | 6362970000457013          | 05/2018  | 123                       |
+| Discover   | Não          | 6011020000245045          | 05/2018  | 123                       |
+| JCB        | Não          | 3566007770004971          | 05/2018  | 123                       |
+| Aura       | Não          | 5078601912345600019       | 05/2018  | 123                       |
 
 ## Chave de testes
 
