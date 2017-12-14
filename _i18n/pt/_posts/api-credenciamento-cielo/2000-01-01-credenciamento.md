@@ -15,28 +15,32 @@ language_tabs:
 
 # Visão geral
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Credenciamento da Cielo, descrevendo as funcionalidades, fluxo de execução e métodos a serem utilizados
+O objetivo desta documentação é orientar o desenvolvedor sobre como fazer a integração junto à Cielo, para o processo de credenciamento, informando todos os passos, acesso aos recursos disponíveis e como tratar erros e validações necessário.
 
-Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST de Credenciamento Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
+## Público-alvo
+
+***API Privada, necessário liberação para utilização dela, somente colabores Cielo.*** Qualquer dúvida entre em contato através do e-mail: customer.support@sensedia.com
 
 ## O que é
 
-Credenciamento é o processo de afiliação de novos clientes, que serão conhecidos como Estabelecimentos Comerciais e poderão se afiliar à Cielo e solicitar um equipamente lógico (POS / Terminal Lógico) ou site web (ecommerce) ou até mesmo através do cielo app (mobile), permitindo que os mesmos iniciem suas transações de pagamento.
+Credenciamento é o processo de afiliação de novos clientes, conhecidos como Estabelecimentos Comerciais. O fluxo de credenciamento é iniciado através da API, segue para um fluxo interno e posteriormente o novo cliente receberá a liberação para operar autorizações e capturas através de um canal lógico, POS / ecommerce / mobile.
 
 ## Como funciona
 
-A integração é realizada através da operação de POST para o recurso /merchants. Para executar o post corretamente, deve seguir o padrão REST enviando todos os necessários (listados posteriormente).
-
-É possível realizar consultas, através do método GET para obter informações necessárias que irão auxiliar e informar resultados da operação de POST.
+Para integrar a API de credenciamento (afiliação) é necessário integrar as chamadas utilizando os verbos POST e GET do padrão Rest.
 
 | Método   | Descrição                                |
 | -------- | ---------------------------------------- |
 | **POST** | O método HTTP `POST` é utilizado na criação dos recursos ou no envio de informações que serão processadas Por exemplo, criação de uma transação |
 | **GET**  | O método HTTP `GET` é utilizado para consultas de recursos já existentes Por exemplo, consulta de transações |
 
-## Público-alvo
+É necessário validar dados de cadastro:
+- Dados pessoais
+- Domicilio bancário 
+- Endereço
+- Código MCC
 
-Integradores que desejam criar novos canais de credenciamento, seja de forma online através da web ou aplicativos mobile
+Esses dados irão compor as informações necessárias para criar uma proposta de credenciamento, essa proposta é submetida via POST para o recurso /merchants.
 
 ## Diagrama de utilização demostrando o funcionamento da solução
 
