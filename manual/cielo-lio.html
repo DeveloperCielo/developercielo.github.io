@@ -1983,6 +1983,115 @@ Em ambiente de produção, uma vez que um pagamento for realizado na Cielo LIO a
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
+<h4 id="cancelar-pedidos">Cancelar Pedidos</h4>
+
+<p>O cancelamento de pedidos é realizado apenas através da Cielo LIO.
+Selecione a função Cancelamento de Vendas e digite o CNPJ da empresa (o mesmo que pode ser visualizado através do comprovante de pagamento). O sistema irá solicitar a senha para realização da operação, que pode ser obtida através de abertura de ticket na página de Suporte do Portal de desenvolvedores.
+Siga todos os passos indicados nas telas seguintes para o cancelamento da venda. É importante salientar que um cancelamento só pode ser realizado em ser valor integral.</p>
+
+<h4 id="get----consultar-as-transações-canceladas-de-um-pedido">GET -  Consultar as transações canceladas de um pedido</h4>
+
+<p>Esse recurso é utilizado para obter as informações de todas as transações canceladas em um pedido. O id do pedido é utilizado para realizar a chamada.
+Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO a transactions será adicionada automaticamente no pedido juntamente com a transaction do pagamento original.</p>
+
+<blockquote>
+  <p>Endpoint:</p>
+
+  <p><strong>GET</strong> /orders//transactions</p>
+</blockquote>
+
+<p>Dados de entrada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>path parameter</td>
+      <td>Identificador do pedido.</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de requisição:</p>
+
+<blockquote>
+  <p><strong>GET</strong> https://api.cielo.com.br/order-management/v1/orders/c393ce9f-3741-413f-8ad5-2f142eaed51f/transactions</p>
+</blockquote>
+
+<p>Dados de saída:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>transactions</td>
+      <td>Lista (Transaction)</td>
+      <td>Lista de transações de um pedido.</td>
+      <td>SIM</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de resposta:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46019c39-989e-46e9-aa7d-d8e9414396b4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95185.99407021694"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77102648"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"008619"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"672837"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CANCELLATION"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"primary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"secondary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_quotas"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************3542"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"442bbdbe-41c8-4e22-83ee-e1a849ed3cb5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77102648"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"008619"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"672836"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"primary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"secondary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_quotas"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************3542"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
 <h3 id="fluxo-básico-utilização-api-order-manager-cielo-lio">Fluxo Básico Utilização API Order manager Cielo LIO</h3>
 
 <p>Abaixo você encontra um fluxo básico para enviar um pedido para a Cielo LIO utilizando a Integração Remota:</p>
