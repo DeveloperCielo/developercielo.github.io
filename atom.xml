@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-14T18:43:33+00:00</updated>
+    <updated>2017-12-14T19:21:37+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29563,19 +29563,19 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
         <id>https://developercielo.github.io/manual/credenciamento</id>
         <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão geral&lt;/h1&gt;
 
-&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Credenciamento da Cielo, descrevendo as funcionalidades, fluxo de execução e métodos a serem utilizados&lt;/p&gt;
+&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como fazer a integração junto à Cielo, para o processo de credenciamento, informando todos os passos, acesso aos recursos disponíveis e como tratar erros e validações necessário.&lt;/p&gt;
 
-&lt;p&gt;Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST de Credenciamento Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:&lt;/p&gt;
+&lt;h2 id=&quot;público-alvo&quot;&gt;Público-alvo&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;API Privada, necessário liberação para utilização dela, somente colabores Cielo.&lt;/em&gt;&lt;/strong&gt; Qualquer dúvida entre em contato através do e-mail: customer.support@sensedia.com&lt;/p&gt;
 
 &lt;h2 id=&quot;o-que-é&quot;&gt;O que é&lt;/h2&gt;
 
-&lt;p&gt;Credenciamento é o processo de afiliação de novos clientes, que serão conhecidos como Estabelecimentos Comerciais e poderão se afiliar à Cielo e solicitar um equipamente lógico (POS / Terminal Lógico) ou site web (ecommerce) ou até mesmo através do cielo app (mobile), permitindo que os mesmos iniciem suas transações de pagamento.&lt;/p&gt;
+&lt;p&gt;Credenciamento é o processo de afiliação de novos clientes, conhecidos como Estabelecimentos Comerciais. O fluxo de credenciamento é iniciado através da API, segue para um fluxo interno e posteriormente o novo cliente receberá a liberação para operar autorizações e capturas através de um canal lógico, POS / ecommerce / mobile.&lt;/p&gt;
 
 &lt;h2 id=&quot;como-funciona&quot;&gt;Como funciona&lt;/h2&gt;
 
-&lt;p&gt;A integração é realizada através da operação de POST para o recurso /merchants. Para executar o post corretamente, deve seguir o padrão REST enviando todos os necessários (listados posteriormente).&lt;/p&gt;
-
-&lt;p&gt;É possível realizar consultas, através do método GET para obter informações necessárias que irão auxiliar e informar resultados da operação de POST.&lt;/p&gt;
+&lt;p&gt;Para integrar a API de credenciamento (afiliação) é necessário integrar as chamadas utilizando os verbos POST e GET do padrão Rest.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -29596,9 +29596,15 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;público-alvo&quot;&gt;Público-alvo&lt;/h2&gt;
+&lt;p&gt;É necessário validar dados de cadastro:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dados pessoais&lt;/li&gt;
+  &lt;li&gt;Domicilio bancário&lt;/li&gt;
+  &lt;li&gt;Endereço&lt;/li&gt;
+  &lt;li&gt;Código MCC&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Integradores que desejam criar novos canais de credenciamento, seja de forma online através da web ou aplicativos mobile&lt;/p&gt;
+&lt;p&gt;Esses dados irão compor as informações necessárias para criar uma proposta de credenciamento, essa proposta é submetida via POST para o recurso /merchants.&lt;/p&gt;
 
 &lt;h2 id=&quot;diagrama-de-utilização-demostrando-o-funcionamento-da-solução&quot;&gt;Diagrama de utilização demostrando o funcionamento da solução&lt;/h2&gt;
 

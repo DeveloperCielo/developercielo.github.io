@@ -120,19 +120,19 @@
             <div class="post">
   <h1 id="visão-geral">Visão geral</h1>
 
-<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API de Credenciamento da Cielo, descrevendo as funcionalidades, fluxo de execução e métodos a serem utilizados</p>
+<p>O objetivo desta documentação é orientar o desenvolvedor sobre como fazer a integração junto à Cielo, para o processo de credenciamento, informando todos os passos, acesso aos recursos disponíveis e como tratar erros e validações necessário.</p>
 
-<p>Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST de Credenciamento Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:</p>
+<h2 id="público-alvo">Público-alvo</h2>
+
+<p><strong><em>API Privada, necessário liberação para utilização dela, somente colabores Cielo.</em></strong> Qualquer dúvida entre em contato através do e-mail: customer.support@sensedia.com</p>
 
 <h2 id="o-que-é">O que é</h2>
 
-<p>Credenciamento é o processo de afiliação de novos clientes, que serão conhecidos como Estabelecimentos Comerciais e poderão se afiliar à Cielo e solicitar um equipamente lógico (POS / Terminal Lógico) ou site web (ecommerce) ou até mesmo através do cielo app (mobile), permitindo que os mesmos iniciem suas transações de pagamento.</p>
+<p>Credenciamento é o processo de afiliação de novos clientes, conhecidos como Estabelecimentos Comerciais. O fluxo de credenciamento é iniciado através da API, segue para um fluxo interno e posteriormente o novo cliente receberá a liberação para operar autorizações e capturas através de um canal lógico, POS / ecommerce / mobile.</p>
 
 <h2 id="como-funciona">Como funciona</h2>
 
-<p>A integração é realizada através da operação de POST para o recurso /merchants. Para executar o post corretamente, deve seguir o padrão REST enviando todos os necessários (listados posteriormente).</p>
-
-<p>É possível realizar consultas, através do método GET para obter informações necessárias que irão auxiliar e informar resultados da operação de POST.</p>
+<p>Para integrar a API de credenciamento (afiliação) é necessário integrar as chamadas utilizando os verbos POST e GET do padrão Rest.</p>
 
 <table>
   <thead>
@@ -153,9 +153,15 @@
   </tbody>
 </table>
 
-<h2 id="público-alvo">Público-alvo</h2>
+<p>É necessário validar dados de cadastro:</p>
+<ul>
+  <li>Dados pessoais</li>
+  <li>Domicilio bancário</li>
+  <li>Endereço</li>
+  <li>Código MCC</li>
+</ul>
 
-<p>Integradores que desejam criar novos canais de credenciamento, seja de forma online através da web ou aplicativos mobile</p>
+<p>Esses dados irão compor as informações necessárias para criar uma proposta de credenciamento, essa proposta é submetida via POST para o recurso /merchants.</p>
 
 <h2 id="diagrama-de-utilização-demostrando-o-funcionamento-da-solução">Diagrama de utilização demostrando o funcionamento da solução</h2>
 
