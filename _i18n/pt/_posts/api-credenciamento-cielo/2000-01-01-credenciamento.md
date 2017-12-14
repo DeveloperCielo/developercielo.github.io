@@ -19,7 +19,7 @@ O objetivo desta documentação é orientar o desenvolvedor sobre como fazer a i
 
 ## Público-alvo
 
-***API Privada, necessário liberação para utilização dela, somente colabores Cielo.*** Qualquer dúvida entre em contato através do e-mail: customer.support@sensedia.com
+***API Privada, necessário liberação interna para utilização dela, somente colaboradores Cielo podem utilizar.*** Qualquer dúvida entre em contato através do e-mail: customer.support@sensedia.com
 
 ## O que é
 
