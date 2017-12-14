@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-14T16:32:20+00:00</updated>
+    <updated>2017-12-14T17:26:19+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4805,9 +4805,9 @@ Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;transaction_type&lt;/td&gt;
+      &lt;td&gt;external_id&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;Tipo da transação (PAYMENT e CANCELLATION).&lt;/td&gt;
+      &lt;td&gt;Identificador unico ordem.&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4817,27 +4817,9 @@ Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;description&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;Descrição da transação.&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
       &lt;td&gt;terminal_number&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;Número do terminal da Cielo LIO em que o pagamento foi realizado.&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;card&lt;/td&gt;
-      &lt;td&gt;Card (Card)&lt;/td&gt;
-      &lt;td&gt;Informações sobre o cartão utilizado na transação.&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;number&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;Número Sequencial Único (NSU) da transação.&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4847,9 +4829,9 @@ Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;payment_product&lt;/td&gt;
-      &lt;td&gt;Payment Product (Payment Product)&lt;/td&gt;
-      &lt;td&gt;Informações sobre o produto de pagamento utilizado.&lt;/td&gt;
+      &lt;td&gt;number&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;Número Sequencial Único (NSU) da transação.&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4859,15 +4841,9 @@ Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;created_at&lt;/td&gt;
+      &lt;td&gt;transaction_type&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;Data de criação do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;updated_at&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;Data de última atualização do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).&lt;/td&gt;
+      &lt;td&gt;Tipo da transação (PAYMENT e CANCELLATION).&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;

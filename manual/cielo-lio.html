@@ -936,9 +936,9 @@ Para a criação de um novo projeto no Android Studio, <a href="https://develope
       <td>Sim</td>
     </tr>
     <tr>
-      <td>transaction_type</td>
+      <td>external_id</td>
       <td>Texto</td>
-      <td>Tipo da transação (PAYMENT e CANCELLATION).</td>
+      <td>Identificador unico ordem.</td>
       <td>Sim</td>
     </tr>
     <tr>
@@ -948,27 +948,9 @@ Para a criação de um novo projeto no Android Studio, <a href="https://develope
       <td>Sim</td>
     </tr>
     <tr>
-      <td>description</td>
-      <td>Texto</td>
-      <td>Descrição da transação.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
       <td>terminal_number</td>
       <td>Número</td>
       <td>Número do terminal da Cielo LIO em que o pagamento foi realizado.</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>card</td>
-      <td>Card (Card)</td>
-      <td>Informações sobre o cartão utilizado na transação.</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>number</td>
-      <td>Número</td>
-      <td>Número Sequencial Único (NSU) da transação.</td>
       <td>Sim</td>
     </tr>
     <tr>
@@ -978,9 +960,9 @@ Para a criação de um novo projeto no Android Studio, <a href="https://develope
       <td>Sim</td>
     </tr>
     <tr>
-      <td>payment_product</td>
-      <td>Payment Product (Payment Product)</td>
-      <td>Informações sobre o produto de pagamento utilizado.</td>
+      <td>number</td>
+      <td>Número</td>
+      <td>Número Sequencial Único (NSU) da transação.</td>
       <td>Sim</td>
     </tr>
     <tr>
@@ -990,15 +972,9 @@ Para a criação de um novo projeto no Android Studio, <a href="https://develope
       <td>Sim</td>
     </tr>
     <tr>
-      <td>created_at</td>
+      <td>transaction_type</td>
       <td>Texto</td>
-      <td>Data de criação do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>updated_at</td>
-      <td>Texto</td>
-      <td>Data de última atualização do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).</td>
+      <td>Tipo da transação (PAYMENT e CANCELLATION).</td>
       <td>Sim</td>
     </tr>
   </tbody>
