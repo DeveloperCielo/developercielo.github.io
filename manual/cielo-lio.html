@@ -1001,15 +1001,9 @@ Para a criação de um novo projeto no Android Studio, <a href="https://develope
       <td>Sim</td>
     </tr>
     <tr>
-      <td>bin</td>
+      <td>mask</td>
       <td>Número</td>
-      <td>Bin (primeiros 6 dígitos) do cartão.</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>last</td>
-      <td>Número</td>
-      <td>Last (últimos 4 dígitos) do cartão.</td>
+      <td>Número do cartão mascarado</td>
       <td>Sim</td>
     </tr>
   </tbody>
@@ -1031,51 +1025,21 @@ Ex.: Crédito, Débito, etc.</p>
   </thead>
   <tbody>
     <tr>
-      <td>number</td>
+      <td>primary_product_name</td>
       <td>Texto</td>
-      <td>Identificação numérica do produto primário da Cielo.</td>
+      <td>Forma de pagamento (CREDITO ou DEBITO)</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td>name</td>
-      <td>Número</td>
-      <td>Nome do produto primário utilizado.</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>sub</td>
-      <td>Número</td>
-      <td>Produto secundário.</td>
-      <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="sub-payment-product">Sub Payment Product</h4>
-
-<p>O Sub Payment Product é uma representação com o complemento da forma de pagamento utilizada para realizar um pagamento.
-Ex.: À Vista, Parcelado, etc.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Descrição</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>number</td>
+      <td>secondary_product_name</td>
       <td>Texto</td>
-      <td>Identificação numérica do produto primário da Cielo.</td>
+      <td>Tipo de pagamento (A VISTA, PARCELADO LOJA ou PARCELADO ADM)</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td>name</td>
+      <td>number_of_quotas</td>
       <td>Número</td>
-      <td>Nome do produto primário utilizado.</td>
+      <td>Número de parcelas (0 para pagamentos à vista)</td>
       <td>Sim</td>
     </tr>
   </tbody>

@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-14T17:26:19+00:00</updated>
+    <updated>2017-12-14T17:34:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4870,15 +4870,9 @@ Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bin&lt;/td&gt;
+      &lt;td&gt;mask&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;Bin (primeiros 6 dígitos) do cartão.&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;last&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;Last (últimos 4 dígitos) do cartão.&lt;/td&gt;
+      &lt;td&gt;Número do cartão mascarado&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -4900,51 +4894,21 @@ Ex.: Crédito, Débito, etc.&lt;/p&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;number&lt;/td&gt;
+      &lt;td&gt;primary_product_name&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;Identificação numérica do produto primário da Cielo.&lt;/td&gt;
+      &lt;td&gt;Forma de pagamento (CREDITO ou DEBITO)&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;name&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;Nome do produto primário utilizado.&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;sub&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;Produto secundário.&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&quot;sub-payment-product&quot;&gt;Sub Payment Product&lt;/h4&gt;
-
-&lt;p&gt;O Sub Payment Product é uma representação com o complemento da forma de pagamento utilizada para realizar um pagamento.
-Ex.: À Vista, Parcelado, etc.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Tipo&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Obrigatório&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;number&lt;/td&gt;
+      &lt;td&gt;secondary_product_name&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;Identificação numérica do produto primário da Cielo.&lt;/td&gt;
+      &lt;td&gt;Tipo de pagamento (A VISTA, PARCELADO LOJA ou PARCELADO ADM)&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;name&lt;/td&gt;
+      &lt;td&gt;number_of_quotas&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;Nome do produto primário utilizado.&lt;/td&gt;
+      &lt;td&gt;Número de parcelas (0 para pagamentos à vista)&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
