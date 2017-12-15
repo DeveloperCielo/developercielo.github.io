@@ -23,12 +23,21 @@ under the License.
     if (!language) return;
     if (language === "") return;
 
-    $(".selectable .language-buttons a").removeClass('active');
-    $(".selectable .language-buttons a[data-language-name='" + language + "']").addClass('active');
+    $('.selectable[data-languages*="' + language + '*"] a').removeClass('active');
+    $('.selectable[data-languages*="' + language + '*"] a[data-language-name="' + language + '"').addClass('active');
+
     for (var i = 0; i < languages.length; i++) {
-      $(".selectable .language-" + languages[i]).hide();
+      if (global.isOpen) {
+        $('.selectable .language-' + languages[i]).hide();
+        $('.locked .language-' + languages[i]).hide();
+      } else {
+        $('.selectable[data-languages*="' + language + '*"] .language-' + languages[i]).hide();
+      }
     }
-    $(".selectable .language-" + language).show();
+
+    $(".language-" + language).show();
+
+    window.language = language;
 
     //global.toc.calculateHeights();
 
@@ -53,7 +62,7 @@ under the License.
     localStorage.setItem("language", language);
   }
 
-  function setupLanguages(l) {
+  function setupLanguages(l, isOpen, init) {
     var currentLanguage = l[0];
     var defaultLanguage = localStorage.getItem("language");
 
@@ -61,20 +70,17 @@ under the License.
 
     if ((location.search.substr(1) !== "") && (jQuery.inArray(location.search.substr(1), languages)) != -1) {
       // the language is in the URL, so use that language!
-      activateLanguage(location.search.substr(1));
+      activateLanguage(location.search.substr(1), isOpen);
 
       localStorage.setItem("language", location.search.substr(1));
     } else if ((defaultLanguage !== null) && (jQuery.inArray(defaultLanguage, languages) != -1)) {
       // the language was the last selected one saved in localstorage, so use that language!
-      activateLanguage(defaultLanguage);
+      activateLanguage(defaultLanguage, isOpen);
     } else {
       // no language selected, so use the default
-      activateLanguage(languages[0]);
+      activateLanguage(languages[0], isOpen);
     }
-  }
-
-  // if we click on a language tab, activate that language
-  $(function () {
+    
     $(".selectable .language-buttons a").on("click", function () {
       var language = $(this).data("language-name");
       var e = new CustomEvent('languagechange', {
@@ -82,7 +88,7 @@ under the License.
       });
 
       pushURL(language);
-      activateLanguage(language);
+      activateLanguage(language, isOpen);
 
       window.dispatchEvent(e);
 
@@ -91,5 +97,5 @@ under the License.
     window.onpopstate = function (event) {
       activateLanguage(window.location.search.substr(1));
     };
-  });
+  }
 })(window);
