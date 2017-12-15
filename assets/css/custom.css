@@ -426,7 +426,9 @@ code {
 
 }
 
-
+.content-container.no-dark-box > .language-tabs .language-buttons {
+    display: none;
+}
 
 .content.no-sidebar.no-dark-box {
     margin: 10px;
@@ -1223,12 +1225,13 @@ a.hide-btn .fa {
     text-decoration: none;
     border: none;
     color: #fff;
-    margin: 0 10px;
+    margin: 0;
+    margin-right: 10px;
     transition: .3s ease all;
 }
 
-.content-container:not(.no-dark-box) .language-buttons li:first-child a {
-    margin: 0;
+.content-container:not(.no-dark-box) .language-buttons li:last-child a {
+    margin-right: 0;
 }
 
 .content-container:not(.no-dark-box) .language-buttons a.active {
