@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-14T20:01:26+00:00</updated>
+    <updated>2017-12-15T10:57:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1812,13 +1812,15 @@ Acesse Documentação da Integração Local&lt;/li&gt;
 
 &lt;h3 id=&quot;modelos-de-integração-com-a-plataforma-cielo-lio&quot;&gt;Modelos de integração com a plataforma Cielo LIO&lt;/h3&gt;
 
-&lt;h4 id=&quot;integração-remota--cielo-lio-order-manager&quot;&gt;Integração Remota | Cielo LIO Order Manager**&lt;/h4&gt;
+&lt;h4 id=&quot;integração-remota--cielo-lio-order-manager&quot;&gt;Integração Remota | Cielo LIO Order Manager&lt;/h4&gt;
 
-&lt;p&gt;Conjunto de APIs que permitem que o cliente continue utilizando sua solução de PDV / Automação Comercial com todas as funcionalidades. No momento de realizar o pagamento, ocorre a integração com o gerenciador de pedidos (Order Manager) da Cielo LIO, de forma rápida, simples e segura.&lt;/p&gt;
+&lt;p&gt;Conjunto de APIs que permitem que o cliente continue utilizando sua solução de PDV / Automação Comercial com todas as funcionalidades. No momento de realizar o pagamento, ocorre a integração com o gerenciador de pedidos (Order Manager) da Cielo LIO, de forma rápida, simples e segura.
+ &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-remota&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;integração-local--cielo-lio-order-manager-sdk&quot;&gt;Integração Local | Cielo LIO Order Manager SDK&lt;/h4&gt;
 
-&lt;p&gt;A Cielo disponibiliza um SDK com base na Cielo LIO Order Manager API que permite ao desenvolvedor e parceiro Cielo LIO integrar em sua aplicação as funcionalidades da Cielo LIO.&lt;/p&gt;
+&lt;p&gt;A Cielo disponibiliza um SDK com base na Cielo LIO Order Manager API que permite ao desenvolvedor e parceiro Cielo LIO integrar em sua aplicação as funcionalidades da Cielo LIO.
+ &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-local&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;serviços-periféricos&quot;&gt;Serviços periféricos&lt;/h3&gt;
 
@@ -1980,7 +1982,7 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 
 &lt;p&gt;Caso o desenvolvedor deseje controlar e usar de forma personalizada a orientação de tela da Cielo LIO, este deverá utilizar de acordo com a documentação do Android.&lt;/p&gt;
 
-&lt;p&gt;https://developer.android.com/guide/topics/manifest/activity-element.html&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.android.com/guide/topics/manifest/activity-element.html&quot;&gt;Documentação Oficial do Android&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Acesse o item: android:screenOrientation para obter maiores informações.&lt;/p&gt;
 
@@ -2065,8 +2067,9 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 
 &lt;p&gt;É necessário que você utilize uma IDE (Integrated Development Environment) para desenvolvimento do seu aplicativo. A Cielo recomenda que seja utilizada a IDE do Android Studio (versão 2.2.2 ou superior), visando garantir o funcionamento do aplicativo na plataforma Cielo LIO.&lt;/p&gt;
 
-&lt;p&gt;Para mais detalhes sobre a instalação e configuração do Android Studio, &lt;a href=&quot;https://developer.android.com/index.html&quot;&gt;clique aqui&lt;/a&gt;
-Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://developer.android.com/training/basics/firstapp/creating-project.html&quot;&gt;clique aqui&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para mais detalhes sobre a instalação e configuração do Android Studio, &lt;a href=&quot;https://developer.android.com/index.html&quot;&gt;clique aqui&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Para a criação de um novo projeto no Android Studio, &lt;a href=&quot;https://developer.android.com/training/basics/firstapp/creating-project.html&quot;&gt;clique aqui&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;linguagem-de-programação&quot;&gt;Linguagem de Programação&lt;/h2&gt;
 
@@ -3803,7 +3806,7 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;sdk&quot;&gt;SDK&lt;/h2&gt;
+&lt;h2 id=&quot;sdks-disponíveis-da-integração-remota&quot;&gt;SDKs disponíveis da Integração Remota&lt;/h2&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -4266,19 +4269,19 @@ Iniciar processo de pagamento&lt;/p&gt;
 
 &lt;p&gt;Nosso time irá realizar os procedimentos necessários e então, todos os aplicativos publicados pelo desenvolvedor que estejam no status de Desenvolvimento poderão ser baixados em sua Cielo LIO de desenvolvimento.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;CLIQUE AQUI&lt;/a&gt; para solicitar a habilitação de sua LIO para LIO de Dev.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a habilitação de sua LIO para LIO de Dev.&lt;/p&gt;
 
 &lt;h3 id=&quot;loja-privada&quot;&gt;Loja Privada&lt;/h3&gt;
 
 &lt;p&gt;A loja privada foi um modelo criado para permitir a distribuição dos aplicativos próprios desenvolvidos pelo parceiro. É necessário solicitar a criação da Loja Privada para então ser possível fazer o upload de um aplicativo próprio no Dev Console.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;CLIQUE AQUI&lt;/a&gt; para solicitar a criação da Loja Privada.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a criação da Loja Privada.&lt;/p&gt;
 
 &lt;p&gt;A partir da Loja Privada criada, o desenvolvedor poderá publicar seu aplicativo no Dev Console selecionando sua loja privada.&lt;/p&gt;
 
 &lt;p&gt;A loja privada é essencial para realizar a distribuição de aplicativos próprios lojistas específicos.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-próprios&quot;&gt;SAIBA MAIS&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-próprios&quot;&gt;Saiba Mais&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;certificação-de-aplicativos&quot;&gt;Certificação de Aplicativos&lt;/h3&gt;
 
@@ -4357,7 +4360,7 @@ Iniciar processo de pagamento&lt;/p&gt;
 
 &lt;p&gt;Caso você desenvolvedor não encontre o erro nesta tabela, abra um ticket para a equipe de suporte reportando o problema encontrado e lembre-se de listar as evidências do erro como prints de tela e mensagens de erro recebidas.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;CLIQUE AQUI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;Clique Aqui&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;aplicativos-próprios&quot;&gt;Aplicativos Próprios&lt;/h2&gt;
 
@@ -4386,7 +4389,7 @@ Iniciar processo de pagamento&lt;/p&gt;
 
 &lt;p&gt;Aqueles desenvolvedores que optarem por desenvolver aplicativos próprios e distribuir apenas para lojistas específicos devem solicitar via canal do Portal de Desenvolvedores informando quais os números ECs (número com 16 dígitos) e lógicos das LIOs que devem receber o aplicativo.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;CLIQUE AQUI&lt;/a&gt; para solicitar a distribuição de seu aplicativo.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a distribuição de seu aplicativo.&lt;/p&gt;
 
 &lt;h3 id=&quot;download-de-aplicativo-próprios-na-cielo-lio&quot;&gt;Download de Aplicativo Próprios na Cielo LIO&lt;/h3&gt;
 
@@ -4398,7 +4401,7 @@ Iniciar processo de pagamento&lt;/p&gt;
 
 &lt;p&gt;Os aplicativos públicos são indicados para aqueles desenvolvedores e parceiros que desejam disponibilizar e escalar sua aplicação e permitir o download em todas os equipamentos de Cielo LIO distribuídos nos estabelecimentos comerciais (lojistas) no Brasil via aplicativo da Cielo Store.&lt;/p&gt;
 
-&lt;p&gt;Para conhecer mais sobre a Cielo Store, &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cielo-store&quot;&gt;CLIQUE AQUI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para conhecer mais sobre a Cielo Store, &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cielo-store&quot;&gt;Clique Aqui&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;upload-de-novos-aplicativos-públicos-e-novas-versões&quot;&gt;Upload de novos Aplicativos Públicos e novas versões&lt;/h3&gt;
 
