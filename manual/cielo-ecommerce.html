@@ -11383,7 +11383,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
   <thead>
     <tr>
       <th>Código</th>
-      <th>Status do Pagamento</th>
+      <th>Status</th>
       <th>Meio de pagamento</th>
       <th>Descrição</th>
     </tr>
@@ -11392,26 +11392,87 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
     <tr>
       <td>0</td>
       <td>NotFinished</td>
-      <td>Todos</td>
-      <td>Falha ao processar o pagamento</td>
+      <td>ALL</td>
+      <td>Aguardando atualização de status</td>
     </tr>
     <tr>
       <td>1</td>
       <td>Authorized</td>
-      <td>Todos</td>
-      <td>Meio de pagamento apto a ser capturado ou pago(Boleto</td>
+      <td>ALL</td>
+      <td>Pagamento apto a ser capturado ou definido como pago</td>
     </tr>
     <tr>
       <td>2</td>
       <td>PaymentConfirmed</td>
-      <td>Todos</td>
+      <td>ALL</td>
       <td>Pagamento confirmado e finalizado</td>
     </tr>
     <tr>
       <td>3</td>
       <td>Denied</td>
-      <td>Cartão de Crédito e Débito / Transferência eletrônica</td>
-      <td>-</td>
+      <td>CC + CD + TF</td>
+      <td>Pagamento negado por Autorizador</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Voided</td>
+      <td>ALL</td>
+      <td>Pagamento cancelado</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Refunded</td>
+      <td>CC + CD</td>
+      <td>Pagamento cancelado após 23:59 do dia de autorização</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Pending</td>
+      <td>ALL</td>
+      <td>Aguardando Status de instituição financeira</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Aborted</td>
+      <td>ALL</td>
+      <td>Pagamento cancelado por falha no processamento</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Scheduled</td>
+      <td>CC</td>
+      <td>Recorrência agendada</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Meio de pagamento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ALL</strong></td>
+      <td>Todos</td>
+    </tr>
+    <tr>
+      <td><strong>CC</strong></td>
+      <td>Cartão de Crédito</td>
+    </tr>
+    <tr>
+      <td><strong>CD</strong></td>
+      <td>Cartão de Débito</td>
+    </tr>
+    <tr>
+      <td><strong>TF</strong></td>
+      <td>Transferencia Eletrônica</td>
+    </tr>
+    <tr>
+      <td><strong>BOL</strong></td>
+      <td>Boleto</td>
     </tr>
   </tbody>
 </table>

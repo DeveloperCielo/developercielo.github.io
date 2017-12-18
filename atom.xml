@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-15T14:23:52+00:00</updated>
+    <updated>2017-12-18T16:42:54+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -23024,7 +23024,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Código&lt;/th&gt;
-      &lt;th&gt;Status do Pagamento&lt;/th&gt;
+      &lt;th&gt;Status&lt;/th&gt;
       &lt;th&gt;Meio de pagamento&lt;/th&gt;
       &lt;th&gt;Descrição&lt;/th&gt;
     &lt;/tr&gt;
@@ -23033,26 +23033,87 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
     &lt;tr&gt;
       &lt;td&gt;0&lt;/td&gt;
       &lt;td&gt;NotFinished&lt;/td&gt;
-      &lt;td&gt;Todos&lt;/td&gt;
-      &lt;td&gt;Falha ao processar o pagamento&lt;/td&gt;
+      &lt;td&gt;ALL&lt;/td&gt;
+      &lt;td&gt;Aguardando atualização de status&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;1&lt;/td&gt;
       &lt;td&gt;Authorized&lt;/td&gt;
-      &lt;td&gt;Todos&lt;/td&gt;
-      &lt;td&gt;Meio de pagamento apto a ser capturado ou pago(Boleto&lt;/td&gt;
+      &lt;td&gt;ALL&lt;/td&gt;
+      &lt;td&gt;Pagamento apto a ser capturado ou definido como pago&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;PaymentConfirmed&lt;/td&gt;
-      &lt;td&gt;Todos&lt;/td&gt;
+      &lt;td&gt;ALL&lt;/td&gt;
       &lt;td&gt;Pagamento confirmado e finalizado&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;Denied&lt;/td&gt;
-      &lt;td&gt;Cartão de Crédito e Débito / Transferência eletrônica&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;CC + CD + TF&lt;/td&gt;
+      &lt;td&gt;Pagamento negado por Autorizador&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Voided&lt;/td&gt;
+      &lt;td&gt;ALL&lt;/td&gt;
+      &lt;td&gt;Pagamento cancelado&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;11&lt;/td&gt;
+      &lt;td&gt;Refunded&lt;/td&gt;
+      &lt;td&gt;CC + CD&lt;/td&gt;
+      &lt;td&gt;Pagamento cancelado após 23:59 do dia de autorização&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;Pending&lt;/td&gt;
+      &lt;td&gt;ALL&lt;/td&gt;
+      &lt;td&gt;Aguardando Status de instituição financeira&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;13&lt;/td&gt;
+      &lt;td&gt;Aborted&lt;/td&gt;
+      &lt;td&gt;ALL&lt;/td&gt;
+      &lt;td&gt;Pagamento cancelado por falha no processamento&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;Scheduled&lt;/td&gt;
+      &lt;td&gt;CC&lt;/td&gt;
+      &lt;td&gt;Recorrência agendada&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Meio de pagamento&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ALL&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Todos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;CC&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Cartão de Crédito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;CD&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Cartão de Débito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;TF&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Transferencia Eletrônica&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;BOL&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Boleto&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
