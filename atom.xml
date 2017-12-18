@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-18T16:42:54+00:00</updated>
+    <updated>2017-12-18T16:48:33+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11490,7 +11490,7 @@ Veja como realizar essa consulta em nosso manual de integração: https://develo
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Moedas&lt;/strong&gt;:No momento a API Cielo eCommerce aceita somente transações em Reais (R$/BRL).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Cartões internacionais&lt;/strong&gt;: Sim, a API aceita cartãoes internacionais, mas as transações são processadas em Reais (R$/BRL).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cartões internacionais&lt;/strong&gt;: Sim, a API aceita cartãoes internacionais, mas as transações são processadas em Reais (R$/BRL) e transações parceladas são negadas pelo emissor do cartão.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: Cartões internacionais não podem realizar parcelamento.&lt;/p&gt;
