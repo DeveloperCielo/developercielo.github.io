@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-19T17:03:56+00:00</updated>
+    <updated>2017-12-19T17:08:02+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -28286,7 +28286,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;Limitação de Pedidos Gerados: Durante o processo de cadastro do botão, o item &quot;Quantidade&quot; definirá quantos pedidos poderão ser gerados pelo Botão. Essa &quot;quantidade&quot; diz respeito ao numero de de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. A &quot;quantidade&quot; não está disponivel para vendas Recorrentes.&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;**imitação de Pedidos Gerados** Durante o processo de cadastro do botão, o item &quot;Quantidade&quot; definirá quantos pedidos poderão ser gerados pelo Botão. Essa &quot;quantidade&quot; diz respeito ao numero de de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. **A &quot;quantidade&quot; não está disponivel para vendas Recorrentes.**&lt;/aside&gt;
 
 &lt;h3 id=&quot;exemplo-de-botão&quot;&gt;Exemplo de Botão:&lt;/h3&gt;
 
@@ -28296,10 +28296,10 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   &lt;li&gt;&lt;strong&gt;Botão&lt;/strong&gt; - Será criado um código HTML como o abaixo:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-Html&quot;&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
     
 
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Exemplo de um botão Funcional:&lt;/strong&gt;&lt;/p&gt;
 
