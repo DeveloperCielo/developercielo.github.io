@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-18T16:48:33+00:00</updated>
+    <updated>2017-12-19T16:38:12+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -28156,7 +28156,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;**Específico **&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Específico&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional &lt;br /&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -28287,10 +28287,10 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   &lt;li&gt;&lt;strong&gt;Botão&lt;/strong&gt; - Será criado um código HTML como o abaixo:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;
     
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Exemplo de um botão Funcional:&lt;/strong&gt;&lt;/p&gt;
 
