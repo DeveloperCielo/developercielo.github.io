@@ -743,8 +743,8 @@ Cada botão possui um código único que só permite comprar aquele determinado 
 |Característica|Explicação|
 |---|---|
 |**Específico**|Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
-|**número do Pedido do Checkout**|O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada|
-|**Criação de pedidos**|Um botão gera vários pedidos independentes, ou seja, não é possível limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido|
+|**Número do Pedido do Checkout**|O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada|
+|**Criação de pedidos**|Um botão gera vários pedidos independentes, ou seja, para limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado, é necessario definir uma quantidade minimas de itens em "estoque" no momento de cadastro. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido|
 
  **Abaixo, o fluxo de pagamento via Botão:**
 
@@ -764,19 +764,22 @@ Para utilizar este recurso, é necessário cadastrar o produto que se deseja ven
 
 Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 
-|Campos|Descrição|Tamanho Min.|Tamanho Máx.|Obrigatório|
-|---|---|---|---|---|
-|`Tipo do Produto`|Indique se está vendendo um bem Material, um Serviço ou um bem Digital. Para bens Digitais, não será apresentada a opção de tipo de Frete.|n/a|n/a|Sim|
-|`SKU`|Código de identificação do produto|1|50|Não|
-|`Título`|Titulo do Produto|1|50|Sim|
-|`Descrição`|Descrição do Produto|1|255|Sim|
-|`Preço`|Valor total do pedido **em centavos** (ex.: R$1,00 =100).|11|14|Sim|
-|`Frete`|Escolher dentre uma das opções de Frete (Correios, Frete Fixo, Frete Grátis, Retirar na loja, Sem Cobrança).|n/a|n/a|Sim|
-|`CEP de Origem`|Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete.|9|9|Sim|
-|`Peso(kg)`|Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete|n/a|n/a|Sim|
-|`Valor do Frete`|Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.|n/a|n/a|Sim|
-|`Método de envio`|Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.|n/a|n/a|Sim|
-|`URL`|Esse campo só aparece para Tipo Produto igual a Digital.|n/a|n/a|Sim|
+| Campos            | Descrição                                                                                                                                      | Tamanho Min. | Tamanho Máx. | Obrigatório |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------|-------------|
+| `Tipo do Produto` | Indique se está vendendo um bem Material, um Serviço ou um bem Digital. Para bens Digitais, não será apresentada a opção de tipo de Frete.     | n/a          | n/a          | Sim         |
+| `SKU`             | Código de identificação do produto                                                                                                             | 1            | 50           | Não         |
+| `Título`          | Titulo do Produto                                                                                                                              | 1            | 50           | Sim         |
+| `Descrição`       | Descrição do Produto                                                                                                                           | 1            | 255          | Sim         |
+| `Preço`           | Valor total do pedido **em centavos** (ex.: R$1,00 =100).                                                                                      | 11           | 14           | Sim         |
+| `Frete`           | Escolher dentre uma das opções de Frete (Correios, Frete Fixo, Frete Grátis, Retirar na loja, Sem Cobrança).                                   | n/a          | n/a          | Sim         |
+| `CEP de Origem`   | Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete. | 9            | 9            | Sim         |
+| `Peso(kg)`        | Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete                | n/a          | n/a          | Sim         |
+| `Valor do Frete`  | Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.            | n/a          | n/a          | Sim         |
+| `Método de envio` | Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.                                            | n/a          | n/a          | Sim         |
+| `URL`             | Esse campo só aparece para Tipo Produto igual a Digital.                                                                                       | n/a          | n/a          | Sim         |
+| `Quantidade`      | Define a quantidade maxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um numero infinito de pedidos              | n/a          | n/a          | Não         |
+
+<aside class="warning"><b>Limitação de Pedidos Gerados:</b> Durante o processo de cadastro do botão, o item "Quantidade" definirá quantos pedidos poderão ser gerados pelo Botão. Essa "quantidade" diz respeito ao numero de de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. <b>A "quantidade" não está disponivel para vendas Recorrentes.</b></aside>
 
 ### Exemplo de Botão:
 
