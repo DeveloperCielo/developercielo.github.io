@@ -779,7 +779,7 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 | `URL`             | Esse campo só aparece para Tipo Produto igual a Digital.                                                                                       | n/a          | n/a          | Sim         |
 | `Quantidade`      | Define a quantidade maxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um numero infinito de pedidos              | n/a          | n/a          | Não         |
 
-<aside class="warning"><b>Limitação de Pedidos Gerados:</b> Durante o processo de cadastro do botão, o item "Quantidade" definirá quantos pedidos poderão ser gerados pelo Botão. Essa "quantidade" diz respeito ao numero de de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. <b>A "quantidade" não está disponivel para vendas Recorrentes.</b></aside>
+<aside class="warning">**imitação de Pedidos Gerados** Durante o processo de cadastro do botão, o item "Quantidade" definirá quantos pedidos poderão ser gerados pelo Botão. Essa "quantidade" diz respeito ao numero de de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. **A "quantidade" não está disponivel para vendas Recorrentes.**</aside>
 
 ### Exemplo de Botão:
 
@@ -787,7 +787,7 @@ Abaixo é possível ver como o cadastro de um botão gera os 3 métodos de para 
 
 * **Botão** - Será criado um código HTML como o abaixo:
 
-```Html
+``` xml 
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'>
     <input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content{{ site.baseurl_root }}/images/botao_comprar_3.jpg' />
 </form>
