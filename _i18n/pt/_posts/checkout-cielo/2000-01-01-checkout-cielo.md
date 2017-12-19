@@ -784,7 +784,7 @@ Abaixo é possível ver como o cadastro de um botão gera os 3 métodos de para 
 
 * **Botão** - Será criado um código HTML como o abaixo:
 
-```json
+```Html
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'>
     <input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content{{ site.baseurl_root }}/images/botao_comprar_3.jpg' />
 </form>
