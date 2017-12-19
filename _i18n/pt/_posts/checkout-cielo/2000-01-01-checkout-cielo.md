@@ -9,8 +9,6 @@ categories: manual
 sort_order: 1
 tags:
   - Checkout Cielo
-language_tabs:
-  json: JSON
 ---
 
 # Sobre o Checkout Cielo.
