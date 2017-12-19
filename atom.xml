@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-19T17:08:02+00:00</updated>
+    <updated>2017-12-19T17:38:04+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25805,7 +25805,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   &lt;li&gt;&lt;strong&gt;Botão&lt;/strong&gt; - Será criado um código HTML como o abaixo:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
     
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -26234,12 +26234,12 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
       &lt;td&gt;Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional &lt;br /&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;número do Pedido do Checkout&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Número do Pedido do Checkout&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um &lt;code class=&quot;highlighter-rouge&quot;&gt;GUID&lt;/code&gt;) único. O Lojista receberá esse número de pedido como link a venda realizada&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Criação de pedidos&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Um botão gera vários pedidos independentes, ou seja, não é possível limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido&lt;/td&gt;
+      &lt;td&gt;Um botão gera vários pedidos independentes, ou seja, para limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado, é necessario definir uma quantidade minimas de itens em “estoque” no momento de cadastro. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -26359,6 +26359,13 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
       &lt;td&gt;n/a&lt;/td&gt;
       &lt;td&gt;n/a&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Quantidade&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Define a quantidade maxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um numero infinito de pedidos&lt;/td&gt;
+      &lt;td&gt;n/a&lt;/td&gt;
+      &lt;td&gt;n/a&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
