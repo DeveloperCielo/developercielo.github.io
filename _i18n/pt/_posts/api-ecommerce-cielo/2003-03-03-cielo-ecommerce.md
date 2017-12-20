@@ -5481,7 +5481,7 @@ curl
 |`Payment.ReturnUrl`|Texto|1024|---|Obrigatório para cartão de débito|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`Wallet.Type`|Texto|255|Sim|indica qual o tipo de carteira: "VisaCheckout" ou "Masterpass"|
-|`Wallet.Walletkey`|Texto|255|---|Chave criptografica enviada pelo VisaCheckout. Obrigatoria se TYPE =  "Visa Checkout"|
+|`Wallet.Walletkey`|Texto|255|---| `CallID` enviada pelo VisaCheckout. Obrigatoria se TYPE =  "Visa Checkout"|
 
 ### Resposta
 
