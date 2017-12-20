@@ -5588,7 +5588,8 @@ curl
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
 |`Type`|indica qual o tipo de carteira: "VisaCheckout" ou "Masterpass"|Texto|255|Sim|
-|`Walletkey`|Chave criptografica enviada pelo VisaCheckout|Texto|255|---|
+|`Walletkey`| `CallID` enviada pelo VisaCheckout|Texto|255|---|
+
 
 ### Requisição - Com dados do Cartão
 
