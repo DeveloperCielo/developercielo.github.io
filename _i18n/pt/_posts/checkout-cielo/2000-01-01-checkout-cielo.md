@@ -835,7 +835,7 @@ Transações de cartão de crédito serão incluídas no [Backoffice Cielo Check
 
 Transações de crédito **“AUTORIZADAS”** serão enviadas para análise da ferramenta de antifraude caso o parametro `Options.AntifraudEnabled` esteja definido como `TRUE`.
 O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
-A análise indicará um grau de *RISCO**, especificado pelo `Status`, para a venda em questão.
+A análise indicará um grau de **RISCO**, especificado pelo `Status`, para a venda em questão.
 Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.
 
  Para que as transações sejam analisadas pelo antifraude, é necessario que a loja Checkout possua:
@@ -960,7 +960,7 @@ O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.
 |Tipo|Descrição|Observação|
 |---|---|---|
 |`URL de Retorno`|Página web na qual o comprador será redirecionado ao fim da compra. <br>Nenhum dado é trocado ou enviado para essa URL.<br> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.|Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br> Pode ser enviada via API - Ver "Integração por API"|
-|`URL de Notificação`|Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do status da transação**|Utilizada na Notificação via `POST`e `JSON`|
+|`URL de Notificação`|Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do **status da transação**|Utilizada na Notificação via `POST`e `JSON`|
 |`URL de Mudança de Status`|Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido|Utilizada somente na Notificação via `POST`|
 
 **OBS:** Caso uma `URL de retorno` seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo `via Botão`, só é possível usar a opção de URL de retorno via backoffice.
