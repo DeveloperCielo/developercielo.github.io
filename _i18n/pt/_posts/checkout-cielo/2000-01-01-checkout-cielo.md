@@ -361,7 +361,7 @@ Essas transações terão o símbolo de teste as diferenciando de suas outras tr
 ## SDKs e POSTMAN
 
 O Checkout Cielo possui uma coleção POSTMAN de testes exclusiva com todos os parametros e opções descritas neste manual.
-Basta acessar nosso [Tutorial](https://developercielo.github.io/Tutorial//Postman) para obter informações sobre a utilização da ferramenta.
+Basta acessar nosso [Tutorial](https://developercielo.github.io/tutorial/postman) para obter informações sobre a utilização da ferramenta.
 
 No postman é possivel criar exemplos de sua integração em:
 
