@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-22T16:21:35+00:00</updated>
+    <updated>2017-12-22T18:42:23+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5198,7 +5198,7 @@ Por fim, vamos acessar o IP da nossa aplicação para ver se deu tudo certo!&lt;
 
 &lt;p&gt;Após a conclusão do credenciamento e recebimento das instruções é preciso desenvolver a integração utilizando como guia este manual. Assim que a integração estiver concluída, é necessário preencher completamente o formulário de homologação e enviá-lo para o Suporte Web do Cielo eCommerce que informará ao estabelecimento a chave de segurança.&lt;/p&gt;
 
-&lt;p&gt;Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à Cielo
+&lt;p&gt;Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à &lt;strong&gt;Cielo&lt;/strong&gt;
 para iniciar a operação no ambiente de produção.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Veja a seção Homologação para instruções sobre o processo de homologação&lt;/aside&gt;
