@@ -5590,7 +5590,6 @@ curl
 |`Type`|indica qual o tipo de carteira: "VisaCheckout" ou "Masterpass"|Texto|255|Sim|
 |`Walletkey`| `CallID` enviada pelo VisaCheckout|Texto|255|---|
 
-
 ### Requisição - Com dados do Cartão
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
