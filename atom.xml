@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2017-12-20T19:02:51+00:00</updated>
+    <updated>2017-12-22T12:01:12+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7226,8 +7226,8 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
     &lt;tr&gt;
       &lt;td&gt;98&lt;/td&gt;
       &lt;td&gt;Timeout&lt;/td&gt;
-      &lt;td&gt;A aplicação não respondeu dentro de 25 segundos&lt;/td&gt;
-      &lt;td&gt;Persistindo, entrar em contato com o Suporte.&lt;/td&gt;
+      &lt;td&gt;Consultar a transação e avaliar o status antes de submeter um novo cancelamento. Persistindo, entrar em contato com o Suporte&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;99&lt;/td&gt;
@@ -22193,7 +22193,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Walletkey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Chave criptografica enviada pelo VisaCheckout&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CallID&lt;/code&gt; enviada pelo VisaCheckout&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
@@ -27178,7 +27178,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.&lt;/p&gt;
 &lt;h2 id=&quot;sdks-e-postman&quot;&gt;SDKs e POSTMAN&lt;/h2&gt;
 
 &lt;p&gt;O Checkout Cielo possui uma coleção POSTMAN de testes exclusiva com todos os parametros e opções descritas neste manual.
-Basta acessar nosso &lt;a href=&quot;https://developercielo.github.io/Tutorial//Postman&quot;&gt;Tutorial&lt;/a&gt; para obter informações sobre a utilização da ferramenta.&lt;/p&gt;
+Basta acessar nosso &lt;a href=&quot;https://developercielo.github.io/tutorial/postman&quot;&gt;Tutorial&lt;/a&gt; para obter informações sobre a utilização da ferramenta.&lt;/p&gt;
 
 &lt;p&gt;No postman é possivel criar exemplos de sua integração em:&lt;/p&gt;
 
@@ -28390,7 +28390,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;p&gt;Transações de crédito &lt;strong&gt;“AUTORIZADAS”&lt;/strong&gt; serão enviadas para análise da ferramenta de antifraude caso o parametro &lt;code class=&quot;highlighter-rouge&quot;&gt;Options.AntifraudEnabled&lt;/code&gt; esteja definido como &lt;code class=&quot;highlighter-rouge&quot;&gt;TRUE&lt;/code&gt;.
 O Antifraude possui o conceito de &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;SubStatus&lt;/code&gt;, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
-A análise indicará um grau de *RISCO**, especificado pelo &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;, para a venda em questão.
+A análise indicará um grau de &lt;strong&gt;RISCO&lt;/strong&gt;, especificado pelo &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;, para a venda em questão.
 Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.&lt;/p&gt;
 
 &lt;p&gt;Para que as transações sejam analisadas pelo antifraude, é necessario que a loja Checkout possua:&lt;/p&gt;
@@ -28642,7 +28642,7 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;URL de Notificação&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.&lt;br /&gt; O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do status da transação**&lt;/td&gt;
+      &lt;td&gt;Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.&lt;br /&gt; O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do &lt;strong&gt;status da transação&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Utilizada na Notificação via &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt;e &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;

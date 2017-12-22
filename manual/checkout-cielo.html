@@ -743,7 +743,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 <h2 id="sdks-e-postman">SDKs e POSTMAN</h2>
 
 <p>O Checkout Cielo possui uma coleção POSTMAN de testes exclusiva com todos os parametros e opções descritas neste manual.
-Basta acessar nosso <a href="https://developercielo.github.io/Tutorial//Postman">Tutorial</a> para obter informações sobre a utilização da ferramenta.</p>
+Basta acessar nosso <a href="https://developercielo.github.io/tutorial/postman">Tutorial</a> para obter informações sobre a utilização da ferramenta.</p>
 
 <p>No postman é possivel criar exemplos de sua integração em:</p>
 
@@ -1955,7 +1955,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 <p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude caso o parametro <code class="highlighter-rouge">Options.AntifraudEnabled</code> esteja definido como <code class="highlighter-rouge">TRUE</code>.
 O Antifraude possui o conceito de <code class="highlighter-rouge">Status</code> e <code class="highlighter-rouge">SubStatus</code>, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
-A análise indicará um grau de *RISCO**, especificado pelo <code class="highlighter-rouge">Status</code>, para a venda em questão.
+A análise indicará um grau de <strong>RISCO</strong>, especificado pelo <code class="highlighter-rouge">Status</code>, para a venda em questão.
 Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.</p>
 
 <p>Para que as transações sejam analisadas pelo antifraude, é necessario que a loja Checkout possua:</p>
@@ -2207,7 +2207,7 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
     </tr>
     <tr>
       <td><code class="highlighter-rouge">URL de Notificação</code></td>
-      <td>Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br /> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do status da transação**</td>
+      <td>Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br /> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do <strong>status da transação</strong></td>
       <td>Utilizada na Notificação via <code class="highlighter-rouge">POST</code>e <code class="highlighter-rouge">JSON</code></td>
     </tr>
     <tr>
