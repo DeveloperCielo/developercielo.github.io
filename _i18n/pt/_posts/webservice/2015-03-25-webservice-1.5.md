@@ -21,7 +21,7 @@ O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas
 
 Após a conclusão do credenciamento e recebimento das instruções é preciso desenvolver a integração utilizando como guia este manual. Assim que a integração estiver concluída, é necessário preencher completamente o formulário de homologação e enviá-lo para o Suporte Web do Cielo eCommerce que informará ao estabelecimento a chave de segurança.
 
-Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à Cielo
+Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à **Cielo**
 para iniciar a operação no ambiente de produção.
 
 <aside class="notice">Veja a seção <a href="#testes-e-homologação">Homologação</a> para instruções sobre o processo de homologação</aside>
