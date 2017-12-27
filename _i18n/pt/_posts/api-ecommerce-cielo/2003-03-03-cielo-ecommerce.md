@@ -6023,6 +6023,7 @@ Mais informações e integração completa, você encontra no link: https://deve
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -6054,6 +6055,7 @@ curl
 }
 
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -6076,6 +6078,7 @@ curl
 ### Resposta
 
 ```json
+
 {
   "MerchantOrderId": "2014111708",
   "Customer": {
@@ -6125,6 +6128,7 @@ curl
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -6539,7 +6543,7 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 |ID|Dado|Descrição|Tipo|
 |---|---|---|---|
 |1|Cliente efetuou Log In|Se o cliente final logou no site para comprar, enviar: o login dele. Se fez compra como visitante, enviar: "Guest". Se a venda foi feita direto por um terceiro, um agente por exemplo, não enviar o campo|String|
-|2|Cliente do estabelecimento há: #dias|Quantidade de dias|Número|
+|2|Cliente do estabelecimento há: X dias|Quantidade de dias|Número|
 |3|Compra Efetuada em (parcelas)|Número de Parcelas|Número|
 |4|Canal de Venda|Valores: "Call Center" = compra pelo telefone <BR> "Web" = compra pela web <BR> "Portal" = um agente fazendo a compra para o cliente <BR> "Quiosque" = Compras em quisques <BR> "Movel" = Compras feitas em smartphone ou tablets|String|
 |5|Código do Cupom/Desconto|Se o comprador for usar cupom, enviar o código do cupom|String|
