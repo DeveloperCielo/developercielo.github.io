@@ -81,9 +81,7 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 |**Transação**|é o pedido de compra do portador do cartão na Cielo.|
 |**VBV (Verified by Visa)**|Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.|
 
--
-
-## Produtos e Bandeiras suportadas
+Produtos e Bandeiras suportadas
 
 A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
@@ -1807,7 +1805,7 @@ curl
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
-### Resposta
+Resposta
 
 ``json
 {
@@ -4607,7 +4605,7 @@ curl
 
 Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
 
-# Cancelando uma venda
+Cancelando uma venda
 
 ## Cancelando uma venda via API
 
