@@ -6023,6 +6023,7 @@ Mais informações e integração completa, você encontra no link: https://deve
 ```
 
 ```shell
+
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -6054,6 +6055,7 @@ curl
 }
 
 --verbose
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -6076,6 +6078,7 @@ curl
 ### Resposta
 
 ```json
+
 {
   "MerchantOrderId": "2014111708",
   "Customer": {
@@ -6125,6 +6128,7 @@ curl
 ```
 
 ```shell
+
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
