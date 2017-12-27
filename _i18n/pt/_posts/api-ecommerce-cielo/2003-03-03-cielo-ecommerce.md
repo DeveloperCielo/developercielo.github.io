@@ -233,8 +233,8 @@ Para facilitar os testes durante a integração, a Cielo oferece um ambiente San
 1. Cadastro de conta de testes
 2. Endpoints transacionais
 
-    * **Requisição**: https://apisandbox.cieloecommerce.cielo.com.br
-    * **Consulta**: https://apiquerysandbox.cieloecommerce.cielo.com.br
+|**Requisição**| https://apisandbox.cieloecommerce.cielo.com.br     |
+| **Consulta** | https://apiquerysandbox.cieloecommerce.cielo.com.br|
 
 **Vantagens de utilizar o Sandbox**
 
@@ -349,6 +349,7 @@ Caso não seja retornado o **HTTP Status Code 200 OK**,  ocorrerão mais **dois*
    "ChangeType": "2"
 }
 ```
+
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
 |`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)|GUID|36|Não|
@@ -2031,8 +2032,6 @@ Para todos os campos texto, inclusive o campo de instruções e relacionados ao 
    **Exemplos incorretos**: D'EL - REI<br><br>
 * Até um espaço em branco entre palavras
 
-
-
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
@@ -2071,6 +2070,7 @@ Para todos os campos texto, inclusive o campo de instruções e relacionados ao 
     }
 }
 ```
+
 ```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
@@ -2298,7 +2298,6 @@ Em todas as instancias, a recorrencia programada é uma transação padrão para
 
 **Paramêtro:** `Payment.Recurrent`= `True`
 
-
 #### Caso de Uso
 
 Este é um exemplo de como a API Cielo Ecommerce permite a utilização de sistemas externos de recorrência em suas transações
@@ -2318,7 +2317,6 @@ Por ser um modelo altamente customizado, a CleverFit possui um sistema de recorr
 1. **Cartão Tokenizado** - A CleverFit mantem os cartões salvos via a tokenização, diminuindo o risco de assegurar os dados  transacionais em seu sistema.
 
 A CleverFit envia a transação quinzenalmente a API Cielo Ecommerce, usando os Tokens salvos na própria API e optando pela Recorrência Própria, que altera a regra de autorização para se adequar a seu modelo de cobrança
-
 
 ### Recorrência Programada
 
@@ -2345,6 +2343,7 @@ A Recorrencia Programada é formada por uma estrutura transacional simples. O Lo
        "Interval":"SemiAnnual"
 }
 ```
+
 Onde podemos definir os dados como:
 
 |Paramêtros|Descrição|
@@ -3199,7 +3198,9 @@ curl
 ### Resposta
 
 ```shell
+
 HTTP Status 200
+
 ```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -3213,7 +3214,9 @@ Para alterar a data final da Recorrência, basta fazer um Put conforme o exemplo
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
 ```json
+
 "2021-01-09"
+
 ```
 
 ```shell
@@ -3239,7 +3242,9 @@ curl
 ### Resposta
 
 ```shell
+
 HTTP Status 200
+
 ```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
@@ -3253,7 +3258,9 @@ Para alterar o Intervalo da Recorrência, basta fazer um Put conforme o exemplo.
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
 ```json
+
 6
+
 ```
 
 ```shell
@@ -4204,7 +4211,7 @@ curl
 
 Para consultar uma Recorrência de cartão de crédito, é necessário fazer um `GET`  conforme o exemplo.
 
-**A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um `GET` na transação (Disponivel em "Consultanto vendas
+**A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um `GET` na transação (Disponivel em "Consultanto vendas**
 
 ### Requisição
 
@@ -4580,6 +4587,7 @@ curl
     ]
 }
 ```
+
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`Status`|Status da Transação.|Byte|---|2|
@@ -4605,7 +4613,6 @@ Cada meio de pagamento sofre impactos diferentes quando uma ordem de cancelament
 |---|---|---|---|
 |Cartão de crédito|A Cielo devolve o valor via crédito bancario|300 dias pós autorização|Sim|
 |Cartão de Débito|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|300 dias pós autorização|Não|
-
 
 OBS: Cancelamentos parciais são disponiveis apenas para Cartão de Crédito.
 
@@ -4767,6 +4774,7 @@ curl
     ]
 }
 ```
+
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`Status`|Status da Transação.|Byte|---|2|
@@ -4793,7 +4801,6 @@ Efeitos sobre o meio de pagamento
 |Boleto|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|Definido pelo lojista|Não|
 |Transferência Eletrônica|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|Definido pelo lojista|Não|
 
-
 Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
 
 # Tokenização de cartões
@@ -4819,6 +4826,7 @@ Para salvar um cartão sem autoriza-lo, basta realizar um posto com os dados do 
     "Brand":"Visa"
 }
 ```
+
 ```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/card/"
@@ -4836,6 +4844,7 @@ curl
 }
 --verbose
 ```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`Name`|Texto|255|Sim|Nome do Comprador.|
@@ -4855,6 +4864,7 @@ curl
     "Href": "https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"}
 }
 ```
+
 ```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -4928,6 +4938,7 @@ Para salvar um cartão, criando seu token, basta enviar uma requisição padrão
    }
 }
 ```
+
 ```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
