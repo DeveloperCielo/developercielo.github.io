@@ -6738,7 +6738,7 @@ Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre e
 * **Capitais:** 4002-9700
 * **Demais Cidades:** 0800 570 1700
 
-Horário de atendimento: 24h por dia, 7 dias por semana.
+**Horário de atendimento:** 24h por dia, 7 dias por semana.
 
 # SDKs
 
