@@ -82,6 +82,7 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 |**VBV (Verified by Visa)**|Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.|
 
 ## Produtos e Bandeiras suportadas
+
 A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
 |Bandeira|Crédito à vista|Crédito parcelado Loja|Débito|Voucher|
@@ -1803,6 +1804,7 @@ curl
 |`DebitCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+
 ### Resposta
 
 ``json
@@ -4606,6 +4608,7 @@ Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffic
 # Cancelando uma venda
 
 ## Cancelando uma venda via API
+
 O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito. 
 
 Cada meio de pagamento sofre impactos diferentes quando uma ordem de cancelamento (VOID) é executada.
