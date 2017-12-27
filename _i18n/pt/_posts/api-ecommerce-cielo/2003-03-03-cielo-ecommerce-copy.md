@@ -81,6 +81,8 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 |**Transação**|é o pedido de compra do portador do cartão na Cielo.|
 |**VBV (Verified by Visa)**|Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.|
 
+## Produtos e Bandeiras suportadas
+
 A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
 |Bandeira|Crédito à vista|Crédito parcelado Loja|Débito|Voucher|
@@ -342,13 +344,13 @@ A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 2
 
 Caso não seja retornado o **HTTP Status Code 200 OK**,  ocorrerão mais **dois** envios do Post de Notificação. 
 
-``json
+```json
 {
    "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
    "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
    "ChangeType": "2"
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -388,7 +390,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {
    "MerchantOrderId":"2014111703",
    "Customer":{
@@ -408,9 +410,9 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
      }
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -438,7 +440,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
@@ -459,7 +461,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014111706",
     "Customer": {
@@ -509,9 +511,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -564,7 +566,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -586,7 +588,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014111701",
    "Customer":{  
@@ -633,9 +635,9 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
      }
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -690,7 +692,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
@@ -738,7 +740,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014111706",
     "Customer": {
@@ -806,9 +808,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -879,7 +881,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -903,7 +905,7 @@ Para criar uma transação com autenticação que utilizará cartão de crédito
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {
     "MerchantOrderId":"2014111903",
     "Customer":
@@ -928,9 +930,9 @@ Para criar uma transação com autenticação que utilizará cartão de crédito
         }
     }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -960,7 +962,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
@@ -983,7 +985,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId":"2014111903",
     "Customer":
@@ -1026,9 +1028,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1074,7 +1076,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -1096,7 +1098,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"201411173454307",
    "Customer":{  
@@ -1199,9 +1201,9 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
      }
   }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -1312,7 +1314,7 @@ curl
   }
 }
 --verbose
-``
+```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
@@ -1396,7 +1398,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "201411173454307",
     "Customer": {
@@ -1545,9 +1547,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1699,7 +1701,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -1735,7 +1737,7 @@ Para criar uma venda que utilizará cartão de débito, é necessário fazer um 
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014121201",
    "Customer":{  
@@ -1754,9 +1756,9 @@ Para criar uma venda que utilizará cartão de débito, é necessário fazer um 
      }
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -1783,7 +1785,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -1803,7 +1805,9 @@ curl
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
-``json
+### Resposta
+
+```json
 {
     "MerchantOrderId": "2014121201",
     "Customer": {
@@ -1836,9 +1840,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -1874,7 +1878,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -1895,7 +1899,7 @@ Para criar uma venda de transferência eletronica, é necessário fazer um POST 
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
     "MerchantOrderId":"2014111706",
     "Customer":
@@ -1910,9 +1914,9 @@ Para criar uma venda de transferência eletronica, é necessário fazer um POST 
         "ReturnUrl":"http://www.cielo.com.br"
     }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -1935,7 +1939,7 @@ curl
     }
 }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -1951,7 +1955,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014111706",
     "Customer": {
@@ -1976,9 +1980,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -2006,7 +2010,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -2035,7 +2039,7 @@ Para todos os campos texto, inclusive o campo de instruções e relacionados ao 
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
     "MerchantOrderId":"2014111706",
     "Customer":
@@ -2068,9 +2072,9 @@ Para todos os campos texto, inclusive o campo de instruções e relacionados ao 
         "Instructions": "Aceitar somente até a data de vencimento, após essa data juros de 1% dia."
     }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -2111,7 +2115,7 @@ curl
     }
 }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -2141,7 +2145,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014111706",
     "Customer":
@@ -2186,9 +2190,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -2227,7 +2231,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -2333,7 +2337,7 @@ Nesse modelo, a API realiza e permite:
 
 A Recorrencia Programada é formada por uma estrutura transacional simples. O Lojista deverá informa na transação os seguintes dados:
 
-``
+```
 "RecurrentPayment":
 {
        "AuthorizeNow":"False",
@@ -2341,7 +2345,7 @@ A Recorrencia Programada é formada por uma estrutura transacional simples. O Lo
        "EndDate":"2019-12-01",
        "Interval":"SemiAnnual"
 }
-``
+```
 
 Onde podemos definir os dados como:
 
@@ -2424,7 +2428,7 @@ O paramêtro `Payment.Recurrent`deve ser `true`, caso contrario, a transação s
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014113245231706",
    "Customer":{  
@@ -2446,9 +2450,9 @@ O paramêtro `Payment.Recurrent`deve ser `true`, caso contrario, a transação s
      }
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -2478,7 +2482,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -2500,7 +2504,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014113245231706",
     "Customer": {
@@ -2560,9 +2564,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -2624,7 +2628,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -2656,7 +2660,7 @@ Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014113245231706",
    "Customer":{  
@@ -2682,9 +2686,9 @@ Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a
      }
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -2718,7 +2722,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -2742,7 +2746,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014113245231706",
     "Customer": {
@@ -2807,9 +2811,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -2876,7 +2880,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -2894,7 +2898,7 @@ Para criar uma venda recorrente cuja a primeira recorrência não será autoriza
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014113245231706",
    "Customer":{  
@@ -2921,9 +2925,9 @@ Para criar uma venda recorrente cuja a primeira recorrência não será autoriza
      }
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -2958,7 +2962,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -2990,7 +2994,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014113245231706",
     "Customer": {
@@ -3032,9 +3036,9 @@ curl
         }
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -3080,7 +3084,7 @@ curl
         }
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -3099,7 +3103,7 @@ Para alterar os dados do comprador da Recorrência, basta fazer um Put conforme 
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
-``json
+```json
 {  
       "Name":"Customer",
       "Email":"customer@teste.com",
@@ -3126,9 +3130,9 @@ Para alterar os dados do comprador da Recorrência, basta fazer um Put conforme 
         "District":"Teste"
       }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Customer"
 --header "Content-Type: application/json"
@@ -3163,7 +3167,7 @@ curl
       }
    }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3196,11 +3200,11 @@ curl
 
 ### Resposta
 
-``shell
+```shell
 
 HTTP Status 200
 
-``
+```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
@@ -3212,13 +3216,13 @@ Para alterar a data final da Recorrência, basta fazer um Put conforme o exemplo
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
-``json
+```json
 
 "2021-01-09"
 
-``
+```
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/EndDate"
 --header "Content-Type: application/json"
@@ -3228,7 +3232,7 @@ curl
 --data-binary
 "2021-01-09"
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3240,11 +3244,11 @@ curl
 
 ### Resposta
 
-``shell
+```shell
 
 HTTP Status 200
 
-``
+```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
@@ -3256,13 +3260,13 @@ Para alterar o Intervalo da Recorrência, basta fazer um Put conforme o exemplo.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
-``json
+```json
 
 6
 
-``
+```
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Interval"
 --header "Content-Type: application/json"
@@ -3272,7 +3276,7 @@ curl
 --data-binary
 6
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3284,9 +3288,9 @@ curl
 
 ### Resposta
 
-``shell
+```shell
 HTTP Status 200
-``
+```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
@@ -3300,11 +3304,11 @@ Para modificar o dia da recorrência, basta fazer um Put conforme o exemplo.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
-``json
+```json
 16
-``
+```
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay"
 --header "Content-Type: application/json"
@@ -3314,7 +3318,7 @@ curl
 --data-binary
 16
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3326,9 +3330,9 @@ curl
 
 ### Resposta
 
-``shell
+```shell
 HTTP Status 200
-``
+```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
@@ -3340,11 +3344,11 @@ Para modificar o valor da recorrência, basta fazer um Put conforme o exemplo.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
-``json
+```json
 156
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.braspag.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Amount"
 --header "Content-Type: application/json"
@@ -3354,7 +3358,7 @@ curl
 --data-binary
 156
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3368,9 +3372,9 @@ curl
 
 ### Resposta
 
-``shell
+```shell
 HTTP Status 200
-``
+```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
@@ -3382,11 +3386,11 @@ Para alterar a data do próximo Pagamento, basta fazer um Put conforme o exemplo
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
-``json
+```json
 "2016-06-15"
-``
+```
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate"
 --header "Content-Type: application/json"
@@ -3396,7 +3400,7 @@ curl
 --data-binary
 "2016-06-15"
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3408,9 +3412,9 @@ curl
 
 ### Resposta
 
-``shell
+```shell
 HTTP Status 200
-``
+```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
@@ -3424,7 +3428,7 @@ Para alterar os dados de pagamento da Recorrência, basta fazer um Put conforme 
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
-``json
+```json
 {  
    "Type":"CreditCard",
    "Amount":"123",
@@ -3439,9 +3443,9 @@ Para alterar os dados de pagamento da Recorrência, basta fazer um Put conforme 
       "ExpirationDate":"12/2030"
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Payment"
 --header "Content-Type: application/json"
@@ -3464,7 +3468,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3484,9 +3488,9 @@ curl
 
 ### Resposta
 
-``shell
+```shell
 HTTP Status 200
-``
+```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
@@ -3498,7 +3502,7 @@ Para desabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate"
 --header "Content-Type: application/json"
@@ -3507,7 +3511,7 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3518,9 +3522,9 @@ curl
 
 ### Resposta
 
-``shell
+```shell
 HTTP Status 200
-``
+```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
@@ -3532,7 +3536,7 @@ Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate"
 --header "Content-Type: application/json"
@@ -3541,7 +3545,7 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3552,9 +3556,9 @@ curl
 
 ### Resposta
 
-``shell
+```shell
 HTTP Status 200
-``
+```
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
@@ -3569,7 +3573,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014113245231706",
    "Customer":{  
@@ -3595,9 +3599,9 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
      }
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -3631,7 +3635,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3656,7 +3660,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
   "MerchantOrderId": "2014113245231706",
   "Customer": {
@@ -3717,9 +3721,9 @@ curl
     ]
   }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -3783,7 +3787,7 @@ curl
     ]
   }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -3810,7 +3814,7 @@ Para consultar uma venda de cartão de crédito, é necessário fazer um GET par
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
-``shell
+```shell
 curl
 --request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
 --header "Content-Type: application/json"
@@ -3819,7 +3823,7 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3830,7 +3834,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014111706",
     "Customer": {
@@ -3878,9 +3882,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -3931,7 +3935,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -3961,7 +3965,7 @@ Para consultar uma venda pelo identificador da loja, é necessário fazer um GET
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
-``shell
+```shell
 curls
 --request GET " https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales?merchantOrderId={merchantOrderId}"
 --header "Content-Type: application/json"
@@ -3970,7 +3974,7 @@ curls
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -3981,7 +3985,7 @@ curls
 
 ### Resposta
 
-``json
+```json
 {
     "Payment": [
         {
@@ -3994,9 +3998,9 @@ curls
         }
     ]
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4012,7 +4016,7 @@ curls
         }
     ]
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -4026,7 +4030,7 @@ Para consultar uma venda de cartão de crédito com antifraud, é necessário fa
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
-``shell
+```shell
 curl
 --request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
 --header "Content-Type: application/json"
@@ -4035,7 +4039,7 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -4046,7 +4050,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "OrderId": "f381c0c4-2bf9-4de1-91e1-e9e1f11d0854",
     "MerchantOrderId": "201411173454307",
@@ -4115,9 +4119,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4189,7 +4193,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -4216,7 +4220,7 @@ Para consultar uma Recorrência de cartão de crédito, é necessário fazer um 
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
-``shell
+```shell
 curl
 --request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
 --header "Content-Type: application/json"
@@ -4225,7 +4229,7 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -4236,7 +4240,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "Customer": {
         "Name": "Fulano da Silva"
@@ -4272,9 +4276,9 @@ curl
         "Status": 1
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4313,7 +4317,7 @@ curl
         "Status": 1
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -4354,13 +4358,13 @@ Para captura uma venda que utiliza cartão de crédito, é necessário fazer um 
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
 
-``json
+```json
 
 https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture
 
-``
+```
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
 --header "Content-Type: application/json"
@@ -4368,7 +4372,7 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -4381,7 +4385,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "Status": 2,
     "ReturnCode": "6",
@@ -4399,9 +4403,9 @@ curl
         }
     ]
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4422,7 +4426,7 @@ curl
         }
     ]
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -4444,13 +4448,13 @@ Basta realizar um `POST` enviando o valor a ser capturado.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
-``json
+```json
 
 https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}
 
-``
+```
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"
 --header "Content-Type: application/json"
@@ -4458,7 +4462,7 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -4471,7 +4475,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "Status": 2,
     "ReasonCode": 0,
@@ -4493,9 +4497,9 @@ curl
         }
     ]
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4520,7 +4524,7 @@ curl
         }
     ]
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -4536,7 +4540,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "Status": 2,
     "ReasonCode": 0,
@@ -4558,9 +4562,9 @@ curl
         }
     ]
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4585,7 +4589,7 @@ curl
         }
     ]
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -4601,9 +4605,9 @@ curl
 
 Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
 
-Cancelando uma venda
+# Cancelando uma venda
 
-Cancelando uma venda via API
+## Cancelando uma venda via API
 
 O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito. 
 
@@ -4630,7 +4634,7 @@ ou
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/OrderId/{MerchantOrderId}/void?amount=xxx</span></aside>
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
 --header "Content-Type: application/json"
@@ -4638,7 +4642,7 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -4650,7 +4654,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "Status": 10,
     "ReturnCode": "9",
@@ -4663,9 +4667,9 @@ curl
         }
     ]
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4681,7 +4685,7 @@ curl
         }
     ]
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -4703,7 +4707,7 @@ O **cancelamento  parcial** é o ato de cancelar um valor menor que o valor tota
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
-``shell
+```shell
 curl
 --request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount=XXX"
 --header "Content-Type: application/json"
@@ -4711,7 +4715,7 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -4723,7 +4727,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "Status": 2,
     "ReasonCode": 0,
@@ -4745,9 +4749,9 @@ curl
         }
     ]
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4772,7 +4776,7 @@ curl
         }
     ]
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -4784,9 +4788,9 @@ curl
 
 <aside class="notice"><strong>Cancelamento de Taxa de embarque</strong> Para realizar o cancelamento da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser cancelado</aside>
 
-``
+```
 https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
-``
+```
 
 ## Cancelamento via Backoffice
 
@@ -4816,7 +4820,7 @@ Para salvar um cartão sem autoriza-lo, basta realizar um posto com os dados do 
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/card/</span></aside>
 
-``json
+```json
 {
     "CustomerName": "Comprador Teste Cielo",
     "CardNumber":"4532117080573700",
@@ -4824,9 +4828,9 @@ Para salvar um cartão sem autoriza-lo, basta realizar um posto com os dados do 
     "ExpirationDate":"12/2030",
     "Brand":"Visa"
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/card/"
 --header "Content-Type: application/json"
@@ -4842,7 +4846,7 @@ curl
     "Brand":"Visa"
 }
 --verbose
-``
+```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
@@ -4854,7 +4858,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
   "CardToken": "db62dc71-d07b-4745-9969-42697b988ccb",
   "Links": {
@@ -4862,9 +4866,9 @@ curl
     "Rel": "self",
     "Href": "https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"}
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -4875,7 +4879,7 @@ curl
     "Rel": "self",
     "Href": "https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"}
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -4889,7 +4893,7 @@ Para salvar um cartão, criando seu token, basta enviar uma requisição padrão
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014111701",
    "Customer":{  
@@ -4936,9 +4940,9 @@ Para salvar um cartão, criando seu token, basta enviar uma requisição padrão
      }
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -4993,7 +4997,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
@@ -5040,7 +5044,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014111706",
     "Customer": {
@@ -5109,9 +5113,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -5183,7 +5187,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -5206,7 +5210,7 @@ Para criar uma venda de cartão de crédito com token do cartão protegido, é n
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014111706",
    "Customer":{  
@@ -5224,9 +5228,9 @@ Para criar uma venda de cartão de crédito com token do cartão protegido, é n
      }
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -5252,7 +5256,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -5273,7 +5277,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014111706",
     "Customer": {
@@ -5320,9 +5324,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -5372,7 +5376,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -5401,7 +5405,7 @@ Para uso em Sandbox, é possivel simular transações autorizadas ou negadas via
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014111706",
    "Customer":{  
@@ -5417,9 +5421,9 @@ Para uso em Sandbox, é possivel simular transações autorizadas ou negadas via
      }
    }
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -5443,7 +5447,7 @@ curl
    }
 }
 --verbose
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
@@ -5461,7 +5465,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
   "MerchantOrderId": "2014111706",
   "Customer": {
@@ -5511,9 +5515,9 @@ curl
     ]
   }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -5567,7 +5571,7 @@ curl
   }
 }
 
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -5607,7 +5611,7 @@ A API Cielo eCommerce suporta duas carteiras de pagamento: VisaCheckout e Master
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014111703",
    "Customer":{  
@@ -5628,9 +5632,9 @@ A API Cielo eCommerce suporta duas carteiras de pagamento: VisaCheckout e Master
    }
 }
 
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -5659,7 +5663,7 @@ curl
 }
 
 --verbose
-``
+```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
@@ -5679,7 +5683,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
   "MerchantOrderId": "2014111708",
   "Customer": {
@@ -5721,9 +5725,9 @@ curl
     ]
   }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -5768,7 +5772,7 @@ curl
     ]
   }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -5788,7 +5792,7 @@ curl
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014111703",
    "Customer":{  
@@ -5810,9 +5814,9 @@ curl
     },
   },
 }
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -5842,7 +5846,7 @@ curl
   },
 }
 --verbose
-``
+```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
@@ -5866,7 +5870,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
     "MerchantOrderId": "2014111706",
     "Customer": {
@@ -5916,9 +5920,9 @@ curl
         ]
     }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -5971,7 +5975,7 @@ curl
         ]
     }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
@@ -5995,7 +5999,7 @@ Mais informações e integração completa, você encontra no link: https://deve
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-``json
+```json
 {  
    "MerchantOrderId":"2014111708",
    "Customer":{  
@@ -6019,9 +6023,9 @@ Mais informações e integração completa, você encontra no link: https://deve
    }
 }
 
-``
+```
 
-``shell
+```shell
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -6053,7 +6057,7 @@ curl
 }
 
 --verbose
-``
+```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
@@ -6074,7 +6078,7 @@ curl
 
 ### Resposta
 
-``json
+```json
 {
   "MerchantOrderId": "2014111708",
   "Customer": {
@@ -6121,9 +6125,9 @@ curl
     ]
   }
 }
-``
+```
 
-``shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -6173,7 +6177,7 @@ curl
     ]
   }
 }
-``
+```
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
