@@ -82,6 +82,7 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 |**VBV (Verified by Visa)**|Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.|
 
 ## Produtos e Bandeiras suportadas
+
 A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
 |Bandeira|Crédito à vista|Crédito parcelado Loja|Débito|Voucher|
@@ -289,7 +290,7 @@ As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, 
 
 Cartões de débito não possuem cartões ou dados específicos simulados, como no caso do cartão de crédito. 
 
-O fluxo transacional do cartão de Débito funciona com o Response da transação retornando uma *URL DE AUTENTICAÇÃO* . Na tela de autenticação a opção escolhida define o status da transação.
+O fluxo transacional do cartão de Débito funciona com o Response da transação retornando uma **URL DE AUTENTICAÇÃO** . Na tela de autenticação a opção escolhida define o status da transação.
 
 |Opção|Status|
 |---|---|
@@ -1803,6 +1804,7 @@ curl
 |`DebitCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+
 ### Resposta
 
 ```json
@@ -4606,6 +4608,7 @@ Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffic
 # Cancelando uma venda
 
 ## Cancelando uma venda via API
+
 O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito. 
 
 Cada meio de pagamento sofre impactos diferentes quando uma ordem de cancelamento (VOID) é executada.
@@ -6023,7 +6026,6 @@ Mais informações e integração completa, você encontra no link: https://deve
 ```
 
 ```shell
-
 curl
 --request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
 --header "Content-Type: application/json"
@@ -6055,7 +6057,6 @@ curl
 }
 
 --verbose
-
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -6078,7 +6079,6 @@ curl
 ### Resposta
 
 ```json
-
 {
   "MerchantOrderId": "2014111708",
   "Customer": {
@@ -6128,7 +6128,6 @@ curl
 ```
 
 ```shell
-
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
@@ -6737,7 +6736,7 @@ Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre e
 * **Capitais:** 4002-9700
 * **Demais Cidades:** 0800 570 1700
 
-Horário de atendimento: 24h por dia, 7 dias por semana.
+**Horário de atendimento:** 24h por dia, 7 dias por semana.
 
 # SDKs
 
