@@ -290,7 +290,7 @@ As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, 
 
 Cartões de débito não possuem cartões ou dados específicos simulados, como no caso do cartão de crédito. 
 
-O fluxo transacional do cartão de Débito funciona com o Response da transação retornando uma *URL DE AUTENTICAÇÃO* . Na tela de autenticação a opção escolhida define o status da transação.
+O fluxo transacional do cartão de Débito funciona com o Response da transação retornando uma **URL DE AUTENTICAÇÃO** . Na tela de autenticação a opção escolhida define o status da transação.
 
 |Opção|Status|
 |---|---|
