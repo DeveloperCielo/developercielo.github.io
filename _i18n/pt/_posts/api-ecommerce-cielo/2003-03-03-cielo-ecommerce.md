@@ -141,7 +141,7 @@ O passo a passo para a instalação do Certificado EV deverá ser contatado o su
 
 Normalmente, o browser faz a atualização do Certificado automaticamente, caso não o faça e o cliente entre em contato deverá ser informado os seguintes passos:
 
-#### 1o Passo:
+**1o Passo:**
 
 Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:
 
@@ -149,7 +149,7 @@ Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, p
 * [Certificado Intermediária](./attachment/intermediaria.crt)
 * [Certificado E-Commerce Cielo](./attachment/ecommerce.cielo.com.br.crt)
 
-#### 2o Passo:
+**2o Passo:**
 
 No “Internet Explorer”, clique no menu “Ferramentas” e acesse as “Opções da Internet”:
 
@@ -163,7 +163,7 @@ No “Chrome”, clique no “Personalizar e Controlar o Google Chrome” e aces
 
 ![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-1.jpg)
 
-#### 3o Passo:
+**3o Passo:**
 
 No Internet Explorer, em “Certificados”, clique em “Importar”.
 
@@ -177,7 +177,7 @@ No Chrome clique em “Gerenciar Certificados”, clique em “Importar”
 
 ![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-2.jpg)
 
-#### 4o Passo:
+**4o Passo:**
 
 No Internet Explorer e Chrome “Assistente para Importação de Certificados”, clique em “Avançar”.
 
@@ -189,7 +189,7 @@ No Firefox “Aba Servidores ”, clique em “Importar”
 
 ![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-3.jpg)
 
-#### 5o Passo:
+**5o Passo:**
 
 No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “cieloecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.
 
@@ -197,19 +197,19 @@ No Chrome e Internet Explorer “Assistente para Importação de Certificados”
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-6.jpg)
 
-#### 6o Passo:
+**6o Passo:**
 
 Selecionar a opção desejada: adicionar o Certificado em uma pasta padrão ou procurar a pasta de sua escolha.
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-7.jpg)
 
-#### 7o Passo:
+**7o Passo:**
 
 Clique em “Concluir”.
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-8.jpg)
 
-#### 8o Passo:
+**8o Passo:**
 
 Clique em “Ok” para concluir a importação.
 
@@ -221,13 +221,14 @@ O Certificado poderá ser visualizado na aba padrão “Outras Pessoas” ou na 
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-10.jpg)
 
-#### 9o Passo:
+**9o Passo:**
 
 Repita o mesmo procedimento para os 3 arquivos enviados.
 
 # Sandbox e Ferramentas
 
 ## Sobre o Sandbox
+
 Para facilitar os testes durante a integração, a Cielo oferece um ambiente Sandbox que é composto por duas áreas:
 
 1. Cadastro de conta de testes
@@ -4695,7 +4696,6 @@ O **cancelamento  parcial** é o ato de cancelar um valor menor que o valor tota
 
  Basta realizar um `POST` enviando o valor a ser cancelado.
 
- 
 <aside class="notice"><strong>Atenção:</strong> Cancelamento parcial disponível apenas para transações de crédito *CAPTURADAS*</aside>
 
 <aside class="notice"><strong>Atenção:</strong> O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
@@ -6587,7 +6587,6 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 
 ## Valores da Análise de Fraude
 
-
 ### FraudAnalysis.status
 
 | Campo         | Descrição                                                   |
@@ -6599,7 +6598,6 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 | Unfinished    | Transação não finalizada por algum erro interno no sistema. |
 | Pendent       | Transação esperando analise                                 |
 | ProviderError | Transação com erro no provedor de antifraude.               |
-
 
 ### FraudAnalysis.Items.GiftCategory
 
