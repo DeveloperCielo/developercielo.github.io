@@ -105,15 +105,15 @@ Empresas especializadas são responsáveis por fazer a validação do domínio e
 
 ### Internet Explorer:
 
-![Certificado EV Internet Explorer](./images/certificado-ie.jpg)
+![Certificado EV Internet Explorer]({{ site.baseurl_root }}/images/certificado-ie.jpg)
 
 ### Firefox
 
-![Certificado EV Firefox](./images/certificado-firefox.jpg)
+![Certificado EV Firefox]({{ site.baseurl_root }}/images/certificado-firefox.jpg)
 
 ### Google Chrome
 
-![Certificado EV Google Chrome](./images/certificado-chrome.jpg)
+![Certificado EV Google Chrome]({{ site.baseurl_root }}/images/certificado-chrome.jpg)
 
 ## O que é Certificado EV SSL?
 
@@ -153,73 +153,73 @@ Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, p
 
 No “Internet Explorer”, clique no menu “Ferramentas” e acesse as “Opções da Internet”:
 
-![Instalar IE](./images/certificado-instalar-ie-1.jpg)
+![Instalar IE]({{ site.baseurl_root }}/images/certificado-instalar-ie-1.jpg)
 
 No “Firefox”, clique no menu “Abrir Menu” e acesse “Avançado” e “Opções”:
 
-![Instalar FF](./images/certificado-instalar-ff-1.jpg)
+![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-1.jpg)
 
 No “Chrome”, clique no “Personalizar e Controlar o Google Chrome” e acesse “Configurações” e “Mostrar configurações avançadas... “Alterar Configurações de Proxy e “Conteúdo” e Certificados:
 
-![Instalar GC](./images/certificado-instalar-gc-1.jpg)
+![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-1.jpg)
 
 #### 3o Passo:
 
 No Internet Explorer, em “Certificados”, clique em “Importar”.
 
-![Instalar IE](./images/certificado-instalar-ie-2.jpg)
+![Instalar IE]({{ site.baseurl_root }}/images/certificado-instalar-ie-2.jpg)
 
 No Firefox clique em “Ver Certificados”, clique em “Importar”
 
-![Instalar FF](./images/certificado-instalar-ff-2.jpg)
+![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-2.jpg)
 
 No Chrome clique em “Gerenciar Certificados”, clique em “Importar”
 
-![Instalar GC](./images/certificado-instalar-gc-2.jpg)
+![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-2.jpg)
 
 #### 4o Passo:
 
 No Internet Explorer e Chrome “Assistente para Importação de Certificados”, clique em “Avançar”.
 
-![Instalar IE e GC](./images/certificado-instalar-ie-gc-3.jpg)
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-3.jpg)
 
-![Instalar IE e GC](./images/certificado-instalar-ie-gc-4.jpg)
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-4.jpg)
 
 No Firefox “Aba Servidores ”, clique em “Importar”
 
-![Instalar FF](./images/certificado-instalar-ff-3.jpg)
+![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-3.jpg)
 
 #### 5o Passo:
 
 No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “cieloecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.
 
-![Instalar IE e GC](./images/certificado-instalar-ie-gc-5.jpg)
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-5.jpg)
 
-![Instalar IE e GC](./images/certificado-instalar-ie-gc-6.jpg)
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-6.jpg)
 
 #### 6o Passo:
 
 Selecionar a opção desejada: adicionar o Certificado em uma pasta padrão ou procurar a pasta de sua escolha.
 
-![Instalar IE e GC](./images/certificado-instalar-ie-gc-7.jpg)
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-7.jpg)
 
 #### 7o Passo:
 
 Clique em “Concluir”.
 
-![Instalar IE e GC](./images/certificado-instalar-ie-gc-8.jpg)
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-8.jpg)
 
 #### 8o Passo:
 
 Clique em “Ok” para concluir a importação.
 
-![Instalar IE e GC](./images/certificado-instalar-ie-gc-9.jpg)
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-9.jpg)
 
 <aside class="notice">No Firefox não consta a mensagem de Importação com Êxito, apenas conclui a importação.</aside>
 
 O Certificado poderá ser visualizado na aba padrão “Outras Pessoas” ou na escolhida pelo cliente.
 
-![Instalar IE e GC](./images/certificado-instalar-ie-gc-10.jpg)
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-10.jpg)
 
 #### 9o Passo:
 
@@ -398,7 +398,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
      "Amount":15700,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-	 "CreditCard":{
+     "CreditCard":{
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -427,7 +427,7 @@ curl
      "Amount":15700,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-	 "CreditCard":{
+     "CreditCard":{
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -622,7 +622,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
      "Capture":true,
      "Authenticate":false,
      "SoftDescriptor":"123456789ABCD",
-	 "CreditCard":{  
+     "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -904,28 +904,28 @@ Para criar uma transação com autenticação que utilizará cartão de crédito
 
 ```json
 {
-	"MerchantOrderId":"2014111903",
-	"Customer":
-	{
-		"Name":"Comprador crédito autenticação"
-	},
-	"Payment":
-	{
-	    "Type":"CreditCard",
-	    "Amount":15700,
-	    "Installments":1,
-	    "Authenticate":true,
-		"SoftDescriptor":"123456789ABCD",
-		"ReturnUrl":"https://www.cielo.com.br",
-	    "CreditCard":
-	    {
-		    "CardNumber":"1234123412341231",
-		    "Holder":"Teste Holder",
-		    "ExpirationDate":"12/2030",
-		    "SecurityCode":"123",
-		    "Brand":"Visa"
-	    }
-	}
+    "MerchantOrderId":"2014111903",
+    "Customer":
+    {
+        "Name":"Comprador crédito autenticação"
+    },
+    "Payment":
+    {
+        "Type":"CreditCard",
+        "Amount":15700,
+        "Installments":1,
+        "Authenticate":true,
+        "SoftDescriptor":"123456789ABCD",
+        "ReturnUrl":"https://www.cielo.com.br",
+        "CreditCard":
+        {
+            "CardNumber":"1234123412341231",
+            "Holder":"Teste Holder",
+            "ExpirationDate":"12/2030",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+        }
+    }
 }
 ```
 
@@ -984,46 +984,46 @@ curl
 
 ```json
 {
-	"MerchantOrderId":"2014111903",
-	"Customer":
-	{
-		"Name":"Comprador crédito autenticação"
-	},
-	"Payment":
-	{
-		"ServiceTaxAmount":0,
-		"Installments":1,
-		"Interest":"ByMerchant",
-		"Capture":false,
-		"Authenticate":true,
-		"CreditCard":
-		{
-			"CardNumber":"123412******1112",
-			"Holder":"Teste Holder",
-			"ExpirationDate":"12/2030",
-			"SaveCard":false,
-			"Brand":"Visa"
-		},
-		"AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
+    "MerchantOrderId":"2014111903",
+    "Customer":
+    {
+        "Name":"Comprador crédito autenticação"
+    },
+    "Payment":
+    {
+        "ServiceTaxAmount":0,
+        "Installments":1,
+        "Interest":"ByMerchant",
+        "Capture":false,
+        "Authenticate":true,
+        "CreditCard":
+        {
+            "CardNumber":"123412******1112",
+            "Holder":"Teste Holder",
+            "ExpirationDate":"12/2030",
+            "SaveCard":false,
+            "Brand":"Visa"
+        },
+        "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
         "Tid": "1006993069257E521001",
         "SoftDescriptor":"123456789ABCD",
-		"PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-		"Type":"CreditCard",
-		"Amount":15700,
-		"Currency":"BRL",
-		"Country":"BRA",
-		"ExtraDataCollection":[],
-		"Status":0,
+        "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
+        "Type":"CreditCard",
+        "Amount":15700,
+        "Currency":"BRL",
+        "Country":"BRA",
+        "ExtraDataCollection":[],
+        "Status":0,
         "ReturnCode": "0",
-		"Links":
-		[
-			{
-				"Method":"GET",
-				"Rel":"self",
-				"Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-			}
-		]
-	}
+        "Links":
+        [
+            {
+                "Method":"GET",
+                "Rel":"self",
+                "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
+            }
+        ]
+    }
 }
 ```
 
@@ -1032,46 +1032,46 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-	"MerchantOrderId":"2014111903",
-	"Customer":
-	{
-		"Name":"Comprador crédito autenticação"
-	},
-	"Payment":
-	{
-		"ServiceTaxAmount":0,
-		"Installments":1,
-		"Interest":"ByMerchant",
-		"Capture":false,
-		"Authenticate":true,
-		"CreditCard":
-		{
-			"CardNumber":"123412******1112",
-			"Holder":"Teste Holder",
-			"ExpirationDate":"12/2030",
-			"SaveCard":false,
-			"Brand":"Visa"
-		},
-		"AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
+    "MerchantOrderId":"2014111903",
+    "Customer":
+    {
+        "Name":"Comprador crédito autenticação"
+    },
+    "Payment":
+    {
+        "ServiceTaxAmount":0,
+        "Installments":1,
+        "Interest":"ByMerchant",
+        "Capture":false,
+        "Authenticate":true,
+        "CreditCard":
+        {
+            "CardNumber":"123412******1112",
+            "Holder":"Teste Holder",
+            "ExpirationDate":"12/2030",
+            "SaveCard":false,
+            "Brand":"Visa"
+        },
+        "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
         "Tid": "1006993069257E521001",
         "SoftDescriptor":"123456789ABCD",
-		"PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-		"Type":"CreditCard",
-		"Amount":15700,
-		"Currency":"BRL",
-		"Country":"BRA",
-		"ExtraDataCollection":[],
-		"Status":0,
+        "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
+        "Type":"CreditCard",
+        "Amount":15700,
+        "Currency":"BRL",
+        "Country":"BRA",
+        "ExtraDataCollection":[],
+        "Status":0,
         "ReturnCode": "0",
-		"Links":
-		[
-			{
-				"Method":"GET",
-				"Rel":"self",
-				"Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-			}
-		]
-	}
+        "Links":
+        [
+            {
+                "Method":"GET",
+                "Rel":"self",
+                "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
+            }
+        ]
+    }
 }
 ```
 
@@ -1128,7 +1128,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
      "Country":"BRA",
      "ServiceTaxAmount":0,
      "Installments":1,
-	 "SoftDescriptor":"123456789ABCD",
+     "SoftDescriptor":"123456789ABCD",
      "Interest":"ByMerchant",
      "Capture":false,
      "Authenticate":false,
@@ -1142,14 +1142,14 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
      "FraudAnalysis":{
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"Always",
-	   "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
-	   "Browser":{
-		 "CookiesAccepted":false,
-		 "Email":"compradorteste@live.com",
-		 "HostName":"Teste",
-		 "IpAddress":"200.190.150.350",
-		 "Type":"Chrome"
-		},
+       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+       "Browser":{
+         "CookiesAccepted":false,
+         "Email":"compradorteste@live.com",
+         "HostName":"Teste",
+         "IpAddress":"200.190.150.350",
+         "Type":"Chrome"
+        },
        "Cart":{
          "IsGift":false,
          "ReturnsAccepted":true,
@@ -1163,38 +1163,38 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
            "Quantity":1,
            "Sku":"201411170235134521346",
            "UnitPrice":123,
-		   "Risk":"High",
-		   "TimeHedge":"Normal",
-		   "Type":"AdultContent",
-		   "VelocityHedge":"High",
-		   "Passenger":{
-			 "Email":"compradorteste@live.com",
-			 "Identity":"1234567890",
-			 "Name":"Comprador accept",
-			 "Rating":"Adult",
-			 "Phone":"999994444",
-			 "Status":"Accepted"
-			}
+           "Risk":"High",
+           "TimeHedge":"Normal",
+           "Type":"AdultContent",
+           "VelocityHedge":"High",
+           "Passenger":{
+             "Email":"compradorteste@live.com",
+             "Identity":"1234567890",
+             "Name":"Comprador accept",
+             "Rating":"Adult",
+             "Phone":"999994444",
+             "Status":"Accepted"
+            }
            }]
        },
-	   "MerchantDefinedFields":[{
-			"Id":95,
-			"Value":"Eu defini isso"
-		}],
-		"Shipping":{
-			"Addressee":"Sr Comprador Teste",
-			"Method":"LowCost",
-			"Phone":"21114740"
-		},
-		"Travel":{
-			"DepartureTime":"2010-01-02",
-			"JourneyType":"Ida",
-			"Route":"MAO-RJO",
+       "MerchantDefinedFields":[{
+            "Id":95,
+            "Value":"Eu defini isso"
+        }],
+        "Shipping":{
+            "Addressee":"Sr Comprador Teste",
+            "Method":"LowCost",
+            "Phone":"21114740"
+        },
+        "Travel":{
+            "DepartureTime":"2010-01-02",
+            "JourneyType":"Ida",
+            "Route":"MAO-RJO",
           "Legs":[{
-				"Destination":"GYN",
-				"Origin":"VCP"
+                "Destination":"GYN",
+                "Origin":"VCP"
           }]
-		}
+        }
      }
   }
 }
@@ -1239,7 +1239,7 @@ curl
      "Country":"BRA",
      "ServiceTaxAmount":0,
      "Installments":1,
-	 "SoftDescriptor":"123456789ABCD",
+     "SoftDescriptor":"123456789ABCD",
      "Interest":"ByMerchant",
      "Capture":false,
      "Authenticate":false,
@@ -1254,14 +1254,14 @@ curl
      "FraudAnalysis":{
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"Always",
-	   "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
-	   "Browser":{
-		 "CookiesAccepted":false,
-		 "Email":"compradorteste@live.com",
-		 "HostName":"Teste",
-		 "IpAddress":"200.190.150.350",
-		 "Type":"Chrome"
-		},
+       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+       "Browser":{
+         "CookiesAccepted":false,
+         "Email":"compradorteste@live.com",
+         "HostName":"Teste",
+         "IpAddress":"200.190.150.350",
+         "Type":"Chrome"
+        },
        "Cart":{
          "IsGift":false,
          "ReturnsAccepted":true,
@@ -1275,38 +1275,38 @@ curl
            "Quantity":1,
            "Sku":"201411170235134521346",
            "UnitPrice":123,
-		   "Risk":"High",
-		   "TimeHedge":"Normal",
-		   "Type":"AdultContent",
-		   "VelocityHedge":"High",
-		   "Passenger":{
-			 "Email":"compradorteste@live.com",
-			 "Identity":"1234567890",
-			 "Name":"Comprador accept",
-			 "Rating":"Adult",
-			 "Phone":"999994444",
-			 "Status":"Accepted"
-			}
+           "Risk":"High",
+           "TimeHedge":"Normal",
+           "Type":"AdultContent",
+           "VelocityHedge":"High",
+           "Passenger":{
+             "Email":"compradorteste@live.com",
+             "Identity":"1234567890",
+             "Name":"Comprador accept",
+             "Rating":"Adult",
+             "Phone":"999994444",
+             "Status":"Accepted"
+            }
            }]
        },
-	   "MerchantDefinedFields":[{
-			"Id":95,
-			"Value":"Eu defini isso"
-		}],
-		"Shipping":{
-			"Addressee":"Sr Comprador Teste",
-			"Method":"LowCost",
-			"Phone":"21114740"
-		},
-		"Travel":{
-			"DepartureTime":"2010-01-02",
-			"JourneyType":"Ida",
-			"Route":"MAO-RJO",
+       "MerchantDefinedFields":[{
+            "Id":95,
+            "Value":"Eu defini isso"
+        }],
+        "Shipping":{
+            "Addressee":"Sr Comprador Teste",
+            "Method":"LowCost",
+            "Phone":"21114740"
+        },
+        "Travel":{
+            "DepartureTime":"2010-01-02",
+            "JourneyType":"Ida",
+            "Route":"MAO-RJO",
           "Legs":[{
-				"Destination":"GYN",
-				"Origin":"VCP"
+                "Destination":"GYN",
+                "Origin":"VCP"
           }]
-		}
+        }
      }
   }
 }
@@ -2047,7 +2047,7 @@ Para todos os campos texto, inclusive o campo de instruções e relacionados ao 
         "Address":
         {
           "Street": "Avenida Marechal Câmara",
-          "Number": "160",	
+          "Number": "160",    
           "Complement": "Sala 934",
           "ZipCode" : "22750012",
           "District": "Centro",
@@ -2088,7 +2088,7 @@ curl
         "Address":
         {
           "Street": "Avenida Marechal Câmara",
-          "Number": "160",	
+          "Number": "160",    
           "Complement": "Sala 934",
           "ZipCode" : "22750012",
           "District": "Centro",
@@ -2149,15 +2149,15 @@ curl
     {
         "Name": "Comprador Boleto Completo",
         "Address":
-		{
-		"Street": "Av Marechal Camara",
-		"Number": "160",
-		"ZipCode": "22750012",
-		"City": "Rio de Janeiro",
-		"State": "RJ",
-		"Country": "BRA",
-		"District": "Centro"
-		}
+        {
+        "Street": "Av Marechal Camara",
+        "Number": "160",
+        "ZipCode": "22750012",
+        "City": "Rio de Janeiro",
+        "State": "RJ",
+        "Country": "BRA",
+        "District": "Centro"
+        }
     },
     "Payment":
     {
@@ -2370,11 +2370,11 @@ Caracteristicas importantes da **Recorrência Programada**:
 
 **Estrutura de um RecurrentPaymentID**
 
-![](./images/RECpaymentID.PNG)
+![]({{ site.baseurl_root }}/images/RECpaymentID.PNG)
 
 **Fluxo de uma Recorrência Programada**
 
-![](./images/FluxosRECPROG.PNG)
+![]({{ site.baseurl_root }}/images/FluxosRECPROG.PNG)
 
 #### Caso de uso
 
@@ -2409,11 +2409,11 @@ Ao criar uma transação, o Musicfy informa que o pedido em questão deve ser re
 Quais as vantagens de usar a recorrência programada para o MusicFy:
 
 1. **Facilidade:** A cobrança de mensalidade é automática, logo o MusicFy não precisa se preocupar em construir um sistema de cobrança.
-	
+    
 2. **Usabilidade:** O valor das assinaturas pode ser atualizado sem a necessidade de refazer a transação. Um mês pode ser cancelado ou a recorrência pode ter um delay ( o modelo de 30 dias gratuito) com apenas uma configuração.
-	
+    
 3. **Segurança:** Não é necessário armazenar dados sensíveis do cartão e do comprador junto a loja.
-	
+    
 4. **Conversão:** A recorrência programada cielo possui um sistema de retentativa automática. Caso uma das transações seja negada, ela será retentada até 4 vezes, buscando atingir a autorização.
 
 ## Criando uma RECORRÊNCIA PRÓPRIA
@@ -2437,7 +2437,7 @@ O paramêtro `Payment.Recurrent`deve ser `true`, caso contrario, a transação s
      "Amount":1500,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-	 "Recurrent": true,
+     "Recurrent": true,
      "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -2651,8 +2651,8 @@ curl
 Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.
 
 <aside class="notice"><strong>Atenção:</strong> Nessa modalidade de recorrência, a primeira transação deve ser 
-	
-	da. Todas as transções posteriores serão capturadas automaticamente.</aside>
+    
+    da. Todas as transções posteriores serão capturadas automaticamente.</aside>
 
 ### Requisição
 
@@ -3675,7 +3675,7 @@ curl
     "SoftDescriptor": "123456789ABCD",
     "Provider": "Cielo",
     "Eci": "0",
-	"NewCard": {
+    "NewCard": {
        "CardNumber": "40000000000000000",
        "ExpirationDate": "10/2020",
        "SaveCard": false,
@@ -3741,7 +3741,7 @@ curl
     "SoftDescriptor": "123456789ABCD",
     "Provider": "Cielo",
     "Eci": "0",
-	"NewCard": {
+    "NewCard": {
        "CardNumber": "40000000000000000",
        "ExpirationDate": "10/2020",
        "SaveCard": false,
@@ -4916,7 +4916,7 @@ Para salvar um cartão, criando seu token, basta enviar uma requisição padrão
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":false,
-	 "SoftDescriptor":"123456789ABCD",
+     "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -5069,7 +5069,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": true,
-			"CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
+            "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
             "Brand": "Visa"
         },
         "ProofOfSale": "674532",
@@ -5143,7 +5143,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": true,
-			"CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
+            "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
             "Brand": "Visa"
         },
         "ProofOfSale": "674532",
@@ -5402,8 +5402,8 @@ Para uso em Sandbox, é possivel simular transações autorizadas ou negadas via
      "Amount":100,
      "Installments":1,
      "CreditCard":{  
-    	"CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-    	"Brand":"Visa"
+        "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+        "Brand":"Visa"
      }
    }
 }
@@ -5427,8 +5427,8 @@ curl
      "Amount":100,
      "Installments":1,
      "CreditCard":{  
-    	"CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-    	"Brand":"Visa"
+        "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+        "Brand":"Visa"
      }
    }
 }
@@ -5644,8 +5644,8 @@ curl
      "Wallet":{
          "Type":"VisaCheckout",
          "WalletKey":"1140814777695873901"
-		}
-	 }
+        }
+     }
 }
 
 --verbose
@@ -5790,8 +5790,8 @@ curl
       "Installments":1,
       "SoftDescriptor":"123456789ABCD",
       "Wallet":{  
-    	 "Type":"VisaCheckout"
-	},
+         "Type":"VisaCheckout"
+    },
       "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -5821,8 +5821,8 @@ curl
       "Installments":1,
       "SoftDescriptor":"123456789ABCD",
       "Wallet":{  
-    	 "Type":"VisaCheckout"
-	},
+         "Type":"VisaCheckout"
+    },
       "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
