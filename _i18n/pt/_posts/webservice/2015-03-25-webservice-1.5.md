@@ -75,6 +75,7 @@ A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e pro
 |Discover|Sim|*Não*|*Não*|*Não*|
 |JCB|Sim|Sim|*Não*|*Não*|
 |Aura|Sim|Sim|*Não*|*Não*|
+|Hipercard|Sim|Sim|*Não*|*Não*|
 
 # Certificado Extended Validation
 
@@ -389,7 +390,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |---|---|---|---|---|
-|bandeira|Alfanumérico|Sim|n/a|Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”|
+|bandeira|Alfanumérico|Sim|n/a|Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”, “hipercard”|
 |produto|Alfanumérico|Sim|1|Código do produto: **1** – Crédito à Vista, **2** – Parcelado loja, **A** – Débito.|
 |parcelas|Numérico|Sim|1..2|Número de parcelas. **Para crédito à vista ou débito, utilizar 1.**|
 
@@ -776,7 +777,7 @@ Os erros que podem ser apresentados na mensagem XML, através da TAG `<erro>`, e
 |97|Sistema indisponível|Falha no sistema|Persistindo, entrar em contato com o Suporte.|
 |98|Timeout|A aplicação não respondeu dentro de 25 segundos.|Consultar a transação e avaliar o status antes de submeter um novo cancelamento. Persistindo, entrar em contato com o Suporte.|
 |99|Erro inesperado|Falha no sistema|Persistindo, entrar em contato com o Suporte e informar o TID da transação.|
-|475|Timeout|A aplicação não respondeu dentro de 25 segundos.|Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.|
+|475|Timeout de Cancelamento|A aplicação não respondeu dentro de 25 segundos.|Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.|
 
 ## Status das transações
 
@@ -854,7 +855,7 @@ A autorização direta caracteriza-se por ser uma transação onde não há a au
   * O lojista deve estar atento às regras para envio do cartão.
   * Na autorização direta, o nível de segurança da transação (ECI) é definido como:
     * “7” para Visa, Diners, Discover, Elo e JCB.
-    * “0” para Mastercard e Aura
+    * “0” para Mastercard, Aura e Hipercard.
 
 ## Autorização Recorrente
 
