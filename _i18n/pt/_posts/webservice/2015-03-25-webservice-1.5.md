@@ -10,7 +10,7 @@ sort_order: 1
 tags:
   - Webservice 1.5
 language_tabs:
-  - xml: XML
+  - xml: XML98
 ---
 
 # Integração Webservice 1.5
@@ -21,7 +21,7 @@ O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas
 
 Após a conclusão do credenciamento e recebimento das instruções é preciso desenvolver a integração utilizando como guia este manual. Assim que a integração estiver concluída, é necessário preencher completamente o formulário de homologação e enviá-lo para o Suporte Web do Cielo eCommerce que informará ao estabelecimento a chave de segurança.
 
-Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à Cielo
+Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à **Cielo**
 para iniciar a operação no ambiente de produção.
 
 <aside class="notice">Veja a seção <a href="#testes-e-homologação">Homologação</a> para instruções sobre o processo de homologação</aside>
@@ -774,8 +774,9 @@ Os erros que podem ser apresentados na mensagem XML, através da TAG `<erro>`, e
 |90|ECI inválido|Foi solicitado uma autorização com autenticação externa, porém o campo ECI possue um valor inválido.|Revisar as informações enviadas na mensagem XML frente às especificações.|
 |95|Erro interno de autenticação|Falha no sistema|Persistindo, entrar em contato com o Suporte e informar o TID da transação.|
 |97|Sistema indisponível|Falha no sistema|Persistindo, entrar em contato com o Suporte.|
-|98|Timeout|A aplicação não respondeu dentro de 25 segundos|Persistindo, entrar em contato com o Suporte.|
+|98|Timeout|A aplicação não respondeu dentro de 25 segundos.|Consultar a transação e avaliar o status antes de submeter um novo cancelamento. Persistindo, entrar em contato com o Suporte.|
 |99|Erro inesperado|Falha no sistema|Persistindo, entrar em contato com o Suporte e informar o TID da transação.|
+|475|Timeout|A aplicação não respondeu dentro de 25 segundos.|Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.|
 
 ## Status das transações
 
