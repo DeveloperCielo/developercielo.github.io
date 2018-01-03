@@ -7,7 +7,7 @@ translated: true
 toc_footers: true
 categories: manual
 sort_order: 1
-tags:hi
+tags:
   - API e-Commerce Cielo
 language_tabs:
   json: JSON
