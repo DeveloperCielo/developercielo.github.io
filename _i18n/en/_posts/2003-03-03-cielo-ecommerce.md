@@ -93,6 +93,7 @@ The current version of Cielo Webservice supports the following issuers and produ
 | Discover         | Yes           | *No*                     | *No*  | *No*    |
 | JCB              | Yes           | Yes                      | *No*  | *No*    |
 | Aura             | Yes           | Yes                      | *No*  | *No*    |
+| Hypercard        | Yes           | Yes                      | *No*  | *No*    |
 
 # Extended Validation Certificate
 
@@ -456,7 +457,7 @@ curl
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on the card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Attachment.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
 ### Response
 
@@ -735,7 +736,7 @@ curl
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
 ### Response
 
@@ -980,7 +981,7 @@ curl
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
 ### Response
 
@@ -1354,7 +1355,7 @@ curl
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 |`FraudAnalysis.Sequence`|Text|14|No|Flow type to perform the fraud analysis. Standard: AuthorizeFirst|
 |`FraudAnalysis.SequenceCriteria`|Text|9|No|Flow criterion. OnSuccess - Only performs the analysis if it succeeds in the transaction. Always - Always perform the analysis|
 |`FraudAnalysis.FingerPrintId`|Text|50|No|Identifier used to cross information obtained by the internet user Browser with the data sent for analysis. This same value must be passed in the SESSIONID variable of theDeviceFingerPrint script.|
@@ -3944,7 +3945,7 @@ curl
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
 ## Consulting a sale by store identifier
 
@@ -5031,7 +5032,7 @@ curl
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
 ### Response
 
@@ -5855,7 +5856,7 @@ curl
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`Wallet.Type`|Text|255|Yes|indicates the wallet type: "VisaCheckout" or "Masterpass"|
 
