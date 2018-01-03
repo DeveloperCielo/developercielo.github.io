@@ -7,7 +7,7 @@ translated: true
 toc_footers: true
 categories: manual
 sort_order: 1
-tags:
+tags:hi
   - API e-Commerce Cielo
 language_tabs:
   json: JSON
@@ -85,16 +85,17 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 
 A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
-|Bandeira|Crédito à vista|Crédito parcelado Loja|Débito|Voucher|
-|---|---|---|---|---|
-|Visa|Sim|Sim|Sim|*Não*|
-|Master Card|Sim|Sim|Sim|*Não*|
-|American Express|Sim|Sim|*Não*|*Não*|
-|Elo|Sim|Sim|*Não*|*Não*|
-|Diners Club|Sim|Sim|*Não*|*Não*|
-|Discover|Sim|*Não*|*Não*|*Não*|
-|JCB|Sim|Sim|*Não*|*Não*|
-|Aura|Sim|Sim|*Não*|*Não*|
+| Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito | Voucher |
+|------------------|-----------------|------------------------|--------|---------|
+| Visa             | Sim             | Sim                    | Sim    | *Não*   |
+| Master Card      | Sim             | Sim                    | Sim    | *Não*   |
+| American Express | Sim             | Sim                    | *Não*  | *Não*   |
+| Elo              | Sim             | Sim                    | *Não*  | *Não*   |
+| Diners Club      | Sim             | Sim                    | *Não*  | *Não*   |
+| Discover         | Sim             | *Não*                  | *Não*  | *Não*   |
+| JCB              | Sim             | Sim                    | *Não*  | *Não*   |
+| Aura             | Sim             | Sim                    | *Não*  | *Não*   |
+| Hipercard        | Sim             | Sim                    | *Não*  | *Não*   |
 
 # Certificado Extended Validation
 
