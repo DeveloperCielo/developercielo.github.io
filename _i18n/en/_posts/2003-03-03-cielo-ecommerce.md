@@ -93,7 +93,7 @@ The current version of Cielo Webservice supports the following issuers and produ
 | Discover         | Yes           | *No*                     | *No*  | *No*    |
 | JCB              | Yes           | Yes                      | *No*  | *No*    |
 | Aura             | Yes           | Yes                      | *No*  | *No*    |
-| Hypercard        | Yes           | Yes                      | *No*  | *No*    |
+| Hipercard        | Yes           | Yes                      | *No*  | *No*    |
 
 # Extended Validation Certificate
 
