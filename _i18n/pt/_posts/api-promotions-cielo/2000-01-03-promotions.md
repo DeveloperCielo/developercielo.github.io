@@ -12,10 +12,6 @@ language_tabs:
   shell: cURL
 ---
 
-# Visão geral
+# Visão Geral
 
-Documentação técnica para orientar o desenvolvedor de como realizar uma integração junto à Cielo para o processo de divulgação de ofertas e promoções dos estabelecimentos comerciais que utilizam o Cielo Promo.
-
-## Público-alvo
-
-API Restrita/Privada, necessário liberação interna para utilização, disponível apenas para colaboradores Cielo. Desenvolvedores e integradores parceiros que possuem conhecimentos em integração utilizando APIs REST e que queiram integrar o seu sistema / aplicativo mobile com as funcionalidades da API promotions da Cielo.
+Documentação técnica para orientar os desenvolvedores e parceiros durante a integração de suas aplicações com a API de promoções e ofertas da Cielo para os estabelecimentos comerciais que utilizam o Cielo Promo.
