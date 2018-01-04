@@ -13,6 +13,7 @@ language_tabs:
   json: JSON
   shell: cURL
 ---
+
 # Visão Geral
 
 Documentação técnica para orientar os desenvolvedores e parceiros durante a integração de suas aplicações com a API de promoções e ofertas da Cielo para os estabelecimentos comerciais que utilizam o Cielo Promo.
