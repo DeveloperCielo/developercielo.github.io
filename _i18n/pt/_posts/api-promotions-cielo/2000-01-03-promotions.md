@@ -13,10 +13,27 @@ language_tabs:
   json: JSON
   shell: cURL
 ---
-# Visão Geral
 
-Documentação técnica para orientar os desenvolvedores e parceiros durante a integração de suas aplicações com a API de promoções e ofertas da Cielo para os estabelecimentos comerciais que utilizam o Cielo Promo.
+# Visão geral - API Cielo eCommerce
 
-## Público Alvo
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a **API Cielo eCommerce da Cielo**, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
 
-API Restrita/Privada, necessário liberação interna para utilização, disponível apenas para colaboradores Cielo. Desenvolvedores e integradores parceiros que possuem conhecimentos em integração utilizando APIs REST e que queiram integrar o seu sistema / aplicativo mobile com as funcionalidades da API promotions da Cielo.
+O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução Cielo eCommerce com sucesso.
+
+Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API Cielo eCommerce. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
+
+Ambiente Produção
+
+* **Requisição de transação**: https://api.cieloecommerce.cielo.com.br/
+* **Consulta transação**: https://apiquery.cieloecommerce.cielo.com.br/
+
+Ambiente Sandbox
+
+* **Requisição de transação**: https://apisandbox.cieloecommerce.cielo.com.br
+* **Consulta transação**: https://apiquerysandbox.cieloecommerce.cielo.com.br
+
+Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
+
+## Características da solução
+
+A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.
