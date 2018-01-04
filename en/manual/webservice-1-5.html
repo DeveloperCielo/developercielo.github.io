@@ -262,6 +262,13 @@
       <td><em>No</em></td>
       <td><em>No</em></td>
     </tr>
+    <tr>
+      <td>Hipercard</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td><em>No</em></td>
+      <td><em>No</em></td>
+    </tr>
   </tbody>
 </table>
 
@@ -797,7 +804,7 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>n/a</td>
-      <td>NomeCard issuer’s name (minuscule): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”.</td>
+      <td>NomeCard issuer’s name (minuscule): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”, “hipercard”.</td>
     </tr>
     <tr>
       <td>produto</td>
@@ -1584,6 +1591,14 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
       <td>Unauthorised Transaction. Without communication system transmitter. Try later. Can be error in SITEF, please check</td>
       <td>Your transaction may not be processed, please try again later. If the error persists, contact the shop</td>
       <td>From the next day, only 4 times in 16 days.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>475</td>
+      <td>Cancellation Timeout</td>
+      <td>The application did not answer within 25 seconds.</td>
+      <td>Try again after a few seconds. If the error persists, contact the shop.</td>
+      <td>Yes.</td>
       <td> </td>
     </tr>
     <tr>
@@ -2398,8 +2413,8 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
       <li>The retailer must pay attention on sending card rules.</li>
       <li>In direct authorization, the security level of transaction (ECI) is defined as:
         <ul>
-          <li>“7”  for Visa, Mastercard and Aura</li>
-          <li>“0” for Mastercard and Aura</li>
+          <li>“7”  for Visa, Diners, Discover, Elo and JCB.</li>
+          <li>“0” for Mastercard, Aura and Hipercard.</li>
         </ul>
       </li>
     </ul>

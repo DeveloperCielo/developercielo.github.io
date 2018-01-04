@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-01-04T11:05:43+00:00</updated>
+    <updated>2018-01-04T11:47:48+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -139,6 +139,13 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Aura&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;No&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;No&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Hipercard&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;No&lt;/em&gt;&lt;/td&gt;
@@ -679,7 +686,7 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;n/a&lt;/td&gt;
-      &lt;td&gt;NomeCard issuer’s name (minuscule): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”.&lt;/td&gt;
+      &lt;td&gt;NomeCard issuer’s name (minuscule): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”, “hipercard”.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;produto&lt;/td&gt;
@@ -1466,6 +1473,14 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
       &lt;td&gt;Unauthorised Transaction. Without communication system transmitter. Try later. Can be error in SITEF, please check&lt;/td&gt;
       &lt;td&gt;Your transaction may not be processed, please try again later. If the error persists, contact the shop&lt;/td&gt;
       &lt;td&gt;From the next day, only 4 times in 16 days.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;475&lt;/td&gt;
+      &lt;td&gt;Cancellation Timeout&lt;/td&gt;
+      &lt;td&gt;The application did not answer within 25 seconds.&lt;/td&gt;
+      &lt;td&gt;Try again after a few seconds. If the error persists, contact the shop.&lt;/td&gt;
+      &lt;td&gt;Yes.&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -2280,8 +2295,8 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
       &lt;li&gt;The retailer must pay attention on sending card rules.&lt;/li&gt;
       &lt;li&gt;In direct authorization, the security level of transaction (ECI) is defined as:
         &lt;ul&gt;
-          &lt;li&gt;“7”  for Visa, Mastercard and Aura&lt;/li&gt;
-          &lt;li&gt;“0” for Mastercard and Aura&lt;/li&gt;
+          &lt;li&gt;“7”  for Visa, Diners, Discover, Elo and JCB.&lt;/li&gt;
+          &lt;li&gt;“0” for Mastercard, Aura and Hipercard.&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
