@@ -73,6 +73,7 @@ The current version of Cielo Webservice has support to the following products an
 |Discover|Yes|*No*|*No*|*No*|
 |JCB|Yes|Yes|*No*|*No*|
 |Aura|Yes|Yes|*No*|*No*|
+|Hipercard|Yes|Yes|*No*|*No*|
 
 # Extended Validation Certificate
 
@@ -383,7 +384,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
-|bandeira|Alphanumeric|Yes|n/a|NomeCard issuer's name (minuscule): "visa", "mastercard", "diners", "discover", "elo", "amex", "jcb", "aura".|
+|bandeira|Alphanumeric|Yes|n/a|NomeCard issuer's name (minuscule): "visa", "mastercard", "diners", "discover", "elo", "amex", "jcb", "aura", "hipercard".|
 |produto|Alphanumeric|Yes|1|Product code: **1**- Repayable on demand, **2**- Credit card installments on store, **A**- Debt|
 |parcelas|Numeric|Sim|1..2|Installments number. **To repayable on demand or debt, use 1.**|
 
@@ -638,6 +639,7 @@ If you have a high amount of return codes that are not listed below, please cont
 |97|value not allowed for this transaction.|Unauthorised Transaction. not allowed value for this transaction.|Unauthorised Transaction. not allowed value for this transaction.|No|
 |98|System/communication not available|Unauthorised Transaction. Without communication system transmitter. If general, check SITEF, GATEWAY and/or connectivity.|Your Transaction can not be processed, please try again later. If the error persists, contact the shop|Only 4 times in 16 days.|
 |99|System/communication not available|Unauthorised Transaction. Without communication system transmitter. Try later. Can be error in SITEF, please check|Your transaction may not be processed, please try again later. If the error persists, contact the shop|From the next day, only 4 times in 16 days.|
+|475|Cancellation Timeout|The application did not answer within 25 seconds.|Try again after a few seconds. If the error persists, contact the shop.|Yes.|
 |999|System/communication available|Unauthorised Transaction. Without communication system transmitter. Try later. Can be error in SITEF, please check|Your transaction may not be processed, please try again later. If the error persists, contact the shop|From the next day, only 4 times in 16 days.|
 |AA|Timeout|Timeout in communication with the issuing bank. East carrier to try again, if the error persists is necessary that the carrier contact your issuing bank.|ime Exceeded in its communication with the issuing bank, try again later. If the error persists, contact your bank.|Only 4 times in 16 days.|
 |AC|Transaction not allowed. debit card being used with credit. Use the debit function|Transaction not allowed. debit card being used with credit. Ask the carrier to select the Debit Card payment option|Unauthorised Transaction. Try again by selecting the debit card payment option.|No|
@@ -814,8 +816,8 @@ The direct authorization is characterized for being a transaction without authen
   * Valid only for credit.
   * The retailer must pay attention on sending card rules.
   * In direct authorization, the security level of transaction (ECI) is defined as:
-    * "7"  for Visa, Mastercard and Aura
-    * "0" for Mastercard and Aura
+    * "7"  for Visa, Diners, Discover, Elo and JCB.
+    * "0" for Mastercard, Aura and Hipercard.
 
 ## Recurrent authorization
 
