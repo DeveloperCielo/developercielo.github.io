@@ -15,16 +15,13 @@ language_tabs:
 
 Documentação técnica para orientar os desenvolvedores e parceiros durante a integração de suas aplicações com a API de promoções e ofertas da Cielo para os estabelecimentos comerciais que utilizam o Cielo Promo.
 
-
 ## Público-alvo
 
 API Restrita/Privada, necessário liberação interna para utilização, disponível apenas para colaboradores Cielo. Desenvolvedores e integradores parceiros que possuem conhecimentos em integração utilizando APIs REST e que queiram integrar o seu sistema / aplicativo mobile com as funcionalidades da API promotions da Cielo.
 
-
 ## O que é
 
 APIs que permitem a divulgação das Promoções (descontos e brindes) em estabelecimentos que possuem o Cielo Promo nas plataformas dos Parceiros.
-
 
 ## Como funciona
 
@@ -37,12 +34,9 @@ Descrição dos verbos HTTP comuns as APIs:
 | **PUT**  | O método HTTP `PUT` é utilizado substituir recursos, executando uma atualização completa |
 | **PATCH**  | O método HTTP `PATCH` é utilizado atualizar recursos, executando uma atualização parcial dos dados |
 
-
 ### Diagrama de utilização demostrando o funcionamento da solução
 
-
 ### Diagrama de utilização demostrando os passos para o uso da API
-
 
 ## Endpoints (Sandbox e Produção)
 
@@ -54,7 +48,6 @@ Ambiente Sandbox
 
 * [https://api.cielo.com.br/sandbox/promotions/v1](https://api.cielo.com.br/sandbox/promotions/v1)
 
-
 ## HTTP Header
 
 Todas as chamadas da API necessitam que as informações abaixo estejam presentes no Header na requisição:
@@ -62,7 +55,6 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 **Client-Id**: Identificação de acesso Sua geração ocorre no momento da criação pelo painel do desenvolvedor Seu valor pode ser visualizado na coluna “Client ID”, dentro do menu “Desenvolvedor” -> “Client ID Cadastrados”
 
 **Access-Token**:Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor Seu valor pode ser visualizado clicando em “detalhes” na coluna “Access Tokens”, dentro do menu “Desenvolvedor” -> “Client ID Cadastrados”
-
 
 ## HTTP Status Code
 
