@@ -35,6 +35,8 @@ Descrição dos verbos HTTP comuns as APIs:
 | **PUT**  | O método HTTP `PUT` é utilizado substituir recursos, executando uma atualização completa |
 | **PATCH**  | O método HTTP `PATCH` é utilizado atualizar recursos, executando uma atualização parcial dos dados |
 
+Passo 1 - integrar a página de login na aplicação chamando o recurso /login da API, para renderizar o HTML permitindo ao usuário efetuar seu login.
+
 ### Diagrama de utilização demostrando o funcionamento da solução
 
 ### Diagrama de utilização demostrando os passos para o uso da API
