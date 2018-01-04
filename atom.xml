@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-04T20:26:57+00:00</updated>
+    <updated>2018-01-04T22:57:12+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26060,6 +26060,18 @@ Mais informações e integração completa, você encontra no link: https://deve
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>API Cielo - Promotions</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/promotions"/>
+        <updated>2000-01-03T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/manual/promotions</id>
+        <content type="html">&lt;h1 id=&quot;visão-geral&quot;&gt;Visão Geral&lt;/h1&gt;
+
+&lt;p&gt;Documentação técnica para orientar os desenvolvedores e parceiros durante a integração de suas aplicações com a API de promoções e ofertas da Cielo para os estabelecimentos comerciais que utilizam o Cielo Promo.&lt;/p&gt;
 </content>
     </entry>
     
