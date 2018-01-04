@@ -32,6 +32,8 @@ Descrição dos verbos HTTP comuns as APIs:
 | -------- | ---------------------------------------- |
 | **POST** | O método HTTP `POST` é utilizado na criação dos recursos ou no envio de informações que serão processadas Por exemplo, criação de uma transação |
 | **GET**  | O método HTTP `GET` é utilizado para consultas de recursos já existentes Por exemplo, consulta de transações |
+| **PUT**  | O método HTTP `PUT` é utilizado substituir recursos, executando uma atualização completa |
+| **PATCH**  | O método HTTP `PATCH` é utilizado atualizar recursos, executando uma atualização parcial dos dados |
 
 ### Diagrama de utilização demostrando o funcionamento da solução
 
