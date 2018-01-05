@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de integração
+title: Intagration Manual
 description: Integração técnica via API
 search: true
 translated: true
