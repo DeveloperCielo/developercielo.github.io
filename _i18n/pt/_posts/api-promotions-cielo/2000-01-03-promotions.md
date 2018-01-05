@@ -36,6 +36,10 @@ Descrição dos verbos HTTP comuns as APIs:
 
 ### Diagrama de utilização demostrando o funcionamento da solução
 
+Fluxo de autenticação e autorização a ser executado para utilizar os recursos da API:
+
+![Fluxo](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/apicielopromotions/fluxoAutenticacao.png)
+
 ### Diagrama de utilização demostrando os passos para o uso da API
 
 Passo 1: Chamar recurso /login para obter a página de autenticação e autorização
@@ -54,7 +58,7 @@ Passo 4: Com o código de autorização, chamar o recurso /access-token para ger
 
 ![Passo4](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/apicielopromotions/passo4.png)
 
-***Com a resposta, guardar o access_token (tempo de expiração) e o refresh_token (para regerar o access_token)***
+Passo 5: Com a resposta, guardar o access_token (tempo de expiração) e o refresh_token (para regerar o access_token)
 
 ## Endpoints (Sandbox e Produção)
 
