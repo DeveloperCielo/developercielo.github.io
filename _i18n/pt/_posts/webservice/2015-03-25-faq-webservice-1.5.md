@@ -12,6 +12,10 @@ tags:
 
 # Dúvidas frequentes
 
+<aside class="warning">O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novos cadastros não serão realizados pelo atendimento Cielo</aside>
+
+> Para novas integrações, veja [API Cielo E-commece](https://developercielo.github.io/manual/cielo-ecommerce)
+
 ## Como funciona a solução do Webservice 1.5 da Cielo?
 
 A solução **Webservice** da plataforma Cielo E-commerce foi desenvolvida com tecnologia XML, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.
