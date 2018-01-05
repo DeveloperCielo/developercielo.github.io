@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-05T13:47:54+00:00</updated>
+    <updated>2018-01-05T16:36:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8960,6 +8960,12 @@ seguintes informações, que irão completar o cadastro:
         <id>https://developercielo.github.io/tutorial/guia-de-migracao</id>
         <content type="html">&lt;h1 id=&quot;guia-de-migração-cielo&quot;&gt;Guia de migração Cielo&lt;/h1&gt;
 
+&lt;aside class=&quot;warning&quot;&gt;O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novos cadastros não serão realizados pelo atendimento Cielo&lt;/aside&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Para novas integrações, veja &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce&quot;&gt;API Cielo E-commece&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;Esse guia tem como propósito facilitar a migração da integração entre as soluções Webservice 1.5 e API 3.0. Antes de ler esse guia, é altamente recomentado que você tenha lido o manual de integração da solução para qual pretende migrar sua integração atual. Os manuais podem ser encontrados em:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -10655,6 +10661,12 @@ seguintes informações, que irão completar o cadastro:
         <updated>2015-03-25T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/faq/faq-webservice-1.5</id>
         <content type="html">&lt;h1 id=&quot;dúvidas-frequentes&quot;&gt;Dúvidas frequentes&lt;/h1&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novos cadastros não serão realizados pelo atendimento Cielo&lt;/aside&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Para novas integrações, veja &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce&quot;&gt;API Cielo E-commerce&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;como-funciona-a-solução-do-webservice-15-da-cielo&quot;&gt;Como funciona a solução do Webservice 1.5 da Cielo?&lt;/h2&gt;
 

@@ -49,17 +49,7 @@
 
     <body>
         
-        <div class="content-container">
-            <div class="language-tabs">
-                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                <ul class="language-buttons">
-                    
-                    <li><a data-language-name=''></a></li>
-                    
-                </ul>
-            </div>
-            <div class="dark-box"></div>
-            <div class="overlay"></div>
+        <div class="content-container no-dark-box">
         
             <div id="submenu">
                 <div class="submenu-container">
@@ -4025,86 +4015,6 @@ seguintes informações, que irão completar o cadastro:
         <script src="https://developercielo.github.io/assets/js/search.js"></script>
         
 
-        
-        <script>
-        let langs = '';
-        let langsArray = [];
-
-        $('div.highlighter-rouge').prepend('<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>');
-
-        $('div.highlighter-rouge').each(function (index) {
-            if(!$(this).parent().hasClass('language-group')) {
-                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
-            }
-        });
-
-        
-        if ( $(window).width() >= 1660) {
-            $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
-                $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + $(this).outerHeight() + 'px;"></div> ');
-            });
-        }
-        
-
-        $('.hide-btn').click(function() {
-            $('.content-container').toggleClass('no-dark-box');
-            $('.dark-box').toggle();
-
-            $('.overlay').removeClass('opened');
-            $('.code-fullscreen').removeClass('opened');
-        });
-
-        $('.expand-btn').click(function() {
-            $('.overlay').toggleClass('opened');
-            $(this).parent().parent().parent().toggleClass('opened');
-            $(this).children('i.fa').toggleClass('fa-compress');
-        });
-
-        
-        langs += "<a data-language-name=''></a>";
-        langsArray.push('');
-        
-
-        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
-        </script>
-
-        <script src="https://developercielo.github.io/assets/js/lang.js"></script>
-        <script>
-            $(function() {
-                $('.language-buttons').each(function() {
-                    let parent = $(this).parent();
-
-                    parent.addClass('selectable');
-
-                    if(parent.hasClass('language-tabs')) {
-                        return true;
-                    }
-
-                    langsArray.forEach((v) => {
-                        if(parent.find('.language-' + v).length === 0) {
-                            $(this).find('[data-language-name="' + v + '"]').remove();
-
-                            let firstItem = $(this).children().first();
-                            firstItem.addClass('active');
-                            parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
-                            
-                            if(parent.children('[class^="language-"]').length === 2) {
-                                parent.removeClass('selectable');
-                            }
-                        }
-                    });
-                });
-
-                setupLanguages([  "", ]);
-            });
-        </script>
-
-        <script src="https://developercielo.github.io/assets/js/lang.js"></script>
-        <script>
-        $(function() {
-            setupLanguages([  "", ]);
-        });
-        </script>
         
 
         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
