@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-01-05T12:37:04+00:00</updated>
+    <updated>2018-01-05T12:54:40+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13,7 +13,7 @@
     </author>
     
     <entry>
-        <title>Integração Webservice 1.5</title>
+        <title>Integration Manual</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/en/manual/webservice-1-5"/>
         <updated>2015-03-25T00:00:00+00:00</updated>
@@ -17568,7 +17568,7 @@ More information and complete integration, you can find in the link: https://dev
     </entry>
     
     <entry>
-        <title>Manual de integração</title>
+        <title>Intagration Manual</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/en/manual/checkout-cielo"/>
         <updated>2000-01-01T00:00:00+00:00</updated>
