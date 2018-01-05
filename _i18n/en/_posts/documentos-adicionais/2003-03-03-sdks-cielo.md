@@ -3,6 +3,7 @@ layout: tutorial
 title:  SDKs
 description: Lista de Sdks Api cielo ecommerce
 toc_footers: true
+translated: true
 categories: tutorial
 sort_order: 5
 tags:
@@ -12,8 +13,6 @@ tags:
 ---
 
 # SDKs Api e-Commerce Cielo
-
-A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:
 
 |SDK Mobile                                                        |                                                                  |
 |------------------------------------------------------------------|------------------------------------------------------------------|
