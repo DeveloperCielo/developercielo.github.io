@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: API Cielo eCommerce
+title: Integration Manual
 description: The purpose of this documentation is to guide the developer on how to integrate with Cielo's API Cielo eCommerce.
 search: true
 translated: true
