@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-05T13:42:06+00:00</updated>
+    <updated>2018-01-05T13:47:54+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5197,7 +5197,9 @@ Por fim, vamos acessar o IP da nossa aplicação para ver se deu tudo certo!&lt;
 
 &lt;aside class=&quot;warning&quot;&gt;O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novos cadastros não serão realizados pelo atendimento Cielo&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Para novas integrações, veja API Cielo E-commece &lt;/aside&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Para novas integrações, veja &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce&quot;&gt;API Cielo E-commece&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a solução Webservice da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.&lt;/p&gt;
 
