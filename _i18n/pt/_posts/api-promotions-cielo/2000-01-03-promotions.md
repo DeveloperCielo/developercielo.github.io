@@ -38,7 +38,7 @@ Descrição dos verbos HTTP comuns as APIs:
 
 Fluxo de autenticação e autorização a ser executado para utilizar os recursos da API:
 
-![Fluxo]({{ site.baseurl_root }}/images/apicielopromotions/fluxoAutenticacao.png)
+![Fluxo]({{ site.baseurl_root }}/images/apicielopromotions/fluxoautenticacao.png)
 
 ### Diagrama de utilização demostrando os passos para o uso da API
 
