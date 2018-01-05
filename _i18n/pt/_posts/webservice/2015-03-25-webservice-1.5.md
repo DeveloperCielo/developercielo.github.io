@@ -9,8 +9,6 @@ categories: manual
 sort_order: 1
 tags:
   - Webservice 1.5
-language_tabs:
-  - xml: XML
 ---
 
 # Integração Webservice 1.5
