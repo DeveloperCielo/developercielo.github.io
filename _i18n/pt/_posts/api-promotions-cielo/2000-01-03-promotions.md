@@ -38,25 +38,25 @@ Descrição dos verbos HTTP comuns as APIs:
 
 Fluxo de autenticação e autorização a ser executado para utilizar os recursos da API:
 
-![Fluxo](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/apicielopromotions/fluxoAutenticacao.png)
+![Fluxo]({{ site.baseurl_root }}/images/apicielopromotions/fluxoAutenticacao.png)
 
 ### Diagrama de utilização demostrando os passos para o uso da API
 
 Passo 1: Chamar recurso /login para obter a página de autenticação e autorização
 
-![Passo1](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/apicielopromotions/passo1.png)
+![Passo1]({{ site.baseurl_root }}/images/apicielopromotions/passo1.png)
 
 Passo 2: Com o response do passo 1, renderizar o HTML na aplicação para iteração com usuário
 
-![Passo2](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/apicielopromotions/passo2.png)
+![Passo2]({{ site.baseurl_root }}/images/apicielopromotions/passo2.png)
 
 Passo 3: Após a execução do login, obter através do callback o código de autorização
 
-![Passo3](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/apicielopromotions/passo3.png)
+![Passo3]({{ site.baseurl_root }}/images/apicielopromotions/passo3.png)
 
 Passo 4: Com o código de autorização, chamar o recurso /access-token para gerar o access_token necessário para executar as chamadas aos recursos da API
 
-![Passo4](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/apicielopromotions/passo4.png)
+![Passo4]({{ site.baseurl_root }}/images/apicielopromotions/passo4.png)
 
 Passo 5: Com a resposta, guardar o access_token (tempo de expiração) e o refresh_token (para regerar o access_token)
 
