@@ -54,7 +54,7 @@ Passo 4: Com o código de autorização, chamar o recurso /access-token para ger
 
 ![Passo4](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/images/apicielopromotions/passo4.png)
 
-Passo 5: Com a resposta, guardar o access_token (tempo de expiração) e o refresh_token (para regerar o access_token)
+***Com a resposta, guardar o access_token (tempo de expiração) e o refresh_token (para regerar o access_token)***
 
 ## Endpoints (Sandbox e Produção)
 
