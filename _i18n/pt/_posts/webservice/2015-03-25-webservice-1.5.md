@@ -15,6 +15,10 @@ language_tabs:
 
 # Integração Webservice 1.5
 
+<aside class="warning">O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novas integraçãoes não são realizadas ou suportadas pelo atendimento Cielo</aside>
+
+<aside class="notice">Para novas integrações, veja API Cielo E-commece </aside>
+
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a solução Webservice da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
 
 O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos XML, são necessários para implantar a solução Cielo eCommerce com sucesso. É importante destacar para utilizar essa plataforma, o website deve estar em confirmidade com regras de segurança ou utilizar a certificação PCI. Para dúvidas sobre segurança web, favor encaminhar email para: [Segurança Web](mailto:e-seg@cielo.com.br).
