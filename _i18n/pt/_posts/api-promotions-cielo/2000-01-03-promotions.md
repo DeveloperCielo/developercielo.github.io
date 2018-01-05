@@ -10,7 +10,6 @@ tags:
 language_tabs:
   shell: cURL
 ---
-
 # Visão geral
 
 Documentação técnica para orientar o desenvolvedor de como realizar uma integração junto à Cielo para o processo de divulgação de ofertas e promoções dos estabelecimentos comerciais que utilizam o Cielo Promo.
