@@ -13,7 +13,7 @@ tags:
 
 <aside class="warning">O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novos cadastros não serão realizados pelo atendimento Cielo</aside>
 
-> Para novas integrações, veja [API Cielo E-commece](https://developercielo.github.io/manual/cielo-ecommerce)
+> Para novas integrações, veja [API Cielo E-commerce](https://developercielo.github.io/manual/cielo-ecommerce)
 
 Esse guia tem como propósito facilitar a migração da integração entre as soluções Webservice 1.5 e API 3.0. Antes de ler esse guia, é altamente recomentado que você tenha lido o manual de integração da solução para qual pretende migrar sua integração atual. Os manuais podem ser encontrados em:
 
