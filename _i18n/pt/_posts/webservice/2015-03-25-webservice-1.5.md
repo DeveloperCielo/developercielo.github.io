@@ -15,7 +15,7 @@ language_tabs:
 
 # Integração Webservice 1.5
 
-<aside class="warning">O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novas integraçãoes não são realizadas ou suportadas pelo atendimento Cielo</aside>
+<aside class="warning">O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novos cadastros não serão realizados pelo atendimento Cielo</aside>
 
 <aside class="notice">Para novas integrações, veja API Cielo E-commece </aside>
 
