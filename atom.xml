@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-05T13:38:13+00:00</updated>
+    <updated>2018-01-05T13:42:06+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5195,7 +5195,7 @@ Por fim, vamos acessar o IP da nossa aplicação para ver se deu tudo certo!&lt;
         <id>https://developercielo.github.io/manual/webservice-1.5</id>
         <content type="html">&lt;h1 id=&quot;integração-webservice-15&quot;&gt;Integração Webservice 1.5&lt;/h1&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novas integraçãoes não são realizadas ou suportadas pelo atendimento Cielo&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novos cadastros não serão realizados pelo atendimento Cielo&lt;/aside&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Para novas integrações, veja API Cielo E-commece &lt;/aside&gt;
 
