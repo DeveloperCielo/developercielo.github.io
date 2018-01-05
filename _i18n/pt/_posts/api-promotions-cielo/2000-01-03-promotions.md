@@ -10,7 +10,6 @@ sort_order: 1
 tags:
   - API Cielo Promotions
 language_tabs:
-  json: JSON
   shell: cURL
 ---
 
