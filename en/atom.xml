@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-01-08T17:05:32+00:00</updated>
+    <updated>2018-01-08T17:18:29+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3467,6 +3467,31 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
   &lt;li&gt;&lt;strong&gt;Installing the desktop version&lt;/strong&gt;: Just go to , download the version for your platform and install the executable&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Installing the Chrome extension&lt;/strong&gt;: Just go to the Chrome Store and install the Postman extension&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&quot;installing-the-chrome-extension&quot;&gt;Installing the Chrome extension&lt;/h2&gt;
+
+&lt;p&gt;1.Go to the Chrome Store, search for POSTMAN in APPs&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/additional documents/tutorial-postman/p1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;At the App’s tab, in your Google Chrome, go to the Postman icon&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;When accessing Postman for the first time,a login account will be requested. This step is optional.
+If you choose to creat an account, It will synchronize your settings and APIs through any device where a Postman instance is running with the same account&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Set up your Collections and environments to start testing&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </content>
     </entry>
     
