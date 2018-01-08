@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-01-08T17:04:55+00:00</updated>
+    <updated>2018-01-08T17:05:32+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3435,110 +3435,38 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
     </entry>
     
     <entry>
-        <title>SDKs</title>
+        <title>Postman Cielo</title>
         <category term="tutorial" />
-        <link href="https://developercielo.github.io/en/tutorial/sdks-cielo-copy"/>
+        <link href="https://developercielo.github.io/en/tutorial/postman"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/en/tutorial/sdks-cielo-copy</id>
-        <content type="html">&lt;h1 id=&quot;sdks-api-e-commerce-cielo&quot;&gt;SDKs Api e-Commerce Cielo&lt;/h1&gt;
+        <id>https://developercielo.github.io/en/tutorial/postman</id>
+        <content type="html">&lt;h1 id=&quot;what-is-postman&quot;&gt;What is POSTMAN?&lt;/h1&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;SDK Mobile&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;strong&gt;iOS&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;Postman is an API client that makes it easy for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex ** HTTP and HTTP ** requests as well as read their responses.&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;SDK&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;strong&gt;JAVA&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;h1 id=&quot;why-use-postman&quot;&gt;Why use POSTMAN?&lt;/h1&gt;
 
-&lt;h1 id=&quot;sdks-cielo-lio&quot;&gt;SDKs Cielo LIO&lt;/h1&gt;
+&lt;p&gt;In addition to the practicality of having all the integration examples and codes ready, POSTMAN is the official test tool for Cielo’s development and support teams. This way, when integrating, if you have doubts, it will be faster and simpler to confirm what may be happening with your code.&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Tipo&lt;/th&gt;
-      &lt;th&gt;SDK&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Sample&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local&quot;&gt;&lt;strong&gt;Integração Local&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Order Management&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/order-management&quot;&gt;&lt;strong&gt;Integração Local&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Android&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-PHP&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Java&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Java&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;CSharp&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-CSHARP&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Other advantages of POSTMAN&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;h1 id=&quot;sdks-webservice-15&quot;&gt;SDKs Webservice 1.5&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Free tool&lt;/li&gt;
+  &lt;li&gt;No need to install EXE - it’s an extension of Google Chrome&lt;/li&gt;
+  &lt;li&gt;Works on any platform: Windows, MacOS and Linux&lt;/li&gt;
+  &lt;li&gt;Converts JSON into several languages (EX: Python, PHP, Ruby)&lt;/li&gt;
+  &lt;li&gt;Synchronization between various applications&lt;/li&gt;
+  &lt;li&gt;Synchronize code between teams (Paid version)&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;SDK&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-csharp&quot;&gt;&lt;strong&gt;CSharp&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-php&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-java&quot;&gt;&lt;strong&gt;JAVA&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-ruby&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;h1 id=&quot;download-and-register&quot;&gt;Download and register&lt;/h1&gt;
+
+&lt;p&gt;To use Postman, simply install the APP on your computer. This can be done in two ways:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Installing the desktop version&lt;/strong&gt;: Just go to , download the version for your platform and install the executable&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Installing the Chrome extension&lt;/strong&gt;: Just go to the Chrome Store and install the Postman extension&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     </entry>
     
