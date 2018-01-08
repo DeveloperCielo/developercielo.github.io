@@ -212,8 +212,29 @@ It is the content of the Requisitions. Here is where you can change or create ex
 
 <p><strong>D</strong> - <strong>Collection</strong>:</p>
 
-<p>Location that contains all examples and codes that can be used in the API. Here are the transactions, queries, and other features that exist in the Sky APIs.
+<p>Location that contains all examples and codes that can be used in the API. Here are the transactions, queries, and other features that exist in the Cielo’s APIs.
 The number of collections is unlimited, meaning you can create multiple collections to fit your Postman style of use.</p>
+
+<h2 id="creating-environment-heaven">Creating Environment Heaven</h2>
+
+<p>The first step in using postman is the creation of the API environment. This setting will define which credentials and endpoints will be used by default, thus avoiding the need to perform configurations for each test.</p>
+
+<h3 id="creating-the-environment"><strong>Creating the environment</strong>:</h3>
+
+<p>1 - In the upper right corner, click on the gear and select “Manage environment”.</p>
+
+<p><img src="https://developercielo.github.io/images/p7.png" alt="" /></p>
+
+<p>2 - In the management screen, just fill in the settings according to the screen below:</p>
+
+<p><img src="https://developercielo.github.io/images/p8.png" alt="" /></p>
+
+<p>3 - Now the endpoints and credentials for tests are already registered. We suggest you create two environments: <code class="highlighter-rouge">Production</code> and <code class="highlighter-rouge">Sandbox</code>.</p>
+
+<blockquote>
+  <p>In the <strong>Cielo Cielo Ecommerce</strong> credentials, <code class="highlighter-rouge">MerchantID</code> and<code class="highlighter-rouge"> MerchantKey</code>, must match the URL environment, that is, Sandbox credentials only work with Sandbox URLs
+The <strong>Checkout Cielo</strong> has no <code class="highlighter-rouge">MerchantKey</code> or a sandbox environment. To perform tests, the <strong>“Test Mode”</strong> must be activated. For more information about Test Mode, access the <a href="https://developercielo.github.io/Checkout-Backoffice/">Backoffice Tutorial</a>.</p>
+</blockquote>
 
 </div>
 

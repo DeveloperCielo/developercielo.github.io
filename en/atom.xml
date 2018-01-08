@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-01-08T17:28:58+00:00</updated>
+    <updated>2018-01-08T17:37:52+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3546,8 +3546,29 @@ It is the content of the Requisitions. Here is where you can change or create ex
 
 &lt;p&gt;&lt;strong&gt;D&lt;/strong&gt; - &lt;strong&gt;Collection&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;p&gt;Location that contains all examples and codes that can be used in the API. Here are the transactions, queries, and other features that exist in the Sky APIs.
+&lt;p&gt;Location that contains all examples and codes that can be used in the API. Here are the transactions, queries, and other features that exist in the Cielo’s APIs.
 The number of collections is unlimited, meaning you can create multiple collections to fit your Postman style of use.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-environment-heaven&quot;&gt;Creating Environment Heaven&lt;/h2&gt;
+
+&lt;p&gt;The first step in using postman is the creation of the API environment. This setting will define which credentials and endpoints will be used by default, thus avoiding the need to perform configurations for each test.&lt;/p&gt;
+
+&lt;h3 id=&quot;creating-the-environment&quot;&gt;&lt;strong&gt;Creating the environment&lt;/strong&gt;:&lt;/h3&gt;
+
+&lt;p&gt;1 - In the upper right corner, click on the gear and select “Manage environment”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2 - In the management screen, just fill in the settings according to the screen below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3 - Now the endpoints and credentials for tests are already registered. We suggest you create two environments: &lt;code class=&quot;highlighter-rouge&quot;&gt;Production&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In the &lt;strong&gt;Cielo Cielo Ecommerce&lt;/strong&gt; credentials, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantID&lt;/code&gt; and&lt;code class=&quot;highlighter-rouge&quot;&gt; MerchantKey&lt;/code&gt;, must match the URL environment, that is, Sandbox credentials only work with Sandbox URLs
+The &lt;strong&gt;Checkout Cielo&lt;/strong&gt; has no &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; or a sandbox environment. To perform tests, the &lt;strong&gt;“Test Mode”&lt;/strong&gt; must be activated. For more information about Test Mode, access the &lt;a href=&quot;https://developercielo.github.io/Checkout-Backoffice/&quot;&gt;Backoffice Tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
     </entry>
     
