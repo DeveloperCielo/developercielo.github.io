@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-08T13:11:55+00:00</updated>
+    <updated>2018-01-08T13:13:18+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4696,7 +4696,144 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
         <link href="https://developercielo.github.io/tutorial/artigos"/>
         <updated>2015-08-25T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/tutorial/artigos</id>
-        <content type="html">&lt;h1 id=&quot;boas-práticas-ecommerce&quot;&gt;Boas Práticas eCommerce&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;como-usar-azure-kubernetes-services&quot;&gt;Como usar Azure Kubernetes Services&lt;/h1&gt;
+
+&lt;h2 id=&quot;sobre-o-autor&quot;&gt;Sobre o Autor:&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Tiago Rosendo&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Desenvolvedor na Braspag e Cielo, backend de coração e apaixonado pelo frontend, entusiasta de JS e Docker e nas horas vagas não dispensa uma jogatina online.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;LinkedIn:&lt;/strong&gt; https://www.linkedin.com/in/trosendo / &lt;strong&gt;E-mail:&lt;/strong&gt; trosendo@braspag.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
+
+&lt;p&gt;Vamos falar um pouco sobre o Azure Kubernetes Services, vulgo AKS.
+O utilizamos para realizar deploys em nossas principais aplicações, desde as mais básicas as mais complexas tudo com alta disponibilidade!&lt;/p&gt;
+
+&lt;p&gt;Rodar containers Docker em um computador local é muito simples, basta um comando &lt;code class=&quot;highlighter-rouge&quot;&gt;docker run nginx&lt;/code&gt; e pronto, você tem seu container lindo rodando, porém quando você tem a necessidade de rodar esse mesmo container em um ambiente de nuvem a história muda…
+Você tem que montar seu cluster, configurar o auto-scale, configurar o load balance… MEU DEUS QUANTA COISA!
+Um certo dia, parei para pesquisar uma solução que poupasse meu tempo, logo, pensei comigo:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Uma das soluções encontradas foi o &lt;strong&gt;Azure Kubernetes Services&lt;/strong&gt;, ele te permite montar um cluster de Kubernetes com 1 único comando, com isso sobra tempo pra focar na sua aplicação e não na configuração de máquinas&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mas o que é Kubernetes?&lt;/strong&gt; Falando por alto, Kubernetes é uma ferramenta de orquestração para containers, você monta seu container com o Docker e o Kubernetes faz todo o trabalho de deploy, auto scale, service discovery e muito mais.
+Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;https://kubernetes.io/docs/tutorials/kubernetes-basics/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;montando-um-cluster-em-kubernetes&quot;&gt;Montando um Cluster em Kubernetes&lt;/h2&gt;
+
+&lt;p&gt;Estou levando em consideração que você já tenha o &lt;code class=&quot;highlighter-rouge&quot;&gt;Azure CLI&lt;/code&gt; configurado na sua máquina, caso não tenha segue um tutorial de configuração:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Para montar um cluster utilizando o AKS basta um único comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos --generate-ssh-keys&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Substitua o &lt;code class=&quot;highlighter-rouge&quot;&gt;NomeDoSeuCluster&lt;/code&gt; pelo nome do seu cluster.&lt;/p&gt;
+
+&lt;p&gt;Substitua o &lt;code class=&quot;highlighter-rouge&quot;&gt;NomeDoGrupoDeRecursos&lt;/code&gt; pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.&lt;/p&gt;
+
+&lt;p&gt;Após alguns minutos você terá o seu cluster montado como pode ser visto na imagem abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/CFwO4Jz.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Após montar nosso cluster vamos resgaras as credenciais de acesso com o comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Caso tudo dê certo você irá receber a seguinte mensagem:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/oLSo4j4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos agora configurar o Kubectl CLI, este será utilizado para se comunicar diretamente com o Kubernetes, para fazer isso basta executar o seguinte comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;az aks install-cli&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Se tudo ocorreu bem será exibido a seguinte mensagem:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/pihYQw1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos verificar agora qual o estado das máquinas do nosso cluster, para isso utilizaremos o comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl get nodes&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/Qyygi8y.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;run&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl run meu-nginx --image=nginx --replicas=1 --port=80&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/gGNYlk2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos chamar o &lt;code class=&quot;highlighter-rouge&quot;&gt;get pods&lt;/code&gt; para verificar se nossa aplicação foi deployada com sucesso:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/IxKDQJ8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Como vimos na imagem acima nossa aplicação foi “deployada”, porém ela ainda não está disponivel na internet
+Para disponibilizar nossa aplicação na internet vamos utilizar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;expose&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl expose deployment meu-nginx --port=80 --type=LoadBalancer&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/JVJH82V.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora basta chamar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;get services&lt;/code&gt; para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;kubectl get services --watch&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/DaKu0HU.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Como podemos ver nossa aplicação recebeu o IP: 52.179.85.102
+Por fim, vamos acessar o IP da nossa aplicação para ver se deu tudo certo!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/5Uvpr0e.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;E não é que funciona mesmo? 😊&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão:&lt;/h2&gt;
+
+&lt;p&gt;Por hoje é isso galera, espero que tenham gostado, essa foi uma pequena demonstração de como o AKS/Kubernetes pode nos ajudar na orquestração de nossos containers,pretendo fazer uma parte 2 deste artigo explicando sobre como utilizar o Azure Container Instance junto com o Kubernetes, deixo logo abaixo alguns links interessantes para quem quer se aprofundar no assunto:&lt;/p&gt;
+
+&lt;h2 id=&quot;bibliografia&quot;&gt;Bibliografia:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Introducing AKS (managed Kubernetes) and Azure Container Registry improvements&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://azure.microsoft.com/en-us/blog/introducing-azure-container-service-aks-managed-kubernetes-and-azure-container-registry-geo-replication/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Kubernetes.io&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;https://kubernetes.io/docs/tutorials/kubernetes-basics/&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Explore Multicloud Deployments with Microsoft’s ACI Connector for Kubernetes&lt;/li&gt;
+  &lt;li&gt;https://thenewstack.io/explore-multicloud-deployments-aci-connector-kubernetes/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;boas-práticas-ecommerce&quot;&gt;Boas Práticas eCommerce&lt;/h1&gt;
 
 &lt;p&gt;Seja por curiosidade, seja por necessidade, você já deve ter se perguntado sobre como é definido o número de um cartão de crédito. Algumas pessoas chegam a achar que são números aleatórios, ou sequênciais, atribuídos pelas bandeiras ou pelos bancos emissores, mas a realidade é que o número do cartão segue um padrão especificado e que é possível saber qual é a bandeira, tipo do cartão e a conta do portador, apenas observando o número do cartão; em alguns casos, de fato, é possível saber até o país de origem do cartão, apenas observando seu número.&lt;/p&gt;
 
@@ -5079,111 +5216,34 @@ O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferê
 
 &lt;p&gt;Porém, mesmo tendo o plugin verificador no frontend, é fundamental, até por considerações de segurança, que uma validação de fato ocorra no backend. Para isso, a função abaixo irá ajudá-lo a fazer essa validação:&lt;/p&gt;
 
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;s2&quot;&gt;&quot;não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo&quot;&lt;/span&gt;
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cardIsValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$cardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$cardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$doubles&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt;
 
-&lt;span class=&quot;nx&quot;&gt;Uma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;das&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;soluções&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;encontradas&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foi&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Azure&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Services&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;te&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;permite&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;montar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cluster&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;único&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;comando&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sobra&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tempo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pra&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;focar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sua&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;aplicação&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;não&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configuração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;máquinas&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$doubles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Mas&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;é&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?**&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Falando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;por&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;alto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;é&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;uma&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ferramenta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;orquestração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;para&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;containers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;você&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;monta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;seu&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;container&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Docker&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;faz&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;todo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;trabalho&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deploy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auto&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;service&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;discovery&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;muito&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mais&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;Caso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;queira&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;saber&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;mais&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sobre&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Kubernetes&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;da&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;documentação&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deles&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tutorials&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;kubernetes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;basics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$doubles&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nv&quot;&gt;$sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;c1&quot;&gt;## Montando um Cluster em Kubernetes&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;Estou&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;levando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;em&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;consideração&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;que&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;você&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;já&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tenha&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`Azure CLI`&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configurado&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;na&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sua&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;máquina&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;caso&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;não&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tenha&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;segue&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;tutorial&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;de&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;configuração&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;://&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;docs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;microsoft&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;en&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;us&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;azure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latest&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;Para&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;montar&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cluster&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;utilizando&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;AKS&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;basta&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;um&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;único&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;comando&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;substr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$cardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;“az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos –generate-ssh-keys”&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-Substitua o `NomeDoSeuCluster` pelo nome do seu cluster.
 
-Substitua o `NomeDoGrupoDeRecursos` pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.
+&lt;p&gt;Para utilizá-la, basta testar o número do cartão enviado pelo cliente:&lt;/p&gt;
 
-Após alguns minutos você terá o seu cluster montado como pode ser visto na imagem abaixo:
-
-![](https://i.imgur.com/CFwO4Jz.png)
-
-Após montar nosso cluster vamos resgaras as credenciais de acesso com o comando:
-
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cardIsValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$customerCardNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// o cartão é válido e podemos dar andamento na integração&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;“az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos”&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-Caso tudo dê certo você irá receber a seguinte mensagem:
-
-![](https://i.imgur.com/oLSo4j4.png)
-
-Vamos agora configurar o Kubectl CLI, este será utilizado para se comunicar diretamente com o Kubernetes, para fazer isso basta executar o seguinte comando:
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;“az aks install-cli”&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-Se tudo ocorreu bem será exibido a seguinte mensagem:
-
-![](https://i.imgur.com/pihYQw1.png)
-
-Vamos verificar agora qual o estado das máquinas do nosso cluster, para isso utilizaremos o comando:
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;“kubectl get nodes”&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-![](https://i.imgur.com/Qyygi8y.png)
-
-Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando `run`:
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;“kubectl run meu-nginx –image=nginx –replicas=1 –port=80”&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-![](https://i.imgur.com/gGNYlk2.png)
-
-Vamos chamar o `get pods` para verificar se nossa aplicação foi deployada com sucesso:
-
-![](https://i.imgur.com/IxKDQJ8.png)
-
-Como vimos na imagem acima nossa aplicação foi &quot;deployada&quot;, porém ela ainda não está disponivel na internet
-Para disponibilizar nossa aplicação na internet vamos utilizar o comando `expose`:
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;“kubectl expose deployment meu-nginx –port=80 –type=LoadBalancer”&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-![](https://i.imgur.com/JVJH82V.png)
-
-Agora basta chamar o comando `get services` para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;“kubectl get services –watch”
-```&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/DaKu0HU.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Como podemos ver nossa aplicação recebeu o IP: 52.179.85.102
-Por fim, vamos acessar o IP da nossa aplicação para ver se deu tudo certo!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/5Uvpr0e.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;E não é que funciona mesmo? 😊&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão:&lt;/h2&gt;
-
-&lt;p&gt;Por hoje é isso galera, espero que tenham gostado, essa foi uma pequena demonstração de como o AKS/Kubernetes pode nos ajudar na orquestração de nossos containers,pretendo fazer uma parte 2 deste artigo explicando sobre como utilizar o Azure Container Instance junto com o Kubernetes, deixo logo abaixo alguns links interessantes para quem quer se aprofundar no assunto:&lt;/p&gt;
-
-&lt;h2 id=&quot;bibliografia&quot;&gt;Bibliografia:&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Introducing AKS (managed Kubernetes) and Azure Container Registry improvements&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https://azure.microsoft.com/en-us/blog/introducing-azure-container-service-aks-managed-kubernetes-and-azure-container-registry-geo-replication/&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Kubernetes.io&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https://kubernetes.io/docs/tutorials/kubernetes-basics/&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Explore Multicloud Deployments with Microsoft’s ACI Connector for Kubernetes&lt;/li&gt;
-  &lt;li&gt;https://thenewstack.io/explore-multicloud-deployments-aci-connector-kubernetes/&lt;/li&gt;
-&lt;/ul&gt;
 </content>
     </entry>
     
