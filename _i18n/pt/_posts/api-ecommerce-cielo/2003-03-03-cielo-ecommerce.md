@@ -38,7 +38,7 @@ Para executar uma operação, combine a URL base do ambiente com a URL da opera�
 
 A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.
 
-Para Obter exemplos dessas linguagens, veja nosso tutorial de conversao via nosso [**Tutorial Postman**](https://developercielo.github.io/Tutorial//Postman)
+Para Obter exemplos dessas linguagens, veja nosso tutorial de conversao via nosso [**Tutorial Postman**](https://developercielo.github.io/tutorial/postman)
 
 Entre outras características, os atributos que mais se destacam na plataforma Cielo eCommerce:
 
