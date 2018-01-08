@@ -159,6 +159,62 @@ If you choose to creat an account, It will synchronize your settings and APIs th
 
 <p><img src="https://developercielo.github.io/images/p4.png" alt="" /></p>
 
+<h1 id="explaining-postman-components">Explaining POSTMAN Components</h1>
+
+<p>In this area we will explain the different components of the Postman and its functions. After this introduction, the next parts of this tutorial will focus on the settings for API testing</p>
+
+<p><img src="https://developercielo.github.io/images/pc.png" alt="" /></p>
+
+<p><strong>A</strong> - <strong>Environment</strong>:
+Environment to which requests will be directed. In this area, data will be defined as:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td><strong>MerchantId</strong></td>
+      <td>Store ID on Sky APIs</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>MerchantKey</strong></td>
+      <td>Store Security Key at Sky APIs</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>POST / PUT URL</strong></td>
+      <td>Endpoint To create or edit transactions</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>GET URL</strong></td>
+      <td>Endpoint for Querying Transactions</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We suggest creating two environments, one with production data and another Sandbox, each with its own credentials and URLs.
+In this way it becomes much simpler to perform tests with the same contract for both environments.</p>
+
+<p><strong>B</strong> - <strong>Header</strong></p>
+
+<p>Here is the MerchantId / MerchantKey, which by default uses the same data registered in <code class="highlighter-rouge">Environment</code>.</p>
+
+<p><strong>C</strong> - <strong>Body</strong>:
+It is the content of the Requisitions. Here is where you can change or create examples for the API and validate the contents of your <code class="highlighter-rouge">POST</code> /<code class="highlighter-rouge"> GET</code> / <code class="highlighter-rouge">PUT</code></p>
+
+<p><strong>D</strong> - <strong>Collection</strong>:</p>
+
+<p>Location that contains all examples and codes that can be used in the API. Here are the transactions, queries, and other features that exist in the Sky APIs.
+The number of collections is unlimited, meaning you can create multiple collections to fit your Postman style of use.</p>
+
 </div>
 
 

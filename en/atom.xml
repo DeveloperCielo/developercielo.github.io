@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-01-08T17:18:29+00:00</updated>
+    <updated>2018-01-08T17:28:58+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3492,6 +3492,62 @@ If you choose to creat an account, It will synchronize your settings and APIs th
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;explaining-postman-components&quot;&gt;Explaining POSTMAN Components&lt;/h1&gt;
+
+&lt;p&gt;In this area we will explain the different components of the Postman and its functions. After this introduction, the next parts of this tutorial will focus on the settings for API testing&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/pc.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt; - &lt;strong&gt;Environment&lt;/strong&gt;:
+Environment to which requests will be directed. In this area, data will be defined as:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;MerchantId&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Store ID on Sky APIs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;MerchantKey&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Store Security Key at Sky APIs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;POST / PUT URL&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Endpoint To create or edit transactions&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;GET URL&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Endpoint for Querying Transactions&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;We suggest creating two environments, one with production data and another Sandbox, each with its own credentials and URLs.
+In this way it becomes much simpler to perform tests with the same contract for both environments.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;B&lt;/strong&gt; - &lt;strong&gt;Header&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is the MerchantId / MerchantKey, which by default uses the same data registered in &lt;code class=&quot;highlighter-rouge&quot;&gt;Environment&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt; - &lt;strong&gt;Body&lt;/strong&gt;:
+It is the content of the Requisitions. Here is where you can change or create examples for the API and validate the contents of your &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; /&lt;code class=&quot;highlighter-rouge&quot;&gt; GET&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;D&lt;/strong&gt; - &lt;strong&gt;Collection&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;Location that contains all examples and codes that can be used in the API. Here are the transactions, queries, and other features that exist in the Sky APIs.
+The number of collections is unlimited, meaning you can create multiple collections to fit your Postman style of use.&lt;/p&gt;
 </content>
     </entry>
     
