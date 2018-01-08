@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-01-08T16:50:38+00:00</updated>
+    <updated>2018-01-08T17:04:55+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3332,6 +3332,114 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
         <link href="https://developercielo.github.io/en/tutorial/sdks-cielo"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/en/tutorial/sdks-cielo</id>
+        <content type="html">&lt;h1 id=&quot;sdks-api-e-commerce-cielo&quot;&gt;SDKs Api e-Commerce Cielo&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SDK Mobile&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Android&quot;&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-iOS&quot;&gt;&lt;strong&gt;iOS&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SDK&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-PHP&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Java&quot;&gt;&lt;strong&gt;JAVA&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Python&quot;&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/API-3.0-Ruby&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;sdks-cielo-lio&quot;&gt;SDKs Cielo LIO&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;SDK&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Sample&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local&quot;&gt;&lt;strong&gt;Integração Local&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Order Management&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/order-management&quot;&gt;&lt;strong&gt;Integração Local&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Android&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-PHP&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Java&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Java&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;CSharp&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-CSHARP&quot;&gt;&lt;strong&gt;Integração Remota&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;sdks-webservice-15&quot;&gt;SDKs Webservice 1.5&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;SDK&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-csharp&quot;&gt;&lt;strong&gt;CSharp&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-php&quot;&gt;&lt;strong&gt;PHP&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-java&quot;&gt;&lt;strong&gt;JAVA&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/Webservice-1.5-ruby&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>SDKs</title>
+        <category term="tutorial" />
+        <link href="https://developercielo.github.io/en/tutorial/sdks-cielo-copy"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/en/tutorial/sdks-cielo-copy</id>
         <content type="html">&lt;h1 id=&quot;sdks-api-e-commerce-cielo&quot;&gt;SDKs Api e-Commerce Cielo&lt;/h1&gt;
 
 &lt;table&gt;
