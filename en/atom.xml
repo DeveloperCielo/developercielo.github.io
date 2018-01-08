@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-01-08T17:37:52+00:00</updated>
+    <updated>2018-01-08T18:03:41+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3569,6 +3569,127 @@ The number of collections is unlimited, meaning you can create multiple collecti
   &lt;p&gt;In the &lt;strong&gt;Cielo Cielo Ecommerce&lt;/strong&gt; credentials, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantID&lt;/code&gt; and&lt;code class=&quot;highlighter-rouge&quot;&gt; MerchantKey&lt;/code&gt;, must match the URL environment, that is, Sandbox credentials only work with Sandbox URLs
 The &lt;strong&gt;Checkout Cielo&lt;/strong&gt; has no &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; or a sandbox environment. To perform tests, the &lt;strong&gt;“Test Mode”&lt;/strong&gt; must be activated. For more information about Test Mode, access the &lt;a href=&quot;https://developercielo.github.io/Checkout-Backoffice/&quot;&gt;Backoffice Tutorial&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;h2 id=&quot;importing-a-collection&quot;&gt;Importing a Collection&lt;/h2&gt;
+
+&lt;p&gt;Cielo has standard collections for its APIs. 
+You can import them directly into your POSTMAN and have all the examples ready to use instantly, without the need to copy them directly from our manuals.&lt;/p&gt;
+
+&lt;p&gt;Follow the steps below:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Access the area of the manual where the Collection link is available.Copy it.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; In order for your collection to always be up to date, we suggest you always look for the latest version of the collection in the manual.  IMPORTED COLLECTIONS DOES NOT HAVE AUTOMATICAL UPDATES&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;With Postman opened, use the IMPORT button, and select the “IMPORT FROM LINK” option.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Your Cielo collection is now available. Just select Environment and the requisition. By clicking on SEND, Postman will execute communication with Cielo.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;collections-and-environments-cielo&quot;&gt;Collections and Environments Cielo&lt;/h2&gt;
+
+&lt;p&gt;Below, we list the collections and Environments Cielo. Use them in your Postman to perform tests and integrations.&lt;/p&gt;
+
+&lt;h3 id=&quot;api-cielo-ecommerce&quot;&gt;Api Cielo Ecommerce&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt; -&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Privacy Policy&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Sandbox&lt;/td&gt;
+      &lt;td&gt;** Transaction submission **: https://apisandbox.cieloecommerce.cielo.com.br &lt;br /&gt; ** Transaction query **: https: //apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Production&lt;/td&gt;
+      &lt;td&gt;** Transaction submission **: https://api.cieloecommerce.cielo.com.br/ &lt;br /&gt; ** Transaction query **: https: //apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;checkout-cielo&quot;&gt;Checkout Cielo&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt; -&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Privacy Policy&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Production&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Transaction submission&lt;/strong&gt;: https: //cieloecommerce.cielo.com.br/api&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;making-a-requisition&quot;&gt;Making a requisition&lt;/h1&gt;
+
+&lt;p&gt;With its Collection and Environmet configured, creating a transaction with Cielo is extremely easy:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/pr.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Select which request you want to use.&lt;/li&gt;
+  &lt;li&gt;Verify that the correct Environment is selected&lt;/li&gt;
+  &lt;li&gt;Click SEND.&lt;/li&gt;
+  &lt;li&gt;At the bottom you will see 2 information:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Response Body&lt;/code&gt; - Here is where the data returned from your transactions are listed&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP Status&lt;/code&gt; - Here you check if your request worked.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: If you do not receive a response, check the HTTP status.&lt;/p&gt;
+
+&lt;h2 id=&quot;generating-examples-in-other-languages&quot;&gt;Generating examples in other languages.&lt;/h2&gt;
+
+&lt;p&gt;POSTMAN allows you to create examples of other languages based on the JSON requests for Cielo products.&lt;/p&gt;
+
+&lt;p&gt;Below we show how to generate an example in Python&lt;/p&gt;
+
+&lt;p&gt;1 - Access the request you want to convert and click &lt;code class=&quot;highlighter-rouge&quot;&gt;CODE&lt;/code&gt; in the right corner of the screen.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;OBS&lt;/em&gt;: If this link does not exist on your screen, click &lt;code class=&quot;highlighter-rouge&quot;&gt;Params&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2 - Select the language you want to convert, in this case, Python.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/pcode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3 - The Json sample is converted to Python&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/pcode2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
 </content>
     </entry>
     

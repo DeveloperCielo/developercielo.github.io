@@ -236,6 +236,127 @@ The number of collections is unlimited, meaning you can create multiple collecti
 The <strong>Checkout Cielo</strong> has no <code class="highlighter-rouge">MerchantKey</code> or a sandbox environment. To perform tests, the <strong>“Test Mode”</strong> must be activated. For more information about Test Mode, access the <a href="https://developercielo.github.io/Checkout-Backoffice/">Backoffice Tutorial</a>.</p>
 </blockquote>
 
+<h2 id="importing-a-collection">Importing a Collection</h2>
+
+<p>Cielo has standard collections for its APIs. 
+You can import them directly into your POSTMAN and have all the examples ready to use instantly, without the need to copy them directly from our manuals.</p>
+
+<p>Follow the steps below:</p>
+
+<ol>
+  <li>Access the area of the manual where the Collection link is available.Copy it.</li>
+</ol>
+
+<p><strong>IMPORTANT:</strong> In order for your collection to always be up to date, we suggest you always look for the latest version of the collection in the manual.  IMPORTED COLLECTIONS DOES NOT HAVE AUTOMATICAL UPDATES</p>
+
+<ol>
+  <li>With Postman opened, use the IMPORT button, and select the “IMPORT FROM LINK” option.</li>
+</ol>
+
+<p><img src="https://developercielo.github.io/images/p5.png" alt="" /></p>
+
+<ol>
+  <li>Your Cielo collection is now available. Just select Environment and the requisition. By clicking on SEND, Postman will execute communication with Cielo.</li>
+</ol>
+
+<p><img src="https://developercielo.github.io/images/p6.png" alt="" /></p>
+
+<h2 id="collections-and-environments-cielo">Collections and Environments Cielo</h2>
+
+<p>Below, we list the collections and Environments Cielo. Use them in your Postman to perform tests and integrations.</p>
+
+<h3 id="api-cielo-ecommerce">Api Cielo Ecommerce</h3>
+
+<ul>
+  <li><strong>Collection</strong> -</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Privacy Policy</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Sandbox</td>
+      <td>** Transaction submission **: https://apisandbox.cieloecommerce.cielo.com.br <br /> ** Transaction query **: https: //apiquerysandbox.cieloecommerce.cielo.com.br/</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Production</td>
+      <td>** Transaction submission **: https://api.cieloecommerce.cielo.com.br/ <br /> ** Transaction query **: https: //apiquery.cieloecommerce.cielo.com.br/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="checkout-cielo">Checkout Cielo</h3>
+
+<ul>
+  <li><strong>Collection</strong> -</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Privacy Policy</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Production</td>
+      <td><strong>Transaction submission</strong>: https: //cieloecommerce.cielo.com.br/api</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="making-a-requisition">Making a requisition</h1>
+
+<p>With its Collection and Environmet configured, creating a transaction with Cielo is extremely easy:</p>
+
+<p><img src="https://developercielo.github.io/images/pr.png" alt="" /></p>
+
+<ol>
+  <li>Select which request you want to use.</li>
+  <li>Verify that the correct Environment is selected</li>
+  <li>Click SEND.</li>
+  <li>At the bottom you will see 2 information:</li>
+</ol>
+
+<ul>
+  <li><code class="highlighter-rouge">Response Body</code> - Here is where the data returned from your transactions are listed</li>
+  <li><code class="highlighter-rouge">HTTP Status</code> - Here you check if your request worked.</li>
+</ul>
+
+<p><strong>OBS</strong>: If you do not receive a response, check the HTTP status.</p>
+
+<h2 id="generating-examples-in-other-languages">Generating examples in other languages.</h2>
+
+<p>POSTMAN allows you to create examples of other languages based on the JSON requests for Cielo products.</p>
+
+<p>Below we show how to generate an example in Python</p>
+
+<p>1 - Access the request you want to convert and click <code class="highlighter-rouge">CODE</code> in the right corner of the screen.</p>
+
+<p><em>OBS</em>: If this link does not exist on your screen, click <code class="highlighter-rouge">Params</code></p>
+
+<p><img src="https://developercielo.github.io/images/p10.png" alt="" /></p>
+
+<p>2 - Select the language you want to convert, in this case, Python.</p>
+
+<p><img src="https://developercielo.github.io/images/pcode.png" alt="" /></p>
+
+<p>3 - The Json sample is converted to Python</p>
+
+<p><img src="https://developercielo.github.io/images/pcode2.png" alt="" /></p>
+
+
 </div>
 
 
