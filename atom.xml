@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-09T12:57:22+00:00</updated>
+    <updated>2018-01-09T13:06:17+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -12565,7 +12565,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;pagamentos-com-cartão-de-crédito&quot;&gt;Pagamentos com Cartão de Crédito&lt;/h1&gt;
+&lt;h1 id=&quot;pagamentos---cartão-de-crédito&quot;&gt;Pagamentos - Cartão de Crédito&lt;/h1&gt;
 
 &lt;p&gt;Para que você possa disfrutar de todos os recursos disponíveis em nossa API, é importante que antes você conheça os conceitos envolvidos no processamento de uma transação de cartão de crédito.&lt;/p&gt;
 
@@ -15203,7 +15203,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;pagamentos-com-cartão-de-débito&quot;&gt;Pagamentos com Cartão de Débito&lt;/h1&gt;
+&lt;h1 id=&quot;pagamentos---cartão-de-débito&quot;&gt;Pagamentos - Cartão de Débito&lt;/h1&gt;
 
 &lt;h2 id=&quot;criando-uma-venda-simplificada&quot;&gt;Criando uma venda simplificada&lt;/h2&gt;
 
@@ -15509,7 +15509,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;pagamentos-com-transferência-eletronica&quot;&gt;Pagamentos com Transferência Eletronica&lt;/h1&gt;
+&lt;h1 id=&quot;pagamentos---transferência-eletronica&quot;&gt;Pagamentos - Transferência Eletronica&lt;/h1&gt;
 
 &lt;h2 id=&quot;criando-uma-venda-simplificada-1&quot;&gt;Criando uma venda simplificada&lt;/h2&gt;
 
@@ -15728,7 +15728,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;pagamentos-com-boleto&quot;&gt;Pagamentos com Boleto&lt;/h1&gt;
+&lt;h1 id=&quot;pagamentos---boleto&quot;&gt;Pagamentos - Boleto&lt;/h1&gt;
 
 &lt;h2 id=&quot;criando-uma-venda-de-boleto&quot;&gt;Criando uma venda de Boleto&lt;/h2&gt;
 
