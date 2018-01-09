@@ -367,7 +367,7 @@ Caso não seja retornado o **HTTP Status Code 200 OK**,  ocorrerão mais **dois*
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|cancelamento negado|
 
-# Pagamentos com Cartão de Crédito
+# Pagamentos - Cartão de Crédito
 
 Para que você possa disfrutar de todos os recursos disponíveis em nossa API, é importante que antes você conheça os conceitos envolvidos no processamento de uma transação de cartão de crédito.
 
@@ -1728,7 +1728,7 @@ curl
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
 
-# Pagamentos com Cartão de Débito
+# Pagamentos - Cartão de Débito
 
 ## Criando uma venda simplificada
 
@@ -1890,7 +1890,7 @@ curl
 |`Status`|Status da Transação.|Byte|---|0|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 
-# Pagamentos com Transferência Eletronica
+# Pagamentos - Transferência Eletronica
 
 ## Criando uma venda simplificada
 
@@ -2019,7 +2019,7 @@ curl
 |`Url`|URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Transferência Eletronica.|Texto|256|Url de Autenticação|
 |`Status`|Status da Transação.|Byte|---|0|
 
-# Pagamentos com Boleto
+# Pagamentos - Boleto
 
 ## Criando uma venda de Boleto
 
