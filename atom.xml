@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-09T13:06:17+00:00</updated>
+    <updated>2018-01-10T13:35:45+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7303,7 +7303,7 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
       &lt;td&gt;98&lt;/td&gt;
       &lt;td&gt;Timeout&lt;/td&gt;
       &lt;td&gt;A aplicação não respondeu dentro de 25 segundos.&lt;/td&gt;
-      &lt;td&gt;Consultar a transação e avaliar o status antes de submeter um novo cancelamento. Persistindo, entrar em contato com o Suporte.&lt;/td&gt;
+      &lt;td&gt;Consultar a transação e avaliar o status antes de submeter a transação. Persistindo, entrar em contato com o Suporte.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;99&lt;/td&gt;
