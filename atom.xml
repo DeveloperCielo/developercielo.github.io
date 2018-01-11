@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-11T20:05:25+00:00</updated>
+    <updated>2018-01-11T20:19:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3910,7 +3910,7 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;utilização&quot;&gt;Utilização&lt;/h3&gt;
+&lt;h2 id=&quot;criação-e-gerenciamento-de-ordens&quot;&gt;Criação e Gerenciamento de Ordens&lt;/h2&gt;
 
 &lt;p&gt;O fluxo básico para utilização do SDK pode ser dividido em 7 etapas, conforme o diagrama abaixo:&lt;/p&gt;
 
@@ -3918,7 +3918,7 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 &lt;p&gt;Abaixo, iremos mostrar como realizar cada uma dessas etapas.&lt;/p&gt;
 
-&lt;h4 id=&quot;criar-ordermanager&quot;&gt;Criar OrderManager&lt;/h4&gt;
+&lt;h3 id=&quot;criar-ordermanager&quot;&gt;Criar OrderManager&lt;/h3&gt;
 
 &lt;p&gt;Este método permite iniciar o OrderManager, que é responsável pelas principais operações do Cielo LIO Order Manager SDK. O OrderManager representa a interface com a API REST do Order Manager.&lt;/p&gt;
 
@@ -3955,7 +3955,7 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
   &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Recomendamos criar/inicializar o OrderManager no aplicativo do parceiro no momento em que for utilizar as funcionalidades, visando otimizar o desempenho do aplicativo&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;vincular-o-contexto-da-aplicação-ao-sdk&quot;&gt;Vincular o contexto da aplicação ao SDK&lt;/h4&gt;
+&lt;h3 id=&quot;vincular-o-contexto-da-aplicação-ao-sdk&quot;&gt;Vincular o contexto da aplicação ao SDK&lt;/h3&gt;
 
 &lt;p&gt;Com o método &lt;code class=&quot;highlighter-rouge&quot;&gt;bind()&lt;/code&gt;, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO&lt;/p&gt;
 
@@ -3997,7 +3997,7 @@ orderManager.bind(context, serviceBindListener);
 
 &lt;p&gt;Com o OrderManager inicializado e após a execução do método onServiceBound, se torna possível ir para a próxima etapa e criar um pedido (classe Order).&lt;/p&gt;
 
-&lt;h4 id=&quot;criar-um-pedido&quot;&gt;Criar um pedido&lt;/h4&gt;
+&lt;h3 id=&quot;criar-um-pedido&quot;&gt;Criar um pedido&lt;/h3&gt;
 
 &lt;p&gt;A Cielo LIO trabalha com o conceito de Order (pedido). É necessário possuir um pedido para então realizar o(s) pagamento(s).&lt;/p&gt;
 
@@ -4006,7 +4006,7 @@ orderManager.bind(context, serviceBindListener);
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Order order = orderManager.createDraftOrder(&quot;REFERÊNCIA_DO_PEDIDO&quot;);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;adicionar-itens-em-um-pedido&quot;&gt;Adicionar itens em um pedido&lt;/h4&gt;
+&lt;h3 id=&quot;adicionar-itens-em-um-pedido&quot;&gt;Adicionar itens em um pedido&lt;/h3&gt;
 
 &lt;p&gt;Este método permite que sejam adicionados itens em um pedido.&lt;/p&gt;
 
@@ -4028,7 +4028,7 @@ unityOfMeasure = &quot;UNIDADE&quot;;
 order.addItem(sku, name, unitPrice, quantity, unityOfMeasure);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;liberar-pedido-para-pagamento&quot;&gt;Liberar pedido para pagamento&lt;/h4&gt;
+&lt;h3 id=&quot;liberar-pedido-para-pagamento&quot;&gt;Liberar pedido para pagamento&lt;/h3&gt;
 
 &lt;p&gt;Este método permite atualizar o status de um pedido e liberá-lo para pagamento. O objetivo é utilizar este método depois de adicionar todos os itens no pedido.&lt;/p&gt;
 
@@ -4191,7 +4191,7 @@ Iniciar processo de pagamento&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;secondaryProducts&lt;/td&gt;
       &lt;td&gt;Listagem de códigos de pagamento secundário. ex.: À Vista, Parcelado, etc.&lt;/td&gt;
-      &lt;td&gt;ArrayList - SecondaryProduct&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
