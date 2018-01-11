@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-11T18:27:25+00:00</updated>
+    <updated>2018-01-11T18:46:26+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3838,21 +3838,6 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;p&gt;As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.&lt;/p&gt;
 
-&lt;h2 id=&quot;fluxo-para-integração-1&quot;&gt;Fluxo para Integração&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-local-new.png&quot; alt=&quot;fluxo para integração&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Leia toda a documentação sobre a Integração Local.&lt;/li&gt;
-  &lt;li&gt;Crie sua conta no Portal de Desenvolvedores da Cielo para obter todas as funcionalidades que o portal pode oferecer para você, desenvolvedor. É obrigatório possuir uma conta para gerar um Client-Id.&lt;/li&gt;
-  &lt;li&gt;Realizando o cadastro de Client ID, o desenvolvedor recebe os tokens&lt;/li&gt;
-  &lt;li&gt;(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no Emulador Cielo Lio Confira o link: &lt;a href=&quot;https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk&quot;&gt;Download do Emulador&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Acesse a &lt;a href=&quot;https://www.cieloliostore.com.br/login&quot;&gt;Cielo Store&lt;/a&gt; e faça o upload do APK da sua aplicação. Ao término do upload, submeta seu aplicativo para certificação e preencha todas as informações necessárias.&lt;/li&gt;
-  &lt;li&gt;Ao término do upload submeta seu aplicativo, no próprio ambiente da Cielo Store, para certificação e preencha todas as informações necessárias.&lt;/li&gt;
-  &lt;li&gt;Assim que a certificação for concluída, o desenvolvedor receberá um e-mail e deverá acessar novamente a Cielo Store para promover o aplicativo para produção.&lt;/li&gt;
-  &lt;li&gt;Agora seu aplicativo já está disponível para download na Cielo Store. Sucesso!! Aproveite ao máximo tudo que a Integração Local Cielo LIO pode oferecer para você!!&lt;/li&gt;
-&lt;/ol&gt;
-
 &lt;h2 id=&quot;cielo-lio-order-manager-sdk&quot;&gt;Cielo Lio Order Manager SDK&lt;/h2&gt;
 
 &lt;h3 id=&quot;sobre-2&quot;&gt;Sobre&lt;/h3&gt;
@@ -3897,73 +3882,73 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;blockquote&gt;
   &lt;p&gt;A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
-Adicione ao &lt;code class=&quot;highlighter-rouge&quot;&gt;AndroidManifest.xml&lt;/code&gt; da sua aplicação:&lt;/p&gt;
+Adicione ao &lt;code class=&quot;highlighter-rouge&quot;&gt;AndroidManifest.xml&lt;/code&gt; da sua aplicação: `  `&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-```&quot;&gt;
-### Credenciais
+&lt;h3 id=&quot;credenciais&quot;&gt;Credenciais&lt;/h3&gt;
 
-Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:
+&lt;p&gt;Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:&lt;/p&gt;
 
-``` Credentials credentials = new Credentials(&amp;gt;&quot;, &quot;&amp;gt;&quot;); ```
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Credentials credentials = new Credentials(&amp;gt;&quot;, &quot;&amp;gt;&quot;);&lt;/code&gt;&lt;/p&gt;
 
-* Client-Id
-Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu 'Desenvolvedor' -&amp;gt; 'Client ID Cadastrados'.
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Client-Id
+Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu ‘Desenvolvedor’ -&amp;gt; ‘Client ID Cadastrados’.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Access-Token
+Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em ‘detalhes’ na coluna ‘Access Tokens’, dentro do menu ‘Desenvolvedor’ -&amp;gt; ‘Client ID Cadastrados’.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-* Access-Token
-Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em 'detalhes' na coluna 'Access Tokens', dentro do menu 'Desenvolvedor' -&amp;gt; 'Client ID Cadastrados'.
+&lt;h3 id=&quot;utilização&quot;&gt;Utilização&lt;/h3&gt;
 
-### Utilização
+&lt;p&gt;O fluxo básico para utilização do SDK pode ser dividido em 7 etapas, conforme o diagrama abaixo:&lt;/p&gt;
 
-O fluxo básico para utilização do SDK pode ser dividido em 7 etapas, conforme o diagrama abaixo:
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-lio-sdk.png&quot; alt=&quot;order manager sdk fluxo&quot; /&gt;&lt;/p&gt;
 
-![order manager sdk fluxo](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-lio-sdk.png)
+&lt;p&gt;Abaixo, iremos mostrar como realizar cada uma dessas etapas.&lt;/p&gt;
 
-Abaixo, iremos mostrar como realizar cada uma dessas etapas.
+&lt;h4 id=&quot;criar-ordermanager&quot;&gt;Criar OrderManager&lt;/h4&gt;
 
-#### Criar OrderManager
+&lt;p&gt;Este método permite iniciar o OrderManager, que é responsável pelas principais operações do Cielo LIO Order Manager SDK. O OrderManager representa a interface com a API REST do Order Manager.&lt;/p&gt;
 
-Este método permite iniciar o OrderManager, que é responsável pelas principais operações do Cielo LIO Order Manager SDK. O OrderManager representa a interface com a API REST do Order Manager.
+&lt;p&gt;Tudo começa com a criação do OrderManager!&lt;/p&gt;
 
-Tudo começa com a criação do OrderManager!
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;OrderManager orderManager = new OrderManager(credentials, context);&lt;/code&gt;&lt;/p&gt;
 
-```OrderManager orderManager = new OrderManager(credentials, context);```
+&lt;p&gt;O construtor do OrderManager recebe 2 parâmetros:&lt;/p&gt;
 
-O construtor do OrderManager recebe 2 parâmetros:
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;credentials&lt;/td&gt;
+      &lt;td&gt;Credenciais de acesso do Parceiro/Desenvolvedor. Depois de se registrar no Portal de Desenvolvedores e criar seu app, o Parceiro/Desenvolvedor recebe as credenciais (Client-Id e Access-Token). Elas servem para identificá-lo unicamente na plataforma LIO e diferenciar as ordens da sua aplicação.&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.Credentials&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;context&lt;/td&gt;
+      &lt;td&gt;O contexto da aplicação&lt;/td&gt;
+      &lt;td&gt;android.content.Context&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-| Atributo    | Descrição                                                                                                                                                                                                                                                                                              | Domínio                     |
-|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
-| credentials | Credenciais de acesso do Parceiro/Desenvolvedor. Depois de se registrar no Portal de Desenvolvedores e criar seu app, o Parceiro/Desenvolvedor recebe as credenciais (Client-Id e Access-Token). Elas servem para identificá-lo unicamente na plataforma LIO e diferenciar as ordens da sua aplicação. | cielo.sdk.order.Credentials |
-| context     | O contexto da aplicação                                                                                                                                                                                                                                                                                | android.content.Context     |
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Recomendamos criar/inicializar o OrderManager no aplicativo do parceiro no momento em que for utilizar as funcionalidades, visando otimizar o desempenho do aplicativo&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&amp;gt;**Atenção:** Recomendamos criar/inicializar o OrderManager no aplicativo do parceiro no momento em que for utilizar as funcionalidades, visando otimizar o desempenho do aplicativo
+&lt;h4 id=&quot;vincular-o-contexto-da-aplicação-ao-sdk&quot;&gt;Vincular o contexto da aplicação ao SDK&lt;/h4&gt;
 
-#### Vincular o contexto da aplicação ao SDK
-
-Com este método – Bind –, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ServiceBindListener serviceBindListener = new ServiceBindListener() {
-
-    @Override public void onServiceBoundError(Throwable throwable) {
-        //Ocorreu um erro ao tentar se conectar com o serviço OrderManager
-    }
-    
-    @Override
-    public void onServiceBound() {
-        //Você deve garantir que sua aplicação se conectou com a LIO a partir desse listener
-        //A partir desse momento você pode utilizar as funções do OrderManager, 
-        //caso contrário uma exceção será lançada.
-    } 
-
-    @Override
-    public void onServiceUnbound() {
-        // O serviço foi desvinculado
-    }
-}; 
-
-orderManager.bind(contextActivity, serviceBindListener); ```
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Com este método – Bind –, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Você deve garantir que o listener &lt;code class=&quot;highlighter-rouge&quot;&gt;onServiceBound()&lt;/code&gt; foi chamado antes de utilizar as funções do OrderManager, caso contrário uma exceção será lançada e causará um crash na sua aplicação.&lt;/p&gt;
@@ -4013,29 +3998,6 @@ Iniciar processo de pagamento&lt;/p&gt;
 
 &lt;p&gt;Este método permite iniciar o processo de pagamento na Cielo LIO.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    PaymentListener paymentListener = new PaymentListener() {
-        @Override
-        public void onStart() {
-            Log.d(&quot;MinhaApp&quot;, &quot;O pagamento começou.&quot;);
-        }
-        
-        @Override
-        public void onPayment(@NotNull Order order) {
-            Log.d(&quot;MinhaApp&quot;, &quot;Um pagamento foi realizado.&quot;);
-        } 
-                
-        @Override public void onCancel() {
-            Log.d(&quot;MinhaApp&quot;, &quot;A operação foi cancelada.&quot;);
-        } 
-                
-        @Override public void onError(@NotNull PaymentError paymentError) {
-            Log.d(&quot;MinhaApp&quot;, &quot;Houve um erro no pagamento.&quot;);
-        }     
-    }; 
-    
-    orderManager.checkoutOrder(order.getId(), order.getPrice(), paymentListener);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;h2 id=&quot;processo-de-pagamento&quot;&gt;Processo de Pagamento&lt;/h2&gt;
 
 &lt;p&gt;Existem 4 formas diferentes de chamar o método checkoutOrder:&lt;/p&gt;
@@ -4075,6 +4037,23 @@ Iniciar processo de pagamento&lt;/p&gt;
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcial:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;fluxo-para-integração-1&quot;&gt;Fluxo para Integração&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-local-new.png&quot; alt=&quot;fluxo para integração&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Leia toda a documentação sobre a Integração Local.&lt;/li&gt;
+  &lt;li&gt;Crie sua conta no Portal de Desenvolvedores da Cielo para obter todas as funcionalidades que o portal pode oferecer para você, desenvolvedor. É obrigatório possuir uma conta para gerar um Client-Id.&lt;/li&gt;
+  &lt;li&gt;Realizando o cadastro de Client ID, o desenvolvedor recebe os tokens&lt;/li&gt;
+  &lt;li&gt;(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no Emulador Cielo Lio Confira o link: &lt;a href=&quot;https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk&quot;&gt;Download do Emulador&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Acesse a &lt;a href=&quot;https://www.cieloliostore.com.br/login&quot;&gt;Cielo Store&lt;/a&gt; e faça o upload do APK da sua aplicação. Ao término do upload, submeta seu aplicativo para certificação e preencha todas as informações necessárias.&lt;/li&gt;
+  &lt;li&gt;Ao término do upload submeta seu aplicativo, no próprio ambiente da Cielo Store, para certificação e preencha todas as informações necessárias.&lt;/li&gt;
+  &lt;li&gt;Assim que a certificação for concluída, o desenvolvedor receberá um e-mail e deverá acessar novamente a Cielo Store para promover o aplicativo para produção.&lt;/li&gt;
+  &lt;li&gt;Agora seu aplicativo já está disponível para download na Cielo Store. Sucesso!! Aproveite ao máximo tudo que a Integração Local Cielo LIO pode oferecer para você!!&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h2 id=&quot;release-notes&quot;&gt;Release Notes&lt;/h2&gt;
 
