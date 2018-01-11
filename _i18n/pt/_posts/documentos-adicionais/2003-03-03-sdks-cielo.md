@@ -8,8 +8,7 @@ sort_order: 5
 tags:
   - API e-Commerce Cielo
   - Webservice 1.5
-  - Cielo LIO
----
+ ---
 
 # SDKs Api e-Commerce Cielo
 
