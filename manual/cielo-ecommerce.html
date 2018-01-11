@@ -14557,14 +14557,6 @@ Mais informações e integração completa, você encontra no link: https://deve
         }
         
 
-        $('.hide-btn').click(function() {
-            $('.content-container').toggleClass('no-dark-box');
-            $('.dark-box').toggle();
-
-            $('.overlay').removeClass('opened');
-            $('.code-fullscreen').removeClass('opened');
-        });
-
         $('.expand-btn').click(function() {
             $('.overlay').toggleClass('opened');
             $(this).parent().parent().parent().toggleClass('opened');
@@ -14583,6 +14575,7 @@ Mais informações e integração completa, você encontra no link: https://deve
         </script>
 
         <script src="https://developercielo.github.io/assets/js/lang.js"></script>
+
         <script>
             $(function() {
                 $('.language-buttons').each(function() {
@@ -14591,33 +14584,63 @@ Mais informações e integração completa, você encontra no link: https://deve
                     parent.addClass('selectable');
 
                     if(parent.hasClass('language-tabs')) {
+                        parent.attr('data-languages', langsArray.join('*') + '*');
+
                         return true;
                     }
+
+                    /**
+                     * @type {string[]} localArray
+                     */
+                    let localArray = JSON.parse(JSON.stringify(langsArray));
 
                     langsArray.forEach((v) => {
                         if(parent.find('.language-' + v).length === 0) {
                             $(this).find('[data-language-name="' + v + '"]').remove();
-
-                            let firstItem = $(this).children().first();
-                            firstItem.addClass('active');
-                            parent.find('.language-' + firstItem.attr('data-language-name')).first().show();
+                            localArray.splice(localArray.indexOf(v), 1);
                             
-                            if(parent.children('[class^="language-"]').length === 2) {
+                            if($(this).children().length === 1) {
                                 parent.removeClass('selectable');
+                                parent.addClass('locked');
                             }
                         }
                     });
+
+                    // Just to separate Java from JavaScript, I have add a * to separate the languages
+                    let attr = localArray.join('*');
+                    attr += '*';
+
+                    $(this).children('[data-language-name=' + localArray[0] + ']').addClass('active');
+
+                    let language = parent.find('.language-' + localArray[0]);
+                    language.addClass('show');
+
+                    if ($(window).width() <= 1660) {
+                        language.show();
+                    }
+
+                    parent.attr('data-languages', attr);
                 });
 
-                setupLanguages([  "json",  "shell", ]);
-            });
-        </script>
+                window.isOpen = $(window).width() >= 1660;
 
-        <script src="https://developercielo.github.io/assets/js/lang.js"></script>
-        <script>
-        $(function() {
-            setupLanguages([  "json",  "shell", ]);
-        });
+                setupLanguages(langsArray);
+            });
+
+            $('.hide-btn').click(function() {
+                $('.content-container').toggleClass('no-dark-box');
+                $('.dark-box').toggle();
+
+                $('.overlay').removeClass('opened');
+                $('.code-fullscreen').removeClass('opened');
+
+                window.isOpen = !$('.content-container').hasClass('no-dark-box');
+
+                if(!window.isOpen) {
+                    $('.locked .show').show();
+                    $('.selectable:not([data-languages*="' + window.language + '*"]) .show').show();
+                }
+            });
         </script>
         
 

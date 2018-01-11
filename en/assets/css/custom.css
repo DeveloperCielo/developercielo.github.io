@@ -1135,7 +1135,10 @@ a.expand-btn:hover {
     color: #fff;
 }
 
-.expand-btn .fa {
+@media(max-width: 1660px) {
+    .locked .show {
+        display: block !important;
+    }
 }
 
 @media(min-width: 1660px) {
