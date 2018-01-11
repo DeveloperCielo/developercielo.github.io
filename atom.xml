@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-11T18:46:26+00:00</updated>
+    <updated>2018-01-11T18:51:05+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3878,18 +3878,20 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;p&gt;Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;compile 'com.cielo.lio:order-manager:0.17.7-beta&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.17.7-beta
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
-Adicione ao &lt;code class=&quot;highlighter-rouge&quot;&gt;AndroidManifest.xml&lt;/code&gt; da sua aplicação: `  `&lt;/p&gt;
+Adicione essa permissão ao &lt;code class=&quot;highlighter-rouge&quot;&gt;AndroidManifest.xml&lt;/code&gt; da sua aplicação.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;credenciais&quot;&gt;Credenciais&lt;/h3&gt;
 
 &lt;p&gt;Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Credentials credentials = new Credentials(&amp;gt;&quot;, &quot;&amp;gt;&quot;);&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Credentials credentials = new Credentials(&quot;Seu client id aqui&quot;, &quot;Seu accessToken aqui&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -3916,7 +3918,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 &lt;p&gt;Tudo começa com a criação do OrderManager!&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;OrderManager orderManager = new OrderManager(credentials, context);&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    OrderManager orderManager = new OrderManager(credentials, context);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;O construtor do OrderManager recebe 2 parâmetros:&lt;/p&gt;
 
@@ -3973,7 +3976,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 &lt;p&gt;Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Order order = orderManager.createDraftOrder(&quot;REFERÊNCIA_DO_PEDIDO&quot;);&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    Order order = orderManager.createDraftOrder(&quot;REFERÊNCIA_DO_PEDIDO&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;adicionar-itens-em-um-pedido&quot;&gt;Adicionar itens em um pedido&lt;/h4&gt;
 
@@ -3987,7 +3991,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 &lt;p&gt;Este método permite atualizar o status de um pedido e liberá-lo para pagamento. O objetivo é utilizar este método depois de adicionar todos os itens no pedido.&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.placeOrder(order);&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    orderManager.placeOrder(order);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Após a execução desse método, o status da Order irá trocar de DRAFT para ENTERED, permitindo que a mesma seja paga.&lt;/p&gt;
 

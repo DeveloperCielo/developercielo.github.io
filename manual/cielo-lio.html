@@ -2236,18 +2236,20 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:</p>
 
-<p><code class="highlighter-rouge">compile 'com.cielo.lio:order-manager:0.17.7-beta</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.cielo.lio:order-manager:0.17.7-beta
+</code></pre></div></div>
 
 <blockquote>
   <p>A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
-Adicione ao <code class="highlighter-rouge">AndroidManifest.xml</code> da sua aplicação: `  `</p>
+Adicione essa permissão ao <code class="highlighter-rouge">AndroidManifest.xml</code> da sua aplicação.</p>
 </blockquote>
 
 <h3 id="credenciais">Credenciais</h3>
 
 <p>Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:</p>
 
-<p><code class="highlighter-rouge">Credentials credentials = new Credentials(&gt;", "&gt;");</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Credentials credentials = new Credentials("Seu client id aqui", "Seu accessToken aqui");
+</code></pre></div></div>
 
 <ul>
   <li>
@@ -2274,7 +2276,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Tudo começa com a criação do OrderManager!</p>
 
-<p><code class="highlighter-rouge">OrderManager orderManager = new OrderManager(credentials, context);</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    OrderManager orderManager = new OrderManager(credentials, context);
+</code></pre></div></div>
 
 <p>O construtor do OrderManager recebe 2 parâmetros:</p>
 
@@ -2331,7 +2334,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:</p>
 
-<p><code class="highlighter-rouge">Order order = orderManager.createDraftOrder("REFERÊNCIA_DO_PEDIDO");</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Order order = orderManager.createDraftOrder("REFERÊNCIA_DO_PEDIDO");
+</code></pre></div></div>
 
 <h4 id="adicionar-itens-em-um-pedido">Adicionar itens em um pedido</h4>
 
@@ -2345,7 +2349,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Este método permite atualizar o status de um pedido e liberá-lo para pagamento. O objetivo é utilizar este método depois de adicionar todos os itens no pedido.</p>
 
-<p><code class="highlighter-rouge">orderManager.placeOrder(order);</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    orderManager.placeOrder(order);
+</code></pre></div></div>
 
 <p>Após a execução desse método, o status da Order irá trocar de DRAFT para ENTERED, permitindo que a mesma seja paga.</p>
 
