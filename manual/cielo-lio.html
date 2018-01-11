@@ -2265,9 +2265,9 @@ Adicione ao <code class="highlighter-rouge">AndroidManifest.xml</code> da sua ap
 
 Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:
 
+```json
+    Credentials credentials = new Credentials(&gt;", "&gt;"); 
 </code></pre>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Credentials credentials = new Credentials(&gt;", "&gt;");  ```
-</code></pre></div></div>
 
 <ul>
   <li>
@@ -2294,8 +2294,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Tudo começa com a criação do OrderManager!</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    OrderManager orderManager = new OrderManager(credentials, context);
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">OrderManager</span><span class="w"> </span><span class="err">orderManager</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">OrderManager(credentials</span><span class="p">,</span><span class="w"> </span><span class="err">context);</span><span class="w">
+</span></code></pre></div></div>
 
 <p>O construtor do OrderManager recebe 2 parâmetros:</p>
 
@@ -2329,26 +2329,26 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Com este método – Bind –, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ServiceBindListener serviceBindListener = new ServiceBindListener() {
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">ServiceBindListener</span><span class="w"> </span><span class="err">serviceBindListener</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">ServiceBindListener()</span><span class="w"> </span><span class="p">{</span><span class="w">
     
-        @Override public void onServiceBoundError(Throwable throwable) {
-            //Ocorreu um erro ao tentar se conectar com o serviço OrderManager
-        }
+        </span><span class="err">@Override</span><span class="w"> </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onServiceBoundError(Throwable</span><span class="w"> </span><span class="err">throwable)</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">//Ocorreu</span><span class="w"> </span><span class="err">um</span><span class="w"> </span><span class="err">erro</span><span class="w"> </span><span class="err">ao</span><span class="w"> </span><span class="err">tentar</span><span class="w"> </span><span class="err">se</span><span class="w"> </span><span class="err">conectar</span><span class="w"> </span><span class="err">com</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">serviço</span><span class="w"> </span><span class="err">OrderManager</span><span class="w">
+        </span><span class="p">}</span><span class="w">
         
-        @Override
-        public void onServiceBound() {
-            //Você deve garantir que sua aplicação se conectou com a LIO a partir desse listener
-            //A partir desse momento você pode utilizar as funções do OrderManager, caso contrário uma exceção será lançada.
-        } 
+        </span><span class="err">@Override</span><span class="w">
+        </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onServiceBound()</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">//Você</span><span class="w"> </span><span class="err">deve</span><span class="w"> </span><span class="err">garantir</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">sua</span><span class="w"> </span><span class="err">aplicação</span><span class="w"> </span><span class="err">se</span><span class="w"> </span><span class="err">conectou</span><span class="w"> </span><span class="err">com</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">LIO</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">partir</span><span class="w"> </span><span class="err">desse</span><span class="w"> </span><span class="err">listener</span><span class="w">
+            </span><span class="err">//A</span><span class="w"> </span><span class="err">partir</span><span class="w"> </span><span class="err">desse</span><span class="w"> </span><span class="err">momento</span><span class="w"> </span><span class="err">você</span><span class="w"> </span><span class="err">pode</span><span class="w"> </span><span class="err">utilizar</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">funções</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">OrderManager</span><span class="p">,</span><span class="w"> </span><span class="err">caso</span><span class="w"> </span><span class="err">contrário</span><span class="w"> </span><span class="err">uma</span><span class="w"> </span><span class="err">exceção</span><span class="w"> </span><span class="err">será</span><span class="w"> </span><span class="err">lançada.</span><span class="w">
+        </span><span class="p">}</span><span class="w"> 
     
-        @Override
-        public void onServiceUnbound() {
-            // O serviço foi desvinculado
-        }
-    }; 
+        </span><span class="err">@Override</span><span class="w">
+        </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onServiceUnbound()</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">//</span><span class="w"> </span><span class="err">O</span><span class="w"> </span><span class="err">serviço</span><span class="w"> </span><span class="err">foi</span><span class="w"> </span><span class="err">desvinculado</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="err">;</span><span class="w"> 
     
-    orderManager.bind(contextActivity, serviceBindListener);
-</code></pre></div></div>
+    </span><span class="err">orderManager.bind(contextActivity</span><span class="p">,</span><span class="w"> </span><span class="err">serviceBindListener);</span><span class="w">
+</span></code></pre></div></div>
 
 <blockquote>
   <p><strong>Atenção:</strong> Você deve garantir que o listener <code class="highlighter-rouge">onServiceBound()</code> foi chamado antes de utilizar as funções do OrderManager, caso contrário uma exceção será lançada e causará um crash na sua aplicação.</p>
@@ -2373,8 +2373,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Order order = orderManager.createDraftOrder("REFERÊNCIA_DO_PEDIDO");
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">Order</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">orderManager.createDraftOrder(</span><span class="s2">"REFERÊNCIA_DO_PEDIDO"</span><span class="err">);</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="adicionar-itens-em-um-pedido">Adicionar itens em um pedido</h3>
 
@@ -2384,26 +2384,26 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
   <p><strong>Atenção:</strong> É necessário adicionar no mínimo um item a um pedido para que seja possível dar continuidade ao pagamento.</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    // Identificação do produto (Stock Keeping Unit)
-    String sku = "2891820317391823";
-    String name = "Coca-cola lata";
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">Identificação</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">produto</span><span class="w"> </span><span class="err">(Stock</span><span class="w"> </span><span class="err">Keeping</span><span class="w"> </span><span class="err">Unit)</span><span class="w">
+    </span><span class="err">String</span><span class="w"> </span><span class="err">sku</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">"2891820317391823"</span><span class="err">;</span><span class="w">
+    </span><span class="err">String</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">"Coca-cola lata"</span><span class="err">;</span><span class="w">
     
-    // Preço unitário em centavos
-    int unitPrice = 550;
-    int quantity = 3;
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Preço</span><span class="w"> </span><span class="err">unitário</span><span class="w"> </span><span class="err">em</span><span class="w"> </span><span class="err">centavos</span><span class="w">
+    </span><span class="err">int</span><span class="w"> </span><span class="err">unitPrice</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="mi">550</span><span class="err">;</span><span class="w">
+    </span><span class="err">int</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="mi">3</span><span class="err">;</span><span class="w">
     
-    // Unidade de medida do produto String
-    unityOfMeasure = "UNIDADE";
+    </span><span class="err">//</span><span class="w"> </span><span class="err">Unidade</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">medida</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">produto</span><span class="w"> </span><span class="err">String</span><span class="w">
+    </span><span class="err">unityOfMeasure</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">"UNIDADE"</span><span class="err">;</span><span class="w">
     
-    order.addItem(sku, name, unitPrice, quantity, unityOfMeasure);
-</code></pre></div></div>
+    </span><span class="err">order.addItem(sku</span><span class="p">,</span><span class="w"> </span><span class="err">name</span><span class="p">,</span><span class="w"> </span><span class="err">unitPrice</span><span class="p">,</span><span class="w"> </span><span class="err">quantity</span><span class="p">,</span><span class="w"> </span><span class="err">unityOfMeasure);</span><span class="w">
+</span></code></pre></div></div>
 
 <h3 id="liberar-pedido-para-pagamento">Liberar pedido para pagamento</h3>
 
 <p>Este método permite atualizar o status de um pedido e liberá-lo para pagamento. O objetivo é utilizar este método depois de adicionar todos os itens no pedido.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    orderManager.placeOrder(order);
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">orderManager.placeOrder(order);</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Após a execução desse método, o status da Order irá trocar de DRAFT para ENTERED, permitindo que a mesma seja paga.</p>
 
@@ -2414,28 +2414,28 @@ Iniciar processo de pagamento</p>
 
 <p>Este método permite iniciar o processo de pagamento na Cielo LIO.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    PaymentListener paymentListener = new PaymentListener() {
-        @Override
-        public void onStart() {
-            Log.d("MinhaApp", "O pagamento começou.");
-        }
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">PaymentListener</span><span class="w"> </span><span class="err">paymentListener</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">PaymentListener()</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">@Override</span><span class="w">
+        </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onStart()</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"O pagamento começou."</span><span class="err">);</span><span class="w">
+        </span><span class="p">}</span><span class="w">
         
-        @Override
-        public void onPayment(@NotNull Order order) {
-            Log.d("MinhaApp", "Um pagamento foi realizado.");
-        } 
+        </span><span class="err">@Override</span><span class="w">
+        </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onPayment(@NotNull</span><span class="w"> </span><span class="err">Order</span><span class="w"> </span><span class="err">order)</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Um pagamento foi realizado."</span><span class="err">);</span><span class="w">
+        </span><span class="p">}</span><span class="w"> 
                 
-        @Override public void onCancel() {
-            Log.d("MinhaApp", "A operação foi cancelada.");
-        } 
+        </span><span class="err">@Override</span><span class="w"> </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onCancel()</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"A operação foi cancelada."</span><span class="err">);</span><span class="w">
+        </span><span class="p">}</span><span class="w"> 
                 
-        @Override public void onError(@NotNull PaymentError paymentError) {
-            Log.d("MinhaApp", "Houve um erro no pagamento.");
-        }     
-    }; 
+        </span><span class="err">@Override</span><span class="w"> </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onError(@NotNull</span><span class="w"> </span><span class="err">PaymentError</span><span class="w"> </span><span class="err">paymentError)</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Houve um erro no pagamento."</span><span class="err">);</span><span class="w">
+        </span><span class="p">}</span><span class="w">     
+    </span><span class="p">}</span><span class="err">;</span><span class="w"> 
     
-    orderManager.checkoutOrder(order.getId(), order.getPrice(), paymentListener);
-</code></pre></div></div>
+    </span><span class="err">orderManager.checkoutOrder(order.getId()</span><span class="p">,</span><span class="w"> </span><span class="err">order.getPrice()</span><span class="p">,</span><span class="w"> </span><span class="err">paymentListener);</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="processo-de-pagamento">Processo de Pagamento</h2>
 
