@@ -458,7 +458,7 @@ curl
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
 ### Resposta
 
@@ -726,7 +726,7 @@ curl
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
 |`Payment.Country`|Texto|3|Não|Pais na qual o pagamento será feito.|
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/Webservice-3.0/#anexos)|
+|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|
 |`Payment.SoftDescriptor`|Texto|13|Não|Texto impresso na fatura bancaria comprador - Exclusivo para VISA/MASTER - não permite caracteres especiais - Ver Anexo|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
@@ -737,7 +737,7 @@ curl
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
 ### Resposta
 
@@ -982,7 +982,7 @@ curl
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
 ### Resposta
 
@@ -1356,7 +1356,7 @@ curl
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 |`FraudAnalysis.Sequence`|Texto|14|Não|Tipo de Fluxo para realização da análise de fraude. Padrão: AuthorizeFirst|
 |`FraudAnalysis.SequenceCriteria`|Texto|9|Não|Critério do fluxo. OnSuccess - Só realiza a analise se tiver sucesso na transação. Always - Sempre realiza a analise|
 |`FraudAnalysis.FingerPrintId`|Texto|50|Não|Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint.|
@@ -3954,7 +3954,7 @@ curl
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
 ## Consultando uma venda pelo identificador da loja
 
@@ -5035,13 +5035,13 @@ curl
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
 |`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
-|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/Webservice-3.0/#anexos)|
+|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
 ### Resposta
 
@@ -5865,7 +5865,7 @@ curl
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`Wallet.Type`|Texto|255|Sim|indica qual o tipo de carteira: "VisaCheckout" ou "Masterpass"|
 
