@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-11T16:41:57+00:00</updated>
+    <updated>2018-01-11T17:04:29+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1818,12 +1818,12 @@ Acesse Documentação da Integração Local&lt;/li&gt;
 &lt;h4 id=&quot;integração-remota--cielo-lio-order-manager&quot;&gt;Integração Remota | Cielo LIO Order Manager&lt;/h4&gt;
 
 &lt;p&gt;Conjunto de APIs que permitem que o cliente continue utilizando sua solução de PDV / Automação Comercial com todas as funcionalidades. No momento de realizar o pagamento, ocorre a integração com o gerenciador de pedidos (Order Manager) da Cielo LIO, de forma rápida, simples e segura.
- &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-remota&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
+ &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-remota&quot;&gt;Ir para integração remota&lt;/a&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;integração-local--cielo-lio-order-manager-sdk&quot;&gt;Integração Local | Cielo LIO Order Manager SDK&lt;/h4&gt;
 
 &lt;p&gt;A Cielo disponibiliza um SDK com base na Cielo LIO Order Manager API que permite ao desenvolvedor e parceiro Cielo LIO integrar em sua aplicação as funcionalidades da Cielo LIO.
- &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-local&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
+ &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-local&quot;&gt;Ir para integração local&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;serviços-periféricos&quot;&gt;Serviços periféricos&lt;/h3&gt;
 
@@ -1997,7 +1997,7 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 
 &lt;p&gt;Esse SIM Card permite a conexão com a tecnologia 3G da Cielo LIO e possui um pacote de dados ilimitado.&lt;/p&gt;
 
-&lt;h1 id=&quot;guia-para-desenvolvedores&quot;&gt;Guia para desenvolvedores&lt;/h1&gt;
+&lt;h1 id=&quot;dicas-para-desenvolvedores&quot;&gt;Dicas para desenvolvedores&lt;/h1&gt;
 
 &lt;p&gt;O guia abaixo fornece as informações necessárias para ajudar os desenvolvedores a integrar ou desenvolver seus aplicativos na plataforma Cielo LIO da melhor maneira possível, de modo a oferecer uma experiência excelente para os estabelecimentos comerciais.&lt;/p&gt;
 
@@ -2030,7 +2030,7 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 &lt;ul&gt;
   &lt;li&gt;Princípios de Design Orientado a Objetos (S.O.L.I.D.).&lt;/li&gt;
   &lt;li&gt;Diretrizes de estilo Java.&lt;/li&gt;
-  &lt;li&gt;Entenda a diferença entre compileSdkVersion, targetSdkVersion, e minSdkVersion.&lt;/li&gt;
+  &lt;li&gt;Entenda a diferença entre &lt;code class=&quot;highlighter-rouge&quot;&gt;compileSdkVersion&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;targetSdkVersion&lt;/code&gt;, e &lt;code class=&quot;highlighter-rouge&quot;&gt;minSdkVersion&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;Aproveite os botões nativos do Android, como os botões “Voltar” e “Início”.&lt;/li&gt;
   &lt;li&gt;Otimize as operações visando o baixo consumo da bateria&lt;/li&gt;
   &lt;li&gt;O aplicativo deve atender às necessidades dos estabelecimentos comerciais (lojistas) da Cielo.&lt;/li&gt;
@@ -2092,9 +2092,8 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 
 &lt;h2 id=&quot;versão-target-da-aplicação&quot;&gt;Versão target da aplicação&lt;/h2&gt;
 
-&lt;p&gt;Recomenda-se que o desenvolvedor utilize como versão target da aplicação o Android 5.1.1 (Lollipop).&lt;/p&gt;
-
-&lt;p&gt;Dessa forma, garante-se o funcionamento da aplicação no hardware da LIO V1 como também no hardware da LIO V2.&lt;/p&gt;
+&lt;p&gt;Recomenda-se que o desenvolvedor utilize como versão target da aplicação o Android 5.1.1 (Lollipop).
+Dessa forma, garante-se o funcionamento da aplicação no hardware da LIO V1 como também no hardware da LIO V2.&lt;/p&gt;
 
 &lt;h2 id=&quot;recursos-indisponíveis&quot;&gt;Recursos Indisponíveis&lt;/h2&gt;
 
@@ -2109,6 +2108,40 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Atenção&lt;/strong&gt;: A Cielo não permite que o aplicativo do cliente/parceiro seja desenvolvido utilizando o recurso WebView. Esse recurso visual deixa a plataforma da Cielo LIO vulnerável. Caso a aplicação esteja utilizando o WebView, esta não atenderá aos parâmetros de certificação e não será disponibilizada na Cielo Store.&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;h2 id=&quot;seguestões-de-substitutos&quot;&gt;Seguestões de substitutos&lt;/h2&gt;
+
+&lt;h3 id=&quot;push-notifications&quot;&gt;Push-Notifications&lt;/h3&gt;
+
+&lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: JobScheduler&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: É uma API para agendar vários tipos de trabalhos contra a estrutura que será executada no próprio processo da sua aplicação. Permitindo a cada ciclo de tempo que o aplicativo realize uma busca em nossos serviços de Backend.&lt;/p&gt;
+
+&lt;p&gt;O JobScheduler é o mais indicado devido a performance em relação ao uso de bateria, fora as muitas outras opções que ele disponibiliza (Ex: Job rodar somente quando o smartphone estiver carregando).&lt;/p&gt;
+
+&lt;p&gt;Referência: &lt;a href=&quot;https://developer.android.com/reference/android/app/job/JobScheduler.html&quot;&gt;Clique aqui&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;serviços-de-localização-gps&quot;&gt;Serviços de Localização (GPS)&lt;/h3&gt;
+
+&lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: Location Manager&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Essa classe fornece acesso aos serviços de localização do sistema. Esses serviços permitem que os aplicativos obtenham atualizações periódicas da localização geográfica do dispositivo ou que iniciem uma Intenção especificada pela aplicação quando o dispositivo entra na proximidade de uma determinada localização geográfica.&lt;/p&gt;
+
+&lt;p&gt;Referência: &lt;a href=&quot;https://developer.android.com/reference/android/location/LocationManager.html&quot;&gt;Clique aqui&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;serviços-de-mapas&quot;&gt;Serviços de Mapas&lt;/h3&gt;
+
+&lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: MapBox&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Uma plataforma de mapeamento de código aberto para mapas personalizados. Nossas APIs e SDKs são os blocos de construção para integrar a localização em qualquer aplicativo móvel ou web.&lt;/p&gt;
+
+&lt;p&gt;Referência: &lt;a href=&quot;https://www.mapbox.com&quot;&gt;Clique aqui&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;apks-removidas-do-cielo-os&quot;&gt;APKs Removidas do Cielo OS&lt;/h2&gt;
 
@@ -2195,47 +2228,7 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 
 &lt;p&gt;Atualmente Cielo LIO ainda não dá suporte a aplicativos desenvolvidos em plataformas híbridas, como, por exemplo, Ionic, Titanium, Xamarin, CronApp e PhoneGap.&lt;/p&gt;
 
-&lt;h2 id=&quot;recursos-e-métodos-úteis-cielo-lio&quot;&gt;Recursos e métodos úteis Cielo LIO&lt;/h2&gt;
-
-&lt;p&gt;A Cielo removeu alguns recursos da Plataforma Cielo LIO visando garantir a segurança e integridade da mesma para desenvolvedores e lojistas.&lt;/p&gt;
-
-&lt;p&gt;Portanto, abaixo disponibilizamos algumas alternativas que podem a vir substituir a ausência desses recursos.&lt;/p&gt;
-
-&lt;h3 id=&quot;push-notifications&quot;&gt;Push-Notifications&lt;/h3&gt;
-
-&lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: JobScheduler&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: É uma API para agendar vários tipos de trabalhos contra a estrutura que será executada no próprio processo da sua aplicação. Permitindo a cada ciclo de tempo que o aplicativo realize uma busca em nossos serviços de Backend.&lt;/p&gt;
-
-&lt;p&gt;O JobScheduler é o mais indicado devido a performance em relação ao uso de bateria, fora as muitas outras opções que ele disponibiliza (Ex: Job rodar somente quando o smartphone estiver carregando).&lt;/p&gt;
-
-&lt;p&gt;Referência: &lt;a href=&quot;https://developer.android.com/reference/android/app/job/JobScheduler.html&quot;&gt;Clique aqui&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;serviços-de-localização-gps&quot;&gt;Serviços de Localização (GPS)&lt;/h3&gt;
-
-&lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: Location Manager&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Essa classe fornece acesso aos serviços de localização do sistema. Esses serviços permitem que os aplicativos obtenham atualizações periódicas da localização geográfica do dispositivo ou que iniciem uma Intenção especificada pela aplicação quando o dispositivo entra na proximidade de uma determinada localização geográfica.&lt;/p&gt;
-
-&lt;p&gt;Referência: &lt;a href=&quot;https://developer.android.com/reference/android/location/LocationManager.html&quot;&gt;Clique aqui&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;serviços-de-mapas&quot;&gt;Serviços de Mapas&lt;/h3&gt;
-
-&lt;p&gt;Recurso exclusivo do Google Services, portanto não está presente na Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Alternativa&lt;/strong&gt;: MapBox&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Descrição&lt;/strong&gt;: Uma plataforma de mapeamento de código aberto para mapas personalizados. Nossas APIs e SDKs são os blocos de construção para integrar a localização em qualquer aplicativo móvel ou web.&lt;/p&gt;
-
-&lt;p&gt;Referência: &lt;a href=&quot;https://www.mapbox.com&quot;&gt;Clique aqui&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Agora que você já tem as informações necessárias para desenvolver um aplicativo para, acesse a documentação da Integração Local para saber como se integrar com o SDK da Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-local&quot;&gt;Clique aqui&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
 
 &lt;h1 id=&quot;integração-remota&quot;&gt;Integração Remota&lt;/h1&gt;
 
@@ -2417,7 +2410,7 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
       &lt;td&gt;id&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;UUID que identifica unicamente o pedido.&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;criado pela API&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;number&lt;/td&gt;
@@ -2441,13 +2434,13 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
       &lt;td&gt;created_at&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;Data de criação do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;criado pela API&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;updated_at&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;Data da última atualização do pedido. A data deve estar no formato: YYYY-MM-DDThh:mm:ssZ (Exemplo: 20151020T13:13:29.000Z).&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;criado pela API&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;items&lt;/td&gt;
@@ -3848,35 +3841,6 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;p&gt;As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.&lt;/p&gt;
 
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;vídeo-demo-1&quot;&gt;Vídeo Demo&lt;/h2&gt;
-
-&lt;p&gt;No vídeo abaixo, é possível ver um exemplo de aplicativo integrado com o Cielo LIO Order Manager SDK, utilizando a função de pagamento de valores do SDK.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=d7y-x6p36YU&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/d7y-x6p36YU/0.jpg&quot; alt=&quot;Vídeo Demo&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Clique na imagem acima, para acessar o vídeo&lt;/p&gt;
-
-&lt;h2 id=&quot;code-sample-1&quot;&gt;Code Sample&lt;/h2&gt;
-
-&lt;p&gt;O código do exemplo do aplicativo integrado com o Cielo LIO Order Manager SDK encontra-se disponível no GitHub.&lt;/p&gt;
-
-&lt;p&gt;Fluxo para Integração&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-local-new.png&quot; alt=&quot;fluxo para integração&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Leia toda a documentação sobre a Integração Local.&lt;/li&gt;
-  &lt;li&gt;Crie sua conta no Portal de Desenvolvedores da Cielo para obter todas as funcionalidades que o portal pode oferecer para você, desenvolvedor. É obrigatório possuir uma conta para gerar um Client-Id.&lt;/li&gt;
-  &lt;li&gt;Realizando o cadastro de Client ID, o desenvolvedor recebe os tokens&lt;/li&gt;
-  &lt;li&gt;(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no Emulador Cielo Lio Confira o link: &lt;a href=&quot;https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk&quot;&gt;Download do Emulador&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Acesse a &lt;a href=&quot;https://www.cieloliostore.com.br/login&quot;&gt;Cielo Store&lt;/a&gt; e faça o upload do APK da sua aplicação. Ao término do upload, submeta seu aplicativo para certificação e preencha todas as informações necessárias.&lt;/li&gt;
-  &lt;li&gt;Ao término do upload submeta seu aplicativo, no próprio ambiente da Cielo Store, para certificação e preencha todas as informações necessárias.&lt;/li&gt;
-  &lt;li&gt;Assim que a certificação for concluída, o desenvolvedor receberá um e-mail e deverá acessar novamente a Cielo Store para promover o aplicativo para produção.&lt;/li&gt;
-  &lt;li&gt;Agora seu aplicativo já está disponível para download na Cielo Store. Sucesso!! Aproveite ao máximo tudo que a Integração Local Cielo LIO pode oferecer para você!!&lt;/li&gt;
-&lt;/ol&gt;
-
 &lt;h2 id=&quot;cielo-lio-order-manager-sdk&quot;&gt;Cielo Lio Order Manager SDK&lt;/h2&gt;
 
 &lt;h3 id=&quot;sobre-2&quot;&gt;Sobre&lt;/h3&gt;
@@ -3901,9 +3865,9 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;h3 id=&quot;ambiente-sandbox---emulador&quot;&gt;Ambiente Sandbox - Emulador&lt;/h3&gt;
 
-&lt;p&gt;A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualquer dispositivo Android, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.&lt;/p&gt;
+&lt;p&gt;Este aplicativo funciona como um proxy de todas as chamadas que o SDK enviaria para a LIO. Ele simplesmente trata essas chamadas e simula os tipos possíveis de retorno para a aplicação cliente, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.&lt;/p&gt;
 
-&lt;p&gt;Faça o download do emulador no link abaixo:&lt;/p&gt;
+&lt;p&gt;Faça o download do .apk do emulador no link abaixo:&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk&quot;&gt;Download do Emulador&lt;/a&gt;&lt;/p&gt;
 
@@ -3921,75 +3885,32 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;p&gt;Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:&lt;/p&gt;
 
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;compile 'com.cielo.lio:order-manager:0.17.7-beta&lt;/code&gt;&lt;/p&gt;
+
 &lt;blockquote&gt;
-  &lt;p&gt;compile ‘com.cielo.lio:order-manager:0.15.0’&lt;/p&gt;
+  &lt;p&gt;A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
+Adicione ao &lt;code class=&quot;highlighter-rouge&quot;&gt;AndroidManifest.xml&lt;/code&gt; da sua aplicação:&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;credenciais&quot;&gt;Credenciais&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-```&quot;&gt;
+### Credenciais
 
-&lt;p&gt;Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:&lt;/p&gt;
+Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Criação&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;das&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;credenciais.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Não&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;se&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;esquecer&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;de&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;substituir&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Client-Id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Access-Token&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;por&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;suas&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;credenciais.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    
-    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Credentials&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;credentials&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Credentials(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Client-Id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Access-Token&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    
-    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;orderManager&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;OrderManager(credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;context);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+```java
+    Credentials credentials = new Credentials(&amp;gt;&quot;, &quot;&amp;gt;&quot;); 
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Client-Id
-Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu ‘Desenvolvedor’ -&amp;gt; ‘Client ID Cadastrados’.&lt;/li&gt;
-  &lt;li&gt;Access-Token
-Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em ‘detalhes’ na coluna ‘Access Tokens’, dentro do menu ‘Desenvolvedor’ -&amp;gt; ‘Client ID Cadastrados’.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Client-Id
+Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu ‘Desenvolvedor’ -&amp;gt; ‘Client ID Cadastrados’.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Access-Token
+Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em ‘detalhes’ na coluna ‘Access Tokens’, dentro do menu ‘Desenvolvedor’ -&amp;gt; ‘Client ID Cadastrados’.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&quot;release-notes&quot;&gt;Release Notes&lt;/h3&gt;
-
-&lt;p&gt;Na tabela abaixo, é possível verificar as funcionalidades do SDK disponíveis por versão da Cielo LIO e Cielo Mobile.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Funcionalidade&lt;/th&gt;
-      &lt;th&gt;Versão Cielo LIO&lt;/th&gt;
-      &lt;th&gt;Versão Cielo Mobile&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;createDraftOrder(String reference)placeOrder(Order order)updateOrder(Order order)checkoutOrder(String orderId, PaymentListener paymentListener)checkoutOrder(String orderId,long value, PaymentListener paymentListener)&lt;/td&gt;
-      &lt;td&gt;1.10.2&lt;/td&gt;
-      &lt;td&gt;1.9.1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;retrievePaymentType()checkoutOrder(String orderId,long value, String primaryCode, String secondaryCode, PaymentListener,paymentListener)&lt;/td&gt;
-      &lt;td&gt;1.12.0&lt;/td&gt;
-      &lt;td&gt;1.10.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;retrieveOrders(int pageSize, int page)&lt;/td&gt;
-      &lt;td&gt;1.13.0&lt;/td&gt;
-      &lt;td&gt;1.10.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;checkoutOrder (String orderId,long value, String primaryCode, String secondaryCode, Long installments, PaymentListener paymentListener)&lt;/td&gt;
-      &lt;td&gt;1.14.0&lt;/td&gt;
-      &lt;td&gt;1.12.1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;cancelOrder (Context context, String orderId, Payment payment, CancellationListener paymentListener)cancelOrder (Context context, String orderId, Payment payment, Long amount, CancellationListener paymentListener)&lt;/td&gt;
-      &lt;td&gt;1.16.7&lt;/td&gt;
-      &lt;td&gt;1.12.10&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Se for utilizada uma funcionalidade que não esteja disponível, será lançada uma exceção – UnsupportedOperationExcepetion –, que deve ser tratada pelo aplicativo.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Para descobrir a versão do aplicativo Cielo LIO (versão do Launcher) e Cielo Mobile, bem como utilizar todas as funcionalidades do Cielo LIO Order Manager SDK, acesse “Sobre a Cielo LIO” (Ajuda -&amp;gt; Sobre a Cielo LIO) para obter as informações sobre os aplicativos instalados na Cielo LIO.&lt;/p&gt;
 
 &lt;h2 id=&quot;utilização-cielo-lio-order-manager-sdk&quot;&gt;Utilização Cielo LIO Order Manager SDK&lt;/h2&gt;
 
@@ -4005,8 +3926,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 &lt;p&gt;Tudo começa com a criação do OrderManager!&lt;/p&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;orderManager&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;OrderManager(credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;context);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;OrderManager&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;orderManager&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OrderManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;credentials&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;O construtor do OrderManager recebe 2 parâmetros:&lt;/p&gt;
 
@@ -4040,19 +3961,30 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 &lt;p&gt;Com este método – Bind –, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO&lt;/p&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ServiceBindListener&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;serviceBindListener&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ServiceBindListener()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@Override&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;onServiceBound()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;serviço&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;está&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;vinculado&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;ServiceBindListener&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serviceBindListener&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ServiceBindListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     
-        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;@Override&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;onServiceUnbound()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;serviço&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;foi&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;desvinculado&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;orderManager.bind(contextActivity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;serviceBindListener);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onServiceBoundError&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;throwable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//Ocorreu um erro ao tentar se conectar com o serviço OrderManager&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        
+        &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onServiceBound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//Você deve garantir que sua aplicação se conectou com a LIO a partir desse listener&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//A partir desse momento você pode utilizar as funções do OrderManager, caso contrário uma exceção será lançada.&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
+    
+        &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onServiceUnbound&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// O serviço foi desvinculado&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;};&lt;/span&gt; 
+    
+    &lt;span class=&quot;n&quot;&gt;orderManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contextActivity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serviceBindListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Você deve garantir que o listener &lt;code class=&quot;highlighter-rouge&quot;&gt;onServiceBound()&lt;/code&gt; foi chamado antes de utilizar as funções do OrderManager, caso contrário uma exceção será lançada e causará um crash na sua aplicação.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;O método Bind recebe dois parâmetros:&lt;/p&gt;
 
@@ -4073,8 +4005,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 &lt;p&gt;Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:&lt;/p&gt;
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;Order&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;orderManager.createDraftOrder(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;REFERÊNCIA_DO_PEDIDO&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;Order&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;orderManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createDraftOrder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;REFERÊNCIA_DO_PEDIDO&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;adicionar-itens-em-um-pedido&quot;&gt;Adicionar itens em um pedido&lt;/h3&gt;
 
@@ -4115,30 +4047,26 @@ Iniciar processo de pagamento&lt;/p&gt;
 &lt;p&gt;Este método permite iniciar o processo de pagamento na Cielo LIO.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;n&quot;&gt;PaymentListener&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paymentListener&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PaymentListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-                &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MinhaApp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;O pagamento começou.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MinhaApp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;O pagamento começou.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        
+        &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onPayment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@NotNull&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Order&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MinhaApp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Um pagamento foi realizado.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
                 
-                &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-                &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onPayment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@NotNull&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Order&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MinhaApp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Um pagamento foi realizado.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
+        &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCancel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MinhaApp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;A operação foi cancelada.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
                 
-                &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCancel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MinhaApp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;A operação foi cancelada.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
-                
-                &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onError&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@NotNull&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PaymentError&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paymentError&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MinhaApp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Houve um erro no pagamento.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onError&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@NotNull&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PaymentError&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paymentError&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MinhaApp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Houve um erro no pagamento.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;     
     &lt;span class=&quot;o&quot;&gt;};&lt;/span&gt; 
     
-    &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;orderId&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    
-    &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPrice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;orderManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;checkoutOrder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;orderId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paymentListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;orderManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;checkoutOrder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPrice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paymentListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;processo-de-pagamento&quot;&gt;Processo de Pagamento&lt;/h2&gt;
@@ -4180,6 +4108,82 @@ Iniciar processo de pagamento&lt;/p&gt;
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcial:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;release-notes&quot;&gt;Release Notes&lt;/h3&gt;
+
+&lt;p&gt;Na tabela abaixo, é possível verificar as funcionalidades do SDK disponíveis por versão da Cielo LIO e Cielo Mobile.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Funcionalidade&lt;/th&gt;
+      &lt;th&gt;Versão Cielo LIO&lt;/th&gt;
+      &lt;th&gt;Versão Cielo Mobile&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;createDraftOrder(String reference); placeOrder(Order order); updateOrder(Order order); checkoutOrder(String orderId, PaymentListener paymentListener); checkoutOrder(String orderId,long value, PaymentListener paymentListener);&lt;/td&gt;
+      &lt;td&gt;1.10.2&lt;/td&gt;
+      &lt;td&gt;1.9.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;retrievePaymentType(); checkoutOrder(String orderId,long value, String primaryCode, String secondaryCode, PaymentListener,paymentListener);&lt;/td&gt;
+      &lt;td&gt;1.12.0&lt;/td&gt;
+      &lt;td&gt;1.10.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;retrieveOrders(int pageSize, int page);&lt;/td&gt;
+      &lt;td&gt;1.13.0&lt;/td&gt;
+      &lt;td&gt;1.10.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;checkoutOrder (String orderId,long value, String primaryCode, String secondaryCode, Long installments, PaymentListener paymentListener);&lt;/td&gt;
+      &lt;td&gt;1.14.0&lt;/td&gt;
+      &lt;td&gt;1.12.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cancelOrder (Context context, String orderId, Payment payment, CancellationListener paymentListener); cancelOrder(Context context, String orderId, Payment payment, Long amount, CancellationListener paymentListener);&lt;/td&gt;
+      &lt;td&gt;1.16.7&lt;/td&gt;
+      &lt;td&gt;1.12.10&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Se for utilizada uma funcionalidade que não esteja disponível, será lançada uma exceção – UnsupportedOperationExcepetion –, que deve ser tratada pelo aplicativo.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Para descobrir a versão do aplicativo Cielo LIO (versão do Launcher) e Cielo Mobile, bem como utilizar todas as funcionalidades do Cielo LIO Order Manager SDK, acesse “Sobre a Cielo LIO” (Ajuda -&amp;gt; Sobre a Cielo LIO) para obter as informações sobre os aplicativos instalados na Cielo LIO.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;code-sample-1&quot;&gt;Code Sample&lt;/h3&gt;
+
+&lt;p&gt;O código do exemplo do aplicativo integrado com o Cielo LIO Order Manager SDK encontra-se disponível no GitHub.&lt;/p&gt;
+
+&lt;h2 id=&quot;fluxo-para-integração-1&quot;&gt;Fluxo para Integração&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-local-new.png&quot; alt=&quot;fluxo para integração&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Leia toda a documentação sobre a Integração Local.&lt;/li&gt;
+  &lt;li&gt;Crie sua conta no Portal de Desenvolvedores da Cielo para obter todas as funcionalidades que o portal pode oferecer para você, desenvolvedor. É obrigatório possuir uma conta para gerar um Client-Id.&lt;/li&gt;
+  &lt;li&gt;Realizando o cadastro de Client ID, o desenvolvedor recebe os tokens&lt;/li&gt;
+  &lt;li&gt;(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no Emulador Cielo Lio Confira o link: &lt;a href=&quot;https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk&quot;&gt;Download do Emulador&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Acesse a &lt;a href=&quot;https://www.cieloliostore.com.br/login&quot;&gt;Cielo Store&lt;/a&gt; e faça o upload do APK da sua aplicação. Ao término do upload, submeta seu aplicativo para certificação e preencha todas as informações necessárias.&lt;/li&gt;
+  &lt;li&gt;Ao término do upload submeta seu aplicativo, no próprio ambiente da Cielo Store, para certificação e preencha todas as informações necessárias.&lt;/li&gt;
+  &lt;li&gt;Assim que a certificação for concluída, o desenvolvedor receberá um e-mail e deverá acessar novamente a Cielo Store para promover o aplicativo para produção.&lt;/li&gt;
+  &lt;li&gt;Agora seu aplicativo já está disponível para download na Cielo Store. Sucesso!! Aproveite ao máximo tudo que a Integração Local Cielo LIO pode oferecer para você!!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;vídeo-demo-1&quot;&gt;Vídeo Demo&lt;/h2&gt;
+
+&lt;p&gt;No vídeo abaixo, é possível ver um exemplo de aplicativo integrado com o Cielo LIO Order Manager SDK, utilizando a função de pagamento de valores do SDK.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=d7y-x6p36YU&quot;&gt;&lt;img src=&quot;https://img.youtube.com/vi/d7y-x6p36YU/0.jpg&quot; alt=&quot;Vídeo Demo&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Clique na imagem acima, para acessar o vídeo&lt;/p&gt;
 
 &lt;h1 id=&quot;cielo-store&quot;&gt;Cielo Store&lt;/h1&gt;
 
