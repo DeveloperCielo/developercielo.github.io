@@ -2180,6 +2180,8 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
   </tbody>
 </table>
 
+<hr />
+
 <h1 id="integração-local">Integração Local</h1>
 
 <h2 id="apresentação-1">Apresentação</h2>
@@ -2276,7 +2278,7 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Tudo começa com a criação do OrderManager!</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    OrderManager orderManager = new OrderManager(credentials, context);
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OrderManager orderManager = new OrderManager(credentials, context);
 </code></pre></div></div>
 
 <p>O construtor do OrderManager recebe 2 parâmetros:</p>
@@ -2309,7 +2311,28 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <h4 id="vincular-o-contexto-da-aplicação-ao-sdk">Vincular o contexto da aplicação ao SDK</h4>
 
-<p>Com este método – Bind –, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
+<p>Com o método <code class="highlighter-rouge">bind()</code>, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ServiceBindListener serviceBindListener = new ServiceBindListener() {
+
+    @Override public void onServiceBoundError(Throwable throwable) {
+        //Ocorreu um erro ao tentar se conectar com o serviço OrderManager
+    }
+
+    @Override
+    public void onServiceBound() {
+        //Você deve garantir que sua aplicação se conectou com a LIO a partir desse listener
+        //A partir desse momento você pode utilizar as funções do OrderManager, caso contrário uma exceção será lançada.
+    }
+
+    @Override
+    public void onServiceUnbound() {
+        // O serviço foi desvinculado
+    }
+};
+
+orderManager.bind(context, serviceBindListener);
+</code></pre></div></div>
 
 <blockquote>
   <p><strong>Atenção:</strong> Você deve garantir que o listener <code class="highlighter-rouge">onServiceBound()</code> foi chamado antes de utilizar as funções do OrderManager, caso contrário uma exceção será lançada e causará um crash na sua aplicação.</p>
@@ -2319,10 +2342,10 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <ul>
   <li>
-    <p><strong>contextActivity:</strong> Activity que proverá o contexto a que o serviço será vinculado.</p>
+    <p><strong>context:</strong> objeto que proverá o contexto em que o serviço será vinculado.</p>
   </li>
   <li>
-    <p><strong>serviceBindListener:</strong> Listener que notifica se o serviço foi vinculado ou não.</p>
+    <p><strong>serviceBindListener:</strong> listener que notifica o estado da conexão com o serviço OrderManager.</p>
   </li>
 </ul>
 
@@ -2334,7 +2357,7 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    Order order = orderManager.createDraftOrder("REFERÊNCIA_DO_PEDIDO");
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Order order = orderManager.createDraftOrder("REFERÊNCIA_DO_PEDIDO");
 </code></pre></div></div>
 
 <h4 id="adicionar-itens-em-um-pedido">Adicionar itens em um pedido</h4>
@@ -2345,11 +2368,25 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
   <p><strong>Atenção:</strong> É necessário adicionar no mínimo um item a um pedido para que seja possível dar continuidade ao pagamento.</p>
 </blockquote>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Identificação do produto (Stock Keeping Unit)
+String sku = "2891820317391823";
+String name = "Coca-cola lata";
+
+// Preço unitário em centavos
+int unitPrice = 550;
+int quantity = 3;
+
+// Unidade de medida do produto String
+unityOfMeasure = "UNIDADE";
+
+order.addItem(sku, name, unitPrice, quantity, unityOfMeasure);
+</code></pre></div></div>
+
 <h4 id="liberar-pedido-para-pagamento">Liberar pedido para pagamento</h4>
 
 <p>Este método permite atualizar o status de um pedido e liberá-lo para pagamento. O objetivo é utilizar este método depois de adicionar todos os itens no pedido.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    orderManager.placeOrder(order);
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>orderManager.placeOrder(order);
 </code></pre></div></div>
 
 <p>Após a execução desse método, o status da Order irá trocar de DRAFT para ENTERED, permitindo que a mesma seja paga.</p>
@@ -2367,9 +2404,39 @@ Iniciar processo de pagamento</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/checkoutOrder.jpg" alt="checkoutorder formas" /></p>
 
+<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">checkoutOrder()</code> para receber os estados relacionados ao pagamento.</p>
+
+<blockquote>
+  <p>PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. As seguintes ações podem ser notificadas:  * onStart - Quando se dá o início do pagamento. * onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um * pagamento. * onCancel - Quando o pagamento é cancelado. * onError - Quando acontece um erro no pagamento do pedido.</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PaymentListener paymentListener = new PaymentListener() {
+    @Override
+    public void onStart() {
+        Log.d("SDKClient", "O pagamento começou.");
+    }
+
+    @Override
+    public void onPayment(@NotNull Order order) {
+        Log.d("SDKClient", "Um pagamento foi realizado.");
+    }
+
+    @Override public void onCancel() {
+        Log.d("SDKClient", "A operação foi cancelada.");
+    }
+
+    @Override public void onError(@NotNull PaymentError paymentError) {
+        Log.d("SDKClient", "Houve um erro no pagamento.");
+    }
+};
+</code></pre></div></div>
+
 <h3 id="1-pagamento-parcial">1. Pagamento Parcial</h3>
 
 <p>No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>orderManager.checkoutOrder(order.getId(), order.getPrice(), paymentListener);
+</code></pre></div></div>
 
 <p>Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
 
@@ -2389,7 +2456,7 @@ Iniciar processo de pagamento</p>
     </tr>
     <tr>
       <td>paymentListener</td>
-      <td>Um callback que informa sobre todas as ações tomadas durante o processo de pagamento.   As seguintes ações podem ser notificadas:  * onStart - Quando se dá o início do pagamento. * onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um * pagamento. * onCancel - Quando o pagamento é cancelado. * onError - Quando acontece um erro no pagamento do pedido.</td>
+      <td>Um callback que informa sobre todas as ações tomadas durante o processo de pagamento.</td>
       <td>cielo.sdk.order.payment.PaymentListener</td>
     </tr>
   </tbody>
