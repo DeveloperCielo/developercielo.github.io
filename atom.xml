@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-11T13:37:15+00:00</updated>
+    <updated>2018-01-11T14:12:31+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -10828,12 +10828,26 @@ seguintes informações, que irão completar o cadastro:
     </entry>
     
     <entry>
-        <title>SDKs</title>
-        <category term="tutorial" />
-        <link href="https://developercielo.github.io/tutorial/sdks-cielo"/>
+        <title>Sdks Cielo</title>
+        <category term="" />
+        <link href="https://developercielo.github.io/sdks-cielo"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/tutorial/sdks-cielo</id>
-        <content type="html">&lt;h1 id=&quot;sdks-api-e-commerce-cielo&quot;&gt;SDKs Api e-Commerce Cielo&lt;/h1&gt;
+        <id>https://developercielo.github.io/sdks-cielo</id>
+        <content type="html">&lt;hr /&gt;
+&lt;p&gt;layout: tutorial
+title:  SDKs
+description: Lista de Sdks Api cielo ecommerce
+toc_footers: true
+categories: tutorial
+sort_order: 5
+tags:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;API e-Commerce Cielo&lt;/li&gt;
+  &lt;li&gt;Webservice 1.5
+ —&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;sdks-api-e-commerce-cielo&quot;&gt;SDKs Api e-Commerce Cielo&lt;/h1&gt;
 
 &lt;p&gt;A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:&lt;/p&gt;
 
