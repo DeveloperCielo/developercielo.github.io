@@ -2220,6 +2220,10 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Este aplicativo funciona como um proxy de todas as chamadas que o SDK enviaria para a LIO. Ele simplesmente trata essas chamadas e simula os tipos possíveis de retorno para a aplicação cliente, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.</p>
 
+<blockquote>
+  <p>Não é nem mesmo necessário deixar esse app aberto. Assim que a aplicação cliente utilizar uma função do OrderManager que chamaria a LIO, essa aplicação entra em primeiro plano para seleção do que deve ser retornado (Sucesso, Erro ou Cancelamento)</p>
+</blockquote>
+
 <p>Faça o download do .apk do emulador no link abaixo:</p>
 
 <p><a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk">Download do Emulador</a></p>

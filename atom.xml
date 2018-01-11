@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-11T19:06:32+00:00</updated>
+    <updated>2018-01-11T19:25:30+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3861,6 +3861,10 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 &lt;h3 id=&quot;ambiente-sandbox---emulador&quot;&gt;Ambiente Sandbox - Emulador&lt;/h3&gt;
 
 &lt;p&gt;Este aplicativo funciona como um proxy de todas as chamadas que o SDK enviaria para a LIO. Ele simplesmente trata essas chamadas e simula os tipos possíveis de retorno para a aplicação cliente, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Não é nem mesmo necessário deixar esse app aberto. Assim que a aplicação cliente utilizar uma função do OrderManager que chamaria a LIO, essa aplicação entra em primeiro plano para seleção do que deve ser retornado (Sucesso, Erro ou Cancelamento)&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Faça o download do .apk do emulador no link abaixo:&lt;/p&gt;
 
