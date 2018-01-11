@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-11T19:25:30+00:00</updated>
+    <updated>2018-01-11T20:05:25+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4079,10 +4079,9 @@ Iniciar processo de pagamento&lt;/p&gt;
 
 &lt;h3 id=&quot;1-pagamento-parcial&quot;&gt;1. Pagamento Parcial&lt;/h3&gt;
 
-&lt;p&gt;No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).&lt;/p&gt;
+&lt;p&gt;No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;orderManager.checkoutOrder(order.getId(), order.getPrice(), paymentListener);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.checkoutOrder(orderId, paymentListener);&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:&lt;/p&gt;
 
@@ -4102,7 +4101,7 @@ Iniciar processo de pagamento&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;paymentListener&lt;/td&gt;
-      &lt;td&gt;Um callback que informa sobre todas as ações tomadas durante o processo de pagamento.&lt;/td&gt;
+      &lt;td&gt;Callback de pagamento.&lt;/td&gt;
       &lt;td&gt;cielo.sdk.order.payment.PaymentListener&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -4110,9 +4109,248 @@ Iniciar processo de pagamento&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento parcial da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcial:&lt;/p&gt;
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcial:
+&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-pagamento-de-valor&quot;&gt;2. Pagamento de valor&lt;/h3&gt;
+
+&lt;p&gt;No pagamento de Valores, o valor a ser pago é informado pelo aplicativo e a forma de pagamento (crédito, débito, parcelado) é escolhida dentro do fluxo de telas da Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.checkoutOrder(orderId, value, paymentListener);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Nessa forma de pagamento é possível enviar qualquer valor a ser pago (valor total ou valor parcial do pedido), tudo depende do modelo de negócio adotado pelo aplicativo do parceiro. Para fazer a chamada é necessário enviar os seguintes parâmetros:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;orderId&lt;/td&gt;
+      &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;value&lt;/td&gt;
+      &lt;td&gt;Valor a ser pago. R$ 10,00 deve ser enviado como 1000.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;paymentListener&lt;/td&gt;
+      &lt;td&gt;Callback de pagamento.&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.payment.PaymentListener&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento de valor da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento de valor:
+&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-valor.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3-pagamento-direto&quot;&gt;3. Pagamento direto&lt;/h3&gt;
+
+&lt;p&gt;No Pagamento Direto, o valor a ser pago e a forma de pagamento (crédito, débito, parcelado) será definido dentro da aplicação do parceiro. Na sequência o fluxo de pagamento da Cielo LIO é iniciado (inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail comprovante).&lt;/p&gt;
+
+&lt;p&gt;Para realizar o pagamento direto é necessário, primeiramente, verificar os tipos de pagamento habilitados para Cielo LIO do estabelecimento comercial utilizando a função de consulta de formas de pagamentos habilitadas para LIO:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList paymentTypes = orderManager.retrievePaymentType();&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Esta função disponibilizará uma lista de objetos do tipo PrimaryProduct onde será possível recuperar os códigos de pagamento habilitados.&lt;/p&gt;
+
+&lt;p&gt;Os seguintes campos serão retornados por essa função:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;id&lt;/td&gt;
+      &lt;td&gt;identificador do código no sistema.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;code&lt;/td&gt;
+      &lt;td&gt;utilizado na função de pagamento.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;name&lt;/td&gt;
+      &lt;td&gt;Nome do método de pagamento para efeitos de exibição.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;secondaryProducts&lt;/td&gt;
+      &lt;td&gt;Listagem de códigos de pagamento secundário. ex.: À Vista, Parcelado, etc.&lt;/td&gt;
+      &lt;td&gt;ArrayList - SecondaryProduct&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Com os códigos de pagamentos disponíveis para a Cielo LIO do estabelecimento comercial, basta realizar a chamada de Pagamento Direto informando os códigos dos produtos:&lt;/p&gt;
+
+&lt;p&gt;Nessa forma de pagamento é possível enviar qualquer valor a ser pago e a forma de pagamento. Para fazer a chamada é necessário enviar os seguintes parâmetros:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;orderId&lt;/td&gt;
+      &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;value&lt;/td&gt;
+      &lt;td&gt;Valor a ser pago. R$ 10,00 deve ser enviado como 1000.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;primaryCode&lt;/td&gt;
+      &lt;td&gt;Código identificador do método primário de pagamento ex.: Débito, Crédito.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;secondaryCode&lt;/td&gt;
+      &lt;td&gt;Código identificador do método secundário de pagamento ex.: À vista, Parcelado.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;paymentListener&lt;/td&gt;
+      &lt;td&gt;Callback de pagamento.&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.payment.PaymentListener&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento direto da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.checkoutOrder(orderId, value, primaryCode, secondaryCode, paymentListener);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento de valor:
+&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-direto.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-pagamento-parcelado&quot;&gt;4. Pagamento parcelado&lt;/h3&gt;
+
+&lt;p&gt;Para efetuar um pagamento parcelado, é preciso consultar as formas de pagamento utilizando a função disponibilizada no SDK, escolher crédito no produto primário e crédito no produto secundário &lt;strong&gt;obrigatoriamente&lt;/strong&gt; e informar o número de parcelas no momento do checkout. É importante lembrar que se os códigos de pagamento forem informados incorretamente ou se o número de parcelas não for maior do que &lt;strong&gt;0&lt;/strong&gt;, o sistema acusará erro.
+Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;orderId&lt;/td&gt;
+      &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;value&lt;/td&gt;
+      &lt;td&gt;Valor a ser pago. R$ 10,00 deve ser enviado como 1000.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;primaryCode&lt;/td&gt;
+      &lt;td&gt;Código identificador do método primário de pagamento ex.: Débito, Crédito.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;secondaryCode&lt;/td&gt;
+      &lt;td&gt;Código identificador do método secundário de pagamento ex.: À vista, Parcelado.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;installments&lt;/td&gt;
+      &lt;td&gt;Número de parcelas.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;paymentListener&lt;/td&gt;
+      &lt;td&gt;Callback de pagamento.&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.payment.PaymentListener&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento parcelado da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.checkoutOrder(orderId, value, primaryCode, secondaryCode, installments,  paymentListener);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
+&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;5-pagamento-informando-email&quot;&gt;5. Pagamento informando email&lt;/h3&gt;
+
+&lt;p&gt;Exatamente como o método anterior, com a diferença que neste caso é possível informar o email para facilitar o preenchimento na hora de enviar o comprovante para o cliente. Caso queira utilizar essa função para realizar outro tipo de pagamento que não o parcelado, basta informar os códigos primários desejados e informar &lt;strong&gt;0&lt;/strong&gt; no número de parcelas.
+Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;orderId&lt;/td&gt;
+      &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;value&lt;/td&gt;
+      &lt;td&gt;Valor a ser pago. R$ 10,00 deve ser enviado como 1000.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;primaryCode&lt;/td&gt;
+      &lt;td&gt;Código identificador do método primário de pagamento ex.: Débito, Crédito.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;secondaryCode&lt;/td&gt;
+      &lt;td&gt;Código identificador do método secundário de pagamento ex.: À vista, Parcelado.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;installments&lt;/td&gt;
+      &lt;td&gt;Número de parcelas.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;paymentListener&lt;/td&gt;
+      &lt;td&gt;Callback de pagamento&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.payment.PaymentListener&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento direto da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.checkoutOrder(orderId, value, primaryCode, secondaryCode, installments,  paymentListener);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com email:
+&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
