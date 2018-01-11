@@ -2549,12 +2549,23 @@ Iniciar processo de pagamento</p>
     <tr>
       <td>secondaryProducts</td>
       <td>Listagem de códigos de pagamento secundário. ex.: À Vista, Parcelado, etc.</td>
-      <td><code class="highlighter-rouge">ArrayList</code></td>
+      <td><code class="highlighter-rouge">ArrayList - SecondaryProduct</code></td>
     </tr>
   </tbody>
 </table>
 
 <p>Com os códigos de pagamentos disponíveis para a Cielo LIO do estabelecimento comercial, basta realizar a chamada de Pagamento Direto informando os códigos dos produtos:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+PrimaryProduct primaryProduct = paymentTypes.get(0);
+SecondaryProduct secondaryProduct = primaryProduct.getSecondaryProducts().get(0);
+
+String primaryCode = primaryProduct.getCode();
+String secondaryCode = secondaryProduct.getCode();
+
+orderManager.checkoutOrder(orderId, primaryCode, secondaryCode paymentListener);
+
+</code></pre></div></div>
 
 <p>Nessa forma de pagamento é possível enviar qualquer valor a ser pago e a forma de pagamento. Para fazer a chamada é necessário enviar os seguintes parâmetros:</p>
 
