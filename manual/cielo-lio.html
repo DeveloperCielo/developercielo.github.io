@@ -49,17 +49,7 @@
 
     <body>
         
-        <div class="content-container">
-            <div class="language-tabs">
-                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                <ul class="language-buttons">
-                    
-                    <li><a data-language-name='json'>JSON</a></li>
-                    
-                </ul>
-            </div>
-            <div class="dark-box"></div>
-            <div class="overlay"></div>
+        <div class="content-container no-dark-box">
         
             <div id="submenu">
                 <div class="submenu-container">
@@ -378,7 +368,6 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:</p>
 <ul>
   <li>Proteja os dados confidenciais de clientes e funcionários. Não exponha publicamente nomes, endereços ou números de telefone.</li>
   <li>Nunca exponha tokens de autenticação ou senhas de qualquer tipo.</li>
-  <li>Em caso de utilizar o recurso Webview, este só deve carregar conteúdo dentro do seu controle e não permitir que os usuários naveguem para páginas da Web arbitrárias (barra de navegação).</li>
   <li>O parceiro deve fornecer os seus dados de suporte para que os estabelecimentos comerciais (lojistas) entrem em contato no caso de problemas e/ou dúvidas.</li>
 </ul>
 
@@ -1079,42 +1068,42 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de requisição:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0992f1d5cee540d9a9648f4d6a9e4aa6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PEDIDO #1234"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DRAFT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2f5fb9a5542406e8b7917892329cda8"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b2j4bn6j93461385r5n90453407hjk0"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">550</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55329cda842406e8cv2f5gdf96985152d"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 4"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2005</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesa 1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">9155</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "number": "0992f1d5cee540d9a9648f4d6a9e4aa6",
+    "reference": "PEDIDO #1234",
+    "status": "DRAFT",
+    "items": [{
+            "sku": "ede8f84a8b8645cb8e576a593c25c6ed",
+            "name": "produto 1",
+            "unit_price": 500,
+            "quantity": 2,
+            "unit_of_measure": "EACH"
+        },
+        {
+            "sku": "c2f5fb9a5542406e8b7917892329cda8",
+            "name": "produto 2",
+            "unit_price": 1500,
+            "quantity": 3,
+            "unit_of_measure": "EACH"
+        },
+        {
+            "sku": "b2j4bn6j93461385r5n90453407hjk0",
+            "name": "produto 3",
+            "unit_price": 550,
+            "quantity": 3,
+            "unit_of_measure": "EACH"
+        },
+        {
+            "sku": "55329cda842406e8cv2f5gdf96985152d",
+            "name": "produto 4",
+            "unit_price": 2005,
+            "unit_of_measure": "EACH"
+        }
+    ],
+    "notes": "Mesa 1",
+    "price": 9155
+}
+</code></pre></div></div>
 
 <p>Dados de saída:</p>
 
@@ -1139,10 +1128,10 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2e1d7b07-dcee-4a09-8d09-3bb02d94169d"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "id": "2e1d7b07-dcee-4a09-8d09-3bb02d94169d"
+}
+</code></pre></div></div>
 
 <h4 id="get---consultar-pedido">GET - Consultar pedido</h4>
 
@@ -1204,56 +1193,56 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b4d8a7dc-4250-48a3-bf18-d560d4508368"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0992f1d5-cee5-40d9-a964-8f4d6a9e4aa6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOJA SUCO #1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENTERED"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesa 6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">5250</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010920335960001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4QeQD63ZeKsz"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0687f00a-0aea-48f7-85d0-64bc31977734"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000001"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco Detox"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cf561196-4e4c-436b-816b-80190e9a705f"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000010"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Uva"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16b4b10b-9967-477b-91a2-ecc02e6ff40c"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000011"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Tomate"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8500c747-1740-47cf-908a-3ab0f8b44193"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000100"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Abacaxi"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    {
+    "id": "b4d8a7dc-4250-48a3-bf18-d560d4508368",
+    "number": "0992f1d5-cee5-40d9-a964-8f4d6a9e4aa6",
+    "reference": "LOJA SUCO #1",
+    "status": "ENTERED",
+    "notes": "Mesa 6",
+    "price": 5250,
+    "created_at": "2016-09-06T19:09:49Z",
+    "updated_at": "2016-09-06T19:09:49Z",
+    "order_type": "PAYMENT",
+    "merchant": "0010920335960001",
+    "source_id": "4QeQD63ZeKsz",
+    "items": [{
+            "id": "0687f00a-0aea-48f7-85d0-64bc31977734",
+            "sku": "0000001",
+            "name": "Suco Detox",
+            "unit_price": 800,
+            "quantity": 1,
+            "unit_of_measure": "EACH"
+        },
+        {
+            "id": "cf561196-4e4c-436b-816b-80190e9a705f",
+            "sku": "0000010",
+            "name": "Suco de Uva",
+            "unit_price": 450,
+            "quantity": 5,
+            "unit_of_measure": "EACH"
+        },
+        {
+            "id": "16b4b10b-9967-477b-91a2-ecc02e6ff40c",
+            "sku": "0000011",
+            "name": "Suco de Tomate",
+            "unit_price": 500,
+            "quantity": 2,
+            "unit_of_measure": "EACH"
+        },
+        {
+            "id": "8500c747-1740-47cf-908a-3ab0f8b44193",
+            "sku": "0000100",
+            "name": "Suco de Abacaxi",
+            "unit_price": 400,
+            "quantity": 3,
+            "unit_of_measure": "EACH"
+        }
+    ],
+    "transactions": []
+}
+}
+</code></pre></div></div>
 
 <h4 id="get---consultar-todos-os-pedidos">GET - Consultar todos os Pedidos</h4>
 
@@ -1315,55 +1304,55 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b4d8a7dc-4250-48a3-bf18-d560d4508368"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0992f1d5-cee5-40d9-a964-8f4d6a9e4aa6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LOJA SUCO #1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENTERED"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mesa 6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">5250</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-06T19:09:49Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"order_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"merchant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010920335960001"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4QeQD63ZeKsz"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0687f00a-0aea-48f7-85d0-64bc31977734"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000001"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco Detox"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cf561196-4e4c-436b-816b-80190e9a705f"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000010"</span><span class="p">,</span><span class="w">
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "id": "b4d8a7dc-4250-48a3-bf18-d560d4508368",
+    "number": "0992f1d5-cee5-40d9-a964-8f4d6a9e4aa6",
+    "reference": "LOJA SUCO #1",
+    "status": "ENTERED",
+    "notes": "Mesa 6",
+    "price": 5250,
+    "created_at": "2016-09-06T19:09:49Z",
+    "updated_at": "2016-09-06T19:09:49Z",
+    "order_type": "PAYMENT",
+    "merchant": "0010920335960001",
+    "source_id": "4QeQD63ZeKsz",
+    "items": [{
+            "id": "0687f00a-0aea-48f7-85d0-64bc31977734",
+            "sku": "0000001",
+            "name": "Suco Detox",
+            "unit_price": 800,
+            "quantity": 1,
+            "unit_of_measure": "EACH"
+        },
+        {
+            "id": "cf561196-4e4c-436b-816b-80190e9a705f",
+            "sku": "0000010",
 
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Uva"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16b4b10b-9967-477b-91a2-ecc02e6ff40c"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000011"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Tomate"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8500c747-1740-47cf-908a-3ab0f8b44193"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000100"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suco de Abacaxi"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+            "name": "Suco de Uva",
+            "unit_price": 450,
+            "quantity": 5,
+            "unit_of_measure": "EACH"
+        },
+        {
+            "id": "16b4b10b-9967-477b-91a2-ecc02e6ff40c",
+            "sku": "0000011",
+            "name": "Suco de Tomate",
+            "unit_price": 500,
+            "quantity": 2,
+            "unit_of_measure": "EACH"
+        },
+        {
+            "id": "8500c747-1740-47cf-908a-3ab0f8b44193",
+            "sku": "0000100",
+            "name": "Suco de Abacaxi",
+            "unit_price": 400,
+            "quantity": 3,
+            "unit_of_measure": "EACH"
+        }
+    ],
+    "transactions": []
+}
+</code></pre></div></div>
 
 <h4 id="put--alterar-status-de-um-pedido">PUT- Alterar status de um pedido</h4>
 
@@ -1438,8 +1427,8 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">N/A</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
+</code></pre></div></div>
 
 <p>O retorno 200 dessa operação representa sucesso na requisição.</p>
 
@@ -1505,8 +1494,8 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">N/A</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
+</code></pre></div></div>
 
 <p>O retorno 200 dessa operação representa sucesso na requisição.</p>
 
@@ -1545,14 +1534,14 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de requisição:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="w">
-    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "sku": "ede8f84a8b8645cb8e576a593c25c6ed",
+    "name": "produto 1"
+    "unit_price": 500,
+    "quantity": 2,
+    "unit_of_measure": "EACH"
+}
+</code></pre></div></div>
 
 <p>Dados de saída:</p>
 
@@ -1577,8 +1566,8 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">N/A</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
+</code></pre></div></div>
 
 <p>O retorno 200 dessa operação representa sucesso na requisição.</p>
 
@@ -1642,24 +1631,24 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="w">
-        </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c2f5fb9a5542406e8b7917892329cda8"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"produto 1"</span><span class="w">
-        </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[{
+        "id": 1,
+        "sku": "ede8f84a8b8645cb8e576a593c25c6ed",
+        "name": "produto 1"
+        "unit_price": 500,
+        "quantity": 2,
+        "unit_of_measure": "EACH"
+    },
+    {
+        "id": 2,
+        "sku": "c2f5fb9a5542406e8b7917892329cda8",
+        "name": "produto 1"
+        "unit_price": 1500,
+        "quantity": 3,
+        "unit_of_measure": "EACH"
+    }
+]
+</code></pre></div></div>
 
 <h4 id="put---alterar-um-item-em-um-pedido">PUT - Alterar um item em um pedido</h4>
 
@@ -1707,13 +1696,13 @@ Ex.: Crédito, Débito, etc.</p>
 /items/8484df74-eca6-4850-8e4c-35653af0bd31</p>
 </blockquote>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "sku": "ede8f84a8b8645cb8e576a593c25c6ed",
+    "unit_price": 500,
+    "quantity": 2,
+    "unit_of_measure": "EACH"
+}
+</code></pre></div></div>
 
 <p>Dados de saída:</p>
 
@@ -1847,26 +1836,26 @@ Ex.: Crédito, Débito, etc.</p>
   <p><strong>POST</strong> https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7/transactions</p>
 </blockquote>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"442bbdbe-41c8-4e22-83ee-e1a849ed3cb5"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"008619"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"672836"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"payment_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"primary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"secondary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_quotas"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"mask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************5487"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "id": "442bbdbe-41c8-4e22-83ee-e1a849ed3cb5",
+  "external_id": "0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3",
+  "status": "CONFIRMED",
+  "terminal_number": "12345678",
+  "authorization_code": "008619",
+  "number": "672836",
+  "amount": 2000,
+  "transaction_type": "PAYMENT",
+  "payment_fields": {
+    "primary_product_name": "CREDITO",
+    "secondary_product_name": "A VISTA",
+    "number_of_quotas": 0
+  },
+  "card": {
+    "brand": "VISA",
+    "mask": "************5487"
+  }
+}
+</code></pre></div></div>
 
 <p>Dados de saída:</p>
 
@@ -1889,10 +1878,10 @@ Ex.: Crédito, Débito, etc.</p>
   </tbody>
 </table>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-</span><span class="err">id</span><span class="p">:</span><span class="w"> </span><span class="s2">"00219dd0-1c13-46da-91e5-1c313f0d2e83"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+id: "00219dd0-1c13-46da-91e5-1c313f0d2e83"
+}
+</code></pre></div></div>
 
 <p>Em ambiente de Sandbox, onde não há necessidade de ter uma Cielo LIO, e consequentemente não é necessário possuir o número do estabelecimento, faz total sentido fazer essa chamada deste recurso.</p>
 
@@ -1959,28 +1948,28 @@ Em ambiente de produção, uma vez que um pagamento for realizado na Cielo LIO a
 
 <p>Exemplo de resposta:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
-</span><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"442bbdbe-41c8-4e22-83ee-e1a849ed3cb5"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77102648"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"008619"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"672836"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"payment_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"primary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"secondary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_quotas"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"mask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************3542"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+{
+  "id": "442bbdbe-41c8-4e22-83ee-e1a849ed3cb5",
+  "external_id": "0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3",
+  "status": "CONFIRMED",
+  "terminal_number": "77102648",
+  "authorization_code": "008619",
+  "number": "672836",
+  "amount": 2000,
+  "transaction_type": "PAYMENT",
+  "payment_fields": {
+  "primary_product_name": "CREDITO",
+  "secondary_product_name": "A VISTA",
+    "number_of_quotas": 0
+  },
+  "card": {
+    "brand": "VISA",
+    "mask": "************3542"
+  }
+}
+]
+</code></pre></div></div>
 
 <h4 id="cancelar-pedidos">Cancelar Pedidos</h4>
 
@@ -2049,47 +2038,47 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Exemplo de resposta:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46019c39-989e-46e9-aa7d-d8e9414396b4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"95185.99407021694"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77102648"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"008619"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"672837"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CANCELLATION"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"payment_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"primary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"secondary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_quotas"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"mask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************3542"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"442bbdbe-41c8-4e22-83ee-e1a849ed3cb5"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77102648"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"008619"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"672836"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"payment_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"primary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"secondary_product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"number_of_quotas"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"mask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************3542"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+  {
+    "id": "46019c39-989e-46e9-aa7d-d8e9414396b4",
+    "external_id": "95185.99407021694",
+    "status": "CONFIRMED",
+    "terminal_number": "77102648",
+    "authorization_code": "008619",
+    "number": "672837",
+    "amount": 2000,
+    "transaction_type": "CANCELLATION",
+    "payment_fields": {
+    "primary_product_name": "CREDITO",
+    "secondary_product_name": "A VISTA",
+    "number_of_quotas": 0
+  },
+    "card": {
+      "brand": "VISA",
+      "mask": "************3542"
+    }
+  },
+  {
+    "id": "442bbdbe-41c8-4e22-83ee-e1a849ed3cb5",
+    "external_id": "0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3",
+    "status": "CONFIRMED",
+    "terminal_number": "77102648",
+    "authorization_code": "008619",
+    "number": "672836",
+    "amount": 2000,
+    "transaction_type": "PAYMENT",
+    "payment_fields": {
+    "primary_product_name": "CREDITO",
+    "secondary_product_name": "A VISTA",
+    "number_of_quotas": 0
+   },
+    "card": {
+    "brand": "VISA",
+    "mask": "************3542"
+    }
+  }
+]
+</code></pre></div></div>
 
 <h3 id="fluxo-básico-utilização-api-order-manager-cielo-lio">Fluxo Básico Utilização API Order manager Cielo LIO</h3>
 
@@ -2115,16 +2104,16 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Exemplo de informação enviada pelo Order Manager</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f9a9e3c0d31445f7ac419642651f0a52"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"STATUS_CHANGED"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"old"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENTERED"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"new_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAID"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "id": "f9a9e3c0d31445f7ac419642651f0a52",
+    "order_id": "ede8f84a8b8645cb8e576a593c25c6ed",
+    "type": "STATUS_CHANGED",
+    "status": {
+        "old": "ENTERED",
+        "new_status": "PAID"
+    }
+}
+</code></pre></div></div>
 
 <h4 id="put---notificação-de-transação-realizada">PUT - Notificação de Transação Realizada</h4>
 
@@ -2138,37 +2127,37 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Exemplo de informação enviada pelo Order Manager</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c7b1dfc39f59436fbc55db8b4e360a96"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_ADDED"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ede8f84a8b8645cb8e576a593c25c6ed"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"928273921"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"bin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"490172"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7897"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234589"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22388292"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"payment_product"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDITO"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">928282</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20151020T13:13:29.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20151022T12:13:29.000Z"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "id": "c7b1dfc39f59436fbc55db8b4e360a96",
+    "order_id": "ede8f84a8b8645cb8e576a593c25c6ed",
+    "type": "TRANSACTION_ADDED",
+    "transaction": {
+        "id": "ede8f84a8b8645cb8e576a593c25c6ed",
+        "transaction_type": "PAYMENT",
+        "status": "CONFIRMED",
+        "terminal_number": "928273921",
+        "card": {
+            "brand": "VISA",
+            "bin": "490172",
+            "last": "7897"
+        },
+        "number": "1234589",
+        "authorization_code": "22388292",
+        "payment_product": {
+            "number": 928282,
+            "name": "CREDITO",
+            "sub": {
+                "number": 928282,
+                "name": "A VISTA"
+            }
+        },
+        "amount": 5000,
+        "created_at": "20151020T13:13:29.000Z",
+        "updated_at": "20151022T12:13:29.000Z"
+    }
+}
+}
+</code></pre></div></div>
 
 <h2 id="sdks-disponíveis-da-integração-remota">SDKs disponíveis da Integração Remota</h2>
 
@@ -2199,8 +2188,6 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Nesse modelo de integração, toda a gestão do estabelecimento comercial e da arquitetura da solução fica sob responsabilidade do aplicativo que irá utilizar o SDK nas operações de pagamento.</p>
 
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/diagrama-apresentacao-images.png" alt="modelo de integração" /></p>
-
 <ul>
   <li>O aplicativo do parceiro rodando na Cielo envia informações para o Cielo LIO Order Manager SDK.</li>
   <li>O Cielo LIO Order Manager SDK executa os fluxos para pagamento.</li>
@@ -2208,6 +2195,21 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 </ul>
 
 <p>As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.</p>
+
+<h2 id="fluxo-para-integração-1">Fluxo para Integração</h2>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-local-new.png" alt="fluxo para integração" /></p>
+
+<ol>
+  <li>Leia toda a documentação sobre a Integração Local.</li>
+  <li>Crie sua conta no Portal de Desenvolvedores da Cielo para obter todas as funcionalidades que o portal pode oferecer para você, desenvolvedor. É obrigatório possuir uma conta para gerar um Client-Id.</li>
+  <li>Realizando o cadastro de Client ID, o desenvolvedor recebe os tokens</li>
+  <li>(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no Emulador Cielo Lio Confira o link: <a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk">Download do Emulador</a></li>
+  <li>Acesse a <a href="https://www.cieloliostore.com.br/login">Cielo Store</a> e faça o upload do APK da sua aplicação. Ao término do upload, submeta seu aplicativo para certificação e preencha todas as informações necessárias.</li>
+  <li>Ao término do upload submeta seu aplicativo, no próprio ambiente da Cielo Store, para certificação e preencha todas as informações necessárias.</li>
+  <li>Assim que a certificação for concluída, o desenvolvedor receberá um e-mail e deverá acessar novamente a Cielo Store para promover o aplicativo para produção.</li>
+  <li>Agora seu aplicativo já está disponível para download na Cielo Store. Sucesso!! Aproveite ao máximo tudo que a Integração Local Cielo LIO pode oferecer para você!!</li>
+</ol>
 
 <h2 id="cielo-lio-order-manager-sdk">Cielo Lio Order Manager SDK</h2>
 
@@ -2224,10 +2226,6 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
   <li>O Cielo LIO Order Manager SDK recebe as informações e o fluxo de pagamento para o cliente. Neste fluxo, o cliente irá selecionar a forma de pagamento e digitar a senha no Pinpad, tendo a possibilidade de enviar por e-mail o comprovante do pagamento.</li>
   <li>Ao término do fluxo de pagamento, o aplicativo do parceiro recebe as informações sobre o pagamento realizado e volta a ser executado na tela da Cielo LIO.</li>
 </ol>
-
-<blockquote>
-  <p><strong>Atenção:</strong> Para utilizar o Cielo LIO Order Manager SDK, é necessário possuir um aplicativo desenvolvido em Android.</p>
-</blockquote>
 
 <p>Para mais informações e detalhes sobre o desenvolvimento de um aplicativo para a Cielo LIO, acesse a documentação Desenvolva um App para LIO.</p>
 
@@ -2265,90 +2263,65 @@ Adicione ao <code class="highlighter-rouge">AndroidManifest.xml</code> da sua ap
 
 Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:
 
-```json
-    Credentials credentials = new Credentials(&gt;", "&gt;"); 
+``` Credentials credentials = new Credentials(&gt;", "&gt;"); ```
+
+* Client-Id
+Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu 'Desenvolvedor' -&gt; 'Client ID Cadastrados'.
+
+* Access-Token
+Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em 'detalhes' na coluna 'Access Tokens', dentro do menu 'Desenvolvedor' -&gt; 'Client ID Cadastrados'.
+
+### Utilização
+
+O fluxo básico para utilização do SDK pode ser dividido em 7 etapas, conforme o diagrama abaixo:
+
+![order manager sdk fluxo](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-lio-sdk.png)
+
+Abaixo, iremos mostrar como realizar cada uma dessas etapas.
+
+#### Criar OrderManager
+
+Este método permite iniciar o OrderManager, que é responsável pelas principais operações do Cielo LIO Order Manager SDK. O OrderManager representa a interface com a API REST do Order Manager.
+
+Tudo começa com a criação do OrderManager!
+
+```OrderManager orderManager = new OrderManager(credentials, context);```
+
+O construtor do OrderManager recebe 2 parâmetros:
+
+| Atributo    | Descrição                                                                                                                                                                                                                                                                                              | Domínio                     |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
+| credentials | Credenciais de acesso do Parceiro/Desenvolvedor. Depois de se registrar no Portal de Desenvolvedores e criar seu app, o Parceiro/Desenvolvedor recebe as credenciais (Client-Id e Access-Token). Elas servem para identificá-lo unicamente na plataforma LIO e diferenciar as ordens da sua aplicação. | cielo.sdk.order.Credentials |
+| context     | O contexto da aplicação                                                                                                                                                                                                                                                                                | android.content.Context     |
+
+&gt;**Atenção:** Recomendamos criar/inicializar o OrderManager no aplicativo do parceiro no momento em que for utilizar as funcionalidades, visando otimizar o desempenho do aplicativo
+
+#### Vincular o contexto da aplicação ao SDK
+
+Com este método – Bind –, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO
+
 </code></pre>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ServiceBindListener serviceBindListener = new ServiceBindListener() {
 
-<ul>
-  <li>
-    <p>Client-Id
-Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu ‘Desenvolvedor’ -&gt; ‘Client ID Cadastrados’.</p>
-  </li>
-  <li>
-    <p>Access-Token
-Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em ‘detalhes’ na coluna ‘Access Tokens’, dentro do menu ‘Desenvolvedor’ -&gt; ‘Client ID Cadastrados’.</p>
-  </li>
-</ul>
-
-<h2 id="utilização-cielo-lio-order-manager-sdk">Utilização Cielo LIO Order Manager SDK</h2>
-
-<p>O fluxo básico para utilização do SDK pode ser dividido em 7 etapas, conforme o diagrama abaixo:</p>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-lio-sdk.png" alt="order manager sdk fluxo" /></p>
-
-<p>Abaixo, iremos mostrar como realizar cada uma dessas etapas.</p>
-
-<h3 id="criar-ordermanager">Criar OrderManager</h3>
-
-<p>Este método permite iniciar o OrderManager, que é responsável pelas principais operações do Cielo LIO Order Manager SDK. O OrderManager representa a interface com a API REST do Order Manager.</p>
-
-<p>Tudo começa com a criação do OrderManager!</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">OrderManager</span><span class="w"> </span><span class="err">orderManager</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">OrderManager(credentials</span><span class="p">,</span><span class="w"> </span><span class="err">context);</span><span class="w">
-</span></code></pre></div></div>
-
-<p>O construtor do OrderManager recebe 2 parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>credentials</td>
-      <td>Credenciais de acesso do Parceiro/Desenvolvedor. Depois de se registrar no Portal de Desenvolvedores e criar seu app, o Parceiro/Desenvolvedor recebe as credenciais (Client-Id e Access-Token). Elas servem para identificá-lo unicamente na plataforma LIO e diferenciar as ordens da sua aplicação.</td>
-      <td>cielo.sdk.order.Credentials</td>
-    </tr>
-    <tr>
-      <td>context</td>
-      <td>O contexto da aplicação</td>
-      <td>android.content.Context</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p><strong>Atenção:</strong> Recomendamos criar/inicializar o OrderManager no aplicativo do parceiro no momento em que for utilizar as funcionalidades, visando otimizar o desempenho do aplicativo</p>
-</blockquote>
-
-<h3 id="vincular-o-contexto-da-aplicação-ao-sdk">Vincular o contexto da aplicação ao SDK</h3>
-
-<p>Com este método – Bind –, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">ServiceBindListener</span><span class="w"> </span><span class="err">serviceBindListener</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">ServiceBindListener()</span><span class="w"> </span><span class="p">{</span><span class="w">
+    @Override public void onServiceBoundError(Throwable throwable) {
+        //Ocorreu um erro ao tentar se conectar com o serviço OrderManager
+    }
     
-        </span><span class="err">@Override</span><span class="w"> </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onServiceBoundError(Throwable</span><span class="w"> </span><span class="err">throwable)</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">//Ocorreu</span><span class="w"> </span><span class="err">um</span><span class="w"> </span><span class="err">erro</span><span class="w"> </span><span class="err">ao</span><span class="w"> </span><span class="err">tentar</span><span class="w"> </span><span class="err">se</span><span class="w"> </span><span class="err">conectar</span><span class="w"> </span><span class="err">com</span><span class="w"> </span><span class="err">o</span><span class="w"> </span><span class="err">serviço</span><span class="w"> </span><span class="err">OrderManager</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-        
-        </span><span class="err">@Override</span><span class="w">
-        </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onServiceBound()</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">//Você</span><span class="w"> </span><span class="err">deve</span><span class="w"> </span><span class="err">garantir</span><span class="w"> </span><span class="err">que</span><span class="w"> </span><span class="err">sua</span><span class="w"> </span><span class="err">aplicação</span><span class="w"> </span><span class="err">se</span><span class="w"> </span><span class="err">conectou</span><span class="w"> </span><span class="err">com</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">LIO</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">partir</span><span class="w"> </span><span class="err">desse</span><span class="w"> </span><span class="err">listener</span><span class="w">
-            </span><span class="err">//A</span><span class="w"> </span><span class="err">partir</span><span class="w"> </span><span class="err">desse</span><span class="w"> </span><span class="err">momento</span><span class="w"> </span><span class="err">você</span><span class="w"> </span><span class="err">pode</span><span class="w"> </span><span class="err">utilizar</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">funções</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">OrderManager</span><span class="p">,</span><span class="w"> </span><span class="err">caso</span><span class="w"> </span><span class="err">contrário</span><span class="w"> </span><span class="err">uma</span><span class="w"> </span><span class="err">exceção</span><span class="w"> </span><span class="err">será</span><span class="w"> </span><span class="err">lançada.</span><span class="w">
-        </span><span class="p">}</span><span class="w"> 
-    
-        </span><span class="err">@Override</span><span class="w">
-        </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onServiceUnbound()</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">//</span><span class="w"> </span><span class="err">O</span><span class="w"> </span><span class="err">serviço</span><span class="w"> </span><span class="err">foi</span><span class="w"> </span><span class="err">desvinculado</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="err">;</span><span class="w"> 
-    
-    </span><span class="err">orderManager.bind(contextActivity</span><span class="p">,</span><span class="w"> </span><span class="err">serviceBindListener);</span><span class="w">
-</span></code></pre></div></div>
+    @Override
+    public void onServiceBound() {
+        //Você deve garantir que sua aplicação se conectou com a LIO a partir desse listener
+        //A partir desse momento você pode utilizar as funções do OrderManager, 
+        //caso contrário uma exceção será lançada.
+    } 
+
+    @Override
+    public void onServiceUnbound() {
+        // O serviço foi desvinculado
+    }
+}; 
+
+orderManager.bind(contextActivity, serviceBindListener); ```
+</code></pre></div></div>
 
 <blockquote>
   <p><strong>Atenção:</strong> Você deve garantir que o listener <code class="highlighter-rouge">onServiceBound()</code> foi chamado antes de utilizar as funções do OrderManager, caso contrário uma exceção será lançada e causará um crash na sua aplicação.</p>
@@ -2367,16 +2340,15 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Com o OrderManager inicializado e após a execução do método onServiceBound, se torna possível ir para a próxima etapa e criar um pedido (classe Order).</p>
 
-<h3 id="criar-um-pedido">Criar um pedido</h3>
+<h4 id="criar-um-pedido">Criar um pedido</h4>
 
 <p>A Cielo LIO trabalha com o conceito de Order (pedido). É necessário possuir um pedido para então realizar o(s) pagamento(s).</p>
 
 <p>Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">Order</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">orderManager.createDraftOrder(</span><span class="s2">"REFERÊNCIA_DO_PEDIDO"</span><span class="err">);</span><span class="w">
-</span></code></pre></div></div>
+<p><code class="highlighter-rouge">Order order = orderManager.createDraftOrder("REFERÊNCIA_DO_PEDIDO");</code></p>
 
-<h3 id="adicionar-itens-em-um-pedido">Adicionar itens em um pedido</h3>
+<h4 id="adicionar-itens-em-um-pedido">Adicionar itens em um pedido</h4>
 
 <p>Este método permite que sejam adicionados itens em um pedido.</p>
 
@@ -2384,26 +2356,11 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
   <p><strong>Atenção:</strong> É necessário adicionar no mínimo um item a um pedido para que seja possível dar continuidade ao pagamento.</p>
 </blockquote>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">Identificação</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">produto</span><span class="w"> </span><span class="err">(Stock</span><span class="w"> </span><span class="err">Keeping</span><span class="w"> </span><span class="err">Unit)</span><span class="w">
-    </span><span class="err">String</span><span class="w"> </span><span class="err">sku</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">"2891820317391823"</span><span class="err">;</span><span class="w">
-    </span><span class="err">String</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">"Coca-cola lata"</span><span class="err">;</span><span class="w">
-    
-    </span><span class="err">//</span><span class="w"> </span><span class="err">Preço</span><span class="w"> </span><span class="err">unitário</span><span class="w"> </span><span class="err">em</span><span class="w"> </span><span class="err">centavos</span><span class="w">
-    </span><span class="err">int</span><span class="w"> </span><span class="err">unitPrice</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="mi">550</span><span class="err">;</span><span class="w">
-    </span><span class="err">int</span><span class="w"> </span><span class="err">quantity</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="mi">3</span><span class="err">;</span><span class="w">
-    
-    </span><span class="err">//</span><span class="w"> </span><span class="err">Unidade</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">medida</span><span class="w"> </span><span class="err">do</span><span class="w"> </span><span class="err">produto</span><span class="w"> </span><span class="err">String</span><span class="w">
-    </span><span class="err">unityOfMeasure</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="s2">"UNIDADE"</span><span class="err">;</span><span class="w">
-    
-    </span><span class="err">order.addItem(sku</span><span class="p">,</span><span class="w"> </span><span class="err">name</span><span class="p">,</span><span class="w"> </span><span class="err">unitPrice</span><span class="p">,</span><span class="w"> </span><span class="err">quantity</span><span class="p">,</span><span class="w"> </span><span class="err">unityOfMeasure);</span><span class="w">
-</span></code></pre></div></div>
-
-<h3 id="liberar-pedido-para-pagamento">Liberar pedido para pagamento</h3>
+<h4 id="liberar-pedido-para-pagamento">Liberar pedido para pagamento</h4>
 
 <p>Este método permite atualizar o status de um pedido e liberá-lo para pagamento. O objetivo é utilizar este método depois de adicionar todos os itens no pedido.</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">orderManager.placeOrder(order);</span><span class="w">
-</span></code></pre></div></div>
+<p><code class="highlighter-rouge">orderManager.placeOrder(order);</code></p>
 
 <p>Após a execução desse método, o status da Order irá trocar de DRAFT para ENTERED, permitindo que a mesma seja paga.</p>
 
@@ -2414,28 +2371,28 @@ Iniciar processo de pagamento</p>
 
 <p>Este método permite iniciar o processo de pagamento na Cielo LIO.</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="err">PaymentListener</span><span class="w"> </span><span class="err">paymentListener</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">PaymentListener()</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="err">@Override</span><span class="w">
-        </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onStart()</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"O pagamento começou."</span><span class="err">);</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    PaymentListener paymentListener = new PaymentListener() {
+        @Override
+        public void onStart() {
+            Log.d("MinhaApp", "O pagamento começou.");
+        }
         
-        </span><span class="err">@Override</span><span class="w">
-        </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onPayment(@NotNull</span><span class="w"> </span><span class="err">Order</span><span class="w"> </span><span class="err">order)</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Um pagamento foi realizado."</span><span class="err">);</span><span class="w">
-        </span><span class="p">}</span><span class="w"> 
+        @Override
+        public void onPayment(@NotNull Order order) {
+            Log.d("MinhaApp", "Um pagamento foi realizado.");
+        } 
                 
-        </span><span class="err">@Override</span><span class="w"> </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onCancel()</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"A operação foi cancelada."</span><span class="err">);</span><span class="w">
-        </span><span class="p">}</span><span class="w"> 
+        @Override public void onCancel() {
+            Log.d("MinhaApp", "A operação foi cancelada.");
+        } 
                 
-        </span><span class="err">@Override</span><span class="w"> </span><span class="err">public</span><span class="w"> </span><span class="err">void</span><span class="w"> </span><span class="err">onError(@NotNull</span><span class="w"> </span><span class="err">PaymentError</span><span class="w"> </span><span class="err">paymentError)</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="err">Log.d(</span><span class="s2">"MinhaApp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Houve um erro no pagamento."</span><span class="err">);</span><span class="w">
-        </span><span class="p">}</span><span class="w">     
-    </span><span class="p">}</span><span class="err">;</span><span class="w"> 
+        @Override public void onError(@NotNull PaymentError paymentError) {
+            Log.d("MinhaApp", "Houve um erro no pagamento.");
+        }     
+    }; 
     
-    </span><span class="err">orderManager.checkoutOrder(order.getId()</span><span class="p">,</span><span class="w"> </span><span class="err">order.getPrice()</span><span class="p">,</span><span class="w"> </span><span class="err">paymentListener);</span><span class="w">
-</span></code></pre></div></div>
+    orderManager.checkoutOrder(order.getId(), order.getPrice(), paymentListener);
+</code></pre></div></div>
 
 <h2 id="processo-de-pagamento">Processo de Pagamento</h2>
 
@@ -2477,7 +2434,7 @@ Iniciar processo de pagamento</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg" alt="fluxo parcial" /></p>
 
-<h3 id="release-notes">Release Notes</h3>
+<h2 id="release-notes">Release Notes</h2>
 
 <p>Na tabela abaixo, é possível verificar as funcionalidades do SDK disponíveis por versão da Cielo LIO e Cielo Mobile.</p>
 
@@ -2526,24 +2483,9 @@ Iniciar processo de pagamento</p>
 
 <hr />
 
-<h3 id="code-sample-1">Code Sample</h3>
+<h2 id="code-sample-1">Code Sample</h2>
 
-<p>O código do exemplo do aplicativo integrado com o Cielo LIO Order Manager SDK encontra-se disponível no GitHub.</p>
-
-<h2 id="fluxo-para-integração-1">Fluxo para Integração</h2>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-local-new.png" alt="fluxo para integração" /></p>
-
-<ol>
-  <li>Leia toda a documentação sobre a Integração Local.</li>
-  <li>Crie sua conta no Portal de Desenvolvedores da Cielo para obter todas as funcionalidades que o portal pode oferecer para você, desenvolvedor. É obrigatório possuir uma conta para gerar um Client-Id.</li>
-  <li>Realizando o cadastro de Client ID, o desenvolvedor recebe os tokens</li>
-  <li>(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no Emulador Cielo Lio Confira o link: <a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk">Download do Emulador</a></li>
-  <li>Acesse a <a href="https://www.cieloliostore.com.br/login">Cielo Store</a> e faça o upload do APK da sua aplicação. Ao término do upload, submeta seu aplicativo para certificação e preencha todas as informações necessárias.</li>
-  <li>Ao término do upload submeta seu aplicativo, no próprio ambiente da Cielo Store, para certificação e preencha todas as informações necessárias.</li>
-  <li>Assim que a certificação for concluída, o desenvolvedor receberá um e-mail e deverá acessar novamente a Cielo Store para promover o aplicativo para produção.</li>
-  <li>Agora seu aplicativo já está disponível para download na Cielo Store. Sucesso!! Aproveite ao máximo tudo que a Integração Local Cielo LIO pode oferecer para você!!</li>
-</ol>
+<p>O código do exemplo do aplicativo integrado com o Cielo LIO Order Manager SDK encontra-se disponível no <a href="https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local">GitHub</a>.</p>
 
 <h2 id="vídeo-demo-1">Vídeo Demo</h2>
 
@@ -2908,109 +2850,6 @@ Clique na aba Apps -&gt; Clique no aplicativo Cielo Store -&gt; Escolha o aplica
         <script src="https://developercielo.github.io/assets/js/search.js"></script>
         
 
-        
-        <script>
-        let langs = '';
-        let langsArray = [];
-
-        $('div.highlighter-rouge').prepend('<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>');
-
-        $('div.highlighter-rouge').each(function (index) {
-            if(!$(this).parent().hasClass('language-group')) {
-                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
-            }
-        });
-
-        
-        if ( $(window).width() >= 1660) {
-            $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
-                $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + $(this).outerHeight() + 'px;"></div> ');
-            });
-        }
-        
-
-        $('.expand-btn').click(function() {
-            $('.overlay').toggleClass('opened');
-            $(this).parent().parent().parent().toggleClass('opened');
-            $(this).children('i.fa').toggleClass('fa-compress');
-        });
-
-        
-        langs += "<a data-language-name='json'>JSON</a>";
-        langsArray.push('json');
-        
-
-        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
-        </script>
-
-        <script src="https://developercielo.github.io/assets/js/lang.js"></script>
-
-        <script>
-            $(function() {
-                $('.language-buttons').each(function() {
-                    let parent = $(this).parent();
-
-                    parent.addClass('selectable');
-
-                    if(parent.hasClass('language-tabs')) {
-                        parent.attr('data-languages', langsArray.join('*') + '*');
-
-                        return true;
-                    }
-
-                    /**
-                     * @type {string[]} localArray
-                     */
-                    let localArray = JSON.parse(JSON.stringify(langsArray));
-
-                    langsArray.forEach((v) => {
-                        if(parent.find('.language-' + v).length === 0) {
-                            $(this).find('[data-language-name="' + v + '"]').remove();
-                            localArray.splice(localArray.indexOf(v), 1);
-                            
-                            if($(this).children().length === 1) {
-                                parent.removeClass('selectable');
-                                parent.addClass('locked');
-                            }
-                        }
-                    });
-
-                    // Just to separate Java from JavaScript, I have add a * to separate the languages
-                    let attr = localArray.join('*');
-                    attr += '*';
-
-                    $(this).children('[data-language-name=' + localArray[0] + ']').addClass('active');
-
-                    let language = parent.find('.language-' + localArray[0]);
-                    language.addClass('show');
-
-                    if ($(window).width() <= 1660) {
-                        language.show();
-                    }
-
-                    parent.attr('data-languages', attr);
-                });
-
-                window.isOpen = $(window).width() >= 1660;
-
-                setupLanguages(langsArray);
-            });
-
-            $('.hide-btn').click(function() {
-                $('.content-container').toggleClass('no-dark-box');
-                $('.dark-box').toggle();
-
-                $('.overlay').removeClass('opened');
-                $('.code-fullscreen').removeClass('opened');
-
-                window.isOpen = !$('.content-container').hasClass('no-dark-box');
-
-                if(!window.isOpen) {
-                    $('.locked .show').show();
-                    $('.selectable:not([data-languages*="' + window.language + '*"]) .show').show();
-                }
-            });
-        </script>
         
 
         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
