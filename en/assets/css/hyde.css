@@ -97,10 +97,6 @@ a.sidebar-nav-item:focus {
   font-weight: bold;
 }
 
-.tocify {
-    max-height: calc(100vh - 404px);
-}
-
 .toc-footer-title {
     font-size: 20px;
     padding-left: 45px;
