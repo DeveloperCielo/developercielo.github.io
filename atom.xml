@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-15T14:03:18+00:00</updated>
+    <updated>2018-01-15T14:06:27+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4053,7 +4053,12 @@ Iniciar processo de pagamento&lt;/p&gt;
 &lt;p&gt;Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de &lt;code class=&quot;highlighter-rouge&quot;&gt;checkoutOrder()&lt;/code&gt; para receber os estados relacionados ao pagamento.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. As seguintes ações podem ser notificadas:  * onStart - Quando se dá o início do pagamento. * onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um * pagamento. * onCancel - Quando o pagamento é cancelado. * onError - Quando acontece um erro no pagamento do pedido.&lt;/p&gt;
+  &lt;p&gt;PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. 
+As seguintes ações podem ser notificadas:&lt;br /&gt;
+• onStart - Quando se dá o início do pagamento. 
+• onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um pagamento. 
+• onCancel - Quando o pagamento é cancelado. 
+• onError - Quando acontece um erro no pagamento do pedido.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PaymentListener paymentListener = new PaymentListener() {
@@ -4365,14 +4370,20 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 
 &lt;h2 id=&quot;cancelamento&quot;&gt;Cancelamento&lt;/h2&gt;
 
-&lt;p&gt;Existem 2 formas de cancelar um pagamento na Cielo LIO:
-&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cancelar-pagamento-total&quot;&gt;Cancelar Pagamento Total&lt;/a&gt;
-&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cancelar-parte-do-valor-de-um-pagamento&quot;&gt;Cancelar Parte do Valor do Pagamento&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Existem 2 formas de cancelar um pagamento na Cielo LIO:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cancelar-pagamento-total&quot;&gt;Cancelar Pagamento Total&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cancelar-parte-do-valor-de-um-pagamento&quot;&gt;Cancelar Parte do Valor do Pagamento&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de &lt;code class=&quot;highlighter-rouge&quot;&gt;cancelOrder()&lt;/code&gt; para receber os estados relacionados ao cancelamento.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. As seguintes ações pode ser notificadas: • onSuccess - Quando um cancelamento é realizado com sucesso. • onCancel - Quando o usuário cancela a operação. • onError - Quando acontece um erro no cancelamento do pedido.&lt;/p&gt;
+  &lt;p&gt;CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. 
+As seguintes ações pode ser notificadas: 
+• onSuccess - Quando um cancelamento é realizado com sucesso. 
+• onCancel - Quando o usuário cancela a operação. 
+• onError - Quando acontece um erro no cancelamento do pedido.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;

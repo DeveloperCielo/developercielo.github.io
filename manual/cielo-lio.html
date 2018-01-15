@@ -2411,7 +2411,12 @@ Iniciar processo de pagamento</p>
 <p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">checkoutOrder()</code> para receber os estados relacionados ao pagamento.</p>
 
 <blockquote>
-  <p>PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. As seguintes ações podem ser notificadas:  * onStart - Quando se dá o início do pagamento. * onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um * pagamento. * onCancel - Quando o pagamento é cancelado. * onError - Quando acontece um erro no pagamento do pedido.</p>
+  <p>PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. 
+As seguintes ações podem ser notificadas:<br />
+• onStart - Quando se dá o início do pagamento. 
+• onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um pagamento. 
+• onCancel - Quando o pagamento é cancelado. 
+• onError - Quando acontece um erro no pagamento do pedido.</p>
 </blockquote>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PaymentListener paymentListener = new PaymentListener() {
@@ -2723,14 +2728,20 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 
 <h2 id="cancelamento">Cancelamento</h2>
 
-<p>Existem 2 formas de cancelar um pagamento na Cielo LIO:
-<a href="https://developercielo.github.io/manual/cielo-lio#cancelar-pagamento-total">Cancelar Pagamento Total</a>
-<a href="https://developercielo.github.io/manual/cielo-lio#cancelar-parte-do-valor-de-um-pagamento">Cancelar Parte do Valor do Pagamento</a></p>
+<p>Existem 2 formas de cancelar um pagamento na Cielo LIO:</p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#cancelar-pagamento-total">Cancelar Pagamento Total</a></p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#cancelar-parte-do-valor-de-um-pagamento">Cancelar Parte do Valor do Pagamento</a></p>
 
 <p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">cancelOrder()</code> para receber os estados relacionados ao cancelamento.</p>
 
 <blockquote>
-  <p>CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. As seguintes ações pode ser notificadas: • onSuccess - Quando um cancelamento é realizado com sucesso. • onCancel - Quando o usuário cancela a operação. • onError - Quando acontece um erro no cancelamento do pedido.</p>
+  <p>CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. 
+As seguintes ações pode ser notificadas: 
+• onSuccess - Quando um cancelamento é realizado com sucesso. 
+• onCancel - Quando o usuário cancela a operação. 
+• onError - Quando acontece um erro no cancelamento do pedido.</p>
 </blockquote>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
