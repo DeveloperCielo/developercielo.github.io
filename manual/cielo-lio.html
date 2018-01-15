@@ -2748,7 +2748,7 @@ As seguintes ações pode ser notificadas:
 CancellationListener cancellationListener = new CancellationListener() {
     @Override
     public void onSuccess(Order cancelledOrder) {
-        Log.d("SDKClient", "O pagamento for cancelado.");
+        Log.d("SDKClient", "O pagamento foi cancelado.");
     }
     
     @Override
@@ -2796,11 +2796,6 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
       <td>payment</td>
       <td>O pagamento a ser cancelado.</td>
       <td>cielo.sdk.order.payment.Payment</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>cancellationListener</td>
