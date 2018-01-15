@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-15T13:52:56+00:00</updated>
+    <updated>2018-01-15T14:00:05+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4375,25 +4375,24 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
   &lt;p&gt;CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. As seguintes ações pode ser notificadas: • onSuccess - Quando um cancelamento é realizado com sucesso. • onCancel - Quando o usuário cancela a operação. • onError - Quando acontece um erro no cancelamento do pedido.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PaymentListener paymentListener = new PaymentListener() {
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+CancellationListener cancellationListener = new CancellationListener() {
     @Override
-    public void onStart() {
-        Log.d(&quot;SDKClient&quot;, &quot;O pagamento começou.&quot;);
+    public void onSuccess(Order cancelledOrder) {
+        Log.d(&quot;SDKClient&quot;, &quot;O pagamento for cancelado.&quot;);
     }
-
+    
     @Override
-    public void onPayment(@NotNull Order order) {
-        Log.d(&quot;SDKClient&quot;, &quot;Um pagamento foi realizado.&quot;);
-    }
-
-    @Override public void onCancel() {
+    public void onCancel() {
         Log.d(&quot;SDKClient&quot;, &quot;A operação foi cancelada.&quot;);
     }
 
-    @Override public void onError(@NotNull PaymentError paymentError) {
-        Log.d(&quot;SDKClient&quot;, &quot;Houve um erro no pagamento.&quot;);
+    @Override
+    public void onError(PaymentError paymentError) {
+        Log.d(&quot;SDKClient&quot;, &quot;Houve um erro no cancelamento&quot;);
     }
-};
+});
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;cancelar-pagamento-total&quot;&gt;Cancelar Pagamento Total&lt;/h3&gt;

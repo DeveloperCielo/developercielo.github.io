@@ -2733,25 +2733,24 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
   <p>CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. As seguintes ações pode ser notificadas: • onSuccess - Quando um cancelamento é realizado com sucesso. • onCancel - Quando o usuário cancela a operação. • onError - Quando acontece um erro no cancelamento do pedido.</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PaymentListener paymentListener = new PaymentListener() {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+CancellationListener cancellationListener = new CancellationListener() {
     @Override
-    public void onStart() {
-        Log.d("SDKClient", "O pagamento começou.");
+    public void onSuccess(Order cancelledOrder) {
+        Log.d("SDKClient", "O pagamento for cancelado.");
     }
-
+    
     @Override
-    public void onPayment(@NotNull Order order) {
-        Log.d("SDKClient", "Um pagamento foi realizado.");
-    }
-
-    @Override public void onCancel() {
+    public void onCancel() {
         Log.d("SDKClient", "A operação foi cancelada.");
     }
 
-    @Override public void onError(@NotNull PaymentError paymentError) {
-        Log.d("SDKClient", "Houve um erro no pagamento.");
+    @Override
+    public void onError(PaymentError paymentError) {
+        Log.d("SDKClient", "Houve um erro no cancelamento");
     }
-};
+});
+
 </code></pre></div></div>
 
 <h3 id="cancelar-pagamento-total">Cancelar Pagamento Total</h3>
