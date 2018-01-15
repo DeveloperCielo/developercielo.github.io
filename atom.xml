@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-15T14:06:27+00:00</updated>
+    <updated>2018-01-15T17:55:28+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4413,14 +4413,44 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.cancelOrder(context, orderId, payment, cancellationListener);&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Abaixo é detalhado cada um dos parâmetros enviados no método:
-| Atributo        | Descrição  | Domínio|
-|—————–|———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-|—————————————–|
-| context         | Contexto da sua aplicação. | String   |
-| orderID         | O identificador do pedido a ser pago. | Long   |
-| payment         | O pagamento a ser cancelado. | cielo.sdk.order.payment.Payment
-   |
-| cancellationListener | Callback que informa sobre todas as ações tomadas durante o processo de cancelamento. | cielo.sdk.order.payment.CancellationListener |&lt;/p&gt;
+&lt;p&gt;Abaixo é detalhado cada um dos parâmetros enviados no método:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;context&lt;/td&gt;
+      &lt;td&gt;Contexto da sua aplicação.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;orderID&lt;/td&gt;
+      &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;payment&lt;/td&gt;
+      &lt;td&gt;O pagamento a ser cancelado.&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.payment.Payment&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cancellationListener&lt;/td&gt;
+      &lt;td&gt;Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.payment.CancellationListener&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h3 id=&quot;cancelar-parte-do-valor-de-um-pagamento&quot;&gt;Cancelar parte do valor de um pagamento&lt;/h3&gt;
 

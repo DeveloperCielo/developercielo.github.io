@@ -2771,14 +2771,44 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
 
 <p><code class="highlighter-rouge">orderManager.cancelOrder(context, orderId, payment, cancellationListener);</code></p>
 
-<p>Abaixo é detalhado cada um dos parâmetros enviados no método:
-| Atributo        | Descrição  | Domínio|
-|—————–|———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-|—————————————–|
-| context         | Contexto da sua aplicação. | String   |
-| orderID         | O identificador do pedido a ser pago. | Long   |
-| payment         | O pagamento a ser cancelado. | cielo.sdk.order.payment.Payment
-   |
-| cancellationListener | Callback que informa sobre todas as ações tomadas durante o processo de cancelamento. | cielo.sdk.order.payment.CancellationListener |</p>
+<p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>context</td>
+      <td>Contexto da sua aplicação.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>orderID</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td>Long</td>
+    </tr>
+    <tr>
+      <td>payment</td>
+      <td>O pagamento a ser cancelado.</td>
+      <td>cielo.sdk.order.payment.Payment</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>cancellationListener</td>
+      <td>Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.</td>
+      <td>cielo.sdk.order.payment.CancellationListener</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="cancelar-parte-do-valor-de-um-pagamento">Cancelar parte do valor de um pagamento</h3>
 
@@ -3281,6 +3311,21 @@ Clique na aba Apps -&gt; Clique no aplicativo Cielo Store -&gt; Escolha o aplica
             });
 
             prettyPrint();
+
+            var first = true;
+
+            function setTocHeight() {
+                var sideAbout = $('.sidebar-about').outerHeight();
+                var fixedFooter = $('.fixed-footer').outerHeight();
+                var footerIconHeight = first ? 14 : 0;
+                
+                $('#toc').css('height', 'calc(100vh - ' + (sideAbout + fixedFooter + footerIconHeight) + 'px)');
+            }
+
+            setTocHeight();
+            first = false;
+
+            $(window).resize(setTocHeight);
         });
         </script>
 
