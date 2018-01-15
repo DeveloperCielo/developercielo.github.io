@@ -2721,6 +2721,132 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com email:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
 
+<h2 id="6-cancelamento">6. Cancelamento</h2>
+
+<p>Existem 2 formas de cancelar um pagamento na Cielo LIO:
+<a href="https://developercielo.github.io/manual/cielo-lio#cancelar-pagamento-total">Cancelar Pagamento Total</a>
+<a href="https://developercielo.github.io/manual/cielo-lio#cancelar-parte-do-valor-de-um-pagamento">Cancelar Parte do Valor do Pagamento</a></p>
+
+<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">cancelOrder()</code> para receber os estados relacionados ao cancelamento.</p>
+
+<blockquote>
+  <p>CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. As seguintes ações pode ser notificadas: • onSuccess - Quando um cancelamento é realizado com sucesso. • onCancel - Quando o usuário cancela a operação. • onError - Quando acontece um erro no cancelamento do pedido.</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PaymentListener paymentListener = new PaymentListener() {
+    @Override
+    public void onStart() {
+        Log.d("SDKClient", "O pagamento começou.");
+    }
+
+    @Override
+    public void onPayment(@NotNull Order order) {
+        Log.d("SDKClient", "Um pagamento foi realizado.");
+    }
+
+    @Override public void onCancel() {
+        Log.d("SDKClient", "A operação foi cancelada.");
+    }
+
+    @Override public void onError(@NotNull PaymentError paymentError) {
+        Log.d("SDKClient", "Houve um erro no pagamento.");
+    }
+};
+</code></pre></div></div>
+
+<h3 id="cancelar-pagamento-total">Cancelar Pagamento Total</h3>
+
+<p>No método Cancelar um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders) (link para método). 
+Assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
+
+<p><code class="highlighter-rouge">orderManager.cancelOrder(context, orderId, payment, cancellationListener);</code></p>
+
+<p>Abaixo é detalhado cada um dos parâmetros enviados no método:
+| Atributo        | Descrição  | Domínio|
+|—————–|———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-|—————————————–|
+| context         | Contexto da sua aplicação. | String   |
+| orderID         | O identificador do pedido a ser pago. | Long   |
+| payment         | O pagamento a ser cancelado. | cielo.sdk.order.payment.Payment
+   |
+| cancellationListener | Callback que informa sobre todas as ações tomadas durante o processo de cancelamento. | cielo.sdk.order.payment.CancellationListener |</p>
+
+<h3 id="cancelar-parte-do-valor-de-um-pagamento">Cancelar parte do valor de um pagamento</h3>
+
+<p>No método Cancelar parte do valor de um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders). 
+Os parâmetros do método anterior, com a inclusão de um parâmetro que é o valor a ser cancelado.</p>
+
+<blockquote>
+  <p>Nesse cenário é preciso ter atenção para não passar um valor maior do que o do pagamento, caso contrário o sistema retornará um erro.</p>
+</blockquote>
+
+<p>Portanto, assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
+
+<p><code class="highlighter-rouge">orderManager.cancelOrder(context, orderId, payment, value, cancellationListener);</code></p>
+
+<p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>context</td>
+      <td>Contexto da sua aplicação.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>orderID</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td>Long</td>
+    </tr>
+    <tr>
+      <td>payment</td>
+      <td>O pagamento a ser cancelado.</td>
+      <td>cielo.sdk.order.payment.Payment</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>O valor a ser cancelado.</td>
+      <td>Long</td>
+    </tr>
+    <tr>
+      <td>cancellationListener</td>
+      <td>Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.</td>
+      <td>cielo.sdk.order.payment.CancellationListener</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
+
+<p><code class="highlighter-rouge">orderManager.checkoutOrder(orderId, value, primaryCode, secondaryCode, installments,  paymentListener);</code></p>
+
+<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
+<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
+
+<h2 id="7-listagem-de-pedidos">7. Listagem de Pedidos</h2>
+
+<p>Na listagem de pedidos, é possível obter todas os pedidos (Orders) abertas na Cielo LIO pelo aplicativo do parceiro. Para isso, basta utilizar a função abaixo:</p>
+
+<p><code class="highlighter-rouge">ResultOrders resultOrders = orderManager.retrieveOrders(10, 0);</code></p>
+
+<p>O objeto ResultOrders contém uma lista com todas as ordens abertas assinadas com as credenciais da aplicação.</p>
+
+<h2 id="8-finalizar-uso-do-ordermanager">8. Finalizar uso do OrderManager</h2>
+
+<p>Após executar todas as operações de pagamento e caso não seja necessário utilizar o objeto orderManager, utilize método unbind para desvincular o contexto e evitar problemas de integridade.</p>
+
+<p>Fique atento ao local onde o <code class="highlighter-rouge">unbind()</code> será executado para evitar problemas com ciclo de vida da Activity ou Fragment que foi vinculado ao serviço.
+É importante lembrar que se o contexto for alterado, é preciso desvincular o serviço (ex.: troca de Activity)
+Utilize o método abaixo para finalizar o uso do OrderManager:</p>
+
+<p><code class="highlighter-rouge">orderManager.unbind();</code></p>
+
 <hr />
 
 <h2 id="fluxo-para-integração-1">Fluxo para Integração</h2>
