@@ -199,12 +199,11 @@ td, th {
 }
 
 .toc-contact {
-    border-top: 1px dashed #cccccc;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 0px 25px 25px 25px;
+    padding: 25px;
 }
 
 .contact a,
@@ -355,6 +354,10 @@ aside a:hover {
 
 .toc-footer {
     bottom: 0;
+}
+
+.search-results.visible + .tocify {
+    max-height: calc(100vh - 418px - 11rem);
 }
 
 h3 +  aside.request {
@@ -760,6 +763,7 @@ header.logo img {
 .tocify {
   overflow-y: auto;
   width: auto;
+  max-height: calc(100vh - 370px);
 }
 
 .tocify li {

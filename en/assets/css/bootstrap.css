@@ -85,17 +85,10 @@ sub {
 }
 img {
   max-width: 100%;
+  height: auto;
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
-}
-img[align=center] {
-  margin: 0 auto;
-  display: block;
-}
-img[align=right] {
-  margin: 0 0 0 auto;
-  display: block;
 }
 #map_canvas img {
   max-width: none;

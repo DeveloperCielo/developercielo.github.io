@@ -14464,21 +14464,6 @@ More information and complete integration, you can find in the link: https://dev
             });
 
             prettyPrint();
-
-            var first = true;
-
-            function setTocHeight() {
-                var sideAbout = $('.sidebar-about').outerHeight();
-                var fixedFooter = $('.fixed-footer').outerHeight();
-                var footerIconHeight = first ? 14 : 0;
-                
-                $('#toc').css('height', 'calc(100vh - ' + (sideAbout + fixedFooter + footerIconHeight) + 'px)');
-            }
-
-            setTocHeight();
-            first = false;
-
-            $(window).resize(setTocHeight);
         });
         </script>
 
