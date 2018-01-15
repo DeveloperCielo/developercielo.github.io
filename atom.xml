@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-15T20:28:56+00:00</updated>
+    <updated>2018-01-15T20:32:11+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7746,7 +7746,7 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
 
 &lt;h2 id=&quot;autorização-recorrente&quot;&gt;Autorização Recorrente&lt;/h2&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;pre&gt;&lt;code class=&quot;language-XML&quot;&gt;
 
   
     1006993069
@@ -7770,7 +7770,7 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
   4
   false
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;A autorização recorrente pode ser feita de duas formas: através do envio de um token previamente cadastrado, ou através de um cartão. A transação recorrente é praticamente igual à transação tradicional, as mudanças consistem nas regras que o emissor e a bandeira utilizam para autorizar ou negar uma transação. Outra diferença está relacionada ao Renova Fácil.&lt;/p&gt;
 
