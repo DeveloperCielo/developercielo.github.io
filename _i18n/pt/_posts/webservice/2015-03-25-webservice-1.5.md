@@ -863,7 +863,7 @@ A autorização direta caracteriza-se por ser uma transação onde não há a au
 
 ## Autorização Recorrente
 
-``` xml
+``` XML
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
   <dados-ec>
