@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-15T14:00:05+00:00</updated>
+    <updated>2018-01-15T14:03:18+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4363,7 +4363,7 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com email:
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;6-cancelamento&quot;&gt;6. Cancelamento&lt;/h2&gt;
+&lt;h2 id=&quot;cancelamento&quot;&gt;Cancelamento&lt;/h2&gt;
 
 &lt;p&gt;Existem 2 formas de cancelar um pagamento na Cielo LIO:
 &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cancelar-pagamento-total&quot;&gt;Cancelar Pagamento Total&lt;/a&gt;
@@ -4470,7 +4470,7 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;7-listagem-de-pedidos&quot;&gt;7. Listagem de Pedidos&lt;/h2&gt;
+&lt;h2 id=&quot;listagem-de-pedidos&quot;&gt;Listagem de Pedidos&lt;/h2&gt;
 
 &lt;p&gt;Na listagem de pedidos, é possível obter todas os pedidos (Orders) abertas na Cielo LIO pelo aplicativo do parceiro. Para isso, basta utilizar a função abaixo:&lt;/p&gt;
 
@@ -4478,7 +4478,7 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 
 &lt;p&gt;O objeto ResultOrders contém uma lista com todas as ordens abertas assinadas com as credenciais da aplicação.&lt;/p&gt;
 
-&lt;h2 id=&quot;8-finalizar-uso-do-ordermanager&quot;&gt;8. Finalizar uso do OrderManager&lt;/h2&gt;
+&lt;h2 id=&quot;finalizar-uso-do-ordermanager&quot;&gt;Finalizar uso do OrderManager&lt;/h2&gt;
 
 &lt;p&gt;Após executar todas as operações de pagamento e caso não seja necessário utilizar o objeto orderManager, utilize método unbind para desvincular o contexto e evitar problemas de integridade.&lt;/p&gt;
 
