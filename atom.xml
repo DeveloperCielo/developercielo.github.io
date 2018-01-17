@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-17T02:04:48+00:00</updated>
+    <updated>2018-01-17T13:31:10+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4053,7 +4053,12 @@ Iniciar processo de pagamento&lt;/p&gt;
 &lt;p&gt;Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de &lt;code class=&quot;highlighter-rouge&quot;&gt;checkoutOrder()&lt;/code&gt; para receber os estados relacionados ao pagamento.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. As seguintes ações podem ser notificadas:  * onStart - Quando se dá o início do pagamento. * onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um * pagamento. * onCancel - Quando o pagamento é cancelado. * onError - Quando acontece um erro no pagamento do pedido.&lt;/p&gt;
+  &lt;p&gt;PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. 
+As seguintes ações podem ser notificadas:&lt;br /&gt;
+• onStart - Quando se dá o início do pagamento. 
+• onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um pagamento. 
+• onCancel - Quando o pagamento é cancelado. 
+• onError - Quando acontece um erro no pagamento do pedido.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PaymentListener paymentListener = new PaymentListener() {
@@ -4076,6 +4081,279 @@ Iniciar processo de pagamento&lt;/p&gt;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;O método &lt;code class=&quot;highlighter-rouge&quot;&gt;onPayment()&lt;/code&gt; retorna um objeto &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&lt;/code&gt; com uma lista de &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt; que possui um HashMap &lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentFields&lt;/code&gt; com a maioria dos dados da transação.
+Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nome do Campo&lt;/th&gt;
+      &lt;th&gt;Descrição do Campo&lt;/th&gt;
+      &lt;th&gt;Valor Exemplo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;clientName&lt;/td&gt;
+      &lt;td&gt;Nome do Portador&lt;/td&gt;
+      &lt;td&gt;VISA ACQUIRER TEST CARD 03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;hasPassword&lt;/td&gt;
+      &lt;td&gt;Validar se a operação pediu senha&lt;/td&gt;
+      &lt;td&gt;true&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;primaryProductCode&lt;/td&gt;
+      &lt;td&gt;Código do produto primário&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;primaryProductName&lt;/td&gt;
+      &lt;td&gt;Nome do produto primário&lt;/td&gt;
+      &lt;td&gt;CREDITO&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;upFrontAmount&lt;/td&gt;
+      &lt;td&gt;Valor da entrada da transação&lt;/td&gt;
+      &lt;td&gt;2500&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;creditAdminTax&lt;/td&gt;
+      &lt;td&gt;Valor da taxa de administração de crédito&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;firstQuotaDate&lt;/td&gt;
+      &lt;td&gt;Data de débito da primeira parcela&lt;/td&gt;
+      &lt;td&gt;25/12/2018 (dd/MM/yyy)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;externalCallMerchantCode&lt;/td&gt;
+      &lt;td&gt;Número do Estabelecimento Comercial&lt;/td&gt;
+      &lt;td&gt;0010000244470001&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;hasSignature&lt;/td&gt;
+      &lt;td&gt;Validar se a operação pediu assinatura&lt;/td&gt;
+      &lt;td&gt;false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;hasPrintedClientReceipt&lt;/td&gt;
+      &lt;td&gt;Validar se imprimiu a via do cliente&lt;/td&gt;
+      &lt;td&gt;false&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;applicationName&lt;/td&gt;
+      &lt;td&gt;Pacote da aplicação&lt;/td&gt;
+      &lt;td&gt;cielo.launcher&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;interestAmount&lt;/td&gt;
+      &lt;td&gt;Valor de juros&lt;/td&gt;
+      &lt;td&gt;5000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;changeAmount&lt;/td&gt;
+      &lt;td&gt;Valor de troco&lt;/td&gt;
+      &lt;td&gt;4500&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;serviceTax&lt;/td&gt;
+      &lt;td&gt;Taxa de serviço&lt;/td&gt;
+      &lt;td&gt;2000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cityState&lt;/td&gt;
+      &lt;td&gt;Cidade - Estado&lt;/td&gt;
+      &lt;td&gt;Barueri - SP&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;v40Code&lt;/td&gt;
+      &lt;td&gt;Tipo da transação&lt;/td&gt;
+      &lt;td&gt;5 (Lista de Tipos de transação)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;secondaryProductName&lt;/td&gt;
+      &lt;td&gt;Nome do produto secundario&lt;/td&gt;
+      &lt;td&gt;PARC. ADM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;paymentTransactionId&lt;/td&gt;
+      &lt;td&gt;ID da transação de pagamento&lt;/td&gt;
+      &lt;td&gt;98437.29102507174&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;pan&lt;/td&gt;
+      &lt;td&gt;Número cartão tokenizado (6 primeiros dígitos – 4 últimos dígitos)&lt;/td&gt;
+      &lt;td&gt;476173-0036&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;originalTransactionId&lt;/td&gt;
+      &lt;td&gt;ID da transação original, nos casos de cancelamento&lt;/td&gt;
+      &lt;td&gt;“0”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cardLabelApplication&lt;/td&gt;
+      &lt;td&gt;Tipo de aplicação utilizada pelo cartão na transação&lt;/td&gt;
+      &lt;td&gt;CREDITO DE VISA&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;secondaryProductCode&lt;/td&gt;
+      &lt;td&gt;Código do produto secundário&lt;/td&gt;
+      &lt;td&gt;205&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;documentType&lt;/td&gt;
+      &lt;td&gt;(J) = Pessoa Jurídica (F) = Pessoa Física&lt;/td&gt;
+      &lt;td&gt;J&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;statusCode&lt;/td&gt;
+      &lt;td&gt;Status da transação1 - Autorizada 2 - Cancelada&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;merchantAddress&lt;/td&gt;
+      &lt;td&gt;Endereço do estabelecimento comercial (lojista)&lt;/td&gt;
+      &lt;td&gt;Alameda Grajau, 219&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;merchantCode&lt;/td&gt;
+      &lt;td&gt;Número do Estabelecimento Comercial&lt;/td&gt;
+      &lt;td&gt;0010000244470001&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;hasConnectivity&lt;/td&gt;
+      &lt;td&gt;Valida se a transação foi online&lt;/td&gt;
+      &lt;td&gt;true&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;productName&lt;/td&gt;
+      &lt;td&gt;forma de pagamento compilada&lt;/td&gt;
+      &lt;td&gt;CREDITO PARCELADO ADM - I&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;merchantName&lt;/td&gt;
+      &lt;td&gt;Nome Fantasia do Estabelecimento Comercial&lt;/td&gt;
+      &lt;td&gt;LOJA ON&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;firstQuotaAmout&lt;/td&gt;
+      &lt;td&gt;Valor da primeira parcela&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cardCaptureType&lt;/td&gt;
+      &lt;td&gt;Código do tipo de captura do cartão&lt;/td&gt;
+      &lt;td&gt;0 (Lista de Tipos de Captura)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;requestDate&lt;/td&gt;
+      &lt;td&gt;Data da requisição em milisegundos&lt;/td&gt;
+      &lt;td&gt;1293857600000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;boardingTax&lt;/td&gt;
+      &lt;td&gt;Taxa de embarque&lt;/td&gt;
+      &lt;td&gt;1200&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;applicationId&lt;/td&gt;
+      &lt;td&gt;Pacote de aplicação&lt;/td&gt;
+      &lt;td&gt;cielo.launcher&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;numberOfQuotas&lt;/td&gt;
+      &lt;td&gt;Número de parcelas&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Todos os valores financeiros são informados sem vírgula, ou seja 2500 são equivalentes a R$ 25,00. Os outros objetos possuem documentação própria que 
+pode ser visualizada pelo Android Studio quando a classe é declarada.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Lista de Tipos de Captura&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;Transação com cartão de chip&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Transação digitada&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Transação com cartão de tarja&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Transação com cartão contactless&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Lista de Tipos de Transação&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Crédito à vista&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;Crédito parcelado administrativo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Crédito parcelado loja&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Pré autorização&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;Débito à vista&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;Débito pré datado&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Crediário venda&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;11&lt;/td&gt;
+      &lt;td&gt;Crediário simulação&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;13&lt;/td&gt;
+      &lt;td&gt;Voucher alimentação/refeição&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;28&lt;/td&gt;
+      &lt;td&gt;Cancelamento de venda&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h3 id=&quot;1-pagamento-parcial&quot;&gt;1. Pagamento Parcial&lt;/h3&gt;
 
@@ -4362,6 +4640,162 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com email:
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;cancelamento&quot;&gt;Cancelamento&lt;/h2&gt;
+
+&lt;p&gt;Existem 2 formas de cancelar um pagamento na Cielo LIO:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cancelar-pagamento-total&quot;&gt;Cancelar Pagamento Total&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cancelar-parte-do-valor-de-um-pagamento&quot;&gt;Cancelar Parte do Valor do Pagamento&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de &lt;code class=&quot;highlighter-rouge&quot;&gt;cancelOrder()&lt;/code&gt; para receber os estados relacionados ao cancelamento.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. 
+As seguintes ações pode ser notificadas: 
+• onSuccess - Quando um cancelamento é realizado com sucesso. 
+• onCancel - Quando o usuário cancela a operação. 
+• onError - Quando acontece um erro no cancelamento do pedido.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+CancellationListener cancellationListener = new CancellationListener() {
+    @Override
+    public void onSuccess(Order cancelledOrder) {
+        Log.d(&quot;SDKClient&quot;, &quot;O pagamento foi cancelado.&quot;);
+    }
+    
+    @Override
+    public void onCancel() {
+        Log.d(&quot;SDKClient&quot;, &quot;A operação foi cancelada.&quot;);
+    }
+
+    @Override
+    public void onError(PaymentError paymentError) {
+        Log.d(&quot;SDKClient&quot;, &quot;Houve um erro no cancelamento&quot;);
+    }
+});
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;cancelar-pagamento-total&quot;&gt;Cancelar Pagamento Total&lt;/h3&gt;
+
+&lt;p&gt;No método Cancelar um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders) (link para método). 
+Assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.cancelOrder(context, orderId, payment, cancellationListener);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo é detalhado cada um dos parâmetros enviados no método:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;context&lt;/td&gt;
+      &lt;td&gt;Contexto da sua aplicação.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;orderID&lt;/td&gt;
+      &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;payment&lt;/td&gt;
+      &lt;td&gt;O pagamento a ser cancelado.&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.payment.Payment&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cancellationListener&lt;/td&gt;
+      &lt;td&gt;Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.payment.CancellationListener&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;cancelar-parte-do-valor-de-um-pagamento&quot;&gt;Cancelar parte do valor de um pagamento&lt;/h3&gt;
+
+&lt;p&gt;No método Cancelar parte do valor de um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders). 
+Os parâmetros do método anterior, com a inclusão de um parâmetro que é o valor a ser cancelado.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Nesse cenário é preciso ter atenção para não passar um valor maior do que o do pagamento, caso contrário o sistema retornará um erro.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Portanto, assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.cancelOrder(context, orderId, payment, value, cancellationListener);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo é detalhado cada um dos parâmetros enviados no método:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;context&lt;/td&gt;
+      &lt;td&gt;Contexto da sua aplicação.&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;orderID&lt;/td&gt;
+      &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;payment&lt;/td&gt;
+      &lt;td&gt;O pagamento a ser cancelado.&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.payment.Payment&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;value&lt;/td&gt;
+      &lt;td&gt;O valor a ser cancelado.&lt;/td&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cancellationListener&lt;/td&gt;
+      &lt;td&gt;Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.&lt;/td&gt;
+      &lt;td&gt;cielo.sdk.order.payment.CancellationListener&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento direto da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.checkoutOrder(orderId, value, primaryCode, secondaryCode, installments,  paymentListener);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
+&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;listagem-de-pedidos&quot;&gt;Listagem de Pedidos&lt;/h2&gt;
+
+&lt;p&gt;Na listagem de pedidos, é possível obter todas os pedidos (Orders) abertas na Cielo LIO pelo aplicativo do parceiro. Para isso, basta utilizar a função abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ResultOrders resultOrders = orderManager.retrieveOrders(10, 0);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;O objeto ResultOrders contém uma lista com todas as ordens abertas assinadas com as credenciais da aplicação.&lt;/p&gt;
+
+&lt;h2 id=&quot;finalizar-uso-do-ordermanager&quot;&gt;Finalizar uso do OrderManager&lt;/h2&gt;
+
+&lt;p&gt;Após executar todas as operações de pagamento e caso não seja necessário utilizar o objeto orderManager, utilize método unbind para desvincular o contexto e evitar problemas de integridade.&lt;/p&gt;
+
+&lt;p&gt;Fique atento ao local onde o &lt;code class=&quot;highlighter-rouge&quot;&gt;unbind()&lt;/code&gt; será executado para evitar problemas com ciclo de vida da Activity ou Fragment que foi vinculado ao serviço.
+É importante lembrar que se o contexto for alterado, é preciso desvincular o serviço (ex.: troca de Activity)
+Utilize o método abaixo para finalizar o uso do OrderManager:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.unbind();&lt;/code&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
