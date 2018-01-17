@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-17T13:49:28+00:00</updated>
+    <updated>2018-01-17T13:52:29+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4274,7 +4274,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
 
 &lt;blockquote&gt;
   &lt;p&gt;Todos os valores financeiros são informados sem vírgula, ou seja 2500 são equivalentes a R$ 25,00. 
-Os outros objetos - como &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt; possuem documentação própria que pode ser visualizada pelo Android Studio quando a classe é declarada.&lt;/p&gt;
+Os outros objetos - como &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt; - possuem documentação própria que pode ser visualizada pelo Android Studio quando a classe é declarada.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;table&gt;
