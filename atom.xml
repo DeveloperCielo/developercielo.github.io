@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-19T14:30:59+00:00</updated>
+    <updated>2018-01-19T14:35:25+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4850,47 +4850,47 @@ As seguintes ações pode ser notificadas:
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;PrinterManager.KEY_ALIGN&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.KEY_ALIGN&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Alinhamento da impressão&lt;/td&gt;
-      &lt;td&gt;PrinterManager.VAL_ALIGN_CENTER  PrinterManager.VAL_ALIGN_LEFT PrinterManager.VAL_ALIGN_RIGHT&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.VAL_ALIGN_CENTER&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.VAL_ALIGN_LEFT&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.VAL_ALIGN_RIGHT&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;PrinterManager.KEY_TEXTSIZE&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.KEY_TEXTSIZE&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Tamanho do texto&lt;/td&gt;
       &lt;td&gt;Valores inteiros&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;PrinterManager.KEY_TYPEFACE&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.KEY_TYPEFACE&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Fonte do texto&lt;/td&gt;
       &lt;td&gt;Trabalha com um inteiro de 0 a 8, onde cada um é uma fonte diferente.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;PrinterManager.KEY_MARGINLEFT&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.KEY_MARGINLEFT&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Margem esquerda&lt;/td&gt;
       &lt;td&gt;Valores inteiros&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;PrinterManager.KEY_MARGINRIGHT&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.KEY_MARGINRIGHT&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Margem direia&lt;/td&gt;
       &lt;td&gt;Valores inteiros&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;PrinterManager.KEY_MARGINTOP&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.KEY_MARGINTOP&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Margem superior&lt;/td&gt;
       &lt;td&gt;Valores inteiros&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;PrinterManager.KEY_MARGINBOTTOM&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.KEY_MARGINBOTTOM&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Margem inferior&lt;/td&gt;
       &lt;td&gt;Valores inteiros&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;PrinterManager.KEY_LINESPACE&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.KEY_LINESPACE&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Espaçamento entre as linhas&lt;/td&gt;
       &lt;td&gt;Valores inteiros&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;PrinterManager.KEY_WEIGHT&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterAttributes.KEY_WEIGHT&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Varíavel utilizada quando se trbaalho com impressão de múltiplas colunas, para escolher o peso de cada coluna&lt;/td&gt;
       &lt;td&gt;Valores inteiros&lt;/td&gt;
     &lt;/tr&gt;
