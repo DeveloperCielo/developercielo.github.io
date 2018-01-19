@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-19T19:31:35+00:00</updated>
+    <updated>2018-01-19T19:35:23+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4827,15 +4827,7 @@ Utilize o método abaixo para finalizar o uso do OrderManager:&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;infoManager.getDeviceModel();&lt;/code&gt;&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;O mesmo irá retornar um enum do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;DeviceModel&lt;/code&gt; com o modelo correspondente (&lt;code class=&quot;highlighter-rouge&quot;&gt;LIO_V1&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LIO_V2&lt;/code&gt; ).&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;O mesmo irá retornar um enum do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;DeviceModel&lt;/code&gt; com o modelo correspondente (&lt;code class=&quot;highlighter-rouge&quot;&gt;LIO_V1&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;LIO_V2&lt;/code&gt; ).&lt;/p&gt;
 
 &lt;h3 id=&quot;obtendo-informações-do-usuário-ec-e-número-lógico&quot;&gt;Obtendo informações do usuário (EC e Número Lógico)&lt;/h3&gt;
 
