@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-19T14:35:25+00:00</updated>
+    <updated>2018-01-19T19:31:35+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3884,7 +3884,7 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;p&gt;Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.17.7-beta
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.17.12
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
@@ -4804,6 +4804,71 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 Utilize o método abaixo para finalizar o uso do OrderManager:&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.unbind();&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;informações-do-terminal&quot;&gt;Informações do terminal&lt;/h2&gt;
+
+&lt;p&gt;Todas as informações referentes ao terminal, que foram expostas, estão disponíveis no InfoManager&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;InfoManager infoManager = new InfoManager();&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;nível-de-bateria&quot;&gt;Nível de Bateria&lt;/h3&gt;
+
+&lt;p&gt;Para consultar o nível de carga da LIO, basta utilizar o métdo abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;infoManager.getBatteryLevel(context);&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;O valor da bateria será retornado em uma &lt;code class=&quot;highlighter-rouge&quot;&gt;Float&lt;/code&gt; contendo um valor de 0 a 1 em caso de sucesso e -1 em caso de erro.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;verificar-modelo-da-lio&quot;&gt;Verificar Modelo da LIO&lt;/h3&gt;
+
+&lt;p&gt;O SDK disponibiliza um método para verificar se seu aplicativo está instalado numa LIO V1 ou V2. Basta acessar da seguinte forma:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;infoManager.getDeviceModel();&lt;/code&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;O mesmo irá retornar um enum do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;DeviceModel&lt;/code&gt; com o modelo correspondente (&lt;code class=&quot;highlighter-rouge&quot;&gt;LIO_V1&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;LIO_V2&lt;/code&gt; ).&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;obtendo-informações-do-usuário-ec-e-número-lógico&quot;&gt;Obtendo informações do usuário (EC e Número Lógico)&lt;/h3&gt;
+
+&lt;p&gt;Através do SDK, é possível recuperar os dados do cliente e número lógico de maneira simples utilizando o método abaixo:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;infoManager.getSettings(context);&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Esta função, retornará um objeto do tipo Settings onde é possível recuperar as informações do usuário. 
+Abaixo, segue um descritivo de atributos do objeto Setttings.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ATRIBUTO&lt;/th&gt;
+      &lt;th&gt;DESCRIÇÃO&lt;/th&gt;
+      &lt;th&gt;DOMÍNIO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;merchantCode&lt;/td&gt;
+      &lt;td&gt;Código do cliente&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;logicNumber&lt;/td&gt;
+      &lt;td&gt;Número lógico da LIO&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;impressão-apenas-lio-v2&quot;&gt;Impressão [Apenas LIO V2]&lt;/h2&gt;
 

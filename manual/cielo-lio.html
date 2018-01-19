@@ -2242,7 +2242,7 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.cielo.lio:order-manager:0.17.7-beta
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.cielo.lio:order-manager:0.17.12
 </code></pre></div></div>
 
 <blockquote>
@@ -3162,6 +3162,71 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 Utilize o método abaixo para finalizar o uso do OrderManager:</p>
 
 <p><code class="highlighter-rouge">orderManager.unbind();</code></p>
+
+<h2 id="informações-do-terminal">Informações do terminal</h2>
+
+<p>Todas as informações referentes ao terminal, que foram expostas, estão disponíveis no InfoManager</p>
+
+<p><code class="highlighter-rouge">InfoManager infoManager = new InfoManager();</code></p>
+
+<h3 id="nível-de-bateria">Nível de Bateria</h3>
+
+<p>Para consultar o nível de carga da LIO, basta utilizar o métdo abaixo:</p>
+
+<p><code class="highlighter-rouge">infoManager.getBatteryLevel(context);</code></p>
+
+<blockquote>
+  <p>O valor da bateria será retornado em uma <code class="highlighter-rouge">Float</code> contendo um valor de 0 a 1 em caso de sucesso e -1 em caso de erro.</p>
+</blockquote>
+
+<h3 id="verificar-modelo-da-lio">Verificar Modelo da LIO</h3>
+
+<p>O SDK disponibiliza um método para verificar se seu aplicativo está instalado numa LIO V1 ou V2. Basta acessar da seguinte forma:</p>
+
+<p><code class="highlighter-rouge">infoManager.getDeviceModel();</code></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>O mesmo irá retornar um enum do tipo <code class="highlighter-rouge">DeviceModel</code> com o modelo correspondente (<code class="highlighter-rouge">LIO_V1</code></td>
+      <td> </td>
+      <td><code class="highlighter-rouge">LIO_V2</code> ).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="obtendo-informações-do-usuário-ec-e-número-lógico">Obtendo informações do usuário (EC e Número Lógico)</h3>
+
+<p>Através do SDK, é possível recuperar os dados do cliente e número lógico de maneira simples utilizando o método abaixo:</p>
+
+<p><code class="highlighter-rouge">infoManager.getSettings(context);</code></p>
+
+<blockquote>
+  <p>Esta função, retornará um objeto do tipo Settings onde é possível recuperar as informações do usuário. 
+Abaixo, segue um descritivo de atributos do objeto Setttings.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>ATRIBUTO</th>
+      <th>DESCRIÇÃO</th>
+      <th>DOMÍNIO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>merchantCode</td>
+      <td>Código do cliente</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>logicNumber</td>
+      <td>Número lógico da LIO</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="impressão-apenas-lio-v2">Impressão [Apenas LIO V2]</h2>
 
