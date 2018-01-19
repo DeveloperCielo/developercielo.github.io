@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-17T13:52:29+00:00</updated>
+    <updated>2018-01-19T14:24:01+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4462,22 +4462,22 @@ Os outros objetos - como &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&l
     &lt;tr&gt;
       &lt;td&gt;id&lt;/td&gt;
       &lt;td&gt;identificador do código no sistema.&lt;/td&gt;
-      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;code&lt;/td&gt;
       &lt;td&gt;utilizado na função de pagamento.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;name&lt;/td&gt;
       &lt;td&gt;Nome do método de pagamento para efeitos de exibição.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;secondaryProducts&lt;/td&gt;
       &lt;td&gt;Listagem de códigos de pagamento secundário. ex.: À Vista, Parcelado, etc.&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList - SecondaryProduct&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4509,27 +4509,27 @@ orderManager.checkoutOrder(orderId, primaryCode, secondaryCode paymentListener);
     &lt;tr&gt;
       &lt;td&gt;orderId&lt;/td&gt;
       &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;value&lt;/td&gt;
       &lt;td&gt;Valor a ser pago. R$ 10,00 deve ser enviado como 1000.&lt;/td&gt;
-      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;primaryCode&lt;/td&gt;
       &lt;td&gt;Código identificador do método primário de pagamento ex.: Débito, Crédito.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;secondaryCode&lt;/td&gt;
       &lt;td&gt;Código identificador do método secundário de pagamento ex.: À vista, Parcelado.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;paymentListener&lt;/td&gt;
       &lt;td&gt;Callback de pagamento.&lt;/td&gt;
-      &lt;td&gt;cielo.sdk.order.payment.PaymentListener&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.payment.PaymentListener&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4558,32 +4558,32 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
     &lt;tr&gt;
       &lt;td&gt;orderId&lt;/td&gt;
       &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;value&lt;/td&gt;
       &lt;td&gt;Valor a ser pago. R$ 10,00 deve ser enviado como 1000.&lt;/td&gt;
-      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;primaryCode&lt;/td&gt;
       &lt;td&gt;Código identificador do método primário de pagamento ex.: Débito, Crédito.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;secondaryCode&lt;/td&gt;
       &lt;td&gt;Código identificador do método secundário de pagamento ex.: À vista, Parcelado.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;installments&lt;/td&gt;
       &lt;td&gt;Número de parcelas.&lt;/td&gt;
-      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;paymentListener&lt;/td&gt;
       &lt;td&gt;Callback de pagamento.&lt;/td&gt;
-      &lt;td&gt;cielo.sdk.order.payment.PaymentListener&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.payment.PaymentListener&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4612,32 +4612,32 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
     &lt;tr&gt;
       &lt;td&gt;orderId&lt;/td&gt;
       &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;value&lt;/td&gt;
       &lt;td&gt;Valor a ser pago. R$ 10,00 deve ser enviado como 1000.&lt;/td&gt;
-      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;primaryCode&lt;/td&gt;
       &lt;td&gt;Código identificador do método primário de pagamento ex.: Débito, Crédito.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;secondaryCode&lt;/td&gt;
       &lt;td&gt;Código identificador do método secundário de pagamento ex.: À vista, Parcelado.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;installments&lt;/td&gt;
       &lt;td&gt;Número de parcelas.&lt;/td&gt;
-      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;paymentListener&lt;/td&gt;
       &lt;td&gt;Callback de pagamento&lt;/td&gt;
-      &lt;td&gt;cielo.sdk.order.payment.PaymentListener&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.payment.PaymentListener&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4708,22 +4708,22 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
     &lt;tr&gt;
       &lt;td&gt;context&lt;/td&gt;
       &lt;td&gt;Contexto da sua aplicação.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;orderID&lt;/td&gt;
       &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
-      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;payment&lt;/td&gt;
       &lt;td&gt;O pagamento a ser cancelado.&lt;/td&gt;
-      &lt;td&gt;cielo.sdk.order.payment.Payment&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.payment.Payment&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;cancellationListener&lt;/td&gt;
       &lt;td&gt;Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.&lt;/td&gt;
-      &lt;td&gt;cielo.sdk.order.payment.CancellationListener&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.payment.CancellationListener&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4755,27 +4755,27 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
     &lt;tr&gt;
       &lt;td&gt;context&lt;/td&gt;
       &lt;td&gt;Contexto da sua aplicação.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;orderID&lt;/td&gt;
       &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
-      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;payment&lt;/td&gt;
       &lt;td&gt;O pagamento a ser cancelado.&lt;/td&gt;
-      &lt;td&gt;cielo.sdk.order.payment.Payment&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.payment.Payment&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;value&lt;/td&gt;
       &lt;td&gt;O valor a ser cancelado.&lt;/td&gt;
-      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;cancellationListener&lt;/td&gt;
       &lt;td&gt;Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.&lt;/td&gt;
-      &lt;td&gt;cielo.sdk.order.payment.CancellationListener&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.payment.CancellationListener&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4804,6 +4804,237 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 Utilize o método abaixo para finalizar o uso do OrderManager:&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;orderManager.unbind();&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;impressão-apenas-lio-v2&quot;&gt;Impressão [Apenas LIO V2]&lt;/h2&gt;
+
+&lt;p&gt;A nova versão da Cielo LIO V2 permite que aplicações parceiras utilizem os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente. Para realizar estas operações, basta utilizar um dos métodos listados abaixo que permite a impressão de uma única linha, uma sequência de linhas, ou imagens.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PrinterManager printerManager = new PrinterManager(context)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Independende da forma de impressão escolhida, você deverá utilizar o seguinte callback como parâmetro do método de para receber os estados relacionados à impressão:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;PrinterListener: Um callback que informa sobre todas as ações tomadas durante o processo de impressão. 
+As seguintes ações pode ser notificadas: 
+• onSuccess - Quando uma impressão é realizada com sucesso. 
+• onError - Quando acontece um erro na impressão.
+• onWithoutPaper - Quando não há papel suficiente para realizar a impressão.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PrinterListerner printerListener = new PrinterListener() {
+    @Override public void onPrintSuccess(int printedLines) { 
+        Log.d(TAG, &quot;onPrintSuccess&quot;);
+    }
+    
+    @Override public void onError(@Nullable Throwable e) { 
+        Log.d(TAG, &quot;onError&quot;); 
+    }
+    
+    @Override public void onWithoutPaper() { 
+        Log.d(TAG,&quot;onWithoutPaper&quot;); 
+    } 
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;mapa-de-estilos-de-impressão&quot;&gt;Mapa de Estilos de Impressão&lt;/h3&gt;
+
+&lt;p&gt;Você pode formatar a sua impressão criando mapas de estilos utilizando os parâmetros disponíveis:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Valores&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PrinterManager.KEY_ALIGN&lt;/td&gt;
+      &lt;td&gt;Alinhamento da impressão&lt;/td&gt;
+      &lt;td&gt;PrinterManager.VAL_ALIGN_CENTER  PrinterManager.VAL_ALIGN_LEFT PrinterManager.VAL_ALIGN_RIGHT&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PrinterManager.KEY_TEXTSIZE&lt;/td&gt;
+      &lt;td&gt;Tamanho do texto&lt;/td&gt;
+      &lt;td&gt;Valores inteiros&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PrinterManager.KEY_TYPEFACE&lt;/td&gt;
+      &lt;td&gt;Fonte do texto&lt;/td&gt;
+      &lt;td&gt;Trabalha com um inteiro de 0 a 8, onde cada um é uma fonte diferente.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PrinterManager.KEY_MARGINLEFT&lt;/td&gt;
+      &lt;td&gt;Margem esquerda&lt;/td&gt;
+      &lt;td&gt;Valores inteiros&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PrinterManager.KEY_MARGINRIGHT&lt;/td&gt;
+      &lt;td&gt;Margem direia&lt;/td&gt;
+      &lt;td&gt;Valores inteiros&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PrinterManager.KEY_MARGINTOP&lt;/td&gt;
+      &lt;td&gt;Margem superior&lt;/td&gt;
+      &lt;td&gt;Valores inteiros&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PrinterManager.KEY_MARGINBOTTOM&lt;/td&gt;
+      &lt;td&gt;Margem inferior&lt;/td&gt;
+      &lt;td&gt;Valores inteiros&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PrinterManager.KEY_LINESPACE&lt;/td&gt;
+      &lt;td&gt;Espaçamento entre as linhas&lt;/td&gt;
+      &lt;td&gt;Valores inteiros&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PrinterManager.KEY_WEIGHT&lt;/td&gt;
+      &lt;td&gt;Varíavel utilizada quando se trbaalho com impressão de múltiplas colunas, para escolher o peso de cada coluna&lt;/td&gt;
+      &lt;td&gt;Valores inteiros&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Exemplo de mapas de estilos:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HashMap alignLeft =  new HashMap();
+alignLeft.put(PrinterAttributes.KEY_ALIGN, PrinterAttributes.VAL_ALIGN_LEFT);
+alignLeft.put(PrinterAttributes.KEY_MARGIN_TOP, 50);
+alignLeft.put(PrinterAttributes.KEY_MARGIN_BOTTOM, 50);
+alignLeft.put(PrinterAttributes.KEY_TYPEFACE, 0);
+alignLeft.put(PrinterAttributes.KEY_TEXT_SIZE, 20);
+
+HashMap alignCenter =  new HashMap();
+alignCenter.put(PrinterAttributes.KEY_ALIGN, PrinterAttributes.VAL_ALIGN_CENTER);
+alignCenter.put(PrinterAttributes.KEY_MARGIN_TOP, 50);
+alignCenter.put(PrinterAttributes.KEY_MARGIN_BOTTOM, 50);        
+alignCenter.put(PrinterAttributes.KEY_TYPEFACE, 1);
+alignCenter.put(PrinterAttributes.KEY_TEXT_SIZE, 20);
+
+HashMap alignRight =  new HashMap();
+alignRight.put(PrinterAttributes.KEY_ALIGN, PrinterAttributes.VAL_ALIGN_RIGHT);
+alignRight.put(PrinterAttributes.KEY_MARGIN_TOP, 50);
+alignRight.put(PrinterAttributes.KEY_MARGIN_BOTTOM, 50);
+alignRight.put(PrinterAttributes.KEY_TYPEFACE, 2);
+alignRight.put(PrinterAttributes.KEY_TEXT_SIZE, 20);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;impressão-de-texto-simples&quot;&gt;Impressão de texto simples&lt;/h3&gt;
+
+&lt;p&gt;Para imprimir textos simples utilize o método &lt;code class=&quot;highlighter-rouge&quot;&gt;printText()&lt;/code&gt; do PrinterManager. 
+O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de impressão e um listener para tratar o retorno da impressão.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;String textToPrint = &quot;Texto simples a ser impresso.\n Com múltiplas linhas&quot;;
+printerManager.printText(textToPrint, alignLeft, printerListener);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;text&lt;/td&gt;
+      &lt;td&gt;Texto a ser impresso.&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;style&lt;/td&gt;
+      &lt;td&gt;Mapa de estilos de impressão&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Map&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;printerListener&lt;/td&gt;
+      &lt;td&gt;Callback de impressão.&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.PrinterListener&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;impressão-de-múltiplas-colunas&quot;&gt;Impressão de múltiplas colunas&lt;/h3&gt;
+
+&lt;p&gt;Para imprimir textos em múltiplas colunas utilize o método &lt;code class=&quot;highlighter-rouge&quot;&gt;printMultipleColumnText()&lt;/code&gt; do PrinterManager. 
+O método recebe como parâmetro um array de texts a serem impresso, um array com mapas de estilos de impressão, respectivamente e um listener para tratar o retorno da impressão.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;String[] textsToPrint = new String[] { &quot;ALIGN LEFT&quot;, &quot;ALIGN CENTER&quot;, &quot;ALIGN RIGHT&quot; }
+
+List&amp;gt; styles =  new ArrayList();
+styles.add(alignLeft);
+styles.add(alignCenter);
+styles.add(alignRight);
+
+printerManager.printMultipleColumnText(textsToPrint, styles, printerListener);
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;stringArray&lt;/td&gt;
+      &lt;td&gt;Lista de textos a serem impressos.&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String[]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;style&lt;/td&gt;
+      &lt;td&gt;Lista de mapa de estilos de impressão&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;gt;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;printerListener&lt;/td&gt;
+      &lt;td&gt;Callback de impressão.&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.PrinterListener&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;impressão-de-imagem&quot;&gt;Impressão de imagem&lt;/h3&gt;
+
+&lt;p&gt;Para imprimir imagens utilize o método &lt;code class=&quot;highlighter-rouge&quot;&gt;printImage()&lt;/code&gt; do PrinterManager. 
+O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&gt;bitmap&lt;/code&gt; a ser impresso, um mapa de estilos de impressão e um listener para tratar o retorno da impressão.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cielo);
+printerManager.printImage(bitmap, alignCenter, printerListener);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Atributo&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Domínio&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bitmap&lt;/td&gt;
+      &lt;td&gt;Imagem a ser impressa.&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Bitmap&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;style&lt;/td&gt;
+      &lt;td&gt;Mapa de estilos de impressão&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Map&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;printerListener&lt;/td&gt;
+      &lt;td&gt;Callback de impressão.&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.PrinterListener&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;hr /&gt;
 
