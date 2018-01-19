@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-19T14:24:01+00:00</updated>
+    <updated>2018-01-19T14:29:57+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3941,12 +3941,12 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
     &lt;tr&gt;
       &lt;td&gt;credentials&lt;/td&gt;
       &lt;td&gt;Credenciais de acesso do Parceiro/Desenvolvedor. Depois de se registrar no Portal de Desenvolvedores e criar seu app, o Parceiro/Desenvolvedor recebe as credenciais (Client-Id e Access-Token). Elas servem para identificá-lo unicamente na plataforma LIO e diferenciar as ordens da sua aplicação.&lt;/td&gt;
-      &lt;td&gt;cielo.sdk.order.Credentials&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.Credentials&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;context&lt;/td&gt;
-      &lt;td&gt;O contexto da aplicação&lt;/td&gt;
-      &lt;td&gt;android.content.Context&lt;/td&gt;
+      &lt;td&gt;O contexto da aplicação.&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;android.content.Context&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4383,12 +4383,12 @@ Os outros objetos - como &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&l
     &lt;tr&gt;
       &lt;td&gt;orderId&lt;/td&gt;
       &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;paymentListener&lt;/td&gt;
       &lt;td&gt;Callback de pagamento.&lt;/td&gt;
-      &lt;td&gt;cielo.sdk.order.payment.PaymentListener&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.payment.PaymentListener&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4418,17 +4418,17 @@ Os outros objetos - como &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&l
     &lt;tr&gt;
       &lt;td&gt;orderId&lt;/td&gt;
       &lt;td&gt;O identificador do pedido a ser pago.&lt;/td&gt;
-      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;value&lt;/td&gt;
       &lt;td&gt;Valor a ser pago. R$ 10,00 deve ser enviado como 1000.&lt;/td&gt;
-      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Long&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;paymentListener&lt;/td&gt;
       &lt;td&gt;Callback de pagamento.&lt;/td&gt;
-      &lt;td&gt;cielo.sdk.order.payment.PaymentListener&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cielo.sdk.order.payment.PaymentListener&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
