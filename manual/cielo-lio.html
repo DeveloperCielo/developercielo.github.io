@@ -2725,7 +2725,8 @@ Os outros objetos - como <code class="highlighter-rouge">Order</code> e <code cl
 
 <p>No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).</p>
 
-<p><code class="highlighter-rouge">orderManager.checkoutOrder(orderId, paymentListener);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
 
@@ -2760,7 +2761,8 @@ Os outros objetos - como <code class="highlighter-rouge">Order</code> e <code cl
 
 <p>No pagamento de Valores, o valor a ser pago é informado pelo aplicativo e a forma de pagamento (crédito, débito, parcelado) é escolhida dentro do fluxo de telas da Cielo LIO.</p>
 
-<p><code class="highlighter-rouge">orderManager.checkoutOrder(orderId, value, paymentListener);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>Nessa forma de pagamento é possível enviar qualquer valor a ser pago (valor total ou valor parcial do pedido), tudo depende do modelo de negócio adotado pelo aplicativo do parceiro. Para fazer a chamada é necessário enviar os seguintes parâmetros:</p>
 
@@ -2802,7 +2804,8 @@ Os outros objetos - como <code class="highlighter-rouge">Order</code> e <code cl
 
 <p>Para realizar o pagamento direto é necessário, primeiramente, verificar os tipos de pagamento habilitados para Cielo LIO do estabelecimento comercial utilizando a função de consulta de formas de pagamentos habilitadas para LIO:</p>
 
-<p><code class="highlighter-rouge">ArrayList paymentTypes = orderManager.retrievePaymentType();</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ArrayList</span> <span class="n">paymentTypes</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrievePaymentType</span><span class="o">();</span>
+</code></pre></div></div>
 
 <p>Esta função disponibilizará uma lista de objetos do tipo PrimaryProduct onde será possível recuperar os códigos de pagamento habilitados.</p>
 
@@ -2842,14 +2845,14 @@ Os outros objetos - como <code class="highlighter-rouge">Order</code> e <code cl
 
 <p>Com os códigos de pagamentos disponíveis para a Cielo LIO do estabelecimento comercial, basta realizar a chamada de Pagamento Direto informando os códigos dos produtos:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-PrimaryProduct primaryProduct = paymentTypes.get(0);
-SecondaryProduct secondaryProduct = primaryProduct.getSecondaryProducts().get(0);
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">PrimaryProduct</span> <span class="n">primaryProduct</span> <span class="o">=</span> <span class="n">paymentTypes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="n">SecondaryProduct</span> <span class="n">secondaryProduct</span> <span class="o">=</span> <span class="n">primaryProduct</span><span class="o">.</span><span class="na">getSecondaryProducts</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
 
-String primaryCode = primaryProduct.getCode();
-String secondaryCode = secondaryProduct.getCode();
+<span class="n">String</span> <span class="n">primaryCode</span> <span class="o">=</span> <span class="n">primaryProduct</span><span class="o">.</span><span class="na">getCode</span><span class="o">();</span>
+<span class="n">String</span> <span class="n">secondaryCode</span> <span class="o">=</span> <span class="n">secondaryProduct</span><span class="o">.</span><span class="na">getCode</span><span class="o">();</span>
 
-orderManager.checkoutOrder(orderId, primaryCode, secondaryCode paymentListener);
+<span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span> <span class="n">paymentListener</span><span class="o">);</span>
 
 </code></pre></div></div>
 
@@ -2894,7 +2897,8 @@ orderManager.checkoutOrder(orderId, primaryCode, secondaryCode paymentListener);
 
 <p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
 
-<p><code class="highlighter-rouge">orderManager.checkoutOrder(orderId, value, primaryCode, secondaryCode, paymentListener);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento de valor:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-direto.jpg" alt="fluxo parcial" /></p>
@@ -2948,7 +2952,8 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 
 <p><strong>Fluxo da transação utilizando o pagamento parcelado da Cielo LIO</strong></p>
 
-<p><code class="highlighter-rouge">orderManager.checkoutOrder(orderId, value, primaryCode, secondaryCode, installments,  paymentListener);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
@@ -3002,7 +3007,8 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 
 <p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
 
-<p><code class="highlighter-rouge">orderManager.checkoutOrder(orderId, value, primaryCode, secondaryCode, installments,  paymentListener);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com email:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
@@ -3025,23 +3031,23 @@ As seguintes ações pode ser notificadas:
 • onError - Quando acontece um erro no cancelamento do pedido.</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-CancellationListener cancellationListener = new CancellationListener() {
-    @Override
-    public void onSuccess(Order cancelledOrder) {
-        Log.d("SDKClient", "O pagamento foi cancelado.");
-    }
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">CancellationListener</span> <span class="n">cancellationListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CancellationListener</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">Order</span> <span class="n">cancelledOrder</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"O pagamento foi cancelado."</span><span class="o">);</span>
+    <span class="o">}</span>
     
-    @Override
-    public void onCancel() {
-        Log.d("SDKClient", "A operação foi cancelada.");
-    }
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
+    <span class="o">}</span>
 
-    @Override
-    public void onError(PaymentError paymentError) {
-        Log.d("SDKClient", "Houve um erro no cancelamento");
-    }
-});
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Houve um erro no cancelamento"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">});</span>
 
 </code></pre></div></div>
 
@@ -3050,7 +3056,8 @@ CancellationListener cancellationListener = new CancellationListener() {
 <p>No método Cancelar um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders) (link para método). 
 Assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
 
-<p><code class="highlighter-rouge">orderManager.cancelOrder(context, orderId, payment, cancellationListener);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">cancelOrder</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">orderId</span><span class="o">,</span> <span class="n">payment</span><span class="o">,</span> <span class="n">cancellationListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
 
@@ -3097,7 +3104,8 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 
 <p>Portanto, assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
 
-<p><code class="highlighter-rouge">orderManager.cancelOrder(context, orderId, payment, value, cancellationListener);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">cancelOrder</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">orderId</span><span class="o">,</span> <span class="n">payment</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">cancellationListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
 
@@ -3140,7 +3148,8 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 
 <p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
 
-<p><code class="highlighter-rouge">orderManager.checkoutOrder(orderId, value, primaryCode, secondaryCode, installments,  paymentListener);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
@@ -3189,7 +3198,8 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 
 <p>Na listagem de pedidos, é possível obter todas os pedidos (Orders) abertas na Cielo LIO pelo aplicativo do parceiro. Para isso, basta utilizar a função abaixo:</p>
 
-<p><code class="highlighter-rouge">ResultOrders resultOrders = orderManager.retrieveOrders(10, 0);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ResultOrders</span> <span class="n">resultOrders</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrieveOrders</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> 
+</code></pre></div></div>
 
 <p>O objeto ResultOrders contém uma lista com todas as ordens abertas assinadas com as credenciais da aplicação.</p>
 
@@ -3201,19 +3211,22 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 É importante lembrar que se o contexto for alterado, é preciso desvincular o serviço (ex.: troca de Activity)
 Utilize o método abaixo para finalizar o uso do OrderManager:</p>
 
-<p><code class="highlighter-rouge">orderManager.unbind();</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">unbind</span><span class="o">();</span> 
+</code></pre></div></div>
 
 <h2 id="informações-do-terminal">Informações do terminal</h2>
 
 <p>Todas as informações referentes ao terminal, que foram expostas, estão disponíveis no InfoManager</p>
 
-<p><code class="highlighter-rouge">InfoManager infoManager = new InfoManager();</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">InfoManager</span> <span class="n">infoManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InfoManager</span><span class="o">();</span>
+</code></pre></div></div>
 
 <h3 id="nível-de-bateria">Nível de Bateria</h3>
 
 <p>Para consultar o nível de carga da LIO, basta utilizar o métdo abaixo:</p>
 
-<p><code class="highlighter-rouge">infoManager.getBatteryLevel(context);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getBatteryLevel</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>O valor da bateria será retornado em uma <code class="highlighter-rouge">Float</code> contendo um valor de 0 a 1 em caso de sucesso e -1 em caso de erro.</p>
@@ -3223,7 +3236,8 @@ Utilize o método abaixo para finalizar o uso do OrderManager:</p>
 
 <p>O SDK disponibiliza um método para verificar se seu aplicativo está instalado numa LIO V1 ou V2. Basta acessar da seguinte forma:</p>
 
-<p><code class="highlighter-rouge">infoManager.getDeviceModel();</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getDeviceModel</span><span class="o">();</span>
+</code></pre></div></div>
 
 <p>O mesmo irá retornar um enum do tipo <code class="highlighter-rouge">DeviceModel</code> com o modelo correspondente (<code class="highlighter-rouge">LIO_V1</code> ou <code class="highlighter-rouge">LIO_V2</code> ).</p>
 
@@ -3231,7 +3245,8 @@ Utilize o método abaixo para finalizar o uso do OrderManager:</p>
 
 <p>Através do SDK, é possível recuperar os dados do cliente e número lógico de maneira simples utilizando o método abaixo:</p>
 
-<p><code class="highlighter-rouge">infoManager.getSettings(context);</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getSettings</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>Esta função, retornará um objeto do tipo Settings onde é possível recuperar as informações do usuário. 
@@ -3264,7 +3279,8 @@ Abaixo, segue um descritivo de atributos do objeto Setttings.</p>
 
 <p>A nova versão da Cielo LIO V2 permite que aplicações parceiras utilizem os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente. Para realizar estas operações, basta utilizar um dos métodos listados abaixo que permite a impressão de uma única linha, uma sequência de linhas, ou imagens.</p>
 
-<p><code class="highlighter-rouge">PrinterManager printerManager = new PrinterManager(context)</code></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PrinterManager</span> <span class="n">printerManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrinterManager</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+</code></pre></div></div>
 
 <p>Independende da forma de impressão escolhida, você deverá utilizar o seguinte callback como parâmetro do método de para receber os estados relacionados à impressão:</p>
 
@@ -3276,19 +3292,19 @@ As seguintes ações pode ser notificadas:
 • onWithoutPaper - Quando não há papel suficiente para realizar a impressão.</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PrinterListerner printerListener = new PrinterListener() {
-    @Override public void onPrintSuccess(int printedLines) { 
-        Log.d(TAG, "onPrintSuccess");
-    }
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PrinterListerner</span> <span class="n">printerListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrinterListener</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPrintSuccess</span><span class="o">(</span><span class="kt">int</span> <span class="n">printedLines</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"onPrintSuccess"</span><span class="o">);</span>
+    <span class="o">}</span>
     
-    @Override public void onError(@Nullable Throwable e) { 
-        Log.d(TAG, "onError"); 
-    }
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"onError"</span><span class="o">);</span> 
+    <span class="o">}</span>
     
-    @Override public void onWithoutPaper() { 
-        Log.d(TAG,"onWithoutPaper"); 
-    } 
-});
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onWithoutPaper</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span><span class="s">"onWithoutPaper"</span><span class="o">);</span> 
+    <span class="o">}</span> 
+<span class="o">});</span>
 </code></pre></div></div>
 
 <h3 id="mapa-de-estilos-de-impressão">Mapa de Estilos de Impressão</h3>
@@ -3354,20 +3370,20 @@ As seguintes ações pode ser notificadas:
 
 <p>Exemplo de mapas de estilos:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HashMap alignLeft =  new HashMap();
-alignLeft.put(PrinterAttributes.KEY_ALIGN, PrinterAttributes.VAL_ALIGN_LEFT);
-alignLeft.put(PrinterAttributes.KEY_TYPEFACE, 0);
-alignLeft.put(PrinterAttributes.KEY_TEXT_SIZE, 20);
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HashMap</span> <span class="n">alignLeft</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_LEFT</span><span class="o">);</span>
+<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
 
-HashMap alignCenter =  new HashMap();
-alignCenter.put(PrinterAttributes.KEY_ALIGN, PrinterAttributes.VAL_ALIGN_CENTER);
-alignCenter.put(PrinterAttributes.KEY_TYPEFACE, 1);
-alignCenter.put(PrinterAttributes.KEY_TEXT_SIZE, 20);
+<span class="n">HashMap</span> <span class="n">alignCenter</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_CENTER</span><span class="o">);</span>
+<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
 
-HashMap alignRight =  new HashMap();
-alignRight.put(PrinterAttributes.KEY_ALIGN, PrinterAttributes.VAL_ALIGN_RIGHT);
-alignRight.put(PrinterAttributes.KEY_TYPEFACE, 2);
-alignRight.put(PrinterAttributes.KEY_TEXT_SIZE, 20);
+<span class="n">HashMap</span> <span class="n">alignRight</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_RIGHT</span><span class="o">);</span>
+<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
 </code></pre></div></div>
 
 <h3 id="impressão-de-texto-simples">Impressão de texto simples</h3>
@@ -3375,8 +3391,8 @@ alignRight.put(PrinterAttributes.KEY_TEXT_SIZE, 20);
 <p>Para imprimir textos simples utilize o método <code class="highlighter-rouge">printText()</code> do PrinterManager. 
 O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de impressão e um listener para tratar o retorno da impressão.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String textToPrint = "Texto simples a ser impresso.\n Com múltiplas linhas";
-printerManager.printText(textToPrint, alignLeft, printerListener);
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">textToPrint</span> <span class="o">=</span> <span class="s">"Texto simples a ser impresso.\n Com múltiplas linhas"</span><span class="o">;</span>
+<span class="n">printerManager</span><span class="o">.</span><span class="na">printText</span><span class="o">(</span><span class="n">textToPrint</span><span class="o">,</span> <span class="n">alignLeft</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
 </code></pre></div></div>
 
 <p>Exemplo de impressão de texto simples:
@@ -3414,14 +3430,14 @@ printerManager.printText(textToPrint, alignLeft, printerListener);
 <p>Para imprimir textos em múltiplas colunas utilize o método <code class="highlighter-rouge">printMultipleColumnText()</code> do PrinterManager. 
 O método recebe como parâmetro um array de texts a serem impresso, um array com mapas de estilos de impressão, respectivamente e um listener para tratar o retorno da impressão.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String[] textsToPrint = new String[] { "Texto alinhado à esquerda.", "Texto centralizado", "Texto alinhado à direita"  }
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span><span class="o">[]</span> <span class="n">textsToPrint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span> <span class="s">"Texto alinhado à esquerda."</span><span class="o">,</span> <span class="s">"Texto centralizado"</span><span class="o">,</span> <span class="s">"Texto alinhado à direita"</span>  <span class="o">}</span>
 
-List&gt; stylesMap =  new ArrayList();
-stylesMap.add(alignLeft);
-stylesMap.add(alignCenter);
-stylesMap.add(alignRight);
+<span class="n">List</span><span class="o">&gt;</span> <span class="n">stylesMap</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignLeft</span><span class="o">);</span>
+<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignCenter</span><span class="o">);</span>
+<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignRight</span><span class="o">);</span>
 
-printerManager.printMultipleColumnText(textsToPrint, stylesMap, printerListener);
+<span class="n">printerManager</span><span class="o">.</span><span class="na">printMultipleColumnText</span><span class="o">(</span><span class="n">textsToPrint</span><span class="o">,</span> <span class="n">stylesMap</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
 
 </code></pre></div></div>
 
@@ -3445,7 +3461,7 @@ printerManager.printMultipleColumnText(textsToPrint, stylesMap, printerListener)
     <tr>
       <td>style</td>
       <td>Lista de mapa de estilos de impressão</td>
-      <td><code class="highlighter-rouge">List - Map - (String, Int) </code></td>
+      <td><code class="highlighter-rouge">List&gt;</code></td>
     </tr>
     <tr>
       <td>printerListener</td>
@@ -3460,8 +3476,8 @@ printerManager.printMultipleColumnText(textsToPrint, stylesMap, printerListener)
 <p>Para imprimir imagens utilize o método <code class="highlighter-rouge">printImage()</code> do PrinterManager. 
 O método recebe como parâmetro o <code class="highlighter-rouge">bitmap</code> a ser impresso, um mapa de estilos de impressão e um listener para tratar o retorno da impressão.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cielo);
-printerManager.printImage(bitmap, alignCenter, printerListener);
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Bitmap</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="n">BitmapFactory</span><span class="o">.</span><span class="na">decodeResource</span><span class="o">(</span><span class="n">getResources</span><span class="o">(),</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">cielo</span><span class="o">);</span>
+<span class="n">printerManager</span><span class="o">.</span><span class="na">printImage</span><span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="n">alignCenter</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
 </code></pre></div></div>
 
 <table>
