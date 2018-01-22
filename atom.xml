@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-22T17:40:13+00:00</updated>
+    <updated>2018-01-22T17:46:30+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4981,7 +4981,8 @@ O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de im
 printerManager.printText(textToPrint, alignLeft, printerListener);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Resultado final da impressão&lt;/p&gt;
+&lt;p&gt;Resultado final da impressão
+&lt;img src=&quot;https://developercielo.github.io/images/cielo-lio/print-text.png&quot; alt=&quot;Impressão texto simples&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
