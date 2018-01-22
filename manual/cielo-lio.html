@@ -3149,7 +3149,7 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 
 <p>Toda vez que é feito um cancelamento na LIO utilizando o launcher, o sistema envia um broadcast notificando quaisquer aplicações que estejam registradas sobre o mesmo. Para que sua aplicação seja notificada de um cancelamento, atualize o arquivo <code class="highlighter-rouge">AndroidManifest.xml</code> conforme o exemplo abaixo:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 
   ...
   
@@ -3178,11 +3178,8 @@ public class LIOCancelationBroadcastReceiver extends BroadcastReceiver {
         ParcelableOrder order = intent.getExtras().getParcelable(INTENT_ORDER_KEY);
         
         if(MY_ACCESS_KEY.equalsIgnoreCase(order.getAccessKey()) &amp;&amp; MY_CLIENT_ID.equalsIgnoreCase(order.getSecretAccessKey())) {
-            
             ParcelableTransaction transaction  = intent.getExtras().getParcelable(INTENT_TRANSACTION_KEY);
-            
         }
-
     }
 }
 
