@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-22T17:56:01+00:00</updated>
+    <updated>2018-01-22T18:00:36+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5047,7 +5047,7 @@ printerManager.printMultipleColumnText(textsToPrint, stylesMap, printerListener)
     &lt;tr&gt;
       &lt;td&gt;style&lt;/td&gt;
       &lt;td&gt;Lista de mapa de estilos de impressão&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;List Map&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;List - Map - (String, Int) &lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;printerListener&lt;/td&gt;
