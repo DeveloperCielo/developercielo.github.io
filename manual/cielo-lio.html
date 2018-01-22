@@ -3377,14 +3377,14 @@ printerManager.printText(textToPrint, alignLeft, printerListener);
 <p>Para imprimir textos em múltiplas colunas utilize o método <code class="highlighter-rouge">printMultipleColumnText()</code> do PrinterManager. 
 O método recebe como parâmetro um array de texts a serem impresso, um array com mapas de estilos de impressão, respectivamente e um listener para tratar o retorno da impressão.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String[] textsToPrint = new String[] { "ALIGN LEFT", "ALIGN CENTER", "ALIGN RIGHT" }
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String[] textsToPrint = new String[] { "Texto alinhado à esquerda.", "Texto centralizado", "Texto alinhado à direita"  }
 
-List&gt; styles =  new ArrayList();
-styles.add(alignLeft);
-styles.add(alignCenter);
-styles.add(alignRight);
+List&gt; stylesMap =  new ArrayList();
+stylesMap.add(alignLeft);
+stylesMap.add(alignCenter);
+stylesMap.add(alignRight);
 
-printerManager.printMultipleColumnText(textsToPrint, styles, printerListener);
+printerManager.printMultipleColumnText(textsToPrint, stylesMap, printerListener);
 
 </code></pre></div></div>
 

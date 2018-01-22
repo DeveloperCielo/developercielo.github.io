@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-22T16:49:29+00:00</updated>
+    <updated>2018-01-22T16:56:40+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5019,14 +5019,14 @@ printerManager.printText(textToPrint, alignLeft, printerListener);
 &lt;p&gt;Para imprimir textos em múltiplas colunas utilize o método &lt;code class=&quot;highlighter-rouge&quot;&gt;printMultipleColumnText()&lt;/code&gt; do PrinterManager. 
 O método recebe como parâmetro um array de texts a serem impresso, um array com mapas de estilos de impressão, respectivamente e um listener para tratar o retorno da impressão.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;String[] textsToPrint = new String[] { &quot;ALIGN LEFT&quot;, &quot;ALIGN CENTER&quot;, &quot;ALIGN RIGHT&quot; }
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;String[] textsToPrint = new String[] { &quot;Texto alinhado à esquerda.&quot;, &quot;Texto centralizado&quot;, &quot;Texto alinhado à direita&quot;  }
 
-List&amp;gt; styles =  new ArrayList();
-styles.add(alignLeft);
-styles.add(alignCenter);
-styles.add(alignRight);
+List&amp;gt; stylesMap =  new ArrayList();
+stylesMap.add(alignLeft);
+stylesMap.add(alignCenter);
+stylesMap.add(alignRight);
 
-printerManager.printMultipleColumnText(textsToPrint, styles, printerListener);
+printerManager.printMultipleColumnText(textsToPrint, stylesMap, printerListener);
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
