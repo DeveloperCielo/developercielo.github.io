@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-22T19:57:33+00:00</updated>
+    <updated>2018-01-22T20:05:44+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4480,7 +4480,7 @@ Os outros objetos - como &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&l
     &lt;tr&gt;
       &lt;td&gt;secondaryProducts&lt;/td&gt;
       &lt;td&gt;Listagem de códigos de pagamento secundário. ex.: À Vista, Parcelado, etc.&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
