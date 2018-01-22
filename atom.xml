@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-22T17:10:46+00:00</updated>
+    <updated>2018-01-22T17:30:27+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4981,6 +4981,9 @@ O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de im
 printerManager.printText(textToPrint, alignLeft, printerListener);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;Resultado final da impressão
+&lt;img src=&quot;https://developercielo.github.io/images/cielo-lio/cielo.png&quot; alt=&quot;Impressão Texto Simples&quot; /&gt;&lt;/p&gt;
+
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -5024,6 +5027,9 @@ printerManager.printMultipleColumnText(textsToPrint, stylesMap, printerListener)
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;Resultado final da impressão
+&lt;img src=&quot;https://developercielo.github.io/images/cielo-lio/cielo.png&quot; alt=&quot;Impressão Múltiplas Colunas&quot; /&gt;&lt;/p&gt;
+
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -5059,6 +5065,21 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cielo);
 printerManager.printImage(bitmap, alignCenter, printerListener);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Imagem a ser impressa&lt;/th&gt;
+      &lt;th&gt;Resultado final&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/cielo-lio/cielo.png&quot; alt=&quot;Impressão Imagem&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;https://developercielo.github.io/images/cielo-lio/cielo.png&quot; alt=&quot;Impressão Imagem&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
