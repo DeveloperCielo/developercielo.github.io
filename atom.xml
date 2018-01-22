@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-19T19:35:23+00:00</updated>
+    <updated>2018-01-22T13:58:20+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4172,7 +4172,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
     &lt;tr&gt;
       &lt;td&gt;v40Code&lt;/td&gt;
       &lt;td&gt;Tipo da transação&lt;/td&gt;
-      &lt;td&gt;5 (Lista de Tipos de transação)&lt;/td&gt;
+      &lt;td&gt;5 (Lista de Tipos de transação abaixo)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;secondaryProductName&lt;/td&gt;
@@ -4247,7 +4247,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
     &lt;tr&gt;
       &lt;td&gt;cardCaptureType&lt;/td&gt;
       &lt;td&gt;Código do tipo de captura do cartão&lt;/td&gt;
-      &lt;td&gt;0 (Lista de Tipos de Captura)&lt;/td&gt;
+      &lt;td&gt;0 (Lista de Tipos de Captura abaixo)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;requestDate&lt;/td&gt;
@@ -4311,7 +4311,7 @@ Os outros objetos - como &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&l
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Lista de Tipos de Transação&lt;/th&gt;
+      &lt;th&gt;Lista de Tipos de Transação - (Isto não é válido como código primário)&lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
