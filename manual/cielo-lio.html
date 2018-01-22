@@ -3164,24 +3164,24 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 
 <p>em seguida, é necessário implementar um <code class="highlighter-rouge">BroadcastReceiver</code> para tratar o evento da maneira que for pertinente a sua aplicação:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-public class LIOCancelationBroadcastReceiver extends BroadcastReceiver {
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LIOCancelationBroadcastReceiver</span> <span class="kd">extends</span> <span class="n">BroadcastReceiver</span> <span class="o">{</span>
 
-    String MY_CLIENT_ID = "Seu client id aqui";
-    String MY_ACCESS_KEY = "Seu access key aqui";
+    <span class="n">String</span> <span class="n">MY_CLIENT_ID</span> <span class="o">=</span> <span class="s">"Seu client id aqui"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">MY_ACCESS_KEY</span> <span class="o">=</span> <span class="s">"Seu access key aqui"</span><span class="o">;</span>
     
-    String INTENT_ORDER_KEY = "ORDER";
-    String INTENT_TRANSACTION_KEY = "TRANSACTION";
+    <span class="n">String</span> <span class="n">INTENT_ORDER_KEY</span> <span class="o">=</span> <span class="s">"ORDER"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">INTENT_TRANSACTION_KEY</span> <span class="o">=</span> <span class="s">"TRANSACTION"</span><span class="o">;</span>
 
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        ParcelableOrder order = intent.getExtras().getParcelable(INTENT_ORDER_KEY);
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ParcelableOrder</span> <span class="n">order</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getParcelable</span><span class="o">(</span><span class="n">INTENT_ORDER_KEY</span><span class="o">);</span>
         
-        if(MY_ACCESS_KEY.equalsIgnoreCase(order.getAccessKey()) &amp;&amp; MY_CLIENT_ID.equalsIgnoreCase(order.getSecretAccessKey())) {
-            ParcelableTransaction transaction  = intent.getExtras().getParcelable(INTENT_TRANSACTION_KEY);
-        }
-    }
-}
+        <span class="k">if</span><span class="o">(</span><span class="n">MY_ACCESS_KEY</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getAccessKey</span><span class="o">())</span> <span class="o">&amp;&amp;</span> <span class="n">MY_CLIENT_ID</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getSecretAccessKey</span><span class="o">()))</span> <span class="o">{</span>
+            <span class="n">ParcelableTransaction</span> <span class="n">transaction</span>  <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getParcelable</span><span class="o">(</span><span class="n">INTENT_TRANSACTION_KEY</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
 </code></pre></div></div>
 
