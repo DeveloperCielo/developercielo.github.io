@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-22T19:42:12+00:00</updated>
+    <updated>2018-01-22T19:46:59+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4800,18 +4800,7 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 
 &lt;p&gt;Toda vez que é feito um cancelamento na LIO utilizando o launcher, o sistema envia um broadcast notificando quaisquer aplicações que estejam registradas sobre o mesmo. Para que sua aplicação seja notificada de um cancelamento, atualize o arquivo &lt;code class=&quot;highlighter-rouge&quot;&gt;AndroidManifest.xml&lt;/code&gt; conforme o exemplo abaixo:&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  ...
-  
-            
-                
-                
-            
-        
- 
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;…&lt;/p&gt;
 
 &lt;p&gt;em seguida, é necessário implementar um &lt;code class=&quot;highlighter-rouge&quot;&gt;BroadcastReceiver&lt;/code&gt; para tratar o evento da maneira que for pertinente a sua aplicação:&lt;/p&gt;
 
