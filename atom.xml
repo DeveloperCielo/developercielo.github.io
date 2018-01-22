@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-22T16:56:40+00:00</updated>
+    <updated>2018-01-22T17:10:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4958,22 +4958,16 @@ As seguintes ações pode ser notificadas:
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HashMap alignLeft =  new HashMap();
 alignLeft.put(PrinterAttributes.KEY_ALIGN, PrinterAttributes.VAL_ALIGN_LEFT);
-alignLeft.put(PrinterAttributes.KEY_MARGIN_TOP, 50);
-alignLeft.put(PrinterAttributes.KEY_MARGIN_BOTTOM, 50);
 alignLeft.put(PrinterAttributes.KEY_TYPEFACE, 0);
 alignLeft.put(PrinterAttributes.KEY_TEXT_SIZE, 20);
 
 HashMap alignCenter =  new HashMap();
 alignCenter.put(PrinterAttributes.KEY_ALIGN, PrinterAttributes.VAL_ALIGN_CENTER);
-alignCenter.put(PrinterAttributes.KEY_MARGIN_TOP, 50);
-alignCenter.put(PrinterAttributes.KEY_MARGIN_BOTTOM, 50);        
 alignCenter.put(PrinterAttributes.KEY_TYPEFACE, 1);
 alignCenter.put(PrinterAttributes.KEY_TEXT_SIZE, 20);
 
 HashMap alignRight =  new HashMap();
 alignRight.put(PrinterAttributes.KEY_ALIGN, PrinterAttributes.VAL_ALIGN_RIGHT);
-alignRight.put(PrinterAttributes.KEY_MARGIN_TOP, 50);
-alignRight.put(PrinterAttributes.KEY_MARGIN_BOTTOM, 50);
 alignRight.put(PrinterAttributes.KEY_TYPEFACE, 2);
 alignRight.put(PrinterAttributes.KEY_TEXT_SIZE, 20);
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
