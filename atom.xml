@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-22T18:00:36+00:00</updated>
+    <updated>2018-01-22T19:20:00+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4786,6 +4786,49 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;receber-aviso-de-cancelamento-feito-na-lio&quot;&gt;Receber aviso de cancelamento feito na LIO&lt;/h3&gt;
+
+&lt;p&gt;Toda vez que é feito um cancelamento na LIO utilizando o launcher, o sistema envia um broadcast notificando quaisquer aplicações que estejam registradas sobre o mesmo. Para que sua aplicação seja notificada de um cancelamento, atualize o arquivo &lt;code class=&quot;highlighter-rouge&quot;&gt;AndroidManifest.xml&lt;/code&gt; conforme o exemplo abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+
+  ...
+  
+            
+                
+                
+            
+        
+ 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;em seguida, é necessário implementar um &lt;code class=&quot;highlighter-rouge&quot;&gt;BroadcastReceiver&lt;/code&gt; para tratar o evento da maneira que for pertinente a sua aplicação:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+public class LIOCancelationBroadcastReceiver extends BroadcastReceiver {
+
+    String MY_CLIENT_ID = &quot;Seu client id aqui&quot;;
+    String MY_ACCESS_KEY = &quot;Seu access key aqui&quot;;
+    
+    String INTENT_ORDER_KEY = &quot;ORDER&quot;;
+    String INTENT_TRANSACTION_KEY = &quot;TRANSACTION&quot;;
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        ParcelableOrder order = intent.getExtras().getParcelable(INTENT_ORDER_KEY);
+        
+        if(MY_ACCESS_KEY.equalsIgnoreCase(order.getAccessKey()) &amp;amp;&amp;amp; MY_CLIENT_ID.equalsIgnoreCase(order.getSecretAccessKey())) {
+            
+            ParcelableTransaction transaction  = intent.getExtras().getParcelable(INTENT_TRANSACTION_KEY);
+            
+        }
+
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;listagem-de-pedidos&quot;&gt;Listagem de Pedidos&lt;/h2&gt;
 

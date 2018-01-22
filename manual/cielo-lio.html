@@ -3145,6 +3145,49 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
 
+<h3 id="receber-aviso-de-cancelamento-feito-na-lio">Receber aviso de cancelamento feito na LIO</h3>
+
+<p>Toda vez que é feito um cancelamento na LIO utilizando o launcher, o sistema envia um broadcast notificando quaisquer aplicações que estejam registradas sobre o mesmo. Para que sua aplicação seja notificada de um cancelamento, atualize o arquivo <code class="highlighter-rouge">AndroidManifest.xml</code> conforme o exemplo abaixo:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+  ...
+  
+            
+                
+                
+            
+        
+ 
+
+</code></pre></div></div>
+
+<p>em seguida, é necessário implementar um <code class="highlighter-rouge">BroadcastReceiver</code> para tratar o evento da maneira que for pertinente a sua aplicação:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+public class LIOCancelationBroadcastReceiver extends BroadcastReceiver {
+
+    String MY_CLIENT_ID = "Seu client id aqui";
+    String MY_ACCESS_KEY = "Seu access key aqui";
+    
+    String INTENT_ORDER_KEY = "ORDER";
+    String INTENT_TRANSACTION_KEY = "TRANSACTION";
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        ParcelableOrder order = intent.getExtras().getParcelable(INTENT_ORDER_KEY);
+        
+        if(MY_ACCESS_KEY.equalsIgnoreCase(order.getAccessKey()) &amp;&amp; MY_CLIENT_ID.equalsIgnoreCase(order.getSecretAccessKey())) {
+            
+            ParcelableTransaction transaction  = intent.getExtras().getParcelable(INTENT_TRANSACTION_KEY);
+            
+        }
+
+    }
+}
+
+</code></pre></div></div>
+
 <h2 id="listagem-de-pedidos">Listagem de Pedidos</h2>
 
 <p>Na listagem de pedidos, é possível obter todas os pedidos (Orders) abertas na Cielo LIO pelo aplicativo do parceiro. Para isso, basta utilizar a função abaixo:</p>
