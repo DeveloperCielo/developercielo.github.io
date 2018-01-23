@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-23T19:07:19+00:00</updated>
+    <updated>2018-01-23T19:36:19+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4049,16 +4049,7 @@ Iniciar processo de pagamento&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/checkoutOrder.jpg&quot; alt=&quot;checkoutorder formas&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de &lt;code class=&quot;highlighter-rouge&quot;&gt;checkoutOrder()&lt;/code&gt; para receber os estados relacionados ao pagamento.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. 
-As seguintes ações podem ser notificadas:&lt;br /&gt;
-• onStart - Quando se dá o início do pagamento. 
-• onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um pagamento. 
-• onCancel - Quando o pagamento é cancelado. 
-• onError - Quando acontece um erro no pagamento do pedido.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de &lt;code class=&quot;highlighter-rouge&quot;&gt;checkoutOrder()&lt;/code&gt; para receber os estados relacionados ao pagamento.:&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;PaymentListener&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paymentListener&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PaymentListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
@@ -4081,11 +4072,25 @@ As seguintes ações podem ser notificadas:&lt;br /&gt;
 &lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. 
+As seguintes ações podem ser notificadas:&lt;br /&gt;
+• onStart - Quando se dá o início do pagamento. 
+• onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um pagamento. 
+• onCancel - Quando o pagamento é cancelado. 
+• onError - Quando acontece um erro no pagamento do pedido.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;O método &lt;code class=&quot;highlighter-rouge&quot;&gt;onPayment()&lt;/code&gt; retorna um objeto &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&lt;/code&gt; com uma lista de &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt; que possui um HashMap &lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentFields&lt;/code&gt; com a maioria dos dados da transação.
 Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Payment Fields (atributo do objeto Payment)&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
     &lt;tr&gt;
       &lt;th&gt;Nome do Campo&lt;/th&gt;
       &lt;th&gt;Descrição do Campo&lt;/th&gt;
@@ -4271,11 +4276,6 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Todos os valores financeiros são informados sem vírgula, ou seja 2500 são equivalentes a R$ 25,00. 
-Os outros objetos - como &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment&lt;/code&gt; - possuem documentação própria que pode ser visualizada pelo Android Studio quando a classe é declarada.&lt;/p&gt;
-&lt;/blockquote&gt;
-
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -4310,7 +4310,7 @@ Os outros objetos - como &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&l
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Lista de Tipos de Transação - (Isto não é válido como código primário)&lt;/th&gt;
+      &lt;th&gt;Lista de Tipos de Transação - (&lt;strong&gt;Isto não é válido como código primário&lt;/strong&gt;)&lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -4361,6 +4361,10 @@ Os outros objetos - como &lt;code class=&quot;highlighter-rouge&quot;&gt;Order&l
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Todos os valores financeiros são informados sem vírgula, ou seja 2500 são equivalentes a R$ 25,00.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h3 id=&quot;1-pagamento-parcial&quot;&gt;1. Pagamento Parcial&lt;/h3&gt;
 

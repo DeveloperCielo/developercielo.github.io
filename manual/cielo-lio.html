@@ -2407,16 +2407,7 @@ Iniciar processo de pagamento</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/checkoutOrder.jpg" alt="checkoutorder formas" /></p>
 
-<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">checkoutOrder()</code> para receber os estados relacionados ao pagamento.</p>
-
-<blockquote>
-  <p>PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. 
-As seguintes ações podem ser notificadas:<br />
-• onStart - Quando se dá o início do pagamento. 
-• onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um pagamento. 
-• onCancel - Quando o pagamento é cancelado. 
-• onError - Quando acontece um erro no pagamento do pedido.</p>
-</blockquote>
+<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">checkoutOrder()</code> para receber os estados relacionados ao pagamento.:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -2439,11 +2430,25 @@ As seguintes ações podem ser notificadas:<br />
 <span class="o">};</span>
 </code></pre></div></div>
 
+<blockquote>
+  <p>PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. 
+As seguintes ações podem ser notificadas:<br />
+• onStart - Quando se dá o início do pagamento. 
+• onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um pagamento. 
+• onCancel - Quando o pagamento é cancelado. 
+• onError - Quando acontece um erro no pagamento do pedido.</p>
+</blockquote>
+
 <p>O método <code class="highlighter-rouge">onPayment()</code> retorna um objeto <code class="highlighter-rouge">Order</code> com uma lista de <code class="highlighter-rouge">Payment</code> que possui um HashMap <code class="highlighter-rouge">PaymentFields</code> com a maioria dos dados da transação.
 Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 
 <table>
   <thead>
+    <tr>
+      <th>Payment Fields (atributo do objeto Payment)</th>
+      <th> </th>
+      <th> </th>
+    </tr>
     <tr>
       <th>Nome do Campo</th>
       <th>Descrição do Campo</th>
@@ -2629,11 +2634,6 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
   </tbody>
 </table>
 
-<blockquote>
-  <p>Todos os valores financeiros são informados sem vírgula, ou seja 2500 são equivalentes a R$ 25,00. 
-Os outros objetos - como <code class="highlighter-rouge">Order</code> e <code class="highlighter-rouge">Payment</code> - possuem documentação própria que pode ser visualizada pelo Android Studio quando a classe é declarada.</p>
-</blockquote>
-
 <table>
   <thead>
     <tr>
@@ -2668,7 +2668,7 @@ Os outros objetos - como <code class="highlighter-rouge">Order</code> e <code cl
 <table>
   <thead>
     <tr>
-      <th>Lista de Tipos de Transação - (Isto não é válido como código primário)</th>
+      <th>Lista de Tipos de Transação - (<strong>Isto não é válido como código primário</strong>)</th>
       <th> </th>
     </tr>
     <tr>
@@ -2719,6 +2719,10 @@ Os outros objetos - como <code class="highlighter-rouge">Order</code> e <code cl
     </tr>
   </tbody>
 </table>
+
+<blockquote>
+  <p>Todos os valores financeiros são informados sem vírgula, ou seja 2500 são equivalentes a R$ 25,00.</p>
+</blockquote>
 
 <h3 id="1-pagamento-parcial">1. Pagamento Parcial</h3>
 
