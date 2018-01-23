@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-23T19:36:19+00:00</updated>
+    <updated>2018-01-23T19:41:51+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4087,7 +4087,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Payment Fields (atributo do objeto Payment)&lt;/th&gt;
+      &lt;th&gt;Payment Fields  - (&lt;strong&gt;atributo do objeto Payment&lt;/strong&gt;)&lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
       &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
