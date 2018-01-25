@@ -3188,10 +3188,34 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
 
 <h2 id="listagem-de-pedidos">Listagem de Pedidos</h2>
 
-<p>Na listagem de pedidos, é possível obter todas os pedidos (Orders) abertas na Cielo LIO pelo aplicativo do parceiro. Para isso, basta utilizar a função abaixo:</p>
+<p>Na listagem de pedidos, é possível obter todas os pedidos (Orders) abertas na Cielo LIO pelo aplicativo do parceiro. 
+Para isso, basta utilizar a função abaixo, que retorna os pedidos de forma paginada:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ResultOrders</span> <span class="n">resultOrders</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrieveOrders</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Busca 10 items da primeira página</span>
+<span class="n">ResultOrders</span> <span class="n">resultOrders</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrieveOrders</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> 
 </code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ATRIBUTO</th>
+      <th>DESCRIÇÃO</th>
+      <th>DOMÍNIO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pageSize</td>
+      <td>quantidade de items por página</td>
+      <td><code class="highlighter-rouge">Integer</code></td>
+    </tr>
+    <tr>
+      <td>page</td>
+      <td>número da página requistada (iniciando em 0)</td>
+      <td><code class="highlighter-rouge">Integer</code></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>O objeto ResultOrders contém uma lista com todas as ordens abertas assinadas com as credenciais da aplicação.</p>
 
