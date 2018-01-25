@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-25T16:37:16+00:00</updated>
+    <updated>2018-01-25T16:38:56+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4859,7 +4859,9 @@ Para isso, basta utilizar a função abaixo, que retorna os pedidos de forma pag
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;O objeto ResultOrders contém uma lista com todas as ordens abertas assinadas com as credenciais da aplicação.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;O objeto ResultOrders contém uma lista com todas as ordens abertas assinadas com as credenciais da aplicação.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;finalizar-uso-do-ordermanager&quot;&gt;Finalizar uso do OrderManager&lt;/h2&gt;
 
