@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-26T13:21:15+00:00</updated>
+    <updated>2018-01-26T13:24:49+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29462,7 +29462,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;atualiza-o-access_token-a-partir-do-refresh_token&quot;&gt;Atualiza o ACCESS_TOKEN a partir do refresh_token&lt;/h2&gt;
+&lt;h3 id=&quot;atualiza-o-access_token-a-partir-do-refresh_token&quot;&gt;Atualiza o ACCESS_TOKEN a partir do refresh_token&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/refresh-token&lt;/span&gt;&lt;/aside&gt;
 
@@ -29601,7 +29601,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;obtém-o-access_token&quot;&gt;Obtém o ACCESS_TOKEN&lt;/h2&gt;
+&lt;h3 id=&quot;obtém-o-access_token&quot;&gt;Obtém o ACCESS_TOKEN&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/access-token&lt;/span&gt;&lt;/aside&gt;
 
