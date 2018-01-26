@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-25T18:39:52+00:00</updated>
+    <updated>2018-01-26T13:21:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -28059,7 +28059,9 @@ Mais informações e integração completa, você encontra no link: https://deve
 
 &lt;h1 id=&quot;api-docs&quot;&gt;API Docs&lt;/h1&gt;
 
-&lt;h2 id=&quot;obtendo-html-da-página-de-login&quot;&gt;Obtendo HTML da página de LOGIN&lt;/h2&gt;
+&lt;h2 id=&quot;fidelidade&quot;&gt;Fidelidade&lt;/h2&gt;
+
+&lt;h3 id=&quot;obtendo-html-da-página-de-login&quot;&gt;Obtendo HTML da página de LOGIN&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/login&lt;/span&gt;&lt;/aside&gt;
 
@@ -28180,7 +28182,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;obtendo-html-da-página-de-cadastro-de-cartões&quot;&gt;Obtendo HTML da página de cadastro de cartões&lt;/h2&gt;
+&lt;h3 id=&quot;obtendo-html-da-página-de-cadastro-de-cartões&quot;&gt;Obtendo HTML da página de cadastro de cartões&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/cards&lt;/span&gt;&lt;/aside&gt;
 
@@ -28280,7 +28282,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;retorna-os-dados-do-portador&quot;&gt;Retorna os dados do portador&lt;/h2&gt;
+&lt;h3 id=&quot;retorna-os-dados-do-portador&quot;&gt;Retorna os dados do portador&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/me&lt;/span&gt;&lt;/aside&gt;
 
@@ -28378,7 +28380,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;retorna-lista-de-cartões-do-portador&quot;&gt;Retorna lista de cartões do portador&lt;/h2&gt;
+&lt;h3 id=&quot;retorna-lista-de-cartões-do-portador&quot;&gt;Retorna lista de cartões do portador&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/me/cards&lt;/span&gt;&lt;/aside&gt;
 
@@ -28517,7 +28519,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;retorna-lista-de-transações-positivadas-de-um-portador&quot;&gt;Retorna lista de transações positivadas de um portador&lt;/h2&gt;
+&lt;h3 id=&quot;retorna-lista-de-transações-positivadas-de-um-portador&quot;&gt;Retorna lista de transações positivadas de um portador&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/me/transactions&lt;/span&gt;&lt;/aside&gt;
 
@@ -28643,7 +28645,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;obtém-dados-de-um-cartão&quot;&gt;Obtém dados de um cartão&lt;/h2&gt;
+&lt;h3 id=&quot;obtém-dados-de-um-cartão&quot;&gt;Obtém dados de um cartão&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/me/cards/{card_id}&lt;/span&gt;&lt;/aside&gt;
 
@@ -28755,7 +28757,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;retorna-lista-dos-estabelecimentos-comerciais&quot;&gt;Retorna lista dos estabelecimentos comerciais&lt;/h2&gt;
+&lt;h3 id=&quot;retorna-lista-dos-estabelecimentos-comerciais&quot;&gt;Retorna lista dos estabelecimentos comerciais&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/commercial-establishments&lt;/span&gt;&lt;/aside&gt;
 
@@ -28855,7 +28857,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;retorna-a-subscrição-do-estabelecimento-comercial-a-uma-promoção&quot;&gt;Retorna a subscrição do Estabelecimento Comercial a uma promoção&lt;/h2&gt;
+&lt;h3 id=&quot;retorna-a-subscrição-do-estabelecimento-comercial-a-uma-promoção&quot;&gt;Retorna a subscrição do Estabelecimento Comercial a uma promoção&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/commercial-establishments/{commercial_establishment_id}/subscriptions/{subscription_id}&lt;/span&gt;&lt;/aside&gt;
 
@@ -28955,7 +28957,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;retorna-a-lista-das-subscrições-aceitas-e-processadas-para-um-estabelecimento-comercial&quot;&gt;Retorna a lista das subscrições aceitas e processadas para um Estabelecimento Comercial&lt;/h2&gt;
+&lt;h3 id=&quot;retorna-a-lista-das-subscrições-aceitas-e-processadas-para-um-estabelecimento-comercial&quot;&gt;Retorna a lista das subscrições aceitas e processadas para um Estabelecimento Comercial&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/commercial-establishments/{commercial_establishment_id}/subscriptions&lt;/span&gt;&lt;/aside&gt;
 
@@ -29048,7 +29050,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;envia-um-pedido-de-subscrição-a-uma-promoção-para-um-estabelecimento-comercial&quot;&gt;Envia um pedido de subscrição a uma promoção para um Estabelecimento Comercial&lt;/h2&gt;
+&lt;h3 id=&quot;envia-um-pedido-de-subscrição-a-uma-promoção-para-um-estabelecimento-comercial&quot;&gt;Envia um pedido de subscrição a uma promoção para um Estabelecimento Comercial&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/commercial-establishments/{commercial_establishment_id}/subscriptions&lt;/span&gt;&lt;/aside&gt;
 
@@ -29162,7 +29164,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;atualiza-o-status-de-um-subscrição&quot;&gt;Atualiza o status de um subscrição&lt;/h2&gt;
+&lt;h3 id=&quot;atualiza-o-status-de-um-subscrição&quot;&gt;Atualiza o status de um subscrição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method patch&quot;&gt;PATCH&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/subscriptions/{subscription_id}&lt;/span&gt;&lt;/aside&gt;
 
@@ -29276,7 +29278,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;obtém-a-lista-de-subscrições-não-processadas&quot;&gt;Obtém a lista de subscrições não processadas&lt;/h2&gt;
+&lt;h3 id=&quot;obtém-a-lista-de-subscrições-não-processadas&quot;&gt;Obtém a lista de subscrições não processadas&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/subscriptions/queue&lt;/span&gt;&lt;/aside&gt;
 
@@ -29362,7 +29364,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;obtém-o-status-de-uma-subscrição-não-procesada&quot;&gt;Obtém o status de uma subscrição não procesada&lt;/h2&gt;
+&lt;h3 id=&quot;obtém-o-status-de-uma-subscrição-não-procesada&quot;&gt;Obtém o status de uma subscrição não procesada&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/subscriptions/{subscription_id}/queue&lt;/span&gt;&lt;/aside&gt;
 
@@ -29456,291 +29458,6 @@ Mais informações e integração completa, você encontra no link: https://deve
       &lt;td&gt;504&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Gateway Timeout.&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;description&quot;:&quot;Error full description.&quot;,&quot;type&quot;:&quot;string&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;obtém-lista-de-promoções&quot;&gt;Obtém lista de promoções&lt;/h2&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/promotions&lt;/span&gt;&lt;/aside&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Nome&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Localização&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;client_id&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;header&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Client ID fornecido para a aplicação.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;latitude&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;number&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Latitude&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;longitude&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;number&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Longitude&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;radius&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;integer&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Raio&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;active&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;boolean&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Indicador para campanha ativa / não ativa&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Não&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;type&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Não&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;_offset&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;integer&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Registro inicial a ser retornado&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;_limit&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;integer&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Quantidade de registros a serem retornados&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;_sort&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Define a ordenação do resultado&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Não&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Codigo&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Model&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;200&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;OK.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;allOf&quot;:[{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;commercialEstablishment&quot;:{ &quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;number&quot;, &quot;format&quot;: &quot;int64&quot;, &quot;description&quot;: &quot;Commercial establishment identifier.&quot; }, &quot;fictitiousName&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Fantasy name.&quot; }, &quot;businessActivity&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot;, &quot;description&quot;: &quot;Business activity identifier.&quot; } } } }}}},{&quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot;, &quot;description&quot;: &quot;Campaign identifier in the PROMO database.&quot; }, &quot;active&quot;: { &quot;type&quot;: &quot;boolean&quot;, &quot;description&quot;: &quot;Field that identifies whether the campaign is active.&quot; }, &quot;endDate&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;End date (ISO 8601).&quot; }, &quot;startDate&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;Start date (ISO 8601).&quot; }, &quot;title&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Promotional Campaign Title.&quot; }, &quot;description&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Promotional Campaign Description.&quot; }, &quot;transactionDays&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Transaction Days.&quot; }, &quot;campaignModel&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Campaign model.&quot; }, &quot;premium&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Campaign Prize.&quot; }, &quot;campaignType&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;&quot;, &quot;enum&quot;: [ &quot;A&quot;, &quot;B&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;P&quot;, &quot;R&quot;, &quot;X&quot;, &quot;W&quot; ] }, &quot;validityRedemption&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;Validity of the redemption.&quot; }, &quot;shareable&quot;: { &quot;type&quot;: &quot;boolean&quot;, &quot;description&quot;: &quot;Field that identifies whether the campaign can be shared.&quot; } }}]}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;400&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Bad Request.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;401&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Unauthorized.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;403&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Forbidden.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;404&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Not Found.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;405&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Method Not Allowed.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;412&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Precondition Failed.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;413&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Request Entity Too Large.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;415&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Unsupported Media Type.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;422&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Unprocessable Entity.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;429&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Too Many Requests.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;500&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Internal Server Error.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;502&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Bad Gateway.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;504&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Gateway Timeout.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;obtém-uma-promoção-específica&quot;&gt;Obtém uma promoção específica&lt;/h2&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/promotions/{promotion_id}&lt;/span&gt;&lt;/aside&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Nome&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Localização&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;client_id&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;header&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Client ID fornecido para a aplicação.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;promotion_id&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;path&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;integer&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;ID da promoção&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Codigo&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Descrição&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Model&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;200&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;OK.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;allOf&quot;:[{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;commercialEstablishment&quot;:{&quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;number&quot;, &quot;format&quot;: &quot;int64&quot;, &quot;description&quot;: &quot;Commercial establishment identifier.&quot; }, &quot;fictitiousName&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Fantasy name.&quot; }, &quot;businessActivity&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot;, &quot;description&quot;: &quot;Business activity identifier.&quot; } } } }}}},{ &quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot;, &quot;description&quot;: &quot;Campaign identifier in the PROMO database.&quot; }, &quot;active&quot;: { &quot;type&quot;: &quot;boolean&quot;, &quot;description&quot;: &quot;Field that identifies whether the campaign is active.&quot; }, &quot;endDate&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;End date (ISO 8601).&quot; }, &quot;startDate&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;Start date (ISO 8601).&quot; }, &quot;title&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Promotional Campaign Title.&quot; }, &quot;description&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Promotional Campaign Description.&quot; }, &quot;transactionDays&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Transaction Days.&quot; }, &quot;campaignModel&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Campaign model.&quot; }, &quot;premium&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Campaign Prize.&quot; }, &quot;campaignType&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;&quot;, &quot;enum&quot;: [ &quot;A&quot;, &quot;B&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;P&quot;, &quot;R&quot;, &quot;X&quot;, &quot;W&quot; ] }, &quot;validityRedemption&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;Validity of the redemption.&quot; }, &quot;shareable&quot;: { &quot;type&quot;: &quot;boolean&quot;, &quot;description&quot;: &quot;Field that identifies whether the campaign can be shared.&quot; }}]}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;400&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Bad Request.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;401&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Unauthorized.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;403&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Forbidden.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;404&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Not Found.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;405&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Method Not Allowed.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;412&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Precondition Failed.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;413&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Request Entity Too Large.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;415&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Unsupported Media Type.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;422&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Unprocessable Entity.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;429&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Too Many Requests.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;500&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Internal Server Error.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;502&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Bad Gateway.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;504&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Gateway Timeout.&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -30019,6 +29736,293 @@ Mais informações e integração completa, você encontra no link: https://deve
       &lt;td&gt;504&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;Gateway Timeout.&lt;/td&gt;
       &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;description&quot;:&quot;Error full description.&quot;,&quot;type&quot;:&quot;string&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;promoções&quot;&gt;Promoções&lt;/h2&gt;
+
+&lt;h3 id=&quot;obtém-lista-de-promoções&quot;&gt;Obtém lista de promoções&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/promotions&lt;/span&gt;&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Nome&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Localização&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;client_id&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;header&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Client ID fornecido para a aplicação.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;latitude&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Latitude&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;longitude&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;number&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Longitude&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;radius&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;integer&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Raio&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;active&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;boolean&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Indicador para campanha ativa / não ativa&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;type&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;_offset&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;integer&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Registro inicial a ser retornado&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;_limit&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;integer&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Quantidade de registros a serem retornados&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;_sort&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;query&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Define a ordenação do resultado&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Codigo&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Model&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;200&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;OK.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;allOf&quot;:[{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;commercialEstablishment&quot;:{ &quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;number&quot;, &quot;format&quot;: &quot;int64&quot;, &quot;description&quot;: &quot;Commercial establishment identifier.&quot; }, &quot;fictitiousName&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Fantasy name.&quot; }, &quot;businessActivity&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot;, &quot;description&quot;: &quot;Business activity identifier.&quot; } } } }}}},{&quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot;, &quot;description&quot;: &quot;Campaign identifier in the PROMO database.&quot; }, &quot;active&quot;: { &quot;type&quot;: &quot;boolean&quot;, &quot;description&quot;: &quot;Field that identifies whether the campaign is active.&quot; }, &quot;endDate&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;End date (ISO 8601).&quot; }, &quot;startDate&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;Start date (ISO 8601).&quot; }, &quot;title&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Promotional Campaign Title.&quot; }, &quot;description&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Promotional Campaign Description.&quot; }, &quot;transactionDays&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Transaction Days.&quot; }, &quot;campaignModel&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Campaign model.&quot; }, &quot;premium&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Campaign Prize.&quot; }, &quot;campaignType&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;&quot;, &quot;enum&quot;: [ &quot;A&quot;, &quot;B&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;P&quot;, &quot;R&quot;, &quot;X&quot;, &quot;W&quot; ] }, &quot;validityRedemption&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;Validity of the redemption.&quot; }, &quot;shareable&quot;: { &quot;type&quot;: &quot;boolean&quot;, &quot;description&quot;: &quot;Field that identifies whether the campaign can be shared.&quot; } }}]}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;400&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Bad Request.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;401&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Unauthorized.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;403&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Forbidden.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;404&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Not Found.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;405&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Method Not Allowed.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;412&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Precondition Failed.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;413&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Request Entity Too Large.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;415&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Unsupported Media Type.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;422&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Unprocessable Entity.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;429&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Too Many Requests.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;500&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Internal Server Error.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;502&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Bad Gateway.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;504&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Gateway Timeout.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;obtém-uma-promoção-específica&quot;&gt;Obtém uma promoção específica&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/promotions/{promotion_id}&lt;/span&gt;&lt;/aside&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;REQUEST&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Nome&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Localização&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Tipo&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Obrigatório&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;client_id&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;header&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;string&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Client ID fornecido para a aplicação.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;promotion_id&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;path&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;integer&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;ID da promoção&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RESPONSE&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Codigo&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Descrição&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Model&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;200&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;OK.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;allOf&quot;:[{&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;commercialEstablishment&quot;:{&quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;number&quot;, &quot;format&quot;: &quot;int64&quot;, &quot;description&quot;: &quot;Commercial establishment identifier.&quot; }, &quot;fictitiousName&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Fantasy name.&quot; }, &quot;businessActivity&quot;: { &quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot;, &quot;description&quot;: &quot;Business activity identifier.&quot; } } } }}}},{ &quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot;, &quot;description&quot;: &quot;Campaign identifier in the PROMO database.&quot; }, &quot;active&quot;: { &quot;type&quot;: &quot;boolean&quot;, &quot;description&quot;: &quot;Field that identifies whether the campaign is active.&quot; }, &quot;endDate&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;End date (ISO 8601).&quot; }, &quot;startDate&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;Start date (ISO 8601).&quot; }, &quot;title&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Promotional Campaign Title.&quot; }, &quot;description&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Promotional Campaign Description.&quot; }, &quot;transactionDays&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Transaction Days.&quot; }, &quot;campaignModel&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Campaign model.&quot; }, &quot;premium&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Campaign Prize.&quot; }, &quot;campaignType&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;description&quot;: &quot;Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;&quot;, &quot;enum&quot;: [ &quot;A&quot;, &quot;B&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;P&quot;, &quot;R&quot;, &quot;X&quot;, &quot;W&quot; ] }, &quot;validityRedemption&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;format&quot;: &quot;date&quot;, &quot;description&quot;: &quot;Validity of the redemption.&quot; }, &quot;shareable&quot;: { &quot;type&quot;: &quot;boolean&quot;, &quot;description&quot;: &quot;Field that identifies whether the campaign can be shared.&quot; }}]}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;400&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Bad Request.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;401&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Unauthorized.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;403&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Forbidden.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;404&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Not Found.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;405&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Method Not Allowed.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;412&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Precondition Failed.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;413&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Request Entity Too Large.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;415&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Unsupported Media Type.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;422&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Unprocessable Entity.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;429&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Too Many Requests.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;500&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Internal Server Error.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;properties&quot;:{&quot;code&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error code.&quot;},&quot;description&quot;:{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}}}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;502&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Bad Gateway.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;504&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Gateway Timeout.&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{&quot;type&quot;:&quot;string&quot;,&quot;description&quot;:&quot;Error full description.&quot;}&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
