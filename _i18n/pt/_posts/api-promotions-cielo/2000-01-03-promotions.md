@@ -96,7 +96,9 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 
 # API Docs
 
-## Obtendo HTML da página de LOGIN
+## Fidelidade 
+
+### Obtendo HTML da página de LOGIN
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/login</span></aside>
 
@@ -125,7 +127,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |         Bad Gateway.          | `{"description":"Error full description.","type":"string"}` |
 | 504    |       Gateway Timeout.        | `{"description":"Error full description.","type":"string"}` |
 
-## Obtendo HTML da página de cadastro de cartões
+### Obtendo HTML da página de cadastro de cartões
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/cards</span></aside>
 
@@ -151,7 +153,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |               Bad Gateway.               | `{"description":"Error full description.","type":"string"}` |
 | 504    |             Gateway Timeout.             | `{"description":"Error full description.","type":"string"}` |
 
-## Retorna os dados do portador
+### Retorna os dados do portador
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/me</span></aside>
 
@@ -177,7 +179,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |      Bad Gateway.      | `{"description":"Error full description.","type":"string"}` |
 | 504    |    Gateway Timeout.    | `{"description":"Error full description.","type":"string"}` |
 
-## Retorna lista de cartões do portador
+### Retorna lista de cartões do portador
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/me/cards</span></aside>
 
@@ -210,7 +212,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |       Bad Gateway.        | `{"description":"Error full description.","type":"string"}` |
 | 504    |     Gateway Timeout.      | `{"description":"Error full description.","type":"string"}` |
 
-## Retorna lista de transações positivadas de um portador
+### Retorna lista de transações positivadas de um portador
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/me/transactions</span></aside>
 
@@ -240,7 +242,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |      Bad Gateway.      | `{"description":"Error full description.","type":"string"}` |
 | 504    |    Gateway Timeout.    | `{"description":"Error full description.","type":"string"}` |
 
-## Obtém dados de um cartão
+### Obtém dados de um cartão
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/me/cards/{card_id}</span></aside>
 
@@ -268,7 +270,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |      Bad Gateway.      | `{"type":"string","description":"Error full description."}` |
 | 504    |    Gateway Timeout.    | `{"type":"string","description":"Error full description."}` |
 
-## Retorna lista dos estabelecimentos comerciais
+### Retorna lista dos estabelecimentos comerciais
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/commercial-establishments</span></aside>
 
@@ -294,7 +296,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |          Bad Gateway.           | `{"description":"Error full description.","type":"string"}` |
 | 504    |        Gateway Timeout.         | `{"description":"Error full description.","type":"string"}` |
 
-## Retorna a subscrição do Estabelecimento Comercial a uma promoção
+### Retorna a subscrição do Estabelecimento Comercial a uma promoção
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/commercial-establishments/{commercial_establishment_id}/subscriptions/{subscription_id}</span></aside>
 
@@ -320,7 +322,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |          Bad Gateway.           | `{"description":"Error full description.","type":"string"}` |
 | 504    |        Gateway Timeout.         | `{"description":"Error full description.","type":"string"}` |
 
-## Retorna a lista das subscrições aceitas e processadas para um Estabelecimento Comercial
+### Retorna a lista das subscrições aceitas e processadas para um Estabelecimento Comercial
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/commercial-establishments/{commercial_establishment_id}/subscriptions</span></aside>
 
@@ -345,7 +347,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |           Bad Gateway.           | `{"description":"Error full description.","type":"string"}` |
 | 504    |         Gateway Timeout.         | `{"description":"Error full description.","type":"string"}` |
 
-## Envia um pedido de subscrição a uma promoção para um Estabelecimento Comercial
+### Envia um pedido de subscrição a uma promoção para um Estabelecimento Comercial
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">/commercial-establishments/{commercial_establishment_id}/subscriptions</span></aside>
 
@@ -373,7 +375,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |          Bad Gateway.          | `{"description":"Error full description.","type":"string"}` |
 | 504    |        Gateway Timeout.        | `{"description":"Error full description.","type":"string"}` |
 
-## Atualiza o status de um subscrição
+### Atualiza o status de um subscrição
 
 <aside class="request"><span class="method patch">PATCH</span><span class="endpoint">/subscriptions/{subscription_id}</span></aside>
 
@@ -401,7 +403,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |      Bad Gateway.      | `{"description":"Error full description.","type":"string"}` |
 | 504    |    Gateway Timeout.    | `{"description":"Error full description.","type":"string"}` |
 
-## Obtém a lista de subscrições não processadas
+### Obtém a lista de subscrições não processadas
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/subscriptions/queue</span></aside>
 
@@ -425,7 +427,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |            Bad Gateway.            | `{"description":"Error full description.","type":"string"}` |
 | 504    |          Gateway Timeout.          | `{"description":"Error full description.","type":"string"}` |
 
-## Obtém o status de uma subscrição não procesada
+### Obtém o status de uma subscrição não procesada
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/subscriptions/{subscription_id}/queue</span></aside>
 
@@ -450,73 +452,6 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 500    |          Internal Server Error.          | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
 | 502    |               Bad Gateway.               | `{"description":"Error full description.","type":"string"}` |
 | 504    |             Gateway Timeout.             | `{"description":"Error full description.","type":"string"}` |
-
-## Obtém lista de promoções
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">/promotions</span></aside>
-
-***`REQUEST`***
-
-|   Nome    | Localização |  Tipo   |                Descrição                 | Obrigatório |
-| :-------: | :---------: | :-----: | :--------------------------------------: | :---------: |
-| client_id |   header    | string  |  Client ID fornecido para a aplicação.   |     Sim     |
-| latitude  |    query    | number  |                 Latitude                 |     Sim     |
-| longitude |    query    | number  |                Longitude                 |     Sim     |
-|  radius   |    query    | integer |                   Raio                   |     Sim     |
-|  active   |    query    | boolean | Indicador para campanha ativa / não ativa |     Não     |
-|   type    |    query    | string  | Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome; |     Não     |
-|  _offset  |    query    | integer |     Registro inicial a ser retornado     |     Sim     |
-|  _limit   |    query    | integer | Quantidade de registros a serem retornados |     Sim     |
-|   _sort   |    query    | string  |     Define a ordenação do resultado      |     Não     |
-
-***`RESPONSE`***
-
-| Codigo |         Descrição         |                  Model                   |
-| ------ | :-----------------------: | :--------------------------------------: |
-| 200    |            OK.            | `{"allOf":[{"type":"object","properties":{"commercialEstablishment":{ "type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Commercial establishment identifier." }, "fictitiousName": { "type": "string", "description": "Fantasy name." }, "businessActivity": { "type": "object", "properties": { "id": { "type": "integer", "description": "Business activity identifier." } } } }}}},{"type": "object", "properties": { "id": { "type": "integer", "description": "Campaign identifier in the PROMO database." }, "active": { "type": "boolean", "description": "Field that identifies whether the campaign is active." }, "endDate": { "type": "string", "format": "date", "description": "End date (ISO 8601)." }, "startDate": { "type": "string", "format": "date", "description": "Start date (ISO 8601)." }, "title": { "type": "string", "description": "Promotional Campaign Title." }, "description": { "type": "string", "description": "Promotional Campaign Description." }, "transactionDays": { "type": "string", "description": "Transaction Days." }, "campaignModel": { "type": "string", "description": "Campaign model." }, "premium": { "type": "string", "description": "Campaign Prize." }, "campaignType": { "type": "string", "description": "Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;", "enum": [ "A", "B", "E", "F", "G", "P", "R", "X", "W" ] }, "validityRedemption": { "type": "string", "format": "date", "description": "Validity of the redemption." }, "shareable": { "type": "boolean", "description": "Field that identifies whether the campaign can be shared." } }}]}` |
-| 400    |       Bad Request.        | `{"type":"string","description":"Error full description."}` |
-| 401    |       Unauthorized.       | `{"type":"string","description":"Error full description."}` |
-| 403    |        Forbidden.         | `{"type":"string","description":"Error full description."}` |
-| 404    |        Not Found.         | `{"type":"string","description":"Error full description."}` |
-| 405    |    Method Not Allowed.    | `{"type":"string","description":"Error full description."}` |
-| 412    |   Precondition Failed.    | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
-| 413    | Request Entity Too Large. | `{"type":"string","description":"Error full description."}` |
-| 415    |  Unsupported Media Type.  | `{"type":"string","description":"Error full description."}` |
-| 422    |   Unprocessable Entity.   | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
-| 429    |    Too Many Requests.     | `{"type":"string","description":"Error full description."}` |
-| 500    |  Internal Server Error.   | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
-| 502    |       Bad Gateway.        | `{"type":"string","description":"Error full description."}` |
-| 504    |     Gateway Timeout.      | `{"type":"string","description":"Error full description."}` |
-
-## Obtém uma promoção específica
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">/promotions/{promotion_id}</span></aside>
-
-***`REQUEST`***
-
-|     Nome     | Localização |  Tipo   |               Descrição               | Obrigatório |
-| :----------: | :---------: | :-----: | :-----------------------------------: | :---------: |
-|  client_id   |   header    | string  | Client ID fornecido para a aplicação. |     Sim     |
-| promotion_id |    path     | integer |            ID da promoção             |     Sim     |
-
-***`RESPONSE`***
-
-| Codigo |         Descrição         |                  Model                   |
-| ------ | :-----------------------: | :--------------------------------------: |
-| 200    |            OK.            | `{"allOf":[{"type":"object","properties":{"commercialEstablishment":{"type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Commercial establishment identifier." }, "fictitiousName": { "type": "string", "description": "Fantasy name." }, "businessActivity": { "type": "object", "properties": { "id": { "type": "integer", "description": "Business activity identifier." } } } }}}},{ "type": "object", "properties": { "id": { "type": "integer", "description": "Campaign identifier in the PROMO database." }, "active": { "type": "boolean", "description": "Field that identifies whether the campaign is active." }, "endDate": { "type": "string", "format": "date", "description": "End date (ISO 8601)." }, "startDate": { "type": "string", "format": "date", "description": "Start date (ISO 8601)." }, "title": { "type": "string", "description": "Promotional Campaign Title." }, "description": { "type": "string", "description": "Promotional Campaign Description." }, "transactionDays": { "type": "string", "description": "Transaction Days." }, "campaignModel": { "type": "string", "description": "Campaign model." }, "premium": { "type": "string", "description": "Campaign Prize." }, "campaignType": { "type": "string", "description": "Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;", "enum": [ "A", "B", "E", "F", "G", "P", "R", "X", "W" ] }, "validityRedemption": { "type": "string", "format": "date", "description": "Validity of the redemption." }, "shareable": { "type": "boolean", "description": "Field that identifies whether the campaign can be shared." }}]}` |
-| 400    |       Bad Request.        | `{"type":"string","description":"Error full description."}` |
-| 401    |       Unauthorized.       | `{"type":"string","description":"Error full description."}` |
-| 403    |        Forbidden.         | `{"type":"string","description":"Error full description."}` |
-| 404    |        Not Found.         | `{"type":"string","description":"Error full description."}` |
-| 405    |    Method Not Allowed.    | `{"type":"string","description":"Error full description."}` |
-| 412    |   Precondition Failed.    | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
-| 413    | Request Entity Too Large. | `{"type":"string","description":"Error full description."}` |
-| 415    |  Unsupported Media Type.  | `{"type":"string","description":"Error full description."}` |
-| 422    |   Unprocessable Entity.   | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
-| 429    |    Too Many Requests.     | `{"type":"string","description":"Error full description."}` |
-| 500    |  Internal Server Error.   | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
-| 502    |       Bad Gateway.        | `{"type":"string","description":"Error full description."}` |
-| 504    |     Gateway Timeout.      | `{"type":"string","description":"Error full description."}` |
 
 ## Atualiza o ACCESS_TOKEN a partir do refresh_token
 
@@ -583,3 +518,72 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 500    |  Internal Server Error.   | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
 | 502    |       Bad Gateway.        | `{"description":"Error full description.","type":"string"}` |
 | 504    |     Gateway Timeout.      | `{"description":"Error full description.","type":"string"}` |
+
+## Promoções
+
+### Obtém lista de promoções
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/promotions</span></aside>
+
+***`REQUEST`***
+
+|   Nome    | Localização |  Tipo   |                Descrição                 | Obrigatório |
+| :-------: | :---------: | :-----: | :--------------------------------------: | :---------: |
+| client_id |   header    | string  |  Client ID fornecido para a aplicação.   |     Sim     |
+| latitude  |    query    | number  |                 Latitude                 |     Sim     |
+| longitude |    query    | number  |                Longitude                 |     Sim     |
+|  radius   |    query    | integer |                   Raio                   |     Sim     |
+|  active   |    query    | boolean | Indicador para campanha ativa / não ativa |     Não     |
+|   type    |    query    | string  | Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome; |     Não     |
+|  _offset  |    query    | integer |     Registro inicial a ser retornado     |     Sim     |
+|  _limit   |    query    | integer | Quantidade de registros a serem retornados |     Sim     |
+|   _sort   |    query    | string  |     Define a ordenação do resultado      |     Não     |
+
+***`RESPONSE`***
+
+| Codigo |         Descrição         |                  Model                   |
+| ------ | :-----------------------: | :--------------------------------------: |
+| 200    |            OK.            | `{"allOf":[{"type":"object","properties":{"commercialEstablishment":{ "type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Commercial establishment identifier." }, "fictitiousName": { "type": "string", "description": "Fantasy name." }, "businessActivity": { "type": "object", "properties": { "id": { "type": "integer", "description": "Business activity identifier." } } } }}}},{"type": "object", "properties": { "id": { "type": "integer", "description": "Campaign identifier in the PROMO database." }, "active": { "type": "boolean", "description": "Field that identifies whether the campaign is active." }, "endDate": { "type": "string", "format": "date", "description": "End date (ISO 8601)." }, "startDate": { "type": "string", "format": "date", "description": "Start date (ISO 8601)." }, "title": { "type": "string", "description": "Promotional Campaign Title." }, "description": { "type": "string", "description": "Promotional Campaign Description." }, "transactionDays": { "type": "string", "description": "Transaction Days." }, "campaignModel": { "type": "string", "description": "Campaign model." }, "premium": { "type": "string", "description": "Campaign Prize." }, "campaignType": { "type": "string", "description": "Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;", "enum": [ "A", "B", "E", "F", "G", "P", "R", "X", "W" ] }, "validityRedemption": { "type": "string", "format": "date", "description": "Validity of the redemption." }, "shareable": { "type": "boolean", "description": "Field that identifies whether the campaign can be shared." } }}]}` |
+| 400    |       Bad Request.        | `{"type":"string","description":"Error full description."}` |
+| 401    |       Unauthorized.       | `{"type":"string","description":"Error full description."}` |
+| 403    |        Forbidden.         | `{"type":"string","description":"Error full description."}` |
+| 404    |        Not Found.         | `{"type":"string","description":"Error full description."}` |
+| 405    |    Method Not Allowed.    | `{"type":"string","description":"Error full description."}` |
+| 412    |   Precondition Failed.    | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
+| 413    | Request Entity Too Large. | `{"type":"string","description":"Error full description."}` |
+| 415    |  Unsupported Media Type.  | `{"type":"string","description":"Error full description."}` |
+| 422    |   Unprocessable Entity.   | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
+| 429    |    Too Many Requests.     | `{"type":"string","description":"Error full description."}` |
+| 500    |  Internal Server Error.   | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
+| 502    |       Bad Gateway.        | `{"type":"string","description":"Error full description."}` |
+| 504    |     Gateway Timeout.      | `{"type":"string","description":"Error full description."}` |
+
+### Obtém uma promoção específica
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/promotions/{promotion_id}</span></aside>
+
+***`REQUEST`***
+
+|     Nome     | Localização |  Tipo   |               Descrição               | Obrigatório |
+| :----------: | :---------: | :-----: | :-----------------------------------: | :---------: |
+|  client_id   |   header    | string  | Client ID fornecido para a aplicação. |     Sim     |
+| promotion_id |    path     | integer |            ID da promoção             |     Sim     |
+
+***`RESPONSE`***
+
+| Codigo |         Descrição         |                  Model                   |
+| ------ | :-----------------------: | :--------------------------------------: |
+| 200    |            OK.            | `{"allOf":[{"type":"object","properties":{"commercialEstablishment":{"type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Commercial establishment identifier." }, "fictitiousName": { "type": "string", "description": "Fantasy name." }, "businessActivity": { "type": "object", "properties": { "id": { "type": "integer", "description": "Business activity identifier." } } } }}}},{ "type": "object", "properties": { "id": { "type": "integer", "description": "Campaign identifier in the PROMO database." }, "active": { "type": "boolean", "description": "Field that identifies whether the campaign is active." }, "endDate": { "type": "string", "format": "date", "description": "End date (ISO 8601)." }, "startDate": { "type": "string", "format": "date", "description": "Start date (ISO 8601)." }, "title": { "type": "string", "description": "Promotional Campaign Title." }, "description": { "type": "string", "description": "Promotional Campaign Description." }, "transactionDays": { "type": "string", "description": "Transaction Days." }, "campaignModel": { "type": "string", "description": "Campaign model." }, "premium": { "type": "string", "description": "Campaign Prize." }, "campaignType": { "type": "string", "description": "Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;", "enum": [ "A", "B", "E", "F", "G", "P", "R", "X", "W" ] }, "validityRedemption": { "type": "string", "format": "date", "description": "Validity of the redemption." }, "shareable": { "type": "boolean", "description": "Field that identifies whether the campaign can be shared." }}]}` |
+| 400    |       Bad Request.        | `{"type":"string","description":"Error full description."}` |
+| 401    |       Unauthorized.       | `{"type":"string","description":"Error full description."}` |
+| 403    |        Forbidden.         | `{"type":"string","description":"Error full description."}` |
+| 404    |        Not Found.         | `{"type":"string","description":"Error full description."}` |
+| 405    |    Method Not Allowed.    | `{"type":"string","description":"Error full description."}` |
+| 412    |   Precondition Failed.    | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
+| 413    | Request Entity Too Large. | `{"type":"string","description":"Error full description."}` |
+| 415    |  Unsupported Media Type.  | `{"type":"string","description":"Error full description."}` |
+| 422    |   Unprocessable Entity.   | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
+| 429    |    Too Many Requests.     | `{"type":"string","description":"Error full description."}` |
+| 500    |  Internal Server Error.   | `{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}` |
+| 502    |       Bad Gateway.        | `{"type":"string","description":"Error full description."}` |
+| 504    |     Gateway Timeout.      | `{"type":"string","description":"Error full description."}` |
