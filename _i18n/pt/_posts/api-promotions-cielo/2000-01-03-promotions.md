@@ -453,7 +453,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |               Bad Gateway.               | `{"description":"Error full description.","type":"string"}` |
 | 504    |             Gateway Timeout.             | `{"description":"Error full description.","type":"string"}` |
 
-## Atualiza o ACCESS_TOKEN a partir do refresh_token
+### Atualiza o ACCESS_TOKEN a partir do refresh_token
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">/refresh-token</span></aside>
 
@@ -486,7 +486,7 @@ Todas as chamadas da API necessitam que as informações abaixo estejam presente
 | 502    |       Bad Gateway.        | `{"description":"Error full description.","type":"string"}` |
 | 504    |     Gateway Timeout.      | `{"description":"Error full description.","type":"string"}` |
 
-## Obtém o ACCESS_TOKEN
+### Obtém o ACCESS_TOKEN
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">/access-token</span></aside>
 
