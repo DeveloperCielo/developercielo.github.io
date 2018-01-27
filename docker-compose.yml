@@ -1,0 +1,11 @@
+version: '3'
+services:
+  ruby:
+    build: .
+    container_name: developer-cielo
+    command: bundle exec jekyll serve -P 4000 -H '0.0.0.0'
+    working_dir: /app
+    ports:
+      - 4000:4000
+    volumes:
+      - ./:/app
