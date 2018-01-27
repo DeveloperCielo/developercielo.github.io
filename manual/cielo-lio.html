@@ -2807,7 +2807,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 
 <p>Para realizar o pagamento direto é necessário, primeiramente, verificar os tipos de pagamento habilitados para Cielo LIO do estabelecimento comercial utilizando a função de consulta de formas de pagamentos habilitadas para LIO:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ArrayList</span> <span class="n">paymentTypes</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrievePaymentType</span><span class="o">();</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">PrimaryProduct</span><span class="o">&gt;</span> <span class="n">paymentTypes</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrievePaymentType</span><span class="o">();</span>
 </code></pre></div></div>
 
 <p>Esta função disponibilizará uma lista de objetos do tipo PrimaryProduct onde será possível recuperar os códigos de pagamento habilitados.</p>
@@ -2841,7 +2841,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
     <tr>
       <td>secondaryProducts</td>
       <td>Listagem de códigos de pagamento secundário. ex.: À Vista, Parcelado, etc.</td>
-      <td><code class="highlighter-rouge">ArrayList</code></td>
+      <td><code class="highlighter-rouge">ArrayList&lt;SecondaryProduct&gt;</code></td>
     </tr>
   </tbody>
 </table>
@@ -3388,17 +3388,17 @@ As seguintes ações pode ser notificadas:
 
 <p>Exemplo de mapas de estilos:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HashMap</span> <span class="n">alignLeft</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignLeft</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
 <span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_LEFT</span><span class="o">);</span>
 <span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
 <span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
 
-<span class="n">HashMap</span> <span class="n">alignCenter</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignCenter</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
 <span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_CENTER</span><span class="o">);</span>
 <span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
 <span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
 
-<span class="n">HashMap</span> <span class="n">alignRight</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignRight</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
 <span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_RIGHT</span><span class="o">);</span>
 <span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
 <span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
@@ -3433,7 +3433,7 @@ O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de im
     <tr>
       <td>style</td>
       <td>Mapa de estilos de impressão</td>
-      <td><code class="highlighter-rouge">Map</code></td>
+      <td><code class="highlighter-rouge">Map&lt;String, Int&gt;</code></td>
     </tr>
     <tr>
       <td>printerListener</td>
@@ -3450,7 +3450,7 @@ O método recebe como parâmetro um array de texts a serem impresso, um array co
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span><span class="o">[]</span> <span class="n">textsToPrint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span> <span class="s">"Texto alinhado à esquerda."</span><span class="o">,</span> <span class="s">"Texto centralizado"</span><span class="o">,</span> <span class="s">"Texto alinhado à direita"</span>  <span class="o">}</span>
 
-<span class="n">List</span><span class="o">&gt;</span> <span class="n">stylesMap</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">stylesMap</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
 <span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignLeft</span><span class="o">);</span>
 <span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignCenter</span><span class="o">);</span>
 <span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignRight</span><span class="o">);</span>
@@ -3479,7 +3479,7 @@ O método recebe como parâmetro um array de texts a serem impresso, um array co
     <tr>
       <td>style</td>
       <td>Lista de mapa de estilos de impressão</td>
-      <td><code class="highlighter-rouge">List&gt;</code></td>
+      <td><code class="highlighter-rouge">List&lt;Map&lt;String, Int)&gt;&gt;</code></td>
     </tr>
     <tr>
       <td>printerListener</td>
@@ -3530,7 +3530,7 @@ O método recebe como parâmetro o <code class="highlighter-rouge">bitmap</code>
     <tr>
       <td>style</td>
       <td>Mapa de estilos de impressão</td>
-      <td><code class="highlighter-rouge">Map</code></td>
+      <td><code class="highlighter-rouge">Map&lt;String, Int&gt;</code></td>
     </tr>
     <tr>
       <td>printerListener</td>

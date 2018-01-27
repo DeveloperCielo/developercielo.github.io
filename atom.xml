@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-26T13:24:49+00:00</updated>
+    <updated>2018-01-27T22:16:45+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4449,7 +4449,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
 
 &lt;p&gt;Para realizar o pagamento direto é necessário, primeiramente, verificar os tipos de pagamento habilitados para Cielo LIO do estabelecimento comercial utilizando a função de consulta de formas de pagamentos habilitadas para LIO:&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paymentTypes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;orderManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;retrievePaymentType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrimaryProduct&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paymentTypes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;orderManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;retrievePaymentType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Esta função disponibilizará uma lista de objetos do tipo PrimaryProduct onde será possível recuperar os códigos de pagamento habilitados.&lt;/p&gt;
@@ -4483,7 +4483,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
     &lt;tr&gt;
       &lt;td&gt;secondaryProducts&lt;/td&gt;
       &lt;td&gt;Listagem de códigos de pagamento secundário. ex.: À Vista, Parcelado, etc.&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ArrayList&amp;lt;SecondaryProduct&amp;gt;&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5030,17 +5030,17 @@ As seguintes ações pode ser notificadas:
 
 &lt;p&gt;Exemplo de mapas de estilos:&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alignLeft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alignLeft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;alignLeft&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;KEY_ALIGN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VAL_ALIGN_LEFT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;alignLeft&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;KEY_TYPEFACE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;alignLeft&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;KEY_TEXT_SIZE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alignCenter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alignCenter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;alignCenter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;KEY_ALIGN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VAL_ALIGN_CENTER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;alignCenter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;KEY_TYPEFACE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;alignCenter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;KEY_TEXT_SIZE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alignRight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alignRight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;alignRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;KEY_ALIGN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VAL_ALIGN_RIGHT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;alignRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;KEY_TYPEFACE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;alignRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrinterAttributes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;KEY_TEXT_SIZE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
@@ -5075,7 +5075,7 @@ O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de im
     &lt;tr&gt;
       &lt;td&gt;style&lt;/td&gt;
       &lt;td&gt;Mapa de estilos de impressão&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Map&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Map&amp;lt;String, Int&amp;gt;&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;printerListener&lt;/td&gt;
@@ -5092,7 +5092,7 @@ O método recebe como parâmetro um array de texts a serem impresso, um array co
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textsToPrint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Texto alinhado à esquerda.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Texto centralizado&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Texto alinhado à direita&quot;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stylesMap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stylesMap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;stylesMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alignLeft&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;stylesMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alignCenter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;stylesMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alignRight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
@@ -5121,7 +5121,7 @@ O método recebe como parâmetro um array de texts a serem impresso, um array co
     &lt;tr&gt;
       &lt;td&gt;style&lt;/td&gt;
       &lt;td&gt;Lista de mapa de estilos de impressão&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;Map&amp;lt;String, Int)&amp;gt;&amp;gt;&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;printerListener&lt;/td&gt;
@@ -5172,7 +5172,7 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
     &lt;tr&gt;
       &lt;td&gt;style&lt;/td&gt;
       &lt;td&gt;Mapa de estilos de impressão&lt;/td&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Map&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Map&amp;lt;String, Int&amp;gt;&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;printerListener&lt;/td&gt;
@@ -6669,14 +6669,14 @@ para iniciar a operação no ambiente de produção.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;A mensagem em formato XML, definida de acordo com a funcionalidade.&lt;/li&gt;
   &lt;li&gt;O destino (ambiente de teste ou de produção).&lt;/li&gt;
-  &lt;li&gt;O retorno em formato XML, que pode ser: &lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt; ou ``.&lt;/li&gt;
+  &lt;li&gt;O retorno em formato XML, que pode ser: &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;transacao/&amp;gt;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;retorno-token&amp;gt;&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;erro/&amp;gt;&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST /servicos/ecommwsec.do HTTP/1.1
 Host: eCommerce.cielo.com.br
 Content-Type: application/x-www-form-urlencoded
 Content-Length: length
-mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f33880
+mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-captura&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;3e22bdd0-2017-4756-80b7-35a532e6c973&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10069930690101012005&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&amp;lt;dados-ec&amp;gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&amp;lt;/dados-ec&amp;gt;&amp;lt;valor&amp;gt;&lt;/span&gt;3880&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&amp;lt;/requisicao-captura&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;transação&quot;&gt;Transação&lt;/h2&gt;
@@ -6691,54 +6691,55 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
 
 &lt;h1 id=&quot;criando-transações&quot;&gt;Criando transações&lt;/h1&gt;
 
-&lt;p&gt;Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML ``, cujo conjunto de TAGS determinam as configurações de uma transação.&lt;/p&gt;
+&lt;p&gt;Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;requisicao-transacao&amp;gt;&lt;/code&gt;, cujo conjunto de TAGS determinam as configurações de uma transação.&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-    1006993069
-    25fbb997438630f30b112d033ce2e621b34f3
-  
-  
-    4012001038443335
-    201508
-    1
-    973
-    
-  
-  
-    178148599
-    1000
-    986
-    2011-12-07T11:43:37
-    [origem:10.50.54.156]
-    PT
-    
-    
-  
-  
-    visa
-    A
-    1
-  
-  http://localhost/lojaexemplo/retorno.jsp
-  1
-  false
-  Informações extras
-  455187
-  false
-  
-  
-      Rua Teste AVS
-      Casa
-      123
-      Vila AVS
-      12345-123
-      11111111111
-    
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;4012001038443335&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;validade&amp;gt;&lt;/span&gt;201508&lt;span class=&quot;nt&quot;&gt;&amp;lt;/validade&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;indicador&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/indicador&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-seguranca&amp;gt;&lt;/span&gt;973&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo-seguranca&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;token/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;178148599&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;A&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-retorno&amp;gt;&lt;/span&gt;http://localhost/lojaexemplo/retorno.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-retorno&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;false&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;campo-livre&amp;gt;&lt;/span&gt;Informações extras&lt;span class=&quot;nt&quot;&gt;&amp;lt;/campo-livre&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;bin&amp;gt;&lt;/span&gt;455187&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bin&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;gerar-token&amp;gt;&lt;/span&gt;false&lt;span class=&quot;nt&quot;&gt;&amp;lt;/gerar-token&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;avs&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[
+    &amp;lt;dados-avs&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;endereco&amp;gt;&lt;/span&gt;Rua Teste AVS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/endereco&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;complemento&amp;gt;&lt;/span&gt;Casa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/complemento&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;123&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;bairro&amp;gt;&lt;/span&gt;Vila AVS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bairro&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;cep&amp;gt;&lt;/span&gt;12345-123&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cep&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;cpf&amp;gt;&lt;/span&gt;11111111111&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cpf&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-avs&amp;gt;&lt;/span&gt;
   ]]&amp;gt;
-  
-
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/avs&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -7056,51 +7057,51 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
 &lt;p&gt;Há três tipos de retorno que podem ser gerados na resposta do Web Service:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;``&lt;/li&gt;
-  &lt;li&gt;``&lt;/li&gt;
-  &lt;li&gt;``&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;transacao&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;retorno-token&amp;gt;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;erro&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Para as operações relacionadas a uma transação (consultas, autorização, captura e cancelamento), a resposta, em caso de sucesso, é sempre um XML do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;. No caso de uma requisição exclusiva para criação de token, a resposta esperada é&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Para as operações relacionadas a uma transação (consultas, autorização, captura e cancelamento), a resposta, em caso de sucesso, é sempre um XML do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;transacao&amp;gt;&lt;/code&gt;. No caso de uma requisição exclusiva para criação de token, a resposta esperada é &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;retorno-token&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo ``. Basicamente, ela é composta pelos dados do pedido e dados da configuração da transação.&lt;/p&gt;
+&lt;p&gt;O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;transacao&amp;gt;&lt;/code&gt;. Basicamente, ela é composta pelos dados do pedido e dados da configuração da transação.&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-    100699306908642F1001
-    uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
-    
-        2132385784
-        1000
-        986
-        2013-02-18T16:51:30.852-03:00
-        [origem:0:0:0:0:0:0:0:1]
-        PT
-        0
-    
-    
-        visa
-        1
-        1
-    
-    4
-    
-        4
-        Transacao sem autenticacao
-        2013-02-18T16:51:31.158-03:00
-        1000
-        7
-    
-    
-        4
-        Transação autorizada
-        2013-02-18T16:51:31.460-03:00
-        1000
-        00
-        123456
-        549935
-    
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.3.0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;af32f93c-5e9c-4f44-9478-ccc5aca9319e&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;100699306908642F1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;2132385784&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2013-02-18T16:51:30.852-03:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:0:0:0:0:0:0:0:1]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;4&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;autenticacao&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;4&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Transacao sem autenticacao&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2013-02-18T16:51:31.158-03:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;eci&amp;gt;&lt;/span&gt;7&lt;span class=&quot;nt&quot;&gt;&amp;lt;/eci&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/autenticacao&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizacao&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;4&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Transação autorizada&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2013-02-18T16:51:31.460-03:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;lr&amp;gt;&lt;/span&gt;00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lr&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;arp&amp;gt;&lt;/span&gt;123456&lt;span class=&quot;nt&quot;&gt;&amp;lt;/arp&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;nsu&amp;gt;&lt;/span&gt;549935&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nsu&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizacao&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;As informações mais importantes são:&lt;/p&gt;
@@ -7111,7 +7112,7 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
   &lt;li&gt;&lt;strong&gt;Status&lt;/strong&gt;: é a informação base para a loja controlar a transação.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;A tabela abaixo detalha as TAGS do XML básico de retorno, identificado pelo nó raiz ``:&lt;/p&gt;
+&lt;p&gt;A tabela abaixo detalha as TAGS do XML básico de retorno, identificado pelo nó raiz &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;transação&amp;gt;&lt;/code&gt;:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -7156,14 +7157,14 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Por fim, há outro tipo de retorno que é empregado toda vez que uma requisição não pode ser executada, seja porque era inválida ou por ter ocorrido falha no seu processamento. Nesse cenário o nó raiz do XML de resposta é do tipo ``.&lt;/p&gt;
+&lt;p&gt;Por fim, há outro tipo de retorno que é empregado toda vez que uma requisição não pode ser executada, seja porque era inválida ou por ter ocorrido falha no seu processamento. Nesse cenário o nó raiz do XML de resposta é do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;erro&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  001
-  ]]&amp;gt;
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;erro&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '&amp;lt;xml-fragment/&amp;gt;]]&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/erro&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Quando a transação é inválida, podemos classificar os erros em dois tipos:&lt;/p&gt;
@@ -7181,7 +7182,7 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
 
 &lt;p&gt;Ela acontece sempre no site do banco (Internet Banking), utilizando mecanismos e tecnologias independentes da Cielo. Dessa forma, é possível que o banco utilize token eletrônico e senha, enquanto outro utilize os cartões de senhas ou CPF para autenticar uma transação.&lt;/p&gt;
 
-&lt;p&gt;Conforme mostrado anteriormente, a mecânica do redirecionamento é obtida através da tag `` que é retornada pela Cielo no XML  no momento da solicitação de autorização ao Web Service.&lt;/p&gt;
+&lt;p&gt;Conforme mostrado anteriormente, a mecânica do redirecionamento é obtida através da tag &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;url-autenticacao&amp;gt;&lt;/code&gt; que é retornada pela Cielo no XML  no momento da solicitação de autorização ao Web Service.&lt;/p&gt;
 
 &lt;p&gt;A autenticação é obrigatória para transações de débito e opcional para o crédito. Atualmente somente Visa e MasterCard suportam essa funcionalidade e consequentemente, somente essas duas bandeiras possuem o produto débito.&lt;/p&gt;
 
@@ -7193,12 +7194,12 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
 
 &lt;ol&gt;
   &lt;li&gt;fecharPedido() – acontece quando o portador do cartão finaliza o pedido e dá início ao pagamento da compra&lt;/li&gt;
-  &lt;li&gt;criarTransacao(autenticada) – o sistema do lojista envia uma requisição XML `` solicitando uma transação autenticada, ou seja, a TAG  será 0, 1 ou 2. Em seguida, a Cielo informará no XML de retorno o campo  com o endereço que o portador deverá ser redirecionado.&lt;/li&gt;
+  &lt;li&gt;criarTransacao(autenticada) – o sistema do lojista envia uma requisição XML &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;requisicao-transacao&amp;gt;&lt;/code&gt; solicitando uma transação autenticada, ou seja, a TAG  será 0, 1 ou 2. Em seguida, a Cielo informará no XML de retorno o campo  com o endereço que o portador deverá ser redirecionado.&lt;/li&gt;
   &lt;li&gt;acessar(url-atenticacao) – o browser do portador é redirecionado ao ambiente da Cielo. Assim que a página da Cielo é acessada, automaticamente ela já é direcionada para o banco emissor (3.1). Esse redirect é tão rápido que é praticamente imperceptível.&lt;/li&gt;
   &lt;li&gt;autenticar(token, cpf) – o portador estará no ambiente do banco e utilizará algum mecanismo provido pelo próprio emissor para realizar a autenticação da transação (geralmente token, cartão de bingo, cpf, assinatura eletrônica, etc).&lt;/li&gt;
   &lt;li&gt;resultadoAutenticacao() – o banco emissor redireciona o fluxo para a Cielo com o resultado da autenticação. A partir daí, o fluxo volta ao normal, conforme disposto no item “2.3 Arquitetura de integração”.
     1.processar() – o sistema da Cielo processa o retorno da autenticação e submete á autorização e, opcionalmente, à captura automática.
-    2. enviarRedirect(url-retorno) – o sistema da Cielo envia um redirect ao browser do cliente para o endereço especificado na URL de retorno, fornecida na primeira requisição (``)
+    2. enviarRedirect(url-retorno) – o sistema da Cielo envia um redirect ao browser do cliente para o endereço especificado na URL de retorno, fornecida na primeira requisição (&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;requisicao-transacao&amp;gt;&lt;/code&gt;)
     &lt;ol&gt;
       &lt;li&gt;acessar(url-retorno) – o browser do portador acessar a URL no ambiente da loja, onde recomendamos que exista uma requisição de consulta via TID ao Web Service da Cielo.&lt;/li&gt;
     &lt;/ol&gt;
@@ -7222,53 +7223,53 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
   &lt;li&gt;A configuração da // deve ser 0, 1 ou 2.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Observando o diagrama da seção &lt;a href=&quot;#transação&quot;&gt;Transação&lt;/a&gt;, é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó `` no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:&lt;/p&gt;
+&lt;p&gt;Observando o diagrama da seção &lt;a href=&quot;#transação&quot;&gt;Transação&lt;/a&gt;, é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;autenticacao&amp;gt;&lt;/code&gt; no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:&lt;/p&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-    10069930690864281001
-    uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
-    
-        1739114311
-        1000
-        986
-        2013-02-18T15:06:27.523-03:00
-        [origem:172.16.34.66]
-        PT
-        0
-    
-    
-        visa
-        1
-        1
-    
-    6
-    
-        6
-        Transacao sem autenticacao
-        2013-02-18T15:06:28.013-03:00
-        1000
-        7
-    
-    
-        6
-        Transação autorizada
-        2013-02-18T15:06:28.807-03:00
-        1000
-        00
-        123456
-        549928
-    
-    
-        6
-        Transacao capturada com sucesso
-        2013-02-18T15:08:23.031-03:00
-        1000
-    
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.3.0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5e445904-963e-4fa1-95cd-55ef88c289cc&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10069930690864281001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1739114311&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2013-02-18T15:06:27.523-03:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:172.16.34.66]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;autenticacao&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Transacao sem autenticacao&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2013-02-18T15:06:28.013-03:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;eci&amp;gt;&lt;/span&gt;7&lt;span class=&quot;nt&quot;&gt;&amp;lt;/eci&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/autenticacao&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizacao&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Transação autorizada&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2013-02-18T15:06:28.807-03:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;lr&amp;gt;&lt;/span&gt;00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lr&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;arp&amp;gt;&lt;/span&gt;123456&lt;span class=&quot;nt&quot;&gt;&amp;lt;/arp&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;nsu&amp;gt;&lt;/span&gt;549928&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nsu&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizacao&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;captura&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Transacao capturada com sucesso&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2013-02-18T15:08:23.031-03:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/captura&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Os campos apenas do nó `` estão listados na tabela abaixo:&lt;/p&gt;
+&lt;p&gt;Os campos apenas do nó &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;autenticacao&amp;gt;&lt;/code&gt; estão listados na tabela abaixo:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -8094,7 +8095,7 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
 
 &lt;h2 id=&quot;códigos-de-erros&quot;&gt;Códigos de Erros&lt;/h2&gt;
 
-&lt;p&gt;Os erros que podem ser apresentados na mensagem XML, através da TAG ``, estão dispostos a seguir:&lt;/p&gt;
+&lt;p&gt;Os erros que podem ser apresentados na mensagem XML, através da TAG &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;erro&amp;gt;&lt;/code&gt;, estão dispostos a seguir:&lt;/p&gt;
 
 &lt;h3 id=&quot;tabela-de-erros-de-integração&quot;&gt;Tabela de erros de integração&lt;/h3&gt;
 
@@ -8515,30 +8516,30 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
 
 &lt;h2 id=&quot;autorização-direta&quot;&gt;Autorização Direta&lt;/h2&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-    1006993069
-    25fbb997438630f30b112d033ce2e621b34f3
-  
-  
-    4012001038443335
-    201508
-    1
-    973
-  
-  
-    
-  
-  
-    visa
-    1
-    1
-  
-  http://localhost/lojaexemplo/retorno.jsp
-  3
-  false
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;4012001038443335&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;validade&amp;gt;&lt;/span&gt;201508&lt;span class=&quot;nt&quot;&gt;&amp;lt;/validade&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;indicador&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/indicador&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-seguranca&amp;gt;&lt;/span&gt;973&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo-seguranca&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-retorno&amp;gt;&lt;/span&gt;http://localhost/lojaexemplo/retorno.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-retorno&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;false&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;A autorização direta caracteriza-se por ser uma transação onde não há a autenticação do portador, seja por opção (e risco) do lojista, seja porque a bandeira ou emissor não tem suporte. A autorização direta pode ser feita de duas formas: tradicional (com os dados do cartão) ou através de um token.&lt;/p&gt;
@@ -8550,7 +8551,7 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
   &lt;li&gt;&lt;strong&gt;Regras&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;O cadastro da loja virtual deve estar habilitado para envio dos dados do cartão.&lt;/li&gt;
-      &lt;li&gt;Enviar a TAG `` com o valor “3”.&lt;/li&gt;
+      &lt;li&gt;Enviar a TAG &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/code&gt; com o valor “3”.&lt;/li&gt;
       &lt;li&gt;Somente válido para Crédito.&lt;/li&gt;
       &lt;li&gt;O lojista deve estar atento às regras para envio do cartão.&lt;/li&gt;
       &lt;li&gt;Na autorização direta, o nível de segurança da transação (ECI) é definido como:
@@ -8565,30 +8566,30 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
 
 &lt;h2 id=&quot;autorização-recorrente&quot;&gt;Autorização Recorrente&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-XML&quot;&gt;
-
-  
-    1006993069
-    25fbb997438630f30b112d033ce2e621b34f3
-  
-  
-    4012001038443335
-    201508
-    1
-    973
-  
-  
-    
-  
-  
-    visa
-    1
-    1
-  
-  http://localhost/lojaexemplo/retorno.jsp
-  4
-  false
-
+&lt;pre&gt;&lt;code class=&quot;language-XML&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;
+&amp;lt;requisicao-transacao id=&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot; versao=&quot;1.2.1&quot;&amp;gt;
+  &amp;lt;dados-ec&amp;gt;
+    &amp;lt;numero&amp;gt;1006993069&amp;lt;/numero&amp;gt;
+    &amp;lt;chave&amp;gt;25fbb997438630f30b112d033ce2e621b34f3&amp;lt;/chave&amp;gt;
+  &amp;lt;/dados-ec&amp;gt;
+  &amp;lt;dados-portador&amp;gt;
+    &amp;lt;numero&amp;gt;4012001038443335&amp;lt;/numero&amp;gt;
+    &amp;lt;validade&amp;gt;201508&amp;lt;/validade&amp;gt;
+    &amp;lt;indicador&amp;gt;1&amp;lt;/indicador&amp;gt;
+    &amp;lt;codigo-seguranca&amp;gt;973&amp;lt;/codigo-seguranca&amp;gt;
+  &amp;lt;/dados-portador&amp;gt;
+  &amp;lt;dados-pedido&amp;gt;
+    &amp;lt;!-- ... --&amp;gt;
+  &amp;lt;/dados-pedido&amp;gt;
+  &amp;lt;forma-pagamento&amp;gt;
+    &amp;lt;bandeira&amp;gt;visa&amp;lt;/bandeira&amp;gt;
+    &amp;lt;produto&amp;gt;1&amp;lt;/produto&amp;gt;
+    &amp;lt;parcelas&amp;gt;1&amp;lt;/parcelas&amp;gt;
+  &amp;lt;/forma-pagamento&amp;gt;
+  &amp;lt;url-retorno&amp;gt;http://localhost/lojaexemplo/retorno.jsp&amp;lt;/url-retorno&amp;gt;
+  &amp;lt;autorizar&amp;gt;4&amp;lt;/autorizar&amp;gt;
+  &amp;lt;capturar&amp;gt;false&amp;lt;/capturar&amp;gt;
+&amp;lt;/requisicao-transacao&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;A autorização recorrente pode ser feita de duas formas: através do envio de um token previamente cadastrado, ou através de um cartão. A transação recorrente é praticamente igual à transação tradicional, as mudanças consistem nas regras que o emissor e a bandeira utilizam para autorizar ou negar uma transação. Outra diferença está relacionada ao Renova Fácil.&lt;/p&gt;
@@ -8603,7 +8604,7 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
   &lt;li&gt;&lt;strong&gt;Objetivo&lt;/strong&gt; - Submeter uma transação recorrente com o uso de um cartão de crédito.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Regras&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;Enviar a TAG `` com o valor “4”.&lt;/li&gt;
+      &lt;li&gt;Enviar a TAG &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/code&gt; com o valor “4”.&lt;/li&gt;
       &lt;li&gt;Somente válido para crédito à vista.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -8611,32 +8612,32 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
 
 &lt;h3 id=&quot;renova-fácil&quot;&gt;Renova Fácil&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  10069930690362461001
-  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
-  
-    
-  
-  
-    
-  
-  5
-  
-  
-    5
-    Autorização negada
-    2011-12-09T10:58:45.847-02:00
-    1000
-    57
-    221766
-  
-  
-    4012001038443335
-    201508
-    
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;d35b67189442&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10069930690362461001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizacao&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Autorização negada&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-09T10:58:45.847-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;lr&amp;gt;&lt;/span&gt;57&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lr&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;nsu&amp;gt;&lt;/span&gt;221766&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nsu&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizacao&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;4012001038443335&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;validade&amp;gt;&lt;/span&gt;201508&lt;span class=&quot;nt&quot;&gt;&amp;lt;/validade&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-seguranca/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Essa funcionalidade facilita a identificação de um cartão que tenha sido substituído por outro no banco emissor. Dessa forma, quando uma transação recorrente é submetida ao Web Service e a Cielo identifica que o cartão utilizado está desatualizado, o sistema terá o seguinte comportamento:&lt;/p&gt;
@@ -8653,14 +8654,14 @@ mensagem=10069930690101012005100699306925fbb99741c739dd84d7b06ec78c9bac718838630
 
 &lt;h3 id=&quot;autorização-de-uma-transação-previamente-gerada&quot;&gt;Autorização de uma transação previamente gerada&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-    100699306908642E1001
-    
-        1006993069
-        25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
-    
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-autorizacao-tid&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a387cb68-b33a-4113-b7c4-9b7dfde871ec&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.3.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;100699306908642E1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-autorizacao-tid&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Para os estabelecimentos utilizando o processo de autenticação, é possível solicitar a autorização
@@ -8708,18 +8709,18 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h2 id=&quot;transação-com-token&quot;&gt;Transação com Token&lt;/h2&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-    1006993069
-    25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
-  
-  
-    4012001038443335
-    201508
-    FULANO DA SILVA
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-token&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;8fc889c7-004f-42f1-963a-31aa26f75e5c&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;4012001038443335&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;validade&amp;gt;&lt;/span&gt;201508&lt;span class=&quot;nt&quot;&gt;&amp;lt;/validade&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;nome-portador&amp;gt;&lt;/span&gt;FULANO DA SILVA&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nome-portador&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-token&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -8795,16 +8796,16 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;retorno&quot;&gt;Retorno&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-    
-      TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
-      1
-      455187******0183
-    
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;retorno-token&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;57239017&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;token&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-token&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-token&amp;gt;&lt;/span&gt;TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo-token&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero-cartao-truncado&amp;gt;&lt;/span&gt;455187******0183&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero-cartao-truncado&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-token&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/token&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/retorno-token&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;O retorno será do tipo  quando a solicitação tenha sido concluída com sucesso, ou  em caso de fracasso.&lt;/p&gt;
@@ -8842,34 +8843,34 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;autorização-direta-via-token&quot;&gt;Autorização Direta via Token&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-    1006993069
-    25fbb997438630f30b112d033ce2e621b34f3
-  
-  
-    TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
-  
-  
-    
-  
-  
-    visa
-    1
-    1
-  
-  http://localhost/lojaexemplo/retorno.jsp
-  3
-  true
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;token&amp;gt;&lt;/span&gt;TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/token&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-retorno&amp;gt;&lt;/span&gt;http://localhost/lojaexemplo/retorno.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-retorno&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Objetico&lt;/strong&gt; - Submeter uma transação direta (sem autenticação) com o uso de um token previamente cadastrado&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Regras&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;Enviar a TAG `` com o valor “3”.&lt;/li&gt;
+      &lt;li&gt;Enviar a TAG &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/code&gt; com o valor “3”.&lt;/li&gt;
       &lt;li&gt;O token deve estar desbloqueado.&lt;/li&gt;
       &lt;li&gt;Válido somente para crédito.&lt;/li&gt;
     &lt;/ul&gt;
@@ -8878,27 +8879,27 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;autorização-recorrente-com-token&quot;&gt;Autorização recorrente com Token&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-    1006993069
-    25fbb997438630f30b112d033ce2e621b34f3
-  
-  
-    TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
-  
-  
-    
-  
-  
-    visa
-    1
-    1
-  
-  http://localhost/lojaexemplo/retorno.jsp
-  4
-  true
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;token&amp;gt;&lt;/span&gt;TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/token&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-retorno&amp;gt;&lt;/span&gt;http://localhost/lojaexemplo/retorno.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-retorno&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;4&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -8906,7 +8907,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   &lt;li&gt;&lt;strong&gt;Objetivo&lt;/strong&gt; - Submeter uma transação recorrente com o uso de um token previamente cadastrado.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Regras&lt;/strong&gt;
     &lt;ul&gt;
-      &lt;li&gt;Enviar a TAG `` com o valor “4”.&lt;/li&gt;
+      &lt;li&gt;Enviar a TAG &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/code&gt; com o valor “4”.&lt;/li&gt;
       &lt;li&gt;O token deve estar desbloqueado.&lt;/li&gt;
       &lt;li&gt;Somente válido para crédito à vista.&lt;/li&gt;
     &lt;/ul&gt;
@@ -8915,34 +8916,34 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;renova-fácil-com-token&quot;&gt;Renova Fácil com Token&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  10069930690362461001
-  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
-  
-    
-  
-  
-    
-  
-  5
-  
-  
-    5
-    Autorização negada
-    2011-12-09T10:58:45.847-02:00
-    1000
-    57
-    221766
-  
-  
-    
-      TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=
-      1
-      455187******0183
-    
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;d35b67189442&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10069930690362461001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizacao&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Autorização negada&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-09T10:58:45.847-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;lr&amp;gt;&lt;/span&gt;57&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lr&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;nsu&amp;gt;&lt;/span&gt;221766&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nsu&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizacao&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;token&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-token&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-token&amp;gt;&lt;/span&gt;TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo-token&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;status&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/status&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero-cartao-truncado&amp;gt;&lt;/span&gt;455187******0183&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero-cartao-truncado&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-token&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/token&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Essa funcionalidade facilita a identificação de um cartão que tenha sido substituído por outro no banco emissor. Dessa forma, quando uma transação recorrente é submetida ao Web Service e a Cielo identifica que o cartão utilizado está desatualizado, o sistema terá o seguinte comportamento:&lt;/p&gt;
@@ -8955,17 +8956,17 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;geração-de-token&quot;&gt;Geração de Token&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-  true
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;gerar-token&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/gerar-token&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;este serviço adicional está sujeito a cobrança a partir do momento em que a geração de token é solicitada.&lt;/aside&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Objetivo&lt;/strong&gt; - Além da mensagem específica para criação de um token, descrita em Transação com Token, é possível aproveitar uma requisição de autorização para solicitar a geração do token, acrescentando a informação `` no nó de requisição de transação.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Objetivo&lt;/strong&gt; - Além da mensagem específica para criação de um token, descrita em Transação com Token, é possível aproveitar uma requisição de autorização para solicitar a geração do token, acrescentando a informação &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;gerar-token&amp;gt;&lt;/code&gt; no nó de requisição de transação.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Regras&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;Caso um cartão seja submetido mais de uma vez pelo mesmo lojista, o Token gerado será sempre o mesmo.&lt;/li&gt;
@@ -8977,17 +8978,17 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;autenticação-e-transações-com-cartões-de-débito&quot;&gt;Autenticação e Transações com Cartões de Débito&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-  
-    visa
-    A
-    1
-  
-  
-  1
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;produto&amp;gt;&lt;/span&gt;A&lt;span class=&quot;nt&quot;&gt;&amp;lt;/produto&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;parcelas&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/parcelas&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;A autenticação da transação garantirá uma segurança extra ao lojista contra Chargebacks, porém, conforme apresentando no capítulo “2.5 – Autenticação e nível de segurança”, nem todas as bandeiras e emissores disponibilizam esse tipo de serviço.&lt;/p&gt;
@@ -9015,19 +9016,19 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;permite-que-o-lojista-envie-um-texto-soft-descriptor&quot;&gt;Permite que o lojista envie um texto (Soft Descriptor)&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-  
-  
-    178148599
-    1000
-    986
-    2011-12-07T11:43:37
-    [origem:10.50.54.156]
-    PT
-    soft-descriptor
-  
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;178148599&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor&amp;gt;&lt;/span&gt;soft-descriptor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soft-descriptor&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -9050,16 +9051,16 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;captura-automática&quot;&gt;Captura Automática&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-  true
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Objetivo&lt;/strong&gt; - A captura automática permite que uma requisição de autorização seja capturada imediatamente após sua aprovação. Dessa forma, não é preciso realizar uma ``.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Objetivo&lt;/strong&gt; - A captura automática permite que uma requisição de autorização seja capturada imediatamente após sua aprovação. Dessa forma, não é preciso realizar uma &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;requisicao-captura&amp;gt;&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Regras&lt;/strong&gt;
     &lt;ul&gt;
       &lt;li&gt;Somente autorizações aprovadas serão capturadas automaticamente.&lt;/li&gt;
@@ -9069,27 +9070,27 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;taxa-de-embarque&quot;&gt;Taxa de embarque&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-  
-    178148599
-    10000
-    986
-    2011-12-07T11:43:37
-    [origem:10.50.54.156]
-    PT
-    softdescriptor
-    1000
-  
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;178148599&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;10000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor&amp;gt;&lt;/span&gt;softdescriptor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soft-descriptor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Objetivo&lt;/strong&gt; A taxa de embarque é um campo informativo que define o montante do total da transação (informado na tag dados-pedido//valor) que deve ser destinado ao pagamento da taxa à Infraero.
     &lt;ul&gt;
-      &lt;li&gt;O valor da taxa de embarque não é acumulado ao valor da autorização. Por exemplo, em uma venda de passagem aérea de R$ 200,00 com taxa de embarque de R$ 25,00 deve-se enviar o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;22500&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;2500&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;O valor da taxa de embarque não é acumulado ao valor da autorização. Por exemplo, em uma venda de passagem aérea de R$ 200,00 com taxa de embarque de R$ 25,00 deve-se enviar o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;valor&amp;gt;22500&amp;lt;/valor&amp;gt;&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;taxa-embarque&amp;gt;2500&amp;lt;/taxa-embarque&amp;gt;&lt;/code&gt;.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Regras&lt;/strong&gt;
@@ -9104,32 +9105,33 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;avs-address-verification-service&quot;&gt;AVS (Address Verification Service)&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  
-  
-    178148599
-    10000
-    986
-    2011-12-07T11:43:37
-    [origem:10.50.54.156]
-    PT
-    softdescriptor
-    1000
-    
-  
-        Rua Teste AVS
-        Casa
-        123
-        Vila AVS
-        12345-123
-        11111111111
-      
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a97ab62a-7956-41ea-b03f-c2e9f612c293&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;178148599&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;10000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;moeda&amp;gt;&lt;/span&gt;986&lt;span class=&quot;nt&quot;&gt;&amp;lt;/moeda&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor&amp;gt;&lt;/span&gt;softdescriptor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soft-descriptor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;avs&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[
+      &amp;lt;dados-avs&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;endereco&amp;gt;&lt;/span&gt;Rua Teste AVS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/endereco&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;complemento&amp;gt;&lt;/span&gt;Casa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/complemento&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;123&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;bairro&amp;gt;&lt;/span&gt;Vila AVS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bairro&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;cep&amp;gt;&lt;/span&gt;12345-123&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cep&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-avs&amp;gt;&lt;/span&gt;11111111111&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-avs&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-avs&amp;gt;&lt;/span&gt;
   ]]&amp;gt;
-    
-  
-  
-
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/avs&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -9181,15 +9183,15 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h4 id=&quot;requisição&quot;&gt;Requisição&lt;/h4&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  100699306903609A1001
-  
-    1006993069
-    25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
-    
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-consulta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;6fcf758e-bc60-4d6a-acf4-496593a40441&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;100699306903609A1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-consulta&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;table&gt;
@@ -9244,15 +9246,15 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h4 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h4&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  1663784368
-  
-    1006993069
-    25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
-    
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-consulta-chsec&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;a51489b1-93d5-437f-bb4f-5b932fade248&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero-pedido&amp;gt;&lt;/span&gt;1663784368&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero-pedido&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-consulta-chsec&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;table&gt;
@@ -9301,7 +9303,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   &lt;li&gt;Posterior à autorização (captura total ou parcial).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;No primeiro caso, não é necessário enviar uma requisição de captura, pois ela é feita automaticamente pela Cielo após a autorização da transação. Para tanto, é preciso configurar a requisição de transação definindo-se o valor “true” para a TAG ``, conforme visto na seção “Criando uma transação”.&lt;/p&gt;
+&lt;p&gt;No primeiro caso, não é necessário enviar uma requisição de captura, pois ela é feita automaticamente pela Cielo após a autorização da transação. Para tanto, é preciso configurar a requisição de transação definindo-se o valor “true” para a TAG &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/code&gt;, conforme visto na seção “Criando uma transação”.&lt;/p&gt;
 
 &lt;p&gt;Já no segundo caso, é preciso fazer uma “captura posterior”, através de uma nova requisição ao Webservice da Cielo para confirmar a transação e receber o valor da venda.&lt;/p&gt;
 
@@ -9311,16 +9313,16 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;captura-total-e-parcial&quot;&gt;Captura Total e Parcial&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-    10069930690864281001
-    
-        1006993069
-        25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
-    
-    1000
-    0
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-captura&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;adbc9961-8a39-452b-b7fd-15b44b464a97&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.3.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10069930690864281001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-captura&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -9336,7 +9338,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
         &lt;ul&gt;
           &lt;li&gt;Na requisição de captura, o valor da taxa de embarque indica o montante do total que será capturado que deve ser destinado a esse fim.&lt;/li&gt;
           &lt;li&gt;Obrigatório caso seja captura parcial.&lt;/li&gt;
-          &lt;li&gt;Caso a captura seja total, o sistema irá considerar o valor da taxa de embarque informado no requisição de autorização (``).&lt;/li&gt;
+          &lt;li&gt;Caso a captura seja total, o sistema irá considerar o valor da taxa de embarque informado no requisição de autorização (&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;requisicao-transacao&amp;gt;&lt;/code&gt;).&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -9345,19 +9347,19 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;retorno-1&quot;&gt;Retorno&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  10069930690360EF1001
-  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
-  
-  
-    6
-    Transacao capturada com sucesso
-    2011-12-08T14:23:08.779-02:00
-    900
-    900
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0378c8cf4d&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;10069930690360EF1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;captura&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;6&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Transacao capturada com sucesso&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-08T14:23:08.779-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;900&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;900&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/captura&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Os campos do nó  estão detalhados a seguir:&lt;/p&gt;
@@ -9419,15 +9421,15 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h3 id=&quot;cancelamento-total-e-parcial&quot;&gt;Cancelamento Total e Parcial&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-    100699306908642E1001
-    
-        1006993069
-        25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
-    
-    0
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-cancelamento&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;39d36eb6-5ae9-4308-89a1-455d299460c0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.3.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;100699306908642E1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-cancelamento&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
@@ -9438,7 +9440,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
       &lt;li&gt;O prazo de cancelamento é de até 300 dias para a modalidade crédito e D+0 para débito.&lt;/li&gt;
       &lt;li&gt;O cancelamento total, quando realizado com sucesso, altera o status da transação para “9 – Cancelada”, enquanto que o parcial não altera o status da transação, mantendo-a como “6 – Capturada”.&lt;/li&gt;
       &lt;li&gt;Em caso de cancelamento na versão 1.6.1 (esta versão é exclusiva para cancelamento), o status de cancelamento parcial será diferente, ou seja: se cancelado com sucesso, retorna status 9; caso ocorra um erro no cancelamento parcial, o código de status será 6. Estas regras aplicam-se apenas para o cancelamento parcial.&lt;/li&gt;
-      &lt;li&gt;Caso a TAG `` não seja fornecida, o sistema assumirá um cancelamento total.&lt;/li&gt;
+      &lt;li&gt;Caso a TAG &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;valor&amp;gt;&lt;/code&gt; não seja fornecida, o sistema assumirá um cancelamento total.&lt;/li&gt;
       &lt;li&gt;O cancelamento parcial está disponível para todas as bandeiras suportadas no e-Commerce.&lt;/li&gt;
       &lt;li&gt;Para a modalidade débito, não existe a possibilidade de efetuar cancelamento parcial.&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;Transações com Taxa de embarque:&lt;/strong&gt;
@@ -9494,20 +9496,20 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 &lt;h4 id=&quot;retorno-2&quot;&gt;Retorno&lt;/h4&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-  100699306903613E1001
-  uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=
-  
-  
-    
-      9
-      Transacao cancelada com sucesso
-      2011-12-08T16:46:35.109-02:00
-      1000
-    
-  
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2c18f00a-3ff6-4c85-8865-a4fde599b2b2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;100699306903613E1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;cancelamentos&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;cancelamento&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo&amp;gt;&lt;/span&gt;9&lt;span class=&quot;nt&quot;&gt;&amp;lt;/codigo&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Transacao cancelada com sucesso&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-08T16:46:35.109-02:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;valor&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/valor&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/cancelamento&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/cancelamentos&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Os cancelamentos (parciais ou totais) das transações com taxa de embarque e captura parcial não serão acatadas automaticamente pelo sistema.&lt;/aside&gt;
@@ -9560,12 +9562,12 @@ O lote a ser gerado deverá conter uma ou mais transações do mesmo tipo de ope
 
 &lt;h3 id=&quot;mensagem-de-upload-de-arquivo&quot;&gt;Mensagem de Upload de Arquivo&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-    2012-10-08T09:38:04.284-03:00
-    2012-10-09T09:38:04.284-03:00
-    Seu lote está válido para processamento. Favor aguardar o determinado para retorno.
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;retorno-upload-lote&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br &quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-envio&amp;gt;&lt;/span&gt;2012-10-08T09:38:04.284-03:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-envio&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-retorno&amp;gt;&lt;/span&gt;2012-10-09T09:38:04.284-03:00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-retorno&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mensagem&amp;gt;&lt;/span&gt;Seu lote está válido para processamento. Favor aguardar o determinado para retorno.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mensagem&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/retorno-upload-lote&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Após a geração do arquivo, o Estabelecimento Comercial deverá efetuar o seu upload através do protocolo HTTPS, utilizando o método POST, na seguinte URL &lt;a href=&quot;http://ecommerce.cbmp.com.br/lote/ecommwsecLoteUpload.do&quot;&gt;http://ecommerce.cbmp.com.br/lote/ecommwsecLoteUpload.do&lt;/a&gt;.&lt;/p&gt;
@@ -9574,14 +9576,14 @@ O lote a ser gerado deverá conter uma ou mais transações do mesmo tipo de ope
 
 &lt;h3 id=&quot;mensagem-de-solicitação-de-download-de-retorno&quot;&gt;Mensagem de Solicitação de Download de Retorno&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-
-   
-   1006993069 
-   25fbb997438630f30b112d033ce2e621b34f3
-   
-   0000000086
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-download-retorno-lote&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Versao da msg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;“session&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;id”&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;1006993069 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;chave&amp;gt;&lt;/span&gt;25fbb997438630f30b112d033ce2e621b34f3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/chave&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero-lote&amp;gt;&lt;/span&gt;0000000086&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero-lote&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-download-retorno-lote&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;O Estabelecimento Comercial poderá solicitar o download do arquivo de retorno, após doze horas no mínimo, montando a seguinte mensagem:&lt;/p&gt;
@@ -9774,123 +9776,145 @@ O lote a ser gerado deverá conter uma ou mais transações do mesmo tipo de ope
 
 &lt;h3 id=&quot;arquivo-ecm-lotexsd&quot;&gt;Arquivo ECM-LOTE.XSD&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:schema&lt;/span&gt; 
+    &lt;span class=&quot;na&quot;&gt;xmlns:xsd=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;targetNamespace=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;elementFormDefault=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;qualified&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:include&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ecm-ec.xsd&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:include&amp;gt;&lt;/span&gt;
 
 
-    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:simpleType&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;numeroLoteType&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:restriction&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;base=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xsd:int&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:minExclusive&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:minExclusive&amp;gt;&lt;/span&gt;
 
-
-    
-        
-            
-
-            
-        
-    
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:maxInclusive&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;999999999&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:maxInclusive&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:restriction&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:simpleType&amp;gt;&lt;/span&gt;
 
 
 
-    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;requisicao-lote&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
 
-    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;retorno-lote&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RetornoLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
 
-    
-        
-            
-            
-            
-                        
-            
-                
-                    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:complexType&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:sequence&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dados-ec&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;DadosEc&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;numero-lote&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;numeroLoteType&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;            
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tipo-operacao&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:annotation&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:documentation&amp;gt;&lt;/span&gt;
                         2: Autorização 3:Cancelamento 4:Captura 5:Tokenização 6:Consulta 7:ConsultaChSec 8:AutorizacaoTid
-                    
-                
-                
-                    
-                                                
-                    
-                
-            
-            
-            
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:documentation&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:annotation&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:simpleType&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:restriction&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;base=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xsd:string&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:pattern&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;(2|3|4|5|6|7|8)&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:pattern&amp;gt;&lt;/span&gt;                        
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:restriction&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:simpleType&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;lista-requisicoes&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ListaRequisicoesLote&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
 
-        
-    
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:sequence&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:complexType&amp;gt;&lt;/span&gt;
 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:complexType&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RetornoLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:sequence&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dados-ec&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;DadosEc&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;numero-lote&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;numeroLoteType&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;lista&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ListaRetornoLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:sequence&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:complexType&amp;gt;&lt;/span&gt;
     
-        
-            
-            
-            
-        
-    
-    
-    
-        
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:complexType&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ListaRequisicoesLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:sequence&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;requisicao-transacao&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoNovaTransacao&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;requisicao-token&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoToken&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;requisicao-consulta&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoConsulta&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;requisicao-cancelamento&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoCancelamento&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;requisicao-captura&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoCaptura&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
 
-            
-            
-            
-            
-        
-    
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;requisicao-consulta-chsec&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoConsultaChSec&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;requisicao-autorizacao-tid&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoAutorizacaoTid&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:sequence&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:complexType&amp;gt;&lt;/span&gt;
 
-    
-        
-            
-            
-            
-        
-    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:complexType&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ListaRetornoLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:sequence&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transacao&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Retorno&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;retorno-token&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RetornoToken&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;erro&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoErro&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;unbounded&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:sequence&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:complexType&amp;gt;&lt;/span&gt;
 
-    
-        
-            
-                
-                    
-                    
-                
-            
-        
-    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:complexType&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoDownloadRetornoLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:complexContent&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:extension&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;base=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Mensagem&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:sequence&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dados-ec&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;DadosEc&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;numero-lote&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;numeroLoteType&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:sequence&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:extension&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:complexContent&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:complexType&amp;gt;&lt;/span&gt;
 
-    
-        
-            
-            
-            
-            
-            
-        
-    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:complexType&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RetornoDownloadLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:sequence&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;erro&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoErro&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;arquivo&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xsd:string&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mensagem&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xsd:string&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:sequence&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:complexType&amp;gt;&lt;/span&gt;
 
-    
-    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;requisicao-download-retorno-lote&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RequisicaoDownloadRetornoLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
 
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;retorno-download-lote&quot;&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RetornoDownloadLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
     
-    
-    
-    
-        
-            
-                        
-                        
-        
-    
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:complexType&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RetornoUploadLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:sequence&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;data-envio&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xsd:dateTime&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;data-retorno&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xsd:dateTime&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;            
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mensagem&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xsd:string&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;maxOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;minOccurs=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;            
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:sequence&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:complexType&amp;gt;&lt;/span&gt;
 
-    
-
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;xsd:element&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;retorno-upload-lote&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;RetornoUploadLote&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/xsd:element&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/xsd:schema&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;testes-e-homologação&quot;&gt;Testes e Homologação&lt;/h1&gt;
@@ -30180,9 +30204,9 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   &lt;li&gt;&lt;strong&gt;Botão&lt;/strong&gt; - Será criado um código HTML como o abaixo:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-    
-
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'post'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'blank'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hidden'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;00000000-0000-0000-000000000000/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'image'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'submit'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Comprar'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'https://cieloecommerce.cielo.com.br /BackOffice/Contenthttps://developercielo.github.io/images/botao_comprar_3.jpg'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Exemplo de um botão Funcional:&lt;/strong&gt;&lt;/p&gt;
@@ -32678,9 +32702,9 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   &lt;li&gt;&lt;strong&gt;Botão&lt;/strong&gt; - Será criado um código HTML como o abaixo:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-    
-
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'post'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'blank'&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hidden'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'id'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;00000000-0000-0000-000000000000/&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'image'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'submit'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Comprar'&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'https://cieloecommerce.cielo.com.br /BackOffice/Contenthttps://developercielo.github.io/images/botao_comprar_3.jpg'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Exemplo de um botão Funcional:&lt;/strong&gt;&lt;/p&gt;
