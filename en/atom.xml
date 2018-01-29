@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-01-29T19:40:59+00:00</updated>
+    <updated>2018-01-29T19:43:46+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1479,7 +1479,7 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
     &lt;tr&gt;
       &lt;td&gt;475&lt;/td&gt;
       &lt;td&gt;Cancellation Timeout&lt;/td&gt;
-      &lt;td&gt;The application did not answer within 25 seconds.&lt;/td&gt;
+      &lt;td&gt;The application did not answer within expeted time.&lt;/td&gt;
       &lt;td&gt;Try again after a few seconds. If the error persists, contact the shop.&lt;/td&gt;
       &lt;td&gt;Yes.&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
