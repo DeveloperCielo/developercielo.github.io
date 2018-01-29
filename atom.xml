@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-29T14:02:22+00:00</updated>
+    <updated>2018-01-29T19:40:53+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8382,7 +8382,7 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
     &lt;tr&gt;
       &lt;td&gt;98&lt;/td&gt;
       &lt;td&gt;Timeout&lt;/td&gt;
-      &lt;td&gt;A aplicação não respondeu dentro de 25 segundos.&lt;/td&gt;
+      &lt;td&gt;A aplicação não respondeu dentro do tempo esperado.&lt;/td&gt;
       &lt;td&gt;Consultar a transação e avaliar o status antes de submeter a transação. Persistindo, entrar em contato com o Suporte.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -8394,7 +8394,7 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
     &lt;tr&gt;
       &lt;td&gt;475&lt;/td&gt;
       &lt;td&gt;Timeout de Cancelamento&lt;/td&gt;
-      &lt;td&gt;A aplicação não respondeu dentro de 25 segundos.&lt;/td&gt;
+      &lt;td&gt;A aplicação não respondeu dentro do tempo esperado.&lt;/td&gt;
       &lt;td&gt;Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
