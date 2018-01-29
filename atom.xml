@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-28T10:53:52+00:00</updated>
+    <updated>2018-01-29T14:02:22+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13256,7 +13256,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 &lt;p&gt;O passo a passo para a instalação do Certificado EV deverá ser contatado o suporte do fornecedor do seu servidor.&lt;/p&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;*A Cielo não oferece suporte para a instalação do Certificado.*&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;A Cielo não oferece suporte para a instalação do Certificado.&lt;/aside&gt;
 
 &lt;h3 id=&quot;acesso-do-cliente-à-loja-virtual&quot;&gt;Acesso do Cliente à Loja Virtual&lt;/h3&gt;
 
