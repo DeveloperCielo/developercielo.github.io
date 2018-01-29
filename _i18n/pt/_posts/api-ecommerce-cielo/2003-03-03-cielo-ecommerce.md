@@ -137,7 +137,7 @@ Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo n
 
 O passo a passo para a instalação do Certificado EV deverá ser contatado o suporte do fornecedor do seu servidor.
 
-<aside class="warning">*A Cielo não oferece suporte para a instalação do Certificado.*</aside>
+<aside class="warning"><b>A Cielo não oferece suporte para a instalação do Certificado.</b></aside>
 
 ### Acesso do Cliente à Loja Virtual
 
