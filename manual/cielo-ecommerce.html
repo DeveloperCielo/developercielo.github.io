@@ -4003,17 +4003,6 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p><strong>OBS:</strong> A API suporta boletos registrados e não registrados, sendo o provider o diferenciador entre eles. Sugerimos que valide com seu banco qual o tipo de boleto suportado por sua carteira. A API Aceita apenas boletos <strong>Bradesco</strong> e <strong>Banco do Brasil</strong></p>
 
-<p>No <strong>Boleto Registrado Banco do Brasil</strong>, a linha digitável não será retornado no response da requisição. Esta informação ficará disponível após conciliação.</p>
-
-<p>Para todos os campos texto, inclusive o campo de instruções e relacionados ao endereço, são aceitos como caracteres válidos:</p>
-<ul>
-  <li>As letras de A a Z (MAIÚSCULAS)</li>
-  <li>Caracteres especiais de conjunção:  <strong>hífen (-)</strong> / <strong>apóstrofo (‘)</strong> / Quando utilizados não pode conter espaços entre as letras: <br />
- <strong>Exemplos corretos</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA<br />
- <strong>Exemplos incorretos</strong>: D’EL - REI<br /></li>
-  <li>Até um espaço em branco entre palavras</li>
-</ul>
-
 <h3 id="requisição-6">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>

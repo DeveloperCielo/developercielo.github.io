@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-30T10:43:46+00:00</updated>
+    <updated>2018-01-30T14:08:18+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16854,17 +16854,6 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
 &lt;p&gt;Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST conforme o exemplo.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;OBS:&lt;/strong&gt; A API suporta boletos registrados e não registrados, sendo o provider o diferenciador entre eles. Sugerimos que valide com seu banco qual o tipo de boleto suportado por sua carteira. A API Aceita apenas boletos &lt;strong&gt;Bradesco&lt;/strong&gt; e &lt;strong&gt;Banco do Brasil&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;No &lt;strong&gt;Boleto Registrado Banco do Brasil&lt;/strong&gt;, a linha digitável não será retornado no response da requisição. Esta informação ficará disponível após conciliação.&lt;/p&gt;
-
-&lt;p&gt;Para todos os campos texto, inclusive o campo de instruções e relacionados ao endereço, são aceitos como caracteres válidos:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;As letras de A a Z (MAIÚSCULAS)&lt;/li&gt;
-  &lt;li&gt;Caracteres especiais de conjunção:  &lt;strong&gt;hífen (-)&lt;/strong&gt; / &lt;strong&gt;apóstrofo (‘)&lt;/strong&gt; / Quando utilizados não pode conter espaços entre as letras: &lt;br /&gt;
- &lt;strong&gt;Exemplos corretos&lt;/strong&gt;: D’EL-REI, D’ALCORTIVO, SANT’ANA&lt;br /&gt;
- &lt;strong&gt;Exemplos incorretos&lt;/strong&gt;: D’EL - REI&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;Até um espaço em branco entre palavras&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;h3 id=&quot;requisição-6&quot;&gt;Requisição&lt;/h3&gt;
 
