@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-01-29T19:43:40+00:00</updated>
+    <updated>2018-01-30T10:43:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5351,13 +5351,13 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
 
 &lt;p&gt;Nosso time irá realizar os procedimentos necessários e então, todos os aplicativos publicados pelo desenvolvedor que estejam no status de Desenvolvimento poderão ser baixados em sua Cielo LIO de desenvolvimento.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a habilitação de sua LIO para LIO de Dev.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a habilitação de sua LIO para LIO de Dev.&lt;/p&gt;
 
 &lt;h3 id=&quot;loja-privada&quot;&gt;Loja Privada&lt;/h3&gt;
 
 &lt;p&gt;A loja privada foi um modelo criado para permitir a distribuição dos aplicativos próprios desenvolvidos pelo parceiro. É necessário solicitar a criação da Loja Privada para então ser possível fazer o upload de um aplicativo próprio no Dev Console.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a criação da Loja Privada.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a criação da Loja Privada.&lt;/p&gt;
 
 &lt;p&gt;A partir da Loja Privada criada, o desenvolvedor poderá publicar seu aplicativo no Dev Console selecionando sua loja privada.&lt;/p&gt;
 
@@ -5442,7 +5442,7 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
 
 &lt;p&gt;Caso você desenvolvedor não encontre o erro nesta tabela, abra um ticket para a equipe de suporte reportando o problema encontrado e lembre-se de listar as evidências do erro como prints de tela e mensagens de erro recebidas.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;Clique Aqui&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Clique Aqui&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;aplicativos-próprios&quot;&gt;Aplicativos Próprios&lt;/h2&gt;
 
@@ -5471,7 +5471,7 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
 
 &lt;p&gt;Aqueles desenvolvedores que optarem por desenvolver aplicativos próprios e distribuir apenas para lojistas específicos devem solicitar via canal do Portal de Desenvolvedores informando quais os números ECs (número com 16 dígitos) e lógicos das LIOs que devem receber o aplicativo.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/content/ajuda-dev&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a distribuição de seu aplicativo.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a distribuição de seu aplicativo.&lt;/p&gt;
 
 &lt;h3 id=&quot;download-de-aplicativo-próprios-na-cielo-lio&quot;&gt;Download de Aplicativo Próprios na Cielo LIO&lt;/h3&gt;
 
