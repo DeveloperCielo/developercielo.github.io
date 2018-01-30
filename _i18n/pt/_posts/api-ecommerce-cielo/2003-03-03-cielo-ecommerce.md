@@ -2029,15 +2029,6 @@ Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST co
 
 **OBS:** A API suporta boletos registrados e não registrados, sendo o provider o diferenciador entre eles. Sugerimos que valide com seu banco qual o tipo de boleto suportado por sua carteira. A API Aceita apenas boletos **Bradesco** e **Banco do Brasil**
 
-No **Boleto Registrado Banco do Brasil**, a linha digitável não será retornado no response da requisição. Esta informação ficará disponível após conciliação.
-
-Para todos os campos texto, inclusive o campo de instruções e relacionados ao endereço, são aceitos como caracteres válidos: 
-* As letras de A a Z (MAIÚSCULAS)
-* Caracteres especiais de conjunção:  **hífen (-)** / **apóstrofo (')** / Quando utilizados não pode conter espaços entre as letras: <br><br>
-   **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA<br>
-   **Exemplos incorretos**: D'EL - REI<br><br>
-* Até um espaço em branco entre palavras
-
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
