@@ -268,16 +268,16 @@ Para melhor utilização do Meio de Pagamento Simulado, estamos disponibilizando
 
 <aside class="notice">Os <code>status</code> das transações são definidos pelos FINAIS de cada cartão, assim como o <code>ReturnCode</code>.</aside>
 
-|Status da Transação|Final do Cartão|Código de Retorno|Mensagem de Retorno|
-|---|---|---|---|
-|Autorizado|0000.0000.0000.0001<br>0000.0000.0000.0004|4/6|Operação realizada com sucesso|
-|Não Autorizado|0000.0000.0000.0002|05|Não Autorizada|
-|Não Autorizado|0000.0000.0000.0003|57|Cartão Expirado|
-|Não Autorizado|0000.0000.0000.0005|78|Cartão Bloqueado|
-|Não Autorizado|0000.0000.0000.0006|99|Time Out|
-|Não Autorizado|0000.0000.0000.0007|77|Cartão Cancelado|
-|Não Autorizado|0000.0000.0000.0008|70|Problemas com o Cartão de Crédito|
-|Autorização Aleatória|0000.0000.0000.0009|99|Operation Successful / Time Out|
+| Status da Transação   | Final do Cartão                            | Código de Retorno | Mensagem de Retorno               |
+|-----------------------|--------------------------------------------|-------------------|-----------------------------------|
+| Autorizado            | 0000.0000.0000.0001<br>0000.0000.0000.0004 | 4/6               | Operação realizada com sucesso    |
+| Não Autorizado        | 0000.0000.0000.0002                        | 05                | Não Autorizada                    |
+| Não Autorizado        | 0000.0000.0000.0003                        | 57                | Cartão Expirado                   |
+| Não Autorizado        | 0000.0000.0000.0005                        | 78                | Cartão Bloqueado                  |
+| Não Autorizado        | 0000.0000.0000.0006                        | 99                | Time Out                          |
+| Não Autorizado        | 0000.0000.0000.0007                        | 77                | Cartão Cancelado                  |
+| Não Autorizado        | 0000.0000.0000.0008                        | 70                | Problemas com o Cartão de Crédito |
+| Autorização Aleatória | 0000.0000.0000.0009                        | 99                | Operation Successful / Time Out   |
 
 Exemplo de um Cartão de teste - 4024.0071.5376.3191
 
