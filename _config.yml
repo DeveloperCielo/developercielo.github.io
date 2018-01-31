@@ -11,7 +11,7 @@ github:
   repo:       https://github.com/developercielo
 plugins:
   - jekyll-multiple-languages-plugin
-exclude:      ["vendor", "Gemfile*", "script"]
+exclude:      ["vendor", "Gemfile*", "script", "node_modules", "tmp"]
 markdown:     kramdown
 languages:    ["pt", "en"]
 default_lang: "pt"
