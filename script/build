@@ -40,6 +40,10 @@ if [ -n "$GH_TOKEN" ]; then
   # clone remote repo to "_site"
   git clone https://${GH_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
+  # compiles front-end stuff
+  yarn
+  yarn gulp dist
+
   # build with Jekyll into "_site"
   bundle exec jekyll build --quiet -b ${HOST}
   bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
