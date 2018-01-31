@@ -19,19 +19,10 @@
     <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
 
     <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
     <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
 
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/poole.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/syntax.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/hyde.css">
-
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery.tocify.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/prettify.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/custom.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/cielo.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/bundles/css/bundle.min.css">
 
     
         
@@ -2256,7 +2247,7 @@
 
     <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
         <h2>Precisa de ajuda?</h2>
-        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">entre em contato conosco</a>.</p>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">entre em contato conosco</a>.</p>
     </div>
 </div>
 
@@ -2298,174 +2289,31 @@
 </div>
 
 
-        <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
-        <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
-        <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
-        <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
         <script>
-        $(function() {
-            var openedHeader = null;
-
-            $("#toc").tocify({
-                
-                selectors: "h1,h2,h3,h4,h5,h6",
-                
-                hashGenerator: "pretty",
-                ignoreSelector: ".no-toc",
-                scrollTo: 100,
-                smoothScroll: false,
-                showEffect: "none"
-            }).data("toc-tocify");
-
-            $('ul').prev('li').addClass('has-subitens');
             
-            $(window).scroll(function () {
-                if ($('li.active').closest('.tocify-header') !== openedHeader) {
-                    $('li.is-open').removeClass('is-open');
-
-                    openedHeader = $('li.active').closest('.tocify-header');
-                }
-
-                openedHeader.find('ul:visible').prev('li').addClass('is-open');
-            });
-
-            $('.hamburger').click(function() {
-                $('body').toggleClass('sidebar-closed');
-            });
-
-            $('.code-menu').click(function() {
-                $('body').toggleClass('code-menu-closed');
-            });
-
-            prettyPrint();
-
-            var first = true;
-
-            function setTocHeight() {
-                var sideAbout = $('.sidebar-about').outerHeight();
-                var fixedFooter = $('.fixed-footer').outerHeight();
-                var footerIconHeight = first ? 14 : 0;
-                
-                $('#toc').css('height', 'calc(100vh - ' + (sideAbout + fixedFooter + footerIconHeight) + 'px)');
-            }
-
-            setTocHeight();
-            first = false;
-
-            $(window).resize(setTocHeight);
-        });
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
         </script>
 
         
-        <script src="https://developercielo.github.io/assets/js/jquery.highlight.js"></script>
-        <script src="https://developercielo.github.io/assets/js/lunr.js"></script>
-        <script src="https://developercielo.github.io/assets/js/search.js"></script>
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
         
 
         
         <script>
-        let langs = '';
-        let langsArray = [];
+            let langs = '';
+            let langsArray = [];
 
-        $('div.highlighter-rouge').prepend('<a class="fa expand-btn" title="Comutar"><i class="fa fa-expand" aria-hidden=true></i></a>');
+            
+            langs += "<a data-language-name='shell'>cURL</a>";
+            langsArray.push('shell');
+            
 
-        $('div.highlighter-rouge').each(function (index) {
-            if(!$(this).parent().hasClass('language-group')) {
-                $(this).first().next('div.highlighter-rouge').andSelf().wrapAll('<div class="code-fullscreen"><div class="language-group"></div></div>');
-            }
-        });
-
-        
-        if ( $(window).width() >= 1660) {
-            $('.content-container:not(.no-dark-box) div.highlighter-rouge').each(function (index) {
-                $(this).parent().parent().next('table').wrapAll('<div class="table-wrap" style="min-height:' + $(this).outerHeight() + 'px;"></div> ');
-            });
-        }
-        
-
-        $('.expand-btn').click(function() {
-            $('.overlay').toggleClass('opened');
-            $(this).parent().parent().parent().toggleClass('opened');
-            $(this).children('i.fa').toggleClass('fa-compress');
-        });
-
-        
-        langs += "<a data-language-name='shell'>cURL</a>";
-        langsArray.push('shell');
-        
-
-        $('.language-group').prepend('<div class="language-buttons">' + langs + '</div>');
+            var toggleCode = 'Comutar';
         </script>
 
-        <script src="https://developercielo.github.io/assets/js/lang.js"></script>
-
-        <script>
-            $(function() {
-                $('.language-buttons').each(function() {
-                    let parent = $(this).parent();
-
-                    parent.addClass('selectable');
-
-                    if(parent.hasClass('language-tabs')) {
-                        parent.attr('data-languages', langsArray.join('*') + '*');
-
-                        return true;
-                    }
-
-                    /**
-                     * @type {string[]} localArray
-                     */
-                    let localArray = JSON.parse(JSON.stringify(langsArray));
-
-                    langsArray.forEach((v) => {
-                        if(parent.find('.language-' + v).length === 0) {
-                            $(this).find('[data-language-name="' + v + '"]').remove();
-                            localArray.splice(localArray.indexOf(v), 1);
-                            
-                            if($(this).children().length === 1) {
-                                parent.removeClass('selectable');
-                                parent.addClass('locked');
-                            }
-                        }
-                    });
-
-                    // Just to separate Java from JavaScript, I have add a * to separate the languages
-                    let attr = localArray.join('*');
-                    attr += '*';
-
-                    $(this).children('[data-language-name=' + localArray[0] + ']').addClass('active');
-
-                    let language = parent.find('.language-' + localArray[0]);
-                    language.addClass('show');
-
-                    if ($(window).width() <= 1660) {
-                        language.show();
-                    }
-
-                    parent.attr('data-languages', attr);
-                });
-
-                window.isOpen = $(window).width() >= 1660;
-
-                setupLanguages(langsArray);
-            });
-
-            $('.hide-btn').click(function() {
-                $('.content-container').toggleClass('no-dark-box');
-                $('.dark-box').toggle();
-
-                $('.overlay').removeClass('opened');
-                $('.code-fullscreen').removeClass('opened');
-
-                window.isOpen = !$('.content-container').hasClass('no-dark-box');
-
-                if(!window.isOpen) {
-                    $('.locked .show').show();
-                    $('.selectable:not([data-languages*="' + window.language + '*"]) .show').show();
-                }
-            });
-        </script>
+        <script src='https://developercielo.github.io/assets/bundles/js/language_buttons.min.js'></script>
         
 
         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->

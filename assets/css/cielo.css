@@ -6,7 +6,7 @@ h3,
 h4,
 h5,
 h6,
-.content table th,
+.content table th
 {
   font-family: 'Fira Sans', Helvetica, Arial, sans-serif;
   color: #888;
@@ -23,7 +23,7 @@ a.btn:hover,
 }
 
 .content aside.notice,
-.lang-selector a.active,
+.lang-selector a.active
 {
   background-color: #00aeef;
 }

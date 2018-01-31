@@ -19,19 +19,10 @@
     <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
 
     <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
     <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
 
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/poole.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/syntax.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/hyde.css">
-
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery.tocify.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/jquery-ui.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/prettify.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/custom.css">
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/css/cielo.css">
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/bundles/css/bundle.min.css">
 
     
         
@@ -1619,7 +1610,7 @@
 
     <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
         <h2>Precisa de ajuda?</h2>
-        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">entre em contato conosco</a>.</p>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">entre em contato conosco</a>.</p>
     </div>
 </div>
 
@@ -1676,63 +1667,11 @@
 </div>
 
 
-        <script src="https://developercielo.github.io/assets/js/jquery.min.js"></script>
-        <script src="https://developercielo.github.io/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="https://developercielo.github.io/assets/js/bootstrap.js"></script>
-        <script src="https://developercielo.github.io/assets/js/jquery.tocify.js"></script>
-        <script src="https://developercielo.github.io/assets/js/prettify.js"></script>
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
         <script>
-        $(function() {
-            var openedHeader = null;
-
-            $("#toc").tocify({
-                
-                selectors: "h1,h2,h3,h4,h5,h6",
-                
-                hashGenerator: "pretty",
-                ignoreSelector: ".no-toc",
-                scrollTo: 100,
-                smoothScroll: false,
-                showEffect: "none"
-            }).data("toc-tocify");
-
-            $('ul').prev('li').addClass('has-subitens');
             
-            $(window).scroll(function () {
-                if ($('li.active').closest('.tocify-header') !== openedHeader) {
-                    $('li.is-open').removeClass('is-open');
-
-                    openedHeader = $('li.active').closest('.tocify-header');
-                }
-
-                openedHeader.find('ul:visible').prev('li').addClass('is-open');
-            });
-
-            $('.hamburger').click(function() {
-                $('body').toggleClass('sidebar-closed');
-            });
-
-            $('.code-menu').click(function() {
-                $('body').toggleClass('code-menu-closed');
-            });
-
-            prettyPrint();
-
-            var first = true;
-
-            function setTocHeight() {
-                var sideAbout = $('.sidebar-about').outerHeight();
-                var fixedFooter = $('.fixed-footer').outerHeight();
-                var footerIconHeight = first ? 14 : 0;
-                
-                $('#toc').css('height', 'calc(100vh - ' + (sideAbout + fixedFooter + footerIconHeight) + 'px)');
-            }
-
-            setTocHeight();
-            first = false;
-
-            $(window).resize(setTocHeight);
-        });
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
         </script>
 
         
