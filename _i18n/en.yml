@@ -13,7 +13,7 @@ global:
   search: Search
   home: Home
   need_help_title: Need Help?
-  need_help_description: If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/ajuda-portal">send us a message</a>
+  need_help_description: If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">send us a message</a>
   hub_title: Cielo Developers
   hub_description: Documents, articles and tutorials of all Braspag products are available on this page
 langs:
