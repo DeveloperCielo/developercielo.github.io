@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-02-01T23:13:33+00:00</updated>
+    <updated>2018-02-01T23:27:49+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11404,11 +11404,13 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;modificando-dados-do-comprador&quot;&gt;Modificando dados do comprador&lt;/h2&gt;
+&lt;h2 id=&quot;modificando-recorrências&quot;&gt;Modificando Recorrências&lt;/h2&gt;
+
+&lt;h3 id=&quot;modificando-dados-do-comprador&quot;&gt;Modificando dados do comprador&lt;/h3&gt;
 
 &lt;p&gt;Para alterar os dados do comprador da Recorrência, basta fazer um Put conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-16&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-16&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Customer&lt;/span&gt;&lt;/aside&gt;
 
@@ -11672,7 +11674,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-19&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-19&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 HTTP Status 200
@@ -11681,11 +11683,11 @@ HTTP Status 200
 
 &lt;p&gt;Veja o Anexo &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
 
-&lt;h2 id=&quot;modificando-data-final-da-recorrência&quot;&gt;Modificando data final da Recorrência&lt;/h2&gt;
+&lt;h3 id=&quot;modificando-data-final-da-recorrência&quot;&gt;Modificando data final da Recorrência&lt;/h3&gt;
 
 &lt;p&gt;Para alterar a data final da Recorrência, basta fazer um Put conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-17&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-17&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/EndDate&lt;/span&gt;&lt;/aside&gt;
 
@@ -11754,7 +11756,7 @@ HTTP Status 200
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-20&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-20&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
 HTTP Status 200
@@ -11763,11 +11765,11 @@ HTTP Status 200
 
 &lt;p&gt;Veja o Anexo &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
 
-&lt;h2 id=&quot;modificando-intevalo-da-recorrência&quot;&gt;Modificando intevalo da Recorrência&lt;/h2&gt;
+&lt;h3 id=&quot;modificando-intevalo-da-recorrência&quot;&gt;Modificando intevalo da Recorrência&lt;/h3&gt;
 
 &lt;p&gt;Para alterar o Intervalo da Recorrência, basta fazer um Put conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-18&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-18&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Interval&lt;/span&gt;&lt;/aside&gt;
 
@@ -11836,20 +11838,20 @@ HTTP Status 200
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-21&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-21&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Veja o Anexo &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
 
-&lt;h2 id=&quot;modificar-dia-da-recorrência&quot;&gt;Modificar dia da Recorrência&lt;/h2&gt;
+&lt;h3 id=&quot;modificar-dia-da-recorrência&quot;&gt;Modificar dia da Recorrência&lt;/h3&gt;
 
 &lt;p&gt;Para modificar o dia da recorrência, basta fazer um Put conforme o exemplo.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Regra: Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09&lt;/aside&gt;
 
-&lt;h3 id=&quot;requisição-19&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-19&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay&lt;/span&gt;&lt;/aside&gt;
 
@@ -11916,18 +11918,18 @@ HTTP Status 200
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-22&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-22&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Veja o Anexo &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
 
-&lt;h2 id=&quot;modificando-o-valor-da-recorrência&quot;&gt;Modificando o valor da Recorrência&lt;/h2&gt;
+&lt;h3 id=&quot;modificando-o-valor-da-recorrência&quot;&gt;Modificando o valor da Recorrência&lt;/h3&gt;
 
 &lt;p&gt;Para modificar o valor da recorrência, basta fazer um Put conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requsição&quot;&gt;Requsição&lt;/h3&gt;
+&lt;h4 id=&quot;requsição&quot;&gt;Requsição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Amount&lt;/span&gt;&lt;/aside&gt;
 
@@ -11996,14 +11998,14 @@ HTTP Status 200
 
 &lt;aside class=&quot;warning&quot;&gt;Essa alteração só afeta a data de pagamento da próxima recorrência.&lt;/aside&gt;
 
-&lt;h3 id=&quot;resposta-23&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-23&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Veja o Anexo &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
 
-&lt;h2 id=&quot;modificando-data-do-próximo-pagamento&quot;&gt;Modificando data do próximo Pagamento&lt;/h2&gt;
+&lt;h3 id=&quot;modificando-data-do-próximo-pagamento&quot;&gt;Modificando data do próximo Pagamento&lt;/h3&gt;
 
 &lt;p&gt;Para alterar a data do próximo Pagamento, basta fazer um Put conforme o exemplo.&lt;/p&gt;
 
@@ -12074,20 +12076,20 @@ HTTP Status 200
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-24&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-24&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Veja o Anexo &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
 
-&lt;h2 id=&quot;modificando-dados-do-pagamento-da-recorrência&quot;&gt;Modificando dados do Pagamento da Recorrência&lt;/h2&gt;
+&lt;h3 id=&quot;modificando-dados-do-pagamento-da-recorrência&quot;&gt;Modificando dados do Pagamento da Recorrência&lt;/h3&gt;
 
 &lt;p&gt;Para alterar os dados de pagamento da Recorrência, basta fazer um Put conforme o exemplo.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.&lt;/aside&gt;
 
-&lt;h3 id=&quot;requisição-21&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-21&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Payment&lt;/span&gt;&lt;/aside&gt;
 
@@ -12236,18 +12238,18 @@ HTTP Status 200
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-25&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-25&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Veja o Anexo &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
 
-&lt;h2 id=&quot;desabilitando-um-pedido-recorrente&quot;&gt;Desabilitando um Pedido Recorrente&lt;/h2&gt;
+&lt;h3 id=&quot;desabilitando-um-pedido-recorrente&quot;&gt;Desabilitando um Pedido Recorrente&lt;/h3&gt;
 
 &lt;p&gt;Para desabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-22&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-22&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate&lt;/span&gt;&lt;/aside&gt;
 
@@ -12303,18 +12305,18 @@ HTTP Status 200
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-26&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-26&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Veja o Anexo &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; para a lista com todos os códigos de status HTTP possivelmente retornados pela API.&lt;/p&gt;
 
-&lt;h2 id=&quot;reabilitando-um-pedido-recorrente&quot;&gt;Reabilitando um Pedido Recorrente&lt;/h2&gt;
+&lt;h3 id=&quot;reabilitando-um-pedido-recorrente&quot;&gt;Reabilitando um Pedido Recorrente&lt;/h3&gt;
 
 &lt;p&gt;Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-23&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-23&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate&lt;/span&gt;&lt;/aside&gt;
 
@@ -12370,7 +12372,7 @@ HTTP Status 200
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-27&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-27&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;

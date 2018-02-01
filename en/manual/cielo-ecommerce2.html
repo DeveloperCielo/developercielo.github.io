@@ -7833,11 +7833,13 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   </tbody>
 </table>
 
-<h2 id="modificando-dados-do-comprador">Modificando dados do comprador</h2>
+<h2 id="modificando-recorrências">Modificando Recorrências</h2>
+
+<h3 id="modificando-dados-do-comprador">Modificando dados do comprador</h3>
 
 <p>Para alterar os dados do comprador da Recorrência, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-16">Requisição</h3>
+<h4 id="requisição-16">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -8101,7 +8103,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   </tbody>
 </table>
 
-<h3 id="resposta-19">Resposta</h3>
+<h4 id="resposta-19">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -8110,11 +8112,11 @@ HTTP Status 200
 
 <p>Veja o Anexo <a href="#http-status-code">HTTP Status Code</a> para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
-<h2 id="modificando-data-final-da-recorrência">Modificando data final da Recorrência</h2>
+<h3 id="modificando-data-final-da-recorrência">Modificando data final da Recorrência</h3>
 
 <p>Para alterar a data final da Recorrência, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-17">Requisição</h3>
+<h4 id="requisição-17">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -8183,7 +8185,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-20">Resposta</h3>
+<h4 id="resposta-20">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -8192,11 +8194,11 @@ HTTP Status 200
 
 <p>Veja o Anexo <a href="#http-status-code">HTTP Status Code</a> para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
-<h2 id="modificando-intevalo-da-recorrência">Modificando intevalo da Recorrência</h2>
+<h3 id="modificando-intevalo-da-recorrência">Modificando intevalo da Recorrência</h3>
 
 <p>Para alterar o Intervalo da Recorrência, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-18">Requisição</h3>
+<h4 id="requisição-18">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -8265,20 +8267,20 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-21">Resposta</h3>
+<h4 id="resposta-21">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>Veja o Anexo <a href="#http-status-code">HTTP Status Code</a> para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
-<h2 id="modificar-dia-da-recorrência">Modificar dia da Recorrência</h2>
+<h3 id="modificar-dia-da-recorrência">Modificar dia da Recorrência</h3>
 
 <p>Para modificar o dia da recorrência, basta fazer um Put conforme o exemplo.</p>
 
 <aside class="notice">Regra: Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
 
-<h3 id="requisição-19">Requisição</h3>
+<h4 id="requisição-19">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -8345,18 +8347,18 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-22">Resposta</h3>
+<h4 id="resposta-22">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>Veja o Anexo <a href="#http-status-code">HTTP Status Code</a> para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
-<h2 id="modificando-o-valor-da-recorrência">Modificando o valor da Recorrência</h2>
+<h3 id="modificando-o-valor-da-recorrência">Modificando o valor da Recorrência</h3>
 
 <p>Para modificar o valor da recorrência, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requsição">Requsição</h3>
+<h4 id="requsição">Requsição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -8425,14 +8427,14 @@ HTTP Status 200
 
 <aside class="warning">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
 
-<h3 id="resposta-23">Resposta</h3>
+<h4 id="resposta-23">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>Veja o Anexo <a href="#http-status-code">HTTP Status Code</a> para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
-<h2 id="modificando-data-do-próximo-pagamento">Modificando data do próximo Pagamento</h2>
+<h3 id="modificando-data-do-próximo-pagamento">Modificando data do próximo Pagamento</h3>
 
 <p>Para alterar a data do próximo Pagamento, basta fazer um Put conforme o exemplo.</p>
 
@@ -8503,20 +8505,20 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-24">Resposta</h3>
+<h4 id="resposta-24">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>Veja o Anexo <a href="#http-status-code">HTTP Status Code</a> para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
-<h2 id="modificando-dados-do-pagamento-da-recorrência">Modificando dados do Pagamento da Recorrência</h2>
+<h3 id="modificando-dados-do-pagamento-da-recorrência">Modificando dados do Pagamento da Recorrência</h3>
 
 <p>Para alterar os dados de pagamento da Recorrência, basta fazer um Put conforme o exemplo.</p>
 
 <aside class="notice">Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
 
-<h3 id="requisição-21">Requisição</h3>
+<h4 id="requisição-21">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -8665,18 +8667,18 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-25">Resposta</h3>
+<h4 id="resposta-25">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>Veja o Anexo <a href="#http-status-code">HTTP Status Code</a> para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
-<h2 id="desabilitando-um-pedido-recorrente">Desabilitando um Pedido Recorrente</h2>
+<h3 id="desabilitando-um-pedido-recorrente">Desabilitando um Pedido Recorrente</h3>
 
 <p>Para desabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-22">Requisição</h3>
+<h4 id="requisição-22">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
@@ -8732,18 +8734,18 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-26">Resposta</h3>
+<h4 id="resposta-26">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>Veja o Anexo <a href="#http-status-code">HTTP Status Code</a> para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
-<h2 id="reabilitando-um-pedido-recorrente">Reabilitando um Pedido Recorrente</h2>
+<h3 id="reabilitando-um-pedido-recorrente">Reabilitando um Pedido Recorrente</h3>
 
 <p>Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.</p>
 
-<h3 id="requisição-23">Requisição</h3>
+<h4 id="requisição-23">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -8799,7 +8801,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-27">Resposta</h3>
+<h4 id="resposta-27">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
