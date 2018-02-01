@@ -3804,7 +3804,6 @@ curl
 |`NewCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 |`NewCard.SaveCard`|Identifica se o cartão gerou Cardtoken durante a transação|Booleano|---|Sim|
 
-
 # Consulta - Captura - Cancelamento
 
 ## Consulta de transções
