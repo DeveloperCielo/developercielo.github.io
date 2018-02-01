@@ -2274,9 +2274,9 @@ Quantidade de caracteres por campo e Provider:
 |**OBS 3:**|A API Cielo trunca automaticamente|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras|
 |**OBS 4:**|O valor é persistido na API Cielo|N/A|
 
-# Pagamentos Recorrentes
+# Recorrencia
 
-Pagamentos recorrentes são transações que devem se repetir após um determinado periodo de tempo.
+Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado periodo de tempo.
 
 São pagamentos normalmente encontrados em **assinaturas**, onde o comprador deseja ser cobrado automaticamente, mas não quer informar novamente os dados do cartão de crédito.
 
@@ -2337,7 +2337,7 @@ Nesse modelo, a API realiza e permite:
 
 A Recorrencia Programada é formada por uma estrutura transacional simples. O Lojista deverá informa na transação os seguintes dados:
 
-```
+``` json
 "RecurrentPayment":
 {
        "AuthorizeNow":"False",
@@ -3804,13 +3804,16 @@ curl
 |`NewCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 |`NewCard.SaveCard`|Identifica se o cartão gerou Cardtoken durante a transação|Booleano|---|Sim|
 
-# Consultando Vendas
 
-## Consultando uma venda
+# Consulta - Captura - Cancelamento
+
+## Consulta de transções
+
+### Consulta - PaymentID
 
 Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -3832,7 +3835,7 @@ curl
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -3955,13 +3958,13 @@ curl
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
-## Consultando uma venda pelo identificador da loja
+### Consulta - MerchandOrderID
 
 Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.
 
 Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -3983,7 +3986,7 @@ curls
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`MerchantOrderId`|Campo Identificador do Pedido na Loja.|Texto|36|Sim|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -4022,11 +4025,11 @@ curls
 |---|---|---|---|---|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-## Consultando uma venda com Analise de Fraude
+### Consulta Anti-fraude
 
 Para consultar uma venda de cartão de crédito com antifraud, é necessário fazer um GET para o recurso Payment conforme o exemplo.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -4048,7 +4051,7 @@ curl
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -4210,13 +4213,13 @@ curl
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
 
-## Consultando uma Recorrencia
+### Consulta Recorrencia
 
 Para consultar uma Recorrência de cartão de crédito, é necessário fazer um `GET`  conforme o exemplo.
 
 **A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um `GET` na transação (Disponivel em "Consultanto vendas**
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -4238,7 +4241,7 @@ curl
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`RecurrentPaymentId`|Campo Identificador da Recorrência.|Texto|36|Sim|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -4336,7 +4339,7 @@ curl
 |`RecurrentTransactions.PaymentNumber`|Número da Recorrência. A primeira é zero|Número|2|3|
 |`RecurrentTransactions.TryNumber`|Número da tentativa atual na recorrência específica|Número|2|1|
 
-# Capturando uma venda
+## Captura
 
 A **Captura** é passo exclusivo para transações de Cartões de Crédito.
 
@@ -4350,11 +4353,11 @@ O que a captura gera:
 
 <aside class="notice"><strong>Atenção:</strong> A captura é um processo com prazo de execução. Verifique em sem cadastro cielo qual o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a Captura da transação</aside>
 
-## Captura total
+### Captura total
 
 Para captura uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
 
@@ -4383,7 +4386,7 @@ curl
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
 |`ServiceTaxAmount`|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|Número|15|Não|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -4434,7 +4437,7 @@ curl
 |`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
 
-## Captura parcial
+### Captura parcial
 
 A **captura parcial** é o ato de capturar um valor menor que o valor autorizado.Esse modelo de captura pode ocorrer apenas 1 vez por transação. 
 
@@ -4444,7 +4447,7 @@ Basta realizar um `POST` enviando o valor a ser capturado.
 
 <aside class="notice"><strong>Atenção:</strong> Captura parcial disponível apenas para transações de crédito</aside>
 
-### Requisição - Captura Parcial
+#### Requisição - Captura Parcial
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
@@ -4473,7 +4476,7 @@ curl
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
 |`ServiceTaxAmount`|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|Número|15|Não|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -4538,7 +4541,7 @@ curl
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -4599,15 +4602,15 @@ curl
 |`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
 |`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
 
-## Captura Via Backoffice
+### Captura Via Backoffice
 
 É possivel realizar tanto a captura total quanto a Captura parcial via O Backoffice Cielo.
 
 Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
 
-# Cancelando uma venda
+## Cancelando uma venda
 
-## Cancelando uma venda via API
+### Cancelando uma venda via API
 
 O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito. 
 
@@ -4620,7 +4623,7 @@ Cada meio de pagamento sofre impactos diferentes quando uma ordem de cancelament
 
 OBS: Cancelamentos parciais são disponiveis apenas para Cartão de Crédito.
 
-## Cancelamento total
+### Cancelamento total
 
 Para cancelar uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment. É possível realizar o cancelamento via PaymentID ou MerchantOrderId (numero do pedido).
 
@@ -4652,7 +4655,7 @@ curl
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -4693,7 +4696,7 @@ curl
 |`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
 
-## Cancelamento parcial
+### Cancelamento parcial
 
 O **cancelamento  parcial** é o ato de cancelar um valor menor que o valor total autorizado/capturado. Esse modelo de cancelamento pode ocorrer inumeras vezes, até que o valor total da transação seja cancelado. 
 
@@ -4703,7 +4706,7 @@ O **cancelamento  parcial** é o ato de cancelar um valor menor que o valor tota
 
 <aside class="notice"><strong>Atenção:</strong> O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
 
-### Requisição - cancelamento parcial
+#### Requisição - cancelamento parcial
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -4725,7 +4728,7 @@ curl
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -4792,7 +4795,7 @@ curl
 https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
 ```
 
-## Cancelamento via Backoffice
+### Cancelamento via Backoffice
 
 O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de transações de boletos e Débito Online.
 É possivel realizar tanto o cancelamento total quanto o Cancelamento parcial via O Backoffice Cielo.
