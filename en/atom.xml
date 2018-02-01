@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-02-01T23:27:49+00:00</updated>
+    <updated>2018-02-01T23:33:34+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8126,7 +8126,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
 
 &lt;h1 id=&quot;consulta---captura---cancelamento&quot;&gt;Consulta - Captura - Cancelamento&lt;/h1&gt;
 
-&lt;h2 id=&quot;consulta-de-transções&quot;&gt;Consulta de transções&lt;/h2&gt;
+&lt;h2 id=&quot;consulta-de-transações&quot;&gt;Consulta de transações&lt;/h2&gt;
 
 &lt;h3 id=&quot;consulta---paymentid&quot;&gt;Consulta - PaymentID&lt;/h3&gt;
 
@@ -12009,7 +12009,7 @@ HTTP Status 200
 
 &lt;p&gt;Para alterar a data do próximo Pagamento, basta fazer um Put conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-20&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-20&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate&lt;/span&gt;&lt;/aside&gt;
 
