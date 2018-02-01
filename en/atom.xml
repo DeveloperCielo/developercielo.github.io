@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-02-01T19:00:40+00:00</updated>
+    <updated>2018-02-01T19:14:42+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8124,9 +8124,9 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;pagamentos-recorrentes&quot;&gt;Pagamentos Recorrentes&lt;/h1&gt;
+&lt;h1 id=&quot;recorrencia&quot;&gt;Recorrencia&lt;/h1&gt;
 
-&lt;p&gt;Pagamentos recorrentes são transações que devem se repetir após um determinado periodo de tempo.&lt;/p&gt;
+&lt;p&gt;Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado periodo de tempo.&lt;/p&gt;
 
 &lt;p&gt;São pagamentos normalmente encontrados em &lt;strong&gt;assinaturas&lt;/strong&gt;, onde o comprador deseja ser cobrado automaticamente, mas não quer informar novamente os dados do cartão de crédito.&lt;/p&gt;
 
@@ -8227,14 +8227,14 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
 
 &lt;p&gt;A Recorrencia Programada é formada por uma estrutura transacional simples. O Lojista deverá informa na transação os seguintes dados:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;RecurrentPayment&quot;:
-{
-       &quot;AuthorizeNow&quot;:&quot;False&quot;,
-       &quot;StartDate&quot;:&quot;2019-06-01&quot;
-       &quot;EndDate&quot;:&quot;2019-12-01&quot;,
-       &quot;Interval&quot;:&quot;SemiAnnual&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RecurrentPayment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizeNow&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;False&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StartDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2019-06-01&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EndDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2019-12-01&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Interval&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SemiAnnual&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Onde podemos definir os dados como:&lt;/p&gt;
 
@@ -10998,13 +10998,15 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;consultando-vendas&quot;&gt;Consultando Vendas&lt;/h1&gt;
+&lt;h1 id=&quot;consulta---captura---cancelamento&quot;&gt;Consulta - Captura - Cancelamento&lt;/h1&gt;
 
-&lt;h2 id=&quot;consultando-uma-venda&quot;&gt;Consultando uma venda&lt;/h2&gt;
+&lt;h2 id=&quot;consulta-de-transções&quot;&gt;Consulta de transções&lt;/h2&gt;
+
+&lt;h3 id=&quot;consulta---paymentid&quot;&gt;Consulta - PaymentID&lt;/h3&gt;
 
 &lt;p&gt;Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-19&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-19&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -11060,7 +11062,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-20&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-20&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -11282,13 +11284,13 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;consultando-uma-venda-pelo-identificador-da-loja&quot;&gt;Consultando uma venda pelo identificador da loja&lt;/h2&gt;
+&lt;h3 id=&quot;consulta---merchandorderid&quot;&gt;Consulta - MerchandOrderID&lt;/h3&gt;
 
 &lt;p&gt;Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.&lt;/p&gt;
 
 &lt;p&gt;Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-20&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-20&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales?merchantOrderId={merchantOrderId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -11344,7 +11346,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-21&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-21&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -11398,11 +11400,11 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;consultando-uma-venda-com-analise-de-fraude&quot;&gt;Consultando uma venda com Analise de Fraude&lt;/h2&gt;
+&lt;h3 id=&quot;consulta-anti-fraude&quot;&gt;Consulta Anti-fraude&lt;/h3&gt;
 
 &lt;p&gt;Para consultar uma venda de cartão de crédito com antifraud, é necessário fazer um GET para o recurso Payment conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-21&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-21&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -11458,7 +11460,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-22&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-22&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f381c0c4-2bf9-4de1-91e1-e9e1f11d0854&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -11701,13 +11703,13 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;consultando-uma-recorrencia&quot;&gt;Consultando uma Recorrencia&lt;/h2&gt;
+&lt;h3 id=&quot;consulta-recorrencia&quot;&gt;Consulta Recorrencia&lt;/h3&gt;
 
 &lt;p&gt;Para consultar uma Recorrência de cartão de crédito, é necessário fazer um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt;  conforme o exemplo.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; na transação (Disponivel em “Consultanto vendas&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-22&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-22&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -11763,7 +11765,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-23&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-23&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -11954,7 +11956,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;capturando-uma-venda&quot;&gt;Capturando uma venda&lt;/h1&gt;
+&lt;h2 id=&quot;captura&quot;&gt;Captura&lt;/h2&gt;
 
 &lt;p&gt;A &lt;strong&gt;Captura&lt;/strong&gt; é passo exclusivo para transações de Cartões de Crédito.&lt;/p&gt;
 
@@ -11970,11 +11972,11 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: A captura é um processo com prazo de execução. Verifique em sem cadastro cielo qual o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a Captura da transação&lt;/aside&gt;
 
-&lt;h2 id=&quot;captura-total&quot;&gt;Captura total&lt;/h2&gt;
+&lt;h3 id=&quot;captura-total&quot;&gt;Captura total&lt;/h3&gt;
 
 &lt;p&gt;Para captura uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-23&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-23&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}/capture&lt;/span&gt;&lt;/aside&gt;
 
@@ -12048,7 +12050,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-24&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-24&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -12126,7 +12128,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;captura-parcial&quot;&gt;Captura parcial&lt;/h2&gt;
+&lt;h3 id=&quot;captura-parcial&quot;&gt;Captura parcial&lt;/h3&gt;
 
 &lt;p&gt;A &lt;strong&gt;captura parcial&lt;/strong&gt; é o ato de capturar um valor menor que o valor autorizado.Esse modelo de captura pode ocorrer apenas 1 vez por transação.&lt;/p&gt;
 
@@ -12136,7 +12138,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: Captura parcial disponível apenas para transações de crédito&lt;/aside&gt;
 
-&lt;h3 id=&quot;requisição---captura-parcial&quot;&gt;Requisição - Captura Parcial&lt;/h3&gt;
+&lt;h4 id=&quot;requisição---captura-parcial&quot;&gt;Requisição - Captura Parcial&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{paymentId}/capture?amount={Valor}&lt;/span&gt;&lt;/aside&gt;
 
@@ -12210,7 +12212,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-25&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-25&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -12314,7 +12316,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{paymentId}/capture?amount={Valor}&amp;amp;serviceTaxAmount=xxx&lt;/span&gt;&lt;/aside&gt;
 
-&lt;h3 id=&quot;resposta-26&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-26&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -12414,15 +12416,15 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;captura-via-backoffice&quot;&gt;Captura Via Backoffice&lt;/h2&gt;
+&lt;h3 id=&quot;captura-via-backoffice&quot;&gt;Captura Via Backoffice&lt;/h3&gt;
 
 &lt;p&gt;É possivel realizar tanto a captura total quanto a Captura parcial via O Backoffice Cielo.&lt;/p&gt;
 
 &lt;p&gt;Acesse nosso &lt;a href=&quot;https://developercielo.github.io/Tutorial//Backoffice-3.0&quot;&gt;&lt;strong&gt;Tutorial&lt;/strong&gt;&lt;/a&gt;  para maiores informações&lt;/p&gt;
 
-&lt;h1 id=&quot;cancelando-uma-venda&quot;&gt;Cancelando uma venda&lt;/h1&gt;
+&lt;h2 id=&quot;cancelando-uma-venda&quot;&gt;Cancelando uma venda&lt;/h2&gt;
 
-&lt;h2 id=&quot;cancelando-uma-venda-via-api&quot;&gt;Cancelando uma venda via API&lt;/h2&gt;
+&lt;h3 id=&quot;cancelando-uma-venda-via-api&quot;&gt;Cancelando uma venda via API&lt;/h3&gt;
 
 &lt;p&gt;O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito.&lt;/p&gt;
 
@@ -12455,7 +12457,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 &lt;p&gt;OBS: Cancelamentos parciais são disponiveis apenas para Cartão de Crédito.&lt;/p&gt;
 
-&lt;h2 id=&quot;cancelamento-total&quot;&gt;Cancelamento total&lt;/h2&gt;
+&lt;h3 id=&quot;cancelamento-total&quot;&gt;Cancelamento total&lt;/h3&gt;
 
 &lt;p&gt;Para cancelar uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment. É possível realizar o cancelamento via PaymentID ou MerchantOrderId (numero do pedido).&lt;/p&gt;
 
@@ -12527,7 +12529,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-27&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-27&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -12595,7 +12597,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;cancelamento-parcial&quot;&gt;Cancelamento parcial&lt;/h2&gt;
+&lt;h3 id=&quot;cancelamento-parcial&quot;&gt;Cancelamento parcial&lt;/h3&gt;
 
 &lt;p&gt;O &lt;strong&gt;cancelamento  parcial&lt;/strong&gt; é o ato de cancelar um valor menor que o valor total autorizado/capturado. Esse modelo de cancelamento pode ocorrer inumeras vezes, até que o valor total da transação seja cancelado.&lt;/p&gt;
 
@@ -12605,7 +12607,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados&lt;/aside&gt;
 
-&lt;h3 id=&quot;requisição---cancelamento-parcial&quot;&gt;Requisição - cancelamento parcial&lt;/h3&gt;
+&lt;h4 id=&quot;requisição---cancelamento-parcial&quot;&gt;Requisição - cancelamento parcial&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}/void?amount=XXX &lt;/span&gt;&lt;/aside&gt;
 
@@ -12667,7 +12669,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-28&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-28&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -12772,7 +12774,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&amp;amp;serviceTaxAmount=xxx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;cancelamento-via-backoffice&quot;&gt;Cancelamento via Backoffice&lt;/h2&gt;
+&lt;h3 id=&quot;cancelamento-via-backoffice&quot;&gt;Cancelamento via Backoffice&lt;/h3&gt;
 
 &lt;p&gt;O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de transações de boletos e Débito Online.
 É possivel realizar tanto o cancelamento total quanto o Cancelamento parcial via O Backoffice Cielo.&lt;/p&gt;
