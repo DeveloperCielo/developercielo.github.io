@@ -4101,11 +4101,13 @@ curl
 |`Interval`|Intervalo entre as recorrência.|Texto|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não.|Booleano|---|true ou false|
 
-## Modificando dados do comprador
+## Modificando Recorrências
+
+### Modificando dados do comprador
 
 Para alterar os dados do comprador da Recorrência, basta fazer um Put conforme o exemplo.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -4204,7 +4206,7 @@ curl
 |`Customer.DeliveryAddress.Country`|Pais do endereço do Comprador.|Texto|35|Não|
 |`Customer.DeliveryAddress.District`|Bairro do Comprador.|Texto|50|Não|
 
-### Resposta
+#### Resposta
 
 ```shell
 
@@ -4214,11 +4216,11 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-## Modificando data final da Recorrência
+### Modificando data final da Recorrência
 
 Para alterar a data final da Recorrência, basta fazer um Put conforme o exemplo.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -4248,7 +4250,7 @@ curl
 |`RecurrentPaymentId`|Numero de identificação da Recorrência.|Texto|50|Sim|
 |`EndDate`|Data para termino da recorrência.|Texto|10|Sim|
 
-### Resposta
+#### Resposta
 
 ```shell
 
@@ -4258,11 +4260,11 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-## Modificando intevalo da Recorrência
+### Modificando intevalo da Recorrência
 
 Para alterar o Intervalo da Recorrência, basta fazer um Put conforme o exemplo.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -4292,7 +4294,7 @@ curl
 |`RecurrentPaymentId`|Numero de identificação da Recorrência.|Texto|50|Sim|
 |`Interval`|Intervalo da recorrência. <ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Número|2|Sim|
 
-### Resposta
+#### Resposta
 
 ```shell
 HTTP Status 200
@@ -4300,13 +4302,13 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-## Modificar dia da Recorrência
+### Modificar dia da Recorrência
 
 Para modificar o dia da recorrência, basta fazer um Put conforme o exemplo.
 
 <aside class="notice"><strong>Regra:</strong> Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -4334,7 +4336,7 @@ curl
 |`RecurrentPaymentId`|Numero de identificação da Recorrência.|Texto|50|Sim|
 |`RecurrencyDay`|Dia da Recorrência.|Número|2|Sim|
 
-### Resposta
+#### Resposta
 
 ```shell
 HTTP Status 200
@@ -4342,11 +4344,11 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-## Modificando o valor da Recorrência
+### Modificando o valor da Recorrência
 
 Para modificar o valor da recorrência, basta fazer um Put conforme o exemplo.
 
-### Requsição
+#### Requsição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -4376,7 +4378,7 @@ curl
 
 <aside class="warning">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
 
-### Resposta
+#### Resposta
 
 ```shell
 HTTP Status 200
@@ -4384,7 +4386,7 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-## Modificando data do próximo Pagamento
+### Modificando data do próximo Pagamento
 
 Para alterar a data do próximo Pagamento, basta fazer um Put conforme o exemplo.
 
@@ -4416,7 +4418,7 @@ curl
 |`RecurrentPaymentId`|Numero de identificação da Recorrência.|Texto|50|Sim|
 |`NextPaymentDate`|Data de pagamento da próxima recorrência.|Texto|10|Sim|
 
-### Resposta
+#### Resposta
 
 ```shell
 HTTP Status 200
@@ -4424,13 +4426,13 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-## Modificando dados do Pagamento da Recorrência
+### Modificando dados do Pagamento da Recorrência
 
 Para alterar os dados de pagamento da Recorrência, basta fazer um Put conforme o exemplo.
 
 <aside class="notice"><strong>Atenção:</strong> Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -4492,7 +4494,7 @@ curl
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
-### Resposta
+#### Resposta
 
 ```shell
 HTTP Status 200
@@ -4500,11 +4502,11 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-## Desabilitando um Pedido Recorrente
+### Desabilitando um Pedido Recorrente
 
 Para desabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
@@ -4526,7 +4528,7 @@ curl
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência.|Texto|50|Sim|
 
-### Resposta
+#### Resposta
 
 ```shell
 HTTP Status 200
@@ -4534,11 +4536,11 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-## Reabilitando um Pedido Recorrente
+### Reabilitando um Pedido Recorrente
 
 Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -4560,7 +4562,7 @@ curl
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência.|Texto|50|Sim|
 
-### Resposta
+#### Resposta
 
 ```shell
 HTTP Status 200
