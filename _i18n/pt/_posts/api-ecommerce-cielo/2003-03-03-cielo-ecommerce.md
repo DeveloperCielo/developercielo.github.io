@@ -1748,6 +1748,7 @@ Para criar uma venda que utilizará cartão de débito, é necessário fazer um 
    },
    "Payment":{  
      "Type":"DebitCard",
+     "Authenticate": true,
      "Amount":15700,
      "ReturnUrl":"http://www.cielo.com.br",
      "DebitCard":{  
@@ -1776,6 +1777,7 @@ curl
    },
    "Payment":{  
      "Type":"DebitCard",
+     "Authenticate": true,
      "Amount":15700,
      "ReturnUrl":"http://www.cielo.com.br",
      "DebitCard":{  
@@ -1800,13 +1802,16 @@ curl
 |`Customer.Status`|Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude|Texto|255|Não|
 |`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.ReturnUrl`|Url de retorno do lojista.|Texto|1024|Sim|
+|`Payment.Authenticate`|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|Booleano|---|Sim (Default TRUE)|
 |`Payment.ReturnUrl`|URI para onde o usuário será redirecionado após o fim do pagamento|Texto|1024|Sim|
 |`DebitCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
 |`DebitCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
 |`DebitCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+
+<aside class="warning">Cartões de Débito, por padrão, devem possuir `Authenticate` como TRUE </aside>
+
 
 ### Resposta
 
