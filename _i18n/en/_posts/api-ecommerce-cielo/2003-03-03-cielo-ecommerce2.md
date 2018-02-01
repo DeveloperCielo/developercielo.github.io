@@ -2247,7 +2247,7 @@ curl
 |`Identification`|Documento de identificação do Cedente.|Texto|14|CPF ou CNPJ do Cedente sem os caracteres especiais (., /, -)|
 |`Status`|Status da Transação.|Byte|---|1|
 
-## Regras Adicionais
+### Regras Adicionais
 
 Quantidade de caracteres por campo e Provider:
 
@@ -3422,13 +3422,15 @@ Quais as vantagens de usar a recorrência programada para o MusicFy:
     
 4. **Conversão:** A recorrência programada cielo possui um sistema de retentativa automática. Caso uma das transações seja negada, ela será retentada até 4 vezes, buscando atingir a autorização.
 
-## Criando uma RECORRÊNCIA PRÓPRIA
+## Criando Recorrências
+
+### Criando uma Recorrência Própria
 
 Para criar uma venda recorrente cuja o processo de recorrência e intervalo serão executados pela propria loja, basta fazer um POST conforme o exemplo.
 
 O paramêtro `Payment.Recurrent`deve ser `true`, caso contrario, a transação será negada.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3506,7 +3508,7 @@ curl
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -3652,7 +3654,7 @@ curl
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
-## Criando uma RECORRÊNCIA PROGRAMADA
+### Criando uma Recorrência Programada
 
 Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.
 
@@ -3660,7 +3662,7 @@ Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a
     
     da. Todas as transções posteriores serão capturadas automaticamente.</aside>
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3748,7 +3750,7 @@ curl
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
-### Resposta
+#### Resposta
 
 ```json
 {
