@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-02-01T19:37:53+00:00</updated>
+    <updated>2018-02-01T23:13:33+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8005,7 +8005,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;regras-adicionais&quot;&gt;Regras Adicionais&lt;/h2&gt;
+&lt;h3 id=&quot;regras-adicionais&quot;&gt;Regras Adicionais&lt;/h3&gt;
 
 &lt;p&gt;Quantidade de caracteres por campo e Provider:&lt;/p&gt;
 
@@ -10173,13 +10173,15 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;criando-uma-recorrÊncia-prÓpria&quot;&gt;Criando uma RECORRÊNCIA PRÓPRIA&lt;/h2&gt;
+&lt;h2 id=&quot;criando-recorrências&quot;&gt;Criando Recorrências&lt;/h2&gt;
+
+&lt;h3 id=&quot;criando-uma-recorrência-própria&quot;&gt;Criando uma Recorrência Própria&lt;/h3&gt;
 
 &lt;p&gt;Para criar uma venda recorrente cuja o processo de recorrência e intervalo serão executados pela propria loja, basta fazer um POST conforme o exemplo.&lt;/p&gt;
 
 &lt;p&gt;O paramêtro &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;deve ser &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;, caso contrario, a transação será negada.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-13&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-13&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -10356,7 +10358,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-16&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-16&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014113245231706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -10601,7 +10603,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;criando-uma-recorrÊncia-programada&quot;&gt;Criando uma RECORRÊNCIA PROGRAMADA&lt;/h2&gt;
+&lt;h3 id=&quot;criando-uma-recorrência-programada&quot;&gt;Criando uma Recorrência Programada&lt;/h3&gt;
 
 &lt;p&gt;Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.&lt;/p&gt;
 
@@ -10609,7 +10611,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
     
     da. Todas as transções posteriores serão capturadas automaticamente.&lt;/aside&gt;
 
-&lt;h3 id=&quot;requisição-14&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-14&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -10808,7 +10810,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-17&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-17&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014113245231706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;

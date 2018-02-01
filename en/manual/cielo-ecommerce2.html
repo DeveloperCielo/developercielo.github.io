@@ -4434,7 +4434,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h2 id="regras-adicionais">Regras Adicionais</h2>
+<h3 id="regras-adicionais">Regras Adicionais</h3>
 
 <p>Quantidade de caracteres por campo e Provider:</p>
 
@@ -6602,13 +6602,15 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   </li>
 </ol>
 
-<h2 id="criando-uma-recorrÊncia-prÓpria">Criando uma RECORRÊNCIA PRÓPRIA</h2>
+<h2 id="criando-recorrências">Criando Recorrências</h2>
+
+<h3 id="criando-uma-recorrência-própria">Criando uma Recorrência Própria</h3>
 
 <p>Para criar uma venda recorrente cuja o processo de recorrência e intervalo serão executados pela propria loja, basta fazer um POST conforme o exemplo.</p>
 
 <p>O paramêtro <code class="highlighter-rouge">Payment.Recurrent</code>deve ser <code class="highlighter-rouge">true</code>, caso contrario, a transação será negada.</p>
 
-<h3 id="requisição-13">Requisição</h3>
+<h4 id="requisição-13">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6785,7 +6787,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   </tbody>
 </table>
 
-<h3 id="resposta-16">Resposta</h3>
+<h4 id="resposta-16">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -7030,7 +7032,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   </tbody>
 </table>
 
-<h2 id="criando-uma-recorrÊncia-programada">Criando uma RECORRÊNCIA PROGRAMADA</h2>
+<h3 id="criando-uma-recorrência-programada">Criando uma Recorrência Programada</h3>
 
 <p>Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.</p>
 
@@ -7038,7 +7040,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
     
     da. Todas as transções posteriores serão capturadas automaticamente.</aside>
 
-<h3 id="requisição-14">Requisição</h3>
+<h4 id="requisição-14">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7237,7 +7239,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   </tbody>
 </table>
 
-<h3 id="resposta-17">Resposta</h3>
+<h4 id="resposta-17">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
