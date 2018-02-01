@@ -3478,6 +3478,7 @@ Abaixo especificamos qualquer diferença existente:</p>
    </span><span class="p">},</span><span class="w">
    </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">  
      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
      </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.cielo.com.br"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"DebitCard"</span><span class="p">:{</span><span class="w">  
@@ -3505,6 +3506,7 @@ Abaixo especificamos qualquer diferença existente:</p>
    <span class="o">}</span>,
    <span class="s2">"Payment"</span>:<span class="o">{</span>  
      <span class="s2">"Type"</span>:<span class="s2">"DebitCard"</span>,
+     <span class="s2">"Authenticate"</span>: <span class="nb">true</span>,
      <span class="s2">"Amount"</span>:15700,
      <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.cielo.com.br"</span>,
      <span class="s2">"DebitCard"</span>:<span class="o">{</span>  
@@ -3587,11 +3589,11 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
-      <td>Url de retorno do lojista.</td>
-      <td>Texto</td>
-      <td>1024</td>
-      <td>Sim</td>
+      <td><code class="highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Sim (Default TRUE)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
@@ -3637,6 +3639,8 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
   </tbody>
 </table>
+
+<aside class="warning">Cartões de Débito, por padrão, devem possuir `Authenticate` como TRUE </aside>
 
 <h3 id="resposta-4">Resposta</h3>
 
