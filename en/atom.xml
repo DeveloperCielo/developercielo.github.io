@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-02-01T18:52:17+00:00</updated>
+    <updated>2018-02-01T18:57:56+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4392,7 +4392,9 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;pagamentos---cartão-de-crédito&quot;&gt;Pagamentos - Cartão de Crédito&lt;/h1&gt;
+&lt;h1 id=&quot;meios-de-pagamento&quot;&gt;Meios de Pagamento&lt;/h1&gt;
+
+&lt;h2 id=&quot;cartão-de-crédito&quot;&gt;Cartão de Crédito&lt;/h2&gt;
 
 &lt;p&gt;Para que você possa disfrutar de todos os recursos disponíveis em nossa API, é importante que antes você conheça os conceitos envolvidos no processamento de uma transação de cartão de crédito.&lt;/p&gt;
 
@@ -4435,13 +4437,13 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;criando-uma-transação-simples&quot;&gt;Criando uma transação simples&lt;/h2&gt;
+&lt;h3 id=&quot;transação-simples&quot;&gt;Transação Simples&lt;/h3&gt;
 
 &lt;p&gt;Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.&lt;/aside&gt;
 
-&lt;h3 id=&quot;requisição&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -4607,7 +4609,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -4791,11 +4793,11 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;criando-uma-transação-completa&quot;&gt;Criando uma transação completa&lt;/h2&gt;
+&lt;h3 id=&quot;transação-completa&quot;&gt;Transação completa&lt;/h3&gt;
 
 &lt;p&gt;Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; para o recurso Payment conforme o exemplo. Esse exemplo contempla todos os campos possíveis que podem ser enviados.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -5204,7 +5206,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-1&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-1&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -5424,13 +5426,13 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;criando-uma-venda-com-autenticação&quot;&gt;Criando uma venda com Autenticação&lt;/h2&gt;
+&lt;h3 id=&quot;transação-autenticada&quot;&gt;Transação Autenticada&lt;/h3&gt;
 
 &lt;p&gt;Para criar uma transação com autenticação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; para o recurso Payment conforme o exemplo.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Autenticação: Nesta modalidade o portador do cartão é direcionado para o ambiente de autenticação do banco emissor do cartão onde será solicitada a inclusão da senha do cartão.&lt;/aside&gt;
 
-&lt;h3 id=&quot;requisição-2&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-2&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -5617,7 +5619,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-2&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-2&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111903&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -5787,11 +5789,11 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;criando-uma-venda-com-analise-de-fraude-af&quot;&gt;Criando uma venda com Analise de Fraude (AF)&lt;/h2&gt;
+&lt;h3 id=&quot;transação-com-analise-de-fraude-af&quot;&gt;Transação com Analise de Fraude (AF)&lt;/h3&gt;
 
 &lt;p&gt;Para criar uma venda com cartão de crédito e analise de fraude, é necessário enviar uma requisição utilizando o método &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; para o recurso Payment conforme o exemplo.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-3&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-3&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -6566,7 +6568,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-3&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-3&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;201411173454307&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
