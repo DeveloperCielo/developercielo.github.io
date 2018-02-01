@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-02-01T18:57:56+00:00</updated>
+    <updated>2018-02-01T19:00:40+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7034,13 +7034,13 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;pagamentos---cartão-de-débito&quot;&gt;Pagamentos - Cartão de Débito&lt;/h1&gt;
+&lt;h2 id=&quot;cartão-de-débito&quot;&gt;Cartão de Débito&lt;/h2&gt;
 
-&lt;h2 id=&quot;criando-uma-venda-simplificada&quot;&gt;Criando uma venda simplificada&lt;/h2&gt;
+&lt;h3 id=&quot;transação-simples-1&quot;&gt;Transação simples&lt;/h3&gt;
 
 &lt;p&gt;Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-4&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-4&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -7215,7 +7215,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;Cartões de Débito, por padrão, devem possuir `Authenticate` como TRUE &lt;/aside&gt;
 
-&lt;h3 id=&quot;resposta-4&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-4&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014121201&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -7344,13 +7344,13 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;pagamentos---transferência-eletronica&quot;&gt;Pagamentos - Transferência Eletronica&lt;/h1&gt;
+&lt;h2 id=&quot;transferência-eletronica&quot;&gt;Transferência Eletronica&lt;/h2&gt;
 
-&lt;h2 id=&quot;criando-uma-venda-simplificada-1&quot;&gt;Criando uma venda simplificada&lt;/h2&gt;
+&lt;h3 id=&quot;transação-simples-2&quot;&gt;Transação Simples&lt;/h3&gt;
 
 &lt;p&gt;Para criar uma venda de transferência eletronica, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-5&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-5&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -7471,7 +7471,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-5&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-5&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -7563,15 +7563,15 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;pagamentos---boleto&quot;&gt;Pagamentos - Boleto&lt;/h1&gt;
+&lt;h2 id=&quot;boleto&quot;&gt;Boleto&lt;/h2&gt;
 
-&lt;h2 id=&quot;criando-uma-venda-de-boleto&quot;&gt;Criando uma venda de Boleto&lt;/h2&gt;
+&lt;h3 id=&quot;transação-de-boletos&quot;&gt;Transação de Boletos&lt;/h3&gt;
 
 &lt;p&gt;Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST conforme o exemplo.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;OBS:&lt;/strong&gt; A API suporta boletos registrados e não registrados, sendo o provider o diferenciador entre eles. Sugerimos que valide com seu banco qual o tipo de boleto suportado por sua carteira. A API Aceita apenas boletos &lt;strong&gt;Bradesco&lt;/strong&gt; e &lt;strong&gt;Banco do Brasil&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;requisição-6&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h4 id=&quot;requisição-6&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -7826,7 +7826,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;resposta-6&quot;&gt;Resposta&lt;/h3&gt;
+&lt;h4 id=&quot;resposta-6&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;

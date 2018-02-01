@@ -3463,13 +3463,13 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h1 id="pagamentos---cartão-de-débito">Pagamentos - Cartão de Débito</h1>
+<h2 id="cartão-de-débito">Cartão de Débito</h2>
 
-<h2 id="criando-uma-venda-simplificada">Criando uma venda simplificada</h2>
+<h3 id="transação-simples-1">Transação simples</h3>
 
 <p>Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
 
-<h3 id="requisição-4">Requisição</h3>
+<h4 id="requisição-4">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3644,7 +3644,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="warning">Cartões de Débito, por padrão, devem possuir `Authenticate` como TRUE </aside>
 
-<h3 id="resposta-4">Resposta</h3>
+<h4 id="resposta-4">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014121201"</span><span class="p">,</span><span class="w">
@@ -3773,13 +3773,13 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h1 id="pagamentos---transferência-eletronica">Pagamentos - Transferência Eletronica</h1>
+<h2 id="transferência-eletronica">Transferência Eletronica</h2>
 
-<h2 id="criando-uma-venda-simplificada-1">Criando uma venda simplificada</h2>
+<h3 id="transação-simples-2">Transação Simples</h3>
 
 <p>Para criar uma venda de transferência eletronica, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
 
-<h3 id="requisição-5">Requisição</h3>
+<h4 id="requisição-5">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3900,7 +3900,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h3 id="resposta-5">Resposta</h3>
+<h4 id="resposta-5">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -3992,15 +3992,15 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h1 id="pagamentos---boleto">Pagamentos - Boleto</h1>
+<h2 id="boleto">Boleto</h2>
 
-<h2 id="criando-uma-venda-de-boleto">Criando uma venda de Boleto</h2>
+<h3 id="transação-de-boletos">Transação de Boletos</h3>
 
 <p>Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST conforme o exemplo.</p>
 
 <p><strong>OBS:</strong> A API suporta boletos registrados e não registrados, sendo o provider o diferenciador entre eles. Sugerimos que valide com seu banco qual o tipo de boleto suportado por sua carteira. A API Aceita apenas boletos <strong>Bradesco</strong> e <strong>Banco do Brasil</strong></p>
 
-<h3 id="requisição-6">Requisição</h3>
+<h4 id="requisição-6">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4255,7 +4255,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h3 id="resposta-6">Resposta</h3>
+<h4 id="resposta-6">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
