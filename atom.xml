@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-02-01T18:29:59+00:00</updated>
+    <updated>2018-02-01T18:34:06+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -21328,7 +21328,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ServiceTaxAmount&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://developercielo.github.io/Webservice-3.0/#anexos&quot;&gt;Veja Anexo&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque&quot;&gt;Veja Anexo&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -21490,7 +21490,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ServiceTaxAmount&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://developercielo.github.io/Webservice-3.0/#anexos&quot;&gt;Veja Anexo&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque&quot;&gt;Veja Anexo&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
