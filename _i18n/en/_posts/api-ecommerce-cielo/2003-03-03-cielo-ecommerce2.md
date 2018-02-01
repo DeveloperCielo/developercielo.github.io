@@ -1732,13 +1732,13 @@ curl
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
 
-# Pagamentos - Cartão de Débito
+## Cartão de Débito
 
-## Criando uma venda simplificada
+### Transação simples
 
 Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1814,7 +1814,7 @@ curl
 
 <aside class="warning">Cartões de Débito, por padrão, devem possuir `Authenticate` como TRUE </aside>
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -1898,13 +1898,13 @@ curl
 |`Status`|Status da Transação.|Byte|---|0|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 
-# Pagamentos - Transferência Eletronica
+## Transferência Eletronica
 
-## Criando uma venda simplificada
+### Transação Simples
 
 Para criar uma venda de transferência eletronica, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1962,7 +1962,7 @@ curl
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
 |`Payment.Provider`|Define comportamento do meio de pagamento ([Veja Anexo](https://developercielo.github.io/Webservice-3.0/#anexos))/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|---|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -2027,15 +2027,15 @@ curl
 |`Url`|URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Transferência Eletronica.|Texto|256|Url de Autenticação|
 |`Status`|Status da Transação.|Byte|---|0|
 
-# Pagamentos - Boleto
+## Boleto
 
-## Criando uma venda de Boleto
+### Transação de Boletos
 
 Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST conforme o exemplo.
 
 **OBS:** A API suporta boletos registrados e não registrados, sendo o provider o diferenciador entre eles. Sugerimos que valide com seu banco qual o tipo de boleto suportado por sua carteira. A API Aceita apenas boletos **Bradesco** e **Banco do Brasil**
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -2143,7 +2143,7 @@ curl
 |`Payment.Identification`|Documento de identificação do Cedente.|Texto|14|Não|
 |`Payment.Instructions`|Instruções do Boleto.|Texto|450|Não|
 
-### Resposta
+#### Resposta
 
 ```json
 {
