@@ -312,61 +312,6 @@ Abaixo especificamos qualquer diferença existente:
 |Cartão de débito|O `provider` utilizado deve ser **SIMULADO** <br><br> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação|
 |Transferência online|O `provider` utilizado deve ser **SIMULADO** <br><br> A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação|
 
-## Post de Notificação
-
-O Post de notificação é enviado com base em uma seleção de eventos a ser feita no cadastro da API Cielo E-commerce.
-
-Os eventos passiveis de notificação são:
-
-|Meio de Pagamento|Evento|
-|---|---|
-|Cartão de Crédito|Captura|
-|Cartão de Crédito|Cancelamento|
-|Cartão de Crédito|Sondagem|
-|Boleto|Conciliação|
-|Boleto|Cancelamento Manual|
-|Transferência eletrônica|Confirmadas|
-|Recorrência|Desabilitado ao atingir número máximo de tentativas (transações negadas)|
-|Recorrência|Aguardando conciliação de boleto|
-|Recorrência|Reabilitação - Após pagamento de boleto|
-|Recorrência|Finalizado - Data de finalização atingida|
-|Recorrência|Desativação|
-
-<aside class="notice"><strong>Cartão de débito:</strong> Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um `GET` seja executado, buscando informações do pedido na API Cielo</aside>
-
-Uma `URL Status Pagamento` deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado. 
-
-Características da `URL Status Pagamento` 
-
-* Deve ser **estática**
-* Limite de 255  carácteres.
-
-A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 200 OK**
-
-Caso não seja retornado o **HTTP Status Code 200 OK**,  ocorrerão mais **dois** envios do Post de Notificação. 
-
-```json
-{
-   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": "2"
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)|GUID|36|Não|
-|`PaymentId`|Identificador que representa a transação|GUID|36|Sim|
-|`ChangeType`|Especifica o tipo de notificação. Vide tabela abaixo|Número|1|Sim|
-
-|ChangeType|Descrição|
-|---|---|
-|1|Mudança de status do pagamento|
-|2|Recorrência criada|
-|3|Mudança de status do Antifraude|
-|4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
-|5|cancelamento negado|
-
 # Meios de Pagamento
 
 ## Cartão de Crédito
@@ -3277,6 +3222,61 @@ Efeitos sobre o meio de pagamento
 |Transferência Eletrônica|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|Definido pelo lojista|Não|
 
 Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
+
+## Post de Notificação
+
+O Post de notificação é enviado com base em uma seleção de eventos a ser feita no cadastro da API Cielo E-commerce.
+
+Os eventos passiveis de notificação são:
+
+|Meio de Pagamento|Evento|
+|---|---|
+|Cartão de Crédito|Captura|
+|Cartão de Crédito|Cancelamento|
+|Cartão de Crédito|Sondagem|
+|Boleto|Conciliação|
+|Boleto|Cancelamento Manual|
+|Transferência eletrônica|Confirmadas|
+|Recorrência|Desabilitado ao atingir número máximo de tentativas (transações negadas)|
+|Recorrência|Aguardando conciliação de boleto|
+|Recorrência|Reabilitação - Após pagamento de boleto|
+|Recorrência|Finalizado - Data de finalização atingida|
+|Recorrência|Desativação|
+
+<aside class="notice"><strong>Cartão de débito:</strong> Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um `GET` seja executado, buscando informações do pedido na API Cielo</aside>
+
+Uma `URL Status Pagamento` deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado. 
+
+Características da `URL Status Pagamento` 
+
+* Deve ser **estática**
+* Limite de 255  carácteres.
+
+A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 200 OK**
+
+Caso não seja retornado o **HTTP Status Code 200 OK**,  ocorrerão mais **dois** envios do Post de Notificação. 
+
+```json
+{
+   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "ChangeType": "2"
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)|GUID|36|Não|
+|`PaymentId`|Identificador que representa a transação|GUID|36|Sim|
+|`ChangeType`|Especifica o tipo de notificação. Vide tabela abaixo|Número|1|Sim|
+
+|ChangeType|Descrição|
+|---|---|
+|1|Mudança de status do pagamento|
+|2|Recorrência criada|
+|3|Mudança de status do Antifraude|
+|4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
+|5|cancelamento negado|
 
 # Recorrencia
 
@@ -6844,16 +6844,6 @@ Permite que o lojista envie um texto complementar que será impresso na fatura d
 
 Para conhecer e/ou alterar o nome da loja que esta cadastrado entre em contato com a central de relacionamento Cielo.
 
-# Dúvidas e Suporte
-
-Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:
-
-* **Email:** [cieloeCommerce@cielo.com.br](mailto:cieloeCommerce@cielo.com.br)
-* **Capitais:** 4002-9700
-* **Demais Cidades:** 0800 570 1700
-
-**Horário de atendimento:** 24h por dia, 7 dias por semana.
-
 # SDKs
 
 A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:
@@ -6866,3 +6856,13 @@ A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório ofici
 |[**JAVA**](https://github.com/DeveloperCielo/API-3.0-Java)        |
 |[**Python**](https://github.com/DeveloperCielo/API-3.0-Python)    |
 |[**Ruby**](https://github.com/DeveloperCielo/API-3.0-Ruby)        |
+
+# Dúvidas e Suporte
+
+Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:
+
+* **Email:** [cieloeCommerce@cielo.com.br](mailto:cieloeCommerce@cielo.com.br)
+* **Capitais:** 4002-9700
+* **Demais Cidades:** 0800 570 1700
+
+**Horário de atendimento:** 24h por dia, 7 dias por semana.
