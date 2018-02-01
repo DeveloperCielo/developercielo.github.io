@@ -1812,7 +1812,6 @@ curl
 
 <aside class="warning">Cartões de Débito, por padrão, devem possuir `Authenticate` como TRUE </aside>
 
-
 ### Resposta
 
 ```json
