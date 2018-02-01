@@ -2276,7 +2276,7 @@ Quantidade de caracteres por campo e Provider:
 
 # Consulta - Captura - Cancelamento
 
-## Consulta de transções
+## Consulta de transações
 
 ### Consulta - PaymentID
 
@@ -4390,7 +4390,7 @@ Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os có
 
 Para alterar a data do próximo Pagamento, basta fazer um Put conforme o exemplo.
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
