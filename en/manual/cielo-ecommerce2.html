@@ -672,155 +672,6 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h2 id="post-de-notificação">Post de Notificação</h2>
-
-<p>O Post de notificação é enviado com base em uma seleção de eventos a ser feita no cadastro da API Cielo E-commerce.</p>
-
-<p>Os eventos passiveis de notificação são:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Meio de Pagamento</th>
-      <th>Evento</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cartão de Crédito</td>
-      <td>Captura</td>
-    </tr>
-    <tr>
-      <td>Cartão de Crédito</td>
-      <td>Cancelamento</td>
-    </tr>
-    <tr>
-      <td>Cartão de Crédito</td>
-      <td>Sondagem</td>
-    </tr>
-    <tr>
-      <td>Boleto</td>
-      <td>Conciliação</td>
-    </tr>
-    <tr>
-      <td>Boleto</td>
-      <td>Cancelamento Manual</td>
-    </tr>
-    <tr>
-      <td>Transferência eletrônica</td>
-      <td>Confirmadas</td>
-    </tr>
-    <tr>
-      <td>Recorrência</td>
-      <td>Desabilitado ao atingir número máximo de tentativas (transações negadas)</td>
-    </tr>
-    <tr>
-      <td>Recorrência</td>
-      <td>Aguardando conciliação de boleto</td>
-    </tr>
-    <tr>
-      <td>Recorrência</td>
-      <td>Reabilitação - Após pagamento de boleto</td>
-    </tr>
-    <tr>
-      <td>Recorrência</td>
-      <td>Finalizado - Data de finalização atingida</td>
-    </tr>
-    <tr>
-      <td>Recorrência</td>
-      <td>Desativação</td>
-    </tr>
-  </tbody>
-</table>
-
-<aside class="notice">Cartão de débito: Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um `GET` seja executado, buscando informações do pedido na API Cielo</aside>
-
-<p>Uma <code class="highlighter-rouge">URL Status Pagamento</code> deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado.</p>
-
-<p>Características da <code class="highlighter-rouge">URL Status Pagamento</code></p>
-
-<ul>
-  <li>Deve ser <strong>estática</strong></li>
-  <li>Limite de 255  carácteres.</li>
-</ul>
-
-<p>A loja <strong>deverá</strong> retornar como resposta ao notificação: <strong>HTTP Status Code 200 OK</strong></p>
-
-<p>Caso não seja retornado o <strong>HTTP Status Code 200 OK</strong>,  ocorrerão mais <strong>dois</strong> envios do Post de Notificação.</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PaymentId</code></td>
-      <td>Identificador que representa a transação</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ChangeType</code></td>
-      <td>Especifica o tipo de notificação. Vide tabela abaixo</td>
-      <td>Número</td>
-      <td>1</td>
-      <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>ChangeType</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mudança de status do pagamento</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Recorrência criada</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Mudança de status do Antifraude</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Mudança de status do pagamento recorrente (Ex. desativação automática)</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>cancelamento negado</td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="meios-de-pagamento">Meios de Pagamento</h1>
 
 <h2 id="cartão-de-crédito">Cartão de Crédito</h2>
@@ -6362,6 +6213,155 @@ Abaixo especificamos qualquer diferença existente:</p>
 </table>
 
 <p>Acesse nosso <a href="https://developercielo.github.io/Tutorial//Backoffice-3.0"><strong>Tutorial</strong></a>  para maiores informações</p>
+
+<h2 id="post-de-notificação">Post de Notificação</h2>
+
+<p>O Post de notificação é enviado com base em uma seleção de eventos a ser feita no cadastro da API Cielo E-commerce.</p>
+
+<p>Os eventos passiveis de notificação são:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Meio de Pagamento</th>
+      <th>Evento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cartão de Crédito</td>
+      <td>Captura</td>
+    </tr>
+    <tr>
+      <td>Cartão de Crédito</td>
+      <td>Cancelamento</td>
+    </tr>
+    <tr>
+      <td>Cartão de Crédito</td>
+      <td>Sondagem</td>
+    </tr>
+    <tr>
+      <td>Boleto</td>
+      <td>Conciliação</td>
+    </tr>
+    <tr>
+      <td>Boleto</td>
+      <td>Cancelamento Manual</td>
+    </tr>
+    <tr>
+      <td>Transferência eletrônica</td>
+      <td>Confirmadas</td>
+    </tr>
+    <tr>
+      <td>Recorrência</td>
+      <td>Desabilitado ao atingir número máximo de tentativas (transações negadas)</td>
+    </tr>
+    <tr>
+      <td>Recorrência</td>
+      <td>Aguardando conciliação de boleto</td>
+    </tr>
+    <tr>
+      <td>Recorrência</td>
+      <td>Reabilitação - Após pagamento de boleto</td>
+    </tr>
+    <tr>
+      <td>Recorrência</td>
+      <td>Finalizado - Data de finalização atingida</td>
+    </tr>
+    <tr>
+      <td>Recorrência</td>
+      <td>Desativação</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">Cartão de débito: Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um `GET` seja executado, buscando informações do pedido na API Cielo</aside>
+
+<p>Uma <code class="highlighter-rouge">URL Status Pagamento</code> deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado.</p>
+
+<p>Características da <code class="highlighter-rouge">URL Status Pagamento</code></p>
+
+<ul>
+  <li>Deve ser <strong>estática</strong></li>
+  <li>Limite de 255  carácteres.</li>
+</ul>
+
+<p>A loja <strong>deverá</strong> retornar como resposta ao notificação: <strong>HTTP Status Code 200 OK</strong></p>
+
+<p>Caso não seja retornado o <strong>HTTP Status Code 200 OK</strong>,  ocorrerão mais <strong>dois</strong> envios do Post de Notificação.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Identificador que representa a transação</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ChangeType</code></td>
+      <td>Especifica o tipo de notificação. Vide tabela abaixo</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>ChangeType</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Mudança de status do pagamento</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Recorrência criada</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mudança de status do Antifraude</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Mudança de status do pagamento recorrente (Ex. desativação automática)</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>cancelamento negado</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="recorrencia">Recorrencia</h1>
 
@@ -15009,18 +15009,6 @@ Mais informações e integração completa, você encontra no link: https://deve
 
 <p>Para conhecer e/ou alterar o nome da loja que esta cadastrado entre em contato com a central de relacionamento Cielo.</p>
 
-<h1 id="dúvidas-e-suporte">Dúvidas e Suporte</h1>
-
-<p>Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:</p>
-
-<ul>
-  <li><strong>Email:</strong> <a href="mailto:cieloeCommerce@cielo.com.br">cieloeCommerce@cielo.com.br</a></li>
-  <li><strong>Capitais:</strong> 4002-9700</li>
-  <li><strong>Demais Cidades:</strong> 0800 570 1700</li>
-</ul>
-
-<p><strong>Horário de atendimento:</strong> 24h por dia, 7 dias por semana.</p>
-
 <h1 id="sdks">SDKs</h1>
 
 <p>A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:</p>
@@ -15052,6 +15040,18 @@ Mais informações e integração completa, você encontra no link: https://deve
     </tr>
   </tbody>
 </table>
+
+<h1 id="dúvidas-e-suporte">Dúvidas e Suporte</h1>
+
+<p>Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:</p>
+
+<ul>
+  <li><strong>Email:</strong> <a href="mailto:cieloeCommerce@cielo.com.br">cieloeCommerce@cielo.com.br</a></li>
+  <li><strong>Capitais:</strong> 4002-9700</li>
+  <li><strong>Demais Cidades:</strong> 0800 570 1700</li>
+</ul>
+
+<p><strong>Horário de atendimento:</strong> 24h por dia, 7 dias por semana.</p>
 
 </div>
 

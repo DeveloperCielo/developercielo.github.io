@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-02-01T23:33:34+00:00</updated>
+    <updated>2018-02-01T23:42:41+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4239,155 +4239,6 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;Transferência online&lt;/td&gt;
       &lt;td&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;provider&lt;/code&gt; utilizado deve ser &lt;strong&gt;SIMULADO&lt;/strong&gt; &lt;br /&gt; A URL de redirecionamento para o ambiente do banco será na verdade uma tela para escolher o estado da autenticação&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;post-de-notificação&quot;&gt;Post de Notificação&lt;/h2&gt;
-
-&lt;p&gt;O Post de notificação é enviado com base em uma seleção de eventos a ser feita no cadastro da API Cielo E-commerce.&lt;/p&gt;
-
-&lt;p&gt;Os eventos passiveis de notificação são:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Meio de Pagamento&lt;/th&gt;
-      &lt;th&gt;Evento&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Cartão de Crédito&lt;/td&gt;
-      &lt;td&gt;Captura&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Cartão de Crédito&lt;/td&gt;
-      &lt;td&gt;Cancelamento&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Cartão de Crédito&lt;/td&gt;
-      &lt;td&gt;Sondagem&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Boleto&lt;/td&gt;
-      &lt;td&gt;Conciliação&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Boleto&lt;/td&gt;
-      &lt;td&gt;Cancelamento Manual&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Transferência eletrônica&lt;/td&gt;
-      &lt;td&gt;Confirmadas&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Recorrência&lt;/td&gt;
-      &lt;td&gt;Desabilitado ao atingir número máximo de tentativas (transações negadas)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Recorrência&lt;/td&gt;
-      &lt;td&gt;Aguardando conciliação de boleto&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Recorrência&lt;/td&gt;
-      &lt;td&gt;Reabilitação - Após pagamento de boleto&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Recorrência&lt;/td&gt;
-      &lt;td&gt;Finalizado - Data de finalização atingida&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Recorrência&lt;/td&gt;
-      &lt;td&gt;Desativação&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;aside class=&quot;notice&quot;&gt;Cartão de débito: Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um `GET` seja executado, buscando informações do pedido na API Cielo&lt;/aside&gt;
-
-&lt;p&gt;Uma &lt;code class=&quot;highlighter-rouge&quot;&gt;URL Status Pagamento&lt;/code&gt; deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado.&lt;/p&gt;
-
-&lt;p&gt;Características da &lt;code class=&quot;highlighter-rouge&quot;&gt;URL Status Pagamento&lt;/code&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Deve ser &lt;strong&gt;estática&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Limite de 255  carácteres.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A loja &lt;strong&gt;deverá&lt;/strong&gt; retornar como resposta ao notificação: &lt;strong&gt;HTTP Status Code 200 OK&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Caso não seja retornado o &lt;strong&gt;HTTP Status Code 200 OK&lt;/strong&gt;,  ocorrerão mais &lt;strong&gt;dois&lt;/strong&gt; envios do Post de Notificação.&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RecurrentPaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChangeType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Propriedade&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Tipo&lt;/th&gt;
-      &lt;th&gt;Tamanho&lt;/th&gt;
-      &lt;th&gt;Obrigatório&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)&lt;/td&gt;
-      &lt;td&gt;GUID&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Identificador que representa a transação&lt;/td&gt;
-      &lt;td&gt;GUID&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ChangeType&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Especifica o tipo de notificação. Vide tabela abaixo&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;ChangeType&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;Mudança de status do pagamento&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Recorrência criada&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;3&lt;/td&gt;
-      &lt;td&gt;Mudança de status do Antifraude&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;Mudança de status do pagamento recorrente (Ex. desativação automática)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;cancelamento negado&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -9933,6 +9784,155 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
 &lt;/table&gt;
 
 &lt;p&gt;Acesse nosso &lt;a href=&quot;https://developercielo.github.io/Tutorial//Backoffice-3.0&quot;&gt;&lt;strong&gt;Tutorial&lt;/strong&gt;&lt;/a&gt;  para maiores informações&lt;/p&gt;
+
+&lt;h2 id=&quot;post-de-notificação&quot;&gt;Post de Notificação&lt;/h2&gt;
+
+&lt;p&gt;O Post de notificação é enviado com base em uma seleção de eventos a ser feita no cadastro da API Cielo E-commerce.&lt;/p&gt;
+
+&lt;p&gt;Os eventos passiveis de notificação são:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Meio de Pagamento&lt;/th&gt;
+      &lt;th&gt;Evento&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cartão de Crédito&lt;/td&gt;
+      &lt;td&gt;Captura&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cartão de Crédito&lt;/td&gt;
+      &lt;td&gt;Cancelamento&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cartão de Crédito&lt;/td&gt;
+      &lt;td&gt;Sondagem&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Boleto&lt;/td&gt;
+      &lt;td&gt;Conciliação&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Boleto&lt;/td&gt;
+      &lt;td&gt;Cancelamento Manual&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Transferência eletrônica&lt;/td&gt;
+      &lt;td&gt;Confirmadas&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Recorrência&lt;/td&gt;
+      &lt;td&gt;Desabilitado ao atingir número máximo de tentativas (transações negadas)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Recorrência&lt;/td&gt;
+      &lt;td&gt;Aguardando conciliação de boleto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Recorrência&lt;/td&gt;
+      &lt;td&gt;Reabilitação - Após pagamento de boleto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Recorrência&lt;/td&gt;
+      &lt;td&gt;Finalizado - Data de finalização atingida&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Recorrência&lt;/td&gt;
+      &lt;td&gt;Desativação&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Cartão de débito: Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um `GET` seja executado, buscando informações do pedido na API Cielo&lt;/aside&gt;
+
+&lt;p&gt;Uma &lt;code class=&quot;highlighter-rouge&quot;&gt;URL Status Pagamento&lt;/code&gt; deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado.&lt;/p&gt;
+
+&lt;p&gt;Características da &lt;code class=&quot;highlighter-rouge&quot;&gt;URL Status Pagamento&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Deve ser &lt;strong&gt;estática&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Limite de 255  carácteres.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A loja &lt;strong&gt;deverá&lt;/strong&gt; retornar como resposta ao notificação: &lt;strong&gt;HTTP Status Code 200 OK&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Caso não seja retornado o &lt;strong&gt;HTTP Status Code 200 OK&lt;/strong&gt;,  ocorrerão mais &lt;strong&gt;dois&lt;/strong&gt; envios do Post de Notificação.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RecurrentPaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChangeType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Obrigatório&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador que representa a transação&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ChangeType&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Especifica o tipo de notificação. Vide tabela abaixo&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ChangeType&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Mudança de status do pagamento&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Recorrência criada&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Mudança de status do Antifraude&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Mudança de status do pagamento recorrente (Ex. desativação automática)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;cancelamento negado&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h1 id=&quot;recorrencia&quot;&gt;Recorrencia&lt;/h1&gt;
 
@@ -18580,18 +18580,6 @@ Mais informações e integração completa, você encontra no link: https://deve
 
 &lt;p&gt;Para conhecer e/ou alterar o nome da loja que esta cadastrado entre em contato com a central de relacionamento Cielo.&lt;/p&gt;
 
-&lt;h1 id=&quot;dúvidas-e-suporte&quot;&gt;Dúvidas e Suporte&lt;/h1&gt;
-
-&lt;p&gt;Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&quot;mailto:cieloeCommerce@cielo.com.br&quot;&gt;cieloeCommerce@cielo.com.br&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Capitais:&lt;/strong&gt; 4002-9700&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Demais Cidades:&lt;/strong&gt; 0800 570 1700&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Horário de atendimento:&lt;/strong&gt; 24h por dia, 7 dias por semana.&lt;/p&gt;
-
 &lt;h1 id=&quot;sdks&quot;&gt;SDKs&lt;/h1&gt;
 
 &lt;p&gt;A API Cielo Ecommerce oferece uma gama de SDks disponiveis no Repositório oficial CIELO:&lt;/p&gt;
@@ -18623,6 +18611,18 @@ Mais informações e integração completa, você encontra no link: https://deve
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h1 id=&quot;dúvidas-e-suporte&quot;&gt;Dúvidas e Suporte&lt;/h1&gt;
+
+&lt;p&gt;Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href=&quot;mailto:cieloeCommerce@cielo.com.br&quot;&gt;cieloeCommerce@cielo.com.br&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Capitais:&lt;/strong&gt; 4002-9700&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Demais Cidades:&lt;/strong&gt; 0800 570 1700&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Horário de atendimento:&lt;/strong&gt; 24h por dia, 7 dias por semana.&lt;/p&gt;
 </content>
     </entry>
     
