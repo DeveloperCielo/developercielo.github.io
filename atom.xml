@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-02-02T19:07:05+00:00</updated>
+    <updated>2018-02-02T19:10:23+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19224,7 +19224,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;recorrencia&quot;&gt;Recorrencia&lt;/h1&gt;
+&lt;h1 id=&quot;recorrência&quot;&gt;Recorrência&lt;/h1&gt;
 
 &lt;p&gt;Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado periodo de tempo.&lt;/p&gt;
 
