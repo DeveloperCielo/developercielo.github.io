@@ -3278,7 +3278,7 @@ Caso não seja retornado o **HTTP Status Code 200 OK**,  ocorrerão mais **dois*
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|cancelamento negado|
 
-# Recorrencia
+# Recorrência
 
 Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado periodo de tempo.
 
