@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-02-05T12:26:40+00:00</updated>
+    <updated>2018-02-05T12:29:08+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1759,6 +1759,56 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 &lt;p&gt;3 - Pronto. O exemplo Json está convertido para Python&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/pcode2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;collections-e-environments--cielo-1&quot;&gt;Collections e Environments  Cielo&lt;/h1&gt;
+
+&lt;p&gt;Abaixo, listamos as collections e os Environments Cielo. Use-as em seu Postman para realizar testes e integrações.&lt;/p&gt;
+
+&lt;h3 id=&quot;api-cielo-ecommerce-1&quot;&gt;Api Cielo Ecommerce&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt; -&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Ambiente&lt;/th&gt;
+      &lt;th&gt;URLs&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sandbox&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Envio de transação&lt;/strong&gt;:  https://apisandbox.cieloecommerce.cielo.com.br &lt;br /&gt; &lt;strong&gt;Consulta transação&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Produção&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Envio de transação&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/ &lt;br /&gt; &lt;strong&gt;Consulta transação&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;checkout-cielo-1&quot;&gt;Checkout Cielo&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt;  -&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Ambiente&lt;/th&gt;
+      &lt;th&gt;URLs&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Produção&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Envio de transação&lt;/strong&gt;: https://cieloecommerce.cielo.com.br/api&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     
