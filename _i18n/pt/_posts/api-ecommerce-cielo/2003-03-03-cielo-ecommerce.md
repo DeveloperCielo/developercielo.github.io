@@ -251,7 +251,7 @@ O **Postman** é um API Client que facilita aos desenvolvedores criar, compartil
 
 A Cielo oferece coleções completas de suas integrações via Postamn, o que facilita o processo de integração com a API Cielo.
 
-Sugerimos que desenvolvedores acessem nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Postman) sobre a ferramenta para compreender melhor todas as vantagens que ela oferece.
+Sugerimos que desenvolvedores acessem nosso [**Tutorial**](https://developercielo.github.io/tutorial/postman) sobre a ferramenta para compreender melhor todas as vantagens que ela oferece.
 
 ## Cartão de crédito - Sandbox
 
