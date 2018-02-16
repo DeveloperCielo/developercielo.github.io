@@ -3793,6 +3793,105 @@ O método recebe como parâmetro o <code class="highlighter-rouge">bitmap</code>
 
 <p><a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">Clique Aqui</a></p>
 
+<h3 id="cielo-app-data">Cielo App Data</h3>
+
+<p>Com a API Cielo App Data o desenvolvedor de um app poderá ter acesso à informações de compra dos seus aplicativos em um determinado terminal LIO.</p>
+
+<h4 id="geração-do-token">Geração do Token</h4>
+
+<p>Para isso é necessário, previamente, gerar o API Token no Dev Console, que será usado na API App Data. Para geração do token siga o seguinte passo à passo:</p>
+
+<ol>
+  <li>Acesse e faça o seu login no Dev Console através do <a href="https://www.cieloliostore.com.br">link</a></li>
+  <li>Na aba <strong>Apps públicos</strong> selecione o Ap desejado</li>
+  <li>Clique na aba <strong>API Token</strong> e depois no botão <strong>Gerar Token</strong></li>
+  <li>Uma vez o token gerado, copie e guarde o mesmo.</li>
+</ol>
+
+<p><strong>Endpoint:</strong> https://cieloliostore-api.m4u.com.br/api/v1/me</p>
+
+<h4 id="http-headers-1">HTTP Headers</h4>
+
+<p>Todas as chamadas da API Cielo App Data necessitam que o API Token gerado no Dev Console esteja presente no Header das requisições:</p>
+
+<ul>
+  <li><strong>Token:</strong> Identificação do token de acesso, que armazena informações do App Público que deseja informações.</li>
+</ul>
+
+<h4 id="http-query-parameters">HTTP Query Parameters</h4>
+
+<p>Complementando o Header das requisições, a API Cielo App Data necessita que todas as chamadas contenham o EC (Número do Estabelecimento Comercial) e o Número Lógico (identificador do terminal LIO) nas suas requisições:</p>
+
+<ul>
+  <li><strong>ec:</strong> Identificação do Estabelecimento Comercial desejado para consulta.</li>
+  <li><strong>logic_number:</strong> Identificação do Terminal LIO desejado para consulta.</li>
+</ul>
+
+<h4 id="api">API</h4>
+
+<blockquote>
+  <p><strong>GET</strong> / Detalhes de um produto</p>
+</blockquote>
+
+<p><strong>ec</strong> (required in query parameter) - “String”
+<strong>logic_number</strong> (required in query parameter) - “String”
+<strong>token</strong> (required in header) - “String”</p>
+
+<p>Exemplo de resposta:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "app": {
+      "name": "string",
+      "package_name": "string"
+    },
+    "purchase": {
+        "status": "SUBSCRIBED",
+        "plan": {
+            "id": "string",
+            "name": "string",
+            "value": 0
+        },
+        "created_at": "string"
+    },
+    "payment": {
+        "status": "PENDING"
+    }
+}
+</code></pre></div></div>
+
+<h4 id="opções-de-retorno-por-campo">Opções de retorno por campo</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>purchase.status:</strong> “SUBSCRIBED”</td>
+      <td>“UNSUBSCRIBED”</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>payment.status:</strong> “PENDING”</td>
+      <td>“AT_RECURRENCE”</td>
+      <td>“PAID”</td>
+      <td>“OBLIGOR”</td>
+      <td>“CANCELED”</td>
+      <td>“CIELO_PURCHAASE”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>purchase.status:</strong> “SUBSCRIBED”
+<strong>purchase.status:</strong> “UNSUBSCRIBED”</p>
+
+<p><strong>payment.status:</strong> “PENDING” (Pagamentos com status pendente)
+<strong>payment.status:</strong> “AT_RECURRENCE”  (Pagamentos com status em recorrência)
+<strong>payment.status:</strong> “PAID” (Pagamentos com status pago)
+<strong>payment.status:</strong> “OBLIGOR” (Status do pagamento como inadimplente)
+<strong>payment.status:</strong> “CANCELED” (Pagamentos cancelados)
+<strong>payment.status:</strong> “CIELO_PURCHASE” (pagamentos isentos(compras de teste/desenvolvimento))</p>
+
 <h2 id="aplicativos-próprios">Aplicativos Próprios</h2>
 
 <p>Os aplicativos próprios atendem especificamente aqueles desenvolvedores que desejam disponibilizar seu aplicativo apenas para alguns lojistas específicos. O aplicativo próprio não é disponibilizado na Cielo Store e nem utilizado por outros lojistas que não tenham sido solicitados pelo desenvolvedor.</p>

@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-02-15T13:47:21+00:00</updated>
+    <updated>2018-02-16T13:25:23+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5493,6 +5493,105 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
 &lt;p&gt;Caso você desenvolvedor não encontre o erro nesta tabela, abra um ticket para a equipe de suporte reportando o problema encontrado e lembre-se de listar as evidências do erro como prints de tela e mensagens de erro recebidas.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Clique Aqui&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;cielo-app-data&quot;&gt;Cielo App Data&lt;/h3&gt;
+
+&lt;p&gt;Com a API Cielo App Data o desenvolvedor de um app poderá ter acesso à informações de compra dos seus aplicativos em um determinado terminal LIO.&lt;/p&gt;
+
+&lt;h4 id=&quot;geração-do-token&quot;&gt;Geração do Token&lt;/h4&gt;
+
+&lt;p&gt;Para isso é necessário, previamente, gerar o API Token no Dev Console, que será usado na API App Data. Para geração do token siga o seguinte passo à passo:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Acesse e faça o seu login no Dev Console através do &lt;a href=&quot;https://www.cieloliostore.com.br&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Na aba &lt;strong&gt;Apps públicos&lt;/strong&gt; selecione o Ap desejado&lt;/li&gt;
+  &lt;li&gt;Clique na aba &lt;strong&gt;API Token&lt;/strong&gt; e depois no botão &lt;strong&gt;Gerar Token&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Uma vez o token gerado, copie e guarde o mesmo.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Endpoint:&lt;/strong&gt; https://cieloliostore-api.m4u.com.br/api/v1/me&lt;/p&gt;
+
+&lt;h4 id=&quot;http-headers-1&quot;&gt;HTTP Headers&lt;/h4&gt;
+
+&lt;p&gt;Todas as chamadas da API Cielo App Data necessitam que o API Token gerado no Dev Console esteja presente no Header das requisições:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Token:&lt;/strong&gt; Identificação do token de acesso, que armazena informações do App Público que deseja informações.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;http-query-parameters&quot;&gt;HTTP Query Parameters&lt;/h4&gt;
+
+&lt;p&gt;Complementando o Header das requisições, a API Cielo App Data necessita que todas as chamadas contenham o EC (Número do Estabelecimento Comercial) e o Número Lógico (identificador do terminal LIO) nas suas requisições:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;ec:&lt;/strong&gt; Identificação do Estabelecimento Comercial desejado para consulta.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;logic_number:&lt;/strong&gt; Identificação do Terminal LIO desejado para consulta.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;api&quot;&gt;API&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;GET&lt;/strong&gt; / Detalhes de um produto&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;ec&lt;/strong&gt; (required in query parameter) - “String”
+&lt;strong&gt;logic_number&lt;/strong&gt; (required in query parameter) - “String”
+&lt;strong&gt;token&lt;/strong&gt; (required in header) - “String”&lt;/p&gt;
+
+&lt;p&gt;Exemplo de resposta:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;app&quot;: {
+      &quot;name&quot;: &quot;string&quot;,
+      &quot;package_name&quot;: &quot;string&quot;
+    },
+    &quot;purchase&quot;: {
+        &quot;status&quot;: &quot;SUBSCRIBED&quot;,
+        &quot;plan&quot;: {
+            &quot;id&quot;: &quot;string&quot;,
+            &quot;name&quot;: &quot;string&quot;,
+            &quot;value&quot;: 0
+        },
+        &quot;created_at&quot;: &quot;string&quot;
+    },
+    &quot;payment&quot;: {
+        &quot;status&quot;: &quot;PENDING&quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;opções-de-retorno-por-campo&quot;&gt;Opções de retorno por campo&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;purchase.status:&lt;/strong&gt; “SUBSCRIBED”&lt;/td&gt;
+      &lt;td&gt;“UNSUBSCRIBED”&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;payment.status:&lt;/strong&gt; “PENDING”&lt;/td&gt;
+      &lt;td&gt;“AT_RECURRENCE”&lt;/td&gt;
+      &lt;td&gt;“PAID”&lt;/td&gt;
+      &lt;td&gt;“OBLIGOR”&lt;/td&gt;
+      &lt;td&gt;“CANCELED”&lt;/td&gt;
+      &lt;td&gt;“CIELO_PURCHAASE”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;purchase.status:&lt;/strong&gt; “SUBSCRIBED”
+&lt;strong&gt;purchase.status:&lt;/strong&gt; “UNSUBSCRIBED”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;payment.status:&lt;/strong&gt; “PENDING” (Pagamentos com status pendente)
+&lt;strong&gt;payment.status:&lt;/strong&gt; “AT_RECURRENCE”  (Pagamentos com status em recorrência)
+&lt;strong&gt;payment.status:&lt;/strong&gt; “PAID” (Pagamentos com status pago)
+&lt;strong&gt;payment.status:&lt;/strong&gt; “OBLIGOR” (Status do pagamento como inadimplente)
+&lt;strong&gt;payment.status:&lt;/strong&gt; “CANCELED” (Pagamentos cancelados)
+&lt;strong&gt;payment.status:&lt;/strong&gt; “CIELO_PURCHASE” (pagamentos isentos(compras de teste/desenvolvimento))&lt;/p&gt;
 
 &lt;h2 id=&quot;aplicativos-próprios&quot;&gt;Aplicativos Próprios&lt;/h2&gt;
 
