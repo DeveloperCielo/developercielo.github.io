@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-02-16T13:25:23+00:00</updated>
+    <updated>2018-02-19T12:09:47+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5504,7 +5504,7 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
 
 &lt;ol&gt;
   &lt;li&gt;Acesse e faça o seu login no Dev Console através do &lt;a href=&quot;https://www.cieloliostore.com.br&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Na aba &lt;strong&gt;Apps públicos&lt;/strong&gt; selecione o Ap desejado&lt;/li&gt;
+  &lt;li&gt;Na aba &lt;strong&gt;Apps públicos&lt;/strong&gt; selecione o App desejado&lt;/li&gt;
   &lt;li&gt;Clique na aba &lt;strong&gt;API Token&lt;/strong&gt; e depois no botão &lt;strong&gt;Gerar Token&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Uma vez o token gerado, copie e guarde o mesmo.&lt;/li&gt;
 &lt;/ol&gt;
