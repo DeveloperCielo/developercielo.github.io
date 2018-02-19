@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-02-19T19:50:53+00:00</updated>
+    <updated>2018-02-19T20:50:47+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19231,7 +19231,24 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
 
 &lt;h2 id=&quot;post-de-notificação&quot;&gt;Post de Notificação&lt;/h2&gt;
 
-&lt;p&gt;O Post de notificação é enviado com base em uma seleção de eventos a ser feita no cadastro da API Cielo E-commerce.&lt;/p&gt;
+&lt;h3 id=&quot;sobre-o-post&quot;&gt;Sobre o POST&lt;/h3&gt;
+
+&lt;p&gt;A API Cielo e-commerce oferece um sistema de notificação transacional, onde o Lojista fornece um endpoint que receberá uma notificação via &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;O Conteudo da notificação será formado por 3 campos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;- Identificador que representa um conjunto de transações recorrentes&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt;- Identificador que representa a transação&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ChangeType&lt;/code&gt; - Especifica o tipo de notificação&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Com os dados acima, o lojista poderá identificar a transação (via &lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;) e a mudança sofrida por ela. Com o &lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt; é possivel realizar uma consulta a base transacional da API Cielo E-commerce&lt;/p&gt;
+
+&lt;p&gt;O Post de notificação é enviado com base em uma seleção de eventos  pré-definidos no cadastro da API Cielo E-commerce.
+Esses eventos são cadastros pela equipe de suporte Cielo, quando requisitado pelo lojista&lt;/p&gt;
+
+&lt;h3 id=&quot;eventos-notificados&quot;&gt;Eventos Notificados&lt;/h3&gt;
 
 &lt;p&gt;Os eventos passiveis de notificação são:&lt;/p&gt;
 
@@ -19244,53 +19261,59 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Cartão de Crédito&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Cartão de Crédito&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Captura&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Cartão de Crédito&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Cartão de Crédito&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Cancelamento&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Cartão de Crédito&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Cartão de Crédito&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Sondagem&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Boleto&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Boleto&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Conciliação&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Boleto&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Boleto&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Cancelamento Manual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Transferência eletrônica&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Transferência eletrônica&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Confirmadas&lt;/td&gt;
     &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Sobre Cartão de débito:&lt;/strong&gt; Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; seja executado, buscando informações do pedido na API Cielo&amp;lt;/aside&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;A notificação ocorre tambem ocorre em eventos relacionados a &lt;strong&gt;Recorrência Programada Cielo&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
     &lt;tr&gt;
-      &lt;td&gt;Recorrência&lt;/td&gt;
+      &lt;th&gt;Eventos da Recorrência&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
       &lt;td&gt;Desabilitado ao atingir número máximo de tentativas (transações negadas)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Recorrência&lt;/td&gt;
-      &lt;td&gt;Aguardando conciliação de boleto&lt;/td&gt;
+      &lt;td&gt;Reabilitação&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Recorrência&lt;/td&gt;
-      &lt;td&gt;Reabilitação - Após pagamento de boleto&lt;/td&gt;
+      &lt;td&gt;Finalizado / Data de finalização atingida&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Recorrência&lt;/td&gt;
-      &lt;td&gt;Finalizado - Data de finalização atingida&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Recorrência&lt;/td&gt;
       &lt;td&gt;Desativação&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Cartão de débito: Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um `GET` seja executado, buscando informações do pedido na API Cielo&lt;/aside&gt;
+&lt;h3 id=&quot;endpoint-de-notificação&quot;&gt;Endpoint de Notificação&lt;/h3&gt;
 
 &lt;p&gt;Uma &lt;code class=&quot;highlighter-rouge&quot;&gt;URL Status Pagamento&lt;/code&gt; deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado.&lt;/p&gt;
 
@@ -19301,9 +19324,21 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;li&gt;Limite de 255  carácteres.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;A loja &lt;strong&gt;deverá&lt;/strong&gt; retornar como resposta ao notificação: &lt;strong&gt;HTTP Status Code 200 OK&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Características do &lt;strong&gt;Post de notificação&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Caso não seja retornado o &lt;strong&gt;HTTP Status Code 200 OK&lt;/strong&gt;,  ocorrerão mais &lt;strong&gt;dois&lt;/strong&gt; envios do Post de Notificação.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;É disparado a cada 30 minutos&lt;/li&gt;
+  &lt;li&gt;Em caso de falha, 3 novas tentativas são realizadas.Se as 3 tentativas falharem, novos envios não ocorrerão.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;É possivel cadastrar uma informação para retorno do header da requisição. Basta entrar em contato com o Suporte Cielo e informar os itens abaixo&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;KEY&lt;/code&gt; - Nome do paramêtro&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VALUE&lt;/code&gt; - Valor estático a ser retornado&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Você pode cadastrar até 3 tipos de informação de retorno no header&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RecurrentPaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19311,6 +19346,17 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChangeType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;key: value&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;s2&quot;&gt;&quot;RecurrentPaymentId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;ChangeType&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A loja &lt;strong&gt;deverá&lt;/strong&gt; retornar como resposta ao notificação: &lt;strong&gt;HTTP Status Code 200 OK&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
