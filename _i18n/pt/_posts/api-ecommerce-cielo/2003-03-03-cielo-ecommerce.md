@@ -3320,6 +3320,7 @@ A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 2
 |3|Mudança de status do Antifraude|
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|cancelamento negado|
+
 # Recorrência
 
 Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado periodo de tempo.
