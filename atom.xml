@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-02-20T13:54:10+00:00</updated>
+    <updated>2018-02-23T17:46:06+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4655,7 +4655,7 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 
 &lt;h3 id=&quot;5-pagamento-informando-email&quot;&gt;5. Pagamento informando email&lt;/h3&gt;
 
-&lt;p&gt;Exatamente como o método anterior, com a diferença que neste caso é possível informar o email para facilitar o preenchimento na hora de enviar o comprovante para o cliente. Caso queira utilizar essa função para realizar outro tipo de pagamento que não o parcelado, basta informar os códigos primários desejados e informar &lt;strong&gt;0&lt;/strong&gt; no número de parcelas.
+&lt;p&gt;Exatamente como o método anterior, com a diferença que neste caso é possível informar o email para facilitar o preenchimento na hora de enviar o comprovante para o cliente.
 Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:&lt;/p&gt;
 
 &lt;table&gt;
