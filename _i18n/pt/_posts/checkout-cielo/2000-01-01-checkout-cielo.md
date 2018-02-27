@@ -46,16 +46,17 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 
 **Cartão de Crédito**
 
-|Bandeira|Crédito à vista|Crédito parcelado Loja|Débito|Voucher|
-|---|---|---|---|---|
-|Visa|Sim|Sim|Sim|Não|
-|MasterCard|Sim|Sim|Sim|Não|
-|American Express|Sim|Sim|Não|Não|
-|Elo|Sim|Sim|Não|Não|
-|Diners Club|Sim|Sim|Não|Não|
-|Discover|Sim|Não|Não|Não|
-|JCB|Sim|Sim|Não|Não|
-|Aura|Sim|Sim|Não|Não|
+| Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito | Voucher |
+|------------------|-----------------|------------------------|--------|---------|
+| Visa             | Sim             | Sim                    | Sim    | Não     |
+| MasterCard       | Sim             | Sim                    | Sim    | Não     |
+| American Express | Sim             | Sim                    | Não    | Não     |
+| Elo              | Sim             | Sim                    | Não    | Não     |
+| Diners Club      | Sim             | Sim                    | Não    | Não     |
+| Discover         | Sim             | Não                    | Não    | Não     |
+| JCB              | Sim             | Sim                    | Não    | Não     |
+| Aura             | Sim             | Sim                    | Não    | Não     |
+| Hipercard        | Sim             | Sim                    | Não    | Não     |
 
 **OBS**: Limite maximo de parcelas do Checkout Cielo é 12X.
 
@@ -1177,6 +1178,8 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 |5|Elo|
 |6|Aura|
 |7|JCB|
+|8|Discover|
+|9|Hipercard|
 
 **Payment_method_bank**
 
