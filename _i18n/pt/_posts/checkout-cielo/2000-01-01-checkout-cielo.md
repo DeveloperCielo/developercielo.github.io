@@ -1124,12 +1124,22 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `tid`                                | TID Cielo gerado no momento da autorização da transação                                                      | Alfanumérico  | 32             |
 | `test_transaction`                   | Indica se a transação foi gerada com o `Modo de teste` ativado                                               | Boolean       | 32             |
 | `product_id`                         | Identificador do Botão/Link de pagamento que gerou a transação                                               | Alfanumérico  | 32             |
-| `product_type`                       | Tipo de Botão que gerou o pedido (Payment / Digital goods / Services / Recurrence / )                        | Alfanumérico  | 32             |
+| `product_type`                       | Tipo de Botão que gerou o pedido (Ver tabela de ProductID)                                                   | Alfanumérico  | 32             |
 | `product_sku`                        | Identificador do produto cadastro no link de pagamento                                                       | texto         | 16             |
 | `product_max_number_of_installments` | Numero de parcelas liberado pelo lojistas para o link de pagamento                                           | Numérico      | 2              |
 | `product_expiration_date`            | Data de validade do botão/Link de pagamento                                                                  | Alfanumérico  | 12             |
 | `product_quantity`                   | Numero de transações restantes até que o link deixe de funcionar                                             | Alfanumérico  | 2              |
 | `product_description`                | Descrição do link de pagamentos registrada pelo lojista                                                      | texto         | 256            |
+
+**Tipos de productID**
+
+|Tipo de Link de pagamento|Enun|
+|-|-|
+|Material físico|1|
+|Digital|2|
+|Serviço|3|
+|Pagamento|4|
+|Recorrência|5|
 
 **Payment_status**
 
