@@ -6681,7 +6681,7 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 |High|Alta importância da verificação feita sobre o pedido do comprador, na análise de risco.|
 |Off|Verificação do pedido do comprador não afeta a análise de risco.|
 
-### FraudAnalysis.Items.ObscenitiesHedge
+### FraudAnalysis.Cart.Items.ObscenitiesHedge
 
 |Campo|Descrição|
 |---|---|
@@ -6690,7 +6690,7 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 |High|Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.|
 |Off|Verificação de obscenidade no pedido do comprador não afeta a análise de risco.|
 
-### FraudAnalysis.Items.PhoneHedge
+### FraudAnalysis.Cart.Items.PhoneHedge
 
 |Campo|Descrição|
 |---|---|
@@ -6699,7 +6699,7 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 |High|Alta importância nos testes realizados com números de telefone.|
 |Off|Testes de números de telefone não afetam a análise de risco.|
 
-### FraudAnalysis.Items.Risk
+### FraudAnalysis.Cart.Items.Risk
 
 |Campo|Descrição|
 |---|---|
@@ -6707,7 +6707,7 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 |Normal|O produto tem um histórico de chargebacks considerado normal.|
 |High|O produto tem um histórico de chargebacks acima da média.|
 
-### FraudAnalysis.Items.TimeHedge
+### FraudAnalysis.Cart.Items.TimeHedge
 
 |Campo|Descrição|
 |---|---|
@@ -6716,14 +6716,14 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 |High|Alta importância no horário do dia em que foi feita a compra, para a análise de risco.|
 |Off|O horário da compra não afeta a análise de risco.|
 
-### FraudAnalysis.Items.Type
+### FraudAnalysis.Cart.Items.Type
 
 |Campo|Descrição|
 |---|---|
 |CN|Comprador particular|
 |CP|Comprador de negócios|
 
-### FraudAnalysis.Items.VelocityHedge
+### FraudAnalysis.Cart.Items.VelocityHedge
 
 |Campo|Descrição|
 |---|---|
@@ -6732,7 +6732,7 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 |High|Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos.|
 |Off|A frequência de compras realizadas pelo cliente não afeta a análise de fraude.|
 
-### FraudAnalysis.Items.Passenger.Rating
+### FraudAnalysis.Cart.Items.Passenger.Rating
 
 |Campo|Descrição|
 |---|---|
