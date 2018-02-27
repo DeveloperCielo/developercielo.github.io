@@ -1046,7 +1046,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-<aside class="warning">Na análise de AF, os padrões de siglas para países utilizados nos campos `{}.Country` devem seguir o modelo da [ISO 3166-1 ALPHA 3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)</aside>
+<aside class="warning">Na análise de AF, os padrões de siglas para países utilizados nos campos `Country` devem seguir o modelo da ISO 3166-1 ALPHA 3 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3</aside>
 
 ```json
 {  
