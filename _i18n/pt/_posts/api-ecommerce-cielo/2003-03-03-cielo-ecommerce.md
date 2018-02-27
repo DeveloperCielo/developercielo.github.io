@@ -1316,25 +1316,25 @@ curl
 |`FraudAnalysis.Browser.Type`|Texto|40|Não|Nome do browser utilizado pelo comprador.|
 |`FraudAnalysis.Cart.IsGift`|Booleano|---|Não|Booleano que indica se o pedido é para presente ou não.|
 |`FraudAnalysis.Cart.ReturnsAccepted`|Booleano|---|Não|Booleano que define se devoluções são aceitas para o pedido.|
-|`FraudAnalysis.Items.GiftCategory`|Texto|9|Não|Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países.fraudanalysis.items.giftcategory)|
-|`FraudAnalysis.Items.HostHedge`|Texto|Não|Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação.|
-|`FraudAnalysis.Items.NonSensicalHedge`|Texto|6|Não|Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido.|
-|`FraudAnalysis.Items.ObscenitiesHedge`|Texto|6|Não|Nível de obscenidade dos pedidos recebedidos.|
-|`FraudAnalysis.Items.PhoneHedge`|Texto|6|Não|Nível dos testes realizados com os números de telefones.|
-|`FraudAnalysis.Items.Name`|Texto|255|Não|Nome do Produto.|
-|`FraudAnalysis.Items.Quantity`|Número|15|Não|Quantidade do produto a ser adquirido.|
-|`FraudAnalysis.Items.Sku`|Texto|255|Não|Código comerciante identificador do produto.|
-|`FraudAnalysis.Items.UnitPrice`|Número|15|Não|Preço unitário do produto.|
-|`FraudAnalysis.Items.Risk`|Texto|6|Não|Nível do risco do produto.|
-|`FraudAnalysis.Items.TimeHedge`|Texto|Não|Nível de importância da hora do dia do pedido do cliente.|
-|`FraudAnalysis.Items.Type`|Texto|Não|Tipo do produto.)|
-|`FraudAnalysis.Items.VelocityHedge`|Texto|6|Não|Nível de importância de frequência de compra do cliente.|
-|`FraudAnalysis.Items.Passenger.Email`|Texto|255|Não|Email do Passageiro.|
-|`FraudAnalysis.Items.Passenger.Identity`|Texto|32|Não|Id do passageiro a quem o bilheite foi emitido.|
-|`FraudAnalysis.Items.Passenger.Name`|Texto|120|Não|Nome do passageiro.|
-|`FraudAnalysis.Items.Passenger.Rating`|Texto|Não|Classificação do Passageiro.|
-|`FraudAnalysis.Items.Passenger.Phone`|Texto|15|Não|Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país.|
-|`FraudAnalysis.Items.Passenger.Status`|Texto|32|Não|Classificação da empresa aérea. Pode-se usar valores como Gold ou Platina.|
+|`FraudAnalysis.Cart.Items.GiftCategory`|Texto|9|Não|Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países.fraudanalysis.items.giftcategory)|
+|`FraudAnalysis.Cart.Items.HostHedge`|Texto|Não|Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação.|
+|`FraudAnalysis.Cart.Items.NonSensicalHedge`|Texto|6|Não|Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido.|
+|`FraudAnalysis.Cart.Items.ObscenitiesHedge`|Texto|6|Não|Nível de obscenidade dos pedidos recebedidos.|
+|`FraudAnalysis.Cart.Items.PhoneHedge`|Texto|6|Não|Nível dos testes realizados com os números de telefones.|
+|`FraudAnalysis.Cart.Items.Name`|Texto|255|Não|Nome do Produto.|
+|`FraudAnalysis.Cart.Items.Quantity`|Número|15|Não|Quantidade do produto a ser adquirido.|
+|`FraudAnalysis.Cart.Items.Sku`|Texto|255|Não|Código comerciante identificador do produto.|
+|`FraudAnalysis.Cart.Items.UnitPrice`|Número|15|Não|Preço unitário do produto.|
+|`FraudAnalysis.Cart.Items.Risk`|Texto|6|Não|Nível do risco do produto.|
+|`FraudAnalysis.Cart.Items.TimeHedge`|Texto|Não|Nível de importância da hora do dia do pedido do cliente.|
+|`FraudAnalysis.Cart.Items.Type`|Texto|Não|Tipo do produto.)|
+|`FraudAnalysis.Cart.Items.VelocityHedge`|Texto|6|Não|Nível de importância de frequência de compra do cliente.|
+|`FraudAnalysis.Cart.Items.Passenger.Email`|Texto|255|Não|Email do Passageiro.|
+|`FraudAnalysis.Cart.Items.Passenger.Identity`|Texto|32|Não|Id do passageiro a quem o bilheite foi emitido.|
+|`FraudAnalysis.Cart.Items.Passenger.Name`|Texto|120|Não|Nome do passageiro.|
+|`FraudAnalysis.Cart.Items.Passenger.Rating`|Texto|Não|Classificação do Passageiro.|
+|`FraudAnalysis.Cart.Items.Passenger.Phone`|Texto|15|Não|Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país.|
+|`FraudAnalysis.Cart.Items.Passenger.Status`|Texto|32|Não|Classificação da empresa aérea. Pode-se usar valores como Gold ou Platina.|
 |`FraudAnalysis.MerchantDefinedFields.Id`|Texto|---|Não|Id das informações adicionais a serem enviadas.|
 |`FraudAnalysis.MerchantDefinedFields.Value`|Texto|255|Não|Valor das informações adicionais a serem enviadas.|
 |`FraudAnalysis.Shipping.Addressee`|Texto|255|Não|Nome do destinatário da entrega.|
