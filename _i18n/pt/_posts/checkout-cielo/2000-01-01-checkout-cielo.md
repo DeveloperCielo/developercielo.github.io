@@ -1091,38 +1091,45 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 
 **Conteúdo do POST de NOTIFICAÇÃO:**
 
-|Parâmetro|Descrição|Tipo do campo|Tamanho máximo|
-|---|---|---|---|
-|`checkout_cielo_order_number`|Identificador único gerado pelo CHECKOUT CIELO|Alfanumérico|32|
-|`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Numérico|10|
-|`order_number`|Número do pedido enviado pela loja|Alfanumérico|32|
-|`created_date`|Data da criação do pedido - `dd/MM/yyyy HH:mm:ss`|Alfanumérico|20|
-|`customer_name`|Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|289|
-|`customer_identity`|Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|14|
-|`customer_email`|E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|64|
-|`customer_phone`|Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Numérico|11|
-|`discount_amount`|Valor do desconto fornecido (enviado somente se houver desconto)|Numérico|10|
-|`shipping_type`|Modalidade de frete|Numérico|1|
-|`shipping_name`|Nome do frete|Alfanumérico|128|
-|`shipping_price`|Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)|Numérico|10|
-|`shipping_address_zipcode`|CEP do endereço de entrega|Numérico|8|
-|`shipping_address_district`|Bairro do endereço de entrega|Texto|64|
-|`shipping_address_city`|Cidade do endereço de entrega|Alfanumérico|64|
-|`shipping_address_state`|Estado de endereço de entrega|Alfanumérico|64|
-|`shipping_address_line1`|Endereço de entrega|Alfanumérico|256|
-|`shipping_address_line2`|Complemento do endereço de entrega|Alfanumérico|256|
-|`shipping_address_number`|Número do endereço de entrega|Numérico|8|
-|`payment_method_type`|Cód. do tipo de meio de pagamento|Numérico|1|
-|`payment_method_brand`|Bandeira (somente para transações com meio de pagamento cartão de crédito)|Numérico|1|
-|`payment_method_bank`|Banco emissor (Para transações de Boleto e Débito Automático)|Numérico|1|
-|`payment_maskedcredicard`|Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)|Alfanumérico|20|
-|`payment_installments`|Número de parcelas|Numérico|1|
-|`payment_antifrauderesult`|Status das transações de cartão de Crédito no Antifraude|Numérico|1|
-|`payment_boletonumber`|número do boleto gerado|String|1|
-|`payment_boletoexpirationdate`|Data de vencimento para transações realizadas com boleto bancário|Numérico|10|
-|`payment_status`|Status da transação|Numérico|1|
-|`tid`|TID Cielo gerado no momento da autorização da transação|Alfanumérico|32|
-|`test_transaction`|Indica se a transação foi gerada com o `Modo de teste` ativado|Boolean|32|
+| Parâmetro                            | Descrição                                                                                                    | Tipo do campo | Tamanho máximo |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------|---------------|----------------|
+| `checkout_cielo_order_number`        | Identificador único gerado pelo CHECKOUT CIELO                                                               | Alfanumérico  | 32             |
+| `amount`                             | Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)                                                   | Numérico      | 10             |
+| `order_number`                       | Número do pedido enviado pela loja                                                                           | Alfanumérico  | 32             |
+| `created_date`                       | Data da criação do pedido - `dd/MM/yyyy HH:mm:ss`                                                            | Alfanumérico  | 20             |
+| `customer_name`                      | Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                       | Alfanumérico  | 289            |
+| `customer_identity`                  | Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO | Alfanumérico  | 14             |
+| `customer_email`                     | E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                     | Alfanumérico  | 64             |
+| `customer_phone`                     | Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                   | Numérico      | 11             |
+| `discount_amount`                    | Valor do desconto fornecido (enviado somente se houver desconto)                                             | Numérico      | 10             |
+| `shipping_type`                      | Modalidade de frete                                                                                          | Numérico      | 1              |
+| `shipping_name`                      | Nome do frete                                                                                                | Alfanumérico  | 128            |
+| `shipping_price`                     | Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)                                                 | Numérico      | 10             |
+| `shipping_address_zipcode`           | CEP do endereço de entrega                                                                                   | Numérico      | 8              |
+| `shipping_address_district`          | Bairro do endereço de entrega                                                                                | Texto         | 64             |
+| `shipping_address_city`              | Cidade do endereço de entrega                                                                                | Alfanumérico  | 64             |
+| `shipping_address_state`             | Estado de endereço de entrega                                                                                | Alfanumérico  | 64             |
+| `shipping_address_line1`             | Endereço de entrega                                                                                          | Alfanumérico  | 256            |
+| `shipping_address_line2`             | Complemento do endereço de entrega                                                                           | Alfanumérico  | 256            |
+| `shipping_address_number`            | Número do endereço de entrega                                                                                | Numérico      | 8              |
+| `payment_method_type`                | Cód. do tipo de meio de pagamento                                                                            | Numérico      | 1              |
+| `payment_method_brand`               | Bandeira (somente para transações com meio de pagamento cartão de crédito)                                   | Numérico      | 1              |
+| `payment_method_bank`                | Banco emissor (Para transações de Boleto e Débito Automático)                                                | Numérico      | 1              |
+| `payment_maskedcredicard`            | Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)                           | Alfanumérico  | 20             |
+| `payment_installments`               | Número de parcelas                                                                                           | Numérico      | 1              |
+| `payment_antifrauderesult`           | Status das transações de cartão de Crédito no Antifraude                                                     | Numérico      | 1              |
+| `payment_boletonumber`               | número do boleto gerado                                                                                      | String        | 1              |
+| `payment_boletoexpirationdate`       | Data de vencimento para transações realizadas com boleto bancário                                            | Numérico      | 10             |
+| `payment_status`                     | Status da transação                                                                                          | Numérico      | 1              |
+| `tid`                                | TID Cielo gerado no momento da autorização da transação                                                      | Alfanumérico  | 32             |
+| `test_transaction`                   | Indica se a transação foi gerada com o `Modo de teste` ativado                                               | Boolean       | 32             |
+| `product_id`                         | Identificador do Botão/Link de pagamento que gerou a transação                                               | Alfanumérico  | 32             |
+| `product_type`                       | Tipo de Botão que gerou o pedido (Payment / Digital goods / Services / Recurrence / )                        | Alfanumérico  | 32             |
+| `product_sku`                        | Identificador do produto cadastro no link de pagamento                                                       | texto         | 16             |
+| `product_max_number_of_installments` | Numero de parcelas liberado pelo lojistas para o link de pagamento                                           | Numérico      | 2              |
+| `product_expiration_date`            | Data de validade do botão/Link de pagamento                                                                  | Alfanumérico  | 12             |
+| `product_quantity`                   | Numero de transações restantes até que o link deixe de funcionar                                             | Alfanumérico  | 2              |
+| `product_description`                | Descrição do link de pagamentos registrada pelo lojista                                                      | texto         | 256            |
 
 **Payment_status**
 
