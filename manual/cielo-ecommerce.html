@@ -2077,7 +2077,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-<aside class="warning">Na análise de AF, os padrões de siglas para países utilizados nos campos `{}.Country` devem seguir o modelo da [ISO 3166-1 ALPHA 3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)</aside>
+<aside class="warning">Na análise de AF, os padrões de siglas para países utilizados nos campos `Country` devem seguir o modelo da ISO 3166-1 ALPHA 3 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3</aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"201411173454307"</span><span class="p">,</span><span class="w">
@@ -2643,133 +2643,133 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Booleano que define se devoluções são aceitas para o pedido.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.GiftCategory</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.GiftCategory</code></td>
       <td>Texto</td>
       <td>9</td>
       <td>Não</td>
       <td>Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países.fraudanalysis.items.giftcategory)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.HostHedge</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.HostHedge</code></td>
       <td>Texto</td>
       <td>Não</td>
       <td>Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação.</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.NonSensicalHedge</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
       <td>Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.ObscenitiesHedge</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
       <td>Nível de obscenidade dos pedidos recebedidos.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.PhoneHedge</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.PhoneHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
       <td>Nível dos testes realizados com os números de telefones.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Name</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Name</code></td>
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
       <td>Nome do Produto.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Quantity</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Quantity</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
       <td>Quantidade do produto a ser adquirido.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Sku</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Sku</code></td>
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
       <td>Código comerciante identificador do produto.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.UnitPrice</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.UnitPrice</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
       <td>Preço unitário do produto.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Risk</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Risk</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
       <td>Nível do risco do produto.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.TimeHedge</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.TimeHedge</code></td>
       <td>Texto</td>
       <td>Não</td>
       <td>Nível de importância da hora do dia do pedido do cliente.</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Type</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Type</code></td>
       <td>Texto</td>
       <td>Não</td>
       <td>Tipo do produto.)</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.VelocityHedge</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.VelocityHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
       <td>Nível de importância de frequência de compra do cliente.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Passenger.Email</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Email</code></td>
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
       <td>Email do Passageiro.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Passenger.Identity</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Identity</code></td>
       <td>Texto</td>
       <td>32</td>
       <td>Não</td>
       <td>Id do passageiro a quem o bilheite foi emitido.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Passenger.Name</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Name</code></td>
       <td>Texto</td>
       <td>120</td>
       <td>Não</td>
       <td>Nome do passageiro.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Passenger.Rating</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Rating</code></td>
       <td>Texto</td>
       <td>Não</td>
       <td>Classificação do Passageiro.</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Passenger.Phone</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Phone</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Não</td>
       <td>Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Items.Passenger.Status</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Status</code></td>
       <td>Texto</td>
       <td>32</td>
       <td>Não</td>
@@ -14023,7 +14023,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemsobscenitieshedge">FraudAnalysis.Items.ObscenitiesHedge</h3>
+<h3 id="fraudanalysiscartitemsobscenitieshedge">FraudAnalysis.Cart.Items.ObscenitiesHedge</h3>
 
 <table>
   <thead>
@@ -14052,7 +14052,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemsphonehedge">FraudAnalysis.Items.PhoneHedge</h3>
+<h3 id="fraudanalysiscartitemsphonehedge">FraudAnalysis.Cart.Items.PhoneHedge</h3>
 
 <table>
   <thead>
@@ -14081,7 +14081,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemsrisk">FraudAnalysis.Items.Risk</h3>
+<h3 id="fraudanalysiscartitemsrisk">FraudAnalysis.Cart.Items.Risk</h3>
 
 <table>
   <thead>
@@ -14106,7 +14106,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemstimehedge">FraudAnalysis.Items.TimeHedge</h3>
+<h3 id="fraudanalysiscartitemstimehedge">FraudAnalysis.Cart.Items.TimeHedge</h3>
 
 <table>
   <thead>
@@ -14135,7 +14135,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemstype">FraudAnalysis.Items.Type</h3>
+<h3 id="fraudanalysiscartitemstype">FraudAnalysis.Cart.Items.Type</h3>
 
 <table>
   <thead>
@@ -14156,7 +14156,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemsvelocityhedge">FraudAnalysis.Items.VelocityHedge</h3>
+<h3 id="fraudanalysiscartitemsvelocityhedge">FraudAnalysis.Cart.Items.VelocityHedge</h3>
 
 <table>
   <thead>
@@ -14185,7 +14185,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemspassengerrating">FraudAnalysis.Items.Passenger.Rating</h3>
+<h3 id="fraudanalysiscartitemspassengerrating">FraudAnalysis.Cart.Items.Passenger.Rating</h3>
 
 <table>
   <thead>

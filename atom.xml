@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-02-26T14:50:48+00:00</updated>
+    <updated>2018-02-28T13:46:41+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1660,8 +1660,12 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 &lt;p&gt;Para realizar a importação basta:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Acessar a área do manual onde o link da Coleção está disponível e copia-lo
-  a. IMPORTANTE: para que a sua coleção sempre esteja atualizada, sugerimos que sempre busque a ultima versão da coleção no manual. O link NÃO ATUALIZA A COLEÇÃO IMPORTADA AUTOMATICAMENTE&lt;/li&gt;
+  &lt;li&gt;Acessar a &lt;a href=&quot;https://developercielo.github.io/tutorial/postman#collections-e-environments-cielo5&quot;&gt;área deste tutorial&lt;/a&gt; onde o link da Coleção está disponível e copiá-lo&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;*IMPORTANTE:&lt;/strong&gt; para que a sua coleção sempre esteja atualizada, sugerimos que sempre busque a ultima versão da coleção no manual. O link NÃO ATUALIZA A COLEÇÃO IMPORTADA AUTOMATICAMENTE&lt;/p&gt;
+
+&lt;ol&gt;
   &lt;li&gt;Com o Postman aberto, use o botão IMPORT, e selecione a opção “IMPORT FROM LINK”.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -3935,6 +3939,8 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.17.15'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;última versão 0.17.14 - lançada em 15/02/2017&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
@@ -15102,7 +15108,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
-&lt;aside class=&quot;warning&quot;&gt;Na análise de AF, os padrões de siglas para países utilizados nos campos `{}.Country` devem seguir o modelo da [ISO 3166-1 ALPHA 3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)&lt;/aside&gt;
+&lt;aside class=&quot;warning&quot;&gt;Na análise de AF, os padrões de siglas para países utilizados nos campos `Country` devem seguir o modelo da ISO 3166-1 ALPHA 3 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;201411173454307&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -15668,133 +15674,133 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Booleano que define se devoluções são aceitas para o pedido.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.GiftCategory&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.GiftCategory&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países.fraudanalysis.items.giftcategory)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.HostHedge&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.HostHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação.&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.NonSensicalHedge&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.NonSensicalHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.ObscenitiesHedge&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.ObscenitiesHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Nível de obscenidade dos pedidos recebedidos.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.PhoneHedge&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.PhoneHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Nível dos testes realizados com os números de telefones.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Name&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Nome do Produto.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Quantity&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Quantity&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Quantidade do produto a ser adquirido.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Sku&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Sku&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Código comerciante identificador do produto.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.UnitPrice&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.UnitPrice&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Preço unitário do produto.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Risk&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Risk&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Nível do risco do produto.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.TimeHedge&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.TimeHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Nível de importância da hora do dia do pedido do cliente.&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Type&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Tipo do produto.)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.VelocityHedge&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.VelocityHedge&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Nível de importância de frequência de compra do cliente.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Passenger.Email&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Passenger.Email&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Email do Passageiro.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Passenger.Identity&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Passenger.Identity&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Id do passageiro a quem o bilheite foi emitido.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Passenger.Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Passenger.Name&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;120&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Nome do passageiro.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Passenger.Rating&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Passenger.Rating&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Classificação do Passageiro.&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Passenger.Phone&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Passenger.Phone&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Items.Passenger.Status&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Passenger.Status&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -27048,7 +27054,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;fraudanalysisitemsobscenitieshedge&quot;&gt;FraudAnalysis.Items.ObscenitiesHedge&lt;/h3&gt;
+&lt;h3 id=&quot;fraudanalysiscartitemsobscenitieshedge&quot;&gt;FraudAnalysis.Cart.Items.ObscenitiesHedge&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -27077,7 +27083,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;fraudanalysisitemsphonehedge&quot;&gt;FraudAnalysis.Items.PhoneHedge&lt;/h3&gt;
+&lt;h3 id=&quot;fraudanalysiscartitemsphonehedge&quot;&gt;FraudAnalysis.Cart.Items.PhoneHedge&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -27106,7 +27112,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;fraudanalysisitemsrisk&quot;&gt;FraudAnalysis.Items.Risk&lt;/h3&gt;
+&lt;h3 id=&quot;fraudanalysiscartitemsrisk&quot;&gt;FraudAnalysis.Cart.Items.Risk&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -27131,7 +27137,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;fraudanalysisitemstimehedge&quot;&gt;FraudAnalysis.Items.TimeHedge&lt;/h3&gt;
+&lt;h3 id=&quot;fraudanalysiscartitemstimehedge&quot;&gt;FraudAnalysis.Cart.Items.TimeHedge&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -27160,7 +27166,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;fraudanalysisitemstype&quot;&gt;FraudAnalysis.Items.Type&lt;/h3&gt;
+&lt;h3 id=&quot;fraudanalysiscartitemstype&quot;&gt;FraudAnalysis.Cart.Items.Type&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -27181,7 +27187,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;fraudanalysisitemsvelocityhedge&quot;&gt;FraudAnalysis.Items.VelocityHedge&lt;/h3&gt;
+&lt;h3 id=&quot;fraudanalysiscartitemsvelocityhedge&quot;&gt;FraudAnalysis.Cart.Items.VelocityHedge&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -27210,7 +27216,7 @@ Mais informações e integração completa, você encontra no link: https://deve
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;fraudanalysisitemspassengerrating&quot;&gt;FraudAnalysis.Items.Passenger.Rating&lt;/h3&gt;
+&lt;h3 id=&quot;fraudanalysiscartitemspassengerrating&quot;&gt;FraudAnalysis.Cart.Items.Passenger.Rating&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -30548,6 +30554,13 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Hipercard&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -32842,6 +32855,81 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;product_id&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador do Botão/Link de pagamento que gerou a transação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;product_type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Tipo de Botão que gerou o pedido (Ver tabela de ProductID)&lt;/td&gt;
+      &lt;td&gt;Alfanumérico&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;product_sku&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador do produto cadastro no link de pagamento&lt;/td&gt;
+      &lt;td&gt;texto&lt;/td&gt;
+      &lt;td&gt;16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;product_max_number_of_installments&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Numero de parcelas liberado pelo lojistas para o link de pagamento&lt;/td&gt;
+      &lt;td&gt;Numérico&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;product_expiration_date&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data de validade do botão/Link de pagamento&lt;/td&gt;
+      &lt;td&gt;Alfanumérico&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;product_quantity&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Numero de transações restantes até que o link deixe de funcionar&lt;/td&gt;
+      &lt;td&gt;Alfanumérico&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;product_description&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Descrição do link de pagamentos registrada pelo lojista&lt;/td&gt;
+      &lt;td&gt;texto&lt;/td&gt;
+      &lt;td&gt;256&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Tipos de productID&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tipo de Link de pagamento&lt;/th&gt;
+      &lt;th&gt;Enun&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Material físico&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Digital&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Serviço&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pagamento&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Recorrência&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -33055,6 +33143,14 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     &lt;tr&gt;
       &lt;td&gt;7&lt;/td&gt;
       &lt;td&gt;JCB&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;Discover&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;Hipercard&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
