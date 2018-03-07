@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-02-28T13:46:41+00:00</updated>
+    <updated>2018-03-07T13:46:08+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1771,14 +1771,14 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 &lt;h3 id=&quot;api-cielo-ecommerce-1&quot;&gt;Api Cielo Ecommerce&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt; -&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt; -  https://www.getpostman.com/collections/139520c8fe2210654d7c&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Ambiente&lt;/th&gt;
-      &lt;th&gt;URLs&lt;/th&gt;
+      &lt;th&gt;Endpoints&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -1796,14 +1796,14 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 &lt;h3 id=&quot;checkout-cielo-1&quot;&gt;Checkout Cielo&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt;  -&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt;  - https://www.getpostman.com/collections/97969ec643738aac42f4&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Ambiente&lt;/th&gt;
-      &lt;th&gt;URLs&lt;/th&gt;
+      &lt;th&gt;Endpoints&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
