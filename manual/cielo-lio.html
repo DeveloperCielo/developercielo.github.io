@@ -2843,7 +2843,7 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 
 <p><strong>Fluxo da transação utilizando o pagamento parcelado da Cielo LIO</strong></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span>  <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
 </code></pre></div></div>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
