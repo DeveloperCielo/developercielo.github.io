@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-03-07T13:46:08+00:00</updated>
+    <updated>2018-03-16T18:20:35+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1900,134 +1900,32 @@ Acesse Documentação da Integração Local&lt;/li&gt;
 &lt;h2 id=&quot;especificações-técnicas-do-hardware-da-cielo-lio&quot;&gt;Especificações técnicas do hardware da Cielo LIO&lt;/h2&gt;
 
 &lt;p&gt;A plataforma Cielo LIO teve seu sistema operacional próprio baseado em Android.
-Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v1_small.png&quot; alt=&quot;LIO V1&quot; /&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v2_small.png&quot; alt=&quot;LIO V2&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Versão&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;LIO V1&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;LIO V2&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Sistema operacional&lt;/td&gt;
-      &lt;td&gt;Android OS Cielo 5.1.1&lt;/td&gt;
-      &lt;td&gt;Android OS Cielo 6.0 (Marshmallow)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Memória&lt;/td&gt;
-      &lt;td&gt;2GB LPDDR3&lt;/td&gt;
-      &lt;td&gt;1GB LPDDR3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Dual Chip&lt;/td&gt;
-      &lt;td&gt;Dual SIM Stand-by&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Tipo do SIM Card&lt;/td&gt;
-      &lt;td&gt;micro SIM (3FF)&lt;/td&gt;
-      &lt;td&gt;micro SIM (3FF)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Frequência GSM Mhz&lt;/td&gt;
-      &lt;td&gt;Quad-Band 850/900/1800/1900&lt;/td&gt;
-      &lt;td&gt;Quad-Band 850/900/1800/1900&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Tamanho em polegadas&lt;/td&gt;
-      &lt;td&gt;5”&lt;/td&gt;
-      &lt;td&gt;5.5”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Tipo de tela&lt;/td&gt;
-      &lt;td&gt;AMOLED&lt;/td&gt;
-      &lt;td&gt;AMOLED&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Resolução da tela&lt;/td&gt;
-      &lt;td&gt;720 x 1280 pixels&lt;/td&gt;
-      &lt;td&gt;720 x 1280 pixels&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Densidade de pixels&lt;/td&gt;
-      &lt;td&gt;293 ppi&lt;/td&gt;
-      &lt;td&gt;267 ppi&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Câmera&lt;/td&gt;
-      &lt;td&gt;12.8 Mega Pixels&lt;/td&gt;
-      &lt;td&gt;13 Mega Pixels&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Resolução da câmera&lt;/td&gt;
-      &lt;td&gt;4128 x 3096 pixels&lt;/td&gt;
-      &lt;td&gt;4160 x 3120 pixels&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Flash&lt;/td&gt;
-      &lt;td&gt;Flash LED&lt;/td&gt;
-      &lt;td&gt;Flash LED&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;USB&lt;/td&gt;
-      &lt;td&gt;USB 2.0 Micro-B (Micro-USB) Somente Energia&lt;/td&gt;
-      &lt;td&gt;USB 2.0 Micro-B (Micro-USB) Somente Energia&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Bluetooth&lt;/td&gt;
-      &lt;td&gt;Versão 4.0 com A2DP&lt;/td&gt;
-      &lt;td&gt;Versão 4.0 com A2DP/LE&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;WiFi&lt;/td&gt;
-      &lt;td&gt;802.11 a/b/g/n&lt;/td&gt;
-      &lt;td&gt;802.11 b/g/n&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;GPS&lt;/td&gt;
-      &lt;td&gt;A-GPS. GeoTagging&lt;/td&gt;
-      &lt;td&gt;A-GPS&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Sensores&lt;/td&gt;
-      &lt;td&gt;Acelerômetro, Proximidade e Luminosidade&lt;/td&gt;
-      &lt;td&gt;Acelerômetro, Proximidade e Luminosidade&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Saída de áudio&lt;/td&gt;
-      &lt;td&gt;Audio Jack 3.5mm&lt;/td&gt;
-      &lt;td&gt;Audio Jack 3.5mm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Peso&lt;/td&gt;
-      &lt;td&gt;363 g&lt;/td&gt;
-      &lt;td&gt;507 g&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Altura&lt;/td&gt;
-      &lt;td&gt;34mm&lt;/td&gt;
-      &lt;td&gt;46mm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Largura&lt;/td&gt;
-      &lt;td&gt;84mm&lt;/td&gt;
-      &lt;td&gt;81mm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Comprimento&lt;/td&gt;
-      &lt;td&gt;168mm&lt;/td&gt;
-      &lt;td&gt;228mm&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+Confira abaixo a tabela com as especificações técnicas da Cielo LIO:
+| | &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v1_small.png&quot; alt=&quot;LIO V1&quot; /&gt; | &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v2_small.png&quot; alt=&quot;LIO V2&quot; /&gt; |
+|———————-|———————————————|———————————————|
+| Versão               | &lt;strong&gt;LIO V1&lt;/strong&gt;                                  | &lt;strong&gt;LIO V2&lt;/strong&gt;                                  |
+| Sistema operacional  | Android OS Cielo 5.1.1                      | Android OS Cielo 6.0 (Marshmallow)          |
+| Memória              | 2GB LPDDR3                                  | 1GB LPDDR3                                  |
+| Dual Chip            | Dual SIM Stand-by                           | -                                           |
+| Tipo do SIM Card     | micro SIM (3FF)                             | micro SIM (3FF)                             |
+| Frequência GSM Mhz   | Quad-Band 850/900/1800/1900                 | Quad-Band 850/900/1800/1900                 |
+| Tamanho em polegadas | 5”                                          | 5.5”                                        |
+| Tipo de tela         | AMOLED                                      | AMOLED                                      |
+| Resolução da tela    | 720 x 1280 pixels                           | 720 x 1280 pixels                           |
+| Densidade de pixels  | 293 ppi                                     | 267 ppi                                     |
+| Câmera               | 12.8 Mega Pixels                            | 13 Mega Pixels                              |
+| Resolução da câmera  | 4128 x 3096 pixels                          | 4160 x 3120 pixels                          |
+| Flash                | Flash LED                                   | Flash LED                                   |
+| USB                  | USB 2.0 Micro-B (Micro-USB) Somente Energia | USB 2.0 Micro-B (Micro-USB) Somente Energia |
+| Bluetooth            | Versão 4.0 com A2DP                         | Versão 4.0 com A2DP/LE                      |
+| WiFi                 | 802.11 a/b/g/n                              | 802.11 b/g/n                                |
+| GPS                  | A-GPS. GeoTagging                           | A-GPS                                       |
+| Sensores             | Acelerômetro, Proximidade e Luminosidade    | Acelerômetro, Proximidade e Luminosidade    |
+| Saída de áudio       | Audio Jack 3.5mm                            | Audio Jack 3.5mm                            |
+| Peso                 | 363 g                                       | 507 g                                       |
+| Altura               | 34mm                                        | 46mm                                        |
+| Largura              | 84mm                                        | 81mm                                        |
+| Comprimento          | 168mm                                       | 228mm                                       |&lt;/p&gt;
 
 &lt;h2 id=&quot;rotação-de-tela-na-cielo-lio&quot;&gt;Rotação de tela na Cielo LIO&lt;/h2&gt;
 
