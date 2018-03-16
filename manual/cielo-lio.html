@@ -2911,7 +2911,7 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 
 <h3 id="5-pagamento-informando-ec">5. Pagamento informando EC</h3>
 
-<p>Esse método é disponibilizado para o caso de ser necessário efetuar um pagamento em um EC diferente do configurado na LIO.
+<p>Esse método é disponibilizado para o caso de ser necessário efetuar um pagamento em um EC diferente do principal. O EC informado deve estar configurado na LIO na hora da inicialização para que funcione ou o SDK irá enviar uma exceção do tipo <code class="highlighter-rouge">InvalidParameterException</code>.
 Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
 
 <table>
