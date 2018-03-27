@@ -336,6 +336,741 @@ curl
       <th>OBRIGATÓRIO</th>
       <th>DESCRIÇÃO</th>
       <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MerchantOrderId</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Numero de identificação do Pedido.</td>
+      <td>Obrigatório</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Customer</td>
+      <td> </td>
+      <td> </td>
+      <td>Não</td>
+      <td>Nó contendo os dados do cliente</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Name</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Nome do Comprador.</td>
+      <td>ObrigatórioNome e Sobrenome</td>
+    </tr>
+    <tr>
+      <td>Customer.Identity</td>
+      <td>Texto</td>
+      <td>18</td>
+      <td>Não</td>
+      <td>Número do RG, CPF, CNPJ ou Passaporte do Cliente.</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Customer.IdentityType</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Não</td>
+      <td>Tipo de documento de identificação do comprador (RG/CFP/CNPJ/Passaporte)</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.Email</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Email do Comprador.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.Phone</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Telefone do Comprador</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.Mobile</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Celular do Comprador</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.WorkPhone</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Telefone de trabalho do Comprador</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.Birthdate</td>
+      <td>Date</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Data de nascimento do Comprador. Formato: YYYY-MM-DD</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.Status</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Status de cadastro do comprador na loja.NEW - Cliente novo efetuando a primeira compraEXISTING - Cliente existente</td>
+      <td>Opcional</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Customer.Address</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Nó contendo dados do Endereço do Comprador.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Street</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Endereço do Comprador.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Number</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Número do endereço do Comprador.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Complement</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Complemento do endereço do Comprador.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.District</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Distrito ou Bairro do endereço do Comprador.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.ZipCode</td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não</td>
+      <td>CEP do endereço do Comprador.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.City</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Cidade do endereço do Comprador.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.State</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Estado do endereço do Comprador.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Country</td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>Pais do endereço do Comprador.</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Customer.DeliveryAddress</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Nó contendo os dados do Endereço de Entrega.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Street</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Endereço de Entrega.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Number</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Número do endereço do Entrega.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Complement</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Complemento do endereço de Entrega.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.District</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Distrito ou Bairro do endereço de Entrega.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.ZipCode</td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não</td>
+      <td>CEP do endereço de Entrega.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.City</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Cidade do endereço de Entrega.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.State</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Estado do endereço de Entrega.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Country</td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>Pais do endereço de Entrega.</td>
+      <td>OpcionalDeve seguir a ISO 3166-1, com 2 caracteres.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Customer.BillingAddress</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Nós contendo os dados do Endereço de Cobrança</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.BillingAddress.Street</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Endereço de Cobrança.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.BillingAddress.Number</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Número do endereço de Cobrança.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.BillingAddress.Complement</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Complemento do endereço de Cobrança.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.BillingAddress.District</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Distrito ou Bairro do endereço de Cobrança.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.BillingAddress.ZipCode</td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não</td>
+      <td>CEP do endereço de Cobrança.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.BillingAddress.City</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Cidade do endereço de Cobrança.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.BillingAddress.State</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Estado do endereço de Cobrança.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Customer.BillingAddress.Country</td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>Pais do endereço de Cobrança.</td>
+      <td>OpcionalDeve seguir a ISO 3166-1, com 2 caracteres.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment</td>
+      <td> </td>
+      <td> </td>
+      <td>Sim</td>
+      <td>Nó contendo as informações de Pagamento</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.Type</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do Meio de Pagamento (CreditCard / DebitCard / EletronicTransfer / Boleto)</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.Amount</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do pedido em centavos.</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.Currency</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>Moeda na qual o pagamento será realizado. Valor padrão: BRL</td>
+      <td>OpcionalValor Padrão: BRL</td>
+    </tr>
+    <tr>
+      <td>Payment.Country</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>Pais no qual o pagamento será feito. Valor padrão: BR</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.Provider</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>-</td>
+      <td>Nome do Meio de Pagamento. Não obrigatório para Cartão de Crédito.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.ServiceTaxAmount</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.Installments</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de Parcelas</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.Interest</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer). Valor padrão: ByMerchant</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.SoftDescriptor</td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Não</td>
+      <td>Texto que será impresso na fatura bancária do portador. Disponível apenas para VISA / MASTER. Não permite caracteres especiais.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.Capture</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Define se a autorização deve ser capturada automaticamente. Default: false</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.Authenticate</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. Default: false</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment.CreditCard</td>
+      <td> </td>
+      <td> </td>
+      <td>Sim</td>
+      <td>Nó contendo as informações do Cartão</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.CardNumber</td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Sim</td>
+      <td>Número do Cartão do Comprador.</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.Holder</td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Não</td>
+      <td>Nome do Comprador impresso no cartão.</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.ExpirationDate</td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+      <td>Data de validade do cartão.</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.SecurityCode</td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Não</td>
+      <td>Código de segurança impresso no verso do cartão.</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.SaveCard</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Identifica se o cartão será salvo para gerar o CardToken. Valor padrão: false</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.Brand</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).</td>
+      <td>Obrigatório</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment.FraudAnalysis</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Nó contendo as informações para Análise de Fraude</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Provider</td>
+      <td>Texto</td>
+      <td>12</td>
+      <td>Não</td>
+      <td>Identifica o provedor da Solução de Análise de Fraude (CyberSource / RedShield). Valor padrão: CyberSource</td>
+      <td>Obrigatório(RedShield)</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.CaptureOnLowRisk</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Captura a transação se a análise de fraude retornar “Accept”. Valor padrão: false.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.VoidOnHighRisk</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Cancela a transação se a análise de fraude retornar “Reject”. Valor padrão: false.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.TotalOrderAmount</td>
+      <td>Número</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Valor total do pedido em centavos. É utilizado pelo provedor Antifraude quando o comprador dividir o pagamento. Ex: Pagamento com dois cartões.</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.OrderDate</td>
+      <td>Date</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Data do pedido. Formato: YYYY-MM-DDTHH:MM:SSSZ</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.IsRetryTransaction</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Indica se é uma retentativa de autorização.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.SplitingPaymentMethod</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Indica se o pagamento esta sendo dividido. Ex: Pagamento com dois cartões.Valores possíveis: SINGLE-PAY e SPLIT-PAY</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.FingerPrintId</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Sequence</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Define a ordem de execução da análise de fraude. Valor padrão: AnalyseFirstAnalyseFirst - efetua a análise de fraude antes de enviar para autorizaçãoAuthorizeFirst - efetua a atutorização antes de realizar a análise de fraude</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.SequenceCriteria</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Define, de acordo com a sequência, se prosseguirá ou não com o fluxo. Valor padrão: AlwaysAlways - Para o fluxo AnalyseFirst, segue com a autorização independente do resultado da análise de fraude. Para o fluxo AuthorizeFirst, segue com a análise de fraude independente do resultado da autorização.OnSuccess - Para o fluxo AnalyseFirst, segue com a autorização somente se a análise de fraude retornar “Accept”. Para o fluxo AuthorizeFirst, segue com a análise de fraude somente se a transação for autorizada.</td>
+      <td>Opcional</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment.FraudAnalysis.Browser</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Nó contendo as informações do Browser para Análise de Fraude</td>
+      <td>Obrigatório</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Browser.CookiesAccepted</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Booleano que identifica se o browser do cliente aceita cookies. Default: false</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Browser.Email</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Email do comprador</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Browser.HostName</td>
+      <td>Texto</td>
+      <td>60</td>
+      <td>Não</td>
+      <td>Nome do host onde o comprador entrou no site da loja.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Browser.IpAddress</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Endereço IP do comprador. É altamente recomendável o envio deste campo.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Browser.Type</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Não</td>
+      <td>Nome do browser utilizado pelo comprador.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Browser.BrowserFingerPrint</td>
+      <td>Texto</td>
+      <td>6010</td>
+      <td>Não</td>
+      <td>Impressão digital de dispositivos e geolocalização real do IP do comprador.</td>
+      <td>ObrigatórioConfiguração do Fingerprint</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
       <th> </th>
       <th> </th>
       <th> </th>
@@ -356,1881 +1091,6 @@ curl
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>MerchantOrderId</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-      <td>Numero de identificação do Pedido.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer</td>
-      <td> </td>
-      <td> </td>
-      <td>Não</td>
-      <td>Nó contendo os dados do cliente</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Name</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do Comprador.</td>
-      <td>ObrigatórioNome e Sobrenome</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Identity</td>
-      <td>Texto</td>
-      <td>18</td>
-      <td>Não</td>
-      <td>Número do RG, CPF, CNPJ ou Passaporte do Cliente.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.IdentityType</td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-      <td>Tipo de documento de identificação do comprador (RG/CFP/CNPJ/Passaporte)</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Email</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Email do Comprador.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Phone</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Telefone do Comprador</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Mobile</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Celular do Comprador</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.WorkPhone</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Telefone de trabalho do Comprador</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Birthdate</td>
-      <td>Date</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Data de nascimento do Comprador. Formato: YYYY-MM-DD</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Status</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja.NEW - Cliente novo efetuando a primeira compraEXISTING - Cliente existente</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nó contendo dados do Endereço do Comprador.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.Street</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.Number</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.Complement</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.District</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Distrito ou Bairro do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.ZipCode</td>
-      <td>Texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.City</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.State</td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.Country</td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>Pais do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nó contendo os dados do Endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.Street</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.Number</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.Complement</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.District</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Distrito ou Bairro do endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.ZipCode</td>
-      <td>Texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.City</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.State</td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.Country</td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>Pais do endereço de Entrega.</td>
-      <td>OpcionalDeve seguir a ISO 3166-1, com 2 caracteres.</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nós contendo os dados do Endereço de Cobrança</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.Street</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.Number</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.Complement</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.District</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Distrito ou Bairro do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.ZipCode</td>
-      <td>Texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.City</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.State</td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.Country</td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>Pais do endereço de Cobrança.</td>
-      <td>OpcionalDeve seguir a ISO 3166-1, com 2 caracteres.</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment</td>
-      <td> </td>
-      <td> </td>
-      <td>Sim</td>
-      <td>Nó contendo as informações de Pagamento</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Type</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do Meio de Pagamento (CreditCard / DebitCard / EletronicTransfer / Boleto)</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Amount</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do pedido em centavos.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Currency</td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Moeda na qual o pagamento será realizado. Valor padrão: BRL</td>
-      <td>OpcionalValor Padrão: BRL</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Country</td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Pais no qual o pagamento será feito. Valor padrão: BR</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Provider</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>-</td>
-      <td>Nome do Meio de Pagamento. Não obrigatório para Cartão de Crédito.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.ServiceTaxAmount</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Installments</td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de Parcelas</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Interest</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer). Valor padrão: ByMerchant</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.SoftDescriptor</td>
-      <td>Texto</td>
-      <td>13</td>
-      <td>Não</td>
-      <td>Texto que será impresso na fatura bancária do portador. Disponível apenas para VISA / MASTER. Não permite caracteres especiais.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Capture</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Define se a autorização deve ser capturada automaticamente. Default: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Authenticate</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. Default: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard</td>
-      <td> </td>
-      <td> </td>
-      <td>Sim</td>
-      <td>Nó contendo as informações do Cartão</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.CardNumber</td>
-      <td>Texto</td>
-      <td>16</td>
-      <td>Sim</td>
-      <td>Número do Cartão do Comprador.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.Holder</td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-      <td>Nome do Comprador impresso no cartão.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.ExpirationDate</td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade do cartão.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.SecurityCode</td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.SaveCard</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Identifica se o cartão será salvo para gerar o CardToken. Valor padrão: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.Brand</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações para Análise de Fraude</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Sequence</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Define a ordem de execução da análise de fraude. Valor padrão: AnalyseFirstAnalyseFirst - efetua a análise de fraude antes de enviar para autorizaçãoAuthorizeFirst - efetua a atutorização antes de realizar a análise de fraude</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.SequenceCriteria</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Define, de acordo com a sequência, se prosseguirá ou não com o fluxo. Valor padrão: AlwaysAlways - Para o fluxo AnalyseFirst, segue com a autorização independente do resultado da análise de fraude. Para o fluxo AuthorizeFirst, segue com a análise de fraude independente do resultado da autorização.OnSuccess - Para o fluxo AnalyseFirst, segue com a autorização somente se a análise de fraude retornar “Accept”. Para o fluxo AuthorizeFirst, segue com a análise de fraude somente se a transação for autorizada.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.FingerPrintId</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Provider</td>
-      <td>Texto</td>
-      <td>12</td>
-      <td>Não</td>
-      <td>Identifica o provedor da Solução de Análise de Fraude (CyberSource / RedShield). Valor padrão: CyberSource</td>
-      <td>Obrigatório(RedShield)</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.CaptureOnLowRisk</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Captura a transação se a análise de fraude retornar “Accept”. Valor padrão: false.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.VoidOnHighRisk</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Cancela a transação se a análise de fraude retornar “Reject”. Valor padrão: false.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.TotalOrderAmount</td>
-      <td>Número</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Valor total do pedido em centavos. É utilizado pelo provedor Antifraude quando o comprador dividir o pagamento. Ex: Pagamento com dois cartões.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.OrderDate</td>
-      <td>Date</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Data do pedido. Formato: YYYY-MM-DDTHH:MM:SSSZ</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.IsRetryTransaction</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Indica se é uma retentativa de autorização.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.SplitingPaymentMethod</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Indica se o pagamento esta sendo dividido. Ex: Pagamento com dois cartões.Valores possíveis: SINGLE-PAY e SPLIT-PAY</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações do Browser para Análise de Fraude</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.CookiesAccepted</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Booleano que identifica se o browser do cliente aceita cookies. Default: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.Email</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Email do comprador</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.HostName</td>
-      <td>Texto</td>
-      <td>60</td>
-      <td>Não</td>
-      <td>Nome do host onde o comprador entrou no site da loja.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.IpAddress</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Endereço IP do comprador. É altamente recomendável o envio deste campo.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.Type</td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Não</td>
-      <td>Nome do browser utilizado pelo comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.BrowserFingerPrint</td>
-      <td>Texto</td>
-      <td>6010</td>
-      <td>Não</td>
-      <td>Impressão digital de dispositivos e geolocalização real do IP do comprador.</td>
-      <td>ObrigatórioConfiguração do Fingerprint</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
     <tr>
       <td>Payment.FraudAnalysis.Cart</td>
       <td> </td>
@@ -3864,3264 +2724,6 @@ curl
   </tbody>
 </table>
 
-<h1 id="tabelas-originais">Tabelas originais</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>CAMPOS</th>
-      <th>TIPO</th>
-      <th>TAMANHO</th>
-      <th>OBRIGATÓRIO</th>
-      <th>DESCRIÇÃO</th>
-      <th>ANTIFRAUDE REDSHIELD</th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>MerchantOrderId</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-      <td>Numero de identificação do Pedido.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer</td>
-      <td> </td>
-      <td> </td>
-      <td>Não</td>
-      <td>Nó contendo os dados do cliente</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Name</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do Comprador.</td>
-      <td>ObrigatórioNome e Sobrenome</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Identity</td>
-      <td>Texto</td>
-      <td>18</td>
-      <td>Não</td>
-      <td>Número do RG, CPF, CNPJ ou Passaporte do Cliente.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.IdentityType</td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-      <td>Tipo de documento de identificação do comprador (RG/CFP/CNPJ/Passaporte)</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Email</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Email do Comprador.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Phone</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Telefone do Comprador</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Mobile</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Celular do Comprador</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.WorkPhone</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Telefone de trabalho do Comprador</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Birthdate</td>
-      <td>Date</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Data de nascimento do Comprador. Formato: YYYY-MM-DD</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Status</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja.NEW - Cliente novo efetuando a primeira compraEXISTING - Cliente existente</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nó contendo dados do Endereço do Comprador.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.Street</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.Number</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.Complement</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.District</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Distrito ou Bairro do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.ZipCode</td>
-      <td>Texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.City</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.State</td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.Address.Country</td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>Pais do endereço do Comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nó contendo os dados do Endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.Street</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.Number</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.Complement</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.District</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Distrito ou Bairro do endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.ZipCode</td>
-      <td>Texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.City</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.State</td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço de Entrega.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.DeliveryAddress.Country</td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>Pais do endereço de Entrega.</td>
-      <td>OpcionalDeve seguir a ISO 3166-1, com 2 caracteres.</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nós contendo os dados do Endereço de Cobrança</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.Street</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.Number</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.Complement</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.District</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Distrito ou Bairro do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.ZipCode</td>
-      <td>Texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.City</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.State</td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço de Cobrança.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Customer.BillingAddress.Country</td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>Pais do endereço de Cobrança.</td>
-      <td>OpcionalDeve seguir a ISO 3166-1, com 2 caracteres.</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment</td>
-      <td> </td>
-      <td> </td>
-      <td>Sim</td>
-      <td>Nó contendo as informações de Pagamento</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Type</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do Meio de Pagamento (CreditCard / DebitCard / EletronicTransfer / Boleto)</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Amount</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do pedido em centavos.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Currency</td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Moeda na qual o pagamento será realizado. Valor padrão: BRL</td>
-      <td>OpcionalValor Padrão: BRL</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Country</td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Pais no qual o pagamento será feito. Valor padrão: BR</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Provider</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>-</td>
-      <td>Nome do Meio de Pagamento. Não obrigatório para Cartão de Crédito.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.ServiceTaxAmount</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Exclusivo para companhias aéreas - Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Installments</td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de Parcelas</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Interest</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer). Valor padrão: ByMerchant</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.SoftDescriptor</td>
-      <td>Texto</td>
-      <td>13</td>
-      <td>Não</td>
-      <td>Texto que será impresso na fatura bancária do portador. Disponível apenas para VISA / MASTER. Não permite caracteres especiais.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Capture</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Define se a autorização deve ser capturada automaticamente. Default: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.Authenticate</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. Default: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard</td>
-      <td> </td>
-      <td> </td>
-      <td>Sim</td>
-      <td>Nó contendo as informações do Cartão</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.CardNumber</td>
-      <td>Texto</td>
-      <td>16</td>
-      <td>Sim</td>
-      <td>Número do Cartão do Comprador.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.Holder</td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-      <td>Nome do Comprador impresso no cartão.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.ExpirationDate</td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade do cartão.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.SecurityCode</td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.SaveCard</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Identifica se o cartão será salvo para gerar o CardToken. Valor padrão: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.CreditCard.Brand</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações para Análise de Fraude</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Sequence</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Define a ordem de execução da análise de fraude. Valor padrão: AnalyseFirstAnalyseFirst - efetua a análise de fraude antes de enviar para autorizaçãoAuthorizeFirst - efetua a atutorização antes de realizar a análise de fraude</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.SequenceCriteria</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Define, de acordo com a sequência, se prosseguirá ou não com o fluxo. Valor padrão: AlwaysAlways - Para o fluxo AnalyseFirst, segue com a autorização independente do resultado da análise de fraude. Para o fluxo AuthorizeFirst, segue com a análise de fraude independente do resultado da autorização.OnSuccess - Para o fluxo AnalyseFirst, segue com a autorização somente se a análise de fraude retornar “Accept””. Para o fluxo AuthorizeFirst, segue com a análise de fraude somente se a transação for autorizada.”</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.FingerPrintId</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Provider</td>
-      <td>Texto</td>
-      <td>12</td>
-      <td>Não</td>
-      <td>Identifica o provedor da Solução de Análise de Fraude (CyberSource / RedShield). Valor padrão: CyberSource</td>
-      <td>Obrigatório(RedShield)</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.CaptureOnLowRisk</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Captura a transação se a análise de fraude retornar “Accept”. Valor padrão: false.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.VoidOnHighRisk</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Cancela a transação se a análise de fraude retornar “Reject”. Valor padrão: false.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.TotalOrderAmount</td>
-      <td>Número</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Valor total do pedido em centavos. É utilizado pelo provedor Antifraude quando o comprador dividir o pagamento. Ex: Pagamento com dois cartões.</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.OrderDate</td>
-      <td>Date</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Data do pedido. Formato: YYYY-MM-DDTHH:MM:SSSZ</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.IsRetryTransaction</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Indica se é uma retentativa de autorização.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.SplitingPaymentMethod</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Indica se o pagamento esta sendo dividido. Ex: Pagamento com dois cartões.Valores possíveis: SINGLE-PAY e SPLIT-PAY</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações do Browser para Análise de Fraude</td>
-      <td>Obrigatório</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.CookiesAccepted</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Booleano que identifica se o browser do cliente aceita cookies. Default: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.Email</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Email do comprador</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.HostName</td>
-      <td>Texto</td>
-      <td>60</td>
-      <td>Não</td>
-      <td>Nome do host onde o comprador entrou no site da loja.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.IpAddress</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Endereço IP do comprador. É altamente recomendável o envio deste campo.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.Type</td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Não</td>
-      <td>Nome do browser utilizado pelo comprador.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Browser.BrowserFingerPrint</td>
-      <td>Texto</td>
-      <td>6010</td>
-      <td>Não</td>
-      <td>Impressão digital de dispositivos e geolocalização real do IP do comprador.</td>
-      <td>ObrigatórioConfiguração do Fingerprint</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações do Carrinho para Análise de Fraude</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>FraudAnalysis.IsGift</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Indica se o pedido é para presente ou não. Valor padrão: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>FraudAnalysis.ReturnsAccepted</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Indica se devoluções são aceitas para o pedido. Valor padrão: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[]</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações dos Itens do Carrinho para Análise de Fraude</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Type</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Tipo do Produto.AdultContent -  Conteúdo adulto.Coupon - Cupon de desconto.Default - Opção padrão para análise.EletronicGood - Produto eletrônico.EletronicSoftware - Softwares distribuídos eletronicamente via download.GiftCertificate - Vale presente.HandlingOnly - Taxa de instalação ou manuseio.Service - Serviço.ShippingAndHandling - Frete e taxa de instalação ou manuseio.ShippingOnly - Frete.Subscription - Assinatura.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Name</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do produto.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Risk</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nível de risco do produto.LOW - O produto tem um histórico de poucos chargebacks. NORMAL - O produto tem um histórico de chargebacks considerado normal. HIGH - O produto tem um histórico de chargebacks acima da média.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Sku</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Sku do produto.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].MerchantItemId</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>ID do produto na loja.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].UnitPrice</td>
-      <td>Número</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Preço unitário do produto em centavos</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].OriginalPrice</td>
-      <td>Número</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Preço original do produto em centavos</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Quantity</td>
-      <td>Número</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Quantidade do produto.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].HostHedge</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. Valor padrão: OffLow - Baixa importância do e-mail e endereço IP na análise de risco. Normal - Média importância do e-mail e endereço IP na análise de risco. High - Alta importância do e-mail e endereço IP na análise de risco. Off - E-mail e endereço IP não afetam a análise de risco.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].NonSensicalHedge</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. Valor padrão: OffLow - Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco. Normal - Média importância da verificação feita sobre o pedido do comprador, na análise de risco. High - Alta importância da verificação feita sobre o pedido do comprador, na análise de risco.Off - Verificação do pedido do comprador não afeta a análise de risco.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].ObscenitiesHedge</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nível de obscenidade dos pedidos recebedidos. Valor Padrão: OffLow - Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.Normal - Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco. High - Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.Off - Verificação de obscenidade no pedido do comprador não afeta a análise de risco.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].PhoneHedge</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nível dos testes realizados com os números de telefones. Valor padrão: OffLow - Baixa importância nos testes realizados com números de telefone.Normal - Média importância nos testes realizados com números de telefone. High - Alta importância nos testes realizados com números de telefone. Off - Testes de números de telefone não afetam a análise de risco.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].TimeHedge</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nível de importância da hora do dia do pedido do cliente. Valor padrão: OffLow - Baixa importância no horário do dia em que foi feita a compra, para a análise de risco. Normal - Média importância no horário do dia em que foi feita a compra, para a análise de risco.High - Alta importância no horário do dia em que foi feita a compra, para a análise de risco. Off - O horário da compra não afeta a análise de risco.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].VelocityHedge</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Nível de importância de frequência de compra do cliente. Valor padrão: OffLow - Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos.Normal - Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos. High - Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos.Off - A frequência de compras realizadas pelo cliente não afeta a análise de fraude.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].GiftCategory</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Flag que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países. Valor padrão: OffYes - Em caso de divergência entre endereços de cobrança e entrega, marca com riscopequeno. No - Em caso de divergência entre endereços de cobrança e entrega, marca com riscoalto. Off - Ignora a análise de risco para endereços divergentes.</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].GiftMessage</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Mensagem de presente.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Description</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Descrição do produto.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].ShippingInstructions</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Instruções para entrega do item do carrinho.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].ShippingMethod</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Método de entrega do item do carrinho.RedShield: None</td>
-      <td>SameDay</td>
-      <td>NextDay</td>
-      <td>TwoDay</td>
-      <td>ThreeDay</td>
-      <td>LowCost</td>
-      <td>CarrierDesignatedByCustomer</td>
-      <td>Pickup</td>
-      <td>International</td>
-      <td>Military</td>
-      <td>OtherCyberSource: None</td>
-      <td>SameDay</td>
-      <td>OneDay</td>
-      <td>TwoDay</td>
-      <td>ThreeDay</td>
-      <td>LowCost</td>
-      <td>Pickup</td>
-      <td>Other</td>
-      <td>Opcional</td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].ShippingTrackingNumber</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Número de rastreamento da entrega do item do carrinho.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Passenger</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações do Passageiro para Análise de Fraude</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].PassengerName</td>
-      <td>Texto</td>
-      <td>120</td>
-      <td>Não</td>
-      <td>Nome do passageiro.</td>
-      <td>OpcionalNome e Sobrenome</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Identity</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Identificação do passageiro para quem o bilhete foi emitido</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Status</td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Não</td>
-      <td>Classificação da empresa aérea (Gold</td>
-      <td>Platinum)</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Rating</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Classificação do Passageiro.Adult - Passageiro adulto.Child - Passageiro criança.Infant - Passageiro infantil.Youth - Passageiro adolescente.Student - Passageiro estudante.SeniorCitizen  - Passageiro idoso.Military  - Passageiro militar.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Email</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Não</td>
-      <td>Email do Passageiro.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Phone</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do telefone do passageiro. Incluir o código do país.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.MerchantDefinedFields[]</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo dados adicionais para Análise de Fraude</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.MerchantDefinedFields[].Id</td>
-      <td>Número</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Identificador de uma informação adicional a ser enviada.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.MerchantDefinedFields[].Value</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Valor de uma informação adicional a ser enviada.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Shipping</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo informações adicionais da entrega para Análise de Fraude</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Shipping.Addressee</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do destinatário.</td>
-      <td>OpcionalNome e Sobrenome</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Shipping.Email</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Email do destinatário.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.ShippingMethod</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Método de entrega do pedido.RedShield: None</td>
-      <td>SameDay</td>
-      <td>NextDay</td>
-      <td>TwoDay</td>
-      <td>ThreeDay</td>
-      <td>LowCost</td>
-      <td>CarrierDesignatedByCustomer</td>
-      <td>Pickup</td>
-      <td>International</td>
-      <td>Military</td>
-      <td>OtherCyberSource: None</td>
-      <td>SameDay</td>
-      <td>OneDay</td>
-      <td>TwoDay</td>
-      <td>ThreeDay</td>
-      <td>LowCost</td>
-      <td>Pickup</td>
-      <td>Other</td>
-      <td>Opcional</td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Shipping.Phone</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Telefone do destinatário.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Shipping.WorkPhone</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Telefone de trabalho do destinatário.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Shipping.Mobile</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Celular do destinatário.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Shipping.Comment</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Não</td>
-      <td>Referência do endereço de entrega do destinatário.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.CustomConfiguration</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as configurações personalizadas para Análise de Fraude.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.CustomConfiguration.RiskAmount</td>
-      <td>Número</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Valor de risco do pedido em centavos</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.CustomConfiguration.MerchantWebsite</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Não</td>
-      <td>Endereço Web do site da loja</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Travel</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações da viagem</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Travel</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Rota completa da viagem. Concatenação das pernas (código do aeroporto) de origem e destino da viagem no formato ORIG1- DEST1. Ex.: SFO-JFK:JFK-LHR:LHR-CDG</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.DepartueTime</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Não</td>
-      <td>Data da partida</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.JourneyType</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Não</td>
-      <td>Tipo de viagem.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Origin</td>
-      <td>Texto</td>
-      <td>5</td>
-      <td>Não</td>
-      <td>Código do aeroporto de origem da viagem.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Destination</td>
-      <td>string</td>
-      <td>5</td>
-      <td>Não</td>
-      <td>Código do aeroporto de destino da viagem.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Travel.Legs[]</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações da rota da viagem</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Origin</td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Código do aeroporto do ponto de destino da viagem</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Destination</td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Código do aeroporto do ponto de origem da viagem.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 </div>
 
