@@ -228,44 +228,46 @@ curl
 
 ```
 
-| CAMPOS | TIPO | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO | ANTIFRAUDE REDSHIELD |
-|--------|------|---------|-------------|-----------|----------------------|
-| MerchantOrderId | Texto | 50 | Sim | Numero de identificação do Pedido. | Obrigatório |
-| Customer.Name | Texto | 255 | Não | Nome do Comprador. | ObrigatórioNome e Sobrenome |
-| Customer.Identity | Texto | 18 | Não | Número do RG, CPF, CNPJ ou Passaporte do Cliente. | Obrigatório |
-| Customer.IdentityType | Texto | 25 | Não | Tipo de documento de identificação do comprador (RG/CFP/CNPJ/Passaporte) | Opcional |
-| Customer.Email | Texto | 255 | Não | Email do Comprador. | Opcional |
-| Customer.Phone | Texto | 15 | Não | Telefone do Comprador | Opcional |
-| Customer.Mobile | Texto | 15 | Não | Celular do Comprador | Opcional |
-| Customer.WorkPhone | Texto | 15 | Não | Telefone de trabalho do Comprador | Opcional |
-| Customer.Birthdate | Date | 10 | Não | Data de nascimento do Comprador. Formato: YYYY-MM-DD | Opcional |
-| Customer.Status | Texto | - | Não | Status de cadastro do comprador na loja.NEW - Cliente novo efetuando a primeira compraEXISTING - Cliente existente | Opcional |
-| Customer.Address.Street | Texto | 255 | Não | Endereço do Comprador. | - |
-| Customer.Address.Number | Texto | 15 | Não | Número do endereço do Comprador. | - |
-| Customer.Address.Complement | Texto | 50 | Não | Complemento do endereço do Comprador. | - |
-| Customer.Address.District | Texto | 50 | Não | Distrito ou Bairro do endereço do Comprador. | - |
-| Customer.Address.ZipCode | Texto | 9 | Não | CEP do endereço do Comprador. | - |
-| Customer.Address.City | Texto | 50 | Não | Cidade do endereço do Comprador. | - |
-| Customer.Address.State | Texto | 2 | Não | Estado do endereço do Comprador. | - |
-| Customer.Address.Country | Texto | 35 | Não | Pais do endereço do Comprador. | - |
-| Customer.DeliveryAddress | - | - | Não | Nó contendo os dados do Endereço de Entrega. | Opcional |
-| Customer.DeliveryAddress.Street | Texto | 255 | Não | Endereço de Entrega. | Opcional |
-| Customer.DeliveryAddress.Number | Texto | 15 | Não | Número do endereço do Entrega. | Opcional |
-| Customer.DeliveryAddress.Complement | Texto | 50 | Não | Complemento do endereço de Entrega. | Opcional |
-| Customer.DeliveryAddress.District | Texto | 50 | Não | Distrito ou Bairro do endereço de Entrega. | Opcional |
-| Customer.DeliveryAddress.ZipCode | Texto | 9 | Não | CEP do endereço de Entrega. | Opcional |
-| Customer.DeliveryAddress.City | Texto | 50 | Não | Cidade do endereço de Entrega. | Opcional |
-| Customer.DeliveryAddress.State | Texto | 2 | Não | Estado do endereço de Entrega. | Opcional |
-| Customer.DeliveryAddress.Country | Texto | 35 | Não | Pais do endereço de Entrega. | OpcionalDeve seguir a ISO 3166-1, com 2 caracteres. |
-| Customer.BillingAddress | - | - | Não | Nós contendo os dados do Endereço de Cobrança | Opcional |
-| Customer.BillingAddress.Street | Texto | 255 | Não | Endereço de Cobrança. | Opcional |
-| Customer.BillingAddress.Number | Texto | 15 | Não | Número do endereço de Cobrança. | Opcional |
-| Customer.BillingAddress.Complement | Texto | 50 | Não | Complemento do endereço de Cobrança. | Opcional |
-| Customer.BillingAddress.District | Texto | 50 | Não | Distrito ou Bairro do endereço de Cobrança. | Opcional |
-| Customer.BillingAddress.ZipCode | Texto | 9 | Não | CEP do endereço de Cobrança. | Opcional |
-| Customer.BillingAddress.City | Texto | 50 | Não | Cidade do endereço de Cobrança. | Opcional |
-| Customer.BillingAddress.State | Texto | 2 | Não | Estado do endereço de Cobrança. | Opcional |
-| Customer.BillingAddress.Country | Texto | 35 | Não | Pais do endereço de Cobrança. | OpcionalDeve seguir a ISO 3166-1, com 2 caracteres. |
+| CAMPOS                              | TIPO  | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                                                                          | ANTIFRAUDE REDSHIELD                                |
+|-------------------------------------|-------|---------|-------------|--------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| MerchantOrderId                     | Texto | 50      | Sim         | Numero de identificação do Pedido.                                                                                 | Obrigatório                                         |
+| Customer                            |       |         | Não         | Nó contendo os dados do cliente                                                                                    |                                                     |
+| Customer.Name                       | Texto | 255     | Não         | Nome do Comprador.                                                                                                 | ObrigatórioNome e Sobrenome                         |
+| Customer.Identity                   | Texto | 18      | Não         | Número do RG, CPF, CNPJ ou Passaporte do Cliente.                                                                  | Obrigatório                                         |
+| Customer.IdentityType               | Texto | 25      | Não         | Tipo de documento de identificação do comprador (RG/CFP/CNPJ/Passaporte)                                           | Opcional                                            |
+| Customer.Email                      | Texto | 255     | Não         | Email do Comprador.                                                                                                | Opcional                                            |
+| Customer.Phone                      | Texto | 15      | Não         | Telefone do Comprador                                                                                              | Opcional                                            |
+| Customer.Mobile                     | Texto | 15      | Não         | Celular do Comprador                                                                                               | Opcional                                            |
+| Customer.WorkPhone                  | Texto | 15      | Não         | Telefone de trabalho do Comprador                                                                                  | Opcional                                            |
+| Customer.Birthdate                  | Date  | 10      | Não         | Data de nascimento do Comprador. Formato: YYYY-MM-DD                                                               | Opcional                                            |
+| Customer.Status                     | Texto | -       | Não         | Status de cadastro do comprador na loja.NEW - Cliente novo efetuando a primeira compraEXISTING - Cliente existente | Opcional                                            |
+| Customer.Address                    | -     | -       | Não         | Nó contendo dados do Endereço do Comprador.                                                                        | Opcional                                            |
+| Customer.Address.Street             | Texto | 255     | Não         | Endereço do Comprador.                                                                                             | -                                                   |
+| Customer.Address.Number             | Texto | 15      | Não         | Número do endereço do Comprador.                                                                                   | -                                                   |
+| Customer.Address.Complement         | Texto | 50      | Não         | Complemento do endereço do Comprador.                                                                              | -                                                   |
+| Customer.Address.District           | Texto | 50      | Não         | Distrito ou Bairro do endereço do Comprador.                                                                       | -                                                   |
+| Customer.Address.ZipCode            | Texto | 9       | Não         | CEP do endereço do Comprador.                                                                                      | -                                                   |
+| Customer.Address.City               | Texto | 50      | Não         | Cidade do endereço do Comprador.                                                                                   | -                                                   |
+| Customer.Address.State              | Texto | 2       | Não         | Estado do endereço do Comprador.                                                                                   | -                                                   |
+| Customer.Address.Country            | Texto | 35      | Não         | Pais do endereço do Comprador.                                                                                     | -                                                   |
+| Customer.DeliveryAddress            | -     | -       | Não         | Nó contendo os dados do Endereço de Entrega.                                                                       | Opcional                                            |
+| Customer.DeliveryAddress.Street     | Texto | 255     | Não         | Endereço de Entrega.                                                                                               | Opcional                                            |
+| Customer.DeliveryAddress.Number     | Texto | 15      | Não         | Número do endereço do Entrega.                                                                                     | Opcional                                            |
+| Customer.DeliveryAddress.Complement | Texto | 50      | Não         | Complemento do endereço de Entrega.                                                                                | Opcional                                            |
+| Customer.DeliveryAddress.District   | Texto | 50      | Não         | Distrito ou Bairro do endereço de Entrega.                                                                         | Opcional                                            |
+| Customer.DeliveryAddress.ZipCode    | Texto | 9       | Não         | CEP do endereço de Entrega.                                                                                        | Opcional                                            |
+| Customer.DeliveryAddress.City       | Texto | 50      | Não         | Cidade do endereço de Entrega.                                                                                     | Opcional                                            |
+| Customer.DeliveryAddress.State      | Texto | 2       | Não         | Estado do endereço de Entrega.                                                                                     | Opcional                                            |
+| Customer.DeliveryAddress.Country    | Texto | 35      | Não         | Pais do endereço de Entrega.                                                                                       | OpcionalDeve seguir a ISO 3166-1, com 2 caracteres. |
+| Customer.BillingAddress             | -     | -       | Não         | Nós contendo os dados do Endereço de Cobrança                                                                      | Opcional                                            |
+| Customer.BillingAddress.Street      | Texto | 255     | Não         | Endereço de Cobrança.                                                                                              | Opcional                                            |
+| Customer.BillingAddress.Number      | Texto | 15      | Não         | Número do endereço de Cobrança.                                                                                    | Opcional                                            |
+| Customer.BillingAddress.Complement  | Texto | 50      | Não         | Complemento do endereço de Cobrança.                                                                               | Opcional                                            |
+| Customer.BillingAddress.District    | Texto | 50      | Não         | Distrito ou Bairro do endereço de Cobrança.                                                                        | Opcional                                            |
+| Customer.BillingAddress.ZipCode     | Texto | 9       | Não         | CEP do endereço de Cobrança.                                                                                       | Opcional                                            |
+| Customer.BillingAddress.City        | Texto | 50      | Não         | Cidade do endereço de Cobrança.                                                                                    | Opcional                                            |
+| Customer.BillingAddress.State       | Texto | 2       | Não         | Estado do endereço de Cobrança.                                                                                    | Opcional                                            |
+| Customer.BillingAddress.Country     | Texto | 35      | Não         | Pais do endereço de Cobrança.                                                                                      | OpcionalDeve seguir a ISO 3166-1, com 2 caracteres. |
 | Payment |  |  | Sim | Nó contendo as informações de Pagamento | Obrigatório |
 | Payment.Type | Texto | 100 | Sim | Tipo do Meio de Pagamento (CreditCard / DebitCard / EletronicTransfer / Boleto) | - |
 | Payment.Amount | Número | 15 | Sim | Valor do pedido em centavos. | Obrigatório |
@@ -287,7 +289,7 @@ curl
 | Payment.CreditCard.Brand | Texto | 10 | Sim | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover). | Obrigatório |
 | Payment.FraudAnalysis |  |  |  | Nó contendo as informações para Análise de Fraude | Obrigatório |
 | Payment.FraudAnalysis.Sequence | Texto | - | Não | Define a ordem de execução da análise de fraude. Valor padrão: AnalyseFirstAnalyseFirst - efetua a análise de fraude antes de enviar para autorizaçãoAuthorizeFirst - efetua a atutorização antes de realizar a análise de fraude | Opcional |
-| Payment.FraudAnalysis.SequenceCriteria | Texto | - | Não | Define, de acordo com a sequência, se prosseguirá ou não com o fluxo. Valor padrão: AlwaysAlways - Para o fluxo AnalyseFirst, segue com a autorização independente do resultado da análise de fraude. Para o fluxo AuthorizeFirst, segue com a análise de fraude independente do resultado da autorização.OnSuccess - Para o fluxo AnalyseFirst, segue com a autorização somente se a análise de fraude retornar "Accept"". Para o fluxo AuthorizeFirst, segue com a análise de fraude somente se a transação for autorizada." | Opcional |
+| Payment.FraudAnalysis.SequenceCriteria | Texto | - | Não | Define, de acordo com a sequência, se prosseguirá ou não com o fluxo. Valor padrão: AlwaysAlways - Para o fluxo AnalyseFirst, segue com a autorização independente do resultado da análise de fraude. Para o fluxo AuthorizeFirst, segue com a análise de fraude independente do resultado da autorização.OnSuccess - Para o fluxo AnalyseFirst, segue com a autorização somente se a análise de fraude retornar "Accept". Para o fluxo AuthorizeFirst, segue com a análise de fraude somente se a transação for autorizada. | Opcional |
 | Payment.FraudAnalysis.FingerPrintId | Texto | 50 | Não | Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint. | - |
 | Payment.FraudAnalysis.Provider | Texto | 12 | Não | Identifica o provedor da Solução de Análise de Fraude (CyberSource / RedShield). Valor padrão: CyberSource | Obrigatório(RedShield) |
 | Payment.FraudAnalysis.CaptureOnLowRisk | Booleano | - | Não | Captura a transação se a análise de fraude retornar "Accept". Valor padrão: false. | Opcional |
