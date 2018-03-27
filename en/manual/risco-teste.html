@@ -1071,6 +1071,45 @@ curl
       <th>OBRIGATÓRIO</th>
       <th>DESCRIÇÃO</th>
       <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment.FraudAnalysis.Cart</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Nó contendo as informações do Carrinho para Análise de Fraude</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>FraudAnalysis.IsGift</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Indica se o pedido é para presente ou não. Valor padrão: false</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>FraudAnalysis.ReturnsAccepted</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Indica se devoluções são aceitas para o pedido. Valor padrão: false</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
       <th> </th>
       <th> </th>
       <th> </th>
@@ -1091,81 +1130,6 @@ curl
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações do Carrinho para Análise de Fraude</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>FraudAnalysis.IsGift</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Indica se o pedido é para presente ou não. Valor padrão: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>FraudAnalysis.ReturnsAccepted</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Indica se devoluções são aceitas para o pedido. Valor padrão: false</td>
-      <td>-</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
     <tr>
       <td>Payment.FraudAnalysis.Cart.Items[]</td>
       <td> </td>
@@ -1691,29 +1655,27 @@ curl
       <td> </td>
       <td> </td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>Payment.FraudAnalysis.Cart.Items[].Passenger</td>
       <td> </td>
       <td> </td>
       <td> </td>
       <td>Nó contendo as informações do Passageiro para Análise de Fraude</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
       <td> </td>
     </tr>
     <tr>
@@ -1723,23 +1685,6 @@ curl
       <td>Não</td>
       <td>Nome do passageiro.</td>
       <td>OpcionalNome e Sobrenome</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Identity</td>
@@ -1748,23 +1693,6 @@ curl
       <td>Não</td>
       <td>Identificação do passageiro para quem o bilhete foi emitido</td>
       <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Status</td>
@@ -1773,48 +1701,6 @@ curl
       <td>Não</td>
       <td>Classificação da empresa aérea (Gold</td>
       <td>Platinum)</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Rating</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Classificação do Passageiro.Adult - Passageiro adulto.Child - Passageiro criança.Infant - Passageiro infantil.Youth - Passageiro adolescente.Student - Passageiro estudante.SeniorCitizen  - Passageiro idoso.Military  - Passageiro militar.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Email</td>
@@ -1823,23 +1709,6 @@ curl
       <td>Não</td>
       <td>Email do Passageiro.</td>
       <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Phone</td>
@@ -1848,24 +1717,30 @@ curl
       <td>Não</td>
       <td>Número do telefone do passageiro. Incluir o código do país.</td>
       <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Rating</td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Classificação do Passageiro.Adult - Passageiro adulto.Child - Passageiro criança.Infant - Passageiro infantil.Youth - Passageiro adolescente.Student - Passageiro estudante.SeniorCitizen  - Passageiro idoso.Military  - Passageiro militar.</td>
+      <td>Opcional</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>Payment.FraudAnalysis.MerchantDefinedFields[]</td>
       <td> </td>
@@ -1873,23 +1748,6 @@ curl
       <td> </td>
       <td>Nó contendo dados adicionais para Análise de Fraude</td>
       <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.MerchantDefinedFields[].Id</td>
@@ -1898,23 +1756,6 @@ curl
       <td>Não</td>
       <td>Identificador de uma informação adicional a ser enviada.</td>
       <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.MerchantDefinedFields[].Value</td>
@@ -1923,24 +1764,180 @@ curl
       <td>Não</td>
       <td>Valor de uma informação adicional a ser enviada.</td>
       <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment.FraudAnalysis.CustomConfiguration</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Nó contendo as configurações personalizadas para Análise de Fraude.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.CustomConfiguration.RiskAmount</td>
+      <td>Número</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Valor de risco do pedido em centavos</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.CustomConfiguration.MerchantWebsite</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Não</td>
+      <td>Endereço Web do site da loja</td>
+      <td>Opcional</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment.FraudAnalysis.Travel</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Nó contendo as informações da viagem</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Travel</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Rota completa da viagem. Concatenação das pernas (código do aeroporto) de origem e destino da viagem no formato ORIG1- DEST1. Ex.: SFO-JFK:JFK-LHR:LHR-CDG</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.DepartueTime</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Não</td>
+      <td>Data da partida</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.JourneyType</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Não</td>
+      <td>Tipo de viagem.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Origin</td>
+      <td>Texto</td>
+      <td>5</td>
+      <td>Não</td>
+      <td>Código do aeroporto de origem da viagem.</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Destination</td>
+      <td>string</td>
+      <td>5</td>
+      <td>Não</td>
+      <td>Código do aeroporto de destino da viagem.</td>
+      <td>Opcional</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Payment.FraudAnalysis.Travel.Legs[]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>Nó contendo as informações da rota da viagem</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Origin</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>Código do aeroporto do ponto de destino da viagem</td>
+      <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.Destination</td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>Código do aeroporto do ponto de origem da viagem.</td>
+      <td>Opcional</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>CAMPOS</th>
+      <th>TIPO</th>
+      <th>TAMANHO</th>
+      <th>OBRIGATÓRIO</th>
+      <th>DESCRIÇÃO</th>
+      <th>ANTIFRAUDE REDSHIELD</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>Payment.FraudAnalysis.Shipping</td>
       <td> </td>
@@ -2122,306 +2119,6 @@ curl
       <td>100</td>
       <td>Não</td>
       <td>Referência do endereço de entrega do destinatário.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.CustomConfiguration</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as configurações personalizadas para Análise de Fraude.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.CustomConfiguration.RiskAmount</td>
-      <td>Número</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Valor de risco do pedido em centavos</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.CustomConfiguration.MerchantWebsite</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Não</td>
-      <td>Endereço Web do site da loja</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Travel</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações da viagem</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Travel</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Rota completa da viagem. Concatenação das pernas (código do aeroporto) de origem e destino da viagem no formato ORIG1- DEST1. Ex.: SFO-JFK:JFK-LHR:LHR-CDG</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.DepartueTime</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Não</td>
-      <td>Data da partida</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.JourneyType</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Não</td>
-      <td>Tipo de viagem.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Origin</td>
-      <td>Texto</td>
-      <td>5</td>
-      <td>Não</td>
-      <td>Código do aeroporto de origem da viagem.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Destination</td>
-      <td>string</td>
-      <td>5</td>
-      <td>Não</td>
-      <td>Código do aeroporto de destino da viagem.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Travel.Legs[]</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>Nó contendo as informações da rota da viagem</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Origin</td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Código do aeroporto do ponto de destino da viagem</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.Destination</td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Código do aeroporto do ponto de origem da viagem.</td>
       <td>Opcional</td>
       <td> </td>
       <td> </td>
