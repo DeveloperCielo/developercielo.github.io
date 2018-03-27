@@ -368,7 +368,7 @@ curl
 | Payment.FraudAnalysis.Cart.Items[].Passenger.Status   | Texto | 32      | Não         | Classificação da empresa aérea (Gold                            | Platinum)                |
 | Payment.FraudAnalysis.Cart.Items[].Passenger.Email    | Texto | 100     | Não         | Email do Passageiro.                                            | Opcional                 |
 | Payment.FraudAnalysis.Cart.Items[].Passenger.Phone    | Texto | 15      | Não         | Número do telefone do passageiro. Incluir o código do país.     | Opcional                 |
-| Payment.FraudAnalysis.Cart.Items[].Passenger.Rating | Texto | - | Não | Classificação do Passageiro.Adult - Passageiro adulto.Child - Passageiro criança.Infant - Passageiro infantil.Youth - Passageiro adolescente.Student - Passageiro estudante.SeniorCitizen  - Passageiro idoso.Military  - Passageiro militar. | Opcional |
+| Payment.FraudAnalysis.Cart.Items[].Passenger.Rating   | Texto |         | Não         | Classificação do Passageiro. <br>Adult - Passageiro adulto. <br>Child - Passageiro criança.<br>Infant - Passageiro infantil.<br>Youth - Passageiro adolescente.<br>Student - Passageiro estudante.<br>SeniorCitizen  - Passageiro idoso.<br>Military  - Passageiro militar. | Opcional |
 
 | CAMPOS                                              | TIPO   | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                | ANTIFRAUDE REDSHIELD |
 |-----------------------------------------------------|--------|---------|-------------|----------------------------------------------------------|----------------------|
@@ -397,16 +397,17 @@ curl
 | Payment.FraudAnalysis.Origin        | Texto | 3       | Não         | Código do aeroporto do ponto de destino da viagem | Opcional             |
 | Payment.FraudAnalysis.Destination   | Texto | 3       | Não         | Código do aeroporto do ponto de origem da viagem. | Opcional             |
 
-| CAMPOS                                           | TIPO     | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                                      | ANTIFRAUDE REDSHIELD                   |
-|--------------------------------------------------|----------|---------|-------------|--------------------------------------------------------------------------------|----------------------------------------|
-| Payment.FraudAnalysis.Shipping |  |  |  | Nó contendo informações adicionais da entrega para Análise de Fraude | Opcional |
-| Payment.FraudAnalysis.Shipping.Addressee | Texto | 255 | Não | Nome do destinatário. | OpcionalNome e Sobrenome |
-| Payment.FraudAnalysis.Shipping.Email | Texto | 255 | Não | Email do destinatário. | Opcional |
-| Payment.FraudAnalysis.ShippingMethod | Texto | - | Não | Método de entrega do pedido.RedShield: None | SameDay | NextDay | TwoDay | ThreeDay | LowCost | CarrierDesignatedByCustomer | Pickup | International | Military | OtherCyberSource: None | SameDay | OneDay | TwoDay | ThreeDay | LowCost | Pickup | Other | Opcional |
-| Payment.FraudAnalysis.Shipping.Phone | Texto | 15 | Não | Telefone do destinatário. | Opcional |
-| Payment.FraudAnalysis.Shipping.WorkPhone | Texto | 15 | Não | Telefone de trabalho do destinatário. | Opcional |
-| Payment.FraudAnalysis.Shipping.Mobile | Texto | 15 | Não | Celular do destinatário. | Opcional |
-| Payment.FraudAnalysis.Shipping.Comment | Texto | 100 | Não | Referência do endereço de entrega do destinatário. | Opcional |
+| CAMPOS                                   | TIPO  | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                            | ANTIFRAUDE REDSHIELD     |
+|------------------------------------------|-------|---------|-------------|----------------------------------------------------------------------|--------------------------|
+| Payment.FraudAnalysis.Shipping           |       |         |             | Nó contendo informações adicionais da entrega para Análise de Fraude | Opcional                 |
+| Payment.FraudAnalysis.Shipping.Addressee | Texto | 255     | Não         | Nome do destinatário.                                                | OpcionalNome e Sobrenome |
+| Payment.FraudAnalysis.Shipping.Email     | Texto | 255     | Não         | Email do destinatário.                                               | Opcional                 |
+| Payment.FraudAnalysis.Shipping.Phone     | Texto | 15      | Não         | Telefone do destinatário.                                            | Opcional                 |
+| Payment.FraudAnalysis.Shipping.WorkPhone | Texto | 15      | Não         | Telefone de trabalho do destinatário.                                | Opcional                 |
+| Payment.FraudAnalysis.Shipping.Mobile    | Texto | 15      | Não         | Celular do destinatário.                                             | Opcional                 |
+| Payment.FraudAnalysis.Shipping.Comment   | Texto | 100     | Não         | Referência do endereço de entrega do destinatário.                   | Opcional                 |
+| Payment.FraudAnalysis.ShippingMethod     | Texto |         | Não         | Método de entrega do pedido.*RedShield*:<br> None <br> SameDay <br> NextDay <br> TwoDay <br> ThreeDay <br> LowCost <br> CarrierDesignatedByCustomer <br> Pickup <br> International <br> Military <br> <br><br> OtherCyberSource:<br> None <br> SameDay <br> OneDay <br> TwoDay <br> ThreeDay <br> LowCost <br> Pickup <br> Other <br> Opcional <br>||
+
 
 ### Resposta
 
