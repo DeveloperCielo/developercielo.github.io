@@ -1721,9 +1721,9 @@ curl
     <tr>
       <td>Payment.FraudAnalysis.Cart.Items[].Passenger.Rating</td>
       <td>Texto</td>
-      <td>-</td>
+      <td> </td>
       <td>Não</td>
-      <td>Classificação do Passageiro.Adult - Passageiro adulto.Child - Passageiro criança.Infant - Passageiro infantil.Youth - Passageiro adolescente.Student - Passageiro estudante.SeniorCitizen  - Passageiro idoso.Military  - Passageiro militar.</td>
+      <td>Classificação do Passageiro. <br />Adult - Passageiro adulto. <br />Child - Passageiro criança.<br />Infant - Passageiro infantil.<br />Youth - Passageiro adolescente.<br />Student - Passageiro estudante.<br />SeniorCitizen  - Passageiro idoso.<br />Military  - Passageiro militar.</td>
       <td>Opcional</td>
     </tr>
   </tbody>
@@ -1918,23 +1918,6 @@ curl
       <th>OBRIGATÓRIO</th>
       <th>DESCRIÇÃO</th>
       <th>ANTIFRAUDE REDSHIELD</th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -1945,23 +1928,6 @@ curl
       <td> </td>
       <td>Nó contendo informações adicionais da entrega para Análise de Fraude</td>
       <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.Shipping.Addressee</td>
@@ -1970,23 +1936,6 @@ curl
       <td>Não</td>
       <td>Nome do destinatário.</td>
       <td>OpcionalNome e Sobrenome</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.Shipping.Email</td>
@@ -1994,48 +1943,6 @@ curl
       <td>255</td>
       <td>Não</td>
       <td>Email do destinatário.</td>
-      <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Payment.FraudAnalysis.ShippingMethod</td>
-      <td>Texto</td>
-      <td>-</td>
-      <td>Não</td>
-      <td>Método de entrega do pedido.RedShield: None</td>
-      <td>SameDay</td>
-      <td>NextDay</td>
-      <td>TwoDay</td>
-      <td>ThreeDay</td>
-      <td>LowCost</td>
-      <td>CarrierDesignatedByCustomer</td>
-      <td>Pickup</td>
-      <td>International</td>
-      <td>Military</td>
-      <td>OtherCyberSource: None</td>
-      <td>SameDay</td>
-      <td>OneDay</td>
-      <td>TwoDay</td>
-      <td>ThreeDay</td>
-      <td>LowCost</td>
-      <td>Pickup</td>
-      <td>Other</td>
       <td>Opcional</td>
     </tr>
     <tr>
@@ -2045,23 +1952,6 @@ curl
       <td>Não</td>
       <td>Telefone do destinatário.</td>
       <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.Shipping.WorkPhone</td>
@@ -2070,23 +1960,6 @@ curl
       <td>Não</td>
       <td>Telefone de trabalho do destinatário.</td>
       <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.Shipping.Mobile</td>
@@ -2095,23 +1968,6 @@ curl
       <td>Não</td>
       <td>Celular do destinatário.</td>
       <td>Opcional</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Payment.FraudAnalysis.Shipping.Comment</td>
@@ -2120,22 +1976,13 @@ curl
       <td>Não</td>
       <td>Referência do endereço de entrega do destinatário.</td>
       <td>Opcional</td>
+    </tr>
+    <tr>
+      <td>Payment.FraudAnalysis.ShippingMethod</td>
+      <td>Texto</td>
       <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>Não</td>
+      <td>Método de entrega do pedido.<em>RedShield</em>:<br /> None <br /> SameDay <br /> NextDay <br /> TwoDay <br /> ThreeDay <br /> LowCost <br /> CarrierDesignatedByCustomer <br /> Pickup <br /> International <br /> Military <br /> <br /> OtherCyberSource:<br /> None <br /> SameDay <br /> OneDay <br /> TwoDay <br /> ThreeDay <br /> LowCost <br /> Pickup <br /> Other <br /> Opcional <br /></td>
       <td> </td>
     </tr>
   </tbody>
