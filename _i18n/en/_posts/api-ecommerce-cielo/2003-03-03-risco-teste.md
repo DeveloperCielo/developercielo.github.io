@@ -408,7 +408,6 @@ curl
 | Payment.FraudAnalysis.Shipping.Comment   | Texto | 100     | Não         | Referência do endereço de entrega do destinatário.                   | Opcional                 |
 | Payment.FraudAnalysis.ShippingMethod     | Texto |         | Não         | Método de entrega do pedido.*RedShield*:<br> None <br> SameDay <br> NextDay <br> TwoDay <br> ThreeDay <br> LowCost <br> CarrierDesignatedByCustomer <br> Pickup <br> International <br> Military <br> <br><br> OtherCyberSource:<br> None <br> SameDay <br> OneDay <br> TwoDay <br> ThreeDay <br> LowCost <br> Pickup <br> Other <br> Opcional <br>||
 
-
 ### Resposta
 
 ```shell
