@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-03-27T19:54:14+00:00</updated>
+    <updated>2018-03-27T20:04:56+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4751,7 +4751,7 @@ curl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Tipo do Produto.AdultContent -  Conteúdo adulto.Coupon - Cupon de desconto.Default - Opção padrão para análise.EletronicGood - Produto eletrônico.EletronicSoftware - Softwares distribuídos eletronicamente via download.GiftCertificate - Vale presente.HandlingOnly - Taxa de instalação ou manuseio.Service - Serviço.ShippingAndHandling - Frete e taxa de instalação ou manuseio.ShippingOnly - Frete.Subscription - Assinatura.&lt;/td&gt;
+      &lt;td&gt;Tipo do Produto.&lt;br /&gt; AdultContent -  Conteúdo adulto. &lt;br /&gt;Coupon - Cupon de desconto. &lt;br /&gt;Default - Opção padrão para análise. &lt;br /&gt;EletronicGood - Produto eletrônico. &lt;br /&gt;EletronicSoftware - Softwares distribuídos eletronicamente via download. &lt;br /&gt;GiftCertificate - Vale presente. &lt;br /&gt;HandlingOnly - Taxa de instalação ou manuseio. &lt;br /&gt;Service - Serviço.ShippingAndHandling - Frete e taxa de instalação ou manuseio. &lt;br /&gt;ShippingOnly - Frete.Subscription - Assinatura.&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -4801,7 +4801,7 @@ curl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de risco do produto.LOW - O produto tem um histórico de poucos chargebacks. NORMAL - O produto tem um histórico de chargebacks considerado normal. HIGH - O produto tem um histórico de chargebacks acima da média.&lt;/td&gt;
+      &lt;td&gt;Nível de risco do produto.LOW - O produto tem um histórico de poucos chargebacks. &lt;br /&gt;&lt;strong&gt;Normal&lt;/strong&gt; - O produto tem um histórico de chargebacks considerado normal. &lt;br /&gt;&lt;strong&gt;high&lt;/strong&gt; - O produto tem um histórico de chargebacks acima da média.&lt;/td&gt;
       &lt;td&gt;Opcional&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -4951,7 +4951,7 @@ curl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. Valor padrão: OffLow - Baixa importância do e-mail e endereço IP na análise de risco. Normal - Média importância do e-mail e endereço IP na análise de risco. High - Alta importância do e-mail e endereço IP na análise de risco. Off - E-mail e endereço IP não afetam a análise de risco.&lt;/td&gt;
+      &lt;td&gt;Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação. &lt;br /&gt;&lt;strong&gt;Valor Padrão:&lt;/strong&gt; &lt;strong&gt;off&lt;/strong&gt;&lt;br /&gt; &lt;strong&gt;low&lt;/strong&gt; - Baixa importância do e-mail e endereço IP na análise de risco. &lt;br /&gt;&lt;strong&gt;Normal&lt;/strong&gt; - Média importância do e-mail e endereço IP na análise de risco. &lt;br /&gt;&lt;strong&gt;high&lt;/strong&gt; - Alta importância do e-mail e endereço IP na análise de risco.  &lt;br /&gt;&lt;strong&gt;off&lt;/strong&gt; - E-mail e endereço IP não afetam a análise de risco.&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -4976,7 +4976,7 @@ curl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. Valor padrão: OffLow - Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco. Normal - Média importância da verificação feita sobre o pedido do comprador, na análise de risco. High - Alta importância da verificação feita sobre o pedido do comprador, na análise de risco.Off - Verificação do pedido do comprador não afeta a análise de risco.&lt;/td&gt;
+      &lt;td&gt;Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido. &lt;br /&gt;&lt;strong&gt;Valor Padrão:&lt;/strong&gt; &lt;strong&gt;off&lt;/strong&gt;&lt;br /&gt; &lt;strong&gt;low&lt;/strong&gt; - Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco. &lt;br /&gt;&lt;strong&gt;Normal&lt;/strong&gt; - Média importância da verificação feita sobre o pedido do comprador, na análise de risco. &lt;br /&gt;&lt;strong&gt;high&lt;/strong&gt; - Alta importância da verificação feita sobre o pedido do comprador, na análise de risco. &lt;br /&gt;&lt;strong&gt;off&lt;/strong&gt; - Verificação do pedido do comprador não afeta a análise de risco.&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5001,7 +5001,7 @@ curl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de obscenidade dos pedidos recebedidos. Valor Padrão: OffLow - Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.Normal - Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco. High - Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.Off - Verificação de obscenidade no pedido do comprador não afeta a análise de risco.&lt;/td&gt;
+      &lt;td&gt;Nível de obscenidade dos pedidos recebedidos. &lt;br /&gt;&lt;strong&gt;Valor Padrão:&lt;/strong&gt; &lt;strong&gt;off&lt;/strong&gt;&lt;br /&gt; &lt;strong&gt;low&lt;/strong&gt; - Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.Normal - Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco. &lt;br /&gt;&lt;strong&gt;high&lt;/strong&gt; - Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco. &lt;br /&gt;&lt;strong&gt;off&lt;/strong&gt; - Verificação de obscenidade no pedido do comprador não afeta a análise de risco.&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5026,7 +5026,7 @@ curl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível dos testes realizados com os números de telefones. Valor padrão: OffLow - Baixa importância nos testes realizados com números de telefone.Normal - Média importância nos testes realizados com números de telefone. High - Alta importância nos testes realizados com números de telefone. Off - Testes de números de telefone não afetam a análise de risco.&lt;/td&gt;
+      &lt;td&gt;Nível dos testes realizados com os números de telefones. &lt;br /&gt;&lt;strong&gt;Valor Padrão:&lt;/strong&gt; &lt;strong&gt;off&lt;/strong&gt;&lt;br /&gt; &lt;strong&gt;low&lt;/strong&gt; - Baixa importância nos testes realizados com números de telefone.Normal - Média importância nos testes realizados com números de telefone. &lt;br /&gt;&lt;strong&gt;high&lt;/strong&gt; - Alta importância nos testes realizados com números de telefone.  &lt;br /&gt;&lt;strong&gt;off&lt;/strong&gt; - Testes de números de telefone não afetam a análise de risco.&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5051,7 +5051,7 @@ curl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância da hora do dia do pedido do cliente. Valor padrão: OffLow - Baixa importância no horário do dia em que foi feita a compra, para a análise de risco. Normal - Média importância no horário do dia em que foi feita a compra, para a análise de risco.High - Alta importância no horário do dia em que foi feita a compra, para a análise de risco. Off - O horário da compra não afeta a análise de risco.&lt;/td&gt;
+      &lt;td&gt;Nível de importância da hora do dia do pedido do cliente. &lt;br /&gt;&lt;strong&gt;Valor Padrão:&lt;/strong&gt; &lt;strong&gt;off&lt;/strong&gt;&lt;br /&gt; &lt;strong&gt;low&lt;/strong&gt; - Baixa importância no horário do dia em que foi feita a compra, para a análise de risco. &lt;br /&gt;&lt;strong&gt;Normal&lt;/strong&gt; - Média importância no horário do dia em que foi feita a compra, para a análise de risco.High - Alta importância no horário do dia em que foi feita a compra, para a análise de risco.  &lt;br /&gt;&lt;strong&gt;off&lt;/strong&gt; - O horário da compra não afeta a análise de risco.&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5076,7 +5076,7 @@ curl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Nível de importância de frequência de compra do cliente. Valor padrão: OffLow - Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos.Normal - Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos. High - Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos.Off - A frequência de compras realizadas pelo cliente não afeta a análise de fraude.&lt;/td&gt;
+      &lt;td&gt;Nível de importância de frequência de compra do cliente. &lt;br /&gt;&lt;strong&gt;Valor Padrão:&lt;/strong&gt; &lt;strong&gt;off&lt;/strong&gt;&lt;br /&gt; &lt;strong&gt;low&lt;/strong&gt; - Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos.Normal - Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos. &lt;br /&gt;&lt;strong&gt;high&lt;/strong&gt; - Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos. &lt;br /&gt;&lt;strong&gt;off&lt;/strong&gt; - A frequência de compras realizadas pelo cliente não afeta a análise de fraude.&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -5101,7 +5101,7 @@ curl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Flag que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países. Valor padrão: OffYes - Em caso de divergência entre endereços de cobrança e entrega, marca com riscopequeno. No - Em caso de divergência entre endereços de cobrança e entrega, marca com riscoalto. Off - Ignora a análise de risco para endereços divergentes.&lt;/td&gt;
+      &lt;td&gt;Flag que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países. &lt;br /&gt;&lt;strong&gt;Valor Padrão:&lt;/strong&gt; &lt;strong&gt;off&lt;/strong&gt;&lt;br /&gt; &lt;br /&gt;&lt;strong&gt;YES&lt;/strong&gt; - Em caso de divergência entre endereços de cobrança e entrega, marca com riscopequeno.  &lt;br /&gt;&lt;strong&gt;No&lt;/strong&gt; - Em caso de divergência entre endereços de cobrança e entrega, marca com riscoalto.  &lt;br /&gt;&lt;strong&gt;off&lt;/strong&gt; - Ignora a análise de risco para endereços divergentes.&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
