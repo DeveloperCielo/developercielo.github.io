@@ -330,11 +330,14 @@ curl
 | Payment.FraudAnalysis.Browser.Type               | Texto    | 40      | Não         | Nome do browser utilizado pelo comprador.                                      | -                                      |
 | Payment.FraudAnalysis.Browser.BrowserFingerPrint | Texto    | 6010    | Não         | Impressão digital de dispositivos e geolocalização real do IP do comprador.    | ObrigatórioConfiguração do Fingerprint |
 
+| CAMPOS                        | TIPO     | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                           | ANTIFRAUDE REDSHIELD |
+|-------------------------------|----------|---------|-------------|---------------------------------------------------------------------|----------------------|
+| Payment.FraudAnalysis.Cart    |          |         |             | Nó contendo as informações do Carrinho para Análise de Fraude       | Opcional             |
+| FraudAnalysis.IsGift          | Booleano | -       | Não         | Indica se o pedido é para presente ou não. Valor padrão: false      | -                    |
+| FraudAnalysis.ReturnsAccepted | Booleano | -       | Não         | Indica se devoluções são aceitas para o pedido. Valor padrão: false | -                    |
+
 | CAMPOS                                           | TIPO     | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                                      | ANTIFRAUDE REDSHIELD                   |
 |--------------------------------------------------|----------|---------|-------------|--------------------------------------------------------------------------------|----------------------------------------|
-| Payment.FraudAnalysis.Cart |  |  |  | Nó contendo as informações do Carrinho para Análise de Fraude | Opcional |
-| FraudAnalysis.IsGift | Booleano | - | Não | Indica se o pedido é para presente ou não. Valor padrão: false | - |
-| FraudAnalysis.ReturnsAccepted | Booleano | - | Não | Indica se devoluções são aceitas para o pedido. Valor padrão: false | - |
 | Payment.FraudAnalysis.Cart.Items[] |  |  |  | Nó contendo as informações dos Itens do Carrinho para Análise de Fraude | Opcional |
 | Payment.FraudAnalysis.Cart.Items[].Type | Texto | - | Não | Tipo do Produto.AdultContent -  Conteúdo adulto.Coupon - Cupon de desconto.Default - Opção padrão para análise.EletronicGood - Produto eletrônico.EletronicSoftware - Softwares distribuídos eletronicamente via download.GiftCertificate - Vale presente.HandlingOnly - Taxa de instalação ou manuseio.Service - Serviço.ShippingAndHandling - Frete e taxa de instalação ou manuseio.ShippingOnly - Frete.Subscription - Assinatura. | - |
 | Payment.FraudAnalysis.Cart.Items[].Name | Texto | 255 | Não | Nome do produto. | Opcional |
@@ -356,16 +359,46 @@ curl
 | Payment.FraudAnalysis.Cart.Items[].ShippingInstructions | Texto | 255 | Não | Instruções para entrega do item do carrinho. | Opcional |
 | Payment.FraudAnalysis.Cart.Items[].ShippingMethod | Texto | - | Não | Método de entrega do item do carrinho.RedShield: None | SameDay | NextDay | TwoDay | ThreeDay | LowCost | CarrierDesignatedByCustomer | Pickup | International | Military | OtherCyberSource: None | SameDay | OneDay | TwoDay | ThreeDay | LowCost | Pickup | Other | Opcional |
 | Payment.FraudAnalysis.Cart.Items[].ShippingTrackingNumber | Texto | 50 | Não | Número de rastreamento da entrega do item do carrinho. | Opcional |
-| Payment.FraudAnalysis.Cart.Items[].Passenger |  |  |  | Nó contendo as informações do Passageiro para Análise de Fraude |  |
-| Payment.FraudAnalysis.Cart.Items[].PassengerName | Texto | 120 | Não | Nome do passageiro. | OpcionalNome e Sobrenome |
-| Payment.FraudAnalysis.Cart.Items[].Passenger.Identity | Texto | 50 | Não | Identificação do passageiro para quem o bilhete foi emitido | Opcional |
-| Payment.FraudAnalysis.Cart.Items[].Passenger.Status | Texto | 32 | Não | Classificação da empresa aérea (Gold | Platinum) | Opcional |
+
+| CAMPOS                                                | TIPO  | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                       | ANTIFRAUDE REDSHIELD     |
+|-------------------------------------------------------|-------|---------|-------------|-----------------------------------------------------------------|--------------------------|
+| Payment.FraudAnalysis.Cart.Items[].Passenger          |       |         |             | Nó contendo as informações do Passageiro para Análise de Fraude |                          |
+| Payment.FraudAnalysis.Cart.Items[].PassengerName      | Texto | 120     | Não         | Nome do passageiro.                                             | OpcionalNome e Sobrenome |
+| Payment.FraudAnalysis.Cart.Items[].Passenger.Identity | Texto | 50      | Não         | Identificação do passageiro para quem o bilhete foi emitido     | Opcional                 |
+| Payment.FraudAnalysis.Cart.Items[].Passenger.Status   | Texto | 32      | Não         | Classificação da empresa aérea (Gold                            | Platinum)                |
+| Payment.FraudAnalysis.Cart.Items[].Passenger.Email    | Texto | 100     | Não         | Email do Passageiro.                                            | Opcional                 |
+| Payment.FraudAnalysis.Cart.Items[].Passenger.Phone    | Texto | 15      | Não         | Número do telefone do passageiro. Incluir o código do país.     | Opcional                 |
 | Payment.FraudAnalysis.Cart.Items[].Passenger.Rating | Texto | - | Não | Classificação do Passageiro.Adult - Passageiro adulto.Child - Passageiro criança.Infant - Passageiro infantil.Youth - Passageiro adolescente.Student - Passageiro estudante.SeniorCitizen  - Passageiro idoso.Military  - Passageiro militar. | Opcional |
-| Payment.FraudAnalysis.Cart.Items[].Passenger.Email | Texto | 100 | Não | Email do Passageiro. | Opcional |
-| Payment.FraudAnalysis.Cart.Items[].Passenger.Phone | Texto | 15 | Não | Número do telefone do passageiro. Incluir o código do país. | Opcional |
-| Payment.FraudAnalysis.MerchantDefinedFields[] |  |  |  | Nó contendo dados adicionais para Análise de Fraude | Opcional |
-| Payment.FraudAnalysis.MerchantDefinedFields[].Id | Número | - | Não | Identificador de uma informação adicional a ser enviada. | Opcional |
-| Payment.FraudAnalysis.MerchantDefinedFields[].Value | Texto | 255 | Não | Valor de uma informação adicional a ser enviada. | Opcional |
+
+| CAMPOS                                              | TIPO   | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                | ANTIFRAUDE REDSHIELD |
+|-----------------------------------------------------|--------|---------|-------------|----------------------------------------------------------|----------------------|
+| Payment.FraudAnalysis.MerchantDefinedFields[]       |        |         |             | Nó contendo dados adicionais para Análise de Fraude      | Opcional             |
+| Payment.FraudAnalysis.MerchantDefinedFields[].Id    | Número | -       | Não         | Identificador de uma informação adicional a ser enviada. | Opcional             |
+| Payment.FraudAnalysis.MerchantDefinedFields[].Value | Texto  | 255     | Não         | Valor de uma informação adicional a ser enviada.         | Opcional             |
+
+| CAMPOS                                                    | TIPO   | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                           | ANTIFRAUDE REDSHIELD |
+|-----------------------------------------------------------|--------|---------|-------------|---------------------------------------------------------------------|----------------------|
+| Payment.FraudAnalysis.CustomConfiguration                 |        |         |             | Nó contendo as configurações personalizadas para Análise de Fraude. | Opcional             |
+| Payment.FraudAnalysis.CustomConfiguration.RiskAmount      | Número | -       | Não         | Valor de risco do pedido em centavos                                | Opcional             |
+| Payment.FraudAnalysis.CustomConfiguration.MerchantWebsite | Texto  | 100     | Não         | Endereço Web do site da loja                                        | Opcional             |
+
+| CAMPOS                             | TIPO   | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                                                                                                                  | ANTIFRAUDE REDSHIELD |
+|------------------------------------|--------|---------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+| Payment.FraudAnalysis.Travel       |        |         |             | Nó contendo as informações da viagem                                                                                                                       | Opcional             |
+| Payment.FraudAnalysis.Travel       | Texto  | 255     | Não         | Rota completa da viagem. Concatenação das pernas (código do aeroporto) de origem e destino da viagem no formato ORIG1- DEST1. Ex.: SFO-JFK:JFK-LHR:LHR-CDG | Opcional             |
+| Payment.FraudAnalysis.DepartueTime | Texto  | 100     | Não         | Data da partida                                                                                                                                            | Opcional             |
+| Payment.FraudAnalysis.JourneyType  | Texto  | 100     | Não         | Tipo de viagem.                                                                                                                                            | Opcional             |
+| Payment.FraudAnalysis.Origin       | Texto  | 5       | Não         | Código do aeroporto de origem da viagem.                                                                                                                   | Opcional             |
+| Payment.FraudAnalysis.Destination  | string | 5       | Não         | Código do aeroporto de destino da viagem.                                                                                                                  | Opcional             |
+
+| CAMPOS                              | TIPO  | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                         | ANTIFRAUDE REDSHIELD |
+|-------------------------------------|-------|---------|-------------|---------------------------------------------------|----------------------|
+| Payment.FraudAnalysis.Travel.Legs[] |       |         |             | Nó contendo as informações da rota da viagem      | Opcional             |
+| Payment.FraudAnalysis.Origin        | Texto | 3       | Não         | Código do aeroporto do ponto de destino da viagem | Opcional             |
+| Payment.FraudAnalysis.Destination   | Texto | 3       | Não         | Código do aeroporto do ponto de origem da viagem. | Opcional             |
+
+| CAMPOS                                           | TIPO     | TAMANHO | OBRIGATÓRIO | DESCRIÇÃO                                                                      | ANTIFRAUDE REDSHIELD                   |
+|--------------------------------------------------|----------|---------|-------------|--------------------------------------------------------------------------------|----------------------------------------|
 | Payment.FraudAnalysis.Shipping |  |  |  | Nó contendo informações adicionais da entrega para Análise de Fraude | Opcional |
 | Payment.FraudAnalysis.Shipping.Addressee | Texto | 255 | Não | Nome do destinatário. | OpcionalNome e Sobrenome |
 | Payment.FraudAnalysis.Shipping.Email | Texto | 255 | Não | Email do destinatário. | Opcional |
@@ -374,18 +407,6 @@ curl
 | Payment.FraudAnalysis.Shipping.WorkPhone | Texto | 15 | Não | Telefone de trabalho do destinatário. | Opcional |
 | Payment.FraudAnalysis.Shipping.Mobile | Texto | 15 | Não | Celular do destinatário. | Opcional |
 | Payment.FraudAnalysis.Shipping.Comment | Texto | 100 | Não | Referência do endereço de entrega do destinatário. | Opcional |
-| Payment.FraudAnalysis.CustomConfiguration |  |  |  | Nó contendo as configurações personalizadas para Análise de Fraude. | Opcional |
-| Payment.FraudAnalysis.CustomConfiguration.RiskAmount | Número | - | Não | Valor de risco do pedido em centavos | Opcional |
-| Payment.FraudAnalysis.CustomConfiguration.MerchantWebsite | Texto | 100 | Não | Endereço Web do site da loja | Opcional |
-| Payment.FraudAnalysis.Travel |  |  |  | Nó contendo as informações da viagem | Opcional |
-| Payment.FraudAnalysis.Travel | Texto | 255 | Não | Rota completa da viagem. Concatenação das pernas (código do aeroporto) de origem e destino da viagem no formato ORIG1- DEST1. Ex.: SFO-JFK:JFK-LHR:LHR-CDG | Opcional |
-| Payment.FraudAnalysis.DepartueTime | Texto | 100 | Não | Data da partida | Opcional |
-| Payment.FraudAnalysis.JourneyType | Texto | 100 | Não | Tipo de viagem. | Opcional |
-| Payment.FraudAnalysis.Origin | Texto | 5 | Não | Código do aeroporto de origem da viagem. | Opcional |
-| Payment.FraudAnalysis.Destination | string | 5 | Não | Código do aeroporto de destino da viagem. | Opcional |
-| Payment.FraudAnalysis.Travel.Legs[] |  |  |  | Nó contendo as informações da rota da viagem | Opcional |
-| Payment.FraudAnalysis.Origin | Texto | 3 | Não | Código do aeroporto do ponto de destino da viagem | Opcional |
-| Payment.FraudAnalysis.Destination | Texto | 3 | Não | Código do aeroporto do ponto de origem da viagem. | Opcional |
 
 ### Resposta
 
