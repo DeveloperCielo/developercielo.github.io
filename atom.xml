@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-02T20:58:41+00:00</updated>
+    <updated>2018-04-04T13:38:38+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7552,6 +7552,10 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
 &lt;p&gt;O campo ECI (Eletronic Commerce Indicator) representa o quão segura é uma transação. Esse valor deve ser levado em consideração pelo lojista para decidir sobre a captura da transação.&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;O indicador ECI é muito importante, pois é ele que determina as regras de Chargeback.&lt;/aside&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A transação autenticada passa por uma validação do emissor e da bandeira, em momento de autorização, podendo refletir na alteração do ECI (Eletronic Commerce Indicator), que é utilizado para determinar quem será o responsável em caso de chargeback nas modalidades fraude.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;catálogo-de-códigos-de-resposta&quot;&gt;Catálogo de códigos de resposta&lt;/h1&gt;
 
