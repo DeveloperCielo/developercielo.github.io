@@ -604,6 +604,8 @@ O campo ECI (Eletronic Commerce Indicator) representa o quão segura é uma tran
 
 <aside class="warning">O indicador ECI é muito importante, pois é ele que determina as regras de Chargeback.</aside>
 
+> A transação autenticada passa por uma validação do emissor e da bandeira, em momento de autorização, podendo refletir na alteração do ECI (Eletronic Commerce Indicator), que é utilizado para determinar quem será o responsável em caso de chargeback nas modalidades fraude.
+
 # Catálogo de códigos de resposta
 
 ## Códigos de Autorização LR
