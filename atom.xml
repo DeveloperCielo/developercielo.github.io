@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-05T20:24:09+00:00</updated>
+    <updated>2018-04-05T20:29:55+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1804,7 +1804,7 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 &lt;p&gt;Faça download dos arquivos abaixo e subistitua os MerchantIDs e MerchantKeys pelos os da sua Loja.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/postman/apicielo.rar&quot;&gt;&lt;strong&gt;Environment Produção e Sandbox&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo.rar&quot;&gt;&lt;strong&gt;Environment Produção e Sandbox&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;checkout-cielo-1&quot;&gt;Checkout Cielo&lt;/h3&gt;
@@ -1839,7 +1839,7 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 &lt;p&gt;Faça download do arquivo abaixo e subistitua o MerchantID pelo o da sua Loja.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/postman/checkout.rar&quot;&gt;&lt;strong&gt;Environment Produção&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/checkout.rar&quot;&gt;&lt;strong&gt;Environment Produção&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
     </entry>
