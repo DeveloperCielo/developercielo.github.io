@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-05T19:48:25+00:00</updated>
+    <updated>2018-04-05T20:05:19+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1770,9 +1770,15 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 
 &lt;h3 id=&quot;api-cielo-ecommerce-1&quot;&gt;Api Cielo Ecommerce&lt;/h3&gt;
 
+&lt;h4 id=&quot;collection&quot;&gt;Collection&lt;/h4&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt; -  https://www.getpostman.com/collections/139520c8fe2210654d7c&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Link de importação&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;https://www.getpostman.com/collections/139520c8fe2210654d7c&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -1793,11 +1799,26 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;checkout-cielo-1&quot;&gt;Checkout Cielo&lt;/h3&gt;
+&lt;h4 id=&quot;environment&quot;&gt;Environment&lt;/h4&gt;
+
+&lt;p&gt;Faça download dos arquivos abaixo e subistitua os MerchantIDs e MerchantKeys pelos os da sua Loja.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt;  - https://www.getpostman.com/collections/97969ec643738aac42f4&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/postman/3.0 - Produção - Manual.postman_environment.json&quot;&gt;&lt;strong&gt;Environment Produção&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/postman/3.0 - Sandbox - Manual.postman_environment.json&quot;&gt;&lt;strong&gt;Environment Sandbox&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;checkout-cielo-1&quot;&gt;Checkout Cielo&lt;/h3&gt;
+
+&lt;h4 id=&quot;collection-1&quot;&gt;&lt;strong&gt;Collection&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Link de importação&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;https://www.getpostman.com/collections/97969ec643738aac42f4&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -1813,6 +1834,14 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h4 id=&quot;environment-1&quot;&gt;Environment&lt;/h4&gt;
+
+&lt;p&gt;Faça download do arquivo abaixo e subistitua o MerchantID pelo o da sua Loja.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/postman/Checkout - Produção - Manual.postman_environment.json&quot;&gt;&lt;strong&gt;Environment Produção&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     </entry>
     
