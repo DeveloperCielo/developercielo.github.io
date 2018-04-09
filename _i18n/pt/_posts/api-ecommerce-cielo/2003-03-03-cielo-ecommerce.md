@@ -5649,6 +5649,8 @@ O serviço retornar os seguintes dados sobre o cartão:
 
 Essas informações permitem tomar ações no momento do checkout para melhorar a conversão da loja.
 
+<aside class="warning">O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.</aside>
+
 ## Caso de Uso
 
 Veja um exemplo de uso: **Consulta Bins + recuperação de carrinho**
