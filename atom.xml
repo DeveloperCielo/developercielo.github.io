@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-09T19:13:38+00:00</updated>
+    <updated>2018-04-09T19:25:51+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -17531,6 +17531,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;O Cancelamento de transações de boleto ocorrem apenas via Backoffice. Não há cancelamento via API disponivel.&lt;/aside&gt;
 
 &lt;h2 id=&quot;erros-de-integração&quot;&gt;Erros de Integração&lt;/h2&gt;
 
