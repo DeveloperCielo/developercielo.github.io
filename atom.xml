@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-09T18:44:30+00:00</updated>
+    <updated>2018-04-09T18:47:06+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -23886,6 +23886,8 @@ O serviço retornar os seguintes dados sobre o cartão:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Essas informações permitem tomar ações no momento do checkout para melhorar a conversão da loja.&lt;/p&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.&lt;/aside&gt;
 
 &lt;h2 id=&quot;caso-de-uso-2&quot;&gt;Caso de Uso&lt;/h2&gt;
 
