@@ -10746,6 +10746,130 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   </tbody>
 </table>
 
+<h1 id="consulta-bin">Consulta Bin</h1>
+
+<p>A “<strong>Consulta de Bins</strong>”  é um serviço de <strong>pesquisa de dados do cartão</strong>, de crédito ou débito, que os lojistas da API Cielo Ecommerce podem utilizar para validar se os dados preenchidos em tela sobre o cartão são válidos.
+O serviço retornar os seguintes dados sobre o cartão:</p>
+
+<ul>
+  <li><strong>Bandeira do cartão</strong></li>
+  <li><strong>Tipo de cartão:</strong>Crédito, Débito ou Múltiplo (Crédito e Débito)</li>
+  <li><strong>Nacionalidade do cartão:</strong> estrangeiro ou nacional</li>
+</ul>
+
+<p>Essas informações permitem tomar ações no momento do checkout para melhorar a conversão da loja.</p>
+
+<h2 id="caso-de-uso-2">Caso de Uso</h2>
+
+<p>Veja um exemplo de uso: <strong>Consulta Bins + recuperação de carrinho</strong></p>
+
+<p>Um marketplace chamada Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas possam oferecer ao comprador, mas mesmo com toda essa oferta, ela continua com uma taxa de conversão que</p>
+
+<p>Conhecendo a função de consulta Bins da API Cielo Ecommerce, como ela poderia evitar a perda de carrinhos?</p>
+
+<p>Ela pode aplicar a Consulta bins e 3 cenários!</p>
+
+<ol>
+  <li>Impedir erros com tipo de cartão</li>
+  <li>Oferecer recuperação de carrinhos online</li>
+  <li>Alertar sobre cartões internacionais</li>
+</ol>
+
+<p>Impedir erros com tipo de cartão</p>
+
+<p>O Submergível pode usar a consulta bins no carrinho para identificar 2 dos principais erros no preenchimento de formulários de pagamento:</p>
+
+<ul>
+  <li><strong>Bandeira errada</strong> e confundir cartão de crédito com débito ○ Bandeiras erradas: Ao preencher o formulário de pagamento, é possível realizar uma consulta e já definir a bandeira correta. Esse é um método muito mais seguro do que sebasear em algoritmos no formulário, pois a base de bins consultada é a da bandeira emissora do cartão.</li>
+  <li><strong>Confusões com cartões:</strong> Ao preencher o formulário de pagamento, é possível realizar uma consulta e avisar ao consumidor se ele está usando um cartão de  débito quando na verdade deveria usar um  de débito</li>
+</ul>
+
+<p><strong>Oferecer recuperação de carrinhos online</strong></p>
+<ul>
+  <li>O Submergível pode usar a consulta bins no carrinho para oferecer um novo meio de pagamento caso a transação falhe na primeira tentativa.</li>
+  <li>Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (Crédito e Débito), o Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ele pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.</li>
+</ul>
+
+<p><strong>Alertar sobre cartões internacionais</strong>
+O Submergível pode usar a consulta bins no carrinho para alertar compradores internacionais, que caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada</p>
+
+<h2 id="integração">Integração</h2>
+
+<h3 id="request">Request</h3>
+
+<p>Basta realizar um <code class="highlighter-rouge">GET</code> enviado o BIN a nossa URL de consulta:</p>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://`apiquerysandbox`.cieloecommerce.cielo.com.br/1/cardBin/`BIN`</span></aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">BIN</code></td>
+      <td>6 primeiros dígitos do cartão</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https</span><span class="p">:</span><span class="err">//apiquerysandbox.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/cardBin/</span><span class="mi">420020</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="response">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Paramêtro</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Status da requisição de análise de Bins: <br /> 00 – Analise autorizada <br /> 01 – Bandeira não suportada <br /> 02 – Cartão não suportado na consulta de bin <br /> 73 – Afiliação bloqueada</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Provider</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Bandeira do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CardType</code></td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Tipo do cartão em uso : <br /> Credito <br /> Debito <br />Multiplo</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ForeingCard</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Se o cartão é emitido no exterior (False/True)</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Atenção</strong>: Em SANDBOX os valores retornados são simulações e não validações reais de BINS. Deve ser considerado apenas o retorno do Request e o seu formato. Para identificação real dos BINS, o ambiente de Produção deverá ser utilizado.</p>
+</blockquote>
+
 <h1 id="walletcarteiras">Wallet/Carteiras</h1>
 
 <h2 id="o-que-são-wallets--carteiras">O que são Wallets / Carteiras</h2>
