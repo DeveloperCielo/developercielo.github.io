@@ -2225,28 +2225,7 @@ Caso ocorram erros de integração em qualquer um dos meios de pagamento, um "re
 
 ### Exemplo
 
-A Data de validade do cartão possui um valor não permitido ("08/**A**020" e não "08/**2**020").
-
-``` json
-{
-   "MerchantOrderId":"ERROR",
-   "Payment":{
-     "Type":"CreditCard",
-     "Amount":100,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{
-         "CardNumber":"4532117132161520",
-         "Holder":"Comprador ERROR",
-         "ExpirationDate":"08/A020",
-         "SecurityCode":"420",
-         "Brand":"visa"
-     }
-   }
-}
-```
-
-A resposta será:
+A Data de validade do cartão possui um valor não permitido  como "08/**A**020" e não "08/**2**020", a resposta será:
 
 ``` json
 [
