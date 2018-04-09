@@ -2219,6 +2219,8 @@ Quantidade de caracteres por campo e Provider:
 |**OBS 3:**|A API Cielo trunca automaticamente|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras|
 |**OBS 4:**|O valor é persistido na API Cielo|N/A|
 
+<aside class="warning">O Cancelamento de transações de boleto ocorrem apenas via Backoffice. Não há cancelamento via API disponivel.</aside>
+
 ## Erros de Integração
 
 Caso ocorram erros de integração em qualquer um dos meios de pagamento, um "response" será retornado contendo um código de erro e uma descrição
