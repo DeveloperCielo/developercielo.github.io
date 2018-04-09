@@ -2083,10 +2083,10 @@ curl
 |`Payment.Adress`|Endereço do Cedente.|Texto|255|Não|
 |`Payment.BoletoNumber`|Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos ("NossoNumero").|Texto|50|Não|
 |`Payment.Assignor`|Nome do Cedente.|Texto|200|Não|
-|`Payment.Demonstrative`|Texto de Demonstrativo.|Texto|450|Não|
+|`Payment.Demonstrative`|Texto de Demonstrativo.|Texto|255|Não|
 |`Payment.ExpirationDate`|Data de expiração do Boleto.|Date|10|Não|
 |`Payment.Identification`|Documento de identificação do Cedente.|Texto|14|Não|
-|`Payment.Instructions`|Instruções do Boleto.|Texto|450|Não|
+|`Payment.Instructions`|Instruções do Boleto.|Texto|255|Não|
 
 #### Resposta
 
@@ -2181,7 +2181,7 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Instructions`|Instruções do Boleto.|Texto|450|Ex: Aceitar somente até a data de vencimento, após essa data juros de 1% dia.|
+|`Instructions`|Instruções do Boleto.|Texto|255|Ex: Aceitar somente até a data de vencimento, após essa data juros de 1% dia.|
 |`ExpirationDate`|Data de expiração.|Texto|10|2014-12-25|
 |`Url`|Url do Boleto gerado.|string|256|Ex:https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d|
 |`Number`|"NossoNumero" gerado.|Texto|50|Ex: 1000000012-8|
@@ -2207,7 +2207,7 @@ Quantidade de caracteres por campo e Provider:
 |`Customer.Address.Complement`|OBS 4|20|Ver comentário|
 |`Customer.Address.District`|OBS 4|50|Ver comentário|
 |`Customer.Address.City`||50 - OBS 4|18 - OBS 3|
-|`Payment.Instructions`|N/A|450|450|
+|`Payment.Instructions`|N/A|255|255|
 |`Payment.Demonstrative`|N/A|255|Não é enviado ao banco do Brasil|
 
 > **Comentário Banco Do Brasil**: Os campos `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` devem totalizar até 60 caracteres.
