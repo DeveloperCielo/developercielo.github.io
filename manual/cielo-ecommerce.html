@@ -4410,27 +4410,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h3 id="exemplo">Exemplo</h3>
 
-<p>A Data de validade do cartão possui um valor não permitido (“08/<strong>A</strong>020” e não “08/<strong>2</strong>020”).</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"ERROR"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
-     </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4532117132161520"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Comprador ERROR"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"08/A020"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"420"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"visa"</span><span class="w">
-     </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p>A resposta será:</p>
+<p>A Data de validade do cartão possui um valor não permitido  como “08/<strong>A</strong>020” e não “08/<strong>2</strong>020”, a resposta será:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
