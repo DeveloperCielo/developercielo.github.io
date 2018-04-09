@@ -2219,6 +2219,49 @@ Quantidade de caracteres por campo e Provider:
 |**OBS 3:**|A API Cielo trunca automaticamente|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras|
 |**OBS 4:**|O valor é persistido na API Cielo|N/A|
 
+## Erros de Integração
+
+Caso ocorram erros de integração em qualquer um dos meios de pagamento, um "response" será retornado contendo um código de erro e uma descrição
+
+### Exemplo
+
+A Data de validade do cartão possui um valor não permitido ("08/**A**020" e não "08/**2**020").
+
+``` json
+{
+   "MerchantOrderId":"ERROR",
+   "Payment":{
+     "Type":"CreditCard",
+     "Amount":100,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{
+         "CardNumber":"4532117132161520",
+         "Holder":"Comprador ERROR",
+         "ExpirationDate":"08/A020",
+         "SecurityCode":"420",
+         "Brand":"visa"
+     }
+   }
+}
+```
+
+A resposta será:
+
+``` json
+[
+    {
+        "Code": 126,
+        "Message": "Credit Card Expiration Date is invalid"
+    }
+]
+```
+
+| Propriedade | Descrição                                                                                                                              |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `Code`      | Código de Erro da API. [Veja a lista de códigos](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api) |
+| `Message`   | Descrição do erro. [Veja a lista de códigos](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api)     |
+
 # Consulta - Captura - Cancelamento
 
 ## Consulta de transações
