@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-09T18:40:47+00:00</updated>
+    <updated>2018-04-09T18:44:30+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -23927,7 +23927,7 @@ O Submergível pode usar a consulta bins no carrinho para alertar compradores in
 
 &lt;p&gt;Basta realizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; enviado o BIN a nossa URL de consulta:&lt;/p&gt;
 
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;https://`apiquerysandbox`.cieloecommerce.cielo.com.br/1/cardBin/`BIN`&lt;/span&gt;&lt;/aside&gt;
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;/1/cardBin/`BIN`&lt;/span&gt;&lt;/aside&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
