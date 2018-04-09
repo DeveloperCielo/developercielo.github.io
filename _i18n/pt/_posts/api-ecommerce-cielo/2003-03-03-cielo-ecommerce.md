@@ -5683,7 +5683,7 @@ O Submergível pode usar a consulta bins no carrinho para alertar compradores in
 
 Basta realizar um `GET` enviado o BIN a nossa URL de consulta:
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://`apiquerysandbox`.cieloecommerce.cielo.com.br/1/cardBin/`BIN`</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
 
 |Campo|Descrição|
 |-----|---------|
