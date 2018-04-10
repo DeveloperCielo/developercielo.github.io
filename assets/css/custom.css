@@ -340,6 +340,12 @@ aside a:hover {
     background: #b5f0c8;
 }
 
+aside.request span.method.delete {
+    background-color: #FA8072;
+    color: #7d3932;
+    margin: 0;
+}
+
 .content aside.request::after {
     clear: both;
     content: "";
