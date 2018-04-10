@@ -905,7 +905,7 @@ Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja d
 
 Bancos Suportados:
 
-|Mastercard|
+|Bancos|
 |---|
 |Bradesco|
 |Banco do Brasil|
