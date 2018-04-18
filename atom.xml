@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-13T19:22:31+00:00</updated>
+    <updated>2018-04-18T12:47:06+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14011,7 +14011,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -14608,7 +14608,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -15021,7 +15021,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -15697,7 +15697,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -17849,7 +17849,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -22985,7 +22985,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
@@ -24575,7 +24575,7 @@ Para utilizar carteiras na API Cielo eCommerce, o lojista deverá possuir as car
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
