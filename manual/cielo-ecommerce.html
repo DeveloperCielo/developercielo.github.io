@@ -175,7 +175,7 @@
 </ul>
 
 <blockquote>
-  <p>Para Obter exemplos dessas linguagens, veja nosso tutorial de conversao via nosso <a href="https://developercielo.github.io/tutorial/postman"><strong>Tutorial Postman</strong></a></p>
+  <p>Para Obter exemplos dessas linguagens, veja nosso tutorial de conversão via nosso <a href="https://developercielo.github.io/tutorial/postman"><strong>Tutorial Postman</strong></a></p>
 </blockquote>
 
 <p>Entre outras características, os atributos que mais se destacam na plataforma Cielo eCommerce:</p>
@@ -12657,7 +12657,22 @@ A Wallet MasterPass não possui <code class="highlighter-rouge">WalletKey</code>
   </tbody>
 </table>
 
-<h2 id="códigos-de-erros-da-api">Códigos de Erros da API</h2>
+<h2 id="erros-de-integração-1">Erros de integração</h2>
+
+<blockquote>
+  <p><strong>Erros da API</strong> - Esses códigos são respostas a <strong>validação do conteúdo dos dados enviados</strong>. <br />
+Se esse código for exibido, a requisição contem erros (EX: tamanho/condições/erros de cadastro) que impedem a criação da transação<br /><em>Retornado no momento da requisição a API</em></p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Card Expiration Date is invalid"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="códigos-de-erros-da-api">Códigos de Erros da API</h3>
 
 <p>Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.</p>
 
@@ -13374,6 +13389,12 @@ A Wallet MasterPass não possui <code class="highlighter-rouge">WalletKey</code>
 </table>
 
 <h2 id="códigos-de-retorno-das-vendas">Códigos de Retorno das Vendas</h2>
+
+<blockquote>
+  <p><strong>Retorno das Vendas</strong> - Formado por um <strong>código de Retorno</strong> e uma <strong>mensagem</strong>, esses códigos indicam o <strong>motivo</strong> de um determinado <code class="highlighter-rouge">Status</code> dentro de uma transação. <br />
+Eles indicam, por exemplo, se uma transação com <code class="highlighter-rouge">status</code> <strong>NÃO AUTORIZADO</strong> não foi autorizada devido saldo negativo no banco emissor. <br />
+<code class="highlighter-rouge">ReturnCode</code> e <code class="highlighter-rouge">ReturnMessage</code> - <em>Ocorrem somente em Cartões de crédito e Débito</em> <br /></p>
+</blockquote>
 
 <table>
   <thead>
@@ -14137,8 +14158,6 @@ A Wallet MasterPass não possui <code class="highlighter-rouge">WalletKey</code>
     </tr>
   </tbody>
 </table>
-
-<p><strong>Atenção</strong>: Existem códigos de retorno semelhantes, porem com significados diferentes como o “<strong>6</strong> - Capturada” e o “<strong>06</strong> - Cartão Cancelado”. Esses códigos são apenas informativos do sistema de processamento. <strong>Apenas o campo <code class="highlighter-rouge">STATUS</code> deve ser considerado como situação atual da transação</strong></p>
 
 <h1 id="anexos">Anexos</h1>
 

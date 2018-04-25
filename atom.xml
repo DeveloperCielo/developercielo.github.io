@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-25T19:54:49+00:00</updated>
+    <updated>2018-04-25T20:02:26+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13363,7 +13363,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Para Obter exemplos dessas linguagens, veja nosso tutorial de conversao via nosso &lt;a href=&quot;https://developercielo.github.io/tutorial/postman&quot;&gt;&lt;strong&gt;Tutorial Postman&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;Para Obter exemplos dessas linguagens, veja nosso tutorial de conversão via nosso &lt;a href=&quot;https://developercielo.github.io/tutorial/postman&quot;&gt;&lt;strong&gt;Tutorial Postman&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Entre outras características, os atributos que mais se destacam na plataforma Cielo eCommerce:&lt;/p&gt;
@@ -25845,7 +25845,22 @@ A Wallet MasterPass não possui &lt;code class=&quot;highlighter-rouge&quot;&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;códigos-de-erros-da-api&quot;&gt;Códigos de Erros da API&lt;/h2&gt;
+&lt;h2 id=&quot;erros-de-integração-1&quot;&gt;Erros de integração&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Erros da API&lt;/strong&gt; - Esses códigos são respostas a &lt;strong&gt;validação do conteúdo dos dados enviados&lt;/strong&gt;. &lt;br /&gt;
+Se esse código for exibido, a requisição contem erros (EX: tamanho/condições/erros de cadastro) que impedem a criação da transação&lt;br /&gt;&lt;em&gt;Retornado no momento da requisição a API&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;126&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Credit Card Expiration Date is invalid&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;códigos-de-erros-da-api&quot;&gt;Códigos de Erros da API&lt;/h3&gt;
 
 &lt;p&gt;Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.&lt;/p&gt;
 
@@ -26562,6 +26577,12 @@ A Wallet MasterPass não possui &lt;code class=&quot;highlighter-rouge&quot;&gt;
 &lt;/table&gt;
 
 &lt;h2 id=&quot;códigos-de-retorno-das-vendas&quot;&gt;Códigos de Retorno das Vendas&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Retorno das Vendas&lt;/strong&gt; - Formado por um &lt;strong&gt;código de Retorno&lt;/strong&gt; e uma &lt;strong&gt;mensagem&lt;/strong&gt;, esses códigos indicam o &lt;strong&gt;motivo&lt;/strong&gt; de um determinado &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; dentro de uma transação. &lt;br /&gt;
+Eles indicam, por exemplo, se uma transação com &lt;code class=&quot;highlighter-rouge&quot;&gt;status&lt;/code&gt; &lt;strong&gt;NÃO AUTORIZADO&lt;/strong&gt; não foi autorizada devido saldo negativo no banco emissor. &lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnMessage&lt;/code&gt; - &lt;em&gt;Ocorrem somente em Cartões de crédito e Débito&lt;/em&gt; &lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -27325,8 +27346,6 @@ A Wallet MasterPass não possui &lt;code class=&quot;highlighter-rouge&quot;&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Atenção&lt;/strong&gt;: Existem códigos de retorno semelhantes, porem com significados diferentes como o “&lt;strong&gt;6&lt;/strong&gt; - Capturada” e o “&lt;strong&gt;06&lt;/strong&gt; - Cartão Cancelado”. Esses códigos são apenas informativos do sistema de processamento. &lt;strong&gt;Apenas o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;STATUS&lt;/code&gt; deve ser considerado como situação atual da transação&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;anexos&quot;&gt;Anexos&lt;/h1&gt;
 
