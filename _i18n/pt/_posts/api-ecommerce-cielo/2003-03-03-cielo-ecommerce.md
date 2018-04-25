@@ -5739,7 +5739,6 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 > **Atenção**: Em SANDBOX os valores retornados são simulações e não validações reais de BINS. Deve ser considerado apenas o retorno do Request e o seu formato. Para identificação real dos BINS, o ambiente de Produção deverá ser utilizado.
 
-
 # Wallet
 
 ## O que são Wallets
