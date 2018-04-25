@@ -1459,10 +1459,6 @@ ul.tocify-header > ul.tocify-subheader > ul.tocify-subheader > ul.tocify-subhead
         margin-right: 35%;
     }*/
 
-
-    pre code {
-        color: #fff;
-    }
     .dark-box {
         display: block;
         position: fixed;
