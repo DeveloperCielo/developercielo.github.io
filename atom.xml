@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-25T20:02:26+00:00</updated>
+    <updated>2018-04-25T20:03:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25681,9 +25681,8 @@ A Wallet MasterPass não possui &lt;code class=&quot;highlighter-rouge&quot;&gt;
 
 &lt;h2 id=&quot;sobre-os-códigos&quot;&gt;Sobre os códigos&lt;/h2&gt;
 
-&lt;p&gt;A Api Cielo e-commerce possui 4 tipos de códigos retornados que representam diferentes momentos da transação.&lt;/p&gt;
-
-&lt;p&gt;Abaixo vamos explica-los na ordem em que podem ocorrem:&lt;/p&gt;
+&lt;p&gt;A Api Cielo e-commerce possui 4 tipos de códigos retornados que representam diferentes momentos da transação.
+Abaixo vamos explica-los na ordem em que podem ocorrer:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -25712,7 +25711,9 @@ A Wallet MasterPass não possui &lt;code class=&quot;highlighter-rouge&quot;&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: No  antigo &lt;strong&gt;Webservice 1.5 Cielo&lt;/strong&gt;, o &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt; era considerado como &lt;em&gt;Status da transação&lt;/em&gt;. Na &lt;strong&gt;API CIELO ECOMMERCE&lt;/strong&gt;, o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; possui códigos próprios, sendo assim, o &lt;strong&gt;campo a ser considerado como base de identificação do status de uma transação&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: No  antigo &lt;strong&gt;Webservice 1.5 Cielo&lt;/strong&gt;, o &lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt; era considerado como &lt;em&gt;Status da transação&lt;/em&gt;. Na &lt;strong&gt;API CIELO ECOMMERCE&lt;/strong&gt;, o campo &lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt; possui códigos próprios, sendo assim, o &lt;strong&gt;campo a ser considerado como base de identificação do status de uma transação&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;http-status-code&quot;&gt;HTTP Status Code&lt;/h2&gt;
 
