@@ -140,21 +140,21 @@
 <table>
   <thead>
     <tr>
-      <th> </th>
-      <th>SandBox</th>
-      <th>Produção</th>
+      <th style="text-align: left"> </th>
+      <th style="text-align: center">SandBox</th>
+      <th style="text-align: center">Produção</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Requisição de transação</strong></td>
-      <td>https://apisandbox.cieloecommerce.cielo.com.br</td>
-      <td>https://api.cieloecommerce.cielo.com.br/</td>
+      <td style="text-align: left"><strong>Requisições</strong></td>
+      <td style="text-align: center">https://apisandbox.cieloecommerce.cielo.com.br</td>
+      <td style="text-align: center">https://api.cieloecommerce.cielo.com.br/</td>
     </tr>
     <tr>
-      <td><strong>Consultas</strong></td>
-      <td>https://apiquerysandbox.cieloecommerce.cielo.com.br</td>
-      <td>https://apiquery.cieloecommerce.cielo.com.br/</td>
+      <td style="text-align: left"><strong>Consultas</strong></td>
+      <td style="text-align: center">https://apiquerysandbox.cieloecommerce.cielo.com.br</td>
+      <td style="text-align: center">https://apiquery.cieloecommerce.cielo.com.br/</td>
     </tr>
   </tbody>
 </table>
@@ -212,6 +212,31 @@
     <tr>
       <td><strong>GET</strong></td>
       <td>O método HTTP <code class="highlighter-rouge">GET</code> é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Métodos</th>
+      <th>SandBox</th>
+      <th>Produção</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Requisição de transação</strong></td>
+      <td><strong>POST</strong> / <strong>PUT</strong></td>
+      <td>https://apisandbox.cieloecommerce.cielo.com.br</td>
+      <td>https://api.cieloecommerce.cielo.com.br/</td>
+    </tr>
+    <tr>
+      <td><strong>Consultas</strong></td>
+      <td><strong>GET</strong></td>
+      <td>https://apiquerysandbox.cieloecommerce.cielo.com.br</td>
+      <td>https://apiquery.cieloecommerce.cielo.com.br/</td>
     </tr>
   </tbody>
 </table>
@@ -303,6 +328,7 @@
       <th>Crédito parcelado Loja</th>
       <th>Débito</th>
       <th>Voucher</th>
+      <th>Internacional</th>
     </tr>
   </thead>
   <tbody>
@@ -312,6 +338,7 @@
       <td>Sim</td>
       <td>Sim</td>
       <td><em>Não</em></td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>Master Card</td>
@@ -319,6 +346,7 @@
       <td>Sim</td>
       <td>Sim</td>
       <td><em>Não</em></td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>American Express</td>
@@ -326,6 +354,7 @@
       <td>Sim</td>
       <td><em>Não</em></td>
       <td><em>Não</em></td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>Elo</td>
@@ -333,6 +362,7 @@
       <td>Sim</td>
       <td><em>Não</em></td>
       <td><em>Não</em></td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>Diners Club</td>
@@ -340,6 +370,7 @@
       <td>Sim</td>
       <td><em>Não</em></td>
       <td><em>Não</em></td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>Discover</td>
@@ -347,6 +378,7 @@
       <td><em>Não</em></td>
       <td><em>Não</em></td>
       <td><em>Não</em></td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>JCB</td>
@@ -354,6 +386,7 @@
       <td>Sim</td>
       <td><em>Não</em></td>
       <td><em>Não</em></td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>Aura</td>
@@ -361,6 +394,7 @@
       <td>Sim</td>
       <td><em>Não</em></td>
       <td><em>Não</em></td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>Hipercard</td>
@@ -368,11 +402,16 @@
       <td>Sim</td>
       <td><em>Não</em></td>
       <td><em>Não</em></td>
+      <td><em>Não</em></td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="certificado-extended-validation">Certificado Extended Validation</h1>
+<blockquote>
+  <p>Cartões emitidos no exterior não possuem permissão de parcelamento.</p>
+</blockquote>
+
+<h1 id="certificados-e-segurança">Certificados e segurança</h1>
 
 <h2 id="o-que-é-certificado-ssl">O que é Certificado SSL?</h2>
 
@@ -630,7 +669,7 @@ Com esse meio de pagamento é possível simular os fluxos de:</p>
 
 <aside class="notice">Atenção: O ambiente de **sandbox** avalia o formato e o final do cartão, caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.</aside>
 
-<aside class="notice">Tokenização: Transações em ambiente de Sandbox envolvendo tokenização não funcionaram com base nos cartões de teste. Todo cartão salvo no tokenização é tratado como um cartão real, logo ele não é utilizado no processo de simulação</aside>
+<aside class="Warning">Atenção: Os Códigos de retorno em Sandbox não são os mesmos disponiveis em produção</aside>
 
 <h2 id="cartão-de-débito---sandbox">Cartão de débito - Sandbox</h2>
 

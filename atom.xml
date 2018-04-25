@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-25T19:47:26+00:00</updated>
+    <updated>2018-04-25T19:54:49+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13328,21 +13328,21 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt;SandBox&lt;/th&gt;
-      &lt;th&gt;Produção&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;SandBox&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Produção&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Requisição de transação&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;https://apisandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
-      &lt;td&gt;https://api.cieloecommerce.cielo.com.br/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Requisições&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;https://apisandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;https://api.cieloecommerce.cielo.com.br/&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Consultas&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;https://apiquerysandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
-      &lt;td&gt;https://apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;&lt;strong&gt;Consultas&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;https://apiquerysandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;https://apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13400,6 +13400,31 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;O método HTTP &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;Métodos&lt;/th&gt;
+      &lt;th&gt;SandBox&lt;/th&gt;
+      &lt;th&gt;Produção&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Requisição de transação&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;POST&lt;/strong&gt; / &lt;strong&gt;PUT&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;https://apisandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;https://api.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Consultas&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;https://apiquerysandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;https://apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -13491,6 +13516,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       &lt;th&gt;Crédito parcelado Loja&lt;/th&gt;
       &lt;th&gt;Débito&lt;/th&gt;
       &lt;th&gt;Voucher&lt;/th&gt;
+      &lt;th&gt;Internacional&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -13500,6 +13526,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Master Card&lt;/td&gt;
@@ -13507,6 +13534,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;American Express&lt;/td&gt;
@@ -13514,6 +13542,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Elo&lt;/td&gt;
@@ -13521,6 +13550,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Diners Club&lt;/td&gt;
@@ -13528,6 +13558,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Discover&lt;/td&gt;
@@ -13535,6 +13566,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;JCB&lt;/td&gt;
@@ -13542,6 +13574,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Aura&lt;/td&gt;
@@ -13549,6 +13582,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Hipercard&lt;/td&gt;
@@ -13556,11 +13590,16 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;certificado-extended-validation&quot;&gt;Certificado Extended Validation&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Cartões emitidos no exterior não possuem permissão de parcelamento.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;certificados-e-segurança&quot;&gt;Certificados e segurança&lt;/h1&gt;
 
 &lt;h2 id=&quot;o-que-é-certificado-ssl&quot;&gt;O que é Certificado SSL?&lt;/h2&gt;
 
@@ -13818,7 +13857,7 @@ Com esse meio de pagamento é possível simular os fluxos de:&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: O ambiente de **sandbox** avalia o formato e o final do cartão, caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Tokenização: Transações em ambiente de Sandbox envolvendo tokenização não funcionaram com base nos cartões de teste. Todo cartão salvo no tokenização é tratado como um cartão real, logo ele não é utilizado no processo de simulação&lt;/aside&gt;
+&lt;aside class=&quot;Warning&quot;&gt;Atenção: Os Códigos de retorno em Sandbox não são os mesmos disponiveis em produção&lt;/aside&gt;
 
 &lt;h2 id=&quot;cartão-de-débito---sandbox&quot;&gt;Cartão de débito - Sandbox&lt;/h2&gt;
 
