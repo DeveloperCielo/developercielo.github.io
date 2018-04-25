@@ -22,23 +22,25 @@ O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas
 
 Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API Cielo eCommerce. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
 
-Ambiente Produção
-
-* **Requisição de transação**: https://api.cieloecommerce.cielo.com.br/
-* **Consulta transação**: https://apiquery.cieloecommerce.cielo.com.br/
-
-Ambiente Sandbox
-
-* **Requisição de transação**: https://apisandbox.cieloecommerce.cielo.com.br
-* **Consulta transação**: https://apiquerysandbox.cieloecommerce.cielo.com.br
+|                             | SandBox                                             | Produção                                      |
+|-----------------------------|-----------------------------------------------------|-----------------------------------------------|
+| **Requisição de transação** | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+| **Consultas**               | https://apiquerysandbox.cieloecommerce.cielo.com.br | https://apiquery.cieloecommerce.cielo.com.br/ |
 
 Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
 
 ## Características da solução
 
-A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.
+A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: 
 
-Para Obter exemplos dessas linguagens, veja nosso tutorial de conversao via nosso [**Tutorial Postman**](https://developercielo.github.io/tutorial/postman)
+* ASP
+* Net
+* Java
+* PHP
+* Ruby
+* Python
+
+> Para Obter exemplos dessas linguagens, veja nosso tutorial de conversao via nosso [**Tutorial Postman**](https://developercielo.github.io/tutorial/postman)
 
 Entre outras características, os atributos que mais se destacam na plataforma Cielo eCommerce:
 
