@@ -6761,11 +6761,11 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 
 Alguns tipos de transação exigem que sua Afiliação esteja configurada corretamente junto a Cielo. Sugerimos que por padrão valide com nossa central de atendimento se sua afiliação está apta a transacionar em algum dos cenários abaixo:
 
-|Cenário|
-|---|
-|Recorrência|
-|Transação sem CVV|
-|Personalização da validade de uma transação|
+| Cenário                                     | Efeito                                                                                  |
+|---------------------------------------------|-----------------------------------------------------------------------------------------|
+| Recorrência                                 | Se não for habilitado, recorrências serão automaticamente **não autorizadas**           |
+| Transação sem CVV                           | Se não for habilitado, vendas sem CVV serão automaticamente **não autorizadas**         |
+| Personalização da validade de uma transação | Por padrão **15 dias** -  Após esse periodo, transações não capturadas **são perdidas** |
 
 ## Lista de Providers
 
