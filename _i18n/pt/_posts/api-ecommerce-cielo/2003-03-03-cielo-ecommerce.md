@@ -22,10 +22,10 @@ O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas
 
 Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API Cielo eCommerce. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
 
-|                             | SandBox                                             | Produção                                      |
-|-----------------------------|-----------------------------------------------------|-----------------------------------------------|
-| **Requisição de transação** | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
-| **Consultas**               | https://apiquerysandbox.cieloecommerce.cielo.com.br | https://apiquery.cieloecommerce.cielo.com.br/ |
+|                 | SandBox                                             | Produção                                      |
+|:----------------|:---------------------------------------------------:|:---------------------------------------------:|
+| **Requisições** | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+| **Consultas**   | https://apiquerysandbox.cieloecommerce.cielo.com.br | https://apiquery.cieloecommerce.cielo.com.br/ |
 
 Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
 
@@ -61,6 +61,11 @@ A integração é realizada através de serviços disponibilizados como Web Serv
 |**PUT**|O método HTTP `PUT` é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.|
 |**GET**|O método HTTP `GET` é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.|
 
+|                             | Métodos            | SandBox                                             | Produção                                      |
+|-----------------------------|--------------------|-----------------------------------------------------|-----------------------------------------------|
+| **Requisição de transação** | **POST** / **PUT** | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+| **Consultas**               | **GET**            | https://apiquerysandbox.cieloecommerce.cielo.com.br | https://apiquery.cieloecommerce.cielo.com.br/ |
+
 ## Glossário
 
 Para facilitar o entendimento, listamos abaixo um pequeno glossário com os principais termos relacionados ao eCommerce, ao mercado de cartões e adquirencia:
@@ -87,19 +92,21 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 
 A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
-| Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito | Voucher |
-|------------------|-----------------|------------------------|--------|---------|
-| Visa             | Sim             | Sim                    | Sim    | *Não*   |
-| Master Card      | Sim             | Sim                    | Sim    | *Não*   |
-| American Express | Sim             | Sim                    | *Não*  | *Não*   |
-| Elo              | Sim             | Sim                    | *Não*  | *Não*   |
-| Diners Club      | Sim             | Sim                    | *Não*  | *Não*   |
-| Discover         | Sim             | *Não*                  | *Não*  | *Não*   |
-| JCB              | Sim             | Sim                    | *Não*  | *Não*   |
-| Aura             | Sim             | Sim                    | *Não*  | *Não*   |
-| Hipercard        | Sim             | Sim                    | *Não*  | *Não*   |
+| Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito | Voucher | Internacional |
+|------------------|-----------------|------------------------|--------|---------|---------------|
+| Visa             | Sim             | Sim                    | Sim    | *Não*   | Sim           |
+| Master Card      | Sim             | Sim                    | Sim    | *Não*   | Sim           |
+| American Express | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
+| Elo              | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
+| Diners Club      | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
+| Discover         | Sim             | *Não*                  | *Não*  | *Não*   | Sim           |
+| JCB              | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
+| Aura             | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
+| Hipercard        | Sim             | Sim                    | *Não*  | *Não*   | *Não*         |
 
-# Certificado Extended Validation
+> Cartões emitidos no exterior não possuem permissão de parcelamento.
+
+# Certificados e segurança
 
 ## O que é Certificado SSL?
 
@@ -287,7 +294,7 @@ As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, 
 
 <aside class="notice"><strong>Atenção:</strong> O ambiente de **sandbox** avalia o formato e o final do cartão, caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.</aside>
 
-<aside class="notice"><strong>Tokenização:</strong> Transações em ambiente de Sandbox envolvendo tokenização não funcionaram com base nos cartões de teste. Todo cartão salvo no tokenização é tratado como um cartão real, logo ele não é utilizado no processo de simulação</aside>
+<aside class="Warning"><strong>Atenção:</strong> Os Códigos de retorno em Sandbox não são os mesmos disponiveis em produção</aside>
 
 ## Cartão de débito - Sandbox
 
