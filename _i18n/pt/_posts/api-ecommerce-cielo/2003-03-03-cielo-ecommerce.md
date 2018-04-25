@@ -6434,8 +6434,7 @@ Exemplo de Requisição *Masterpass*
 ## Sobre os códigos
 
 A Api Cielo e-commerce possui 4 tipos de códigos retornados que representam diferentes momentos da transação.
-
-Abaixo vamos explica-los na ordem em que podem ocorrem:
+Abaixo vamos explica-los na ordem em que podem ocorrer:
 
 |Código|Descrição|
 |---|---|
