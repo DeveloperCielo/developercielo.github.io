@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-25T19:38:22+00:00</updated>
+    <updated>2018-04-25T19:47:26+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13325,27 +13325,46 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 &lt;p&gt;Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API Cielo eCommerce. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:&lt;/p&gt;
 
-&lt;p&gt;Ambiente Produção&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Requisição de transação&lt;/strong&gt;: https://api.cieloecommerce.cielo.com.br/&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Consulta transação&lt;/strong&gt;: https://apiquery.cieloecommerce.cielo.com.br/&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ambiente Sandbox&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Requisição de transação&lt;/strong&gt;: https://apisandbox.cieloecommerce.cielo.com.br&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Consulta transação&lt;/strong&gt;: https://apiquerysandbox.cieloecommerce.cielo.com.br&lt;/li&gt;
-&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;SandBox&lt;/th&gt;
+      &lt;th&gt;Produção&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Requisição de transação&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;https://apisandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;https://api.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Consultas&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;https://apiquerysandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;https://apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;p&gt;Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.&lt;/p&gt;
 
 &lt;h2 id=&quot;características-da-solução&quot;&gt;Características da solução&lt;/h2&gt;
 
-&lt;p&gt;A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.&lt;/p&gt;
+&lt;p&gt;A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como:&lt;/p&gt;
 
-&lt;p&gt;Para Obter exemplos dessas linguagens, veja nosso tutorial de conversao via nosso &lt;a href=&quot;https://developercielo.github.io/tutorial/postman&quot;&gt;&lt;strong&gt;Tutorial Postman&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;ASP&lt;/li&gt;
+  &lt;li&gt;Net&lt;/li&gt;
+  &lt;li&gt;Java&lt;/li&gt;
+  &lt;li&gt;PHP&lt;/li&gt;
+  &lt;li&gt;Ruby&lt;/li&gt;
+  &lt;li&gt;Python&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Para Obter exemplos dessas linguagens, veja nosso tutorial de conversao via nosso &lt;a href=&quot;https://developercielo.github.io/tutorial/postman&quot;&gt;&lt;strong&gt;Tutorial Postman&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Entre outras características, os atributos que mais se destacam na plataforma Cielo eCommerce:&lt;/p&gt;
 
