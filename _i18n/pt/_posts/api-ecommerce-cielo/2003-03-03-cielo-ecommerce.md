@@ -40,7 +40,7 @@ A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida c
 * Ruby
 * Python
 
-> Para Obter exemplos dessas linguagens, veja nosso tutorial de conversao via nosso [**Tutorial Postman**](https://developercielo.github.io/tutorial/postman)
+> Para Obter exemplos dessas linguagens, veja nosso tutorial de conversão via nosso [**Tutorial Postman**](https://developercielo.github.io/tutorial/postman)
 
 Entre outras características, os atributos que mais se destacam na plataforma Cielo eCommerce:
 
@@ -6479,7 +6479,21 @@ Abaixo vamos explica-los na ordem em que podem ocorrem:
 |**TF**|Transferencia Eletrônica|
 |**BOL**|Boleto|
 
-## Códigos de Erros da API
+## Erros de integração
+
+> **Erros da API** - Esses códigos são respostas a **validação do conteúdo dos dados enviados**. <br>
+> Se esse código for exibido, a requisição contem erros (EX: tamanho/condições/erros de cadastro) que impedem a criação da transação<BR><BR>*Retornado no momento da requisição a API*
+
+``` json
+[
+    {
+        "Code": 126,
+        "Message": "Credit Card Expiration Date is invalid"
+    }
+]
+```
+
+### Códigos de Erros da API
 
 Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.
 
@@ -6628,6 +6642,10 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 
 ## Códigos de Retorno das Vendas
 
+> **Retorno das Vendas** - Formado por um **código de Retorno** e uma **mensagem**, esses códigos indicam o **motivo** de um determinado `Status` dentro de uma transação. <BR>
+> Eles indicam, por exemplo, se uma transação com `status` **NÃO AUTORIZADO** não foi autorizada devido saldo negativo no banco emissor. <BR>
+> `ReturnCode` e `ReturnMessage` - *Ocorrem somente em Cartões de crédito e Débito* <BR>
+
 | Código Resposta | Definição                                     | Significado                                                                 | Ação                                                              | Permite Retentativa |
 |-----------------|-----------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
 | 00              | Transação autorizada com sucesso.             | Transação autorizada com sucesso.                                           | Transação autorizada com sucesso.                                 | Não                 |
@@ -6737,8 +6755,6 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |R1|Transação não autorizada. Cartão inadimplente (Do not honor).|Transação não autorizada. Não foi possível processar a transação. Questão relacionada a segurança, inadimplencia ou limite do portador.|Transação não autorizada. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
 |U3|Transação não permitida. Falha na validação dos dados.|Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.|Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.|Não|
 |GD|Transação não permitida|Transação não permitida|Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes Transação|Não|
-
-**Atenção**: Existem códigos de retorno semelhantes, porem com significados diferentes como o "**6** - Capturada" e o "**06** - Cartão Cancelado". Esses códigos são apenas informativos do sistema de processamento. **Apenas o campo `STATUS` deve ser considerado como situação atual da transação**
 
 # Anexos
 
