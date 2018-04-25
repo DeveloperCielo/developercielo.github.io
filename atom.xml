@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-25T20:03:58+00:00</updated>
+    <updated>2018-04-25T20:13:22+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -27358,17 +27358,21 @@ Eles indicam, por exemplo, se uma transação com &lt;code class=&quot;highlight
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Cenário&lt;/th&gt;
+      &lt;th&gt;Efeito&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Recorrência&lt;/td&gt;
+      &lt;td&gt;Se não for habilitado, recorrências serão automaticamente &lt;strong&gt;não autorizadas&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Transação sem CVV&lt;/td&gt;
+      &lt;td&gt;Se não for habilitado, vendas sem CVV serão automaticamente &lt;strong&gt;não autorizadas&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Personalização da validade de uma transação&lt;/td&gt;
+      &lt;td&gt;Por padrão &lt;strong&gt;15 dias&lt;/strong&gt; -  Após esse periodo, transações não capturadas &lt;strong&gt;são perdidas&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
