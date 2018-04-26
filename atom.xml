@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-25T20:13:22+00:00</updated>
+    <updated>2018-04-26T13:00:41+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16562,9 +16562,46 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
 
 &lt;h2 id=&quot;cartão-de-débito&quot;&gt;Cartão de Débito&lt;/h2&gt;
 
-&lt;h3 id=&quot;transação-simples-1&quot;&gt;Transação simples&lt;/h3&gt;
+&lt;h3 id=&quot;autenticação-débito&quot;&gt;Autenticação Débito&lt;/h3&gt;
 
-&lt;p&gt;Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.&lt;/p&gt;
+&lt;p&gt;O Cartão de débito por padrão exige que o portador seja direcionado para o ambiente Bancário, onde será avaliada a senha e dados informados pela loja. 
+Existe a opção de não autenticar transações de débito, porem é necessario que o banco emissor do cartão permita tal transação
+Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o lojista deve acionar o banco e solicitar a permissão&lt;/p&gt;
+
+&lt;p&gt;Em transações de cartão de débito sem autenticação, há limitação de bancos:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Bandeira&lt;/th&gt;
+      &lt;th&gt;Banco&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Visa&lt;/td&gt;
+      &lt;td&gt;Bradesco&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MasterCard&lt;/td&gt;
+      &lt;td&gt;Santander&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Elo&lt;/td&gt;
+      &lt;td&gt;Banco do Brasil&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;transação-padrão&quot;&gt;Transação padrão&lt;/h3&gt;
+
+&lt;p&gt;Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Para realizar uma transação sem autenticação, basta enviar &lt;code class=&quot;highlighter-rouge&quot;&gt;Authenticate = FALSE&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;O exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.&lt;/p&gt;
 
 &lt;h4 id=&quot;requisição-4&quot;&gt;Requisição&lt;/h4&gt;
 
@@ -16872,7 +16909,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
 
 &lt;h2 id=&quot;transferência-eletronica&quot;&gt;Transferência Eletronica&lt;/h2&gt;
 
-&lt;h3 id=&quot;transação-simples-2&quot;&gt;Transação Simples&lt;/h3&gt;
+&lt;h3 id=&quot;transação-simples-1&quot;&gt;Transação Simples&lt;/h3&gt;
 
 &lt;p&gt;Para criar uma venda de transferência eletronica, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.&lt;/p&gt;
 

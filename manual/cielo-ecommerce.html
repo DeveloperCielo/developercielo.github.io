@@ -3374,9 +3374,46 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="cartão-de-débito">Cartão de Débito</h2>
 
-<h3 id="transação-simples-1">Transação simples</h3>
+<h3 id="autenticação-débito">Autenticação Débito</h3>
 
-<p>Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
+<p>O Cartão de débito por padrão exige que o portador seja direcionado para o ambiente Bancário, onde será avaliada a senha e dados informados pela loja. 
+Existe a opção de não autenticar transações de débito, porem é necessario que o banco emissor do cartão permita tal transação
+Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista deve acionar o banco e solicitar a permissão</p>
+
+<p>Em transações de cartão de débito sem autenticação, há limitação de bancos:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bandeira</th>
+      <th>Banco</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>Bradesco</td>
+    </tr>
+    <tr>
+      <td>MasterCard</td>
+      <td>Santander</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>Banco do Brasil</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="transação-padrão">Transação padrão</h3>
+
+<p>Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo.</p>
+
+<blockquote>
+  <p>Para realizar uma transação sem autenticação, basta enviar <code class="highlighter-rouge">Authenticate = FALSE</code></p>
+</blockquote>
+
+<p>O exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
 
 <h4 id="requisição-4">Requisição</h4>
 
@@ -3684,7 +3721,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="transferência-eletronica">Transferência Eletronica</h2>
 
-<h3 id="transação-simples-2">Transação Simples</h3>
+<h3 id="transação-simples-1">Transação Simples</h3>
 
 <p>Para criar uma venda de transferência eletronica, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
 
