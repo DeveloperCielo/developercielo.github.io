@@ -1688,9 +1688,27 @@ curl
 
 ## Cartão de Débito
 
-### Transação simples
+### Autenticação Débito
 
-Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
+O Cartão de débito por padrão exige que o portador seja direcionado para o ambiente Bancário, onde será avaliada a senha e dados informados pela loja. 
+Existe a opção de não autenticar transações de débito, porem é necessario que o banco emissor do cartão permita tal transação
+Essa **não é uma permissão concedida pela cielo**, o lojista deve acionar o banco e solicitar a permissão
+
+Em transações de cartão de débito sem autenticação, há limitação de bancos:
+
+| Bandeira   | Banco           |
+|------------|-----------------|
+| Visa       | Bradesco        |
+| MasterCard | Santander       |
+| Elo        | Banco do Brasil |
+
+### Transação padrão
+
+Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo.
+
+> Para realizar uma transação sem autenticação, basta enviar `Authenticate = FALSE`
+
+O exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
 
 #### Requisição
 
@@ -1748,23 +1766,23 @@ curl
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
-|`Customer.Status`|Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude|Texto|255|Não|
-|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.Authenticate`|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|Booleano|---|Sim (Default TRUE)|
-|`Payment.ReturnUrl`|URI para onde o usuário será redirecionado após o fim do pagamento|Texto|1024|Sim|
-|`DebitCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
-|`DebitCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
-|`DebitCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
-|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
-|`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+| Propriedade                | Descrição                                                                                             | Tipo     | Tamanho | Obrigatório        |
+|----------------------------|-------------------------------------------------------------------------------------------------------|----------|---------|--------------------|
+| `MerchantId`               | Identificador da loja na API Cielo eCommerce.                                                         | Guid     | 36      | Sim                |
+| `MerchantKey`              | Chave Publica para Autenticação Dupla na API Cielo eCommerce.                                         | Texto    | 40      | Sim                |
+| `RequestId`                | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT | Guid     | 36      | Não                |
+| `MerchantOrderId`          | Numero de identificação do Pedido.                                                                    | Texto    | 50      | Sim                |
+| `Customer.Name`            | Nome do Comprador.                                                                                    | Texto    | 255     | Não                |
+| `Customer.Status`          | Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude           | Texto    | 255     | Não                |
+| `Payment.Type`             | Tipo do Meio de Pagamento.                                                                            | Texto    | 100     | Sim                |
+| `Payment.Amount`           | Valor do Pedido (ser enviado em centavos).                                                            | Número   | 15      | Sim                |
+| `Payment.Authenticate`     | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão                   | Booleano | ---     | Sim (Default TRUE) |
+| `Payment.ReturnUrl`        | URI para onde o usuário será redirecionado após o fim do pagamento                                    | Texto    | 1024    | Sim                |
+| `DebitCard.CardNumber`     | Número do Cartão do Comprador.                                                                        | Texto    | 19      | Sim                |
+| `DebitCard.Holder`         | Nome do Comprador impresso no cartão.                                                                 | Texto    | 25      | Não                |
+| `DebitCard.ExpirationDate` | Data de validade impresso no cartão.                                                                  | Texto    | 7       | Sim                |
+| `DebitCard.SecurityCode`   | Código de segurança impresso no verso do cartão.                                                      | Texto    | 4       | Não                |
+| `DebitCard.Brand`          | Bandeira do cartão.                                                                                   | Texto    | 10      | Sim                |
 
 <aside class="warning">Cartões de Débito, por padrão, devem possuir `Authenticate` como TRUE </aside>
 
