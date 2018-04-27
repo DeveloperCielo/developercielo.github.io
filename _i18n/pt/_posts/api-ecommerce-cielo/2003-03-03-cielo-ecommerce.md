@@ -1696,11 +1696,11 @@ Essa **não é uma permissão concedida pela cielo**, o lojista deve acionar o b
 
 Em transações de cartão de débito sem autenticação, há limitação de bancos:
 
-| Bandeira   | Banco           |
-|------------|-----------------|
-| Visa       | Bradesco        |
-| MasterCard | Santander       |
-| Elo        | Banco do Brasil |
+| Bandeira   | Bancos                             |
+|------------|------------------------------------|
+| Visa       | Bradesco / Banco do Brasil         |
+| MasterCard | Santander / Banco do Brasil        |
+| Elo        | Bradesco / Banco do Brasil         |
 
 ### Transação padrão
 
