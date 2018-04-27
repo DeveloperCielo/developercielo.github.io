@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-04-26T13:00:41+00:00</updated>
+    <updated>2018-04-27T12:30:32+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16574,21 +16574,21 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th&gt;Bandeira&lt;/th&gt;
-      &lt;th&gt;Banco&lt;/th&gt;
+      &lt;th&gt;Bancos&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Visa&lt;/td&gt;
-      &lt;td&gt;Bradesco&lt;/td&gt;
+      &lt;td&gt;Bradesco / Banco do Brasil&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;MasterCard&lt;/td&gt;
-      &lt;td&gt;Santander&lt;/td&gt;
+      &lt;td&gt;Santander / Banco do Brasil&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Elo&lt;/td&gt;
-      &lt;td&gt;Banco do Brasil&lt;/td&gt;
+      &lt;td&gt;Bradesco / Banco do Brasil&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
