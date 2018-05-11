@@ -5782,6 +5782,7 @@ A API Cielo Ecommerce possui integração com:
 
 | Carteira                                                           | 
 |--------------------------------------------------------------------|
+| [*Apple Pay*](https://www.apple.com/br/apple-pay/)                 |
 | [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout) | 
 | [*MasterPass*](https://masterpass.com/pt-br/)                      | 
 
@@ -5808,9 +5809,22 @@ Cada Wallet possui um formato de `WalletKeys`.
 | Carteira       | Exemplo        |
 |----------------|----------------|
 | **VisaCheckout** | `1140814777695873901`   |
+| **Apple Pay**    | `9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+sRXTDtqLOJQAprs0MNTkPzF95nXGKCCnPV2mfR7z8FHcP7AGqO7aTLBGJLgxFOnRKaFnYlY2E9uTPBbB5JjZywlLIWsPKur5G4m1/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc`   |
 
 > **Observações:**
 > A Wallet MasterPass não possui `WalletKey`
+> O `WalletKey` Apple Pay pode ser obtido dentro do campo `DATA` do payload Apple
+
+#### EphemeralPublicKey
+
+O `EphemeralPublicKey` é a chave utilizado pela Cielo para descriptografar payloads contendo `WalletKeys` enviados pelos lojistas. Ele utilizado apenas em integrações no formado `Descriptografia`
+Cada Wallet possui um formato de `EphemeralPublicKey`. 
+
+| Carteira       | Exemplo                                                                                                                          |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------|
+| *Apple Pay*    | `MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==`   |
+
+> *VisaCheckout* / *MasterPass* **não possuem** EphemeralPublicKey
 
 ### Descriptografia
 
@@ -5832,8 +5846,10 @@ Cada Wallet possui um formato de `WalletKeys`.
     "Currency": "BRL",
     "Wallet": {
       "Type": "TIPO DE WALLET",
-      "WalletKey": "Chave Criptografada WALLET",
-            }
+      "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
+      "AdditionalData": {
+        "EphemeralPublicKey": "TOKEN INFORMADO PELA WALLET"
+      }
     }
   }
 }
@@ -5855,6 +5871,7 @@ Cada Wallet possui um formato de `WalletKeys`.
 | `CreditCard.SecurityCode`  | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                                            |
 | `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira:  `VisaCheckout`/ `Masterpass` |
 | `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
+| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Chave retornada pela Wallet para descriptografia. Deve ser enviado em Integrações: `ApplePay`           |
 | `Wallet.AdditionalData.capturecode`       | Texto  | 255    | Sim  | Código informado pela `MasterPass` ao lojista                                                    |                                                      
 
 #### Resposta
@@ -5874,7 +5891,7 @@ Cada Wallet possui um formato de `WalletKeys`.
         "Recurrent": false,
         "CreditCard": {
             "CardNumber": "453211******1521",
-            "Holder": "Leo Gama",
+            "Holder": "Leonardo Romano",
             "ExpirationDate": "08/2020",
             "SaveCard": false,
             "Brand": "Visa"
@@ -5884,8 +5901,11 @@ Cada Wallet possui um formato de `WalletKeys`.
         "AuthorizationCode": "027795",
         "Wallet": {
             "Type": "TIPO DE WALLET",
-            "WalletKey": "Chave Criptografada WALLET",
+            "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
             "Eci": 0
+            "AdditionalData": {
+                "EphemeralPublicKey": "TOKEN INFORMADO PELA WALLET"
+                              },                
                  },
         "SoftDescriptor": "123456789ABCD",
         "Amount": 100,
@@ -5930,9 +5950,10 @@ Cada Wallet possui um formato de `WalletKeys`.
 | `Status`            | Status da Transação.                                                                                                           | Byte  | ---     | 2                                    |
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
-| `Type`              | Indica qual o tipo de carteira:  `VisaCheckout`/ `Masterpass`                        | Texto | 255     | Texto alfanumérico                   |
+| `Type`              | Indica qual o tipo de carteira:  `VisaCheckout`/ `Masterpass` / `ApplePay`                       | Texto | 255     | Texto alfanumérico                   |
 | `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |       
 | `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                  | Texto | 255     | 3                                    | 
+| `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`                         | Texto | 255     | Ver Tabela `EphemeralPublicKey`      | 
 
 ### Envio de cartão
 
@@ -6061,6 +6082,332 @@ Cada Wallet possui um formato de `WalletKeys`.
 | `Type`              |  indica qual o tipo de carteira: `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
 | `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |       
 | `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                  | Texto | 255     | 3                                    | 
+
+## Apple Pay
+
+### Pré-Requisitos
+
+Para utilização da Apple Pay no formato **Descriptografia** é necessario que a loja ja esteja cadastrada junto a Apple e possua um `MerchantIdentifier`
+A integração **Descriptografia** exige que o lojista realize o upload manual de um **certificado CSR no formato PEM** fornecido pela Cielo. Entre em contato com a equipe de atendimento Cielo para obter o Certificado.
+
+#### MerchantIdentifier
+
+Para obter o `MerchantIdentifier` realize os passos abaixo:
+
+1. Log em [**Apple Developer**](https://developer.apple.com/)
+2. Selecione [**Certificates, IDs & Profiles**](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html)
+3. Dentro da área "Identifiers" clique em "Merchant IDs"
+4. Clique no **+** no canto direito, abaixo de "Registering a Merchant ID"
+5. Defina a descrição do MerchantID e o identificador. Exemplo: "merchant.com.CIELO.merchantAccount"
+6. Clique em "continuar" e verifique se as informações inseridas estão corretas.
+7. Finalize o processo.
+
+> O `MerchantIdentifier` deve ser enviado a Cielo para a criação de um Certificado CSR no formato PEM.
+
+#### Certificado CSR
+
+Após enviar o `MerchantIdentifier` para a equipe de atendimento Cielo, a loja receberá um certificado de extensão `PEM` e deverá seguir os sequintes passos:
+
+1. Log em [**Apple Developer**](https://developer.apple.com/)
+2. Selecione [**Certificates, IDs & Profiles**](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html)
+3. Realize o Upload do Certificado 
+7. Finalize o processo.
+
+> O Certificado PEM contem o código CSR solicitado pela Apple. <br>
+> Formato de um Certificado `.PEM`
+
+> -----BEGIN CERTIFICATE REQUEST-----<BR>
+> MIHwMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYD<BR>
+> VQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBIP<BR>
+> ULN00aAwYW+sfTettoIl8l9YrDCkF1HEiI9PgwLcM4jCkIAvnrKZ3loLWDi4J8Jh<BR>
+> ML01OuTohYS46lqF6p4wCgYIKoZIzj0EAwIDRwAwRAIgWLAPtSWKQ3sJYLc6jmWa<BR>
+> RNWCoNR2XBQZKdg5bIGNYpYCIHSLsQVSK8taL7dGirOBxXiOqtUA9hWxn0g1Mf3U<BR>
+> VKeU<BR>
+> -----END CERTIFICATE REQUEST-----<BR>
+
+### Descriptografia
+
+No modelo apresentado a seguir, demonstramos como utilizar a integração Apple Pay Cielo via o envio do WalletKey + EphemeralPublicKey retornados pela Apple via Payload
+
+#### Requisição
+
+Exemplo de Requisição *Apple Pay*
+
+> É necessário que a loja ja possua cadastro e uma integração Apple Pay, caso contrario não será possivel a integração com a API
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{
+  "MerchantOrderId": "6242-642-723",
+  "Customer": {
+    "Name": "Exemplo Wallet Padrão",
+    "Identity": "11225468954",
+    "IdentityType": "CPF"
+  },
+  "Payment": {
+    "Type": "CreditCard",
+    "Amount": 1100,
+    "Provider": "Cielo",
+    "Installments": 1,
+    "Currency": "BRL",
+    "Wallet": {
+      "Type": "ApplePay",
+      "WalletKey": "9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+sRXTDtqLOJQAprs0MNTkPzF95nXGKCCnPV2mfR7z8FHcP7AGqO7aTLBGJLgxFOnRKaFnYlY2E9uTPBbB5JjZywlLIWsPKur5G4m1/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc",
+      "AdditionalData": {
+        "EphemeralPublicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ=="
+      }
+    }
+  }
+}
+```
+
+| Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
+|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
+| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Cielo.                                                                         |
+| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Cielo.                                                         |
+| `RequestId`                | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
+| `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
+| `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
+| `Customer.Status`          | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                                |
+| `Payment.Type`             | Texto  | 100     | Sim         | Tipo do Meio de Pagamento.                                                                              |
+| `Payment.Amount`           | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
+| `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
+| `CreditCard.CardNumber.`   | Texto  | 19      | Sim         | Número do Cartão do Comprador                                                                           |
+| `CreditCard.SecurityCode`  | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                                            |
+| `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
+| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
+| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
+| `Wallet.AdditionalData.capturecode`       | Texto  | 255    | Sim  | Código informado pela `MasterPass` ao lojista                                                    | 
+
+#### Resposta
+
+```json
+{
+    "MerchantOrderId": "2014111703",
+    "Customer": {
+        "Name": "[Guest]"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "453211******1521",
+            "Holder": "Leonardo Romano",
+            "ExpirationDate": "08/2020",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "0319040817883",
+        "ProofOfSale": "817883",
+        "AuthorizationCode": "027795",
+        "Wallet": {
+            "Type": "ApplePay",
+            "WalletKey": "9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+sRXTDtqLOJQAprs0MNTkPzF95nXGKCCnPV2mfR7z8FHcP7AGqO7aTLBGJLgxFOnRKaFnYlY2E9uTPBbB5JjZywlLIWsPKur5G4m1/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc",
+            "Eci": 0
+            "AdditionalData": {
+                "EphemeralPublicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ=="
+                              },                
+                 },
+        "SoftDescriptor": "123456789ABCD",
+        "Amount": 100,
+        "ReceivedDate": "2018-03-19 16:08:16",
+        "Status": 1,
+        "IsSplitted": false,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "4",
+        "PaymentId": "e57b09eb-475b-44b6-ac71-01b9b82f2491",
+        "Type": "CreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"
+            }
+        ]
+    }
+}
+```
+
+| Propriedade         | Descrição                                                                                                                      | Tipo  | Tamanho | Formato                              |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
+| `ProofOfSale`       | Número da autorização, identico ao NSU.                                                                                        | Texto | 6       | Texto alfanumérico                   |
+| `Tid`               | Id da transação na adquirente.                                                                                                 | Texto | 20      | Texto alfanumérico                   |
+| `AuthorizationCode` | Código de autorização.                                                                                                         | Texto | 6       | Texto alfanumérico                   |
+| `SoftDescriptor`    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais | Texto | 13      | Texto alfanumérico                   |
+| `PaymentId`         | Campo Identificador do Pedido.                                                                                                 | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ECI`               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                        | Texto | 2       | Exemplos: 7                          |
+| `Status`            | Status da Transação.                                                                                                           | Byte  | ---     | 2                                    |
+| `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
+| `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
+| `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
+| `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |       
+| `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`                         | Texto | 255     | Ver Tabela `EphemeralPublicKey`      |  
+| `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                  | Texto | 255     | 3                                    | 
+
+### Envio de cartão
+
+No modelo apresentado a seguir, demonstramos como a Apple Pay pode ser utilizada com o envio do cartão aberto, sem a necessidade de WalletKey.
+
+#### Requisição
+
+Nesse modelo, o lojista informa apenas que a transação é de uma Wallet Apple Pay e envia os dados ECI e CAVV fornecidos pela APPLE
+
+* **CAVV** - pode ser extraido do campo `onlinePaymentCryptogram` retornado pela Apple no payload
+* **ECI** - pode ser extraido do campo `eciIndicator` retornado pela Apple no payload
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{
+  "MerchantOrderId": "6242-642-723",
+  "Customer": {
+    "Name": "Exemplo Wallet Padrão",
+    "Identity": "11225468954",
+    "IdentityType": "CPF"
+  },
+  "Payment": {
+    "Type": "CreditCard",
+    "Amount": 1100,
+    "Provider": "Cielo",
+    "Installments": 1,
+    "CreditCard": {
+      "CardNumber":"4532********6521",
+      "Holder":"Exemplo Wallet Padrão",
+          "ExpirationDate":"12/2021",
+          "SecurityCode":"123",
+          "Brand":"Master"
+    },
+    "Currency": "BRL",
+    "Wallet": {
+      "Type": "ApplePay",
+      "Eci":"7",
+      "Cavv":"AM1mbqehL24XAAa0J04CAoABFA=="
+    }
+  }
+}
+```
+
+| Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
+|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
+| `MerchantId`               | Guid   | 36      | Sim         | Identificador da loja na Cielo.                                                                         |
+| `MerchantKey`              | Texto  | 40      | Sim         | Chave Publica para Autenticação Dupla na Cielo.                                                         |
+| `RequestId`                | Guid   | 36      | Não         | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.  |
+| `MerchantOrderId`          | Texto  | 50      | Sim         | Numero de identificação do Pedido.                                                                      |
+| `Customer.Name`            | Texto  | 255     | Não         | Nome do Comprador.                                                                                      |
+| `Customer.Status`          | Texto  | 255     | Não         | Status de cadastro do comprador na loja (NEW / EXISTING)                                                |
+| `Payment.Type`             | Texto  | 100     | Sim         | Tipo do Meio de Pagamento.                                                                              |
+| `Payment.Amount`           | Número | 15      | Sim         | Valor do Pedido (ser enviado em centavos).                                                              |
+| `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
+| `CreditCard.CardNumber.`   | Texto  | 19      | Sim         | Número do Cartão do Comprador                                                                           |
+| `CreditCard.SecurityCode`  | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                                            |
+| `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` |
+| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
+| `Wallet.ECI`               | Texto  | 3       | Sim         | O ECI (Eletronic Commerce Indicator) representa o quão segura é uma transação. Esse valor deve ser levado em consideração pelo lojista para decidir sobre a captura da transação. |
+| `Wallet.CAVV`              | Texto  | 255     | Sim         | Campo de validação retornado pela Wallet e utilizado como base de autorização                           | 
+
+#### Resposta
+
+```json
+{
+    "MerchantOrderId": "6242-642-723",
+    "Customer": {
+        "Name": "Exemplo Wallet Padrão",
+        "Identity": "11225468954",
+        "IdentityType": "CPF"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "453265******6521",
+            "Holder": "Exemplo Wallet Padrão",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "10447480687BVV8COCRB",
+        "ProofOfSale": "457033",
+        "Provider": "Cielo",
+        "Eci": "7",
+        "Wallet": {
+            "Type": "ApplePay",
+            "Cavv": "AM1mbqehL24XAAa0J04CAoABFA==",
+            "Eci": 7
+        },
+        "VelocityAnalysis": {
+            "Id": "98652f2c-bdfd-47b9-8673-77b80a6fe705",
+            "ResultMessage": "Accept",
+            "Score": 0
+        },
+        "Amount": 1100,
+        "ReceivedDate": "2018-04-18 16:27:22",
+        "Status": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "4",
+        "PaymentId": "98652f2c-bdfd-47b9-8673-77b80a6fe705",
+        "Type": "CreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"
+            }
+        ]
+    }
+}
+```
+
+| Propriedade                         | Descrição                                                                                                                                    | Tipo  | Tamanho | Formato                              |
+|-------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
+| `ProofOfSale`                       | Número da autorização, identico ao NSU.                                                                                                      | Texto | 6       | Texto alfanumérico                   |
+| `Tid`                               | Id da transação na adquirente.                                                                                                               | Texto | 20      | Texto alfanumérico                   |
+| `AuthorizationCode`                 | Código de autorização.                                                                                                                       | Texto | 6       | Texto alfanumérico                   |
+| `SoftDescriptor`                    | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais               | Texto | 13      | Texto alfanumérico                   |
+| `PaymentId`                         | Campo Identificador do Pedido.                                                                                                               | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ECI`                               | Eletronic Commerce Indicator. Representa o quão segura é uma transação.                                                                      | Texto | 2       | Exemplos: 7                          |
+| `Status`                            | Status da Transação.                                                                                                                         | Byte  | ---     | 2                                    |
+| `ReturnCode`                        | Código de retorno da Adquirência.                                                                                                            | Texto | 32      | Texto alfanumérico                   |
+| `ReturnMessage`                     | Mensagem de retorno da Adquirência.                                                                                                          | Texto | 512     | Texto alfanumérico                   |
+| `Type`                              | indica qual o tipo de carteira: `ApplePay`                                      | Texto | 255     | Texto alfanumérico                   |
+| `Walletkey`                         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                                            | Texto | 255     | Ver tabela `WalletKey`               |
+| `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`                                                      | Texto | 255     | Ver Tabela `EphemeralPublicKey`      |
+| `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                                                | Texto | 255     | 3                                    |
+| `ECI`                               | O ECI (Eletronic Commerce Indicator) indica a segurança de uma transação. Deve ser levado em conta pelo lojista para decidir sobre a captura | Texto | 3       | 2                                    |
+| `CAVV`                              | Campo de validação retornado pela Wallet e utilizado como base de autorização                                                                | Texto | 255     | --                                   |
 
 ## VisaCheckout
 
