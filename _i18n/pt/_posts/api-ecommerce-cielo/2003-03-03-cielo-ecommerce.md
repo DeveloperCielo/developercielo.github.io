@@ -6177,9 +6177,9 @@ Exemplo de Requisição *Apple Pay*
 | `Payment.Installments`     | Número | 2       | Sim         | Número de Parcelas.                                                                                     |
 | `CreditCard.CardNumber.`   | Texto  | 19      | Sim         | Número do Cartão do Comprador                                                                           |
 | `CreditCard.SecurityCode`  | Texto  | 4       | Não         | Código de segurança impresso no verso do cartão - Ver Anexo.                                            |
-| `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass` |
+| `Wallet.Type`              | Texto  | 255     | Sim         | indica qual o tipo de carteira: `ApplePay` / `VisaCheckout`/ `Masterpass` |
 | `Wallet.Walletkey`         | Texto  | 255     | Sim         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
-| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`           |
+| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`           |
 | `Wallet.AdditionalData.capturecode`       | Texto  | 255    | Sim  | Código informado pela `MasterPass` ao lojista                                                    | 
 
 #### Resposta
@@ -6258,7 +6258,7 @@ Exemplo de Requisição *Apple Pay*
 | `Status`            | Status da Transação.                                                                                                           | Byte  | ---     | 2                                    |
 | `ReturnCode`        | Código de retorno da Adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da Adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
-| `Type`              |  indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `AndroidPay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
+| `Type`              |  indica qual o tipo de carteira: `ApplePay` / `VisaCheckout`/ `Masterpass`                       | Texto | 255     | Texto alfanumérico                   |
 | `Walletkey`         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                              | Texto | 255     | Ver tabela `WalletKey`               |       
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`/ `AndroidPay`                         | Texto | 255     | Ver Tabela `EphemeralPublicKey`      |  
 | `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                  | Texto | 255     | 3                                    | 
