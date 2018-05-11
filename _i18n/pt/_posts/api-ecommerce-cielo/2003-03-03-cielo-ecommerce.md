@@ -6116,6 +6116,8 @@ Após enviar o `MerchantIdentifier` para a equipe de atendimento Cielo, a loja r
 > O Certificado PEM contem o código CSR solicitado pela Apple. <br>
 > Formato de um Certificado `.PEM`
 
+-
+
 > -----BEGIN CERTIFICATE REQUEST-----<BR>
 > MIHwMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYD<BR>
 > VQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBIP<BR>
@@ -6445,7 +6447,6 @@ Exemplo de Requisição padrão *VisaCheckout*
       }
    }
 }
-
 ```
 
 | Propriedade                | Tipo   | Tamanho | Obrigatório | Descrição                                                                                               |
