@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-05-11T21:27:09+00:00</updated>
+    <updated>2018-05-11T21:32:06+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25110,7 +25110,7 @@ VKeU&lt;br /&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;indica qual o tipo de carteira: &lt;code class=&quot;highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/ &lt;code class=&quot;highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;indica qual o tipo de carteira: &lt;code class=&quot;highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/ &lt;code class=&quot;highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Walletkey&lt;/code&gt;&lt;/td&gt;
@@ -25124,7 +25124,7 @@ VKeU&lt;br /&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Token retornado pela Wallet. Deve ser enviado em Integrações: &lt;code class=&quot;highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;/ &lt;code class=&quot;highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Token retornado pela Wallet. Deve ser enviado em Integrações: &lt;code class=&quot;highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.AdditionalData.capturecode&lt;/code&gt;&lt;/td&gt;
@@ -25276,7 +25276,7 @@ VKeU&lt;br /&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;indica qual o tipo de carteira: &lt;code class=&quot;highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;SamsungPay&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;AndroidPay&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/ &lt;code class=&quot;highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;indica qual o tipo de carteira: &lt;code class=&quot;highlighter-rouge&quot;&gt;ApplePay&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;VisaCheckout&lt;/code&gt;/ &lt;code class=&quot;highlighter-rouge&quot;&gt;Masterpass&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
       &lt;td&gt;Texto alfanumérico&lt;/td&gt;
