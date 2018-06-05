@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-05-21T12:23:21+00:00</updated>
+    <updated>2018-06-05T13:32:13+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3949,7 +3949,7 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;p&gt;Faça o download do .apk do emulador no link abaixo:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk&quot;&gt;Download do Emulador&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.1.0/lio-emulator.apk&quot;&gt;Download do Emulador&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Para instalar o aplicativo, basta seguir os seguintes passos:&lt;/p&gt;
 
