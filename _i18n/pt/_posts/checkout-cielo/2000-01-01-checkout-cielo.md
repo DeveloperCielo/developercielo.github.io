@@ -20,7 +20,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
 
 O grande diferencial do Checkout Cielo é a gama de serviços agregados em uma tela transacional segura e com apenas uma integração técnica via **API REST**.
 
-O Checkout possui as seguintes Funcionalidades:
+O *Checkout* possui as seguintes Funcionalidades:
 
 |Funcionalidade|Descrição|
 |---|---|
