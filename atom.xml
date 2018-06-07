@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-06-05T13:32:13+00:00</updated>
+    <updated>2018-06-07T13:35:25+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32042,7 +32042,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
 
 &lt;p&gt;O grande diferencial do Checkout Cielo é a gama de serviços agregados em uma tela transacional segura e com apenas uma integração técnica via &lt;strong&gt;API REST&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;O Checkout possui as seguintes Funcionalidades:&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Checkout&lt;/em&gt; possui as seguintes Funcionalidades:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
