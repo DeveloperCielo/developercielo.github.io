@@ -1473,6 +1473,61 @@ O Checkout Cielo permite que o lojista modifique 3 dados da recorrencia:
 
 A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o [**Tutorial do Backoffice Checkout Cielo**]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) para mais informações.
 
+# Wallets
+
+## O que são Wallets
+
+São repositorios de cartões e dados de pagamentos para consumidores online. As Carteiras digitais permitem que um consumidor realizar o cadastro de seus dados de pagamento, assim agilizando o processo de compra em lojas habilitadas.
+
+### Wallets Disponiveis
+
+O Checkout Cielo possui integração com:
+
+| Carteira                                                           |Descrição|Observação|
+|:------------------------------------------------------------------:|---------||
+| [**VisaCheckout**](https://vaidevisa.visa.com.br/site/visa-checkout) |Wallet da bandeira Visa, permite que o comprador salve cartões e endereços e os utilize no Checkout |Necessita que o lojista solicite ativação pela Cielo|
+| [**Compre Rápido by Cielo**](https://cieloecommerce.cielo.com.br/backoffice)|Wallet do proprio Checkout Cielo. Permite que o comprador salve dados de endereço e cartão de credito para que seja utilizados entre lojas Checkout|Habilitado automaticamente para lojas Checkout|
+
+## Wallets no Checkout Cielo
+
+No Checkout Cielo as wallets são utilizadas para evitar que o comprador preencha todos os dados de pagamento, assim tornando o processo de finalização de compra mais fluido
+
+<aside class="warning">Os cartões salvos são propriedade das respectivas wallets. Não é possivel resgata-los ou vincula-los a lojas especificas dentro do Checkout</aside>
+
+### Utilização
+
+O Checkout Cielo ja é integrado as Wallets, sendo assim não há necessidade por parte dos lojsitas de:
+
+* Adaptação na integração
+* Adaptação na estrutura de notificação
+* Mudança de fluxos de Captura
+* Mudança de fluxos de Cancelamento
+
+<br>
+
+As Wallets serão apresentadas na tela transacional e o comprador realizará os passos a sequir:
+
+**1º Passo:** <BR> 
+Na tela transacional, o comprador escolherá a qual wallet deseja utilizar:
+
+Imagem 01
+
+![]({{ site.baseurl_root }}/images/checkout/wallet1.png)
+
+**2º Passo:** <BR>
+O comprador fará o login:
+
+|Compra Rápido By Cielo|Visa Checkout|
+|-|-|
+|![]({{ site.baseurl_root }}/images/checkout/wallet2.png)|![]({{ site.baseurl_root }}/images/checkout/wallet3.png)|
+
+**3º Passo:** <BR>
+Com os dados inclusos na tela, o comprador pode finalizar a transação
+
+|Compra Rápido By Cielo|Visa Checkout|
+|-|-|
+|![]({{ site.baseurl_root }}/images/checkout/wallet4.png)|![]({{ site.baseurl_root }}/images/checkout/wallet5.png)|
+
 # Códigos de Retorno das Vendas
 
  Os códigos de retorno são os motivos para uma transação ser não autorizada no Checkout Cielo
