@@ -3273,6 +3273,100 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 
 <p>A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais"><strong>Tutorial do Backoffice Checkout Cielo</strong></a> para mais informações.</p>
 
+<h1 id="wallets">Wallets</h1>
+
+<h2 id="o-que-são-wallets">O que são Wallets</h2>
+
+<p>São repositorios de cartões e dados de pagamentos para consumidores online. As Carteiras digitais permitem que um consumidor realizar o cadastro de seus dados de pagamento, assim agilizando o processo de compra em lojas habilitadas.</p>
+
+<h3 id="wallets-disponiveis">Wallets Disponiveis</h3>
+
+<p>O Checkout Cielo possui integração com:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Carteira</th>
+      <th>Descrição</th>
+      <th>Observação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><a href="https://vaidevisa.visa.com.br/site/visa-checkout"><strong>VisaCheckout</strong></a></td>
+      <td>Wallet da bandeira Visa, permite que o comprador salve cartões e endereços e os utilize no Checkout</td>
+      <td>Necessita que o lojista solicite ativação pela Cielo</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><a href="https://cieloecommerce.cielo.com.br/backoffice"><strong>Compre Rápido by Cielo</strong></a></td>
+      <td>Wallet do proprio Checkout Cielo. Permite que o comprador salve dados de endereço e cartão de credito para que seja utilizados entre lojas Checkout</td>
+      <td>Habilitado automaticamente para lojas Checkout</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="wallets-no-checkout-cielo">Wallets no Checkout Cielo</h2>
+
+<p>No Checkout Cielo as wallets são utilizadas para evitar que o comprador preencha todos os dados de pagamento, assim tornando o processo de finalização de compra mais fluido</p>
+
+<aside class="warning">Os cartões salvos são propriedade das respectivas wallets. Não é possivel resgata-los ou vincula-los a lojas especificas dentro do Checkout</aside>
+
+<h3 id="utilização">Utilização</h3>
+
+<p>O Checkout Cielo ja é integrado as Wallets, sendo assim não há necessidade por parte dos lojsitas de:</p>
+
+<ul>
+  <li>Adaptação na integração</li>
+  <li>Adaptação na estrutura de notificação</li>
+  <li>Mudança de fluxos de Captura</li>
+  <li>Mudança de fluxos de Cancelamento</li>
+</ul>
+
+<p>As Wallets serão apresentadas na tela transacional e o comprador realizará os passos a sequir:</p>
+
+<p><strong>1º Passo:</strong> <br /> 
+Na tela transacional, o comprador escolherá a qual wallet deseja utilizar:</p>
+
+<p>Imagem 01</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/wallet1.png" alt="" /></p>
+
+<p><strong>2º Passo:</strong> <br />
+O comprador fará o login:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Compra Rápido By Cielo</th>
+      <th>Visa Checkout</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://developercielo.github.io/images/checkout/wallet2.png" alt="" /></td>
+      <td><img src="https://developercielo.github.io/images/checkout/wallet3.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>3º Passo:</strong> <br />
+Com os dados inclusos na tela, o comprador pode finalizar a transação</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Compra Rápido By Cielo</th>
+      <th>Visa Checkout</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://developercielo.github.io/images/checkout/wallet4.png" alt="" /></td>
+      <td><img src="https://developercielo.github.io/images/checkout/wallet5.png" alt="" /></td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="códigos-de-retorno-das-vendas">Códigos de Retorno das Vendas</h1>
 
 <p>Os códigos de retorno são os motivos para uma transação ser não autorizada no Checkout Cielo</p>
