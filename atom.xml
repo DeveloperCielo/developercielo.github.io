@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-06-14T15:09:15+00:00</updated>
+    <updated>2018-06-14T18:53:54+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -27481,6 +27481,13 @@ Eles indicam, por exemplo, se uma transação com &lt;code class=&quot;highlight
       &lt;td&gt;Transação não autorizada. Código de segurança inválido.&lt;/td&gt;
       &lt;td&gt;Transação não autorizada. Código de segurança inválido. Oriente o portador a corrigir os dados e tentar novamente.&lt;/td&gt;
       &lt;td&gt;Transação não autorizada. Dados incorretos. Reveja os dados e informe novamente.&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;09&lt;/td&gt;
+      &lt;td&gt;Transação cancelada parcialmente com sucesso.&lt;/td&gt;
+      &lt;td&gt;Transação cancelada parcialmente com sucesso&lt;/td&gt;
+      &lt;td&gt;Transação cancelada parcialmente com sucesso&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
