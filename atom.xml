@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-06-13T13:50:31+00:00</updated>
+    <updated>2018-06-14T15:09:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13319,7 +13319,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
         <id>https://developercielo.github.io/manual/cielo-ecommerce</id>
         <content type="html">&lt;h1 id=&quot;visão-geral---api-cielo-ecommerce&quot;&gt;Visão geral - API Cielo eCommerce&lt;/h1&gt;
 
-&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API Cielo eCommerce da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.&lt;/p&gt;
+&lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a &lt;strong&gt;API Cielo eCommerce da Cielo&lt;/strong&gt;, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.&lt;/p&gt;
 
 &lt;p&gt;O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução Cielo eCommerce com sucesso.&lt;/p&gt;
 
