@@ -138,7 +138,7 @@ Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo n
 
 * [Certificado Raiz](http://maroon-cavern.cloudvent.net/attachment/Root.crt)
 * [Certificado Intermediária](http://maroon-cavern.cloudvent.net/attachment/Intermediate1.crt)
-* [Certificado E-Commerce Cielo](http://maroon-cavern.cloudvent.net/attachment/Intermediate2.crt)
+* [Certificado E-Commerce Cielo](http://maroon-cavern.cloudvent.net/attachment/Intermediate2.cer)
 
 ## Passo a Passo para a Instalação
 
