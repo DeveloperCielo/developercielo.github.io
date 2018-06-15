@@ -2793,7 +2793,7 @@ curl
 |`NextRecurrency`|Data da próxima recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`StartDate`|Data do inicio da recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
-|`Interval`|Intervalo entre as recorrência.|Texto|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Interval`|Intervalo entre as recorrência.|Texto|10|/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual |
 |`CurrentRecurrencyTry `|Indica o número de tentativa da recorrência atual|Número|1|1|
 |`OrderNumber`|Identificado do Pedido na loja|Texto|50|2017051101|
 |`Status`|Status do pedido recorrente|Número|1|<br>*1* - Ativo <br>*2* - Finalizado <br>*3*- Desativada pelo Lojista <br> *4* - Desativada por numero de retentativas <BR> *5* - Desativada por cartão de crédito vencido|
@@ -3991,7 +3991,7 @@ curl
 |`RecurrentPaymentId`|Campo Identificador da próxima recorrência.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`NextRecurrency`|Data da próxima recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
-|`Interval`|Intervalo entre as recorrência.|Texto|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Interval`|Intervalo entre as recorrência.|Texto|10|/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual |
 |`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não.|Booleano|---|true ou false|
 
 ## Agendando uma Recorrência Programada
@@ -4196,7 +4196,7 @@ curl
 |`NextRecurrency`|Data da próxima recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`StartDate`|Data do inicio da recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
-|`Interval`|Intervalo entre as recorrência.|Texto|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Interval`|Intervalo entre as recorrência.|Texto|10|/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual |
 |`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não.|Booleano|---|true ou false|
 
 ## Modificando Recorrências
@@ -4390,7 +4390,7 @@ curl
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência.|Texto|50|Sim|
-|`Interval`|Intervalo da recorrência. <ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Número|2|Sim|
+|`Interval`|Intervalo da recorrência. / Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual |Número|2|Sim|
 
 #### Resposta
 
@@ -4900,7 +4900,7 @@ curl
 |`RecurrentPaymentId`|Campo Identificador da próxima recorrência.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`NextRecurrency`|Data da próxima recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
-|`Interval`|Intervalo entre as recorrência.|Texto|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Interval`|Intervalo entre as recorrência.|Texto|10|/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual |
 |`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não.|Booleano|---|true ou false|
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
