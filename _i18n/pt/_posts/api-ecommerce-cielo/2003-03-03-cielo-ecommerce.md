@@ -4390,7 +4390,11 @@ curl
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`RecurrentPaymentId`|Numero de identificação da Recorrência.|Texto|50|Sim|
-|`Interval`|Intervalo da recorrência. / Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual |Número|2|Sim|
+|`Interval`|Intervalo da recorrência.  Monthly = 1 <BR> Bimonthly = 2  <BR> Quarterly = 3 <BR> SemiAnnual = 6 <BR> Annual = 12 <BR> |Número|2|Sim|
+
+
+
+
 
 #### Resposta
 
