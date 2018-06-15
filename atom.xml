@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-06-15T18:10:34+00:00</updated>
+    <updated>2018-06-15T18:17:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18614,7 +18614,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
       &lt;td&gt;Intervalo entre as recorrência.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
+      &lt;td&gt;/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CurrentRecurrencyTry &lt;/code&gt;&lt;/td&gt;
@@ -20778,7 +20778,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
       &lt;td&gt;Intervalo entre as recorrência.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
+      &lt;td&gt;/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -21187,7 +21187,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
       &lt;td&gt;Intervalo entre as recorrência.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
+      &lt;td&gt;/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -21625,7 +21625,7 @@ HTTP Status 200
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Intervalo da recorrência. MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
+      &lt;td&gt;Intervalo da recorrência. / Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
@@ -22553,7 +22553,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       &lt;td&gt;Intervalo entre as recorrência.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;MonthlyBimonthly Quarterly SemiAnnual Annual&lt;/td&gt;
+      &lt;td&gt;/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AuthorizeNow&lt;/code&gt;&lt;/td&gt;
@@ -32365,7 +32365,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.cer&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;passo-a-passo-para-a-instalação&quot;&gt;Passo a Passo para a Instalação&lt;/h2&gt;
@@ -32388,7 +32388,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.cer&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;2º Passo&lt;/strong&gt;&lt;/p&gt;
