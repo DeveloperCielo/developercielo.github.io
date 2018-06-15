@@ -4392,10 +4392,6 @@ curl
 |`RecurrentPaymentId`|Numero de identificação da Recorrência.|Texto|50|Sim|
 |`Interval`|Intervalo da recorrência.  Monthly = 1 <BR> Bimonthly = 2  <BR> Quarterly = 3 <BR> SemiAnnual = 6 <BR> Annual = 12 <BR> |Número|2|Sim|
 
-
-
-
-
 #### Resposta
 
 ```shell
