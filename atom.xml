@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-06-15T18:53:05+00:00</updated>
+    <updated>2018-06-15T19:01:26+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -21625,7 +21625,7 @@ HTTP Status 200
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Interval&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Intervalo da recorrência.  Monthly = 1 &lt;br /&gt; Bimonthly = 2  &lt;br /&gt; Quarterly = 3 &lt;br /&gt; SemiAnnual = 6 &lt;br /&gt; Annual = 12 &lt;br /&gt;&lt;/td&gt;
+      &lt;td&gt;Intervalo da recorrência.&lt;br /&gt;Monthly = 1 &lt;br /&gt;Bimonthly = 2&lt;br /&gt;Quarterly = 3&lt;br /&gt;SemiAnnual = 6&lt;br /&gt;Annual = 12&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
