@@ -132,7 +132,7 @@ O Certificado EV foi lançado no mercado recentemente e garante um nível de seg
 
 Trata-se de um certificado de maior confiança e quando o https for acessado a barra de endereço ficará verde, dando mais confiabilidade aos visitantes do site.
 
-## Como instalar o Certificado Extended Validation no servidor da Loja?
+## Como instalar o **Certificado Extended Validation** no servidor da Loja?
 
 Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.
 
