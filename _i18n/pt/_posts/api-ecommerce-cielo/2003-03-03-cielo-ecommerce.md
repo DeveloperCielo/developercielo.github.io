@@ -1049,6 +1049,20 @@ curl
 
 ## Cartão de Débito
 
+Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado com as seguintes bandeiras e bancos:
+Bancos Suportados:
+
+| MASTERCARD      | VISA            |
+|-----------------|-----------------|
+| Bradesco        | Bradesco        |
+| Banco do Brasil | Banco do Brasil |
+| Santander       | Santander       |
+| Itaú            | Itaú            |
+| CitiBank        | CitiBank        |
+| BRB             | N/A             |
+| Caixa           | N/A             |
+| BancooB         | N/A             |
+
 ### Autenticação Débito
 
 O Cartão de débito por padrão exige que o portador seja direcionado para o ambiente Bancário, onde será avaliada a senha e dados informados pela loja. 
