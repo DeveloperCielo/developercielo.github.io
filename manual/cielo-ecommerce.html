@@ -5034,11 +5034,11 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
   <p>A Analise de Fraude está disponivel apenas para transações de cartão de crédito.</p>
 </blockquote>
 
-<h2 id="requisição-11">Requisição</h2>
+<h2 id="integração">Integração</h2>
 
 <p>Para criar uma venda com cartão de crédito e analise de fraude, é necessário enviar uma requisição utilizando o método <code class="highlighter-rouge">POST</code> para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-12">Requisição</h3>
+<h3 id="requisição-11">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7023,7 +7023,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
 
 <p>O paramêtro <code class="highlighter-rouge">Payment.Recurrent</code>deve ser <code class="highlighter-rouge">true</code>, caso contrario, a transação será negada.</p>
 
-<h4 id="requisição-13">Requisição</h4>
+<h4 id="requisição-12">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7453,7 +7453,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
     
     da. Todas as transções posteriores serão capturadas automaticamente.</aside>
 
-<h4 id="requisição-14">Requisição</h4>
+<h4 id="requisição-13">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7841,7 +7841,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
 
 <p>Para criar uma venda recorrente cuja a primeira recorrência não será autorizada na mesma data com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.</p>
 
-<h3 id="requisição-15">Requisição</h3>
+<h3 id="requisição-14">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -8252,7 +8252,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
 
 <p>Para alterar os dados do comprador da Recorrência, basta fazer um Put conforme o exemplo.</p>
 
-<h4 id="requisição-16">Requisição</h4>
+<h4 id="requisição-15">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -8529,7 +8529,7 @@ HTTP Status 200
 
 <p>Para alterar a data final da Recorrência, basta fazer um Put conforme o exemplo.</p>
 
-<h4 id="requisição-17">Requisição</h4>
+<h4 id="requisição-16">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -8611,7 +8611,7 @@ HTTP Status 200
 
 <p>Para alterar o Intervalo da Recorrência, basta fazer um Put conforme o exemplo.</p>
 
-<h4 id="requisição-18">Requisição</h4>
+<h4 id="requisição-17">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -8693,7 +8693,7 @@ HTTP Status 200
 
 <aside class="notice">Regra: Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
 
-<h4 id="requisição-19">Requisição</h4>
+<h4 id="requisição-18">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -8851,7 +8851,7 @@ HTTP Status 200
 
 <p>Para alterar a data do próximo Pagamento, basta fazer um Put conforme o exemplo.</p>
 
-<h4 id="requisição-20">Requisição</h4>
+<h4 id="requisição-19">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -8931,7 +8931,7 @@ HTTP Status 200
 
 <aside class="notice">Atenção: Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
 
-<h4 id="requisição-21">Requisição</h4>
+<h4 id="requisição-20">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -9091,7 +9091,7 @@ HTTP Status 200
 
 <p>Para desabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.</p>
 
-<h4 id="requisição-22">Requisição</h4>
+<h4 id="requisição-21">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
@@ -9158,7 +9158,7 @@ HTTP Status 200
 
 <p>Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.</p>
 
-<h4 id="requisição-23">Requisição</h4>
+<h4 id="requisição-22">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -9228,7 +9228,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <aside class="notice">Atenção: Necessário solicitar a habilitação desta funcionalidade no cadastro  </aside>
 
-<h3 id="requisição-24">Requisição</h3>
+<h3 id="requisição-23">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -9664,7 +9664,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <p>Para salvar um cartão sem autoriza-lo, basta realizar um posto com os dados do cartão.</p>
 
-<h3 id="requisição-25">Requisição</h3>
+<h3 id="requisição-24">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/card/</span></aside>
 
@@ -9791,7 +9791,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <p>Para salvar um cartão, criando seu token, basta enviar uma requisição padrão de criação de venda, enviado SaveCard como “ true”. O response retornará o Token do cartão.</p>
 
-<h3 id="requisição-26">Requisição</h3>
+<h3 id="requisição-25">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -10426,7 +10426,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <p>Para criar uma venda de cartão de crédito com token do cartão protegido, é necessário fazer um POST para o recurso Payment conforme o exemplo.</p>
 
-<h3 id="requisição-27">Requisição</h3>
+<h3 id="requisição-26">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -10791,7 +10791,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
   </tbody>
 </table>
 
-<h3 id="requisição-28">Requisição</h3>
+<h3 id="requisição-27">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11162,7 +11162,7 @@ O serviço retornar os seguintes dados sobre o cartão:</p>
 <p><strong>Alertar sobre cartões internacionais</strong>
 O Submergível pode usar a consulta bins no carrinho para alertar compradores internacionais, que caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada</p>
 
-<h2 id="integração">Integração</h2>
+<h2 id="integração-1">Integração</h2>
 
 <h3 id="request">Request</h3>
 
@@ -11347,7 +11347,7 @@ Cada Wallet possui um formato de <code class="highlighter-rouge">EphemeralPublic
 
 <h3 id="descriptografia">Descriptografia</h3>
 
-<h4 id="requisição-29">Requisição</h4>
+<h4 id="requisição-28">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Descriptografia</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -11664,7 +11664,7 @@ Cada Wallet possui um formato de <code class="highlighter-rouge">EphemeralPublic
 
 <h3 id="envio-de-cartão">Envio de cartão</h3>
 
-<h4 id="requisição-30">Requisição</h4>
+<h4 id="requisição-29">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Envio</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">cartão</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -12030,7 +12030,7 @@ VKeU<br />
 
 <p>No modelo apresentado a seguir, demonstramos como utilizar a integração Apple Pay Cielo via o envio do WalletKey + EphemeralPublicKey retornados pela Apple via Payload</p>
 
-<h4 id="requisição-31">Requisição</h4>
+<h4 id="requisição-30">Requisição</h4>
 
 <p>Exemplo de Requisição <em>Apple Pay</em></p>
 
@@ -12356,7 +12356,7 @@ VKeU<br />
 
 <p>No modelo apresentado a seguir, demonstramos como a Apple Pay pode ser utilizada com o envio do cartão aberto, sem a necessidade de WalletKey.</p>
 
-<h4 id="requisição-32">Requisição</h4>
+<h4 id="requisição-31">Requisição</h4>
 
 <p>Nesse modelo, o lojista informa apenas que a transação é de uma Wallet Apple Pay e envia os dados ECI e CAVV fornecidos pela APPLE</p>
 
@@ -12712,7 +12712,7 @@ VKeU<br />
   <p>O <code class="highlighter-rouge">Walletkey</code> é o parametro <code class="highlighter-rouge">CallID</code> retornado pelo VisaCheckout</p>
 </blockquote>
 
-<h4 id="requisição-33">Requisição</h4>
+<h4 id="requisição-32">Requisição</h4>
 
 <p>Exemplo de Requisição padrão <em>VisaCheckout</em></p>
 
@@ -12913,7 +12913,7 @@ VKeU<br />
 
 <p>No modelo apresentado a seguir, demonstramos como a VisaCheckout pode ser utilizada com o envio do cartão aberto, sem a necessidade de WalletKey.</p>
 
-<h4 id="requisição-34">Requisição</h4>
+<h4 id="requisição-33">Requisição</h4>
 
 <p>Nesse modelo, o lojista informa apenas que a transação é da Wallet VisaCheckout e envia os dados ECI e CAVV fornecidos pela Visa</p>
 
@@ -13213,7 +13213,7 @@ VKeU<br />
 
 <p>Para utilizar a wallet <a href="https://developer.mastercard.com/product/masterpass"><strong>Masterpass</strong></a> é necessario que a loja ja esteja cadastrada junto a Mastercard, e integrada a busca de dados de cartão da plataforma.</p>
 
-<h4 id="requisição-35">Requisição</h4>
+<h4 id="requisição-34">Requisição</h4>
 
 <p>Exemplo de Requisição <em>Masterpass</em></p>
 
