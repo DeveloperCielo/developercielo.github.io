@@ -3170,11 +3170,11 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 #### Variáveis
 
-|Variável|Descrição|
-|-|-|
-|**ProviderOrgId**|	Para obter este valor, entre em contato com a Braspag|
-|**ProviderMerchantId**|	Para obter este valor, entre em contato com a Braspag|
-|**ProviderSessionId**|	Prencha este campo com o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude|
+| Variável               | Descrição                                                                                                         |
+|------------------------|-------------------------------------------------------------------------------------------------------------------|
+| **ProviderOrgId**      | Para obter este valor, entre em contato com a Cielo                                                               |
+| **ProviderMerchantId** | Para obter este valor, entre em contato com a Cielo                                                               |
+| **ProviderSessionId**  | Prencha este campo com o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude |
 
 > PNG
 
@@ -4276,7 +4276,7 @@ Para modificar o valor da recorrência, basta fazer um Put conforme o exemplo.
 
 ```shell
 curl
---request POST "https://apisandbox.braspag.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Amount"
+--request POST "https://apisandbox.cieloecommerce.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Amount"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
