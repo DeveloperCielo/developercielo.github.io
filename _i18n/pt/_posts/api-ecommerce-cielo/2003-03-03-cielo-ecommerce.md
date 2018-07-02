@@ -6648,7 +6648,6 @@ Após se cadastrar junto a SamsungPay, a loja deverá requisitar um certificado 
 7. Finalize o processo.
 
 > O Certificado PEM contem o código CSR solicitado pela Samsung. <br>
-
 > Formato de um Certificado `.PEM`
 
 > -----BEGIN CERTIFICATE REQUEST-----
