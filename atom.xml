@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-02T17:51:48+00:00</updated>
+    <updated>2018-07-02T18:20:20+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -15316,6 +15316,52 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
 &lt;/table&gt;
 
 &lt;h2 id=&quot;cartão-de-débito&quot;&gt;Cartão de Débito&lt;/h2&gt;
+
+&lt;p&gt;Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado com as seguintes bandeiras e bancos:
+Bancos Suportados:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;MASTERCARD&lt;/th&gt;
+      &lt;th&gt;VISA&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Bradesco&lt;/td&gt;
+      &lt;td&gt;Bradesco&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Banco do Brasil&lt;/td&gt;
+      &lt;td&gt;Banco do Brasil&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Santander&lt;/td&gt;
+      &lt;td&gt;Santander&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Itaú&lt;/td&gt;
+      &lt;td&gt;Itaú&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CitiBank&lt;/td&gt;
+      &lt;td&gt;CitiBank&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BRB&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Caixa&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BancooB&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h3 id=&quot;autenticação-débito&quot;&gt;Autenticação Débito&lt;/h3&gt;
 
