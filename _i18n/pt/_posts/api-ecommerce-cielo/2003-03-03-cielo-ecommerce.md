@@ -1047,645 +1047,6 @@ curl
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
 
-### Transação com Analise de Fraude (AF)
-
-Para criar uma venda com cartão de crédito e analise de fraude, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment conforme o exemplo.
-
-#### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<aside class="warning">Na análise de AF, os padrões de siglas para países utilizados nos campos `Country` devem seguir o modelo da ISO 3166-1 ALPHA 3 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3</aside>
-
-```json
-{  
-   "MerchantOrderId":"201411173454307",
-   "Customer":{  
-      "Name":"Comprador crédito AF",
-      "Email":"compradorteste@live.com",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Rua Júpter",
-         "Number":"174",
-         "Complement":"AP 201",
-         "ZipCode":"21241140",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      },
-      "DeliveryAddress":{  
-         "Street":"Rua Júpter",
-         "Number":"174",
-         "Complement":"AP 201",
-         "ZipCode":"21241140",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      }
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":100,
-     "Currency":"BRL",
-     "Country":"BRA",
-     "ServiceTaxAmount":0,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "Interest":"ByMerchant",
-     "Capture":false,
-     "Authenticate":false,
-     "CreditCard":{  
-         "CardNumber":"4024007197692931",
-         "Holder":"Teste accept",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"023",
-         "Brand":"Visa"
-     },
-     "FraudAnalysis":{
-       "Sequence":"AuthorizeFirst",
-       "SequenceCriteria":"Always",
-       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
-       "Browser":{
-         "CookiesAccepted":false,
-         "Email":"compradorteste@live.com",
-         "HostName":"Teste",
-         "IpAddress":"200.190.150.350",
-         "Type":"Chrome"
-        },
-       "Cart":{
-         "IsGift":false,
-         "ReturnsAccepted":true,
-         "Items":[{
-           "GiftCategory":"Undefined",
-           "HostHedge":"Off",
-           "NonSensicalHedge":"Off",
-           "ObscenitiesHedge":"Off",
-           "PhoneHedge":"Off",
-           "Name":"ItemTeste",
-           "Quantity":1,
-           "Sku":"201411170235134521346",
-           "UnitPrice":123,
-           "Risk":"High",
-           "TimeHedge":"Normal",
-           "Type":"AdultContent",
-           "VelocityHedge":"High",
-           "Passenger":{
-             "Email":"compradorteste@live.com",
-             "Identity":"1234567890",
-             "Name":"Comprador accept",
-             "Rating":"Adult",
-             "Phone":"999994444",
-             "Status":"Accepted"
-            }
-           }]
-       },
-       "MerchantDefinedFields":[{
-            "Id":95,
-            "Value":"Eu defini isso"
-        }],
-        "Shipping":{
-            "Addressee":"Sr Comprador Teste",
-            "Method":"LowCost",
-            "Phone":"21114740"
-        },
-        "Travel":{
-            "DepartureTime":"2010-01-02",
-            "JourneyType":"Ida",
-            "Route":"MAO-RJO",
-          "Legs":[{
-                "Destination":"GYN",
-                "Origin":"VCP"
-          }]
-        }
-     }
-  }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"201411173454307",
-   "Customer":{  
-      "Name":"Comprador crédito AF",
-      "Email":"compradorteste@live.com",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Rua Júpter",
-         "Number":"174",
-         "Complement":"AP 201",
-         "ZipCode":"21241140",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      },
-      "DeliveryAddress":{  
-         "Street":"Rua Júpter",
-         "Number":"174",
-         "Complement":"AP 201",
-         "ZipCode":"21241140",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      }
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":100,
-     "Country":"BRA",
-     "ServiceTaxAmount":0,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "Interest":"ByMerchant",
-     "Capture":false,
-     "Authenticate":false,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardNumber":"4024007197692931",
-         "Holder":"Teste accept",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"023",
-         "Brand":"Visa"
-     },
-     "FraudAnalysis":{
-       "Sequence":"AuthorizeFirst",
-       "SequenceCriteria":"Always",
-       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
-       "Browser":{
-         "CookiesAccepted":false,
-         "Email":"compradorteste@live.com",
-         "HostName":"Teste",
-         "IpAddress":"200.190.150.350",
-         "Type":"Chrome"
-        },
-       "Cart":{
-         "IsGift":false,
-         "ReturnsAccepted":true,
-         "Items":[{
-           "GiftCategory":"Undefined",
-           "HostHedge":"Off",
-           "NonSensicalHedge":"Off",
-           "ObscenitiesHedge":"Off",
-           "PhoneHedge":"Off",
-           "Name":"ItemTeste",
-           "Quantity":1,
-           "Sku":"201411170235134521346",
-           "UnitPrice":123,
-           "Risk":"High",
-           "TimeHedge":"Normal",
-           "Type":"AdultContent",
-           "VelocityHedge":"High",
-           "Passenger":{
-             "Email":"compradorteste@live.com",
-             "Identity":"1234567890",
-             "Name":"Comprador accept",
-             "Rating":"Adult",
-             "Phone":"999994444",
-             "Status":"Accepted"
-            }
-           }]
-       },
-       "MerchantDefinedFields":[{
-            "Id":95,
-            "Value":"Eu defini isso"
-        }],
-        "Shipping":{
-            "Addressee":"Sr Comprador Teste",
-            "Method":"LowCost",
-            "Phone":"21114740"
-        },
-        "Travel":{
-            "DepartureTime":"2010-01-02",
-            "JourneyType":"Ida",
-            "Route":"MAO-RJO",
-          "Legs":[{
-                "Destination":"GYN",
-                "Origin":"VCP"
-          }]
-        }
-     }
-  }
-}
---verbose
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
-|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Customer.Email`|Texto|255|Não|Email do Comprador.|
-|`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador.|
-|`Customer.Address.Street`|Texto|255|Não|Endereço do Comprador.|
-|`Customer.Address.Number`|Texto|15|Não|Número do endereço do Comprador.|
-|`Customer.Address.Complement`|Texto|50|Não|Complemento do endereço do Comprador.|
-|`Customer.Address.ZipCode`|Texto|9|Não|CEP do endereço do Comprador.|
-|`Customer.Address.City`|Texto|50|Não|Cidade do endereço do Comprador.|
-|`Customer.Address.State`|Texto|2|Não|Estado do endereço do Comprador.|
-|`Customer.Address.Country`|Texto|35|Não|Pais do endereço do Comprador.|
-|`Customer.DeliveryAddress.Street`|Texto|255|Não|Endereço do Comprador.|
-|`Customer.Address.Number`|Texto|15|Não|Número do endereço do Comprador.|
-|`Customer.DeliveryAddress.Complement`|Texto|50|Não|Complemento do endereço do Comprador.|
-|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|CEP do endereço do Comprador.|
-|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço do Comprador.|
-|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço do Comprador.|
-|`Customer.DeliveryAddress.Country`|Texto|35|Não|Pais do endereço do Comprador.|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
-|`Payment.Country`|Texto|3|Não|Pais na qual o pagamento será feito.|
-|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.ServiceTaxAmount`|Número|15|Não|Veja Anexo|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
-|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
-|`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
-|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
-|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`FraudAnalysis.Sequence`|Texto|14|Não|Tipo de Fluxo para realização da análise de fraude. Padrão: AuthorizeFirst|
-|`FraudAnalysis.SequenceCriteria`|Texto|9|Não|Critério do fluxo. OnSuccess - Só realiza a analise se tiver sucesso na transação. Always - Sempre realiza a analise|
-|`FraudAnalysis.FingerPrintId`|Texto|50|Não|Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint.|
-|`FraudAnalysis.Browser.CookiesAccepted`|Booleano|---|Não|Booleano para identificar se o browser do cliente aceita cookies.|
-|`FraudAnalysis.Browser.Email`|Texto|100|Não|E-mail registrado no browser do comprador.|
-|`FraudAnalysis.Browser.HostName`|Texto|60|Não|Nome do host onde o comprador estava antes de entrar no site da loja.|
-|`FraudAnalysis.Browser.IpAddress`|Texto|15|Não|Endereço IP do comprador. É altamente recomendável o envio deste campo.|
-|`FraudAnalysis.Browser.Type`|Texto|40|Não|Nome do browser utilizado pelo comprador.|
-|`FraudAnalysis.Cart.IsGift`|Booleano|---|Não|Booleano que indica se o pedido é para presente ou não.|
-|`FraudAnalysis.Cart.ReturnsAccepted`|Booleano|---|Não|Booleano que define se devoluções são aceitas para o pedido.|
-|`FraudAnalysis.Cart.Items.GiftCategory`|Texto|9|Não|Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países.fraudanalysis.items.giftcategory)|
-|`FraudAnalysis.Cart.Items.HostHedge`|Texto|Não|Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação.|
-|`FraudAnalysis.Cart.Items.NonSensicalHedge`|Texto|6|Não|Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido.|
-|`FraudAnalysis.Cart.Items.ObscenitiesHedge`|Texto|6|Não|Nível de obscenidade dos pedidos recebedidos.|
-|`FraudAnalysis.Cart.Items.PhoneHedge`|Texto|6|Não|Nível dos testes realizados com os números de telefones.|
-|`FraudAnalysis.Cart.Items.Name`|Texto|255|Não|Nome do Produto.|
-|`FraudAnalysis.Cart.Items.Quantity`|Número|15|Não|Quantidade do produto a ser adquirido.|
-|`FraudAnalysis.Cart.Items.Sku`|Texto|255|Não|Código comerciante identificador do produto.|
-|`FraudAnalysis.Cart.Items.UnitPrice`|Número|15|Não|Preço unitário do produto.|
-|`FraudAnalysis.Cart.Items.Risk`|Texto|6|Não|Nível do risco do produto.|
-|`FraudAnalysis.Cart.Items.TimeHedge`|Texto|Não|Nível de importância da hora do dia do pedido do cliente.|
-|`FraudAnalysis.Cart.Items.Type`|Texto|Não|Tipo do produto.)|
-|`FraudAnalysis.Cart.Items.VelocityHedge`|Texto|6|Não|Nível de importância de frequência de compra do cliente.|
-|`FraudAnalysis.Cart.Items.Passenger.Email`|Texto|255|Não|Email do Passageiro.|
-|`FraudAnalysis.Cart.Items.Passenger.Identity`|Texto|32|Não|Id do passageiro a quem o bilheite foi emitido.|
-|`FraudAnalysis.Cart.Items.Passenger.Name`|Texto|120|Não|Nome do passageiro.|
-|`FraudAnalysis.Cart.Items.Passenger.Rating`|Texto|Não|Classificação do Passageiro.|
-|`FraudAnalysis.Cart.Items.Passenger.Phone`|Texto|15|Não|Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país.|
-|`FraudAnalysis.Cart.Items.Passenger.Status`|Texto|32|Não|Classificação da empresa aérea. Pode-se usar valores como Gold ou Platina.|
-|`FraudAnalysis.MerchantDefinedFields.Id`|Texto|---|Não|Id das informações adicionais a serem enviadas.|
-|`FraudAnalysis.MerchantDefinedFields.Value`|Texto|255|Não|Valor das informações adicionais a serem enviadas.|
-|`FraudAnalysis.Shipping.Addressee`|Texto|255|Não|Nome do destinatário da entrega.|
-|`FraudAnalysis.Shipping.Method`|Texto|Não|Tipo de serviço de entrega do produto.|
-|`FraudAnalysis.Shipping.Phone`|Texto|15|Não|Telefone do destinatário da entrega.|
-|`FraudAnalysis.Travel.DepartureTime`|DateTime|23|Não|Data, hora e minuto de partida do vôo.|
-|`FraudAnalysis.Travel.JourneyType`|Texto|32|Não|Tipo de viagem.|
-|`FraudAnalysis.Travel.Route`|Texto|255|Não|Rota da viagem. Concatenação de pernas de viagem individuais no formato ORIG1- DEST1.|
-|`FraudAnalysis.Travel.Legs.Destination`|Texto|3|Não|Código do aeroporto do ponto de destino da viagem.|
-|`FraudAnalysis.Travel.Legs.Origin`|Texto|3|Não|Código do aeroporto do ponto de origem da viagem.|
-
-#### Resposta
-
-```json
-{
-    "MerchantOrderId": "201411173454307",
-    "Customer": {
-        "Name": "Comprador crédito AF",
-        "Email": "compradorteste@live.com",
-        "Birthdate": "1991-01-02",
-        "Address": {
-            "Street": "Rua Júpter",
-            "Number": "174",
-            "Complement": "AP 201",
-            "ZipCode": "21241140",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        },
-        "DeliveryAddress": {
-            "Street": "Rua Júpter",
-            "Number": "174",
-            "Complement": "AP 201",
-            "ZipCode": "21241140",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "402400******2931",
-            "Holder": "Teste accept",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "492115",
-        "Tid": "10069930692606D31001",
-        "AuthorizationCode": "123456",
-        "SoftDescriptor":"123456789ABCD",
-        "FraudAnalysis": {
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "Always",
-            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
-            "MerchantDefinedFields": [
-                {
-                    "Id": 95,
-                    "Value": "Eu defini isso"
-                }
-            ],
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [
-                    {
-                        "Type": "AdultContent",
-                        "Name": "ItemTeste",
-                        "Risk": "High",
-                        "Sku": "201411170235134521346",
-                        "UnitPrice": 123,
-                        "Quantity": 1,
-                        "HostHedge": "Off",
-                        "NonSensicalHedge": "Off",
-                        "ObscenitiesHedge": "Off",
-                        "PhoneHedge": "Off",
-                        "TimeHedge": "Normal",
-                        "VelocityHedge": "High",
-                        "GiftCategory": "Undefined",
-                        "Passenger": {
-                            "Name": "Comprador accept",
-                            "Identity": "1234567890",
-                            "Status": "Accepted",
-                            "Rating": "Adult",
-                            "Email": "compradorteste@live.com",
-                            "Phone": "999994444"
-                        }
-                    }
-                ]
-            },
-            "Travel": {
-                "Route": "MAO-RJO",
-                "DepartureTime": "2010-01-02T00:00:00",
-                "JourneyType": "Ida",
-                "Legs": [
-                    {
-                        "Destination": "GYN",
-                        "Origin": "VCP"
-                    }
-                ]
-            },
-            "Browser": {
-                "HostName": "Teste",
-                "CookiesAccepted": false,
-                "Email": "compradorteste@live.com",
-                "Type": "Chrome",
-                "IpAddress": "200.190.150.350"
-            },
-            "Shipping": {
-                "Addressee": "Sr Comprador Teste",
-                "Phone": "21114740",
-                "Method": "LowCost"
-            },
-            "Id": "0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
-            "Status": 1,
-            "ReplyData": {
-                "AddressInfoCode": "COR-BA^MM-BIN",
-                "FactorCode": "B^D^R^Z",
-                "Score": 42,
-                "BinCountry": "us",
-                "CardIssuer": "FIA CARD SERVICES, N.A.",
-                "CardScheme": "VisaCredit",
-                "HostSeverity": 1,
-                "InternetInfoCode": "FREE-EM^RISK-EM",
-                "IpRoutingMethod": "Undefined",
-                "ScoreModelUsed": "default_lac",
-                "CasePriority": 3
-            }
-        },
-        "PaymentId": "04096cfb-3f0a-4ece-946c-3b7dc5d38f19",
-        "Type": "CreditCard",
-        "Amount": 100,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "ReturnCode": "4",
-        "ReturnMessage": "Transação autorizada",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-    {
-    "MerchantOrderId": "201411173454307",
-    "Customer": {
-        "Name": "Comprador crédito AF",
-        "Email": "compradorteste@live.com",
-        "Birthdate": "1991-01-02",
-        "Address": {
-            "Street": "Rua Júpter",
-            "Number": "174",
-            "Complement": "AP 201",
-            "ZipCode": "21241140",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        },
-        "DeliveryAddress": {
-            "Street": "Rua Júpter",
-            "Number": "174",
-            "Complement": "AP 201",
-            "ZipCode": "21241140",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "402400******2931",
-            "Holder": "Teste accept",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "492115",
-        "Tid": "10069930692606D31001",
-        "AuthorizationCode": "123456",
-        "SoftDescriptor":"123456789ABCD",
-        "FraudAnalysis": {
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "Always",
-            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
-            "MerchantDefinedFields": [
-                {
-                    "Id": 95,
-                    "Value": "Eu defini isso"
-                }
-            ],
-            "Cart": {
-                "IsGift": false,
-                "ReturnsAccepted": true,
-                "Items": [
-                    {
-                        "Type": "AdultContent",
-                        "Name": "ItemTeste",
-                        "Risk": "High",
-                        "Sku": "201411170235134521346",
-                        "UnitPrice": 123,
-                        "Quantity": 1,
-                        "HostHedge": "Off",
-                        "NonSensicalHedge": "Off",
-                        "ObscenitiesHedge": "Off",
-                        "PhoneHedge": "Off",
-                        "TimeHedge": "Normal",
-                        "VelocityHedge": "High",
-                        "GiftCategory": "Undefined",
-                        "Passenger": {
-                            "Name": "Comprador accept",
-                            "Identity": "1234567890",
-                            "Status": "Accepted",
-                            "Rating": "Adult",
-                            "Email": "compradorteste@live.com",
-                            "Phone": "999994444"
-                        }
-                    }
-                ]
-            },
-            "Travel": {
-                "Route": "MAO-RJO",
-                "DepartureTime": "2010-01-02T00:00:00",
-                "JourneyType": "Ida",
-                "Legs": [
-                    {
-                        "Destination": "GYN",
-                        "Origin": "VCP"
-                    }
-                ]
-            },
-            "Browser": {
-                "HostName": "Teste",
-                "CookiesAccepted": false,
-                "Email": "compradorteste@live.com",
-                "Type": "Chrome",
-                "IpAddress": "200.190.150.350"
-            },
-            "Shipping": {
-                "Addressee": "Sr Comprador Teste",
-                "Phone": "21114740",
-                "Method": "LowCost"
-            },
-            "Id": "0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
-            "Status": 1,
-            "ReplyData": {
-                "AddressInfoCode": "COR-BA^MM-BIN",
-                "FactorCode": "B^D^R^Z",
-                "Score": 42,
-                "BinCountry": "us",
-                "CardIssuer": "FIA CARD SERVICES, N.A.",
-                "CardScheme": "VisaCredit",
-                "HostSeverity": 1,
-                "InternetInfoCode": "FREE-EM^RISK-EM",
-                "IpRoutingMethod": "Undefined",
-                "ScoreModelUsed": "default_lac",
-                "CasePriority": 3
-            }
-        },
-        "PaymentId": "04096cfb-3f0a-4ece-946c-3b7dc5d38f19",
-        "Type": "CreditCard",
-        "Amount": 100,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "ReturnCode": "4",
-        "ReturnMessage": "Transação autorizada",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
-|`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Id`|Indentificação da Transação no Antifraud.|Texto|300|Texto alfanumérico|
-|`Status`|Status da Transação.|Byte|---|2|
-|`FraudAnalysisReasonCode`|Resultado da análise.|Byte|---|Número:<br /><ul><li>100 - Operação bem sucedida.</li><li>101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.</li><li>102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.</li><li>150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.</li><li>202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.</li><li>400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.</li><li>480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.</li><li>481 - O pedido foi rejeitado pelo Gerenciador de Decisão</li></ul>|
-|`AddressInfoCode`|Combinação de códigos que indicam erro no endereço de cobrança e/ou entrega. Os códigos são concatenados usando o caractere ^.|Texto|255|Ex: COR-BA^MM-BIN<br /><ul><li>COR-BA - O endereço de cobrança pode ser normalizado.</li><li>COR-SA - O endereço de entrega pode ser normalizado.</li><li>INTL-BA - O país de cobrança é fora dos U.S.</li><li>INTL-SA - O país de entrega é fora dos U.S.</li><li>MIL-USA - Este é um endereço militar nos U.S.</li><li>MM-A - Os endereços de cobrança e entrega usam nomes de ruas diferentes.</li><li>MM-BIN - O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país.</li><li>MM-C - Os endereços de cobrança e entrega usam cidades diferentes.</li><li>MM-CO - Os endereços de cobrança e entrega usam países diferentes.</li><li>MM-ST - Os endereços de cobrança e entrega usam estados diferentes.</li><li>MM-Z - Os endereços de cobrança e entrega usam códidos postais diferentes.</li><li>UNV-ADDR - O endereço é inverificável.</li></ul>|
-|`FactorCode`|Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^.|Texto|100|Ex: B^D^R^Z<br /><ul><li>A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.</li><li>B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.</li><li>C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.</li><li>D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.</li><li>E - Lista positiva. O cliente está na sua lista positiva.</li><li>F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.</li><li>G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.</li><li>H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.</li><li>I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.</li><li>N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.</li><li>O - Obscenidades. Dados do cliente contém palavras obscenas.</li><li>P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.</li><li>Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.</li><li>R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.</li><li>T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.</li><li>U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.</li><li>V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.</li><li>W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.</li><li>Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.</li><li>Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</li></ul>|
-|`Score`|Score total calculado para o pedido.|Número|---|Número|
-|`BinCountry`|Sigla do país de origem da compra.|Texto|2|us|
-|`CardIssuer`|Nome do banco ou entidade emissora do cartão.|Texto|128|Bradesco|
-|`CardScheme`|Tipo da bandeira|Texto|20|<ul><li>MaestroInternational - Maestro International</li><li>MaestroUkDomestic - Maestro UK Domestic</li><li>MastercardCredit - MasterCard Credit</li><li>MastercardDebit - MasterCard Debit</li><li>VisaCredit - Visa Credit</li><li>VisaDebit - Visa Debit</li><li>VisaElectron - Visa Electron</li></ul>|
-|`HostSeverity`|Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto.|Número|---|5|
-|`InternetInfoCode`|Sequência de códigos que indicam que existe uma excessiva alteração de identidades do comprador. Os códigos são concatenados usando o caractere ^.|Texto|255|Ex: <br /><ul><li>MORPH-B - O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos.</li><li>MORPH-C - O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos.</li><li>MORPH-E - O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos. MORPH-I O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos.</li><li>MORPH-P - O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos.</li><li>MORPH-S - O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos.</li></ul>|
-|`IpRoutingMethod`|Tipo de roteamento de IP utilizado pelo computador.|Texto|---|<ul><li>Anonymizer</li><li>AolBased</li><li>CacheProxy</li><li>Fixed</li><li>InternationalProxy</li><li>MobileGateway</li><li>Pop</li><li>RegionalProxy</li><li>Satellite</li><li>SuperPop</li></ul>|
-|`ScoreModelUsed`|Nome do modelo de score utilizado.|Texto|20|Ex: default_lac|
-|`CasePriority`|Caso o lojista seja assinante do Enhanced Case Management, ele recebe este valor com o nível de prioridade, sendo 1 o mais alto e 5 o mais baixo.|Número|---|3|
-|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-
 ## Cartão de Débito
 
 ### Autenticação Débito
@@ -2490,194 +1851,6 @@ curls
 |---|---|---|---|---|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-### Consulta Anti-fraude
-
-Para consultar uma venda de cartão de crédito com antifraud, é necessário fazer um GET para o recurso Payment conforme o exemplo.
-
-#### Requisição
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
-
-```shell
-curl
---request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim|
-
-#### Resposta
-
-```json
-{
-    "OrderId": "f381c0c4-2bf9-4de1-91e1-e9e1f11d0854",
-    "MerchantOrderId": "201411173454307",
-    "Customer": {
-        "Name": "Comprador Teste",
-        "Email": "compradorteste@live.com",
-        "Birthdate": "1991-01-02",
-        "Address": {
-            "Street": "Rua Júpter",
-            "Number": "174",
-            "Complement": "AP 201",
-            "ZipCode": "21241140",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "402400******2931",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "500000",
-        "Tid": "10069930692625A01001",
-        "AuthorizationCode": "123456",
-        "FraudAnalysis": {
-            "ReasonCode": 100,
-            "Score": 42,
-            "Status": "Accept",
-            "FactorCode": "B^D^R"
-        },
-        "PaymentId": "77df250a-93ce-46a3-a224-a894b78ecd80",
-        "Type": "CreditCard",
-        "Amount": 100,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Cielo",
-        "Credentials": {},
-        "ExtraDataCollection": [],
-        "ReasonCode": 0,
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "OrderId": "f381c0c4-2bf9-4de1-91e1-e9e1f11d0854",
-    "MerchantOrderId": "201411173454307",
-    "Customer": {
-        "Name": "Comprador Teste",
-        "Email": "compradorteste@live.com",
-        "Birthdate": "1991-01-02",
-        "Address": {
-            "Street": "Rua Júpter",
-            "Number": "174",
-            "Complement": "AP 201",
-            "ZipCode": "21241140",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "402400******2931",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "500000",
-        "Tid": "10069930692625A01001",
-        "AuthorizationCode": "123456",
-        "FraudAnalysis": {
-            "ReasonCode": 100,
-            "Score": 42,
-            "Status": "Accept",
-            "FactorCode": "B^D^R"
-        },
-        "PaymentId": "77df250a-93ce-46a3-a224-a894b78ecd80",
-        "Type": "CreditCard",
-        "Amount": 100,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Cielo",
-        "Credentials": {},
-        "ExtraDataCollection": [],
-        "ReasonCode": 0,
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
-`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Id`|Indentificação da Transação no Antifraud.|Texto|300|Texto alfanumérico|
-|`Status`|Status da Transação.|Byte|---|Ver anexos|
-|`FraudAnalysis.ReasonCode`|Resultado da análise.|Byte|---|Número:<br /><ul><li>100 - Operação bem sucedida.</li><li>101 - O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa.</li><li>102 - Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.</li><li>150 Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>151 - O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.</li><li>152 O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.</li><li>202 – Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>231 O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.</li><li>234 - Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.</li><li>400 A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.</li><li>480 O pedido foi marcado para revisão pelo Gerenciador de Decisão.</li><li>481 - O pedido foi rejeitado pelo Gerenciador de Decisão</li></ul>|
-|`FraudAnalysis.FactorCode`|Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^.|Texto|100|Ex: B^D^R^Z<br /><ul><li>A - Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.</li><li>B - BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.</li><li>C - Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.</li><li>D - Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.</li><li>E - Lista positiva. O cliente está na sua lista positiva.</li><li>F - Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.</li><li>G - Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.</li><li>H - Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.</li><li>I - Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.</li><li>N - Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.</li><li>O - Obscenidades. Dados do cliente contém palavras obscenas.</li><li>P - Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.</li><li>Q - Inconsistências do telefone. O número de telefone do cliente é suspeito.</li><li>R - Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.</li><li>T - Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.</li><li>U - Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.</li><li>V - Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.</li><li>W - Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.</li><li>Y - O endereço, cidade, estado ou país dos endereços de cobrança e entrega não se correlacionam.</li><li>Z - Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</li></ul>|
-|`FraudAnalysis.Score`|Score total calculado para o pedido.|Número|---|Número|
-|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-
 ### Consulta Recorrencia
 
 Para consultar uma Recorrência de cartão de crédito, é necessário fazer um `GET`  conforme o exemplo.
@@ -3375,6 +2548,653 @@ A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 2
 |3|Mudança de status do Antifraude|
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|cancelamento negado|
+
+# Análise de Fraude (AF)
+
+A API Cielo e-commerce Cielo oferece um serviço de analise de risco de fraudes em transações online. A Cielo se integra a empresas de analise de risco, como CyberSource, que realizam uma validação dos dados transacionais e do historico de compras do portador do cartão.
+Essa analise retorna fatores de risco e permite que o lojista tome a decisão se dará continuidade a venda.
+
+<aside class="warning">A análise de fraude oferecida pela Cielo avalia o risco de uma transação, mas não vincula o resultado da analise com a cobertura de ChargeBacks. A Cielo não realiza transações "garantidas"</aside>
+
+Para utilizar o AF, é necessario que o serviço seja ativado junto a Cielo.
+Existem 3 tipos de configurações de analise de fraude disponiveis:
+
+|Tipo|Descrição|Fornecedor|
+|-|-|-|
+|**SuperMID Sem BPO**|Regras de analise definidas pela Cielo <BR> Não é possivel costumizar as regras no fornecedor <BR> Não há analista de risco dedicado |CyberSource|
+|**SuperMID Com BPO**|Regras de analise definidas pela Cielo <BR> Não é possivel costumizar as regras no fornecedor <BR> Analista de risco dedicado contratado pelo lojista junto ao fornecedor|CyberSource|
+|**Hierarquia ou Enterprise**|O Lojista tem um contrato fechado diretamente com o fornecedor da AF, com regras especificas para analise. Cielo deve configurar as credenciais fornecidas pelo Fornecedor da AF no API Cielo E-commerce|CyberSource|
+
+> A Analise de Fraude está disponivel apenas para transações de cartão de crédito.
+
+## Requisição
+
+Para criar uma venda com cartão de crédito e analise de fraude, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment conforme o exemplo.
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<aside class="warning">Na análise de AF, os padrões de siglas para países utilizados nos campos `Country` devem seguir o modelo da ISO 3166-1 ALPHA 3 - https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3</aside>
+
+```json
+{  
+   "MerchantOrderId":"201411173454307",
+   "Customer":{  
+      "Name":"Comprador crédito AF",
+      "Email":"compradorteste@live.com",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Rua Júpter",
+         "Number":"174",
+         "Complement":"AP 201",
+         "ZipCode":"21241140",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+      "DeliveryAddress":{  
+         "Street":"Rua Júpter",
+         "Number":"174",
+         "Complement":"AP 201",
+         "ZipCode":"21241140",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      }
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":100,
+     "Currency":"BRL",
+     "Country":"BRA",
+     "ServiceTaxAmount":0,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "Interest":"ByMerchant",
+     "Capture":false,
+     "Authenticate":false,
+     "CreditCard":{  
+         "CardNumber":"4024007197692931",
+         "Holder":"Teste accept",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"023",
+         "Brand":"Visa"
+     },
+     "FraudAnalysis":{
+       "Sequence":"AuthorizeFirst",
+       "SequenceCriteria":"Always",
+       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+       "Browser":{
+         "CookiesAccepted":false,
+         "Email":"compradorteste@live.com",
+         "HostName":"Teste",
+         "IpAddress":"200.190.150.350",
+         "Type":"Chrome"
+        },
+       "Cart":{
+         "IsGift":false,
+         "ReturnsAccepted":true,
+         "Items":[{
+           "GiftCategory":"Undefined",
+           "HostHedge":"Off",
+           "NonSensicalHedge":"Off",
+           "ObscenitiesHedge":"Off",
+           "PhoneHedge":"Off",
+           "Name":"ItemTeste",
+           "Quantity":1,
+           "Sku":"201411170235134521346",
+           "UnitPrice":123,
+           "Risk":"High",
+           "TimeHedge":"Normal",
+           "Type":"AdultContent",
+           "VelocityHedge":"High",
+           "Passenger":{
+             "Email":"compradorteste@live.com",
+             "Identity":"1234567890",
+             "Name":"Comprador accept",
+             "Rating":"Adult",
+             "Phone":"999994444",
+             "Status":"Accepted"
+            }
+           }]
+       },
+       "MerchantDefinedFields":[{
+            "Id":95,
+            "Value":"Eu defini isso"
+        }],
+        "Shipping":{
+            "Addressee":"Sr Comprador Teste",
+            "Method":"LowCost",
+            "Phone":"21114740"
+        },
+        "Travel":{
+            "DepartureTime":"2010-01-02",
+            "JourneyType":"Ida",
+            "Route":"MAO-RJO",
+          "Legs":[{
+                "Destination":"GYN",
+                "Origin":"VCP"
+          }]
+        }
+     }
+  }
+}
+```
+
+| Propriedade                                   | Tipo     | Tamanho | Obrigatório         | Descrição                                                                                                                         |
+|-----------------------------------------------|----------|---------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `MerchantId`                                  | Guid     | 36      | Sim                 | Identificador da loja na Cielo.                                                                                                   |
+| `MerchantKey`                                 | Texto    | 40      | Sim                 | Chave Publica para Autenticação Dupla na Cielo.                                                                                   |
+| `RequestId`                                   | Guid     | 36      | Não                 | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.                            |
+| `MerchantOrderId`                             | Texto    | 50      | Sim                 | Numero de identificação do Pedido.                                                                                                |
+| `Customer.Name`                               | Texto    | 255     | Não                 | Nome do Comprador.                                                                                                                |
+| `Customer.Status`                             | Texto    | 255     | Não                 | Status de cadastro do comprador na loja (NEW / EXISTING)                                                                          |
+| `Customer.Email`                              | Texto    | 255     | Não                 | Email do Comprador.                                                                                                               |
+| `Customer.Birthdate`                          | Date     | 10      | Não                 | Data de nascimento do Comprador.                                                                                                  |
+| `Customer.Address.Street`                     | Texto    | 255     | Não                 | Endereço do Comprador.                                                                                                            |
+| `Customer.Address.Number`                     | Texto    | 15      | Não                 | Número do endereço do Comprador.                                                                                                  |
+| `Customer.Address.Complement`                 | Texto    | 50      | Não                 | Complemento do endereço do Comprador.                                                                                             |
+| `Customer.Address.ZipCode`                    | Texto    | 9       | Não                 | CEP do endereço do Comprador.                                                                                                     |
+| `Customer.Address.City`                       | Texto    | 50      | Não                 | Cidade do endereço do Comprador.                                                                                                  |
+| `Customer.Address.State`                      | Texto    | 2       | Não                 | Estado do endereço do Comprador.                                                                                                  |
+| `Customer.Address.Country`                    | Texto    | 35      | Não                 | Pais do endereço do Comprador.                                                                                                    |
+| `Customer.DeliveryAddress.Street`             | Texto    | 255     | Não                 | Endereço do Comprador.                                                                                                            |
+| `Customer.Address.Number`                     | Texto    | 15      | Não                 | Número do endereço do Comprador.                                                                                                  |
+| `Customer.DeliveryAddress.Complement`         | Texto    | 50      | Não                 | Complemento do endereço do Comprador.                                                                                             |
+| `Customer.DeliveryAddress.ZipCode`            | Texto    | 9       | Não                 | CEP do endereço do Comprador.                                                                                                     |
+| `Customer.DeliveryAddress.City`               | Texto    | 50      | Não                 | Cidade do endereço do Comprador.                                                                                                  |
+| `Customer.DeliveryAddress.State`              | Texto    | 2       | Não                 | Estado do endereço do Comprador.                                                                                                  |
+| `Customer.DeliveryAddress.Country`            | Texto    | 35      | Não                 | Pais do endereço do Comprador.                                                                                                    |
+| `Payment.Type`                                | Texto    | 100     | Sim                 | Tipo do Meio de Pagamento.                                                                                                        |
+| `Payment.Amount`                              | Número   | 15      | Sim                 | Valor do Pedido (ser enviado em centavos).                                                                                        |
+| `Payment.Currency`                            | Texto    | 3       | Não                 | Moeda na qual o pagamento será feito (BRL).                                                                                       |
+| `Payment.Country`                             | Texto    | 3       | Não                 | Pais na qual o pagamento será feito.                                                                                              |
+| `Payment.Provider`                            | Texto    | 15      | ---                 | Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.                                               |
+| `Payment.ServiceTaxAmount`                    | Número   | 15      | Não                 | Veja Anexo                                                                                                                        |
+| `Payment.Installments`                        | Número   | 2       | Sim                 | Número de Parcelas.                                                                                                               |
+| `Payment.Interest`                            | Texto    | 10      | Não                 | Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).                                                                    |
+| `Payment.Capture`                             | Booleano | ---     | Não                 | Booleano que identifica que a autorização deve ser com captura automática. (Default false)                                        |
+| `Payment.Authenticate`                        | Booleano | ---     | Não                 | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão (Default false)                               |
+| `CreditCard.CardNumber`                       | Texto    | 19      | Sim                 | Número do Cartão do Comprador.                                                                                                    |
+| `CreditCard.Holder`                           | Texto    | 25      | Não                 | Nome do Comprador impresso no cartão.                                                                                             |
+| `CreditCard.ExpirationDate`                   | Texto    | 7       | Sim                 | Data de validade impresso no cartão.                                                                                              |
+| `CreditCard.SecurityCode`                     | Texto    | 4       | Não                 | Código de segurança impresso no verso do cartão - Ver Anexo.                                                                      |
+| `CreditCard.SaveCard`                         | Booleano | ---     | Não                 | Booleano que identifica se o cartão será salvo para gerar o CardToken.  (Default false)                                           |
+| `CreditCard.Brand`                            | Texto    | 10      | Sim                 | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                                     |
+| `FraudAnalysis.Sequence`                      | Texto    | 14      | Não                 | Tipo de Fluxo para realização da análise de fraude. Padrão: AuthorizeFirst                                                        |
+| `FraudAnalysis.SequenceCriteria`              | Texto    | 9       | Não                 | Critério do fluxo. OnSuccess - Só realiza a analise se tiver sucesso na transação. Always - Sempre realiza a analise              |
+|`FraudAnalysis.FingerPrintId`                  |Texto     |50       |Não                  |Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint.|
+| `FraudAnalysis.Browser.CookiesAccepted`       | Booleano | ---     | Não                 | Booleano para identificar se o browser do cliente aceita cookies.                                                                 |
+| `FraudAnalysis.Browser.Email`                 | Texto    | 100     | Não                 | E-mail registrado no browser do comprador.                                                                                        |
+| `FraudAnalysis.Browser.HostName`              | Texto    | 60      | Não                 | Nome do host onde o comprador estava antes de entrar no site da loja.                                                             |
+| `FraudAnalysis.Browser.IpAddress`             | Texto    | 15      | Não                 | Endereço IP do comprador. É altamente recomendável o envio deste campo.                                                           |
+| `FraudAnalysis.Browser.Type`                  | Texto    | 40      | Não                 | Nome do browser utilizado pelo comprador.                                                                                         |
+| `FraudAnalysis.Cart.IsGift`                   | Booleano | ---     | Não                 | Booleano que indica se o pedido é para presente ou não.                                                                           |
+| `FraudAnalysis.Cart.ReturnsAccepted`          | Booleano | ---     | Não                 | Booleano que define se devoluções são aceitas para o pedido.                                                                      |
+| `FraudAnalysis.Cart.Items.GiftCategory`       | Texto    | 9       | Não                 | Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países.fraudanalysis.items.giftcategory) |
+| `FraudAnalysis.Cart.Items.HostHedge`          | Texto    | ---     | Não                 | Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação.                                                 |
+| `FraudAnalysis.Cart.Items.NonSensicalHedge`   | Texto    | 6       | Não                 | Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido.                                        |
+| `FraudAnalysis.Cart.Items.ObscenitiesHedge`   | Texto    | 6       | Não                 | Nível de obscenidade dos pedidos recebedidos.                                                                                     |
+| `FraudAnalysis.Cart.Items.PhoneHedge`         | Texto    | 6       | Não                 | Nível dos testes realizados com os números de telefones.                                                                          |
+| `FraudAnalysis.Cart.Items.Name`               | Texto    | 255     | Não                 | Nome do Produto.                                                                                                                  |
+| `FraudAnalysis.Cart.Items.Quantity`           | Número   | 15      | Não                 | Quantidade do produto a ser adquirido.                                                                                            |
+| `FraudAnalysis.Cart.Items.Sku`                | Texto    | 255     | Não                 | Código comerciante identificador do produto.                                                                                      |
+| `FraudAnalysis.Cart.Items.UnitPrice`          | Número   | 15      | Não                 | Preço unitário do produto.                                                                                                        |
+| `FraudAnalysis.Cart.Items.Risk`               | Texto    | 6       | Não                 | Nível do risco do produto.                                                                                                        |
+| `FraudAnalysis.Cart.Items.TimeHedge`          | Texto    | -       | Não                 | Nível de importância da hora do dia do pedido do cliente.                                                                         |
+| `FraudAnalysis.Cart.Items.Type`               | Texto    | -       | Não                 | Tipo do produto.)                                                                                                                 |
+| `FraudAnalysis.Cart.Items.VelocityHedge`      | Texto    | 6       | Não                 | Nível de importância de frequência de compra do cliente.                                                                          |
+| `FraudAnalysis.Cart.Items.Passenger.Email`    | Texto    | 255     | Não                 | Email do Passageiro.                                                                                                              |
+| `FraudAnalysis.Cart.Items.Passenger.Identity` | Texto    | 32      | Não                 | Id do passageiro a quem o bilheite foi emitido.                                                                                   |
+| `FraudAnalysis.Cart.Items.Passenger.Name`     | Texto    | 120     | Não                 | Nome do passageiro.                                                                                                               |
+| `FraudAnalysis.Cart.Items.Passenger.Rating`   | Texto    | -       | Não                 | Classificação do Passageiro.                                                                                                      |
+| `FraudAnalysis.Cart.Items.Passenger.Phone`    | Texto    | 15      | Não                 | Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país.                 |
+| `FraudAnalysis.Cart.Items.Passenger.Status`   | Texto    | 32      | Não                 | Classificação da empresa aérea. Pode-se usar valores como Gold ou Platina.                                                        |
+| `FraudAnalysis.MerchantDefinedFields.Id`      | Texto    | ---     | Não                 | Id das informações adicionais a serem enviadas.                                                                                   |
+| `FraudAnalysis.MerchantDefinedFields.Value`   | Texto    | 255     | Não                 | Valor das informações adicionais a serem enviadas.                                                                                |
+| `FraudAnalysis.Shipping.Addressee`            | Texto    | 255     | Não                 | Nome do destinatário da entrega.                                                                                                  |
+| `FraudAnalysis.Shipping.Method`               | Texto    | -       | Não                 | Tipo de serviço de entrega do produto.                                                                                            |
+| `FraudAnalysis.Shipping.Phone`                | Texto    | 15      | Não                 | Telefone do destinatário da entrega.                                                                                              |
+| `FraudAnalysis.Travel.DepartureTime`          | DateTime | 23      | Não                 | Data, hora e minuto de partida do vôo.                                                                                            |
+| `FraudAnalysis.Travel.JourneyType`            | Texto    | 32      | Não                 | Tipo de viagem.                                                                                                                   |
+| `FraudAnalysis.Travel.Route`                  | Texto    | 255     | Não                 | Rota da viagem. Concatenação de pernas de viagem individuais no formato ORIG1- DEST1.                                             |
+| `FraudAnalysis.Travel.Legs.Destination`       | Texto    | 3       | Não                 | Código do aeroporto do ponto de destino da viagem.                                                                                |
+| `FraudAnalysis.Travel.Legs.Origin`            | Texto    | 3       | Não                 | Código do aeroporto do ponto de origem da viagem.                                                                                 |
+
+### Resposta
+
+```json
+{
+    "MerchantOrderId": "201411173454307",
+    "Customer": {
+        "Name": "Comprador crédito AF",
+        "Email": "compradorteste@live.com",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Rua Júpter",
+            "Number": "174",
+            "Complement": "AP 201",
+            "ZipCode": "21241140",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "DeliveryAddress": {
+            "Street": "Rua Júpter",
+            "Number": "174",
+            "Complement": "AP 201",
+            "ZipCode": "21241140",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        }
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "402400******2931",
+            "Holder": "Teste accept",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "492115",
+        "Tid": "10069930692606D31001",
+        "AuthorizationCode": "123456",
+        "SoftDescriptor":"123456789ABCD",
+        "FraudAnalysis": {
+            "Sequence": "AnalyseFirst",
+            "SequenceCriteria": "Always",
+            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
+            "MerchantDefinedFields": [
+                {
+                    "Id": 95,
+                    "Value": "Eu defini isso"
+                }
+            ],
+            "Cart": {
+                "IsGift": false,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Type": "AdultContent",
+                        "Name": "ItemTeste",
+                        "Risk": "High",
+                        "Sku": "201411170235134521346",
+                        "UnitPrice": 123,
+                        "Quantity": 1,
+                        "HostHedge": "Off",
+                        "NonSensicalHedge": "Off",
+                        "ObscenitiesHedge": "Off",
+                        "PhoneHedge": "Off",
+                        "TimeHedge": "Normal",
+                        "VelocityHedge": "High",
+                        "GiftCategory": "Undefined",
+                        "Passenger": {
+                            "Name": "Comprador accept",
+                            "Identity": "1234567890",
+                            "Status": "Accepted",
+                            "Rating": "Adult",
+                            "Email": "compradorteste@live.com",
+                            "Phone": "999994444"
+                        }
+                    }
+                ]
+            },
+            "Travel": {
+                "Route": "MAO-RJO",
+                "DepartureTime": "2010-01-02T00:00:00",
+                "JourneyType": "Ida",
+                "Legs": [
+                    {
+                        "Destination": "GYN",
+                        "Origin": "VCP"
+                    }
+                ]
+            },
+            "Browser": {
+                "HostName": "Teste",
+                "CookiesAccepted": false,
+                "Email": "compradorteste@live.com",
+                "Type": "Chrome",
+                "IpAddress": "200.190.150.350"
+            },
+            "Shipping": {
+                "Addressee": "Sr Comprador Teste",
+                "Phone": "21114740",
+                "Method": "LowCost"
+            },
+            "Id": "0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
+            "Status": 1,
+            "ReplyData": {
+                "AddressInfoCode": "COR-BA^MM-BIN",
+                "FactorCode": "B^D^R^Z",
+                "Score": 42,
+                "BinCountry": "us",
+                "CardIssuer": "FIA CARD SERVICES, N.A.",
+                "CardScheme": "VisaCredit",
+                "HostSeverity": 1,
+                "InternetInfoCode": "FREE-EM^RISK-EM",
+                "IpRoutingMethod": "Undefined",
+                "ScoreModelUsed": "default_lac",
+                "CasePriority": 3
+            }
+        },
+        "PaymentId": "04096cfb-3f0a-4ece-946c-3b7dc5d38f19",
+        "Type": "CreditCard",
+        "Amount": 100,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "ReturnCode": "4",
+        "ReturnMessage": "Transação autorizada",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+| Propriedade               | Descrição                                                                                                                                          | Tipo   | Tamanho | Formato                                             |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|--------|---------|-----------------------------------------------------|
+| `ProofOfSale`             | Número da autorização, identico ao NSU.                                                                                                            | Texto  | 6       | Texto alfanumérico                                  |
+| `Tid`                     | Id da transação na adquirente.                                                                                                                     | Texto  | 20      | Texto alfanumérico                                  |
+| `AuthorizationCode`       | Código de autorização.                                                                                                                             | Texto  | 6       | Texto alfanumérico                                  |
+| `SoftDescriptor`          | Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais                     | Texto  | 13      | Texto alfanumérico                                  |
+| `PaymentId`               | Campo Identificador do Pedido.                                                                                                                     | Guid   | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx                |
+| `Id`                      | Indentificação da Transação no Antifraud.                                                                                                          | Texto  | 300     | Texto alfanumérico                                  |
+| `Status`                  | Status da Transação.                                                                                                                               | Byte   | ---     | 2                                                   |
+| `Score`                   | Score total calculado para o pedido.                                                                                                               | Número | ---     | Número                                              |
+| `BinCountry`              | Sigla do país de origem da compra.                                                                                                                 | Texto  | 2       | us                                                  |
+| `CardIssuer`              | Nome do banco ou entidade emissora do cartão.                                                                                                      | Texto  | 128     | Bradesco                                            |
+| `ScoreModelUsed`          | Nome do modelo de score utilizado.                                                                                                                 | Texto  | 20      | Ex: default_lac                                     |
+| `CasePriority`            | Caso o lojista seja assinante do Enhanced Case Management, ele recebe este valor com o nível de prioridade, sendo 1 o mais alto e 5 o mais baixo.  | Número | ---     | 3                                                   |
+| `ReturnCode`              | Código de retorno da Adquirência.                                                                                                                  | Texto  | 32      | Texto alfanumérico                                  |
+| `ReturnMessage`           | Mensagem de retorno da Adquirência.                                                                                                                | Texto  | 512     | Texto alfanumérico                                  |
+| `HostSeverity`            | Nível de risco do domínio de e-mail do comprador, de 0 a 5, onde 0 é risco indeterminado e 5 representa o risco mais alto.                         | Número | ---     | 5                                                   |
+| `CardScheme`              | Tipo da bandeira                                                                                                                                   | Texto  | 20      | Ver Tabela **CardScheme**                           |
+| `InternetInfoCode`        | Sequência de códigos que indicam que existe uma excessiva alteração de identidades do comprador. Os códigos são concatenados usando o caractere ^. | Texto  | 255     | Ver tabela **InternetInfoCode**                     |
+| `FraudAnalysisReasonCode` | Resultado da análise.                                                                                                                              | Byte   | ---     | Ver tabela **FraudAnalysisReasonCode**              |
+| `AddressInfoCode`         | Combinação de códigos que indicam erro no endereço de cobrança e/ou entrega. Os códigos são concatenados usando o caractere ^.                     | Texto  | 255     | Ex: COR-BA^MM-BIN -> Ver tabela **AddressInfoCode** |
+| `FactorCode`              | Combinação de códigos que indicam o score do pedido. Os códigos são concatenados usando o caractere ^.                                             | Texto  | 100     | Ex: B^D^R^Z -  Ver tabela **FactorCode**            |
+| `IpRoutingMethod`         |Tipo de roteamento de IP utilizado pelo computador.|Texto|---|<BR>Anonymizer<BR>AolBased<BR>CacheProxy<BR>Fixed<BR>InternationalProxy<BR>MobileGateway<BR>Pop<BR>RegionalProxy<BR>Satellite<BR>SuperPop<BR>|
+
+## Tabelas AF
+
+### status
+
+| Campo           | Descrição                                         | Observações                                                         |
+|-----------------|---------------------------------------------------|---------------------------------------------------------------------|
+| `Started`       | Transação recebida pela Cielo.                    | Dados da transação foram aceitos e enviados para analise            |
+| `Accept`        | Transação aceita após análise de fraude.          | Transação aprovada pela analise de risco                            |
+| `Review`        | Transação em revisão após análise de fraude       | Transaçãoi encaminhada para analise manual - será analisada por BPO |
+| `Reject`        | Transação rejeitada após análise de fraude.       | Transação rejeitada pela analise de risco                           |
+| `Unfinished`    | Transação não finalizada por algum erro sistémico | N/A                                                                 |
+| `Pendent`       | Transação esperando analise                       | N/A                                                                 |
+| `ProviderError` | Transação com erro no provedor de antifraude.     | N/A                                                                 |
+
+### FraudAnalysis.Items
+
+#### GiftCategory
+
+|Campo|Descrição|
+|---|---|
+|`Yes`|Em caso de divergência entre endereços de cobrança e entrega, marca com risco pequeno.|
+|`No`|Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto.|
+|`Off`|Ignora a análise de risco para endereços divergentes.|
+
+#### HostHedge
+
+|Campo|Descrição|
+|---|---|
+|`Low`|Baixa importância do e-mail e endereço IP na análise de risco.|
+|`Normal`|Média importância do e-mail e endereço IP na análise de risco.|
+|`High`|Alta importância do e-mail e endereço IP na análise de risco.|
+|`Off`|E-mail e endereço IP não afetam a análise de risco.|
+
+#### NonSensicalHedge
+
+|Campo|Descrição|
+|---|---|
+|`Low`|Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco.|
+|`Normal`|Média importância da verificação feita sobre o pedido do comprador, na análise de risco.|
+|`High`|Alta importância da verificação feita sobre o pedido do comprador, na análise de risco.|
+|`Off`|Verificação do pedido do comprador não afeta a análise de risco.|
+
+### FraudAnalysis.Cart
+
+#### ObscenitiesHedge
+
+|Campo|Descrição|
+|---|---|
+|`Low`|Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.|
+|`Normal`|Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.|
+|`High`|Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.|
+|`Off`|Verificação de obscenidade no pedido do comprador não afeta a análise de risco.|
+
+#### PhoneHedge
+
+|Campo|Descrição|
+|---|---|
+|`Low`|Baixa importância nos testes realizados com números de telefone.|
+|`Normal`|Média importância nos testes realizados com números de telefone.|
+|`High`|Alta importância nos testes realizados com números de telefone.|
+|`Off`|Testes de números de telefone não afetam a análise de risco.|
+
+#### Risk
+
+|Campo|Descrição|
+|---|---|
+|`Low`|O produto tem um histórico de poucos chargebacks.|
+|`Normal`|O produto tem um histórico de chargebacks considerado normal.|
+|`High`|O produto tem um histórico de chargebacks acima da média.|
+
+#### TimeHedge
+
+|Campo|Descrição|
+|---|---|
+|`Low`|Baixa importância no horário do dia em que foi feita a compra, para a análise de risco.|
+|`Normal`|Média importância no horário do dia em que foi feita a compra, para a análise de risco.|
+|`High`|Alta importância no horário do dia em que foi feita a compra, para a análise de risco.|
+|`Off`|O horário da compra não afeta a análise de risco.|
+
+#### Type
+
+|Campo|Descrição|
+|---|---|
+|`CN`|Comprador particular|
+|`CP`|Comprador de negócios|
+
+#### VelocityHedge
+
+|Campo|Descrição|
+|---|---|
+|`Low`|Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos.|
+|`Normal`|Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos.|
+|`High`|Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos.|
+|`Off`|A frequência de compras realizadas pelo cliente não afeta a análise de fraude.|
+
+#### Rating
+
+|Campo|Descrição|
+|---|---|
+|`Adult`|Passageiro adulto.|
+|`Child`|Passageiro criança.|
+|`Infant`|Passageiro infantil.|
+|`Youth`|Passageiro adolescente.|
+|`Student`|Passageiro estudante.|
+|`SeniorCitizen`|Passageiro idoso.|
+|`Military`|Passageiro militar.|
+
+### FraudAnalysis.Shipping
+
+#### Method
+
+|Campo|
+|---|
+|`None`|
+|`SameDay`|
+|`OneDay`|
+|`TwoDay`|
+|`ThreeDay`|
+|`LowCost`|
+|`Pickup`|
+|`Other`|
+
+### FraudAnalysis.ReplyData
+
+#### CardScheme
+
+| Tipo da bandeira       | Descrição             |
+|------------------------|-----------------------|
+| `MaestroInternational` | Maestro International |
+| `MaestroUkDomestic`    | Maestro UK Domestic   |
+| `MastercardCredit`     | MasterCard Credit     |
+| `MastercardDebit`      | MasterCard Debit      |
+| `VisaCredit`           | Visa Credit           |
+| `VisaDebit`            | Visa Debit            |
+| `VisaElectron`         | Visa Electron         |
+
+#### AddressInfoCode
+
+| Tipo       | Descrição                                                                     |
+|------------|-------------------------------------------------------------------------------|
+| `COR-BA`   | O endereço de cobrança pode ser normalizado                                   |
+| `COR-SA`   | O endereço de entrega pode ser normalizado                                    |
+| `INTL-SA`  | O país de entrega é fora dos U.S                                              |
+| `MIL-USA`  | Este é um endereço militar nos U.S                                            |
+| `MM-A`     | Os endereços de cobrança e entrega usam nomes de ruas diferentes              |
+| `MM-BIN`   | O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país |
+| `MM-C`     | Os endereços de cobrança e entrega usam cidades diferentes                    |
+| `MM-CO`    | Os endereços de cobrança e entrega usam países diferentes                     |
+| `MM-ST`    | Os endereços de cobrança e entrega usam estados diferentes                    |
+| `MM-Z`     | Os endereços de cobrança e entrega usam códidos postais diferentes            |
+| `UNV-ADDR` | O endereço é inverificável                                                    |
+
+#### InternetInfoCode
+
+|Tipo|Descrição|
+|---------|----------------------------------------------------------------------------------------------------|
+|`MORPH-B`|O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos|
+|`MORPH-C`|O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos|
+|`MORPH-E`|O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos|
+|`MORPH-I`|O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos|
+|`MORPH-P`|O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos|
+|`MORPH-S`|O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos|
+
+#### FraudAnalysisReasonCode
+
+| Tipo  | Descrição                                                                                                                                                                                              |
+|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `100` | Operação bem sucedida.                                                                                                                                                                                 |
+| `101` | O pedido está faltando um ou mais campos necessários. Possível ação: Veja os campos que estão faltando na lista AntiFraudResponse.MissingFieldCollection. Reenviar o pedido com a informação completa. |
+| `102` | Um ou mais campos do pedido contêm dados inválidos. Possível ação: Veja os campos inválidos na lista AntiFraudResponse.InvalidFieldCollection. Reenviar o pedido com as informações corretas.          |
+| `150` | Falha no sistema geral. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.                                                                                                               |
+| `151` | O pedido foi recebido, mas ocorreu time-out no servidor. Este erro não inclui time-out entre o cliente e o servidor. Possível ação: Aguarde alguns minutos e tente reenviar o pedido.                  |
+| `152` | O pedido foi recebido, mas ocorreu time-out. Possível ação: Aguarde alguns minutos e reenviar o pedido.                                                                                                |
+| `202` | Prevenção à Fraude recusou o pedido porque o cartão expirou. Você também pode receber este código se a data de validade não coincidir com a data em arquivo do banco emissor. Se o processador de pagamento permite a emissão de créditos para cartões expirados, a CyberSource não limita essa funcionalidade. Possível ação: Solicite um cartão ou outra forma de pagamento.|
+| `231` | O número da conta é inválido. Possível ação: Solicite um cartão ou outra forma de pagamento.                                                                                                           |
+| `234` | Há um problema com a configuração do comerciante. Possível ação: Não envie o pedido. Entre em contato com o Suporte ao Cliente para corrigir o problema de configuração.                               |
+| `400` | A pontuação de fraude ultrapassa o seu limite. Possível ação: Reveja o pedido do cliente.                                                                                                              |
+| `480` | O pedido foi marcado para revisão pelo Gerenciador de Decisão.                                                                                                                                         |
+| `481` | O pedido foi rejeitado pelo Gerenciador de Decisão                                                                                                                                                     |
+
+#### FactorCode
+
+| Tipo | Descrição                                                                                                                                                                                                            |
+|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `A`  | Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.                                                                                                     |
+| `B`  | BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.                                                               |
+| `C`  | Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.                                                                                      |
+| `D`  | Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.                                                                                                      |
+| `E`  | Lista positiva. O cliente está na sua lista positiva.                                                                                                                                                                |
+| `F`  | Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.                                                                                             |
+| `G`  | Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.                                                            |
+| `H`  | Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.                                                                                                                       |
+| `I`  | Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.                                                                                                   |
+| `N`  | Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.                                                                                                                |
+| `O`  | Obscenidades. Dados do cliente contém palavras obscenas.                                                                                                                                                             |
+| `P`  | Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única. |
+| `Q`  | Inconsistências do telefone. O número de telefone do cliente é suspeito.                                                                                                                                             |
+| `R`  | Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.                                                                                                               |
+| `T`  | Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.                                                                                                                                         |
+| `U`  | Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.                                                                                                                              |
+| `V`  | Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.                                                                                                                                           |
+| `W`  | Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.                                                                                            |
+| `Z`  | Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.                |
+
+## Device FingerPrint
+
+### O que é o D.FingerPrint
+
+O Device FingerPrint é um javascript que uma vez instalado no checkout da loja captura dados de navegação e informações sobre o equipamento utilizado na compra. Essas informações são utlizadas pela AF para identificar compras fora do padrão do comprador.
+
+### Configurando FingerPrint
+
+Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ** da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.
+
+> **IMPORTANTE:** Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
+
+Colocando os segmentos de código e substituindo os valores das variáveis
+
+Coloque os segmentos de código imediatamente acima da tag ** para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.
+
+Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.
+
+#### Domain
+
+|Ambiente|Descrição|
+|-|-|
+|**Testing**| Use **h.online-metrix.net**, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo|
+|**Production**| Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para **h.online-metrix.net**|
+
+#### Variáveis
+
+|Variável|Descrição|
+|-|-|
+|**ProviderOrgId**|	Para obter este valor, entre em contato com a Braspag|
+|**ProviderMerchantId**|	Para obter este valor, entre em contato com a Braspag|
+|**ProviderSessionId**|	Prencha este campo com o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude|
+
+> PNG
+
+![]({{ site.baseurl_root }}/images/apicieloecommerce/exemplocyberimage.png)
+
+> Flash
+
+![]({{ site.baseurl_root }}/images/apicieloecommerce/exemplocyberflash.png)
+
+> JavaScript
+
+![]({{ site.baseurl_root }}/images/apicieloecommerce/exemplocyberjavascript.png)
+
+> **IMPORTANTE:** Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.
+
+#### Configurando seu Servidor Web
+
+Na seção Colocando os segmentos de código e substituindo os valores das variáveis (Domain), todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.
+
+> **IMPORTANTE:** Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie
 
 # Recorrência
 
@@ -7205,122 +7025,6 @@ A tabela abaixo lista todos os códigos possíveis de ser enviados no parâmetro
 |98|(reservado)|||
 |99|(reservado)|||
 |100|Documento|Documento (CPG, RG, etc.)|String|
-
-## Valores da Análise de Fraude
-
-### FraudAnalysis.status
-
-| Campo         | Descrição                                                   |
-|---------------|-------------------------------------------------------------|
-| Started       | Transação recebida pela Cielo.                              |
-| Accept        | Transação aceita após análise de fraude.                    |
-| Review        | Transação em revisão após análise de fraude.                |
-| Reject        | Transação rejeitada após análise de fraude.                 |
-| Unfinished    | Transação não finalizada por algum erro interno no sistema. |
-| Pendent       | Transação esperando analise                                 |
-| ProviderError | Transação com erro no provedor de antifraude.               |
-
-### FraudAnalysis.Items.GiftCategory
-
-|Campo|Descrição|
-|---|---|
-|Yes|Em caso de divergência entre endereços de cobrança e entrega, marca com risco pequeno.|
-|No|Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto.|
-|Off|Ignora a análise de risco para endereços divergentes.|
-
-### FraudAnalysis.Items.HostHedge
-
-|Campo|Descrição|
-|---|---|
-|Low|Baixa importância do e-mail e endereço IP na análise de risco.|
-|Normal|Média importância do e-mail e endereço IP na análise de risco.|
-|High|Alta importância do e-mail e endereço IP na análise de risco.|
-|Off|E-mail e endereço IP não afetam a análise de risco.|
-
-### FraudAnalysis.Items.NonSensicalHedge
-
-|Campo|Descrição|
-|---|---|
-|Low|Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco.|
-|Normal|Média importância da verificação feita sobre o pedido do comprador, na análise de risco.|
-|High|Alta importância da verificação feita sobre o pedido do comprador, na análise de risco.|
-|Off|Verificação do pedido do comprador não afeta a análise de risco.|
-
-### FraudAnalysis.Cart.Items.ObscenitiesHedge
-
-|Campo|Descrição|
-|---|---|
-|Low|Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.|
-|Normal|Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.|
-|High|Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco.|
-|Off|Verificação de obscenidade no pedido do comprador não afeta a análise de risco.|
-
-### FraudAnalysis.Cart.Items.PhoneHedge
-
-|Campo|Descrição|
-|---|---|
-|Low|Baixa importância nos testes realizados com números de telefone.|
-|Normal|Média importância nos testes realizados com números de telefone.|
-|High|Alta importância nos testes realizados com números de telefone.|
-|Off|Testes de números de telefone não afetam a análise de risco.|
-
-### FraudAnalysis.Cart.Items.Risk
-
-|Campo|Descrição|
-|---|---|
-|Low|O produto tem um histórico de poucos chargebacks.|
-|Normal|O produto tem um histórico de chargebacks considerado normal.|
-|High|O produto tem um histórico de chargebacks acima da média.|
-
-### FraudAnalysis.Cart.Items.TimeHedge
-
-|Campo|Descrição|
-|---|---|
-|Low|Baixa importância no horário do dia em que foi feita a compra, para a análise de risco.|
-|Normal|Média importância no horário do dia em que foi feita a compra, para a análise de risco.|
-|High|Alta importância no horário do dia em que foi feita a compra, para a análise de risco.|
-|Off|O horário da compra não afeta a análise de risco.|
-
-### FraudAnalysis.Cart.Items.Type
-
-|Campo|Descrição|
-|---|---|
-|CN|Comprador particular|
-|CP|Comprador de negócios|
-
-### FraudAnalysis.Cart.Items.VelocityHedge
-
-|Campo|Descrição|
-|---|---|
-|Low|Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos.|
-|Normal|Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos.|
-|High|Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos.|
-|Off|A frequência de compras realizadas pelo cliente não afeta a análise de fraude.|
-
-### FraudAnalysis.Cart.Items.Passenger.Rating
-
-|Campo|Descrição|
-|---|---|
-|Adult|Passageiro adulto.|
-|Child|Passageiro criança.|
-|Infant|Passageiro infantil.|
-|Youth|Passageiro adolescente.|
-|Student|Passageiro estudante.|
-|SeniorCitizen|Passageiro idoso.|
-|Military|Passageiro militar.|
-
-### FraudAnalysis.Shipping.Method
-
-|Campo|
-|---|
-|None|
-|SameDay|
-|OneDay|
-|TwoDay|
-|ThreeDay|
-|LowCost|
-|Pickup|
-|Other|
 
 ## Service Tax Amount - TAXA DE EMBARQUE
 
