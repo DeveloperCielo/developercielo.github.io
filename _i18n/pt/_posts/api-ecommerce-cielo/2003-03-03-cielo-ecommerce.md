@@ -2567,7 +2567,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:
 
 > A Analise de Fraude está disponivel apenas para transações de cartão de crédito.
 
-## Requisição
+## Integração
 
 Para criar uma venda com cartão de crédito e analise de fraude, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment conforme o exemplo.
 
