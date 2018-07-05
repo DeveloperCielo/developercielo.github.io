@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-02T20:41:46+00:00</updated>
+    <updated>2018-07-05T19:24:56+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3816,14 +3816,14 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;p&gt;Para tal, é necessário que o parceiro disponibilize um Backend RESTful, que irá receber as notificações seguindo o formato abaixo. Uma vez recebidas as informações, o Backend tem a liberdade de ser utilizado da forma mais adequada ao modelo de negócio.&lt;/p&gt;
 
-&lt;h4 id=&quot;put---notificação-de-mudança-de-status&quot;&gt;PUT - Notificação de Mudança de Status&lt;/h4&gt;
+&lt;h4 id=&quot;post---notificação-de-mudança-de-status&quot;&gt;POST - Notificação de Mudança de Status&lt;/h4&gt;
 
 &lt;p&gt;A cada modificação de status em um pedido, o servidor do Order Manager envia, via comando, as informações para o Backend do parceiro.&lt;/p&gt;
 
 &lt;p&gt;Requisição do Order Manager&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;PUT&lt;/strong&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Exemplo de informação enviada pelo Order Manager&lt;/p&gt;
@@ -3839,14 +3839,14 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;put---notificação-de-transação-realizada&quot;&gt;PUT - Notificação de Transação Realizada&lt;/h4&gt;
+&lt;h4 id=&quot;post---notificação-de-transação-realizada&quot;&gt;POST - Notificação de Transação Realizada&lt;/h4&gt;
 
 &lt;p&gt;A cada transação/pagamento realizada em um pedido, o servidor do Order Manager envia, via comando, as informações para o Backend do parceiro.&lt;/p&gt;
 
 &lt;p&gt;Requisição do Order Manager&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;PUT&lt;/strong&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Exemplo de informação enviada pelo Order Manager&lt;/p&gt;

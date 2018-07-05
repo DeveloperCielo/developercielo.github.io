@@ -2083,14 +2083,14 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Para tal, é necessário que o parceiro disponibilize um Backend RESTful, que irá receber as notificações seguindo o formato abaixo. Uma vez recebidas as informações, o Backend tem a liberdade de ser utilizado da forma mais adequada ao modelo de negócio.</p>
 
-<h4 id="put---notificação-de-mudança-de-status">PUT - Notificação de Mudança de Status</h4>
+<h4 id="post---notificação-de-mudança-de-status">POST - Notificação de Mudança de Status</h4>
 
 <p>A cada modificação de status em um pedido, o servidor do Order Manager envia, via comando, as informações para o Backend do parceiro.</p>
 
 <p>Requisição do Order Manager</p>
 
 <blockquote>
-  <p><strong>PUT</strong></p>
+  <p><strong>POST</strong></p>
 </blockquote>
 
 <p>Exemplo de informação enviada pelo Order Manager</p>
@@ -2106,14 +2106,14 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="put---notificação-de-transação-realizada">PUT - Notificação de Transação Realizada</h4>
+<h4 id="post---notificação-de-transação-realizada">POST - Notificação de Transação Realizada</h4>
 
 <p>A cada transação/pagamento realizada em um pedido, o servidor do Order Manager envia, via comando, as informações para o Backend do parceiro.</p>
 
 <p>Requisição do Order Manager</p>
 
 <blockquote>
-  <p><strong>PUT</strong></p>
+  <p><strong>POST</strong></p>
 </blockquote>
 
 <p>Exemplo de informação enviada pelo Order Manager</p>
