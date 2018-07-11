@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-11T14:44:27+00:00</updated>
+    <updated>2018-07-11T14:54:53+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19961,37 +19961,11 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:&lt;/p&gt;
 
 &lt;h4 id=&quot;variáveis&quot;&gt;Variáveis&lt;/h4&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Variável&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-      &lt;th&gt;Supermid&lt;/th&gt;
-      &lt;th&gt;Hierarquia&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;ProviderOrgId&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Para obter este valor, entre em contato com a Cielo&lt;/td&gt;
-      &lt;td&gt;A&lt;/td&gt;
-      &lt;td&gt;A&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;ProviderMerchantId&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Identificador da loja no AF&lt;/td&gt;
-      &lt;td&gt;Use o valor &lt;code class=&quot;highlighter-rouge&quot;&gt;cielo_webservice&lt;/code&gt; padrão&lt;/td&gt;
-      &lt;td&gt;Usar o fornecido pela CyberSource&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;ProviderSessionId&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Prencha este campo com o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude&lt;/td&gt;
-      &lt;td&gt;N/A&lt;/td&gt;
-      &lt;td&gt;N/A&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
+&lt;p&gt;| Variável               | Descrição                                                                                       | Supermid                              | Hierarquia                                |
+|————————|————————————————————————————————-|—————————————|——————————————-|
+| &lt;strong&gt;ProviderOrgId&lt;/strong&gt;      | Identificador de requisições no AF                                                              | Use o valor padrão &lt;code class=&quot;highlighter-rouge&quot;&gt;k8vif92e&lt;/code&gt;         | Dado exclusivo fornecido pela CyberSource |
+| &lt;strong&gt;ProviderMerchantId&lt;/strong&gt; | Identificador da loja no AF                                                                     | Use o valor padrão &lt;code class=&quot;highlighter-rouge&quot;&gt;cielo_webservice&lt;/code&gt; | Dado exclusivo fornecido pela CyberSource |
+| &lt;strong&gt;ProviderSessionId&lt;/strong&gt;  | Usar o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude | Definido pela loja                    | Definido pela loja                        |&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;PNG&lt;/p&gt;
 &lt;/blockquote&gt;

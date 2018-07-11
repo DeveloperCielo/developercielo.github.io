@@ -6773,37 +6773,11 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
 
 <h4 id="variáveis">Variáveis</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Variável</th>
-      <th>Descrição</th>
-      <th>Supermid</th>
-      <th>Hierarquia</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>ProviderOrgId</strong></td>
-      <td>Para obter este valor, entre em contato com a Cielo</td>
-      <td>A</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <td><strong>ProviderMerchantId</strong></td>
-      <td>Identificador da loja no AF</td>
-      <td>Use o valor <code class="highlighter-rouge">cielo_webservice</code> padrão</td>
-      <td>Usar o fornecido pela CyberSource</td>
-    </tr>
-    <tr>
-      <td><strong>ProviderSessionId</strong></td>
-      <td>Prencha este campo com o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude</td>
-      <td>N/A</td>
-      <td>N/A</td>
-    </tr>
-  </tbody>
-</table>
-
+<p>| Variável               | Descrição                                                                                       | Supermid                              | Hierarquia                                |
+|————————|————————————————————————————————-|—————————————|——————————————-|
+| <strong>ProviderOrgId</strong>      | Identificador de requisições no AF                                                              | Use o valor padrão <code class="highlighter-rouge">k8vif92e</code>         | Dado exclusivo fornecido pela CyberSource |
+| <strong>ProviderMerchantId</strong> | Identificador da loja no AF                                                                     | Use o valor padrão <code class="highlighter-rouge">cielo_webservice</code> | Dado exclusivo fornecido pela CyberSource |
+| <strong>ProviderSessionId</strong>  | Usar o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude | Definido pela loja                    | Definido pela loja                        |</p>
 <blockquote>
   <p>PNG</p>
 </blockquote>
