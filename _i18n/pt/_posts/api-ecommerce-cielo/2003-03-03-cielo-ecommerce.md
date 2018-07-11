@@ -3191,6 +3191,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 | **ProviderOrgId**      | Identificador de requisições no AF                                                              | Use o valor padrão `k8vif92e`         | Dado exclusivo fornecido pela CyberSource |
 | **ProviderMerchantId** | Identificador da loja no AF                                                                     | Use o valor padrão `cielo_webservice` | Dado exclusivo fornecido pela CyberSource |
 | **ProviderSessionId**  | Usar o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude | Definido pela loja                    | Definido pela loja                        |
+
 > PNG
 
 ![]({{ site.baseurl_root }}/images/apicieloecommerce/exemplocyberimage.png)
