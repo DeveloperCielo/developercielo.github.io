@@ -5135,7 +5135,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
      </span><span class="p">},</span><span class="w">
      </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
        </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"Always"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"FingerPrintId"</span><span class="p">:</span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Browser"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"CookiesAccepted"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -5483,7 +5483,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Texto</td>
       <td>9</td>
       <td>Não</td>
-      <td>Critério do fluxo. OnSuccess - Só realiza a analise se tiver sucesso na transação. Always - Sempre realiza a analise</td>
+      <td>Critério do fluxo. Padrão: OnSuccess - Só realiza a analise se tiver sucesso na transação/analise.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.FingerPrintId</code></td>
@@ -5792,8 +5792,8 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
         </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"FraudAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AnalyseFirst"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Always"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"FingerPrintId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"MerchantDefinedFields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
@@ -6062,7 +6062,11 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
 
 <h2 id="tabelas-af">Tabelas AF</h2>
 
-<h3 id="status">status</h3>
+<h3 id="status-do-af">status do AF</h3>
+
+<blockquote>
+  <p>Os Status abaixo são apresentados no Backoffice da API Cielo E-Commerce, dentro do site Cielo</p>
+</blockquote>
 
 <table>
   <thead>
@@ -14447,7 +14451,7 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
   </tbody>
 </table>
 
-<h2 id="status-1">Status</h2>
+<h2 id="status">Status</h2>
 
 <table>
   <thead>
