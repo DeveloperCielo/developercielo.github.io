@@ -3186,7 +3186,7 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 | Variável               | Descrição                                                                                                         |Supermid|Hierarquia|
 |------------------------|-------------------------------------------------------------------------------------------------------------------|-|-|
-| **ProviderOrgId**      | Para obter este valor, entre em contato com a Cielo                                                               |*|*|
+| **ProviderOrgId**      | Para obter este valor, entre em contato com a Cielo                                                               |A|A|
 | **ProviderMerchantId** | Identificador da loja no AF                                                                                     |Use o valor `cielo_webservice` padrão|Usar o fornecido pela CyberSource|
 | **ProviderSessionId**  | Prencha este campo com o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude |N/A|N/A|
 
