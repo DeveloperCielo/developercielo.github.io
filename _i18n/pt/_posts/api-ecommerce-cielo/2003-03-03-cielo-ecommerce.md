@@ -6984,19 +6984,19 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:
 |404|Resource Not Found|
 |500|Internal Server Error|
 
-## Status
+## Status transacional
 
-|Código|Status|Meio de pagamento|Descrição|
-|---|---|---|---|
-|0|NotFinished|ALL|Aguardando atualização de status|
-|1|Authorized|ALL|Pagamento apto a ser capturado ou definido como pago|
-|2|PaymentConfirmed|ALL|Pagamento confirmado e finalizado|
-|3|Denied|CC + CD + TF|Pagamento negado por Autorizador|
-|10|Voided|ALL|Pagamento cancelado|
-|11|Refunded|CC + CD|Pagamento cancelado após 23:59 do dia de autorização|
-|12|Pending|ALL|Aguardando Status de instituição financeira|
-|13|Aborted|ALL|Pagamento cancelado por falha no processamento|
-|20|Scheduled|CC|Recorrência agendada|
+| Código | Status               | Meio de pagamento | Descrição                                                        |
+|--------|----------------------|-------------------|------------------------------------------------------------------|
+| 0      | **NotFinished**      | ALL               | Aguardando atualização de status                                 |
+| 1      | **Authorized**       | ALL               | Pagamento apto a ser capturado ou definido como pago             |
+| 2      | **PaymentConfirmed** | ALL               | Pagamento confirmado e finalizado                                |
+| 3      | **Denied**           | CC + CD + TF      | Pagamento negado por Autorizador                                 |
+| 10     | **Voided**           | ALL               | Pagamento cancelado                                              |
+| 11     | **Refunded**         | CC + CD           | Pagamento cancelado após 23:59 do dia de autorização             |
+| 12     | **Pending**          | ALL               | Aguardando Status de instituição financeira                      |
+| 13     | **Aborted**          | ALL               | Pagamento cancelado por falha no processamento ou por ação do AF |
+| 20     | **Scheduled**          | CC              | Recorrência agendada                                             |
 
 -
 
