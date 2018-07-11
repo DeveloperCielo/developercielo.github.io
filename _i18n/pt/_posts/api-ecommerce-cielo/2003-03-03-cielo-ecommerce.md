@@ -3186,12 +3186,11 @@ Em cada segmento abaixo, substitua as variáveis com os valores referentes a loj
 
 #### Variáveis
 
-| Variável               | Descrição                                                                                                         |Supermid|Hierarquia|
-|------------------------|-------------------------------------------------------------------------------------------------------------------|-|-|
-| **ProviderOrgId**      | Para obter este valor, entre em contato com a Cielo                                                               |A|A|
-| **ProviderMerchantId** | Identificador da loja no AF                                                                                     |Use o valor `cielo_webservice` padrão|Usar o fornecido pela CyberSource|
-| **ProviderSessionId**  | Prencha este campo com o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude |N/A|N/A|
-
+| Variável               | Descrição                                                                                       | Supermid                              | Hierarquia                                |
+|------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------|-------------------------------------------|
+| **ProviderOrgId**      | Identificador de requisições no AF                                                              | Use o valor padrão `k8vif92e`         | Dado exclusivo fornecido pela CyberSource |
+| **ProviderMerchantId** | Identificador da loja no AF                                                                     | Use o valor padrão `cielo_webservice` | Dado exclusivo fornecido pela CyberSource |
+| **ProviderSessionId**  | Usar o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude | Definido pela loja                    | Definido pela loja                        |
 > PNG
 
 ![]({{ site.baseurl_root }}/images/apicieloecommerce/exemplocyberimage.png)
