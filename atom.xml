@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-11T19:43:56+00:00</updated>
+    <updated>2018-07-11T20:44:55+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19149,7 +19149,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Score&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Score total calculado para o pedido.&lt;/td&gt;
+      &lt;td&gt;Score total calculado para o pedido. Vai de 0 - 100 -  Quanto mais elevado, maior o risco.&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
