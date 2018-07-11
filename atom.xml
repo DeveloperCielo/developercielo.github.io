@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-11T14:13:51+00:00</updated>
+    <updated>2018-07-11T14:15:34+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19970,8 +19970,8 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;ProviderOrgId&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Para obter este valor, entre em contato com a Cielo&lt;/td&gt;
-      &lt;td&gt;*&lt;/td&gt;
-      &lt;td&gt;*&lt;/td&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;A&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;ProviderMerchantId&lt;/strong&gt;&lt;/td&gt;
