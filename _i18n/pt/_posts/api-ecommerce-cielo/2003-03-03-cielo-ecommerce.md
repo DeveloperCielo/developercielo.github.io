@@ -2637,7 +2637,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
      },
      "FraudAnalysis":{
        "Sequence":"AuthorizeFirst",
-       "SequenceCriteria":"Always",
+       "SequenceCriteria":"OnSuccess",
        "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
        "Browser":{
          "CookiesAccepted":false,
@@ -2737,7 +2737,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 | `CreditCard.SaveCard`                         | Booleano | ---     | Não                 | Booleano que identifica se o cartão será salvo para gerar o CardToken.  (Default false)                                           |
 | `CreditCard.Brand`                            | Texto    | 10      | Sim                 | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                                     |
 | `FraudAnalysis.Sequence`                      | Texto    | 14      | Não                 | Tipo de Fluxo para realização da análise de fraude. Padrão: AuthorizeFirst                                                        |
-| `FraudAnalysis.SequenceCriteria`              | Texto    | 9       | Não                 | Critério do fluxo. OnSuccess - Só realiza a analise se tiver sucesso na transação. Always - Sempre realiza a analise              |
+| `FraudAnalysis.SequenceCriteria`              | Texto    | 9       | Não                 | Critério do fluxo. Padrão: OnSuccess - Só realiza a analise se tiver sucesso na transação/analise.               |
 |`FraudAnalysis.FingerPrintId`                  |Texto     |50       |Não                  |Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint.|
 | `FraudAnalysis.Browser.CookiesAccepted`       | Booleano | ---     | Não                 | Booleano para identificar se o browser do cliente aceita cookies.                                                                 |
 | `FraudAnalysis.Browser.Email`                 | Texto    | 100     | Não                 | E-mail registrado no browser do comprador.                                                                                        |
@@ -2822,8 +2822,8 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
         "AuthorizationCode": "123456",
         "SoftDescriptor":"123456789ABCD",
         "FraudAnalysis": {
-            "Sequence": "AnalyseFirst",
-            "SequenceCriteria": "Always",
+            "Sequence": "AuthorizeFirst",
+            "SequenceCriteria": "OnSuccess",
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
             "MerchantDefinedFields": [
                 {
@@ -2955,7 +2955,9 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 
 ## Tabelas AF
 
-### status
+### status do AF
+
+> Os Status abaixo são apresentados no Backoffice da API Cielo E-Commerce, dentro do site Cielo
 
 | Campo           | Descrição                                         | Observações                                                         |
 |-----------------|---------------------------------------------------|---------------------------------------------------------------------|
