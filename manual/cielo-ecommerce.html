@@ -14451,7 +14451,7 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
   </tbody>
 </table>
 
-<h2 id="status">Status</h2>
+<h2 id="status-transacional">Status transacional</h2>
 
 <table>
   <thead>
@@ -14465,55 +14465,55 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
   <tbody>
     <tr>
       <td>0</td>
-      <td>NotFinished</td>
+      <td><strong>NotFinished</strong></td>
       <td>ALL</td>
       <td>Aguardando atualização de status</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>Authorized</td>
+      <td><strong>Authorized</strong></td>
       <td>ALL</td>
       <td>Pagamento apto a ser capturado ou definido como pago</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>PaymentConfirmed</td>
+      <td><strong>PaymentConfirmed</strong></td>
       <td>ALL</td>
       <td>Pagamento confirmado e finalizado</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>Denied</td>
+      <td><strong>Denied</strong></td>
       <td>CC + CD + TF</td>
       <td>Pagamento negado por Autorizador</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>Voided</td>
+      <td><strong>Voided</strong></td>
       <td>ALL</td>
       <td>Pagamento cancelado</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>Refunded</td>
+      <td><strong>Refunded</strong></td>
       <td>CC + CD</td>
       <td>Pagamento cancelado após 23:59 do dia de autorização</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>Pending</td>
+      <td><strong>Pending</strong></td>
       <td>ALL</td>
       <td>Aguardando Status de instituição financeira</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>Aborted</td>
+      <td><strong>Aborted</strong></td>
       <td>ALL</td>
-      <td>Pagamento cancelado por falha no processamento</td>
+      <td>Pagamento cancelado por falha no processamento ou por ação do AF</td>
     </tr>
     <tr>
       <td>20</td>
-      <td>Scheduled</td>
+      <td><strong>Scheduled</strong></td>
       <td>CC</td>
       <td>Recorrência agendada</td>
     </tr>
