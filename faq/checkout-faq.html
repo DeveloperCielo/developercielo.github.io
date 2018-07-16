@@ -97,7 +97,23 @@
             </div>
 
             <div class="post">
-  <h1 id="dúvidas-de-integração">Dúvidas de Integração</h1>
+  <h1 id="dúvidas-de-negócio">Dúvidas de Negócio</h1>
+
+<h2 id="onde-vejo-a-taxa-de-juros-cobrada-mdr">Onde vejo a taxa de juros cobrada (MDR)?</h2>
+
+<p>A taxa de juros pode ser vista dentro do site Cielo ou entrando em contato com o suporte Cielo. A taxa varia de acordo com o ramo de atividade descrito em seu CNPJ</p>
+
+<h2 id="como-alterar-o-e-mail-de-cadastro">Como alterar o e-mail de cadastro?</h2>
+
+<p>Entre em contato com o suporte Cielo e solicite a modificação dos dados de contato.</p>
+
+<h2 id="o-chekcout-funciona-com-pagamento-internacionais">O Chekcout funciona com pagamento internacionais?</h2>
+
+<p>Sim, o Checkout funciona com pagamentos internacionais e cartões emitidos fora do Brasil, entretando o fornecimento de CPF e CEP são obrigatórios.</p>
+
+<hr />
+
+<h1 id="dúvidas-de-integração">Dúvidas de Integração</h1>
 
 <h2 id="qual-a-diferença-entre-o-tipo-de-integração-usada-no-checkout-cielo">Qual a diferença entre o tipo de Integração usada no CHECKOUT CIELO?</h2>
 
@@ -105,12 +121,12 @@
 
 <ul>
   <li><strong>Integração via Carrinho de Compras</strong> - usada quando houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar a um carrinho e depois finalizar a transação.</li>
-  <li><strong>Integração via Botão</strong> - usada sempre que não houver um “carrinho de compras” em sua loja ou quando se deseja associar uma compra rápida/direta a um produto. Cada produto cadastrado gera um “botão de compra” único que permite personalização. Exemplo: um hotsite uma promoção que leva o comprador diretamente para a etapa de pagamento (página do Checkout Cielo).</li>
+  <li><strong>Integração via Link de pagamento</strong> - usada sempre que não houver um “carrinho de compras” em sua loja ou quando se deseja associar uma compra rápida/direta a um produto. Cada produto cadastrado gera um “Link de pagamento de compra” único que permite personalização. Exemplo: um hotsite uma promoção que leva o comprador diretamente para a etapa de pagamento (página do Checkout Cielo).</li>
 </ul>
 
-<h2 id="como-eu-crio-o-botão">Como eu crio o Botão?</h2>
+<h2 id="como-eu-crio-o-link-de-pagamento">Como eu crio o Link de pagamento?</h2>
 
-<p>O Botão é criado no momento de inclusão de um novo produto. Para isso, acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Checkout Cielo</a>, no menu Produtos/Cadastrar Produtos.</p>
+<p>O Link de pagamento é criado no momento de inclusão de um novo produto. Para isso, acesse o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Checkout Cielo</a>, no menu Produtos/Cadastrar Produtos.</p>
 
 <h2 id="quais-informações-eu-preciso-para-montar-o-post">Quais informações eu preciso para montar o POST?</h2>
 
@@ -127,11 +143,22 @@
 
 <h2 id="posso-enviar-um-e-mail-marketing-como-forma-de-cobrança">Posso enviar um e-mail marketing como forma de cobrança?</h2>
 
-<p>Sim, por meio da Integração via Botão é possível enviar um e-mail marketing, ou uma cobrança por e-mail, adicionando ao HTML do e-mail, o botão referente ao produto/serviço ofertado.</p>
+<p>Sim, por meio da Integração via Link de pagamento é possível enviar um e-mail marketing, ou uma cobrança por e-mail, adicionando ao HTML do e-mail, o Link de pagamento referente ao produto/serviço ofertado.</p>
 
 <h2 id="para-que-serve-a-url-de-retorno">Para que serve a URL de retorno?</h2>
 
 <p>Ao finalizar a compra, o consumidor tem a opção de voltar ao site do lojista ou ser direcionado para a página que o lojista desejar.  A função dessas URL é conduzir automaticamente o consumidor para a página definida nesta opção.</p>
+
+<h2 id="onde-está-a-tela-de-finalização">Onde está a tela de finalização?</h2>
+
+<p>O Checkout não possui uma tela de finalização, apenas uma mensagem em lightbox apresentando o numero do pedido e uma URL para que o comprador possa verificar o status do pedido.
+O Lojista Checkout pode criar a propria tela de finalização e incluir a URL no campo URL de Retorno.</p>
+
+<h2 id="como-integrar-o-visa-checkout-no-checkout-cielo">Como integrar o Visa Checkout no Checkout Cielo?</h2>
+
+<p>O Checkout Cielo já possui integração com o Visa Checkout. Para ativa-lo entre em contato com o Suporte Cielo e solicite a ativação.</p>
+
+<hr />
 
 <h1 id="dúvidas-sobre-notificação">Dúvidas sobre Notificação</h1>
 
@@ -158,6 +185,12 @@
 </ul>
 
 <p><strong>Depois da Exibição da tela de Checkout (quando a venda é finalizada)</strong> - significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout.</p>
+
+<h2 id="onde-encontro-informações-sobre-códigos-de-retorno">Onde encontro informações sobre “Códigos de Retorno”</h2>
+
+<p>O manual tecnico do Checkout possui uma tabela descritiva de todos os Códigos de retorno possiveis</p>
+
+<hr />
 
 <h1 id="dúvidas-sobre-frete">Dúvidas sobre Frete</h1>
 
@@ -249,6 +282,8 @@
     </tr>
   </tbody>
 </table>
+
+<hr />
 
 <h1 id="dúvidas-sobre-o-modo-de-teste">Dúvidas sobre o Modo de teste</h1>
 
