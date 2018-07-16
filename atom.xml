@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-11T20:44:55+00:00</updated>
+    <updated>2018-07-16T18:29:24+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5835,6 +5835,420 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
 
 &lt;p&gt;Para realizar o download de aplicativos públicos na Cielo LIO, execute o seguinte procedimento
 Clique na aba Apps -&amp;gt; Clique no aplicativo Cielo Store -&amp;gt; Escolha o aplicativo que deseja realizar o download&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Manual Boletos</title>
+        <category term="tutorial" />
+        <link href="https://developercielo.github.io/tutorial/manual-boleto"/>
+        <updated>2015-08-25T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/tutorial/manual-boleto</id>
+        <content type="html">&lt;h1 id=&quot;boletos&quot;&gt;Boletos&lt;/h1&gt;
+
+&lt;h2 id=&quot;o-que-são-boletos-registrados&quot;&gt;O que são Boletos Registrados?&lt;/h2&gt;
+
+&lt;p&gt;O Boleto Registrado é um dos meios de pagamentos disponibilizados no E-commerce com o objetivo de mitigar fraudes.
+O banco emissor tem conhecimento da emissão do boleto desde sua geração até sua liquidação diferente dos antigos boletos não registrados. O lojista tem a opção de negativar o comprador que gerou e não pagou uma cobrança registrada.&lt;/p&gt;
+
+&lt;p&gt;Esta modalidade de cobrança permite que o comprador efetue o pagamento do boleto em qualquer agência bancária mesmo depois do vencimento.&lt;/p&gt;
+
+&lt;p&gt;Datas estabelecidas pela Febraban (Federação Brasileira de Bancos) para que boletos Registrados possam ser utilizados.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/tutoriais/boletos/b1.png&quot; alt=&quot;Tabela de Prazos&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;bradesco&quot;&gt;Bradesco&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/tutoriais/boletos/bradesco.jpg&quot; alt=&quot;Logo Bradesco&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;como-funciona&quot;&gt;Como funciona&lt;/h2&gt;
+
+&lt;h3 id=&quot;api-cielo-e-commerce&quot;&gt;API Cielo E-commerce&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O comprador, após escolher o produto na loja, seleciona a forma de pagamento Boleto Bradesco;&lt;/li&gt;
+  &lt;li&gt;A loja envia para a Cielo uma requisição chamando o meio de pagamento correspondente;&lt;/li&gt;
+  &lt;li&gt;A Cielo se comunica com a aplicação do Banco Bradesco solicitando o registro do boleto;&lt;/li&gt;
+  &lt;li&gt;Caso o registro seja realizado com sucesso, o Banco responde à solicitação devolvendo os dados de cobrança (código de barras, linha digitável, etc) e a &lt;strong&gt;URL do Boleto&lt;/strong&gt;;&lt;/li&gt;
+  &lt;li&gt;A Cielo envia no response o link para que a loja possa abrir um pop-up exibindo o boleto;&lt;/li&gt;
+  &lt;li&gt;O cliente acessa a URL do boleto (renderização) e então pode realizar o pagamento;&lt;/li&gt;
+  &lt;li&gt;A conciliação do boleto é feita via serviço de consulta da Cielo ao sistema do Bradesco.&lt;/li&gt;
+  &lt;li&gt;Para receber as notificações de pagamento, a loja deve ter cadastrada a URL de Notificação ou  utilizar o serviço de consulta.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;checkout-cielo&quot;&gt;Checkout Cielo&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O comprador, após escolher o produto na loja, seleciona a forma de pagamento Boleto Bradesco;&lt;/li&gt;
+  &lt;li&gt;O Checkout exibirá a URL do Boleto&lt;/li&gt;
+  &lt;li&gt;O cliente acessa a URL do boleto (renderização) e então pode realizar o pagamento;&lt;/li&gt;
+  &lt;li&gt;A conciliação do boleto é feita via serviço de consulta da Cielo ao sistema do Bradesco.&lt;/li&gt;
+  &lt;li&gt;No Backoffice do Checkout, o status do Boleto será atualizado.&lt;/li&gt;
+  &lt;li&gt;Para receber as notificações de pagamento, a loja deve ter cadastrada a URL de Notificação ou  utilizar o serviço de consulta.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/tutoriais/boletos/b2.png&quot; alt=&quot;Fluxo do Boleto&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;configurando-o-boleto&quot;&gt;Configurando o Boleto&lt;/h2&gt;
+
+&lt;h3 id=&quot;ambiente-bradesco&quot;&gt;Ambiente Bradesco&lt;/h3&gt;
+
+&lt;p&gt;O lojista precisará realizar configurações dentro do ambiente bancario para que a geração&lt;/p&gt;
+
+&lt;h4 id=&quot;painel-de-controle&quot;&gt;Painel de controle&lt;/h4&gt;
+
+&lt;p&gt;O lojista deverá contatar o gerente de relacionamento do Banco Bradesco para solicitar a contratação do Boleto Registrado via Gerenciador API/Painel de controle
+A equipe técnica do Banco enviará para o e-mail do solicitante os dados de acesso ao Gerenciador API/Painel de controle.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;PAINEL DE CONTROLE BRADESCO&lt;/strong&gt;: https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;configurando-o-boleto-1&quot;&gt;Configurando o boleto&lt;/h4&gt;
+
+&lt;p&gt;No &lt;strong&gt;painel do Bradesco&lt;/strong&gt;, o lojista deverá acessar a aba &lt;strong&gt;“Configurações”&lt;/strong&gt; e escolher a opção &lt;strong&gt;“Meios de Pagamento”&lt;/strong&gt; e modifique as sequintes configurações.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Habilitar “frase” do boleto&lt;/strong&gt;: Inativo&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Habilitar “referência” do boleto&lt;/strong&gt;: Ativo&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Apresentar Agência e Conta&lt;/strong&gt;: Inativo&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Vencimento&lt;/strong&gt;: 5 dias&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/boleto-bradesco-passo-2.png&quot; alt=&quot;Boleto Bradesco&quot; /&gt;&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Obs: O vencimento pode ser defindo nos produtos Cielo.&lt;/aside&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;URL de notificação&lt;/strong&gt;: https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost&lt;/li&gt;
+  &lt;li&gt;No campo &lt;strong&gt;Chave de Segurança&lt;/strong&gt; clique em “&lt;strong&gt;Gerar chave de segurança&lt;/strong&gt;”&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Endereço de IP da loja&lt;/strong&gt;  (numérico)&lt;/li&gt;
+  &lt;li&gt;Para os campos de &lt;strong&gt;URL de resposta, URL de falha e URL de redirecionamento&lt;/strong&gt;, inserir o seguinte link: &lt;code class=&quot;highlighter-rouge&quot;&gt;https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/boleto-bradesco-passo-3.png&quot; alt=&quot;Boleto Bradesco&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Em cada um dos três Paramêtros a seguir, preencher com o Parâmetro de Comunicação abaixo:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Parâmetros&lt;/th&gt;
+      &lt;th&gt;Dados&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Notificação&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numOrder=[%lid_m%]&amp;amp;merchantid=[%merchantid%]&amp;amp;cod=[%errorcod%]&amp;amp;cctype=[%cctype%]&amp;amp;ccname=[%ccname%]&amp;amp;ccemail=[%ccemail%]&amp;amp;numparc=[%numparc%]&amp;amp;valparc=[%valparc%]&amp;amp;valtotal=[%valtotal%]&amp;amp;prazo=[%prazo%]&amp;amp;comb=[%comb%]&amp;amp;assinatura=[%assinatura%]&amp;amp;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Confirmação&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numOrder=[%lid_m%]&amp;amp;merchantid=[%merchantid%]&amp;amp;cod=[%errorcod%]&amp;amp;cctype=[%cctype%]&amp;amp;ccname=[%ccname%]&amp;amp;ccemail=[%ccemail%]&amp;amp;numparc=[%numparc%]&amp;amp;valparc=[%valparc%]&amp;amp;valtotal=[%valtotal%]&amp;amp;prazo=[%prazo%]&amp;amp;comb=[%comb%]&amp;amp;assinatura=[%assinatura%]&amp;amp;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Falha&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numOrder=[%lid_m%]&amp;amp;merchantid=[%merchantid%]&amp;amp;cod=[%errorcod%]&amp;amp;cctype=[%cctype%]&amp;amp;ccname=[%ccname%]&amp;amp;ccemail=[%ccemail%]&amp;amp;numparc=[%numparc%]&amp;amp;valparc=[%valparc%]&amp;amp;valtotal=[%valtotal%]&amp;amp;prazo=[%prazo%]&amp;amp;comb=[%comb%]&amp;amp;assinatura=[%assinatura%]&amp;amp;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Comunicação&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numOrder=[%lid_m%]&amp;amp;merchantid=[%merchantid%]&amp;amp;cod=[%errorcod%]&amp;amp;cctype=[%cctype%]&amp;amp;ccname=[%ccname%]&amp;amp;ccemail=[%ccemail%]&amp;amp;numparc=[%numparc%]&amp;amp;valparc=[%valparc%]&amp;amp;valtotal=[%valtotal%]&amp;amp;prazo=[%prazo%]&amp;amp;comb=[%comb%]&amp;amp;assinatura=[%assinatura%]&amp;amp;&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/boleto-bradesco-passo-4.png&quot; alt=&quot;Boleto Bradesco&quot; /&gt;&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Obs: Não podem existir espaços ou quebras de texto nos parâmetros expostos acima.&lt;/aside&gt;
+
+&lt;p&gt;Clique no botão “&lt;strong&gt;Gravar todas as configurações realizadas&lt;/strong&gt;”&lt;/p&gt;
+
+&lt;h4 id=&quot;configurando-credenciais&quot;&gt;Configurando credenciais&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;No &lt;strong&gt;painel do Bradesco&lt;/strong&gt;, o lojista deverá acessar a aba &lt;strong&gt;“Configurações”&lt;/strong&gt; e escolher a opção &lt;strong&gt;“Meios de Pagamento”&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;O campo &lt;strong&gt;“Palavra-secreta”&lt;/strong&gt; deve ser preenchido com uma senha. A operação é confirmada clicando em &lt;strong&gt;“Gerar nova chave de segurança”&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Ainda no &lt;a href=&quot;https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp&quot;&gt;&lt;strong&gt;Painel do Bradesco&lt;/strong&gt;&lt;/a&gt;, o cliente deve criar um Usuário de Consulta para atualizações de status.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/tutoriais/boletos/b3.png&quot; alt=&quot;Tela Bradesco&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;suporte-bradesco&quot;&gt;Suporte Bradesco&lt;/h4&gt;
+
+&lt;p&gt;Para obter ajuda com os passos acima, entre em contato com o suporte Bradesco:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;kit@scopus.com.br&lt;/li&gt;
+  &lt;li&gt;homologacao@scopus.com.br&lt;/li&gt;
+  &lt;li&gt;com.eletronico@bradesco.com.br&lt;/li&gt;
+  &lt;li&gt;comerciobradesco@scopus.com.br&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ambiente-cielo&quot;&gt;Ambiente Cielo&lt;/h3&gt;
+
+&lt;h4 id=&quot;dados-de-cadastro&quot;&gt;Dados de cadastro&lt;/h4&gt;
+
+&lt;p&gt;O Lojista precisará informar ao suporte Cielo os sequintes dados:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Dados&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Formato&lt;/th&gt;
+      &lt;th&gt;OBS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Agência&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Código agência&lt;/td&gt;
+      &lt;td&gt;4 Dígitos&lt;/td&gt;
+      &lt;td&gt;com  ou sem Hifen&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Conta:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Conta corrente&lt;/td&gt;
+      &lt;td&gt;7 Dígitos&lt;/td&gt;
+      &lt;td&gt;com Hifen&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Carteira:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Não é necessário boleto Registrado&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;2 dígitos&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Conciliação&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Número do convênio de cobrança&lt;/td&gt;
+      &lt;td&gt;7 Dígitos&lt;/td&gt;
+      &lt;td&gt;Informado dentro &lt;a href=&quot;https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp&quot;&gt;Painel do Bradesco&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Convênio&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Convênio de comércio eletrônico&lt;/td&gt;
+      &lt;td&gt;6 Dígitos&lt;/td&gt;
+      &lt;td&gt;Valida com o banco se é necessario Preenchimento para a carteira&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nosso Numero&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Contador incremental&lt;/td&gt;
+      &lt;td&gt;5 Dígitos&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Opcional&lt;/strong&gt; - Numero de controle que a cada emissão dp boleto  aumenta em +1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Vencimento&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Prazo de validade do boleto&lt;/td&gt;
+      &lt;td&gt;6 Dígitos&lt;/td&gt;
+      &lt;td&gt;é o valor padrão, se nenhum outro valor for enviado via API&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Assinatura de Afiliação&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Chave de segurança do &lt;strong&gt;Bradesco&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;50 Dígitos&lt;/td&gt;
+      &lt;td&gt;Informado dentro &lt;a href=&quot;https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp&quot;&gt;Painel do Bradesco&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Serão necessarias as credenciais do Bradesco:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Essas credenciais são usadas para que a Cielo possa consultar o status do Boleto.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Credenciais&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Exemplo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Usuário&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;E-mail usado no acesso do &lt;a href=&quot;https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp&quot;&gt;Painel do Bradesco&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;cielo@cielo.com&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Senha/Chave de Segurança&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Chave de segurança criada dentro do &lt;a href=&quot;https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp&quot;&gt;Painel do Bradesco&lt;/a&gt;. &lt;br /&gt; &lt;strong&gt;Não é a senha de acesso ao Painel Bradesco&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;qcnmFA-Y2rGm4meWLzrEzSpdPARBsmblZSqfKLwq7DM&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;suporte-cielo&quot;&gt;Suporte Cielo&lt;/h4&gt;
+
+&lt;p&gt;Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; cieloeCommerce@cielo.com.br&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Capitais:&lt;/strong&gt; 4002-9700&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Demais Cidades:&lt;/strong&gt; 0800 570 1700&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;*Horário de atendimento:&lt;/strong&gt; 24h por dia, 7 dias por semana.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;atualização-de-status&quot;&gt;Atualização de Status&lt;/h3&gt;
+
+&lt;p&gt;Para o meio de pagamento Boleto Registrado Bradesco a atualização de status é feita via sondagem em lote:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Essa sondagem ocorre pela manhã: &lt;strong&gt;4h, 6h, 8h, 10h e 12h&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Para receber as notificações de pagamento, a loja deve ter cadastrada a URL de Notificação em conjunto com a realização de GETs&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;OBS:&lt;/strong&gt; Hoje, a sonda considera transações que estejam com a data de vencimento dentro do intervalo de 30 dias anteriores e 30 dias posteriores à data de Sondagem.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;conciliação-manual-de-boletos&quot;&gt;Conciliação Manual de Boletos&lt;/h2&gt;
+
+&lt;p&gt;Para conciliar o boleto de forma manual, basta localizar o pedido no site Cielo e dentro dos Detalhes da Transação localizar o botão “Conciliar”. Desta forma o pedido terá o status alterado de “Não Pago” para “Pago”.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;banco-do-brasil&quot;&gt;Banco do Brasil&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/tutoriais/boletos/bancodobrasil.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;como-funciona-1&quot;&gt;Como funciona&lt;/h2&gt;
+
+&lt;h3 id=&quot;api-cielo-e-commerce-1&quot;&gt;API Cielo E-commerce&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O comprador, após escolher o produto na loja, seleciona a forma de pagamento Boleto Registrado Banco do Brasil.&lt;/li&gt;
+  &lt;li&gt;A loja envia para a Cielo uma requisição chamando o meio de pagamento correspondente.&lt;/li&gt;
+  &lt;li&gt;A cielo retornará uma URL contendo a imagem do Boleto.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/tutoriais/boletos/fluxobb.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;checkout-cielo-1&quot;&gt;Checkout Cielo&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O comprador, após escolher o produto na loja, seleciona a forma de pagamento Boleto Bando do Brasil;&lt;/li&gt;
+  &lt;li&gt;O Checkout exibirá a URL do Boleto&lt;/li&gt;
+  &lt;li&gt;O cliente acessa a URL do boleto (renderização) e então pode realizar o pagamento;&lt;/li&gt;
+  &lt;li&gt;A conciliação de status não está disponivel para Checkout Cielo.&lt;/li&gt;
+  &lt;li&gt;O Lojista precisará conciliar manualment o pagamento do Boleto&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;configurando-o-boleto-2&quot;&gt;Configurando o boleto&lt;/h2&gt;
+
+&lt;h3 id=&quot;ambiente-bb&quot;&gt;Ambiente BB&lt;/h3&gt;
+
+&lt;p&gt;O lojista deverá contatar o gerente de relacionamento do Banco do Brasil para solicitar a habilitação do produto Boleto Registrado.
+O formulário a seguir deve ser preenchido e entregue ao gerente.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Dado&lt;/th&gt;
+      &lt;th&gt;Formato&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;URL (site) retorno à loja&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;https://www.pagador.com.br&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Formato arquivo Retorno&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;(X) CBR643&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Meio de retorno&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;{X) Mainframe – para empresa com sistema próprio, que não usam o GFN.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/tutoriais/boletos/regbb00.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/tutoriais/boletos/regbb01.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ao final do credenciamento, o lojista receberá um documento com como o que segue abaixo&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/tutoriais/boletos/regbb02.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;ambiente-cielo-1&quot;&gt;Ambiente Cielo&lt;/h3&gt;
+
+&lt;h4 id=&quot;dados-de-cadastro-1&quot;&gt;Dados de cadastro&lt;/h4&gt;
+
+&lt;p&gt;O Lojista precisará informar ao suporte Cielo os sequintes dados:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Dados&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Formato&lt;/th&gt;
+      &lt;th&gt;OBS&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Agência&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Código agência&lt;/td&gt;
+      &lt;td&gt;4 Dígitos&lt;/td&gt;
+      &lt;td&gt;Hifen Obrigátório - Não pode haver espaços antes ou depois d agência&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Conta:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Conta corrente&lt;/td&gt;
+      &lt;td&gt;7 Dígitos&lt;/td&gt;
+      &lt;td&gt;Hifen Obrigátório&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Carteira:&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Não é necessário boleto Registrado&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;2 dígitos&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Conciliação&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Número do convênio de cobrança&lt;/td&gt;
+      &lt;td&gt;7 Dígitos&lt;/td&gt;
+      &lt;td&gt;inserir o &lt;em&gt;Convênio de cobrança&lt;/em&gt; fornecido pelo banco&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Convênio&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Convênio de comércio eletrônico&lt;/td&gt;
+      &lt;td&gt;6 Dígitos&lt;/td&gt;
+      &lt;td&gt;inserir o &lt;em&gt;Convênio de Comercio Eletrônico&lt;/em&gt; fornecido pelo banco&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Nosso Numero&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Contador incremental&lt;/td&gt;
+      &lt;td&gt;5 Dígitos&lt;/td&gt;
+      &lt;td&gt;Inserir “10000” -  A cada emissão de boleto esse numero aumenta em +1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Vencimento&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Prazo de validade do boleto&lt;/td&gt;
+      &lt;td&gt;6 Dígitos&lt;/td&gt;
+      &lt;td&gt;é o valor padrão, se nenhum outro valor for enviado via API&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Instruções&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Informações exibidas no boleto&lt;/td&gt;
+      &lt;td&gt;50 Dígitos&lt;/td&gt;
+      &lt;td&gt;Somente numeros e letras de A-Z, não pode haver caractéres especiais ou mais de um espaçamento entre cada palavra&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;OBS&lt;/em&gt;: A loja deverá obrigatóriamente enviar no contrato da API os dados (nome do comprador, CPF e endereço completo).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;conciliação-de-boletos&quot;&gt;Conciliação de boletos&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;NO MOMENTO, O BOLETO REGISTRADO BANCO DO BRASIL NÃO REALIZA ATUALIZAÇÃO DE STATUS AUTOMÁTICA&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
     </entry>
     
