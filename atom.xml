@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-16T19:10:45+00:00</updated>
+    <updated>2018-07-16T19:12:27+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33009,6 +33009,10 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 &lt;h2 id=&quot;quais-meios-de-pagamento-o-checkout-cielo-suporta&quot;&gt;Quais meios de pagamento o Checkout Cielo suporta?&lt;/h2&gt;
 
 &lt;p&gt;Veja o manual de integração para a &lt;a href=&quot;https://developercielo.github.io/manual/checkout-cielo#meios-de-pagamento-do-checkout-cielo&quot;&gt;lista completa de meios de pagamento&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;o-checkout-cielo-suporta-integrações-mobile&quot;&gt;O Checkout Cielo suporta integrações mobile?&lt;/h2&gt;
+
+&lt;p&gt;O Checkout Cielo suporta pagamentos mobile, mas não suporte integrações usando Javascript.&lt;/p&gt;
 
 &lt;hr /&gt;
 
