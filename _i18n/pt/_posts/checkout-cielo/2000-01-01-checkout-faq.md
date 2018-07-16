@@ -24,6 +24,10 @@ Entre em contato com o suporte Cielo e solicite a modificação dos dados de con
 
 Sim, o Checkout funciona com pagamentos internacionais e cartões emitidos fora do Brasil, entretando o fornecimento de CPF e CEP são obrigatórios.
 
+## Quais meios de pagamento o Checkout Cielo suporta?
+
+Veja o manual de integração para a [lista completa de meios de pagamento](https://developercielo.github.io/manual/checkout-cielo#meios-de-pagamento-do-checkout-cielo)
+
 -----------------------------------
 
 # Dúvidas de Integração
@@ -66,6 +70,16 @@ O Lojista Checkout pode criar a propria tela de finalização e incluir a URL no
 ## Como integrar o Visa Checkout no Checkout Cielo?
 
 O Checkout Cielo já possui integração com o Visa Checkout. Para ativa-lo entre em contato com o Suporte Cielo e solicite a ativação.
+
+## Quais certificados devo usar em meu Servidor?
+
+Os Certificados para uso do Checkout Cielo estão disponiveis no [manual de integração](https://developercielo.github.io/manual/checkout-cielo#certificado-extended-validation)
+
+## Por que alguns pedidos são marcados como NÃO FINALIZADOS?
+
+Pedidos "Não finalizados" são pedidos abandonados pelos compradores durante o processo de autorização/Autenticação.
+Alguns meios de pagamento, como Cartões de crédito Autenticados, Cartão de Débito e Boletos Registrados, exigem que o consumidor seja direcionado ao ambiente Bancario para verificação de identidade.
+Se o comprador abandonar a tela do banco, falhando no processo de autenticação, a transação é marcada como "não finalizada"
 
 -----------------------------------
 
@@ -152,7 +166,7 @@ Para compreender a diferença entre os parâmetros do POST em relação a frete 
 
 ## Como é ativado o modo de teste Checkout Cielo?
 
-No Backoffice Cielo Checkout, aba Configurações Pagamentos Modo de Teste é possível habilitar ou desabilitado o Modo de teste. Quando esse modo estiver ativo, uma grande faixa vermelha será exibida na parte superior de todas as telas do Checkout Cielo (Backoffice Checkout e Tela de pagamento).
+No Backoffice Cielo Checkout, aba Configurações > Pagamentos >> Modo de Teste é possível habilitar ou desabilitado o Modo de teste. Quando esse modo estiver ativo, uma grande faixa vermelha será exibida na parte superior de todas as telas do Checkout Cielo (Backoffice Checkout e Tela de pagamento).
 
 No Modo de teste o lojista ou desenvolvedor pode realizar testes de transações e de integração.
 
