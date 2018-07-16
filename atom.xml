@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-16T19:02:55+00:00</updated>
+    <updated>2018-07-16T19:10:45+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33006,6 +33006,10 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 &lt;p&gt;Sim, o Checkout funciona com pagamentos internacionais e cartões emitidos fora do Brasil, entretando o fornecimento de CPF e CEP são obrigatórios.&lt;/p&gt;
 
+&lt;h2 id=&quot;quais-meios-de-pagamento-o-checkout-cielo-suporta&quot;&gt;Quais meios de pagamento o Checkout Cielo suporta?&lt;/h2&gt;
+
+&lt;p&gt;Veja o manual de integração para a &lt;a href=&quot;https://developercielo.github.io/manual/checkout-cielo#meios-de-pagamento-do-checkout-cielo&quot;&gt;lista completa de meios de pagamento&lt;/a&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;h1 id=&quot;dúvidas-de-integração&quot;&gt;Dúvidas de Integração&lt;/h1&gt;
@@ -33052,6 +33056,16 @@ O Lojista Checkout pode criar a propria tela de finalização e incluir a URL no
 &lt;h2 id=&quot;como-integrar-o-visa-checkout-no-checkout-cielo&quot;&gt;Como integrar o Visa Checkout no Checkout Cielo?&lt;/h2&gt;
 
 &lt;p&gt;O Checkout Cielo já possui integração com o Visa Checkout. Para ativa-lo entre em contato com o Suporte Cielo e solicite a ativação.&lt;/p&gt;
+
+&lt;h2 id=&quot;quais-certificados-devo-usar-em-meu-servidor&quot;&gt;Quais certificados devo usar em meu Servidor?&lt;/h2&gt;
+
+&lt;p&gt;Os Certificados para uso do Checkout Cielo estão disponiveis no &lt;a href=&quot;https://developercielo.github.io/manual/checkout-cielo#certificado-extended-validation&quot;&gt;manual de integração&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;por-que-alguns-pedidos-são-marcados-como-nÃo-finalizados&quot;&gt;Por que alguns pedidos são marcados como NÃO FINALIZADOS?&lt;/h2&gt;
+
+&lt;p&gt;Pedidos “Não finalizados” são pedidos abandonados pelos compradores durante o processo de autorização/Autenticação.
+Alguns meios de pagamento, como Cartões de crédito Autenticados, Cartão de Débito e Boletos Registrados, exigem que o consumidor seja direcionado ao ambiente Bancario para verificação de identidade.
+Se o comprador abandonar a tela do banco, falhando no processo de autenticação, a transação é marcada como “não finalizada”&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -33188,7 +33202,7 @@ O Lojista Checkout pode criar a propria tela de finalização e incluir a URL no
 
 &lt;h2 id=&quot;como-é-ativado-o-modo-de-teste-checkout-cielo&quot;&gt;Como é ativado o modo de teste Checkout Cielo?&lt;/h2&gt;
 
-&lt;p&gt;No Backoffice Cielo Checkout, aba Configurações Pagamentos Modo de Teste é possível habilitar ou desabilitado o Modo de teste. Quando esse modo estiver ativo, uma grande faixa vermelha será exibida na parte superior de todas as telas do Checkout Cielo (Backoffice Checkout e Tela de pagamento).&lt;/p&gt;
+&lt;p&gt;No Backoffice Cielo Checkout, aba Configurações &amp;gt; Pagamentos » Modo de Teste é possível habilitar ou desabilitado o Modo de teste. Quando esse modo estiver ativo, uma grande faixa vermelha será exibida na parte superior de todas as telas do Checkout Cielo (Backoffice Checkout e Tela de pagamento).&lt;/p&gt;
 
 &lt;p&gt;No Modo de teste o lojista ou desenvolvedor pode realizar testes de transações e de integração.&lt;/p&gt;
 
