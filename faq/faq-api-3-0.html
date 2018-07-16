@@ -136,6 +136,10 @@ A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida c
 Ao realizar o cadastro de uma das integrações junto ao Cielo Ecommerce será necessário escolher entre uma das plataformas
 Para maiores informações acesse: https://www.cielo.com.br/desenvolvedores</p>
 
+<blockquote>
+  <p>A migração para a API Cielo Ecommerce é <strong>obrigatoria</strong>. O WebService 1.5 foi descontinuado e não possui suporte ou novos desenvolvimentos.</p>
+</blockquote>
+
 <h2 id="5-não-possuo-a-integração-15-posso-utilizar-a-api-cielo-ecommerce">5. Não possuo a integração 1.5, posso utilizar a API Cielo eCommerce?</h2>
 
 <p>Sim, a integração da API Cielo eCommerce não depende uma integração previa ao webservice 1.5.
@@ -184,13 +188,69 @@ Apenas os boletos necessitam de dados adicionais:</p>
 
 <p>Via a área do lojista, no site https://minhaconta.cielo.com.br/wps/portal/est2/login</p>
 
+<h2 id="11-qual-o-custo-da-api-cielo-ecommece">11. Qual o custo da API Cielo Ecommece?</h2>
+
+<p>Cada Feature da API Cielo ecommerce possui custos diferentes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>feature</th>
+      <th>Tipo de custo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Transações de crédito</strong></td>
+      <td>Taxa</td>
+      <td>Um valor % será cobrado sobre cada transação capturada. O Valor da taxa varia de acordo com o ramo de atividade descrito no CNPJ</td>
+    </tr>
+    <tr>
+      <td><strong>Transações de Débito</strong></td>
+      <td>Taxa</td>
+      <td>Um valor % será cobrado sobre cada transação capturada. O Valor da taxa varia de acordo com o ramo de atividade descrito no CNPJ</td>
+    </tr>
+    <tr>
+      <td><strong>Transações de Boleto</strong></td>
+      <td>Emissão</td>
+      <td>Um valor tabelado será cobrado por Boleto emitido. Verifique com o Comercial Cielo em qual categoria de custo sua loja está inserida</td>
+    </tr>
+    <tr>
+      <td><strong>Analise de fraude</strong></td>
+      <td>Emissão</td>
+      <td>Um valor tabelado será cobrado por transação analisada. Verifique com o Comercial Cielo em qual categoria de custo sua loja está inserida</td>
+    </tr>
+    <tr>
+      <td><strong>Tokenização</strong></td>
+      <td>Não é cobrado</td>
+      <td>Não há custo</td>
+    </tr>
+    <tr>
+      <td><strong>Recorrência</strong></td>
+      <td>Não é cobrado</td>
+      <td>Apenas a taxa sobre transações de crédito é cobrada</td>
+    </tr>
+    <tr>
+      <td><strong>Consulta Bin</strong></td>
+      <td>Não é cobrado</td>
+      <td>Não há custo</td>
+    </tr>
+    <tr>
+      <td><strong>Wallets</strong></td>
+      <td>Não é cobrado</td>
+      <td>Apenas a taxa sobre transações de crédito é cobrada</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="dúvidas-de-técnicas--integração">Dúvidas de Técnicas / Integração</h1>
 
-<h2 id="11-como-funciona-a-solução-api-cielo-ecommerce-da-cielo">11. Como funciona a solução API Cielo eCommerce da Cielo?</h2>
+<h2 id="1-como-funciona-a-solução-api-cielo-ecommerce-da-cielo">1. Como funciona a solução API Cielo eCommerce da Cielo?</h2>
 
 <p>A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST. O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações.</p>
 
-<h2 id="12-há-mudanças-nas-credenciais-da-15-para-a-api-cielo-ecommerce">12. Há mudanças nas credenciais da 1.5 para a API Cielo eCommerce?</h2>
+<h2 id="2-há-mudanças-nas-credenciais-da-15-para-a-api-cielo-ecommerce">2. Há mudanças nas credenciais da 1.5 para a API Cielo eCommerce?</h2>
 
 <p>Sim, as credenciais utilizadas em cada plataforma são diferentes:</p>
 
@@ -215,7 +275,11 @@ Apenas os boletos necessitam de dados adicionais:</p>
   <li><strong>MerchantKey</strong>: <code class="highlighter-rouge">keR10a0P3R01T0h0C0a0T00U0vsoOy0X0p0Dqyib</code></li>
 </ul>
 
-<h2 id="13-como-consigo-as-credenciais-de-cada-ambiente">13. Como consigo as credenciais de cada ambiente?</h2>
+<blockquote>
+  <p>Caso não saiba suas credenciais, entre em contato com o Suporte Cielo e informer o seu CNPJ/CPF. As credenciais serão enviadas ao e-mail cadastrado.</p>
+</blockquote>
+
+<h2 id="3-como-consigo-as-credenciais-de-cada-ambiente">3. Como consigo as credenciais de cada ambiente?</h2>
 
 <p>Existem dois ambientes na API Cielo eCommerce, Sandbox e Produção.</p>
 
@@ -224,15 +288,15 @@ Apenas os boletos necessitam de dados adicionais:</p>
   <li><strong>Produção</strong>: é necessário entrar em contato com a central de credenciamento Cielo e solicitar suas credenciais. Elas serão enviadas via e-mail. Sobre a central de credenciamento acesse https://developercielo.github.io/Guia-de-migracao-1.5x3.0/#suporte-cielo</li>
 </ul>
 
-<h2 id="14-É-preciso-algum-software-proprietário-como-dlls-para-fazer-a-integração">14. É preciso algum software proprietário, como DLLs, para fazer a integração?</h2>
+<h2 id="4-É-preciso-algum-software-proprietário-como-dlls-para-fazer-a-integração">4. É preciso algum software proprietário, como DLLs, para fazer a integração?</h2>
 
 <p>Não. A ausência de aplicativos proprietários é uma das características da solução: Não é necessário instalar aplicativos no ambiente da loja em nenhuma hipótese.</p>
 
-<h2 id="15-preciso-fazer-uma-afiliação-antes-de-testar-a-integração">15. Preciso fazer uma afiliação antes de testar a integração?</h2>
+<h2 id="5-preciso-fazer-uma-afiliação-antes-de-testar-a-integração">5. Preciso fazer uma afiliação antes de testar a integração?</h2>
 
 <p>Não é necessária uma afiliação para utilizar o Sanbox Cielo. Basta acessar o <a href="https://bit.ly/2cHdrzr">Cadastro do Sandbox</a> e criar uma conta de testes. Ao fim do cadastro você receberá um <code class="highlighter-rouge">MerchantId</code> e um <code class="highlighter-rouge">MerchantKey</code>, que deverão ser utilizados para autenticar todas as requisições feitas para os endpoints da API.</p>
 
-<h2 id="16-que-tipo-de-conteúdo-é-enviado-na-integração">16. Que tipo de conteúdo é enviado na integração?</h2>
+<h2 id="6-que-tipo-de-conteúdo-é-enviado-na-integração">6. Que tipo de conteúdo é enviado na integração?</h2>
 
 <p>Para simplificar ao máximo a solução API Cielo eCommerce, a integração é feita através do envio de JSONs numa arquitetura REST. Cada tipo de mensagem deve ser enviada para um recurso identificado através do path e enviada segundo o método HTTP adequado:</p>
 
@@ -242,19 +306,19 @@ Apenas os boletos necessitam de dados adicionais:</p>
   <li><strong>GET</strong> - O método HTTP GET é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações</li>
 </ul>
 
-<h2 id="17-como-testar-transações-com-meios-de-pagamento-simulado">17. Como testar transações com meios de pagamento simulado?</h2>
+<h2 id="7-como-testar-transações-com-meios-de-pagamento-simulado">7. Como testar transações com meios de pagamento simulado?</h2>
 
 <p>Para realizar testes na API Cielo eCommerce, não é necessário utilizar cartões / meios de pagamentos reais.
 Cada meio de pagamento (Crédito, Débito, boleto e Transferência online) possui uma contra parte simulada.</p>
 
 <ul>
-  <li>C. Crédito - Basta utilizar o Provider “Simulado” e enviar um dos cartões contidos aqui: https://developercielo.github.io/Webservice-3.0/#sandbox</li>
-  <li>Boleto - Será gerado um boleto invalido.</li>
-  <li>C. Debito - Você será redirecionado a uma tela onde poderá selecionar o resultado da operação</li>
-  <li>Transferência online - Você será redirecionado a uma tela onde poderá selecionar o resultado da operação</li>
+  <li><strong>C. Crédito</strong> - Basta utilizar o Provider “Simulado” e enviar um dos cartões contidos no <a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de integração</a></li>
+  <li><strong>Boleto</strong> - Será gerado um boleto invalido.</li>
+  <li><strong>C. Debito</strong> - Você será redirecionado a uma tela onde poderá selecionar o resultado da operação</li>
+  <li><strong>Transferência online</strong> - Você será redirecionado a uma tela onde poderá selecionar o resultado da operação</li>
 </ul>
 
-<h2 id="18-existe-alguma-regra-para-leitura-de-cartões">18. Existe alguma regra para leitura de cartões?</h2>
+<h2 id="8-existe-alguma-regra-para-leitura-de-cartões">8. Existe alguma regra para leitura de cartões?</h2>
 
 <p>A leitura dos dados do cartão no ambiente próprio é controlada por regras definidas pelo programa de segurança imposto pelas bandeiras de cartões.</p>
 
@@ -265,26 +329,26 @@ Cada meio de pagamento (Crédito, Débito, boleto e Transferência online) possu
 
 <p>Ademais, atendidos os requisitos, no momento do credenciamento E-commerce deve ser mencionada a escolha por leitura do cartão na própria loja.</p>
 
-<h2 id="19-É-necessário-usar-algum-certificado-em-para-realizar-a-conexão-com-a-api-cielo-ecommerce">19. É necessário usar algum certificado em para realizar a conexão com a API Cielo eCommerce</h2>
+<h2 id="9-É-necessário-usar-algum-certificado-em-para-realizar-a-conexão-com-a-api-cielo-ecommerce">9. É necessário usar algum certificado em para realizar a conexão com a API Cielo eCommerce</h2>
 
-<p>Sim, é necessário realizar a instalação do certificado SSL EV. Mais informações em https://developercielo.github.io/Webservice-3.0/#o-que-é-certificado-ev-ssl</p>
+<p>Sim, é necessário realizar a instalação do certificado SSL EV. Mais informações no <a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de integração</a></p>
 
-<h2 id="20-É-necessário-algum-protocolo-de-segurança-para-a-utilização-da-api-cielo-ecommerce">20. É necessário algum protocolo de segurança para a utilização da API Cielo eCommerce</h2>
+<h2 id="10-É-necessário-algum-protocolo-de-segurança-para-a-utilização-da-api-cielo-ecommerce">10. É necessário algum protocolo de segurança para a utilização da API Cielo eCommerce</h2>
 
 <p><strong>É obrigatório o uso de TLS 1.2 na comunicação a API.</strong></p>
 
 <p>SSL,TLS 1.0 e 1.1 não são suportados. Integrações utilizando esses protocolos não poderão realizar transações.</p>
 
-<h2 id="21-existe-alguma-restrição-de-ips-para-consumir-a-api">21. Existe alguma restrição de Ips para consumir a API</h2>
+<h2 id="11-existe-alguma-restrição-de-ips-para-consumir-a-api">11. Existe alguma restrição de Ips para consumir a API</h2>
 
 <p>Não há restrições de IP ou necessidade de uso de PROXYs para se integrar a API Cielo eCommerce</p>
 
-<h2 id="22-como-consultar-transações-de-sandbox">22. Como consultar transações de Sandbox??</h2>
+<h2 id="12-como-consultar-transações-de-sandbox">12. Como consultar transações de Sandbox??</h2>
 
 <p>O ambiente de Sandbox não possui uma área de relatórios, sendo necessario realizar uma consulta via API para visualizar transações nesse ambiente.
 Veja como realizar essa consulta em nosso manual de integração: https://developercielo.github.io/Webservice-3.0/#consultando-vendas</p>
 
-<h2 id="23-a-api-cielo-ecommerce-possui-sdks-em-quais-linguagens">23. A API Cielo eCommerce possui SDKs em quais linguagens?</h2>
+<h2 id="13-a-api-cielo-ecommerce-possui-sdks-em-quais-linguagens">13. A API Cielo eCommerce possui SDKs em quais linguagens?</h2>
 
 <p>Sim, a API possui SDKs para:</p>
 
@@ -297,9 +361,9 @@ Veja como realizar essa consulta em nosso manual de integração: https://develo
   <li>Python</li>
 </ul>
 
-<p>Mais informações em: https://github.com/DeveloperCielo</p>
+<p>Mais informações do <a href="https://github.com/DeveloperCielo">repositório Cielo</a></p>
 
-<h2 id="24-a-api-cielo-ecommerce-aceita-pagamento-com-diferentes-moedas-e-cartões-internacionais">24. A API Cielo eCommerce aceita pagamento com diferentes moedas e cartões internacionais?</h2>
+<h2 id="14-a-api-cielo-ecommerce-aceita-pagamento-com-diferentes-moedas-e-cartões-internacionais">14. A API Cielo eCommerce aceita pagamento com diferentes moedas e cartões internacionais?</h2>
 
 <ul>
   <li><strong>Moedas</strong>:No momento a API Cielo eCommerce aceita somente transações em Reais (R$/BRL).</li>
@@ -308,38 +372,39 @@ Veja como realizar essa consulta em nosso manual de integração: https://develo
 
 <p><strong>OBS</strong>: Cartões internacionais não podem realizar parcelamento.</p>
 
-<h2 id="25-poderei-consultar-informações-sobre-o-meu-contrato-junto-a-cielo-taxa-prazo-de-deposito-dos-valores">25. Poderei consultar informações sobre o meu contrato junto a Cielo (Taxa, prazo de deposito dos valores)?</h2>
+<h2 id="15-poderei-consultar-informações-sobre-o-meu-contrato-junto-a-cielo-taxa-prazo-de-deposito-dos-valores">15. Poderei consultar informações sobre o meu contrato junto a Cielo (Taxa, prazo de deposito dos valores)?</h2>
 
 <p>Não, dados sobre tarifas e valores de cobrança não estão passiveis de consulta via API Cielo eCommerce
 Esses dados poderão ser consultados via a área do lojista no site Cielo ou via o suporte-cielo.</p>
 
-<h2 id="26-poderei-realizar-antecipação-de-pagamentos-pela-api-cielo-ecommerce">26. Poderei realizar antecipação de pagamentos pela API Cielo eCommerce?</h2>
+<h2 id="16-poderei-realizar-antecipação-de-pagamentos-pela-api-cielo-ecommerce">16. Poderei realizar antecipação de pagamentos pela API Cielo eCommerce?</h2>
 
 <p>Não, a API Cielo eCommerce se destina apenas ao processo de autorização de transações e atualização de dados de pedidos online.
 Dúvidas ou questões a respeito de agenda financeira e antecipação de recebíveis devem ser direcionadas ao Suporte-Cielo</p>
 
-<h2 id="27-como-minha-integração-será-notificada-a-respeito-das-mudanças-de-status">27. Como minha integração será notificada a respeito das mudanças de status?</h2>
+<h2 id="17-como-minha-integração-será-notificada-a-respeito-das-mudanças-de-status">17. Como minha integração será notificada a respeito das mudanças de status?</h2>
 
 <p>Mudanças de status serão notificadas via um POST HTTP direcionado a URL de notificação que deve ser cadastrada pelo suporte Cielo.</p>
 
-<h2 id="28-como-posso-consultar-dados-a-respeito-das-minhas-vendas">28. Como posso consultar dados a respeito das minhas vendas?</h2>
+<h2 id="18-como-posso-consultar-dados-a-respeito-das-minhas-vendas">18. Como posso consultar dados a respeito das minhas vendas?</h2>
 
 <p>Será possível consultar via API ou via o portal Cielo:</p>
+
 <ul>
-  <li>API: Toda transação enviada via POST gera uma URL onde pode ser realizado um GET, onde serão retornados os dados do pedido. Mais informações em: https://developercielo.github.io/Webservice-3.0/#criando-uma-transação-simples</li>
-  <li>Portal Cielo: é possível extrair relatórios e pesquisar pedidos a partir do site Cielo. Mais informações em: www.cielo.com.br</li>
+  <li><strong>API:</strong> Toda transação enviada via POST gera uma URL onde pode ser realizado um GET, onde serão retornados os dados do pedido. Mais informações no <a href="https://developercielo.github.io/manual/cielo-ecommerce">manual de integração</a></li>
+  <li><strong>Portal Cielo:</strong> é possível extrair relatórios e pesquisar pedidos a partir do site Cielo. Mais informações no site www.cielo.com.br</li>
 </ul>
 
-<h2 id="29-o-que-é-uma-transação">29. O que é uma transação?</h2>
+<h2 id="19-o-que-é-uma-transação">19. O que é uma transação?</h2>
 
 <p>O elemento central do Cielo E-commerce é a transação, criada a partir de uma requisição HTTP ao Webservice da Cielo. A identificação única de uma transação na Cielo é feita através do campo TID, que está presente no retorno das mensagens de autorização. Esse campo é essencial para realizar consultas, capturas e cancelamentos.</p>
 
-<h2 id="30-qual-o-prazo-para-uma-autorização-expirar">30. Qual o prazo para uma autorização expirar?</h2>
+<h2 id="20-qual-o-prazo-para-uma-autorização-expirar">20. Qual o prazo para uma autorização expirar?</h2>
 
 <p>O prazo para captura de uma transação é definido em seu cadastro Cielo e depende do ramo de atividade de sua empresa.
 Caso uma transação não seja capturada dentro desse limite, ela deixa de ser válida, não podendo mais ser capturada. O status da venda continuará como autorizado, mas não será possível altera-lo.</p>
 
-<h2 id="31-É-possível-fazer-uma-captura-em-um-momento-após-a-autorização">31. É possível fazer uma captura em um momento após a autorização?</h2>
+<h2 id="21-É-possível-fazer-uma-captura-em-um-momento-após-a-autorização">21. É possível fazer uma captura em um momento após a autorização?</h2>
 
 <p>Uma transação autorizada somente gera o crédito para o estabelecimento comercial caso ela seja capturada. Por isso, toda venda que o lojista queira efetivar será preciso realizar a captura (ou confirmação) da transação.</p>
 
@@ -352,18 +417,45 @@ Caso uma transação não seja capturada dentro desse limite, ela deixa de ser v
 
 <aside class="warning">Atenção!<br /><br />Na modalidade de débito não existe a opção de captura. Toda transação de débito autorizada é capturada automaticamente.</aside>
 
-<h2 id="32-É-possível-cancelar-uma-transação">32. É possível cancelar uma transação?</h2>
+<p>Para mais informações sobre Captura de transações, acesso o <a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de integração</a></p>
+
+<h2 id="22-É-possível-cancelar-uma-transação">22. É possível cancelar uma transação?</h2>
 
 <p>O cancelamento é utilizado quando o lojista decide não efetivar um pedido de compra, seja por insuficiência de estoque, por desistência da compra pelo consumidor, ou qualquer outro motivo. Seu uso faz-se necessário principalmente se a transação estiver capturada, pois haverá débito na fatura do portador, caso ela não seja cancelada.</p>
 
 <p>Se a transação estiver apenas autorizada e a loja queira cancelá-la, o pedido de cancelamento não é necessário, pois após o prazo de captura expirar, o valor não será cobrado do comprador e a transação será invalidada.</p>
 
-<h2 id="33-qual-diferença-entra-a-notificação-para-cada-tipo-de-pagamento">33. Qual diferença entra a notificação para cada tipo de pagamento?</h2>
+<h2 id="23-qual-diferença-entra-a-notificação-para-cada-tipo-de-pagamento">23. Qual diferença entra a notificação para cada tipo de pagamento?</h2>
 
 <p>Todas as alterações no status de seus pedidos serão notificadas via a URL de notificação, que deve ser cadastrada junto a Cielo.
-Cada meio de pagamento possui diferentes status, podendo variar em relação a informação retornada.</p>
+Os meios de pagamento possuem os mesmos Status, apenas sua ordem é alterada.
+Os status e diferenças dos meios de pagamento estão explicadas</p>
 
-<p>Exemplo: Boletos não possuem retorno para confirmação de pagamento. A conciliação do meio de pagamento deve ser feita pela lojista.</p>
+<blockquote>
+  <p><strong>Sobre Boletos</strong>: Apenas o boleto registrado Bradesco possui atualização de Status.</p>
+</blockquote>
+
+<h2 id="24-onde-posso-validar-os-códigos-de-erro-da-api">24. Onde posso validar os códigos de erro da API</h2>
+
+<p>Os códigos de erros da API e do POSTMAN são descritos dentro do <a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de integração</a></p>
+
+<h2 id="25-onde-encontro-exemplos-e-coleções-do-postman">25. Onde encontro exemplos e coleções do Postman</h2>
+
+<p>Todos so exemplos e requisições da API estão disponiveis nos manuais abaixo:</p>
+
+<ul>
+  <li><a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de integração</a></li>
+  <li><a href="https://developercielo.github.io/manual/cielo-ecommerce#ferramenta-para-integra%C3%A7%C3%A3o-postman">Tutorial Postman</a></li>
+</ul>
+
+<h2 id="26-qual-o-limite-de-parcelamento-cielo">26. Qual o limite de parcelamento Cielo</h2>
+
+<p>O limite de parcelamento da loja depende do cadastro realizado na Afiliação Cielo
+Entre em contato com o Suporte Cielo para maiores informações sobre o seu limite de parcelamento.</p>
+
+<h2 id="27-a-api-possui-atualização-automatica-de-bins">27. A Api possui atualização automatica de BINs?</h2>
+
+<p>Sim, a Cielo é integrada as principais bandeiras do mercado e é atualizada diariamente com os novos Bins emitidos ao redor do mundo.</p>
 
 <h1 id="dúvidas-sobre-recursos-e-features">Dúvidas sobre Recursos e Features</h1>
 
@@ -439,7 +531,7 @@ Cada meio de pagamento possui diferentes status, podendo variar em relação a i
 
 <h2 id="5-como-ocorre-a-notificação-de-novas-recorrências">5. Como ocorre a notificação de novas recorrências?</h2>
 
-<p>A notificação de transações de recorrência inteligente são as mesmas enviadas para transações padrão. Para mais informações sobre as notificações de transações, acesse: https://developercielo.github.io/Webservice-3.0/#autorizando-a-primeira-recorrência</p>
+<p>A notificação de transações de recorrência inteligente são as mesmas enviadas para transações padrão. Para mais informações sobre as notificações de transações, acesse o <a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de integração</a></p>
 
 <h2 id="6-É-possível-atualizar-dados-de-uma-recorrência-quais">6. É possível atualizar dados de uma recorrência? Quais?</h2>
 
@@ -472,6 +564,10 @@ Cada meio de pagamento possui diferentes status, podendo variar em relação a i
   <li>Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</li>
 </ul>
 
+<h2 id="8-posso-criar-recorrência-com-todos-os-meios-de-pagamento">8. Posso criar recorrência com todos os meios de pagamento?</h2>
+
+<p>Não, a recorrência Cielo está disponivel apenas para Cartão de crédito</p>
+
 <h1 id="tokenizaçãocartão-protegido">Tokenização/Cartão protegido</h1>
 
 <h2 id="1o-que-é-a-tokenizaçãocartão-protegido-da-api-cielo-ecommerce">1.O que é a tokenização/cartão protegido da API Cielo eCommerce</h2>
@@ -493,7 +589,11 @@ Cada meio de pagamento possui diferentes status, podendo variar em relação a i
 
 <h2 id="4É-necessário-enviar-o-cvv-para-realizar-uma-transação-somente-com-o-token">4.É necessário enviar o CVV para realizar uma transação somente com o token?</h2>
 
-<p>Sim, por questão de segurança, a API Cielo eCommerce exige o envio do CVV caso um token seja utilizado para transacionar.</p>
+<p>Não é obrigatório, mas a Afiliação Cielo (EC) deve ter permissão para transacionar sem CVV, caso contrario a transação será negada</p>
+
+<h2 id="5É-possivel-tokenizar-cartões-de-débito">5.É possivel tokenizar cartões de Débito?</h2>
+
+<p>Sim, é possivel tokenizar cartões de débito.</p>
 
 <h1 id="autenticação">Autenticação</h1>
 
@@ -526,7 +626,7 @@ Cada meio de pagamento possui diferentes status, podendo variar em relação a i
 <h2 id="2a-análise-de-fraude-é-obrigatória">2.A análise de fraude é obrigatória?</h2>
 
 <p>Não, a análise de fraude ocorre como um adendo ao processo de autorização de cartões de crédito. Basta que o Antifraude esteja habilitado em seu cadastro na Cielo.
-Para mais informações sobre como realizar uma análise de fraude, veja: https://developercielo.github.io/Webservice-3.0/#criando-uma-venda-com-analise-de-fraude</p>
+Para mais informações sobre como realizar uma <a href="https://developercielo.github.io/manual/cielo-ecommerce#an%C3%A1lise-de-fraude-(af)">análise de fraude</a></p>
 
 <h2 id="3caso-ocorre-um-chargeback-em-uma-venda-analisada-serei-reembolsado">3.Caso ocorre um chargeback em uma venda analisada, serei reembolsado?</h2>
 
