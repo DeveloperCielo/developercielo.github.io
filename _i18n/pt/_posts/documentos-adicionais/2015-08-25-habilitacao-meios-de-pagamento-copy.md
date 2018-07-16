@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title:  Configurando Boletos e Débito Online
+title:  Manual Boletos
 search: true
 toc_footers: true
 categories: tutorial
@@ -8,48 +8,63 @@ tags:
   - Documentos Adicionais
 ---
 
-# Meios de Pagamento
-
-## Sobre este Manual
-
-Este manual tem como objetivo orientar o **LOJISTA** na contratação e configuração do BOLETOs e DÉBITOs ONLINE disponíveis no **CHECKOUT CIELO** e na **API Cielo Ecommerce**
-
-## Sobre Boletos e Cielo
-
-As soluções e-commerce Cielo suportam 2 tipos de Boletos dos Bancos **Bradesco** e **Banco do Brasil**:
-
-| Tipo de boleto            | Banco                      | Descrição                                                                                            | Solução Cielo                         |
-|---------------------------|----------------------------|------------------------------------------------------------------------------------------------------|---------------------------------------|
-| **Boleto Registrado**     | Banco do Brasil X Bradesco | São boleto emitidos dentro do ambiente Bancario. A Cielo enviará as informações para o banco emissor. É necessario ter as credenciais fornecidas pelo Banco para utilização da funcionalidade | Api Cielo E-commerce & Checkout Cielo |
-| **Boleto Não registrado** | Banco do Brasil X Bradesco | São boletos gerados em Ambiente Cielo. Todos os bancos deixaram de gerar esses boletos até 2020 | Api Cielo E-commerce & Checkout Cielo |
-
-## Sobre Débito online e Cielo
-
-O Débito Online é uma transferência eletronica que ocorre dentro do Ambiente Bancario.
-O Comprador acessará via a loja o Ambiente do Banco e realizará uma transferência para a conta da loja onde a transação ocorre.
-
-Para utilizar o Débito Online, é necessario que o banco do lojista permita tal operação para a conta do lojista.
-
 # Boletos
 
-## Bradesco
+## O que são Boletos Registrados?
 
-Os critérios para utilizar o Boleto Bradesco Com. Eletrônico são:
+O Boleto Registrado é um dos meios de pagamentos disponibilizados no E-commerce com o objetivo de mitigar fraudes.
+O banco emissor tem conhecimento da emissão do boleto desde sua geração até sua liquidação diferente dos antigos boletos não registrados. O lojista tem a opção de negativar o comprador que gerou e não pagou uma cobrança registrada.
 
-* Ser correntista Bradesco Pessoa Jurídica;
-* Contatar o gerente de conta Bradesco para assinar contrato específico do Comércio Eletrônico.
+Esta modalidade de cobrança permite que o comprador efetue o pagamento do boleto em qualquer agência bancária mesmo depois do vencimento.
 
-Para solicitar/configurar o Boleto Bradesco, você precisa:
+Datas estabelecidas pela Febraban (Federação Brasileira de Bancos) para que boletos Registrados possam ser utilizados.
 
-1. Contatar o banco/agência e fazer a solicitação de boleto com registro carteira 26. Esse passo envolve assinatura de contrato com o Banco.
-2. Receber um e-mail do Banco (Kit Scopus) com URL do gerenciador, e-mail de login e senha de acesso ao ambiente Bradesco.  Você deve acessar o ambiente Bradesco pela URL do gerenciador. Veja os exemplos enviados no email (Kit Scopus):
-  * **URL do gerenciador** - (https://meiosdepagamentobradesco.com.br/gerenciador/login.jsp)
-  * **E-mail de Login**
-  * **Senha de acesso**
+![Tabela de Prazos]({{ site.baseurl_root }}/images/tutoriais/boletos/b1.png)
 
-Para configurar o Boleto:
+# Bradesco
 
-**1.** No ambiente Bradesco, acesse as abas CONFIGURAÇÕES > MEIOS DE PAGAMENTO > BOLETO e preencha os seguintes dados:
+![Logo Bradesco]({{ site.baseurl_root }}/images/tutoriais/boletos/bradesco.jpg)
+
+## Como funciona
+
+### API Cielo E-commerce
+
+1. O comprador, após escolher o produto na loja, seleciona a forma de pagamento Boleto Bradesco;
+1. A loja envia para a Cielo uma requisição chamando o meio de pagamento correspondente;
+1. A Cielo se comunica com a aplicação do Banco Bradesco solicitando o registro do boleto;
+1. Caso o registro seja realizado com sucesso, o Banco responde à solicitação devolvendo os dados de cobrança (código de barras, linha digitável, etc) e a **URL do Boleto**;
+1. A Cielo envia no response o link para que a loja possa abrir um pop-up exibindo o boleto;
+1. O cliente acessa a URL do boleto (renderização) e então pode realizar o pagamento; 
+1. A conciliação do boleto é feita via serviço de consulta da Cielo ao sistema do Bradesco. 
+1. Para receber as notificações de pagamento, a loja deve ter cadastrada a URL de Notificação ou  utilizar o serviço de consulta. 
+
+### Checkout Cielo
+
+1. O comprador, após escolher o produto na loja, seleciona a forma de pagamento Boleto Bradesco;
+1. O Checkout exibirá a URL do Boleto
+1. O cliente acessa a URL do boleto (renderização) e então pode realizar o pagamento; 
+1. A conciliação do boleto é feita via serviço de consulta da Cielo ao sistema do Bradesco. 
+2. No Backoffice do Checkout, o status do Boleto será atualizado.
+1. Para receber as notificações de pagamento, a loja deve ter cadastrada a URL de Notificação ou  utilizar o serviço de consulta. 
+
+![Fluxo do Boleto]({{ site.baseurl_root }}/images/tutoriais/boletos/b2.png) 
+
+## Configurando o Boleto
+
+### Ambiente Bradesco
+
+O lojista precisará realizar configurações dentro do ambiente bancario para que a geração 
+
+#### Painel de controle
+
+O lojista deverá contatar o gerente de relacionamento do Banco Bradesco para solicitar a contratação do Boleto Registrado via Gerenciador API/Painel de controle
+A equipe técnica do Banco enviará para o e-mail do solicitante os dados de acesso ao Gerenciador API/Painel de controle.
+
+> **PAINEL DE CONTROLE BRADESCO**: https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp
+
+#### Configurando o boleto
+
+No **painel do Bradesco**, o lojista deverá acessar a aba **“Configurações”** e escolher a opção **“Meios de Pagamento”** e modifique as sequintes configurações.
 
 * **Habilitar "frase" do boleto**: Inativo
 * **Habilitar "referência" do boleto**: Ativo
@@ -58,7 +73,7 @@ Para configurar o Boleto:
 
 ![Boleto Bradesco]({{ site.baseurl_root }}/images/boleto-bradesco-passo-2.png)
 
-<aside class="notice"><strong>Obs:</strong> O vencimento deverá ser o mesmo configurado no Checkout Cielo.</aside>
+<aside class="notice"><strong>Obs:</strong> O vencimento pode ser defindo nos produtos Cielo.</aside>
 
 * **URL de notificação**: https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost
 * No campo **Chave de Segurança** clique em "**Gerar chave de segurança**"
@@ -67,107 +82,152 @@ Para configurar o Boleto:
 
 ![Boleto Bradesco]({{ site.baseurl_root }}/images/boleto-bradesco-passo-3.png)
 
-**2.** Em cada um dos três Paramêtros a seguir, preencher com o Parâmetro de Comunicação abaixo:
+Em cada um dos três Paramêtros a seguir, preencher com o Parâmetro de Comunicação abaixo:
 
-* **Parâmetro de notificação**:
-  * `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`
-* **Parâmetro de confirmação**:
-  * `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`
-* **Parâmetro de falha**:
-  * `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`
-* **Paramêtro de Comunicação**
-  * `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`
+|Parâmetros|Dados|
+|----------|------|
+|**Notificação**|`numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`|
+|**Confirmação**|`numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`|
+|**Falha**|`numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`|
+|**Comunicação**|`numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&comb=[%comb%]&assinatura=[%assinatura%]&`|
 
 ![Boleto Bradesco]({{ site.baseurl_root }}/images/boleto-bradesco-passo-4.png)
 
 <aside class="notice"><strong>Obs:</strong> Não podem existir espaços ou quebras de texto nos parâmetros expostos acima.</aside>
 
-**3.** Clique no botão "**Gravar todas as configurações realizadas**"
+Clique no botão "**Gravar todas as configurações realizadas**"
 
-**Concluída essa etapa, você deve:**
+#### Configurando credenciais
 
-**1.** Encaminhar um e-mail para Cielo e-Commerce [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br) com os seguintes dados:
+1. No **painel do Bradesco**, o lojista deverá acessar a aba **“Configurações”** e escolher a opção **“Meios de Pagamento”**
+2. O campo **“Palavra-secreta”** deve ser preenchido com uma senha. A operação é confirmada clicando em **“Gerar nova chave de segurança”**
+1. Ainda no [**Painel do Bradesco**](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp), o cliente deve criar um Usuário de Consulta para atualizações de status.
 
-* **Agência**: 0000
-* **Conta**: 0000000 (7 dígitos sem o dígito verificador, mantendo os zeros à esquerda conforme exemplo: 0001111
-* **Convênio**: 000000
-* **Carteira**: 26 – COM REGISTRO
-* **Vencimento** (contado em dias):
-* **Conciliação** (Afiliação do Bradesco):
-  * Exemplo de Conciliação: 004601478
-* **Chave de Segurança** (Bradesco):
-  * Exemplo de Chave de Segurança: `ZDE50B48D41D59BDD1562CC2A48546454ZC149308CBD283E0E49210C57958A6A38A068A3ZZA8B075095A1B9E1DEAZB64BF1682C5610ZC8285DC8630FA6E300FA00B9D43054C84ACA958ZCFB435CF5A27ZC440637777EBAFEED1BCZDCA82D5778B266B3BB4E90774302D56A0C7EDZZ1A532A51F7A889DA83AEFA08CA4E91A08Z2`
+![Tela Bradesco]({{ site.baseurl_root }}/images/tutoriais/boletos/b3.png)
 
-<aside class="notice"><strong>Obs:</strong> A afiliação do Bradesco está localizada no topo do gerenciador web.</aside>
+#### Suporte Bradesco
 
-![Boleto Bradesco]({{ site.baseurl_root }}/images/boleto-bradesco-passo-5.png)
+Para obter ajuda com os passos acima, entre em contato com o suporte Bradesco: 
 
-**2.** O Cielo e-Commerce confirmará, em até 3 dias, a inclusão do boleto como forma de pagamento da sua loja online.
+* kit@scopus.com.br
+* homologacao@scopus.com.br
+* com.eletronico@bradesco.com.br
+* comerciobradesco@scopus.com.br 
 
-## Banco do Brasil
+### Ambiente Cielo
 
-Os critérios para habilitar a opção de Boleto Banco do Brasil são:
+#### Dados de cadastro
 
-* Ser correntista Banco do Brasil Pessoa Jurídica;
+O Lojista precisará informar ao suporte Cielo os sequintes dados:
 
-Para solicitar o Boleto Banco do Brasil, você precisa:
+| Dados                       | Descrição                              | Formato    | OBS                                                                                                                                                        |
+|-----------------------------|----------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Agência**                 | Código agência                         | 4 Dígitos  | com  ou sem Hifen                                                                                                                                          |
+| **Conta:**                  | Conta corrente                         | 7 Dígitos  | com Hifen                                                                                                                                                  |
+| **Carteira:**               | **Não é necessário boleto Registrado** | 2 dígitos  | N/A                                                                                                                                                        |
+| **Conciliação**             | Número do convênio de cobrança         | 7 Dígitos  | Informado dentro [Painel do Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp)                                                    |
+| **Convênio**                | Convênio de comércio eletrônico        | 6 Dígitos  | Valida com o banco se é necessario Preenchimento para a carteira                                                                                           |
+| **Nosso Numero**            | Contador incremental                   | 5 Dígitos  | **Opcional** - Numero de controle que a cada emissão dp boleto  aumenta em +1                                                                              |
+| **Vencimento**              | Prazo de validade do boleto            | 6 Dígitos  | é o valor padrão, se nenhum outro valor for enviado via API                                                                                                |
+| **Assinatura de Afiliação** | Chave de segurança do **Bradesco**     | 50 Dígitos | Informado dentro [Painel do Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp)                                                    |
 
-1. Contatar o banco/agência e fazer a solicitação de boleto sem registro carteira 18. Esse passo envolve assinatura de contrato com o Banco
-2. Encaminhar um e-mail para Cielo e-Commerce [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br) com os seguintes dados:
-  * **Agência**: 0000
-  * **Conta Corrente**: 00000-0
-  * **Convênio**: 0000000
-  * **Vencimento** (contado em dias):
-  * **Carteira**: 18 - SEM REGISTRO
+Serão necessarias as credenciais do Bradesco:
 
-<aside class="notice">**Validade do Boleto** – Caso o boleto expire em um dia não útil, como sábado, ele será válido até o próximo dia útil</aside>
+> Essas credenciais são usadas para que a Cielo possa consultar o status do Boleto.
 
-# Débito online
+|Credenciais|Descrição|Exemplo|
+|-----------|---------|-------|
+|**Usuário**| E-mail usado no acesso do [Painel do Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp)|**cielo@cielo.com**|
+|**Senha/Chave de Segurança**| Chave de segurança criada dentro do [Painel do Bradesco](https://meiosdepagamentobradesco.com.br/gerenciadorapi/login.jsp). <BR> **Não é a senha de acesso ao Painel Bradesco**|**qcnmFA-Y2rGm4meWLzrEzSpdPARBsmblZSqfKLwq7DM**|
 
-## Bradesco
+#### Suporte Cielo
 
-1. Solicitar ao seu gerente a liberação do débito online do Bradesco (SPS Bradesco). A afiliação será enviada pelo Bradesco no padrão:
-  * **Convênio de homologação**: 101xx1
-  * **login**: dm_cm132
-  * **senha**: 12345678
-  * **Assinatura**: `8EA7657E-6373-667D-0229-A82E842A3A1A`
+Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:
 
-2. Ao receber estas informações o lojista deverá Solicitar a habilitação do meio de pagamento para Cielo.
+* **E-mail:** cieloeCommerce@cielo.com.br
+* **Capitais:** 4002-9700
+* **Demais Cidades:** 0800 570 1700
+* ***Horário de atendimento:** 24h por dia, 7 dias por semana.
 
-3. Cadastrar no MUP Teste (sistema do Bradesco, o e-mail de com os dados do Bradesco virá com a URL para acesso). Cadastrar as informações abaixo:
-  * **Endereço IP da loja**: 209.134.48.121
-  * Em “*Página de confirmação de compra*” e “*Página de falha no pagamento*”: https://www.pagador.com.br/pagador/recebe.asp
-  * Em “*URL para notificação p/ Cartões Bradesco*”: https://www.pagador.com.br/pagador/bradesco/setTransacao.asp
-  * Nos Campos “*Post a ser enviado para a loja na notificação*”, “*Post a ser enviado para a loja na confirmação de compra*” e “*Post a ser enviado para a loja na falha da autorização*”:
-        * **Adicionar**: `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&tipopagto=[%tipopagto%]&assinatura=[%assinatura%]`
-  * Em “*URL de entrada na loja*”: endereço do site
-  * Em “*URL do gerenciador da loja*”: https://www.pagador.com.br/admin/login.asp
-  * Na última opção:  `capture now (1001)`.
+### Atualização de Status
 
-4. Enviar o e-mail abaixo para a Scopus solicitando a homologação
-  * **Para**: [homologacao@scopus.com.br](mailto:homologacao@scopus.com.br); [kit@scopus.com.br](mailto:kit@scopus.com.br)
-  * **Assunto**: Dados do ambiente de produção Débito SPS
-  * **Corpo do email**:<br />Prezados,<br /><br />Favor liberar o cliente abaixo no ambiente de produção:<br /><br />Razão Social: XXXXX<br />CNPJ: XXXX<br />Nome da loja: XXXXX<br />Número da loja: XXXXX<br />Manager: XXXXX<br />Senha: XXXXXXX<br />URL da Loja: https://www.XXXXXXXXX<br />Meio de Pagamento para Homologar: Débito em Conta<br />
+Para o meio de pagamento Boleto Registrado Bradesco a atualização de status é feita via sondagem em lote: 
 
-5. Receber os dados de produção:
-  * A afiliação será enviada pelo Bradesco no padrão:
-        * **Convênio de Produção**: 101xx1
-        * **login**: dm_cm132
-        * **senha**: 12345678
-        * **URL para teste**: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX
+* Essa sondagem ocorre pela manhã: **4h, 6h, 8h, 10h e 12h**.
 
-6. Cadastrar no MUP Produção, as mesmas informações do Passo 3.
+<br> 
 
-7. Solicitar à Cielo para atualizar o número de Convênio para número de produção que recebeu no passo 5.
+Para receber as notificações de pagamento, a loja deve ter cadastrada a URL de Notificação em conjunto com a realização de GETs
 
-## Banco do Brasil
+> **OBS:** Hoje, a sonda considera transações que estejam com a data de vencimento dentro do intervalo de 30 dias anteriores e 30 dias posteriores à data de Sondagem. 
 
-Solicite ao seu gerente do banco a liberação do convênio do débito online via internet (**Comércio eletrônico Banco do Brasil - BBPAG**) e o cadastramento da URL de comunicação com a Cielo.
+## Conciliação Manual de Boletos
 
-* **URL de Comunicação**: [https://www.pagador.com.br/](https://www.pagador.com.br/)
+Para conciliar o boleto de forma manual, basta localizar o pedido no site Cielo e dentro dos Detalhes da Transação localizar o botão “Conciliar”. Desta forma o pedido terá o status alterado de “Não Pago" para “Pago”.
 
-A URL deve ser cadastrada pelo **Gerente no ato da liberação do convênio**.
+-------------------------------------------------------------------
 
-<aside class="warning">Se o cadastro não ocorre, a transação não será viavel.</aside>
+# Banco do Brasil
 
-* **Exemplo de convênio**: Convênio: 000000
+![]({{ site.baseurl_root }}/images/tutoriais/boletos/bancodobrasil.jpg)
+
+## Como funciona
+
+### API Cielo E-commerce
+
+1. O comprador, após escolher o produto na loja, seleciona a forma de pagamento Boleto Registrado Banco do Brasil.
+1. A loja envia para a Cielo uma requisição chamando o meio de pagamento correspondente.
+1. A cielo retornará uma URL contendo a imagem do Boleto. 
+
+![]({{ site.baseurl_root }}/images/tutoriais/boletos/fluxobb.png)
+
+### Checkout Cielo
+
+1. O comprador, após escolher o produto na loja, seleciona a forma de pagamento Boleto Bando do Brasil;
+1. O Checkout exibirá a URL do Boleto
+1. O cliente acessa a URL do boleto (renderização) e então pode realizar o pagamento;
+1. A conciliação de status não está disponivel para Checkout Cielo.
+2. O Lojista precisará conciliar manualment o pagamento do Boleto
+
+## Configurando o boleto
+
+### Ambiente BB
+
+O lojista deverá contatar o gerente de relacionamento do Banco do Brasil para solicitar a habilitação do produto Boleto Registrado.
+O formulário a seguir deve ser preenchido e entregue ao gerente.
+
+|Dado|Formato|
+|-|-|
+|**URL (site) retorno à loja**| https://www.pagador.com.br|
+| **Formato arquivo Retorno**| (X) CBR643|
+| **Meio de retorno**| {X) Mainframe – para empresa com sistema próprio, que não usam o GFN.|
+
+![]({{ site.baseurl_root }}/images/tutoriais/boletos/regbb00.png)
+![]({{ site.baseurl_root }}/images/tutoriais/boletos/regbb01.png)
+
+Ao final do credenciamento, o lojista receberá um documento com como o que segue abaixo
+
+![]({{ site.baseurl_root }}/images/tutoriais/boletos/regbb02.jpg)
+
+### Ambiente Cielo
+
+#### Dados de cadastro
+
+O Lojista precisará informar ao suporte Cielo os sequintes dados:
+
+| Dados            | Descrição                              | Formato    | OBS                                                                                                               |
+|------------------|----------------------------------------|------------|-------------------------------------------------------------------------------------------------------------------|
+| **Agência**      | Código agência                         | 4 Dígitos  | Hifen Obrigátório - Não pode haver espaços antes ou depois d agência                                              |
+| **Conta:**       | Conta corrente                         | 7 Dígitos  | Hifen Obrigátório                                                                                                 |
+| **Carteira:**    | **Não é necessário boleto Registrado** | 2 dígitos  | N/A                                                                                                               |
+| **Conciliação**  | Número do convênio de cobrança         | 7 Dígitos  | inserir o *Convênio de cobrança* fornecido pelo banco                                                             |
+| **Convênio**     | Convênio de comércio eletrônico        | 6 Dígitos  | inserir o *Convênio de Comercio Eletrônico* fornecido pelo banco                                                  |
+| **Nosso Numero** | Contador incremental                   | 5 Dígitos  | Inserir "10000" -  A cada emissão de boleto esse numero aumenta em +1                                             |
+| **Vencimento**   | Prazo de validade do boleto            | 6 Dígitos  | é o valor padrão, se nenhum outro valor for enviado via API                                                       |
+| **Instruções**   | Informações exibidas no boleto         | 50 Dígitos | Somente numeros e letras de A-Z, não pode haver caractéres especiais ou mais de um espaçamento entre cada palavra |
+
+> *OBS*: A loja deverá obrigatóriamente enviar no contrato da API os dados (nome do comprador, CPF e endereço completo).
+
+## Conciliação de boletos
+
+> **NO MOMENTO, O BOLETO REGISTRADO BANCO DO BRASIL NÃO REALIZA ATUALIZAÇÃO DE STATUS AUTOMÁTICA**
