@@ -28,6 +28,10 @@ Sim, o Checkout funciona com pagamentos internacionais e cartões emitidos fora 
 
 Veja o manual de integração para a [lista completa de meios de pagamento](https://developercielo.github.io/manual/checkout-cielo#meios-de-pagamento-do-checkout-cielo)
 
+## O Checkout Cielo suporta integrações mobile?
+
+O Checkout Cielo suporta pagamentos mobile, mas não suporte integrações usando Javascript.
+
 -----------------------------------
 
 # Dúvidas de Integração
