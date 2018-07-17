@@ -153,7 +153,7 @@ Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo n
 
 * [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
 * [Certificado Intermediária 1]({{ site.baseurl }}/attachment/Intermediate1.crt)
-* [Certificado Intermediária 2]({{ site.baseurl }}/attachment/Intermediate2.crt)
+* [Certificado Intermediária 2]({{ site.baseurl }}/attachment/Intermediate2.cer)
 * [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/ServerCertificate.cer)
 
 ## Passo a Passo para a Instalação
