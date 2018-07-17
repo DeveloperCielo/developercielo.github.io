@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-16T20:54:55+00:00</updated>
+    <updated>2018-07-17T19:59:33+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19016,7 +19016,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.DeliveryAddress.Street&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;sim&lt;/td&gt;
       &lt;td&gt;Endereço do Comprador.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -19205,7 +19205,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Browser.Email&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;E-mail registrado no browser do comprador.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
