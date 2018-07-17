@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-17T19:59:33+00:00</updated>
+    <updated>2018-07-17T20:06:12+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33644,7 +33644,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.cer&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.cer&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
