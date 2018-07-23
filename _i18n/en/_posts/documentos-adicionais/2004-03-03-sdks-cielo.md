@@ -3,18 +3,18 @@ layout: tutorial
 title:  SDKs
 description: Cielo e-Commerce API SDKs list
 toc_footers: true
-translated: true
 categories: tutorial
 sort_order: 5
 tags:
   - Cielo e-Commerce API
   - Webservice 1.5
-  - Cielo LIO
----
+ ---
 
 # Cielo e-Commerce API SDKs
 
-|Mobile SDK                                                        |                                                                  |
+Cielo e-Commerce API provides a range of SDKs available on the official Cielo Repository.:
+
+|Mobile SDK                                                         |                                                                  |
 |------------------------------------------------------------------|------------------------------------------------------------------|
 |[**Android**](https://github.com/DeveloperCielo/API-3.0-Android)  |[**iOS**](https://github.com/DeveloperCielo/API-3.0-iOS)          |
 
@@ -25,18 +25,18 @@ tags:
 |[**Python**](https://github.com/DeveloperCielo/API-3.0-Python)    |
 |[**Ruby**](https://github.com/DeveloperCielo/API-3.0-Ruby)        |
 
-# Cielo LIO SDKs
+# Cielo LIO SDKs 
 
 | Type                 | SDK                                                                                                 |
 |----------------------|-----------------------------------------------------------------------------------------------------|
-| **Sample**           | [**Local Integration**](https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local)           |
-| **Order Management** | [**Local Integration**](https://github.com/DeveloperCielo/order-management)|
-| **Android**          | [**Remote Integration**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Android) |
-| **PHP**              | [**Remote Integration**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-PHP)     |
-| **Java**             | [**Remote Integration**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Java)    |
-| **CSharp**           | [**Remote Integration**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-CSHARP)  |
+| **Sample**           | [**Integração Local**](https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local)           |
+| **Order Management** | [**Integração Local**](https://github.com/DeveloperCielo/order-management)                          |
+| **Android**          | [**Integração Remota**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Android) |
+| **PHP**              | [**Integração Remota**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-PHP)     |
+| **Java**             | [**Integração Remota**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Java)    |
+| **CSharp**           | [**Integração Remota**](https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-CSHARP)  |
 
-# Webservice 1.5 SDKs
+# Webservice 1.5 SDKs 
 
 |SDK                                                                      |
 |-------------------------------------------------------------------------|

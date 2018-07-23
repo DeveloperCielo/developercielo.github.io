@@ -586,7 +586,7 @@ If you have a high amount of return codes that are not listed below, please cont
 |04|Unauthorised Transaction. Card blocked by the issuer bank.|Unauthorised Transaction. Card blocked by the issuer bank.|Unauthorised Transaction. Contact your issuing bank.|No|
 |05|Unauthorised Transaction. Defaulter card (Do not honor)|Unauthorised Transaction. Unable to process the transaction. Issues related to security, default or carrier limit|Unauthorised Transaction. Contact your issuing bank.|Only 4 times in 16 days.|
 |06|Unauthorised Transaction. Card canceled.|Unauthorised Transaction. Unable to process the transaction. Card permanently canceled by the issuing bank.|We could not process the transaction. Contact your issuing bank.|No|
-|07|Transaction denied. Retain special status card|Transaction not authorized by the rules of the issuing bank.|Unauthorised Transaction. Contact your issuing bank|No|
+|07|Transaction declined. Retain special status card|Transaction not authorized by the rules of the issuing bank.|Unauthorised Transaction. Contact your issuing bank|No|
 |08|Unauthorised Transaction. Invalid security code.|Unauthorised Transaction. Security code is invalid. Ask to the carrier to correct the data and try again.|Unauthorised Transaction. Incorrect data. Review the data and enter again.|No|
 |11|successfully authorized transaction for cards issued abroad|authorized Transaction successfully.|Successfully authorized Transaction.|No|
 |12|invalid transaction, error on the card.|We could not process the transaction. Ask the carrier to check the card data and try again.|We could not process the transaction. review the reported data and try again. If the error persists, please contact your issuing bank.|No|
@@ -669,7 +669,7 @@ If you have a high amount of return codes that are not listed below, please cont
 |EK|Transaction not allowed for the card|unauthorized transaction.Transaction not allowed for the card.|Unauthorized transaction. Contact your issuing bank.|Only 4 times in 16 days.|
 |FA|Unauthorised Transaction.|Unauthorized transaction AmEx|Unauthorised Transaction. Contact your issuing bank.|No|
 |FC|Unauthorised Transaction. Call Issuer|Unauthorized transaction. Ask to the carrier to contact the issuing bank.|Unauthorised Transaction. Contact your issuing bank.|No|
-|FD|Transaction denied. Retain special status card|Transaction not authorized by the rules of the issuing bank.|Unauthorised Transaction. Contact your issuing bank|No|
+|FD|Transaction declined. Retain special status card|Transaction not authorized by the rules of the issuing bank.|Unauthorised Transaction. Contact your issuing bank|No|
 |FE|Unauthorised Transaction. Divergence on the date of transaction/payment|Unauthorised Transaction. Transaction date or date of the first invalid payment|Unauthorised Transaction. Redo the transaction confirming data.|No|
 |FF|Cancellation OK|Cancellation Transaction authorized successfully. ATTENTION: This return is for cases of cancellations and not to cases of authorizations|Cancellation Transaction authorized successfully|No|.
 |FG|Unauthorised Transaction. Call AmEx|Unauthorised Transaction. Orient the carrier to contact AmEx Call Center|Unauthorised Transaction. Contact AmEx Call Center at telephone 08007285090|No|
@@ -894,7 +894,7 @@ The recurrent authorization must be done in two ways: sending a token previously
 
 This functionality makes easier to identify a card which has been replaced for another at emitter bank. In this way, when a recurrent transaction is submitted to Web Service and Cielo identifies that the card used is outdated, the system will behave like that:
 
-1. If the recurrent transaction has been send through a card, the authorization will be denied and it will returned the data of new card, according to the diagram below:
+1. If the recurrent transaction has been send through a card, the authorization will be declined and it will returned the data of new card, according to the diagram below:
 
 ![remova fácil]({{ site.baseurl_root }}/images/remova-facil.png)
 
@@ -950,7 +950,7 @@ To the establishments that use the authentication process of authentication it's
 * **Rules**
   * The Token is unique to a specific [Card+Commercial Establishment]. So, a card can be "tokenized" in more than a store and each one will has different codes.
   * If more than one request has been sent with the same data, the token returned will be always the same.
-  * The creation of token is independent of a transaction result (approved/denied).
+  * The creation of token is independent of a transaction result (approved/declined).
 
 <aside class="warning">Transactions via token don't dispense the retailer from sending card issuer information, however is necessary that retailer system (or gateway) that will hold tokens also hold card issuers that have been tokenized.</aside>
 
@@ -1088,7 +1088,7 @@ The return will be like: <retorno-token> when a request has been concluded with 
 
 This functionality makes easier to identify a card which has been replaced for another in emitter bank. So, when a recurrent transaction is submitted to Web Service and Cielo identifies a card in use outdated, the system will behave like that:
 
-1. In case of recurrent transaction had been sent through a token, the authorization will denied and a new token will return to be used, according to the diagram below:
+1. In case of recurrent transaction had been sent through a token, the authorization will be declined and a new token will return to be used, according to the diagram below:
 
 ![remova fácil com token]({{ site.baseurl_root }}/images/remova-facil-token.png)
 
@@ -1433,7 +1433,7 @@ To make easier the development we provided two key for tests, one for each modal
 |---|---|
 |1006993069|25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3|
 
-<aside class="warning">The order value, besides to follow the format without points or decimal commas, must finish on "00", otherwise, the authorization will be always denied. Example: R$15,00 must be formated as "1500".</aside>
+<aside class="warning">The order value, besides to follow the format without points or decimal commas, must finish on "00", otherwise, the authorization will be always declined. Example: R$15,00 must be formated as "1500".</aside>
 
 <aside class="notice">The testing environment must be used by testing establishments listed on the board above. The data usage of the establishment will create transaction impossible to track, creating incorrect results. On testing environment, use the credential for tests, on production environment, use the original data from establishment.</aside>
 

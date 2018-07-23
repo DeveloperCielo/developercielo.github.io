@@ -848,14 +848,14 @@ Today, employees contribute monthly without having to remember to pay, once the 
 
 Checkout Cielo allows the use of Credit Cards of the main national and international issuers. This means of payment is automatically released with Cielo affiliation, and can be used initially with the Checkout integration.
 
-Credit card transactions will be included in the Backoffice Cielo Checkout as PENDING, AUTHORIZED, PAID, DENIED, EXPIRED OR CHARGEBACK depending on the result of the authorization with the Bank.
+Credit card transactions will be included in the Backoffice Cielo Checkout as PENDING, AUTHORIZED, PAID, DECLINED, EXPIRED OR CHARGEBACK depending on the result of the authorization with the Bank.
 
 **Credit Card** Order of Status:
 
 |Order|Status|Explanation|
 |---|---|---|
 |1|**PENDING**|Original status. The transaction is occurring, awaiting response from the authorization process|
-|2|**AUTHORIZED / DENIED**|Result of the authorization process. <br>**AUTHORIZED** - Credit was reserved for purchase <br> **DENIED** - Card not authorized by the issuer to continue the transaction|
+|2|**AUTHORIZED / DECLINED**|Result of the authorization process. <br>**AUTHORIZED** - Credit was reserved for purchase <br> **DECLINED** - Card not authorized by the issuer to continue the transaction|
 |3|**PAID**|It occurs after capture. Indicates that the credit booked on the card will be deposited in the merchant's account|
 |N/A|**EXPIRED**|Occurs if the transaction is not captured within 15 days after authorization. In this situation the transaction is lost.|
 |N/A|**CHARGEBACK**|Not automatic status. If the merchant is notified of ChargeBack, he can mark this transaction as lost.<br> This Status is only a markup, not affecting payment processes|
@@ -882,7 +882,7 @@ This degree of risk is what should guide the merchant's decision to capture or c
 |`N/A`|AF Dispensed|Anti-fraud dispensed via contract or lower than the minimum value of antifrade parameterized backoffice in the merchant|
 |`N/A`|Not applicable|Non-analyzable means of payment such as debit cards, bank slip and online debit|
 |`N/A`|Recurrence transaction|credit transaction is later than the scheduled transaction. **Only Scheduling is analyzed**|
-|`N/A`|Transaction denied|Credit sale has been denied - **They are not analyzable by AF**|
+|`N/A`|Transaction declined|Credit sale has been declined - **They are not analyzable by AF**|
 
 The analysis will be displayed in the “Order Details”, as below:
 
@@ -909,7 +909,7 @@ Supported Banks:
 |Caixa|N/A|
 |BancooB|N/A|
 
-**NOTE:** Cards not belonging to these banks will have their authorizations denied.
+**NOTE:** Cards not belonging to these banks will have their authorizations declined.
 
 Upon accessing the transaction screen, the buyer will obtain by the payment via Debit Card, and will be redirected to the banking environment for Authentication and Authorization.
 
@@ -942,7 +942,7 @@ Supported Banks:
 |Caixa|N/A|
 |BancooB|N/A|
 
-**NOTE:** Cards not belonging to these banks will have their authorizations denied.
+**NOTE:** Cards not belonging to these banks will have their authorizations declined.
 
 Upon accessing the transaction screen, the buyer will obtain by the payment via Debit Card, and will be redirected to the banking environment for Authentication and Authorization.
 
@@ -1117,7 +1117,7 @@ See description of notification items in the session **"NOTIFICATION POST conten
 
 If the POST is not received, it is possible to resend it manually, just access the order in question by the Backoffice and click on the Sending icon:
 
-![Resending of notification]({{ site.baseurl }}/images/Checkout/reenvipost.png)
+![Notification resending]({{ site.baseurl }}/images/Checkout/reenvipost.png)
 
 ## Notification Content
 
@@ -1167,7 +1167,7 @@ Checkout has a status of its own, different from the CIELO WEB SITE or the API C
 |---|---|---|---|
 |1|`Pending`|For all means of payment|Indicates payment is still being processed; NOTE: Bank slip - Indicates that the bank slip did not have status changed by the merchant|
 |2|`Paid`|For all means of payment|Transaction captured and money will be deposited into account.|
-|3|`Denied`|Credit Card only|Transaction not authorized by the party responsible for the payment means|
+|3|`Declined`|Credit Card only|Transaction not authorized by the party responsible for the payment means|
 |4|`Expired`|Credit Cards and Bank slip|Transaction no longer valid for capture - **15 days post Authorization**|
 |5|`Canceled`|For credit cards|Transaction was canceled by the merchant|
 |6|`Not Finished`|All means of payment|Payment waiting Status - May indicate error or processing failure. Contact Cielo Support|
@@ -1189,7 +1189,7 @@ Antifraud has the concept of `Status` and `SubStatus`, where the first represent
 |N/A|`N/A`|AF Dispensed|Anti-fraud dispensed via contract or lower than the minimum value of anti-fraud parameterized backoffice in the merchant|
 |N/A|`N/A`|Not applicable|Non-analyzable payment means such as debit cards, bank slip and online debit|
 |N/A|`N/A`|Recurrence transaction|Credit transaction is after than the scheduled transaction. **Only Scheduling is analyzed**|
-|N/A|`N/A`|Transaction denied|Sale by credit was denied - **Not analyzable by AF**|
+|N/A|`N/A`|Transaction declined|Sale by credit was declined - **Not analyzable by AF**|
 
 **Payment_method_type**
 
@@ -1303,7 +1303,7 @@ Some business examples are:
 
 |Type|Description|
 |---|---|
-|**Installment**|This is a **transaction divided into several months**. <br>The total value of the sale compromises the limit of the buyer's credit card regardless of the value of the initial installment.<br> The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied.<br> **e.g.**: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied|
+|**Installment**|This is a **transaction divided into several months**. <br>The total value of the sale compromises the limit of the buyer's credit card regardless of the value of the initial installment.<br> The merchant receives the sale value in installments and does not take the plunge of one of the installments being declined.<br> **e.g.**: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be declined|
 |**Recurrent**|They are **different transactions performed on the same card at previously scheduled times**.<br> The first sale schedules future sales from a pre-defined time interval.<br>  At each interval there will be a charge on the credit card. <br> The recurring payment blocks from the card limit only the value debited on the date of the first recurring sale and from the total value of the sale.<br> **e.g.**: Sale of R$1,000.00 on 01/15/2015, with monthly recurrence and final date on 06/01/2015. Every day of 15 there will be a new charge of R$1,000.00 on the buyer's card, repeating until 05/15/2015, the last valid date before the end date.|
 
 ## Recurrence by API
@@ -1440,7 +1440,7 @@ If one of the recurrence transactions is not authorized, Checkout Cielo performs
 * **Time interval between attempts:** 1 day
 * **Number of retries:** 3 (three), one per day, for 3 consecutive days from the day following the unauthorized original transaction.
 
-**NOTE**: This process aims to maintain a positive response to the authorization process, preventing the merchant from losing the sale. The Retry Process generates duplicate orders within the Backoffice because the original order, the one denied, will be displayed in the Orders list, along with the new authorized transaction
+**NOTE**: This process aims to maintain a positive response to the authorization process, preventing the merchant from losing the sale. The Retry Process generates duplicate orders within the Backoffice because the original order, the one declined, will be displayed in the Orders list, along with the new authorized transaction
 
 **WARNING:**The retry rule can not be modified by the merchant.
 
@@ -1479,7 +1479,7 @@ In the above screen, there are two Cancel options by buttons:
 **WARNING:**
 * The Recurrence occurs only for Credit Cards and for products like “SERVICE” and “DIGITAL GOODS”.
 * Recurrence is initiated at the time of AUTHORIZATION, NOT AT THE CAPTURE. If the recurrence does not have a date to be finalized, it will automatically repeat itself until it is manually canceled.
-* Your Cielo affiliation must be enabled to transact without CVV or In recurrence, otherwise all recurring transactions will be denied.
+* Your Cielo affiliation must be enabled to transact without CVV or In recurrence, otherwise all recurring transactions will be declined.
 
 ## Recurrence Edition
 

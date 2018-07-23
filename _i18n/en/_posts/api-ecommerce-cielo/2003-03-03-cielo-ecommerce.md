@@ -16,9 +16,9 @@ language_tabs:
 
 The purpose of this documentation is to guide the developer on how to integrate with Cielo's API Cielo eCommerce, describing the features, methods to be used, listing information to be sent and received, and providing examples.
 
-The integration mechanism with Cielo eCommerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo eCommerce solution.
+The integration mechanism with Cielo e-Commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.
 
-In this manual you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints:
+In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints:
 
 Production Environment
 
@@ -49,13 +49,13 @@ Among other features, the attributes that stand out most in the Cielo eCommerce 
 
 ## Architecture
 
-Integration is performed through services provided as Web Services. The model employed is quite simple: There are two URLs (endpoint), a specific one for operations that cause side effects - such as authorization, capture and cancellation of transactions, and a specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a resource identified through the path.
+Integration is performed through services provided as Web Services. The model employed is quite simple: There are two URLs (endpoint), a specific one for operations that cause side effects - such as authorization, capture and cancellation of transactions, and a specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a feature identified through the path.
 
 | Method   | Description                                                                                                                                           |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **POST** | The `POST` HTTP method is used in the creation of resources or in sending information that will be processed. For example, creation of a transaction. |
-| **PUT**  | The`PUT` HTTP method is used to update an already existing resource. For example, capture or canceltation of a previously authorized transaction.     |
-| **GET**  | The `GET` HTTP method is used for querying already existing resources. For example, transaction query.                                                |
+| **POST** | The `POST` HTTP method is used in the creation of features or in sending information that will be processed. For example, creation of a transaction. |
+| **PUT**  | The`PUT` HTTP method is used to update an already existing feature. For example, capture or canceltation of a previously authorized transaction.     |
+| **GET**  | The `GET` HTTP method is used for querying already existing features. For example, transaction query.                                                |
 
 ## Glossary
 
@@ -97,7 +97,7 @@ The current version of Cielo Webservice supports the following issuers and produ
 
 # Extended Validation Certificate
 
-## What is SSL Certificate?
+## What is the SSL Certificate?
 
 The SSL Certificate for web server offers authenticity and integrity of web site data, giving customers of virtual stores the guarantee that they are actually accessing the web site they want, not a fraudster web site.
 
@@ -140,7 +140,7 @@ The step-by-step of the EV Certificate installation must contact your server ven
 
 ### Client Access to Virtual Store
 
-Normally, the browser automatically updates the Certificate. If it does not and the client contacts, the following steps must be informed:
+Usually, the browser automatically updates the Certificate. If it does not and the client contacts, the following steps must be informed:
 
 **Step 1:**
 
@@ -295,7 +295,7 @@ The transactional flow of the Debit card works with the Response of the transact
 |Option|Status|
 |---|---|
 |Authenticated|Authorized|
-|Not Authenticate|Denied|
+|Not Authenticate|Declined|
 |Do not use the URL|Not Finished|
 
 <aside class="notice"><strong>Online Transfer:</strong> The same behavior of the Debit card in Sanbox is valid for debit card</aside>
@@ -325,7 +325,7 @@ The events that can be notified are:
 |Bank slip|Conciliation|
 |Bank slip|Manual Cancellation|
 |Electronic transfer|Confirmed|
-|Recurrence|Disabled on reaching maximum number of attempts (denied transactions)|
+|Recurrence|Disabled on reaching maximum number of attempts (declined transactions)|
 |Recurrence|Waiting for bank slip conciliation|
 |Recurrence|Rehabilitation - After payment of bank slip|
 |Recurrence|Finished - Finished date reached|
@@ -364,7 +364,7 @@ If not returned the **HTTP Status Code 200 OK**,  more **two** Notification Post
 |2|Recurrence created|
 |3|AntiFraud status change|
 |4|Recurring payment status change (Ex. automatic deactivation)|
-|5|cancellation denied|
+|5|cancellation declined|
 
 # Payments with Credit Card
 
@@ -378,7 +378,7 @@ For you to enjoy all the features available in our API, it is important that you
 |**Authentication**|The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, thus providing more security for the sale and transferring the risk of fraud to the bank.|
 |**Protected Card**|It is a platform that allows secure storage of credit card sensitive data. This data are transformed into an encrypted code named “token”, which can be stored in a database. With the platform, the store can offer features like “1 Click Buy” and “Rettry transaction sending”, always preserving integrity and confidentiality of information.|
 |**Anti fraud**|It is a fraud prevention platform that provides a detailed risk analysis of online purchases. Each transaction is submitted to more than 260 rules, besides the specific rules of each segment, and generate a risk recommendation in approximately two seconds. This process is completely transparent to the card carrier. According to the pre-established criteria, the order can be automatically accepted, rejected or sent to manual analysis.|
-|**Recurrent**|The Smart Recurrence is an indispensable resource for establishments that regularly need to charge for their products/services. It is widely used for magazine subscriptions, monthly fees, software licenses, among others. The merchants will count with differentiated resources to model their charging according to their business, as all parameterization is configurable, such as: periodicity, start and end date, number of attempts, interval between them, among others.|
+|**Recurrent**|The Smart Recurrence is an indispensable feature for establishments that regularly need to charge for their products/services. It is widely used for magazine subscriptions, monthly fees, software licenses, among others. The merchants will count with differentiated features to model their charging according to their business, as all parameterization is configurable, such as: periodicity, start and end date, number of attempts, interval between them, among others.|
 
 ## Creating a simple transaction
 
@@ -990,7 +990,7 @@ curl
  "MerchantOrderId":"2014111903",
  "Customer":
  {
-  "Name":"Comprador crédito autenticação"
+  "Name":"Credit buyer authentication"
  },
  "Payment":
  {
@@ -1002,7 +1002,7 @@ curl
   "CreditCard":
   {
    "CardNumber":"123412******1112",
-   "Holder":"Teste Holder",
+   "Holder":"Test Holder",
    "ExpirationDate":"12/2030",
    "SaveCard":false,
    "Brand":"Visa"
@@ -1372,7 +1372,7 @@ curl
 |`FraudAnalysis.Items.ObscenitiesHedge`|Text|6|No|Level of obscenity of received orders.[Values](#fraudanalysisitemsobscenitieshedge)|
 |`FraudAnalysis.Items.PhoneHedge`|Text|6|No|Level of tests performed with telephone numbers.[Values](#fraudanalysisitemsphonehedge)|
 |`FraudAnalysis.Items.Name`|Text|255|No|Product's name.|
-|`FraudAnalysis.Items.Quantity`|Number|15|No|Quantity of product to be purchased.|
+|`FraudAnalysis.Items.Quantity`|Number|15|No|Amount of products to be purchased.|
 |`FraudAnalysis.Items.Sku`|Text|255|No|Código comerciante identificador do produto.|
 |`FraudAnalysis.Items.UnitPrice`|Number|15|No|Unit price of the product.|
 |`FraudAnalysis.Items.Risk`|Text|6|No|Product risk level.[Values](#fraudanalysisitemsrisk)|
@@ -2295,7 +2295,7 @@ In this model, the merchant is responsible for creating the necessary intelligen
 |---|---|
 |**Save transaction data**|The store will need to store the transaction and payment data|
 |**Create transactional repetition**|The store must sent a new transaction whenever it needs an Authorization|
-|**Behavior for denied transaction**|If one of the transactions is denied, it will be up to the store to "retry" a new authorization|
+|**Behavior for declined transaction**|If one of the transactions is declined, it will be up to the store to "retry" a new authorization|
 
 In all instances, the scheduled recurrence is a standard transaction for Cielo, its only difference being the need to send an additional parameter that defines it as **Own Recurrence**
 
@@ -2388,7 +2388,7 @@ The Cielo' scheduled recurrence has the following characteristics:
 
 * **Scheduled intervals:** Monthly, bimonthly, quarterly, semi-annual and annual
 * **Expiry date:** Enables to define whether the recurrence will end
-* **Retentative:** if a transaction is denied, we will retry the transaction up to 4x
+* **Retentative:** if a transaction is declined, we will retry the transaction up to 4x
 * **Update:** Allows you to change recurrence data, such as value, interval.
 
 See an example in use:
@@ -2416,13 +2416,13 @@ What are the advantages of using scheduled recurrence for MusicFy?:
 
 3. **Safety:** It is not necessary to store sensitive card and buyer data at the store.
 
-4. **Conversion:** The scheduled recurrence of Cielo has an automatic retentative system. If one of the transactions is denied, it will be retried up to 4 times, seeking to obtain the authorization.
+4. **Conversion:** The scheduled recurrence of Cielo has an automatic retentative system. If one of the transactions is declined, it will be retried up to 4 times, seeking to obtain the authorization.
 
 ## Creating an OWN RECURRENCE
 
 To create a recurring sale whose recurrence and interval processes will be executed by the store itself, just do a POST as the example.
 
-The `Payment.Recurrent` parameter must be `true`, otherwise the transaction will be denied.
+The `Payment.Recurrent` parameter must be `true`, otherwise the transaction will be declined.
 
 ### Request
 
@@ -3557,7 +3557,7 @@ See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP st
 ## Renew easy
 
 The use of this feature allows the automatic replacement of an expired card .
-That way, when a transaction with recurrent markup is submitted to the API and Cielo identifies that the used card has been replaced, its authorization will be denied and the new card data will be returned as the example.
+That way, when a transaction with recurrent markup is submitted to the API and Cielo identifies that the used card has been replaced, its authorization will be declined and the new card data will be returned as the example.
 
 <aside class="notice"><strong>Warning:</strong> It is necessary to request enabling this feature in the register  </aside>
 
@@ -3699,7 +3699,7 @@ curl
     "Status": 3,
     "RecurrentPayment": {
       "ReasonCode": 7,
-      "ReasonMessage": "Denied",
+      "ReasonMessage": "Declined",
       "EndDate": "2019-12-01",
       "Interval": 6,
       "AuthorizeNow": true
@@ -3765,7 +3765,7 @@ curl
     "Status": 3,
     "RecurrentPayment": {
       "ReasonCode": 7,
-      "ReasonMessage": "Denied",
+      "ReasonMessage": "Declined",
       "EndDate": "2019-12-01",
       "Interval": 6,
       "AuthorizeNow": true
@@ -5386,12 +5386,12 @@ curl
 
 To create a credit card sale with webservice 1.5 token, it is necessary to do a POST for the Payment feature as the example.
 
-For use in Sandbox, it is possible to simulate authorized or denied transactions via test tokens:
+For use in Sandbox, it is possible to simulate authorized or declined transactions via test tokens:
 
 |Status|Token|
 |---|---|
 |Authorized|6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA|
-|Denied|6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeB|
+|Declined|6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeB|
 
 ### Request
 
@@ -6198,7 +6198,7 @@ Below we explain them in the order in which they can occur:
 |**HTTP Status Code**|They are standard HTTP codes. It report if the information sent to the API is **actually being successful in reaching our ENDPOINTs**. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API<br> *Returned at time of API request*|
 |**API Errors**|These codes are responses to **content validation of sent data**. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction<br>*Returned at time of API request*|
 |**Status**|After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. `Authorized` >` Captured` > `Canceled`)<br>*Returned in the `Status` field *|
-|**Sales Return**|Formed by a **Return code** and a **message**, these codes indicate the **reason** of a given `Status` within a transaction. They indicate, for example, whether a transaction with denied `status` was not authorized because of a negative balance at the issuing bank. <br>*Returned in the `ReturnCode` and` ReturnMessage` fields*<br> *They occur only in Credit and Debit cards*|
+|**Sales Return**|Formed by a **Return code** and a **message**, these codes indicate the **reason** of a given `Status` within a transaction. They indicate, for example, whether a transaction with declined `status` was not authorized because of a negative balance at the issuing bank. <br>*Returned in the `ReturnCode` and` ReturnMessage` fields*<br> *They occur only in Credit and Debit cards*|
 
 **NOTE**: In the old **Webservice 1.5 Cielo**, the `ReturnCode` was considered as *Transaction Status*. In the **API CIELO ECOMMERCE**, the `Status` field has its own codes, thus, the **field to be considered as the basis for identifying the status of a transaction**
 
@@ -6218,7 +6218,7 @@ Below we explain them in the order in which they can occur:
 |0|NotFinished|ALL|Waiting for status update|
 |1|Authorized|ALL|Payment apt to be captured or defined as paid|
 |2|PaymentConfirmed|ALL|Confirmed and finalized payment|
-|3|Denied|CC + CD + TF|Payment denied by Authorizer|
+|3|Declined|CC + CD + TF|Payment declined by Authorizer|
 |10|Voided|ALL|Canceled payment|
 |11|Refunded|CC + CD|Payment canceled after 11:59 pm on the authorization day|
 |12|Pending|ALL|Waiting for financial institution status|
@@ -6394,7 +6394,7 @@ Codes returned in case of error, identifying the reason for the error and its re
 |04|Unauthorized transaction. Card blocked by issuing bank.|Unauthorized transaction. Card blocked by issuing bank.|Unauthorized transaction. Contact your issuing bank.|No|
 |05|Unauthorized transaction. Defaulting card (Do not honor).|Unauthorized transaction. Could not process transaction. Issue related to security, defaults or carrier limit.|Unauthorized transaction. Contact your issuing bank.|Only 4 times in 16 days.|
 |06|Unauthorized transaction. Card canceled.|Unauthorized transaction. Could not process transaction. Card permanently canceled by issuing bank.|Could not process transaction. Contact your issuing bank.|No|
-|07|Transaction denied. Hold special condition card|Transaction not authorized by issuing bank rules.|Unauthorized transaction. Contact your issuing bank|No|
+|07|Transaction declined. Hold special condition card|Transaction not authorized by issuing bank rules.|Unauthorized transaction. Contact your issuing bank|No|
 |08|Unauthorized transaction. Invalid security code.|Unauthorized transaction. Invalid security code. Orient the carrier to correct the data and try again.|Unauthorized transaction. Incorrect data. Review the data and enter again.|No|
 |11|Successfully authorized transaction for card issued abroad|Successfully authorized transaction.|Successfully authorized transaction.|No|
 |12|Invalid transaction, card error.|Could not process transaction. Ask the carrier to check the card data and try again.|Could not process transaction. Review the reported data and try again. If the error persists, contact your issuing bank.|No|
@@ -6477,7 +6477,7 @@ Codes returned in case of error, identifying the reason for the error and its re
 |EK|Transaction not allowed for the card|Unauthorized transaction. Transaction not allowed for the card.|Unauthorized transaction. Contact your issuing bank.|Only 4 times in 16 days.|
 |FA|Unauthorized transaction.|AmEx unauthorized transaction.|Unauthorized transaction. Contact your issuing bank.|No|
 |FC|Unauthorized transaction. Call the Issuer|Unauthorized transaction. Guide the carrier to contact the issuing bank.|Unauthorized transaction. Contact your issuing bank.|No|
-|FD|Transaction denied. Hold special condition card|Transaction not authorized by issuing bank rules.|Unauthorized transaction. Contact your issuing bank|No|
+|FD|Transaction declined. Hold special condition card|Transaction not authorized by issuing bank rules.|Unauthorized transaction. Contact your issuing bank|No|
 |FE|Unauthorized transaction. Divergence on transaction/payment date.|Unauthorized transaction. Invalid transaction date or first payment date.|Unauthorized transaction. Redo the transaction confirming data.|No|
 |FF|Cancellation OK|Cancellation transaction authorized successfully. WARNING: This return is for cases of cancellations and not for cases of authorizations.|Transação de cancelamento autorizada com sucesso|No|
 |FG|Unauthorized transaction. Call AmEx.|Unauthorized transaction. Guide the carrier to contact AmEx Call Center.|Unauthorized transaction. Contact the AmEx Call Center at the phone number 08007285090|No|
