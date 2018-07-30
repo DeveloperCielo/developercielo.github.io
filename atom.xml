@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-17T20:06:12+00:00</updated>
+    <updated>2018-07-30T18:46:02+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3965,10 +3965,10 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;p&gt;Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.19.1'
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.19.4'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;última versão 0.18.3 - lançada em 21/03/2018&lt;/p&gt;
+&lt;p&gt;última versão 0.19.1 - lançada em 15/05/2018&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
@@ -13273,11 +13273,8 @@ A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida c
 
 &lt;p&gt;Não é possível manter duas integrações simultâneas do webservice 1.5 e da API Cielo eCommerce
 Ao realizar o cadastro de uma das integrações junto ao Cielo Ecommerce será necessário escolher entre uma das plataformas
-Para maiores informações acesse: https://www.cielo.com.br/desenvolvedores&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A migração para a API Cielo Ecommerce é &lt;strong&gt;obrigatoria&lt;/strong&gt;. O WebService 1.5 foi descontinuado e não possui suporte ou novos desenvolvimentos.&lt;/p&gt;
-&lt;/blockquote&gt;
+Para maiores informações acesse: https://www.cielo.com.br/desenvolvedores
+A migração para a API Cielo Ecommerce é &lt;strong&gt;obrigatoria&lt;/strong&gt;. O WebService 1.5 foi descontinuado e não possui suporte ou novos desenvolvimentos.&lt;/p&gt;
 
 &lt;h2 id=&quot;5-não-possuo-a-integração-15-posso-utilizar-a-api-cielo-ecommerce&quot;&gt;5. Não possuo a integração 1.5, posso utilizar a API Cielo eCommerce?&lt;/h2&gt;
 
@@ -13495,7 +13492,7 @@ Veja como realizar essa consulta em nosso manual de integração: https://develo
   &lt;li&gt;iOS&lt;/li&gt;
   &lt;li&gt;Android&lt;/li&gt;
   &lt;li&gt;Java&lt;/li&gt;
-  &lt;li&gt;.net&lt;/li&gt;
+  &lt;li&gt;net&lt;/li&gt;
   &lt;li&gt;PHP&lt;/li&gt;
   &lt;li&gt;Python&lt;/li&gt;
 &lt;/ul&gt;
@@ -14144,9 +14141,9 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 &lt;p&gt;Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/Intermediate2.cer&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.cer&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;passo-a-passo-para-a-instalação&quot;&gt;Passo a Passo para a Instalação&lt;/h2&gt;
@@ -14166,9 +14163,9 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 &lt;p&gt;Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://maroon-cavern.cloudvent.net/attachment/Intermediate2.cer&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.cer&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;2o Passo:&lt;/strong&gt;&lt;/p&gt;

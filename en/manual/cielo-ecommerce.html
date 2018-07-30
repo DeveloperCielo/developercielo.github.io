@@ -133,9 +133,9 @@
 
 <p>The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce, describing the features, methods to be used, listing information to be sent and received, and providing examples.</p>
 
-<p>The integration mechanism with Cielo eCommerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo eCommerce solution.</p>
+<p>The integration mechanism with Cielo e-Commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.</p>
 
-<p>In this manual you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints:</p>
+<p>In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints:</p>
 
 <p>Production Environment</p>
 
@@ -172,7 +172,7 @@
 
 <h2 id="architecture">Architecture</h2>
 
-<p>Integration is performed through services provided as Web Services. The model employed is quite simple: There are two URLs (endpoint), a specific one for operations that cause side effects - such as authorization, capture and cancellation of transactions, and a specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a resource identified through the path.</p>
+<p>Integration is performed through services provided as Web Services. The model employed is quite simple: There are two URLs (endpoint), a specific one for operations that cause side effects - such as authorization, capture and cancellation of transactions, and a specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a feature identified through the path.</p>
 
 <table>
   <thead>
@@ -184,15 +184,15 @@
   <tbody>
     <tr>
       <td><strong>POST</strong></td>
-      <td>The <code class="highlighter-rouge">POST</code> HTTP method is used in the creation of resources or in sending information that will be processed. For example, creation of a transaction.</td>
+      <td>The <code class="highlighter-rouge">POST</code> HTTP method is used in the creation of features or in sending information that will be processed. For example, creation of a transaction.</td>
     </tr>
     <tr>
       <td><strong>PUT</strong></td>
-      <td>The<code class="highlighter-rouge">PUT</code> HTTP method is used to update an already existing resource. For example, capture or canceltation of a previously authorized transaction.</td>
+      <td>The<code class="highlighter-rouge">PUT</code> HTTP method is used to update an already existing feature. For example, capture or canceltation of a previously authorized transaction.</td>
     </tr>
     <tr>
       <td><strong>GET</strong></td>
-      <td>The <code class="highlighter-rouge">GET</code> HTTP method is used for querying already existing resources. For example, transaction query.</td>
+      <td>The <code class="highlighter-rouge">GET</code> HTTP method is used for querying already existing features. For example, transaction query.</td>
     </tr>
   </tbody>
 </table>
@@ -355,7 +355,7 @@
 
 <h1 id="extended-validation-certificate">Extended Validation Certificate</h1>
 
-<h2 id="what-is-ssl-certificate">What is SSL Certificate?</h2>
+<h2 id="what-is-the-ssl-certificate">What is the SSL Certificate?</h2>
 
 <p>The SSL Certificate for web server offers authenticity and integrity of web site data, giving customers of virtual stores the guarantee that they are actually accessing the web site they want, not a fraudster web site.</p>
 
@@ -400,7 +400,7 @@
 
 <h3 id="client-access-to-virtual-store">Client Access to Virtual Store</h3>
 
-<p>Normally, the browser automatically updates the Certificate. If it does not and the client contacts, the following steps must be informed:</p>
+<p>Usually, the browser automatically updates the Certificate. If it does not and the client contacts, the following steps must be informed:</p>
 
 <p><strong>Step 1:</strong></p>
 
@@ -636,7 +636,7 @@ With this means of payment it is possible to simulate the flows of:</p>
     </tr>
     <tr>
       <td>Not Authenticate</td>
-      <td>Denied</td>
+      <td>Declined</td>
     </tr>
     <tr>
       <td>Do not use the URL</td>
@@ -715,7 +715,7 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td>Recurrence</td>
-      <td>Disabled on reaching maximum number of attempts (denied transactions)</td>
+      <td>Disabled on reaching maximum number of attempts (declined transactions)</td>
     </tr>
     <tr>
       <td>Recurrence</td>
@@ -819,7 +819,7 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td>5</td>
-      <td>cancellation denied</td>
+      <td>cancellation declined</td>
     </tr>
   </tbody>
 </table>
@@ -862,7 +862,7 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><strong>Recurrent</strong></td>
-      <td>The Smart Recurrence is an indispensable resource for establishments that regularly need to charge for their products/services. It is widely used for magazine subscriptions, monthly fees, software licenses, among others. The merchants will count with differentiated resources to model their charging according to their business, as all parameterization is configurable, such as: periodicity, start and end date, number of attempts, interval between them, among others.</td>
+      <td>The Smart Recurrence is an indispensable feature for establishments that regularly need to charge for their products/services. It is widely used for magazine subscriptions, monthly fees, software licenses, among others. The merchants will count with differentiated features to model their charging according to their business, as all parameterization is configurable, such as: periodicity, start and end date, number of attempts, interval between them, among others.</td>
     </tr>
   </tbody>
 </table>
@@ -2055,7 +2055,7 @@ Below we specify any existing differences:</p>
  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111903"</span><span class="p">,</span><span class="w">
  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w">
  </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito autenticação"</span><span class="w">
+  </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Credit buyer authentication"</span><span class="w">
  </span><span class="p">},</span><span class="w">
  </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w">
  </span><span class="p">{</span><span class="w">
@@ -2067,7 +2067,7 @@ Below we specify any existing differences:</p>
   </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w">
   </span><span class="p">{</span><span class="w">
    </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"123412******1112"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
@@ -2837,7 +2837,7 @@ Below we specify any existing differences:</p>
       <td>Number</td>
       <td>15</td>
       <td>No</td>
-      <td>Quantity of product to be purchased.</td>
+      <td>Amount of products to be purchased.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Items.Sku</code></td>
@@ -4596,8 +4596,8 @@ Below we specify any existing differences:</p>
       <td>The store must sent a new transaction whenever it needs an Authorization</td>
     </tr>
     <tr>
-      <td><strong>Behavior for denied transaction</strong></td>
-      <td>If one of the transactions is denied, it will be up to the store to “retry” a new authorization</td>
+      <td><strong>Behavior for declined transaction</strong></td>
+      <td>If one of the transactions is declined, it will be up to the store to “retry” a new authorization</td>
     </tr>
   </tbody>
 </table>
@@ -4757,7 +4757,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 <ul>
   <li><strong>Scheduled intervals:</strong> Monthly, bimonthly, quarterly, semi-annual and annual</li>
   <li><strong>Expiry date:</strong> Enables to define whether the recurrence will end</li>
-  <li><strong>Retentative:</strong> if a transaction is denied, we will retry the transaction up to 4x</li>
+  <li><strong>Retentative:</strong> if a transaction is declined, we will retry the transaction up to 4x</li>
   <li><strong>Update:</strong> Allows you to change recurrence data, such as value, interval.</li>
 </ul>
 
@@ -4795,7 +4795,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     <p><strong>Safety:</strong> It is not necessary to store sensitive card and buyer data at the store.</p>
   </li>
   <li>
-    <p><strong>Conversion:</strong> The scheduled recurrence of Cielo has an automatic retentative system. If one of the transactions is denied, it will be retried up to 4 times, seeking to obtain the authorization.</p>
+    <p><strong>Conversion:</strong> The scheduled recurrence of Cielo has an automatic retentative system. If one of the transactions is declined, it will be retried up to 4 times, seeking to obtain the authorization.</p>
   </li>
 </ol>
 
@@ -4803,7 +4803,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To create a recurring sale whose recurrence and interval processes will be executed by the store itself, just do a POST as the example.</p>
 
-<p>The <code class="highlighter-rouge">Payment.Recurrent</code> parameter must be <code class="highlighter-rouge">true</code>, otherwise the transaction will be denied.</p>
+<p>The <code class="highlighter-rouge">Payment.Recurrent</code> parameter must be <code class="highlighter-rouge">true</code>, otherwise the transaction will be declined.</p>
 
 <h3 id="request-7">Request</h3>
 
@@ -6996,7 +6996,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 <h2 id="renew-easy">Renew easy</h2>
 
 <p>The use of this feature allows the automatic replacement of an expired card .
-That way, when a transaction with recurrent markup is submitted to the API and Cielo identifies that the used card has been replaced, its authorization will be denied and the new card data will be returned as the example.</p>
+That way, when a transaction with recurrent markup is submitted to the API and Cielo identifies that the used card has been replaced, its authorization will be declined and the new card data will be returned as the example.</p>
 
 <aside class="notice">Warning: It is necessary to request enabling this feature in the register  </aside>
 
@@ -7254,7 +7254,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Denied"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Declined"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-01"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
       </span><span class="s2">"AuthorizeNow"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -7319,7 +7319,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
     <span class="s2">"Status"</span>: 3,
     <span class="s2">"RecurrentPayment"</span>: <span class="o">{</span>
       <span class="s2">"ReasonCode"</span>: 7,
-      <span class="s2">"ReasonMessage"</span>: <span class="s2">"Denied"</span>,
+      <span class="s2">"ReasonMessage"</span>: <span class="s2">"Declined"</span>,
       <span class="s2">"EndDate"</span>: <span class="s2">"2019-12-01"</span>,
       <span class="s2">"Interval"</span>: 6,
       <span class="s2">"AuthorizeNow"</span>: <span class="nb">true</span>
@@ -10353,7 +10353,7 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 <p>To create a credit card sale with webservice 1.5 token, it is necessary to do a POST for the Payment feature as the example.</p>
 
-<p>For use in Sandbox, it is possible to simulate authorized or denied transactions via test tokens:</p>
+<p>For use in Sandbox, it is possible to simulate authorized or declined transactions via test tokens:</p>
 
 <table>
   <thead>
@@ -10368,7 +10368,7 @@ It is possible to carry out both the total cancellation and the partial cancella
       <td>6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA</td>
     </tr>
     <tr>
-      <td>Denied</td>
+      <td>Declined</td>
       <td>6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeB</td>
     </tr>
   </tbody>
@@ -11846,7 +11846,7 @@ More information and complete integration, you can find in the link: https://dev
     </tr>
     <tr>
       <td><strong>Sales Return</strong></td>
-      <td>Formed by a <strong>Return code</strong> and a <strong>message</strong>, these codes indicate the <strong>reason</strong> of a given <code class="highlighter-rouge">Status</code> within a transaction. They indicate, for example, whether a transaction with denied <code class="highlighter-rouge">status</code> was not authorized because of a negative balance at the issuing bank. <br /><em>Returned in the <code class="highlighter-rouge">ReturnCode</code> and<code class="highlighter-rouge"> ReturnMessage</code> fields</em><br /> <em>They occur only in Credit and Debit cards</em></td>
+      <td>Formed by a <strong>Return code</strong> and a <strong>message</strong>, these codes indicate the <strong>reason</strong> of a given <code class="highlighter-rouge">Status</code> within a transaction. They indicate, for example, whether a transaction with declined <code class="highlighter-rouge">status</code> was not authorized because of a negative balance at the issuing bank. <br /><em>Returned in the <code class="highlighter-rouge">ReturnCode</code> and<code class="highlighter-rouge"> ReturnMessage</code> fields</em><br /> <em>They occur only in Credit and Debit cards</em></td>
     </tr>
   </tbody>
 </table>
@@ -11914,9 +11914,9 @@ More information and complete integration, you can find in the link: https://dev
     </tr>
     <tr>
       <td>3</td>
-      <td>Denied</td>
+      <td>Declined</td>
       <td>CC + CD + TF</td>
-      <td>Payment denied by Authorizer</td>
+      <td>Payment declined by Authorizer</td>
     </tr>
     <tr>
       <td>10</td>
@@ -12780,7 +12780,7 @@ More information and complete integration, you can find in the link: https://dev
     </tr>
     <tr>
       <td>07</td>
-      <td>Transaction denied. Hold special condition card</td>
+      <td>Transaction declined. Hold special condition card</td>
       <td>Transaction not authorized by issuing bank rules.</td>
       <td>Unauthorized transaction. Contact your issuing bank</td>
       <td>No</td>
@@ -13444,7 +13444,7 @@ More information and complete integration, you can find in the link: https://dev
     </tr>
     <tr>
       <td>FD</td>
-      <td>Transaction denied. Hold special condition card</td>
+      <td>Transaction declined. Hold special condition card</td>
       <td>Transaction not authorized by issuing bank rules.</td>
       <td>Unauthorized transaction. Contact your issuing bank</td>
       <td>No</td>

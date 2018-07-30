@@ -1163,7 +1163,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     </tr>
     <tr>
       <td>07</td>
-      <td>Transaction denied. Retain special status card</td>
+      <td>Transaction declined. Retain special status card</td>
       <td>Transaction not authorized by the rules of the issuing bank.</td>
       <td>Unauthorised Transaction. Contact your issuing bank</td>
       <td>No</td>
@@ -1827,7 +1827,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     </tr>
     <tr>
       <td>FD</td>
-      <td>Transaction denied. Retain special status card</td>
+      <td>Transaction declined. Retain special status card</td>
       <td>Transaction not authorized by the rules of the issuing bank.</td>
       <td>Unauthorised Transaction. Contact your issuing bank</td>
       <td>No</td>
@@ -2492,7 +2492,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <p>This functionality makes easier to identify a card which has been replaced for another at emitter bank. In this way, when a recurrent transaction is submitted to Web Service and Cielo identifies that the card used is outdated, the system will behave like that:</p>
 
 <ol>
-  <li>If the recurrent transaction has been send through a card, the authorization will be denied and it will returned the data of new card, according to the diagram below:</li>
+  <li>If the recurrent transaction has been send through a card, the authorization will be declined and it will returned the data of new card, according to the diagram below:</li>
 </ol>
 
 <p><img src="https://developercielo.github.io/images/remova-facil.png" alt="remova fácil" /></p>
@@ -2578,7 +2578,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <ul>
       <li>The Token is unique to a specific [Card+Commercial Establishment]. So, a card can be “tokenized” in more than a store and each one will has different codes.</li>
       <li>If more than one request has been sent with the same data, the token returned will be always the same.</li>
-      <li>The creation of token is independent of a transaction result (approved/denied).</li>
+      <li>The creation of token is independent of a transaction result (approved/declined).</li>
     </ul>
   </li>
 </ul>
@@ -2798,7 +2798,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <p>This functionality makes easier to identify a card which has been replaced for another in emitter bank. So, when a recurrent transaction is submitted to Web Service and Cielo identifies a card in use outdated, the system will behave like that:</p>
 
 <ol>
-  <li>In case of recurrent transaction had been sent through a token, the authorization will denied and a new token will return to be used, according to the diagram below:</li>
+  <li>In case of recurrent transaction had been sent through a token, the authorization will be declined and a new token will return to be used, according to the diagram below:</li>
 </ol>
 
 <p><img src="https://developercielo.github.io/images/remova-facil-token.png" alt="remova fácil com token" /></p>
@@ -3354,7 +3354,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </tbody>
 </table>
 
-<aside class="warning">The order value, besides to follow the format without points or decimal commas, must finish on "00", otherwise, the authorization will be always denied. Example: R$15,00 must be formated as "1500".</aside>
+<aside class="warning">The order value, besides to follow the format without points or decimal commas, must finish on "00", otherwise, the authorization will be always declined. Example: R$15,00 must be formated as "1500".</aside>
 
 <aside class="notice">The testing environment must be used by testing establishments listed on the board above. The data usage of the establishment will create transaction impossible to track, creating incorrect results. On testing environment, use the credential for tests, on production environment, use the original data from establishment.</aside>
 

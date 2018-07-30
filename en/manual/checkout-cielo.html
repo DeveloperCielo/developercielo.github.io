@@ -1939,7 +1939,7 @@ Just follow the path below:</p>
 
 <p>Checkout Cielo allows the use of Credit Cards of the main national and international issuers. This means of payment is automatically released with Cielo affiliation, and can be used initially with the Checkout integration.</p>
 
-<p>Credit card transactions will be included in the Backoffice Cielo Checkout as PENDING, AUTHORIZED, PAID, DENIED, EXPIRED OR CHARGEBACK depending on the result of the authorization with the Bank.</p>
+<p>Credit card transactions will be included in the Backoffice Cielo Checkout as PENDING, AUTHORIZED, PAID, DECLINED, EXPIRED OR CHARGEBACK depending on the result of the authorization with the Bank.</p>
 
 <p><strong>Credit Card</strong> Order of Status:</p>
 
@@ -1959,8 +1959,8 @@ Just follow the path below:</p>
     </tr>
     <tr>
       <td>2</td>
-      <td><strong>AUTHORIZED / DENIED</strong></td>
-      <td>Result of the authorization process. <br /><strong>AUTHORIZED</strong> - Credit was reserved for purchase <br /> <strong>DENIED</strong> - Card not authorized by the issuer to continue the transaction</td>
+      <td><strong>AUTHORIZED / DECLINED</strong></td>
+      <td>Result of the authorization process. <br /><strong>AUTHORIZED</strong> - Credit was reserved for purchase <br /> <strong>DECLINED</strong> - Card not authorized by the issuer to continue the transaction</td>
     </tr>
     <tr>
       <td>3</td>
@@ -2047,8 +2047,8 @@ This degree of risk is what should guide the merchant’s decision to capture or
     </tr>
     <tr>
       <td><code class="highlighter-rouge">N/A</code></td>
-      <td>Transaction denied</td>
-      <td>Credit sale has been denied - <strong>They are not analyzable by AF</strong></td>
+      <td>Transaction declined</td>
+      <td>Credit sale has been declined - <strong>They are not analyzable by AF</strong></td>
     </tr>
   </tbody>
 </table>
@@ -2110,7 +2110,7 @@ This degree of risk is what should guide the merchant’s decision to capture or
   </tbody>
 </table>
 
-<p><strong>NOTE:</strong> Cards not belonging to these banks will have their authorizations denied.</p>
+<p><strong>NOTE:</strong> Cards not belonging to these banks will have their authorizations declined.</p>
 
 <p>Upon accessing the transaction screen, the buyer will obtain by the payment via Debit Card, and will be redirected to the banking environment for Authentication and Authorization.</p>
 
@@ -2177,7 +2177,7 @@ This means of payment must be registered by Cielo Support to be made available i
   </tbody>
 </table>
 
-<p><strong>NOTE:</strong> Cards not belonging to these banks will have their authorizations denied.</p>
+<p><strong>NOTE:</strong> Cards not belonging to these banks will have their authorizations declined.</p>
 
 <p>Upon accessing the transaction screen, the buyer will obtain by the payment via Debit Card, and will be redirected to the banking environment for Authentication and Authorization.</p>
 
@@ -2418,7 +2418,7 @@ This notification mode is based on a <code class="highlighter-rouge">POST JSON</
 
 <p>If the POST is not received, it is possible to resend it manually, just access the order in question by the Backoffice and click on the Sending icon:</p>
 
-<p><img src="https://developercielo.github.io/en/images/Checkout/reenvipost.png" alt="Resending of notification" /></p>
+<p><img src="https://developercielo.github.io/en/images/Checkout/reenvipost.png" alt="Notification resending" /></p>
 
 <h2 id="notification-content">Notification Content</h2>
 
@@ -2648,7 +2648,7 @@ Below are described all the returned fields, as well as their definitions and si
     </tr>
     <tr>
       <td>3</td>
-      <td><code class="highlighter-rouge">Denied</code></td>
+      <td><code class="highlighter-rouge">Declined</code></td>
       <td>Credit Card only</td>
       <td>Transaction not authorized by the party responsible for the payment means</td>
     </tr>
@@ -2756,8 +2756,8 @@ Below are described all the returned fields, as well as their definitions and si
     <tr>
       <td>N/A</td>
       <td><code class="highlighter-rouge">N/A</code></td>
-      <td>Transaction denied</td>
-      <td>Sale by credit was denied - <strong>Not analyzable by AF</strong></td>
+      <td>Transaction declined</td>
+      <td>Sale by credit was declined - <strong>Not analyzable by AF</strong></td>
     </tr>
   </tbody>
 </table>
@@ -2992,7 +2992,7 @@ Some business examples are:</p>
   <tbody>
     <tr>
       <td><strong>Installment</strong></td>
-      <td>This is a <strong>transaction divided into several months</strong>. <br />The total value of the sale compromises the limit of the buyer’s credit card regardless of the value of the initial installment.<br /> The merchant receives the sale value in installments and does not take the plunge of one of the installments being denied.<br /> <strong>e.g.</strong>: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be denied</td>
+      <td>This is a <strong>transaction divided into several months</strong>. <br />The total value of the sale compromises the limit of the buyer’s credit card regardless of the value of the initial installment.<br /> The merchant receives the sale value in installments and does not take the plunge of one of the installments being declined.<br /> <strong>e.g.</strong>: Sale of R$1.000,00 installment in 2x. Although the buyer pays only R$500.00 in the first installment, the amount of the credit limit consumed is the integral, that is, R$1,000.00. If the card limit is lower or the amount is not released, the R$1,000.00 transaction will be declined</td>
     </tr>
     <tr>
       <td><strong>Recurrent</strong></td>
@@ -3186,7 +3186,7 @@ If there is a recurrence node in the technical contract, the <code class="highli
   <li><strong>Number of retries:</strong> 3 (three), one per day, for 3 consecutive days from the day following the unauthorized original transaction.</li>
 </ul>
 
-<p><strong>NOTE</strong>: This process aims to maintain a positive response to the authorization process, preventing the merchant from losing the sale. The Retry Process generates duplicate orders within the Backoffice because the original order, the one denied, will be displayed in the Orders list, along with the new authorized transaction</p>
+<p><strong>NOTE</strong>: This process aims to maintain a positive response to the authorization process, preventing the merchant from losing the sale. The Retry Process generates duplicate orders within the Backoffice because the original order, the one declined, will be displayed in the Orders list, along with the new authorized transaction</p>
 
 <p><strong>WARNING:</strong>The retry rule can not be modified by the merchant.</p>
 
@@ -3230,7 +3230,7 @@ If there is a recurrence node in the technical contract, the <code class="highli
 <ul>
   <li>The Recurrence occurs only for Credit Cards and for products like “SERVICE” and “DIGITAL GOODS”.</li>
   <li>Recurrence is initiated at the time of AUTHORIZATION, NOT AT THE CAPTURE. If the recurrence does not have a date to be finalized, it will automatically repeat itself until it is manually canceled.</li>
-  <li>Your Cielo affiliation must be enabled to transact without CVV or In recurrence, otherwise all recurring transactions will be denied.</li>
+  <li>Your Cielo affiliation must be enabled to transact without CVV or In recurrence, otherwise all recurring transactions will be declined.</li>
 </ul>
 
 <h2 id="recurrence-edition">Recurrence Edition</h2>
