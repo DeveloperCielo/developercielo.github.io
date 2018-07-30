@@ -99,7 +99,7 @@ A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e pro
 | American Express | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
 | Elo              | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
 | Diners Club      | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
-| Discover         | Sim             | *Não*                  | *Não*  | *Não*   | Sim           |
+| Discover         | Sim             | Não                    | *Não*  | *Não*   | Sim           |
 | JCB              | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
 | Aura             | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
 | Hipercard        | Sim             | Sim                    | *Não*  | *Não*   | *Não*         |
