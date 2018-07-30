@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-30T19:23:17+00:00</updated>
+    <updated>2018-07-30T19:29:32+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7243,9 +7243,9 @@ para iniciar a operação no ambiente de produção.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/serversertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;passo-a-passo-para-a-instalação&quot;&gt;Passo a Passo para a Instalação&lt;/h2&gt;
@@ -7266,9 +7266,9 @@ para iniciar a operação no ambiente de produção.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/ServerCertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/intermediate1.crt&quot;&gt;Certificado Intermediária 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/intermediate2.crt&quot;&gt;Certificado Intermediária 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/servercertificate.crt&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;2o-passo&quot;&gt;2o Passo:&lt;/h4&gt;
