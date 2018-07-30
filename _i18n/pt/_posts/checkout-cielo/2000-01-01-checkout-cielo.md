@@ -173,9 +173,9 @@ Normalmente, o browser faz a atualização do Certificado automaticamente, caso 
 Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:
 
 * [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
-* [Certificado Intermediária 1]({{ site.baseurl }}/attachment/Intermediate1.crt)
-* [Certificado Intermediária 2]({{ site.baseurl }}/attachment/Intermediate2.crt)
-* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/ServerCertificate.cer)
+* [Certificado Intermediária 1]({{ site.baseurl }}/attachment/intermediate1.crt)
+* [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.crt)
+* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.cer)
 
 **2º Passo**
 
