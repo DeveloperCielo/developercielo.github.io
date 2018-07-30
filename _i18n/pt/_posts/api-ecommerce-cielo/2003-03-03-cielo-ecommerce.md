@@ -136,9 +136,9 @@ Trata-se de um certificado de maior confiança e quando o https for acessado a b
 
 Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.
 
-* [Certificado Raiz]({{ site.baseurl_root }}/attachment/Root.crt)
-* [Certificado Intermediária]({{ site.baseurl_root }}/attachment/Intermediate1.crt)
-* [Certificado E-Commerce Cielo]({{ site.baseurl_root }}/attachment/Intermediate2.cer)
+* [Certificado Raiz](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/Root.crt)
+* [Certificado Intermediária](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/Intermediate1.crt)
+* [Certificado E-Commerce Cielo](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/intermediate2.cer)
 
 ## Passo a Passo para a Instalação
 
