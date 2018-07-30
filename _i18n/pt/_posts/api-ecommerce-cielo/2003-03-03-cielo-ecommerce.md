@@ -156,9 +156,9 @@ Normalmente, o browser faz a atualização do Certificado automaticamente, caso 
 
 Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:
 
-* [Certificado Raiz](http://maroon-cavern.cloudvent.net/attachment/Root.crt)
-* [Certificado Intermediária](http://maroon-cavern.cloudvent.net/attachment/Intermediate1.crt)
-* [Certificado E-Commerce Cielo](http://maroon-cavern.cloudvent.net/attachment/Intermediate2.cer)
+* [Certificado Raiz]({{ site.baseurl_root }}/attachment/Root.crt)
+* [Certificado Intermediária]({{ site.baseurl_root }}/attachment/Intermediate1.crt)
+* [Certificado E-Commerce Cielo]({{ site.baseurl_root }}/attachment/Intermediate2.cer)
 
 **2o Passo:**
 
