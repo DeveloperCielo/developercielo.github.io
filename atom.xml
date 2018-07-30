@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-07-30T18:52:58+00:00</updated>
+    <updated>2018-07-30T18:59:47+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14141,9 +14141,9 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 &lt;p&gt;Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/attachment/Intermediate2.cer&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/Root.crt&quot;&gt;Certificado Raiz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/Intermediate1.crt&quot;&gt;Certificado Intermediária&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/intermediate2.cer&quot;&gt;Certificado E-Commerce Cielo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;passo-a-passo-para-a-instalação&quot;&gt;Passo a Passo para a Instalação&lt;/h2&gt;
