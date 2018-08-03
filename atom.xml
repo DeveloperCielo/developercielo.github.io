@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-08-03T13:47:07+00:00</updated>
+    <updated>2018-08-03T13:50:37+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2190,7 +2190,7 @@ Dessa forma, garante-se o funcionamento da aplicação no hardware da LIO V1 com
   &lt;p&gt;&lt;strong&gt;Atenção&lt;/strong&gt;: A Cielo não permite que o aplicativo do cliente/parceiro seja desenvolvido utilizando o recurso WebView. Esse recurso visual deixa a plataforma da Cielo LIO vulnerável. Caso a aplicação esteja utilizando o WebView, esta não atenderá aos parâmetros de certificação e não será disponibilizada na Cielo Store.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;seguestões-de-substitutos&quot;&gt;Seguestões de substitutos&lt;/h2&gt;
+&lt;h2 id=&quot;sugestões-de-substitutos&quot;&gt;Sugestões de substitutos&lt;/h2&gt;
 
 &lt;h3 id=&quot;push-notifications&quot;&gt;Push-Notifications&lt;/h3&gt;
 
