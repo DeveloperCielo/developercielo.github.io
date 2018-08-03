@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-08-03T13:50:37+00:00</updated>
+    <updated>2018-08-03T19:31:12+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29442,6 +29442,13 @@ Eles indicam, por exemplo, se uma transação com &lt;code class=&quot;highlight
       &lt;td&gt;Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !&lt;/td&gt;
       &lt;td&gt;Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.&lt;/td&gt;
       &lt;td&gt;A partir do dia seguinte, apenas 4 vezes em 16 dias.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;475&lt;/td&gt;
+      &lt;td&gt;Timeout de Cancelamento&lt;/td&gt;
+      &lt;td&gt;A aplicação não respondeu dentro do tempo esperado.&lt;/td&gt;
+      &lt;td&gt;Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;999&lt;/td&gt;
