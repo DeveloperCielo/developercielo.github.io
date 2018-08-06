@@ -264,7 +264,7 @@ Sugerimos que desenvolvedores acessem nosso [**Tutorial**](https://developerciel
 
 ## Cartão de crédito - Sandbox
 
-No sandbox, é necessario utilizar o `Provider` seja utilizado como **SIMULADO**
+No sandbox, é necessario utilizar o `Provider` seja utilizado como `SIMULADO`
 
 O Simulado é uma configuração que emula a utilização de pagamentos com Cartão de Crédito. 
 Com esse meio de pagamento é possível simular os fluxos de:
