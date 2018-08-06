@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-08-03T19:31:12+00:00</updated>
+    <updated>2018-08-06T15:09:00+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14286,7 +14286,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 &lt;h2 id=&quot;cartão-de-crédito---sandbox&quot;&gt;Cartão de crédito - Sandbox&lt;/h2&gt;
 
-&lt;p&gt;No sandbox, é necessario utilizar o &lt;code class=&quot;highlighter-rouge&quot;&gt;Provider&lt;/code&gt; seja utilizado como &lt;strong&gt;SIMULADO&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;No sandbox, é necessario utilizar o &lt;code class=&quot;highlighter-rouge&quot;&gt;Provider&lt;/code&gt; seja utilizado como &lt;code class=&quot;highlighter-rouge&quot;&gt;SIMULADO&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;O Simulado é uma configuração que emula a utilização de pagamentos com Cartão de Crédito. 
 Com esse meio de pagamento é possível simular os fluxos de:&lt;/p&gt;
