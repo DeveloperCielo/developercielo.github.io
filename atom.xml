@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-08-06T15:09:00+00:00</updated>
+    <updated>2018-08-09T18:40:45+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13862,7 +13862,7 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 &lt;h2 id=&quot;características-da-solução&quot;&gt;Características da solução&lt;/h2&gt;
 
-&lt;p&gt;A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como:&lt;/p&gt;
+&lt;p&gt;A solução &lt;strong&gt;API Cielo eCommerce&lt;/strong&gt; da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;ASP&lt;/li&gt;
