@@ -31,7 +31,7 @@ Para executar uma operação, combine a URL base do ambiente com a URL da opera�
 
 ## Características da solução
 
-A solução API Cielo eCommerce da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: 
+A solução **API Cielo eCommerce** da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: 
 
 * ASP
 * Net
