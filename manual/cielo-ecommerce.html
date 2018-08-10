@@ -4090,6 +4090,9 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0719094510712"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4510712"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"693066"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4112,6 +4115,8 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
     <span class="s2">"Status"</span>: 2,
+    <span class="s2">"Tid"</span>: <span class="s2">"0719094510712"</span>,
+    <span class="s2">"ProofOfSale"</span>: <span class="s2">"4510712"</span>,
     <span class="s2">"ReturnCode"</span>: <span class="s2">"6"</span>,
     <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
     <span class="s2">"Links"</span>: <span class="o">[</span>
@@ -4146,6 +4151,27 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
+      <td>Número da autorização, identico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Tid</code></td>
+      <td>Id da transação na adquirente.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
@@ -4252,6 +4278,9 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0719094510712"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4510712"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"693066"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
@@ -4278,6 +4307,9 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
     <span class="s2">"Status"</span>: 2,
+    <span class="s2">"Tid"</span>: <span class="s2">"0719094510712"</span>,
+    <span class="s2">"ProofOfSale"</span>: <span class="s2">"4510712"</span>,
+    <span class="s2">"AuthorizationCode"</span>: <span class="s2">"693066"</span>,
     <span class="s2">"ReasonCode"</span>: 0,
     <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
     <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"6"</span>,
@@ -4318,6 +4350,27 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td>2</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
+      <td>Número da autorização, identico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Tid</code></td>
+      <td>Id da transação na adquirente.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
       <td>Código de retorno da adquirente.</td>
       <td>Texto</td>
@@ -4327,20 +4380,6 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
       <td>Mensagem de retorno da adquirente.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código de retorno do Provider.</td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem de retorno do Provider.</td>
       <td>Texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
@@ -4356,6 +4395,9 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0719094510712"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4510712"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"693066"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
@@ -4382,6 +4424,9 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
     <span class="s2">"Status"</span>: 2,
+    <span class="s2">"Tid"</span>: <span class="s2">"0719094510712"</span>,
+    <span class="s2">"ProofOfSale"</span>: <span class="s2">"4510712"</span>,
+    <span class="s2">"AuthorizationCode"</span>: <span class="s2">"693066"</span>,
     <span class="s2">"ReasonCode"</span>: 0,
     <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
     <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"0"</span>,
@@ -4411,6 +4456,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Formato</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -4420,6 +4466,31 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
+      <td>Número da autorização, identico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Tid</code></td>
+      <td>Id da transação na adquirente.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
@@ -4427,6 +4498,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td>Texto</td>
       <td>32</td>
       <td>Texto alfanumérico</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
@@ -4434,20 +4506,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td>Texto</td>
       <td>512</td>
       <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código de retorno do Provider.</td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem de retorno do Provider.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -4569,6 +4628,9 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0719094510712"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4510712"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"693066"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4586,6 +4648,9 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
     <span class="s2">"Status"</span>: 10,
+    <span class="s2">"Tid"</span>: <span class="s2">"0719094510712"</span>,
+    <span class="s2">"ProofOfSale"</span>: <span class="s2">"4510712"</span>,
+    <span class="s2">"AuthorizationCode"</span>: <span class="s2">"693066"</span>,
     <span class="s2">"ReturnCode"</span>: <span class="s2">"9"</span>,
     <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
     <span class="s2">"Links"</span>: <span class="o">[</span>
@@ -4615,6 +4680,27 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
+      <td>Número da autorização, identico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Tid</code></td>
+      <td>Id da transação na adquirente.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
@@ -4709,6 +4795,9 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0719094510712"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4510712"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"693066"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
@@ -4735,6 +4824,9 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 <span class="nt">--data-binary</span>
 <span class="o">{</span>
     <span class="s2">"Status"</span>: 2,
+    <span class="s2">"Tid"</span>: <span class="s2">"0719094510712"</span>,
+    <span class="s2">"ProofOfSale"</span>: <span class="s2">"4510712"</span>,
+    <span class="s2">"AuthorizationCode"</span>: <span class="s2">"693066"</span>,
     <span class="s2">"ReasonCode"</span>: 0,
     <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
     <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"0"</span>,
@@ -4773,6 +4865,27 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
+      <td>Número da autorização, identico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Tid</code></td>
+      <td>Id da transação na adquirente.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
