@@ -2043,6 +2043,9 @@ curl
 ```json
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReturnCode": "6",
     "ReturnMessage": "Operation Successful",
     "Links": [
@@ -2066,6 +2069,8 @@ curl
 --data-binary
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
     "ReturnCode": "6",
     "ReturnMessage": "Operation Successful",
     "Links": [
@@ -2083,11 +2088,14 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
+| Propriedade             | Descrição                               | Tipo  | Tamanho | Formato            |
+|-------------------------|-----------------------------------------|-------|---------|--------------------|
+| `Status`                | Status da Transação.                    | Byte  | ---     | 2                  |
+| `ProofOfSale`           | Número da autorização, identico ao NSU. | Texto | 6       | Texto alfanumérico |
+| `Tid`                   | Id da transação na adquirente.          | Texto | 20      | Texto alfanumérico |
+| `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
+| `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
+| `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico |
 
 ### Captura parcial
 
@@ -2133,6 +2141,9 @@ curl
 ```json
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
     "ProviderReturnCode": "6",
@@ -2160,6 +2171,9 @@ curl
 --data-binary
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
     "ProviderReturnCode": "6",
@@ -2181,13 +2195,14 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
-|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
-|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
+| Propriedade             | Descrição                               | Tipo  | Tamanho | Formato            |
+|-------------------------|-----------------------------------------|-------|---------|--------------------|
+| `Status`                | Status da Transação.                    | Byte  | ---     | 2                  |
+| `ProofOfSale`           | Número da autorização, identico ao NSU. | Texto | 6       | Texto alfanumérico |
+| `Tid`                   | Id da transação na adquirente.          | Texto | 20      | Texto alfanumérico |
+| `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
+| `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
+| `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico |
 
 <aside class="notice"><strong>Captura de Taxa de embarque</strong> Para realizar a captura da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser capturado</aside>
 
@@ -2198,6 +2213,9 @@ curl
 ```json
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
     "ProviderReturnCode": "0",
@@ -2225,6 +2243,9 @@ curl
 --data-binary
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
     "ProviderReturnCode": "0",
@@ -2246,13 +2267,14 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
-|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
-|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
+| Propriedade             | Descrição                               | Tipo  | Tamanho | Formato            |
+|-------------------------|-----------------------------------------|-------|---------|--------------------|
+| `Status`                | Status da Transação.                    | Byte  | ---     | 2                  |
+| `ProofOfSale`           | Número da autorização, identico ao NSU. | Texto | 6       | Texto alfanumérico |
+| `Tid`                   | Id da transação na adquirente.          | Texto | 20      | Texto alfanumérico |
+| `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
+| `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
+| `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico ||
 
 ### Captura Via Backoffice
 
@@ -2312,6 +2334,9 @@ curl
 ```json
 {
     "Status": 10,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReturnCode": "9",
     "ReturnMessage": "Operation Successful",
     "Links": [
@@ -2330,6 +2355,9 @@ curl
 --data-binary
 {
     "Status": 10,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReturnCode": "9",
     "ReturnMessage": "Operation Successful",
     "Links": [
@@ -2342,11 +2370,14 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
+| Propriedade             | Descrição                               | Tipo  | Tamanho | Formato            |
+|-------------------------|-----------------------------------------|-------|---------|--------------------|
+| `Status`                | Status da Transação.                    | Byte  | ---     | 2                  |
+| `ProofOfSale`           | Número da autorização, identico ao NSU. | Texto | 6       | Texto alfanumérico |
+| `Tid`                   | Id da transação na adquirente.          | Texto | 20      | Texto alfanumérico |
+| `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
+| `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
+| `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico |
 
 ### Cancelamento parcial
 
@@ -2385,6 +2416,9 @@ curl
 ```json
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
     "ProviderReturnCode": "0",
@@ -2412,6 +2446,9 @@ curl
 --data-binary
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
     "ProviderReturnCode": "0",
@@ -2433,13 +2470,17 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
-|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
-|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
+| Propriedade             | Descrição                               | Tipo  | Tamanho | Formato            |
+|-------------------------|-----------------------------------------|-------|---------|--------------------|
+| `Status`                | Status da Transação.                    | Byte  | ---     | 2                  |
+| `ProofOfSale`           | Número da autorização, identico ao NSU. | Texto | 6       | Texto alfanumérico |
+| `Tid`                   | Id da transação na adquirente.          | Texto | 20      | Texto alfanumérico |
+| `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
+| `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
+| `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico |
+| `ProviderReturnCode`    | Código de retorno do Provider.          | Texto | 32      | Texto alfanumérico |
+| `ProviderReturnMessage` | Mensagem de retorno do Provider.        | Texto | 512     | Texto alfanumérico |
+
 
 <aside class="notice"><strong>Cancelamento de Taxa de embarque</strong> Para realizar o cancelamento da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser cancelado</aside>
 
