@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-08-10T12:56:39+00:00</updated>
+    <updated>2018-08-16T15:50:03+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5835,6 +5835,25 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
 
 &lt;p&gt;Para realizar o download de aplicativos públicos na Cielo LIO, execute o seguinte procedimento
 Clique na aba Apps -&amp;gt; Clique no aplicativo Cielo Store -&amp;gt; Escolha o aplicativo que deseja realizar o download&lt;/p&gt;
+
+&lt;h1 id=&quot;certificação-de-apps&quot;&gt;Certificação de APPs&lt;/h1&gt;
+
+&lt;p&gt;Para a Certificação de APPs ser efetivada com sucesso, é necessário possuir os seguintes itens para a aprovação da APP.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Gerar valores para teste até R$0,05 centavos&lt;/li&gt;
+  &lt;li&gt;Não mencionar a palavra Cielo&lt;/li&gt;
+  &lt;li&gt;Caso o APP tenha webview, não ficar disponível a URL para a troca de URL dentro do APP. A URL não deverá aparecer.&lt;/li&gt;
+  &lt;li&gt;Não conter palavrão&lt;/li&gt;
+  &lt;li&gt;Não exibir imagens inapropriadas&lt;/li&gt;
+  &lt;li&gt;Não exibir imagens/nomes de concorrentes&lt;/li&gt;
+  &lt;li&gt;A versão a ser certificada deve ser maior do que a versão anterior. EX: versão anterior 1.0 / versão atual 1.1&lt;/li&gt;
+  &lt;li&gt;Preencher corretamente o formulário de envio para certificação. Informar as funções do SDK utilizadas pelo APP, Changelog do APP (mudanças feitas para a versão que está sendo enviada para certificação), dados de acesso ao APP (caso ele possua) fornecidos por completo, versão do SDK utilizada, versão do OS utilizada.&lt;/li&gt;
+  &lt;li&gt;Caso o APP rode em um servidor local, enviar um vídeo mostrando o fluxo do APP. Vídeos deverão ser atualizados conforme enviarem uma nova versão para certificação. Após gravar o vídeo do APP, mostrar a versão e data do vídeo.&lt;/li&gt;
+  &lt;li&gt;100% das transações dever ser via Cielo&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;“Qualquer informação necessária que esteja faltando, resultará na reprovação automática do aplicativo”&lt;/p&gt;
 </content>
     </entry>
     
