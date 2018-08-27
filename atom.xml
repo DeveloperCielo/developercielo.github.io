@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-08-27T11:27:50+00:00</updated>
+    <updated>2018-08-27T12:13:00+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5598,26 +5598,26 @@ Ao clicar nela, aparecerá um QR Code. Nesse momento, basta abrir o aplicativo T
 
 &lt;p&gt;Para realizar os testes de aplicativos em desenvolvimento, o desenvolvedor deve seguir os seguintes passos:&lt;/p&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;Efetuar o upload do apk no Dev Console.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Deve clicar em “instalar” na versão desejada, dentro da tela de detalhes do aplicativo, para gerar o QR Code.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/instalarapp.png&quot; alt=&quot;Devconsole&quot; /&gt;&lt;/p&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;Abrir o aplicativo “Test Your App” em sua LIO de desenvolvimento e apontar para o QR Code gerado no Dev Console.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/qrcode.png&quot; alt=&quot;QR Code&quot; /&gt;&lt;/p&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;A versão do app será baixada na Lio.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;certificação-de-aplicativos&quot;&gt;Certificação de Aplicativos&lt;/h3&gt;
 
