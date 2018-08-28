@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-08-27T12:13:00+00:00</updated>
+    <updated>2018-08-28T14:42:12+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3881,29 +3881,6 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;sdks-disponíveis-da-integração-remota&quot;&gt;SDKs disponíveis da Integração Remota&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Android&quot;&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/01-sdk-android.png&quot; alt=&quot;android&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-CSHARP&quot;&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/03-sdk-csharp.png&quot; alt=&quot;C#&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-Java&quot;&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/04-sdk-java.png&quot; alt=&quot;android&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/DeveloperCielo/LIO-SDK-API-Integracao-Remota-v1-PHP&quot;&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/07-sdk-php.png&quot; alt=&quot;android&quot; /&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;hr /&gt;
 
 &lt;h1 id=&quot;integração-local&quot;&gt;Integração Local&lt;/h1&gt;
 
