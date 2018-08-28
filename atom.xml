@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-08-28T14:42:12+00:00</updated>
+    <updated>2018-08-28T18:54:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4251,8 +4251,8 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;pan&lt;/td&gt;
-      &lt;td&gt;Número cartão tokenizado (6 primeiros dígitos – 4 últimos dígitos)&lt;/td&gt;
-      &lt;td&gt;476173-0036&lt;/td&gt;
+      &lt;td&gt;Número cartão tokenizado (6 primeiros dígitos – 4 últimos dígitos ou 4 últimos)&lt;/td&gt;
+      &lt;td&gt;476173-0036 ou **********4242&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;originalTransactionId&lt;/td&gt;
