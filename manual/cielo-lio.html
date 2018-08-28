@@ -3440,7 +3440,12 @@ As seguintes ações pode ser notificadas:
 </blockquote>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPrintSuccess</span><span class="o">(</span><span class="kt">int</span> <span class="n">printedLines</span><span class="o">)</span> <span class="o">{</span> 
-            <span class="n">showDialog</span><span class="o">();</span>
+        <span class="n">runOnUiThread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">showDialog</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
     <span class="o">}</span>
 </code></pre></div></div>
 
