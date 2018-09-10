@@ -1,0 +1,138 @@
+<html>
+    <body>
+        <!-- Dados de checkout -->
+        <input type="hidden" class="bpmpi_auth" value="true" />
+        <input type="hidden" class="bpmpi_accesstoken" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOltcIk1QSSBRQSBTdG9yZVwiXX0se1wiTmFtZVwiOlwiRXN0YWJpbGlzaG1lbnRDb2RlXCIsXCJWYWx1ZXNcIjpbXCIxMDA1NTVcIl19LHtcIk5hbWVcIjpcIk1DQ1wiLFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1hMGIxLWYyOWIzZTc3ZDRkZVwiXX1dfSIsImlzcyI6Imh0dHBzOi8vYXV0aHNhbmRib3guYnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0Zm1sNWVsQjVKVVV1UVdnPSIsImV4cCI6MTUzNjMzMjExMiwibmJmIjoxNTM2MjQ1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAA" />
+        <input type="hidden" class="bpmpi_ordernumber" value="002014455899" />
+        <input type="hidden" class="bpmpi_currency" value="BRL" /> <!-- ver domínio no manual -->
+        <input type="hidden" class="bpmpi_totalamount" value="10099" />  <!-- em centavos -->
+        <input type="hidden" class="bpmpi_cardnumber" value="4000000000000002" />
+        <input type="hidden" class="bpmpi_cardexpirationmonth" value="12" />
+        <input type="hidden" class="bpmpi_cardexpirationyear" value="2019" />
+        <input type="hidden" class="bpmpi_cardtype" value="debit" /> <!-- ver domínio no manual -->
+        <input type="hidden" class="bpmpi_cardalias" value="cartaodoguilherme" />
+        <input type="hidden" class="bpmpi_default_card" value="true" />
+        <input type="hidden" class="bpmpi_giftcard_amount" value="1000" /> <!-- em centavos -->
+        <input type="hidden" class="bpmpi_giftcard_currency" value="BRL" />
+      
+        <!-- dados de cobrança -->
+        <input type="hidden" class="bpmpi_billto_name" value="Comprador de Teste" />
+        <input type="hidden" class="bpmpi_billto_email" value="comprador@teste.com.br" />
+        <input type="hidden" class="bpmpi_billto_street1" value="Av Marechal Camara 160" />
+        <input type="hidden" class="bpmpi_billto_street2" value="Sala 934 Centro" />
+        <input type="hidden" class="bpmpi_billto_city" value="Rio de Janeiro" />
+        <input type="hidden" class="bpmpi_billto_state" value="RJ" />
+        <input type="hidden" class="bpmpi_billto_zipcode" value="20020080" />
+
+        <!-- dados de comprador -->
+        <input type="hidden" class="bpmpi_customer_guest" value="true" />
+        <input type="hidden" class="bpmpi_customer_account_createddate" value="2018-08-01" />
+        <input type="hidden" class="bpmpi_customer_account_changeddate" value="2018-09-06" />
+        <input type="hidden" class="bpmpi_customer_account_passwordchangeddate" value="2018-09-06" />
+        
+        <!-- dados de entrega (obs: se o "bpmpi_shipto_sameasbillto" for "true" não é necessário enviar os dados de entrega) -->
+        <input type="hidden" class="bpmpi_shipto_sameasbillto" value="false" />
+        <input type="hidden" class="bpmpi_shipto_name" value="Destinatario de Teste" />
+        <input type="hidden" class="bpmpi_shipto_email" value="destinatario@teste.com.br" />
+        <input type="hidden" class="bpmpi_shipto_street1" value="Rua do Carmo 64" />
+        <input type="hidden" class="bpmpi_shipto_street2" value="2º andar Centro" />
+        <input type="hidden" class="bpmpi_shipto_city" value="Rio de Janeiro" />
+        <input type="hidden" class="bpmpi_shipto_state" value="RJ" />
+        <input type="hidden" class="bpmpi_shipto_zipcode" value="20011020" />
+        <input type="hidden" class="bpmpi_shipto_shippingmethod" value="lowcost" /> <!-- ver domínio no manual -->
+        <input type="hidden" class="bpmpi_shipto_phonenumber" value="552122326381" />
+        <input type="hidden" class="bpmpi_shipto_lastusagedate" value="2018-09-06" />
+
+        <!-- dados do device (coleção) -->
+        <input type="hidden" class="bpmpi_device_ipaddress" value="200.155.265.12" />
+        <input type="hidden" class="bpmpi_device_1_fingerprint" value="04003hQUMXGB0poNf94lis1ztuLYRFk+zJ17aP79a9O8mWOBmEnKs6ziAo94ggAtBvKEN6/FI8Vv2QMAyHLnc295s0Nn8akZzRJtHwsEilYx" />
+        <input type="hidden" class="bpmpi_device_1_provider" value="cardinal" /> <!-- ver domínio no manual -->
+
+        <!-- dados do carrinho (coleção) -->
+        <input type="hidden" class="bpmpi_cart_1_name" value="ostarine mk-2866" />
+        <input type="hidden" class="bpmpi_cart_1_description" value="Estimula o aumento da massa muscular e da força" />
+        <input type="hidden" class="bpmpi_cart_1_sku" value="10000000000234" />
+        <input type="hidden" class="bpmpi_cart_1_quantity" value="2" />
+        <input type="hidden" class="bpmpi_cart_1_unitprice" value="15000" /> <!-- em centavos -->
+
+        <!-- dados do pedido -->
+        <input type="hidden" class="bpmpi_order_recurrence" value="false" />
+        <input type="hidden" class="bpmpi_order_productcode" value="DIG" /> <!-- ver domínio no manual -->              
+        <input type="hidden" class="bpmpi_order_countlast24hours" value="1" />
+        <input type="hidden" class="bpmpi_order_countlast6months" value="0" />
+        <input type="hidden" class="bpmpi_order_countlast1year" value="0" />
+        <input type="hidden" class="bpmpi_order_cardattemptslast24hours" value="5" />
+        <input type="hidden" class="bpmpi_order_marketingoptin" value="false" />
+        <input type="hidden" class="bpmpi_order_marketingsource" value="mercadolivre" />                        
+        
+        <!-- dados do usuário/conta -->
+        <input type="hidden" class="bpmpi_useraccount_guest" value="true" />
+        <input type="hidden" class="bpmpi_useraccount_createddate" value="2018-08-01" />
+        <input type="hidden" class="bpmpi_useraccount_changeddate" value="2018-09-06" />
+        <input type="hidden" class="bpmpi_useraccount_passwordchangeddate" value="2018-09-06" />
+        <input type="hidden" class="bpmpi_useraccount_authenticationmethod" value="02" /> <!-- ver domínio no manual -->
+        <input type="hidden" class="bpmpi_useraccount_authenticationprotocol" value="oauth" />
+        <input type="hidden" class="bpmpi_useraccount_authenticationtimestamp" value="2018-09-06T15:10:00" />
+
+        <!-- dados de aérea (coleção de trechos) -->
+        <input type="hidden" class="bpmpi_airline_travelleg_1_carrier" value="G3" />
+        <input type="hidden" class="bpmpi_airline_travelleg_1_departuredate" value="2018-09-06" />
+        <input type="hidden" class="bpmpi_airline_travelleg_1_origin" value="GIG" />
+        <input type="hidden" class="bpmpi_airline_travelleg_1_destination" value="EZE" />
+
+        <!-- dados de aérea (coleção de passageiros) -->
+        <input type="hidden" class="bpmpi_airline_passenger_1_name" value="Passageiro Teste" />
+
+        <!-- dados de aérea complementares -->
+        <input type="hidden" class="bpmpi_airline_numberofpassengers" value="1" />
+        <input type="hidden" class="bpmpi_airline_billto_passportcountry" value="BRL" />
+        <input type="hidden" class="bpmpi_airline_billto_passportnumber" value="11223000000002345" />
+        <input type="hidden" class="bpmpi_airline_mdd1" value="mddteste1" />
+        <input type="hidden" class="bpmpi_airline_mdd2" value="mddteste2" />
+        <input type="hidden" class="bpmpi_airline_mdd3" value="mddteste3" />
+        <input type="hidden" class="bpmpi_airline_mdd4" value="mddteste4" />
+        <input type="hidden" class="bpmpi_airline_mdd5" value="mddteste5" />
+        
+        <input type="button" onclick="bpmpi_authenticate()" />
+    </body>
+    <script type="text/javascript">
+        function bpmpi_config() {
+            var options = {
+                onSuccess: function (e) {
+                    // Cartão elegível para autenticação, e portador autenticou com sucesso.
+                    var cavv = e.Cavv;
+                    var xid = e.Xid;
+                    var eci = e.Eci;
+                    var version = e.Version;
+                    var referenceId = e.ReferenceId;
+                },
+                onFailure: function (e) {
+                    // Cartão elegível para autenticação, porém o portador finalizou com falha.
+                    var xid = e.Xid;
+                    var eci = e.Eci;        
+                    var version = e.Version;        
+                    var referenceId = e.ReferenceId;
+                },
+                onUnerolled: function (e) {
+                    // Cartão não elegível para autenticação (não autenticável).
+                    var eci = e.Eci;
+                    var version = e.Version;
+                    var referenceId = e.ReferenceId;
+                },
+                onDisabled: function (e) {
+                    // Loja não requer autenticação do portador (classe "bpmpi_auth" false -> autenticação desabilitada).
+                    var referenceId = e.ReferenceId;
+                },
+                onError: function (e) {
+                    // Erro no processo de autenticação. 
+                    var returnCode = e.ReturnCode;
+                    var returnMessage = e.ReturnMessage;
+                    var referenceId = e.ReferenceId;
+                },
+                Environment: "SDB",
+                Debug: true
+            };
+        }
+    </script>
+    <script src="https://www.loja.com.br/BP.Mpi.3ds20.min.js" type="text/javascript" />
+</html>
