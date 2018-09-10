@@ -5,12 +5,22 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-09-10T13:24:55+00:00</updated>
+    <updated>2018-09-10T13:55:21+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Env3ds</title>
+        <category term="" />
+        <link href="https://developercielo.github.io/env3ds"/>
+        <updated>2018-09-09T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/env3ds</id>
+        <content type="html">&lt;h1 id=&quot;em-construÇÃo&quot;&gt;EM CONSTRUÇÃO&lt;/h1&gt;
+</content>
+    </entry>
     
     <entry>
         <title>Manual de integração</title>
