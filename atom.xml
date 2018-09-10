@@ -5,12 +5,959 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-09-10T14:38:32+00:00</updated>
+    <updated>2018-09-10T14:39:36+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Manual de Integração</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/env3ds"/>
+        <updated>2018-09-10T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/manual/env3ds</id>
+        <content type="html">&lt;h1 id=&quot;autenticação-3ds-20&quot;&gt;Autenticação 3DS 2.0&lt;/h1&gt;
+
+&lt;h2 id=&quot;o-que-é-3ds-20&quot;&gt;O que é 3DS 2.0?&lt;/h2&gt;
+
+&lt;p&gt;Com o objetivo de minimizar o índice de fraude sem prejudicar a taxa de conversão, a indústria de meio de pagamento desenvolveu um novo padrão de autenticação, chamado &lt;strong&gt;EMV 3DS&lt;/strong&gt; , ou também chamado de &lt;strong&gt;3DS 2.0&lt;/strong&gt;. A nova versão é capaz de analisar dezenas de variáveis que são utilizadas como critérios para determinar se um comprador é de fato o portador cartão, permitindo em alguns casos, a autenticação silenciosa do mesmo (autenticação sem desafio), sem prejuízo à questão do &lt;em&gt;Liability Shift&lt;/em&gt; dos estabelecimentos.&lt;/p&gt;
+
+&lt;p&gt;Principais benefícios:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Integração facilitada via Java Script;&lt;/li&gt;
+  &lt;li&gt;Interface de autenticação é responsiva para mobile;&lt;/li&gt;
+  &lt;li&gt;Possibilidade de autenticação &quot;silenciosa&quot; (isenção do desafio);&lt;/li&gt;
+  &lt;li&gt;Minimiza transações com fraudes;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Palavras chaves:&lt;/strong&gt; Autenticação de Cartão de Crédito e Débito, EMVCO, 3DS 2.0, Visa, Mastercard, E-Commerce&lt;/p&gt;
+
+&lt;h2 id=&quot;quem-pode-usar-o-3ds-20&quot;&gt;Quem pode usar o 3DS 2.0?&lt;/h2&gt;
+
+&lt;p&gt;Qualquer estabelecimento comercial que tenha e-Commerce ou um aplicativo pode utilizar a solução. É particularmente indicado para estabelecimentos que pertencem ao segmento de alto risco.&lt;/p&gt;
+
+&lt;h2 id=&quot;quais-são-requisitos-para-a-utilização-do-3ds-20&quot;&gt;Quais são requisitos para a utilização do 3DS 2.0?&lt;/h2&gt;
+
+&lt;p&gt;O estabelecimento comercial deve atender aos requisitos abaixo para a utilização do 3DS 2.0:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ter afiliação do Cielo E-Commerce 3.0;&lt;/li&gt;
+  &lt;li&gt;Concluir a integração técnica do fluxo de autenticação;&lt;/li&gt;
+  &lt;li&gt;Concluir a integração técnica do fluxo de autorização;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Caso tenha implementado mecanismo de autenticação fora da Cielo (MPI Externo), pule direto para &quot;Etapa de Autorização&quot;&lt;/aside&gt;
+
+&lt;h2 id=&quot;como-funciona-a-autorização-com-autenticação-via-3ds-20&quot;&gt;Como funciona a autorização com autenticação via 3DS 2.0?&lt;/h2&gt;
+
+&lt;p&gt;O processo de autorização de cartão autenticada via 3DS 2.0 ocorre em duas etapas:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Etapa 1: Autenticação&lt;/li&gt;
+  &lt;li&gt;Etapa 2: Autorização&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;O fluxo abaixo descreve as etapas em alto nível:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/fluxo-env3ds.jpg&quot; alt=&quot;Fluxo 3DS 2.0&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O portador escolhe pagar com cartão de crédito ou débito&lt;/li&gt;
+  &lt;li&gt;O estabelecimento solicita a autenticação através da solução Cielo&lt;/li&gt;
+  &lt;li&gt;A plataforma de autenticação poderá seguir um dos dois fluxos: requisitar a autenticação do portador ou realizar a autenticação de forma silenciosa. No primeiro caso, a plataforma retornará a URL de Autenticação ao estabelecimento. No segundo caso, o passo seguinte já é o retorno com o resultado da autenticação.&lt;/li&gt;
+  &lt;li&gt;O estabelecimento apresenta a interface de autenticação no &lt;em&gt;lightbox&lt;/em&gt; (URL de Autenticação do emissor)&lt;/li&gt;
+  &lt;li&gt;O portador se autentica no emissor (processo conhecido como &lt;strong&gt;realizar o desafio&lt;/strong&gt; )&lt;/li&gt;
+  &lt;li&gt;O emissor retorna o resultado da autenticação à plataforma 3DS, que por sua vez repassa para o estabelecimento&lt;/li&gt;
+  &lt;li&gt;O estabelecimento poderá ou não, seguir com o processo de autorização. Quando optar por autorizar deverá submeter o resultado da autenticação no contrato técnico de autorização&lt;/li&gt;
+  &lt;li&gt;A Cielo retorna o resultado da autorização para o estabelecimento, que por sua vez, retorna para o portador&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;etapa-de-autenticação---passo-1-solicitação-de-token-de-acesso&quot;&gt;Etapa de Autenticação - passo 1. Solicitação de Token de Acesso&lt;/h2&gt;
+
+&lt;p&gt;A solução é composta pelo passo de solicitação de token de acesso via API e solicitação de autenticação via Java Script.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Ambiente&lt;/th&gt;
+      &lt;th&gt;Endpoint&lt;/th&gt;
+      &lt;th&gt;Authorization&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;SANDBOX&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;https://mpisandbox.braspag.com.br&lt;/td&gt;
+      &lt;td&gt;Basic ZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlOkQvaWxSc2ZvcUhsU1VDaHdBTW5seUtkRE5kN0ZNc003Y1Uvdm8wMlJFYWc9&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;PRODUÇÃO&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;https://mpi.braspag.com.br&lt;/td&gt;
+      &lt;td&gt;(solicitar à equipe de suporte após concluir o desenvolvimento em sandbox)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v2/auth/token&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;EstablishmentCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1006993069&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Loja Exemplo Ltda&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MCC&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5912&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://mpisandbox.braspag.com.br/v2/auth/token&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Authorization: Basic xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;s2&quot;&gt;&quot;EstablishmentCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;1006993069&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;MerchantName&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Loja Exemplo Ltda&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;MCC&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;5912&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Campo&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Tipo/Tamanho&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;EstablishmentCode&lt;/td&gt;
+      &lt;td&gt;Código do Estabelecimento do Cielo E-Commerce 3.0&lt;/td&gt;
+      &lt;td&gt;Numérico [10 posições]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantName&lt;/td&gt;
+      &lt;td&gt;Nome do estabelecimento registrado na Cielo&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 25 posições]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MCC&lt;/td&gt;
+      &lt;td&gt;Código de Categoria do estabelecimento&lt;/td&gt;
+      &lt;td&gt;Numérico [4 posições]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;access_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;token_type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;barear&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;expires_in&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2018-07-23T11:29:32&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;access_token&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;token_type&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;barear&quot;&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;expires_in&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-07-23T11:29:32&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Campo&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Tipo/Tamanho&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;access_token&lt;/td&gt;
+      &lt;td&gt;Token necessário para realizar a autenticação.&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [tamanho variável]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;token_type&lt;/td&gt;
+      &lt;td&gt;Fixo &quot;bearer&quot;&lt;/td&gt;
+      &lt;td&gt;Alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;expires_in&lt;/td&gt;
+      &lt;td&gt;Tempo em minutos para expirar o token&lt;/td&gt;
+      &lt;td&gt;Numérico&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;etapa-de-autenticação---passo-2---implementação-do-script&quot;&gt;Etapa de Autenticação - passo 2 - Implementação do script&lt;/h2&gt;
+
+&lt;p&gt;Neste passo, é implementado o &lt;em&gt;script&lt;/em&gt; e o mapeamento de &lt;em&gt;classes&lt;/em&gt; responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que demonstra a implementação básica. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:&lt;/p&gt;
+
+&lt;p&gt;Para baixar o código, acesse: &lt;a href=&quot;https://bit.ly/2oUaTGD&quot;&gt;https://bit.ly/2oUaTGD&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/exemplo-html.jpg&quot; alt=&quot;Fluxo 3DS 2.0&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Descrição dos Eventos&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Evento&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onSuccess&lt;/td&gt;
+      &lt;td&gt;É acionado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornados. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onFailure&lt;/td&gt;
+      &lt;td&gt;É acionado quando o cartão é elegível, porém não teve o processo de autenticação falhou por algum motivo. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onUnerolled&lt;/td&gt;
+      &lt;td&gt;É acionado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onDisabled&lt;/td&gt;
+      &lt;td&gt;É acionado quando o estabelecimento optou por não submeter o portador ao processo de autenticação (classe &quot;bpmpi_auth&quot; como false). Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onError&lt;/td&gt;
+      &lt;td&gt;É acionado quando o processo de autenticação recebeu um erro sistêmico. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Descrição dos Parâmetros de entrada&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Parâmetro&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Tipo/Tamanho&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Environment&lt;/td&gt;
+      &lt;td&gt;Indica o ambiente a ser utilizado (Sandbox ou Produção)&lt;/td&gt;
+      &lt;td&gt;SDB – Sandbox (ambiente de teste)PRD – Produção (ambiente de produção)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Debug&lt;/td&gt;
+      &lt;td&gt;Booleano que indica se o modo debug é ativado ou não. Quando true, a plataforma emitirá o relatório no mecanismo de debug do browser.&lt;/td&gt;
+      &lt;td&gt;Booleanotrue – modo debug ativadofalse – modo debug desativado&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;O arquivo JavaScript deve ser salvo no servidor onde está a aplicação da loja. Para baixar o arquivo, acesse:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2wWXK2T&quot;&gt;https://bit.ly/2wWXK2T&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Descrição das saídas&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Saída&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Tipo/Tamanho&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cavv&lt;/td&gt;
+      &lt;td&gt;Dado que representa assinatura da autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Xid&lt;/td&gt;
+      &lt;td&gt;ID que representa a requisição da autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Eci&lt;/td&gt;
+      &lt;td&gt;Código indicador do e-commerce, que representa o resultado da autenticação&lt;/td&gt;
+      &lt;td&gt;Numérico [até 2 posições]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Version&lt;/td&gt;
+      &lt;td&gt;Versão do 3DS aplicado&lt;/td&gt;
+      &lt;td&gt;Numérico [1 posição]1 – 3DS 1.02 – 3DS 2.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ReferenceID&lt;/td&gt;
+      &lt;td&gt;ID que representa a requisição de autenticação&lt;/td&gt;
+      &lt;td&gt;GUID [36 posições]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ReturnCode&lt;/td&gt;
+      &lt;td&gt;Código de retorno da requisição de autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 5 posições]&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ReturnMessage&lt;/td&gt;
+      &lt;td&gt;Mensagem de retorno da requisição de autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [varivável]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;etapa-de-autenticação---passo-3---mapeamento-de-classes&quot;&gt;Etapa de Autenticação - passo 3 - Mapeamento de classes&lt;/h2&gt;
+
+&lt;p&gt;A solução disponibiliza dezenas de classes que devem ser mapeadas em seu código HTML.&lt;/p&gt;
+
+&lt;p&gt;Uma vez que a classe é mapeada em determinado campo, o script é capaz de recuperar o valor contido no campo e submetê-lo para compor a requisição de autenticação.&lt;/p&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco&lt;/aside&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;o caracter # indicados no campo deve ser substituído por número que representa o índice do item. Exemplo: bpmpi_item_1_productName representa o nome do item 1 do carrinho&lt;/aside&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Campos&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Tipo/Tamanho&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Obrigatório para autenticação com desafio&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Obrigatório para autenticação silenciosa (sem desafio)&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_auth&lt;/td&gt;
+      &lt;td&gt;Booleano que indica se a transação é submetida o não para o processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Booleanotrue – submeter à autenticaçãofalse – não submeter à autenticação&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_accesstoken&lt;/td&gt;
+      &lt;td&gt;Token gerado pela API de Token de Acesso (etapa 1)&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [varivável]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_cardnumber&lt;/td&gt;
+      &lt;td&gt;Número do Cartão&lt;/td&gt;
+      &lt;td&gt;Numérico [até 19 posições]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_cardexpirationmonth&lt;/td&gt;
+      &lt;td&gt;Mês do vencimento do cartão&lt;/td&gt;
+      &lt;td&gt;Numérico [2 posições]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_cardexpirationyear&lt;/td&gt;
+      &lt;td&gt;Ano do vencimento do cartão&lt;/td&gt;
+      &lt;td&gt;Numérico [2 posições]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_cardtype&lt;/td&gt;
+      &lt;td&gt;Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit&lt;/td&gt;
+      &lt;td&gt;Credit – Cartão de Crédito&lt;br /&gt;Debit – Cartão de Débito&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_currency&lt;/td&gt;
+      &lt;td&gt;Código da moeda&lt;/td&gt;
+      &lt;td&gt;Fixo &quot;BRL&quot;&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_grandTotalAmountbpmpi_totalamount&lt;/td&gt;
+      &lt;td&gt;Valor total da transação, enviado em centavos&lt;/td&gt;
+      &lt;td&gt;Numérico [até 15 posições]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_merchantNewCustomer&lt;/td&gt;
+      &lt;td&gt;Indica se o comprador é um cliente novo ou não&lt;/td&gt;
+      &lt;td&gt;Booleano&lt;br /&gt;true – comprador novo&lt;br /&gt;false – comprador que já fez uma compra anteriormente&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_paymentAccountDate&lt;/td&gt;
+      &lt;td&gt;Indica a data de quando o cartão foi adicionado na conta do comprador&lt;/td&gt;
+      &lt;td&gt;Numérico&lt;br /&gt;-1 – não foi adicionado (guest account)&lt;br /&gt;0 – adicionado durante esta transação&lt;br /&gt;DDMMAAAA – nenhuma das alternativas acima&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_city&lt;/td&gt;
+      &lt;td&gt;Cidade do endereço de cobrança&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 50]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_email&lt;/td&gt;
+      &lt;td&gt;E-mail do contato do endereço de cobrança&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 255], no formato &lt;a href=&quot;mailto:nome@exemplo.com&quot;&gt;nome@exemplo.com&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_Name&lt;/td&gt;
+      &lt;td&gt;Nome do contato do endereço de cobrança&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 120]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_street1&lt;/td&gt;
+      &lt;td&gt;Logradouro e Número do endereço de cobrança&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 60]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_street2&lt;/td&gt;
+      &lt;td&gt;Complemento e bairro do endereço de cobrança&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 60]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_ipAddress&lt;/td&gt;
+      &lt;td&gt;Endereço IP da máquina do comprador&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 45]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_customerAccountChangeDate&lt;/td&gt;
+      &lt;td&gt;Indica a data de quando houve a última alteração na conta do comprador&lt;/td&gt;
+      &lt;td&gt;Numérico&lt;br /&gt;-1 – guest account&lt;br /&gt;0 – adicionado durante esta transação&lt;br /&gt;DDMMAAAA – data da última alteração&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_customerAccountCreateDate&lt;/td&gt;
+      &lt;td&gt;Indica a data de quando houve a criação da conta do comprador&lt;/td&gt;
+      &lt;td&gt;Numérico&lt;br /&gt;-1 – guest account&lt;br /&gt;0 – adicionado durante esta transação&lt;br /&gt;DDMMAAAA – data da criação&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_customerAccountPasswordChangeDate&lt;/td&gt;
+      &lt;td&gt;Indica a data de quando houve a alteração de senha da conta do comprador&lt;/td&gt;
+      &lt;td&gt;Numérico&lt;br /&gt;-1 – guest account&lt;br /&gt;0 – adicionado durante esta transação&lt;br /&gt;DDMMAAAA – data da última alteração de senha&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_phoneNumber&lt;/td&gt;
+      &lt;td&gt;Telefone de contato do endereço de cobrança&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 15 posições], no formato: 5511999999999&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_postalCode&lt;/td&gt;
+      &lt;td&gt;CEP do endereço de cobrança&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 10 posições], no formato: 99999999&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_state&lt;/td&gt;
+      &lt;td&gt;Sigla do estado do endereço de cobrança&lt;/td&gt;
+      &lt;td&gt;Texto [2 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_country&lt;/td&gt;
+      &lt;td&gt;Código do país do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Fixo &quot;BR&quot;&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_city&lt;/td&gt;
+      &lt;td&gt;Cidade do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 50]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_firstName&lt;/td&gt;
+      &lt;td&gt;Nome do contato do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 60]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_lastName&lt;/td&gt;
+      &lt;td&gt;Sobrenome do contato do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 60]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_street1&lt;/td&gt;
+      &lt;td&gt;Logradouro e Número do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 60]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_street2&lt;/td&gt;
+      &lt;td&gt;Complemento e bairro do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 60]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_destinationCode&lt;/td&gt;
+      &lt;td&gt;Indica o tipo do destino do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Numérico [2 posições]01- Mesmo endereço que o de cobrança&lt;br /&gt;02- Endereço diferente do de endereço de cobrança, mas previamente verificado&lt;br /&gt;03- Endereço diferente do endereço de cobrança&lt;br /&gt;04- Retirar na loja&lt;br /&gt;05- Digital goods&lt;br /&gt;06- Viagem, ingressos que não há entrega shipped&lt;br /&gt;07- Outros&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_shippingMethod&lt;/td&gt;
+      &lt;td&gt;Tipo do método de envio&lt;/td&gt;
+      &lt;td&gt;lowcost: envio econômico&lt;br /&gt;sameday: envio no mesmo dia&lt;br /&gt;oneday: envio no dia seguinte&lt;br /&gt;twoday: envio em dois dias&lt;br /&gt;threeday: envio em três dias&lt;br /&gt;pickup: retirada na loja&lt;br /&gt;other: outrosnone: não há envio&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_phoneNumber&lt;/td&gt;
+      &lt;td&gt;Telefone de contato do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 15 posições], no formato: 5511999999999&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_postalCode&lt;/td&gt;
+      &lt;td&gt;CEP do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 10 posições], no formato: 99999999&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipTo_state&lt;/td&gt;
+      &lt;td&gt;Sigla do estado do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Texto [2 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_deviceFingerprintData_#_data&lt;/td&gt;
+      &lt;td&gt;Id retornado pelo Device Finger Print&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [sem limiotação]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_deviceFingerprintData_#_provider&lt;/td&gt;
+      &lt;td&gt;Nome do provedor do Device Finger Print&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 32 posições] cardinal&lt;br /&gt;inauth&lt;br /&gt;threatmetrix&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_reorder&lt;/td&gt;
+      &lt;td&gt;Indica se é a primeira compra ou não&lt;/td&gt;
+      &lt;td&gt;Numérico [1 posição]0 – primeira compra&lt;br /&gt;1 – compra recorrente&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_item_#_productDescription&lt;/td&gt;
+      &lt;td&gt;Descrição do item&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 255 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_item_#_productName&lt;/td&gt;
+      &lt;td&gt;Nome do item&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 255 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_item_#_productSKU&lt;/td&gt;
+      &lt;td&gt;SKU do item&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 255 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_item_#_quantity&lt;/td&gt;
+      &lt;td&gt;Quantidade do item no carrinho&lt;/td&gt;
+      &lt;td&gt;Numérico [até 10 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_item_#_unitPrice&lt;/td&gt;
+      &lt;td&gt;Valor unitário do item do carrinho em centavos&lt;/td&gt;
+      &lt;td&gt;Numérico [até 10 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_productCode&lt;/td&gt;
+      &lt;td&gt;Tipoda compra&lt;/td&gt;
+      &lt;td&gt;ACC: Hotelaria&lt;br /&gt;ACF: Financiamento de conta&lt;br /&gt;CHA: Check acceptance&lt;br /&gt;DIG: Digital Goods&lt;br /&gt;DSP: Dispensação de dinheiro&lt;br /&gt;GAS: Combustível&lt;br /&gt;GEN: Varejo geral&lt;br /&gt;LUX: Artigos de luxo&lt;br /&gt;PAL: recarga&lt;br /&gt;PHY: compra de mercadorias&lt;br /&gt;QCT: Transação quase-dinheiro&lt;br /&gt;REN: Alugue de Carros&lt;br /&gt;RES: Restaurante&lt;br /&gt;SVC: Serviços&lt;br /&gt;TBD: Outros&lt;br /&gt;TRA: Turismo&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipAddressUsageDate&lt;/td&gt;
+      &lt;td&gt;Indica a data de quando houve a primeira utilização do endereço de entrega&lt;/td&gt;
+      &lt;td&gt;Numérico&lt;br /&gt;-1 – guest account&lt;br /&gt;0 – utilizado pela primeira vez nesta transação&lt;br /&gt;DDMMAAAA – data da criação&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_transactionCountDay&lt;/td&gt;
+      &lt;td&gt;Quantidade de pedidos efetuados por este comprador nas últimas 24h&lt;/td&gt;
+      &lt;td&gt;Numérico [até 3 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_addCardAttempts&lt;/td&gt;
+      &lt;td&gt;Quantidade de transações com o mesmo cartão nas últimas 24h&lt;/td&gt;
+      &lt;td&gt;Numérico [até 3 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_accountPurchases&lt;/td&gt;
+      &lt;td&gt;Quantidade de pedidos efetuados por este comprador nos últimos 6 meses&lt;/td&gt;
+      &lt;td&gt;Numérico [até 4 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_transactionCountYear&lt;/td&gt;
+      &lt;td&gt;Quantidade de pedidos efetuados por este comprador no último ano&lt;/td&gt;
+      &lt;td&gt;Numérico [até 3 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_alternateAuthenticationMethod&lt;/td&gt;
+      &lt;td&gt;Método de autenticação do comprador na loja&lt;/td&gt;
+      &lt;td&gt;01- Não houve autenticação&lt;br /&gt;02- Login da própria loja&lt;br /&gt;03- Login com ID federado&lt;br /&gt;04- Login com autenticador FIDO&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_alternateAuthenticationData&lt;/td&gt;
+      &lt;td&gt;Dado que representa o protocolo de login efetuado na loja&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 2048 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi__alternateAuthenticationDate&lt;/td&gt;
+      &lt;td&gt;A data e hora que o login foi efetuado na loja&lt;/td&gt;
+      &lt;td&gt;Numérico [12 posições]&lt;br /&gt;AAAAMMDDHHMM&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_marketingOptIn&lt;/td&gt;
+      &lt;td&gt;Indica se o comprador aceitou receber ofertas de marketing&lt;/td&gt;
+      &lt;td&gt;Booleano&lt;br /&gt;true – sim&lt;br /&gt;false – não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_marketingSource&lt;/td&gt;
+      &lt;td&gt;Identifica a origem da campanha de marketing&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 40 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_customerCCAlias&lt;/td&gt;
+      &lt;td&gt;Identifica o alias do token do cartão (caso aplicável)&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [128posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_defaultCard&lt;/td&gt;
+      &lt;td&gt;Indica se o cartão/token utilizado é uma opção padrão&lt;/td&gt;
+      &lt;td&gt;Booleano&lt;br /&gt;true – sim&lt;br /&gt;false – não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_giftCardAmount&lt;/td&gt;
+      &lt;td&gt;O total do valor da compra para cartões-presente pré-pagos em valor arredondado&lt;/td&gt;
+      &lt;td&gt;Numérico [até 15 posições],&lt;br /&gt;exemplo: R$ 125,54 = 125&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_airlineData_leg_#_carrierCode&lt;/td&gt;
+      &lt;td&gt;Código IATA para o trecho&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [2 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_airlineData_leg_#_departureDate&lt;/td&gt;
+      &lt;td&gt;Data de partida&lt;/td&gt;
+      &lt;td&gt;Numérico [8 posições]&lt;br /&gt;AAAAMMDD&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_airlineData_leg_#_destination&lt;/td&gt;
+      &lt;td&gt;Código IATA do aeroporto de destino&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [5 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_airlineData_leg_#_originatingAirportCode&lt;/td&gt;
+      &lt;td&gt;Código IATA do aeroporto de origem&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [5 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_airlineData_numberOfPassengers&lt;/td&gt;
+      &lt;td&gt;Número de passageiros&lt;/td&gt;
+      &lt;td&gt;Numérico [3 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_airlineData_passenger_#_firstName&lt;/td&gt;
+      &lt;td&gt;Primeiro nome do passageiro&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 60 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_airlineData_passenger_#_lastName&lt;/td&gt;
+      &lt;td&gt;Último nome do passageiro&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 60 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_passportCountry&lt;/td&gt;
+      &lt;td&gt;Código do país que emitiu o passaporte&lt;/td&gt;
+      &lt;td&gt;Numérico [3 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_passportNumber&lt;/td&gt;
+      &lt;td&gt;Número do passaporte&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [40 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_mddField_1&lt;/td&gt;
+      &lt;td&gt;Dado Extra definido pelo lojista&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 255 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_mddField_2&lt;/td&gt;
+      &lt;td&gt;Dado Extra definido pelo lojista&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 255 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_mddField_3&lt;/td&gt;
+      &lt;td&gt;Dado Extra definido pelo lojista&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 255 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_mddField_4&lt;/td&gt;
+      &lt;td&gt;Dado Extra definido pelo lojista&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 255 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_mddField_5&lt;/td&gt;
+      &lt;td&gt;Dado Extra definido pelo lojista&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 255 posições]&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;etapa-de-autenticação---passo-4---implementação-da-chamada-ao-evento-de-autenticação&quot;&gt;Etapa de Autenticação - passo 4 - Implementação da chamada ao evento de autenticação&lt;/h2&gt;
+
+&lt;p&gt;O evento &quot;&lt;strong&gt;bpmpi_Authenticate()&lt;/strong&gt;&quot; deve chamado no momento de finalização do checkout (finalização da compra). Vide exemplo abaixo:&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;input type=&quot;button&quot;onclick=&quot;bpmpi_authenticate()&quot; /&amp;gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;etapa-de-autorização&quot;&gt;Etapa de Autorização&lt;/h2&gt;
+
+&lt;p&gt;Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó &lt;strong&gt;ExternalAuthentication&lt;/strong&gt; ).
+Este procedimento é válido também para estabelecimentos que realizaram a autenticação fora da Cielo (MPI Externo).&lt;/p&gt;
+
+&lt;p&gt;Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador:&lt;/p&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales&lt;/span&gt;&lt;/aside&gt;
+
+&lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051002&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+     &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+     &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4551870000000183&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Portador&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2021&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExternalAuthentication&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cavv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AAABB2gHA1B5EFNjWQcDAAAAAAB=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Xid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Uk5ZanBHcWw2RjRCbEN5dGtiMTB=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RefereceID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a24a5d87-b1a1-4aef-a37b-2f30b91274e6&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.cieloecommerce.cielo.com.br/1/sales&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
+   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2017051002&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;:
+   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
+     &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;:
+   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
+     &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Cielo30&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;4551870000000183&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Portador&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2021&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;ExternalAuthentication&quot;&lt;/span&gt;:
+     &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;s2&quot;&gt;&quot;Cavv&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;AAABB2gHA1B5EFNjWQcDAAAAAAB=&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;Xid&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Uk5ZanBHcWw2RjRCbEN5dGtiMTB=&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;Version&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;RefereceID&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;a24a5d87-b1a1-4aef-a37b-2f30b91274e6&quot;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Campo&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Tipo/Tamanho&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Obrigatório&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Cavv&lt;/td&gt;
+      &lt;td&gt;Booleano que indica se a transação é submetida o não para o processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a autenticação foi um sucesso&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Xid&lt;/td&gt;
+      &lt;td&gt;XID retornado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a versão do 3DS for &quot;1&quot;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Eci&lt;/td&gt;
+      &lt;td&gt;E-Commerce Indicator retornado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Numérico [até 3 posições]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Version&lt;/td&gt;
+      &lt;td&gt;Versão do 3DS utilizado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [1 posições]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ReferenceID&lt;/td&gt;
+      &lt;td&gt;RequestID retornado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;GUID [36 posições]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
+
+&lt;p&gt;Vide https://developercielo.github.io/manual/cielo-ecommerce#resposta&lt;/p&gt;
+</content>
+    </entry>
     
     <entry>
         <title>Manual de integração</title>
