@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-09-13T15:07:56+00:00</updated>
+    <updated>2018-09-13T15:10:39+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -266,9 +266,9 @@
 
 &lt;p&gt;&lt;strong&gt;IMPORTANTE!&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;O arquivo JavaScript deve ser salvo no servidor onde está a aplicação da loja. Para baixar o arquivo, acesse:&lt;/p&gt;
+&lt;p&gt;O arquivo JavaScript deve ser salvo no servidor onde está a aplicação da loja. Para baixar o arquivo no Sandbox, acesse:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://bit.ly/2wWXK2T&quot;&gt;https://bit.ly/2wWXK2T&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://bit.ly/2CSOp2n&quot;&gt;https://bit.ly/2CSOp2n&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Descrição das saídas&lt;/p&gt;
 
@@ -376,7 +376,7 @@
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_cardtype&lt;/td&gt;
+      &lt;td&gt;bpmpi_paymentmethod&lt;/td&gt;
       &lt;td&gt;Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit&lt;/td&gt;
       &lt;td&gt;Credit – Cartão de Crédito&lt;br /&gt;Debit – Cartão de Débito&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
