@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-09-13T15:10:39+00:00</updated>
+    <updated>2018-09-18T14:04:28+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29233,7 +29233,11 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;200&lt;/td&gt;
-      &lt;td&gt;OK&lt;/td&gt;
+      &lt;td&gt;OK (Capture/Void/Get)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;201&lt;/td&gt;
+      &lt;td&gt;OK (Authorization)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;400&lt;/td&gt;
