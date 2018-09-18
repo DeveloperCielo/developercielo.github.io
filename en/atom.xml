@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-09-18T14:04:34+00:00</updated>
+    <updated>2018-09-18T14:08:22+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24626,7 +24626,11 @@ More information and complete integration, you can find in the link: https://dev
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;200&lt;/td&gt;
-      &lt;td&gt;OK&lt;/td&gt;
+      &lt;td&gt;OK (Capture/Void/Get)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;201&lt;/td&gt;
+      &lt;td&gt;OK (Authorization)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;400&lt;/td&gt;
