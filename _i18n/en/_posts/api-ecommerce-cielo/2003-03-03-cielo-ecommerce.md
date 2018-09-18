@@ -6206,7 +6206,8 @@ Below we explain them in the order in which they can occur:
 
 |HTTP Status Code|Description|
 |---|---|
-|200|OK|
+|200|OK (Capture/Void/Get) |
+|201|OK (Authorization) |
 |400|Bad Request|
 |404|Resource Not Found|
 |500|Internal Server Error|
