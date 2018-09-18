@@ -7019,7 +7019,8 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:
 
 |HTTP Status Code|Descrição|
 |---|---|
-|200|OK|
+|200|OK (Capture/Void/Get) |
+|201|OK (Authorization) |
 |400|Bad Request|
 |404|Resource Not Found|
 |500|Internal Server Error|
