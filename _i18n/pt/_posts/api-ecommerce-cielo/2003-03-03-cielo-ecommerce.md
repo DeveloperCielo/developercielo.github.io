@@ -7328,6 +7328,44 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |U3|Transação não permitida. Falha na validação dos dados.|Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.|Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.|Não|
 |GD|Transação não permitida|Transação não permitida|Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes Transação|Não|
 
+## Códigos de retorno da Captura
+
+|Return Code|Return Message|
+|---|---|
+|6|Transacao capturada com sucesso|
+|001|Mensagem inválida|
+|002|Credenciais inválidas|
+|003|Transação inexistente|
+|030|O status da transacao nao permite captura|
+|031|Prazo de captura vencido|
+|032|Valor de captura invalido|
+|033|Falha ao capturar|
+|097|Sistema indisponível|
+|098|Timeout|
+|099|Erro inesperado|
+
+## Códigos de retorno do Cancelamento e Estorno
+
+|Return Code|Return Message|
+|---|---|
+|9|Transacao desfeita|
+|9|Transacao cancelada com sucesso|
+|9|Cancelamento parcial realizado com sucesso|
+|4|Nao foi possivel cancelar a Transacao|
+|6|Nao foi possivel cancelar a Transacao|
+|001|Mensagem inválida|
+|002|Credenciais inválidas|
+|003|Transação inexistente|
+|040|Prazo de cancelamento vencido|
+|041|Status nao permite cancelamento|
+|042|Falha ao cancelar|
+|043|Valor de cancelamento é maior que valor autorizado.|
+|097|Sistema indisponível|
+|098|Timeout|
+|475|Tempo esgotado|
+|845|Status nao permite cancelar|
+|099|Erro inesperado|
+
 # Anexos
 
 ## Configurações da Afiliação.
