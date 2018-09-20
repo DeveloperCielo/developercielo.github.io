@@ -13579,6 +13579,174 @@ More information and complete integration, you can find in the link: https://dev
 
 <p><strong>Warning</strong>: There are similar return codes, but with different meanings such as “<strong>6</strong> - Captured” and the “<strong>06</strong> - Canceled Card”. These codes are only informative of the processing system. <strong>Only the field <code class="highlighter-rouge">STATUS</code> should be considered as the current transaction situation</strong></p>
 
+<h2 id="capture-return-codes">Capture Return Codes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Return Code</th>
+      <th>Return Message</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6</td>
+      <td>Transacao capturada com sucesso</td>
+      <td>Transaction successfully captured</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>Mensagem inválida</td>
+      <td>Operation failed. Invalid request</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Credenciais inválidas</td>
+      <td>Operation failed. Invalid credentials</td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Transação inexistente</td>
+      <td>Operation failed. Transaction not found</td>
+    </tr>
+    <tr>
+      <td>030</td>
+      <td>O status da transacao nao permite captura</td>
+      <td>Operation failed. Transaction not found</td>
+    </tr>
+    <tr>
+      <td>031</td>
+      <td>Prazo de captura vencido</td>
+      <td>Operation failed. Transaction is expired for capture</td>
+    </tr>
+    <tr>
+      <td>032</td>
+      <td>Valor de captura invalido</td>
+      <td>Operation failed. Capture amount is invalid</td>
+    </tr>
+    <tr>
+      <td>033</td>
+      <td>Falha ao capturar</td>
+      <td>Operation failed. Server error for capture</td>
+    </tr>
+    <tr>
+      <td>097</td>
+      <td>Sistema indisponível</td>
+      <td>Service unavailable</td>
+    </tr>
+    <tr>
+      <td>098</td>
+      <td>Timeout</td>
+      <td>Operation failed. Operation timed out</td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>Erro inesperado</td>
+      <td>Operation failed</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="voidrefund-return-codes">Void/Refund Return Codes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Return Code</th>
+      <th>Return Message</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>9</td>
+      <td>Transacao desfeita</td>
+      <td>Transaction successfully</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Transacao cancelada com sucesso</td>
+      <td>Transaction successfully refunded</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Cancelamento parcial realizado com sucesso</td>
+      <td>Transaction successfully refunded (partially)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Nao foi possivel cancelar a Transacao</td>
+      <td>Void operation failed</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Nao foi possivel cancelar a Transacao</td>
+      <td>Refund operation failed</td>
+    </tr>
+    <tr>
+      <td>001</td>
+      <td>Mensagem inválida</td>
+      <td>Operation failed. Invalid request</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Credenciais inválidas</td>
+      <td>Operation failed. Invalid credentials</td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Transação inexistente</td>
+      <td>Operation failed. Transaction not found</td>
+    </tr>
+    <tr>
+      <td>040</td>
+      <td>Prazo de cancelamento vencido</td>
+      <td>Operation failed. Transaction is expired for refund</td>
+    </tr>
+    <tr>
+      <td>041</td>
+      <td>Status nao permite cancelamento</td>
+      <td>Operation failed. Current status not allowed for refund</td>
+    </tr>
+    <tr>
+      <td>042</td>
+      <td>Falha ao cancelar</td>
+      <td>Operation failed. Server error for refund</td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>Valor de cancelamento é maior que valor autorizado.</td>
+      <td>Operation failed. Refund amount must be equals or less then authorized amount</td>
+    </tr>
+    <tr>
+      <td>097</td>
+      <td>Sistema indisponível</td>
+      <td>Operation failed. Service unavailable</td>
+    </tr>
+    <tr>
+      <td>098</td>
+      <td>Timeout</td>
+      <td>Operation failed. Operation timed out</td>
+    </tr>
+    <tr>
+      <td>475</td>
+      <td>Tempo esgotado</td>
+      <td>Operation failed. Operation timed out</td>
+    </tr>
+    <tr>
+      <td>845</td>
+      <td>Status nao permite cancelar</td>
+      <td>Operation failed. Invalid status for refund</td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>Erro inesperado</td>
+      <td>Operation failed</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="annexes">Annexes</h1>
 
 <h2 id="affiliate-settings">Affiliate Settings.</h2>
