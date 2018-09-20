@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-09-20T17:40:23+00:00</updated>
+    <updated>2018-09-20T17:59:23+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3364,238 +3364,6 @@ Check the table below with the technical especifications of the Cielo LIO:&lt;/p
 
 &lt;p&gt;This SIM Card allows the connection with the 3G technology of Cielo LIO and has an unlimited data package.&lt;/p&gt;
 
-&lt;h1 id=&quot;tips-for-developers&quot;&gt;Tips for developers&lt;/h1&gt;
-
-&lt;p&gt;The guide below provides information necessary to help developers to integrate or develop their applications on Cielo Lio platform the best way possible, in a way to provide an excellent experience to the commercial establishments.&lt;/p&gt;
-
-&lt;p&gt;It is recommended the detailed reading of the Cielo LIO documentation present on the Developers Portal. This documentation gathers important information for moderate simplicity questions.&lt;/p&gt;
-
-&lt;h2 id=&quot;best-practices-with-the-cielo-lio-platform&quot;&gt;Best practices with the Cielo LIO platform&lt;/h2&gt;
-
-&lt;h3 id=&quot;data-security-and-privacy&quot;&gt;Data Security and Privacy&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Protect sensitive data from customers and employees. Do not expose names, addresses, or phone numbers publicly.&lt;/li&gt;
-  &lt;li&gt;Never expose authentication tokens or passwords of any kind.&lt;/li&gt;
-  &lt;li&gt;The partner must provide his support data so that the commercial establishments (retailers) contact in case of problems and/or questions.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;rate-limiting&quot;&gt;Rate Limiting&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The Commercial Automation solicitations or PDV must be scaled to the max in order to avoid high traffic bursts.&lt;/li&gt;
-  &lt;li&gt;“Cache” your own data when you need to store specialized values or quickly revise large data sets.&lt;/li&gt;
-  &lt;li&gt;Do not create multi-thread with POST layers, this behavior can create systemics delays due to deadlocks.&lt;/li&gt;
-  &lt;li&gt;Minimize data usage. The commercial establishments (retailers) may be using a connection with limited mobile data.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;quality-code&quot;&gt;Quality Code&lt;/h3&gt;
-
-&lt;p&gt;Your application has to be in conformity with the Android and Java programming conventional practices according to the guidelines for Android developers.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Object Oriented Design principles (S.O.L.I.D.).&lt;/li&gt;
-  &lt;li&gt;Java style guidelines.&lt;/li&gt;
-  &lt;li&gt;Understand the difference between &lt;code class=&quot;highlighter-rouge&quot;&gt;compileSdkVersion&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;targetSdkVersion&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;minSdkVersion&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Enjoy the Android native buttons, like the “Back” and “Home” buttons.&lt;/li&gt;
-  &lt;li&gt;Optimize the operations seeking low battery consumption&lt;/li&gt;
-  &lt;li&gt;The application has to attend the Cielo commercial establishments (retailers) needs.&lt;/li&gt;
-  &lt;li&gt;Your application has to have a good end-to-end experience, assuring the correct communication between all fluxes, specially the Cielo LIO payment returns.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;image-features&quot;&gt;Image features&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The applications’ icons must be mimap features.&lt;/li&gt;
-  &lt;li&gt;The icons must be in conformity to the Android standard dimensioning (you can use third party icon generators to resize your logo): 192 × 192 (xxxhdpi).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;use-and-usability&quot;&gt;Use and Usability&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;We recommend that the developers integrate some kind of fail report utility in their Android products. It will help you on maintaining the operational awareness of your product.&lt;/li&gt;
-  &lt;li&gt;Developers can collect metrics about the use of your application. It will help them on building better products and rising the awareness about any impacting questions..&lt;/li&gt;
-  &lt;li&gt;Ensure that the application works optimally, avoiding that crash and delay occurs on the answer for application processing.&lt;/li&gt;
-  &lt;li&gt;The design must emphasize clarity and accessibility - high contrast, readable fonts, large text and inputs.&lt;/li&gt;
-  &lt;li&gt;Make the application’s acceptance terms clear and provide the necessary support to the user regarding the service provided.&lt;/li&gt;
-  &lt;li&gt;If you are adapting a developed application for another platform, check if it only includes features and buttons relevant to the Cielo LIO user.&lt;/li&gt;
-  &lt;li&gt;If your application includes a component designed to the customer, your project will reflect on the business using your application. These interfaces have to be pleasant and professional.&lt;/li&gt;
-  &lt;li&gt;It is recommended the use of the &lt;a href=&quot;https://material.io&quot;&gt;Material Design&lt;/a&gt; for development of the applications for Cielo LIO. This recommendation has the purpose of facilitating the use of good design practices for development of mobile applications.&lt;/li&gt;
-  &lt;li&gt;Your application will be used in working conditions of fast and dynamic pace. Strive to get clear work fluxes, easy to use and robust, with as few steps as possible.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;develop-your-application-for-cielo-lio&quot;&gt;Develop your application for Cielo LIO&lt;/h1&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;With Cielo LIO it is possible that companies and partners have your application running on Cielo platform. These applications may or not be integrated to the payment, it all will depend on the company or partner purposes.&lt;/p&gt;
-
-&lt;p&gt;Below, you’ll find all necessary information to develop an application for Cielo LIO.&lt;/p&gt;
-
-&lt;h2 id=&quot;development-environment&quot;&gt;Development Environment&lt;/h2&gt;
-
-&lt;p&gt;It is required that you use an IDE (Integrated Development Environment) to develop your application. Cielo recommends that an IDE from Android Studio (version 2.2.2 or above) is used, seeking to assure the application operation on Cielo LIO platform.&lt;/p&gt;
-
-&lt;p&gt;For more details about the Android Studio instalation and configuration, &lt;a href=&quot;https://developer.android.com/index.html&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;For the creation of a new project on Android Studio, &lt;a href=&quot;https://developer.android.com/training/basics/firstapp/creating-project.html&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;programming-language&quot;&gt;Programming Language&lt;/h2&gt;
-
-&lt;p&gt;Cielo LIO accepts applications developed in Java or Kotlin..&lt;/p&gt;
-
-&lt;p&gt;We recommend that these languages are used to ensure that it works and to ensure the ease of integration with Cielo LIO.&lt;/p&gt;
-
-&lt;h2 id=&quot;cielo-os&quot;&gt;Cielo OS&lt;/h2&gt;
-
-&lt;p&gt;O sistema operacional da plataforma Cielo LIO foi personalizado e, com isso, surgiu o Cielo OS, que é baseado em Android.&lt;/p&gt;
-
-&lt;p&gt;At LIO V1, the Cielo platform operational system is based on Android 5.1.1 (API Level 23) and available on most of the APIs present on the Android framework.&lt;/p&gt;
-
-&lt;p&gt;At LIO V2, the Cielo platform operational system is based on Android 6.0 (API Level 23) and available on most of the APIs present on the Android framework.&lt;/p&gt;
-
-&lt;p&gt;In case you want to consult what APIs are available, access https://developer.android.com/reference/packages.html and select “API Level 22” or “API Level 23” on the left corner of the screen, according to your preference.&lt;/p&gt;
-
-&lt;h2 id=&quot;target-version-of-the-application&quot;&gt;Target version of the application&lt;/h2&gt;
-
-&lt;p&gt;It is recommended that the developer uses Android 5.1.1 (Lollipop) as the application target version.
-Thus, it is assured the working of the application on the LIO V1 hardware as well as on LIO V2 hardware.&lt;/p&gt;
-
-&lt;h2 id=&quot;unavailable-features&quot;&gt;Unavailable Features&lt;/h2&gt;
-
-&lt;p&gt;When customizing the Android of Cielo LIO, some features were removed to assure the peroformance and security of the platoform.&lt;/p&gt;
-
-&lt;p&gt;Below, the list of Cielo LIO removed features:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Google Play Services&lt;/strong&gt;: All services, APIs and apps from Google were removed from the operational system. Consequently, it won’t be possible to use the libraries that depend on these Google features.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Componente Webview&lt;/strong&gt;: This visual feature was removed with the purpose of ensuring the security on the platform and avoid that, from the installed applications on Cielo LIO, it is possible to access links and external contents.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Attention&lt;/strong&gt;: Cielo does not allow that the application from the client/partner be developed using the WebView feature. This visual feature makes the Cielo LIO platform vulnerable. In case the application is using WebView, it won’t attend the certification parameters and it won’t be made available on Cielo Store.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;substitutes-suggestions&quot;&gt;Substitutes suggestions&lt;/h2&gt;
-
-&lt;h3 id=&quot;push-notifications&quot;&gt;Push-Notifications&lt;/h3&gt;
-
-&lt;p&gt;Exclusive Google Services feature, therefore, it won’t be present on Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: JobScheduler&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: It’s an API to schedule several kinds of jobs against the structure that will be executed in the process of your application itself. Allowing in each time cycle that the application perform a search in our Backend services.&lt;/p&gt;
-
-&lt;p&gt;JobScheduler is the most indicated due to battery performance, without mentioning other options that it provides (Example: Job only runs when the smartphone is charging).&lt;/p&gt;
-
-&lt;p&gt;Reference: &lt;a href=&quot;https://developer.android.com/reference/android/app/job/JobScheduler.html&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;location-services-gps&quot;&gt;Location Services (GPS)&lt;/h3&gt;
-
-&lt;p&gt;Exclusive Google Services feature, therefore it won’t be present on Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: Location Manager&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: This class provides access to the location services of the system. These services allow that applications get geographic position periodic updates from the device or start an specific Intention by the application when the device gets inside the proximity of a certain geographic location.&lt;/p&gt;
-
-&lt;p&gt;Reference: &lt;a href=&quot;https://developer.android.com/reference/android/location/LocationManager.html&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;map-services&quot;&gt;Map Services&lt;/h3&gt;
-
-&lt;p&gt;Exclusive Google Services feature, therefore it won’t be present on Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: MapBox&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: An open source mapping platform for customized maps. Our APIs and SDKs are the construction blocks to integrate the location in any mobile or web application.&lt;/p&gt;
-
-&lt;p&gt;Reference: &lt;a href=&quot;https://www.mapbox.com&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;apks-removed-from-cielo-os&quot;&gt;APKs Removed from Cielo OS&lt;/h2&gt;
-
-&lt;p&gt;Below, there is a table with all APKs that were removed from Cielo OS and that, consequently, are not available for Cielo LIO:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;BasicSmsReceiver&lt;/td&gt;
-      &lt;td&gt;FileManager&lt;/td&gt;
-      &lt;td&gt;PhaseBeam&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Browser&lt;/td&gt;
-      &lt;td&gt;Galaxy4&lt;/td&gt;
-      &lt;td&gt;QuickSearchBox&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Calculator&lt;/td&gt;
-      &lt;td&gt;Gallery&lt;/td&gt;
-      &lt;td&gt;SoundRecorder&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Calendar&lt;/td&gt;
-      &lt;td&gt;HoloSpiralWallpaper&lt;/td&gt;
-      &lt;td&gt;SpeechRecorder&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;CalendarProvider&lt;/td&gt;
-      &lt;td&gt;LiveWallpapers&lt;/td&gt;
-      &lt;td&gt;Todos&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;CBMessageWidget&lt;/td&gt;
-      &lt;td&gt;LiveWallpaperPicker&lt;/td&gt;
-      &lt;td&gt;Videos&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Contacts&lt;/td&gt;
-      &lt;td&gt;MagicSmokeWallpapers&lt;/td&gt;
-      &lt;td&gt;VisualizationWallpapers&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ContactsCommon&lt;/td&gt;
-      &lt;td&gt;MtkWeatherProvider&lt;/td&gt;
-      &lt;td&gt;VoiceCommand&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;DataTransfer&lt;/td&gt;
-      &lt;td&gt;Mms&lt;/td&gt;
-      &lt;td&gt;VoiceDialer&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Dialer&lt;/td&gt;
-      &lt;td&gt;Music&lt;/td&gt;
-      &lt;td&gt;VoiceExtension&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Email&lt;/td&gt;
-      &lt;td&gt;MusicFX&lt;/td&gt;
-      &lt;td&gt;VoiceUnlock&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Exchange2&lt;/td&gt;
-      &lt;td&gt;NlpService&lt;/td&gt;
-      &lt;td&gt;WallpaperCropper&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;FMRadio&lt;/td&gt;
-      &lt;td&gt;NoiseField&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;development-frameworks&quot;&gt;Development Frameworks&lt;/h2&gt;
-
-&lt;p&gt;Currently, Cielo LIO does not support applications developed in hybrid platforms, such as, Ionic, Titanium, Xamarin, CronApp and PhoneGap.&lt;/p&gt;
-
-&lt;hr /&gt;
-
 &lt;h1 id=&quot;remote-integration&quot;&gt;Remote Integration&lt;/h1&gt;
 
 &lt;h2 id=&quot;presentation-1&quot;&gt;Presentation&lt;/h2&gt;
@@ -5167,6 +4935,238 @@ In production environment, once the cancellation is performed on Cielo Lio the t
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;tips-for-developers&quot;&gt;Tips for developers&lt;/h1&gt;
+
+&lt;p&gt;The guide below provides information necessary to help developers to integrate or develop their applications on Cielo Lio platform the best way possible, in a way to provide an excellent experience to the commercial establishments.&lt;/p&gt;
+
+&lt;p&gt;It is recommended the detailed reading of the Cielo LIO documentation present on the Developers Portal. This documentation gathers important information for moderate simplicity questions.&lt;/p&gt;
+
+&lt;h2 id=&quot;best-practices-with-the-cielo-lio-platform&quot;&gt;Best practices with the Cielo LIO platform&lt;/h2&gt;
+
+&lt;h3 id=&quot;data-security-and-privacy&quot;&gt;Data Security and Privacy&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Protect sensitive data from customers and employees. Do not expose names, addresses, or phone numbers publicly.&lt;/li&gt;
+  &lt;li&gt;Never expose authentication tokens or passwords of any kind.&lt;/li&gt;
+  &lt;li&gt;The partner must provide his support data so that the commercial establishments (retailers) contact in case of problems and/or questions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rate-limiting&quot;&gt;Rate Limiting&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Commercial Automation solicitations or PDV must be scaled to the max in order to avoid high traffic bursts.&lt;/li&gt;
+  &lt;li&gt;“Cache” your own data when you need to store specialized values or quickly revise large data sets.&lt;/li&gt;
+  &lt;li&gt;Do not create multi-thread with POST layers, this behavior can create systemics delays due to deadlocks.&lt;/li&gt;
+  &lt;li&gt;Minimize data usage. The commercial establishments (retailers) may be using a connection with limited mobile data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;quality-code&quot;&gt;Quality Code&lt;/h3&gt;
+
+&lt;p&gt;Your application has to be in conformity with the Android and Java programming conventional practices according to the guidelines for Android developers.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Object Oriented Design principles (S.O.L.I.D.).&lt;/li&gt;
+  &lt;li&gt;Java style guidelines.&lt;/li&gt;
+  &lt;li&gt;Understand the difference between &lt;code class=&quot;highlighter-rouge&quot;&gt;compileSdkVersion&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;targetSdkVersion&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;minSdkVersion&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Enjoy the Android native buttons, like the “Back” and “Home” buttons.&lt;/li&gt;
+  &lt;li&gt;Optimize the operations seeking low battery consumption&lt;/li&gt;
+  &lt;li&gt;The application has to attend the Cielo commercial establishments (retailers) needs.&lt;/li&gt;
+  &lt;li&gt;Your application has to have a good end-to-end experience, assuring the correct communication between all fluxes, specially the Cielo LIO payment returns.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;image-features&quot;&gt;Image features&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The applications’ icons must be mimap features.&lt;/li&gt;
+  &lt;li&gt;The icons must be in conformity to the Android standard dimensioning (you can use third party icon generators to resize your logo): 192 × 192 (xxxhdpi).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;use-and-usability&quot;&gt;Use and Usability&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We recommend that the developers integrate some kind of fail report utility in their Android products. It will help you on maintaining the operational awareness of your product.&lt;/li&gt;
+  &lt;li&gt;Developers can collect metrics about the use of your application. It will help them on building better products and rising the awareness about any impacting questions..&lt;/li&gt;
+  &lt;li&gt;Ensure that the application works optimally, avoiding that crash and delay occurs on the answer for application processing.&lt;/li&gt;
+  &lt;li&gt;The design must emphasize clarity and accessibility - high contrast, readable fonts, large text and inputs.&lt;/li&gt;
+  &lt;li&gt;Make the application’s acceptance terms clear and provide the necessary support to the user regarding the service provided.&lt;/li&gt;
+  &lt;li&gt;If you are adapting a developed application for another platform, check if it only includes features and buttons relevant to the Cielo LIO user.&lt;/li&gt;
+  &lt;li&gt;If your application includes a component designed to the customer, your project will reflect on the business using your application. These interfaces have to be pleasant and professional.&lt;/li&gt;
+  &lt;li&gt;It is recommended the use of the &lt;a href=&quot;https://material.io&quot;&gt;Material Design&lt;/a&gt; for development of the applications for Cielo LIO. This recommendation has the purpose of facilitating the use of good design practices for development of mobile applications.&lt;/li&gt;
+  &lt;li&gt;Your application will be used in working conditions of fast and dynamic pace. Strive to get clear work fluxes, easy to use and robust, with as few steps as possible.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;develop-your-application-for-cielo-lio&quot;&gt;Develop your application for Cielo LIO&lt;/h1&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;With Cielo LIO it is possible that companies and partners have your application running on Cielo platform. These applications may or not be integrated to the payment, it all will depend on the company or partner purposes.&lt;/p&gt;
+
+&lt;p&gt;Below, you’ll find all necessary information to develop an application for Cielo LIO.&lt;/p&gt;
+
+&lt;h2 id=&quot;development-environment&quot;&gt;Development Environment&lt;/h2&gt;
+
+&lt;p&gt;It is required that you use an IDE (Integrated Development Environment) to develop your application. Cielo recommends that an IDE from Android Studio (version 2.2.2 or above) is used, seeking to assure the application operation on Cielo LIO platform.&lt;/p&gt;
+
+&lt;p&gt;For more details about the Android Studio instalation and configuration, &lt;a href=&quot;https://developer.android.com/index.html&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the creation of a new project on Android Studio, &lt;a href=&quot;https://developer.android.com/training/basics/firstapp/creating-project.html&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;programming-language&quot;&gt;Programming Language&lt;/h2&gt;
+
+&lt;p&gt;Cielo LIO accepts applications developed in Java or Kotlin..&lt;/p&gt;
+
+&lt;p&gt;We recommend that these languages are used to ensure that it works and to ensure the ease of integration with Cielo LIO.&lt;/p&gt;
+
+&lt;h2 id=&quot;cielo-os&quot;&gt;Cielo OS&lt;/h2&gt;
+
+&lt;p&gt;O sistema operacional da plataforma Cielo LIO foi personalizado e, com isso, surgiu o Cielo OS, que é baseado em Android.&lt;/p&gt;
+
+&lt;p&gt;At LIO V1, the Cielo platform operational system is based on Android 5.1.1 (API Level 23) and available on most of the APIs present on the Android framework.&lt;/p&gt;
+
+&lt;p&gt;At LIO V2, the Cielo platform operational system is based on Android 6.0 (API Level 23) and available on most of the APIs present on the Android framework.&lt;/p&gt;
+
+&lt;p&gt;In case you want to consult what APIs are available, access https://developer.android.com/reference/packages.html and select “API Level 22” or “API Level 23” on the left corner of the screen, according to your preference.&lt;/p&gt;
+
+&lt;h2 id=&quot;target-version-of-the-application&quot;&gt;Target version of the application&lt;/h2&gt;
+
+&lt;p&gt;It is recommended that the developer uses Android 5.1.1 (Lollipop) as the application target version.
+Thus, it is assured the working of the application on the LIO V1 hardware as well as on LIO V2 hardware.&lt;/p&gt;
+
+&lt;h2 id=&quot;unavailable-features&quot;&gt;Unavailable Features&lt;/h2&gt;
+
+&lt;p&gt;When customizing the Android of Cielo LIO, some features were removed to assure the peroformance and security of the platoform.&lt;/p&gt;
+
+&lt;p&gt;Below, the list of Cielo LIO removed features:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Play Services&lt;/strong&gt;: All services, APIs and apps from Google were removed from the operational system. Consequently, it won’t be possible to use the libraries that depend on these Google features.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Componente Webview&lt;/strong&gt;: This visual feature was removed with the purpose of ensuring the security on the platform and avoid that, from the installed applications on Cielo LIO, it is possible to access links and external contents.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Attention&lt;/strong&gt;: Cielo does not allow that the application from the client/partner be developed using the WebView feature. This visual feature makes the Cielo LIO platform vulnerable. In case the application is using WebView, it won’t attend the certification parameters and it won’t be made available on Cielo Store.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;substitutes-suggestions&quot;&gt;Substitutes suggestions&lt;/h2&gt;
+
+&lt;h3 id=&quot;push-notifications&quot;&gt;Push-Notifications&lt;/h3&gt;
+
+&lt;p&gt;Exclusive Google Services feature, therefore, it won’t be present on Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: JobScheduler&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: It’s an API to schedule several kinds of jobs against the structure that will be executed in the process of your application itself. Allowing in each time cycle that the application perform a search in our Backend services.&lt;/p&gt;
+
+&lt;p&gt;JobScheduler is the most indicated due to battery performance, without mentioning other options that it provides (Example: Job only runs when the smartphone is charging).&lt;/p&gt;
+
+&lt;p&gt;Reference: &lt;a href=&quot;https://developer.android.com/reference/android/app/job/JobScheduler.html&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;location-services-gps&quot;&gt;Location Services (GPS)&lt;/h3&gt;
+
+&lt;p&gt;Exclusive Google Services feature, therefore it won’t be present on Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: Location Manager&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: This class provides access to the location services of the system. These services allow that applications get geographic position periodic updates from the device or start an specific Intention by the application when the device gets inside the proximity of a certain geographic location.&lt;/p&gt;
+
+&lt;p&gt;Reference: &lt;a href=&quot;https://developer.android.com/reference/android/location/LocationManager.html&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;map-services&quot;&gt;Map Services&lt;/h3&gt;
+
+&lt;p&gt;Exclusive Google Services feature, therefore it won’t be present on Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: MapBox&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: An open source mapping platform for customized maps. Our APIs and SDKs are the construction blocks to integrate the location in any mobile or web application.&lt;/p&gt;
+
+&lt;p&gt;Reference: &lt;a href=&quot;https://www.mapbox.com&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;apks-removed-from-cielo-os&quot;&gt;APKs Removed from Cielo OS&lt;/h2&gt;
+
+&lt;p&gt;Below, there is a table with all APKs that were removed from Cielo OS and that, consequently, are not available for Cielo LIO:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BasicSmsReceiver&lt;/td&gt;
+      &lt;td&gt;FileManager&lt;/td&gt;
+      &lt;td&gt;PhaseBeam&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Browser&lt;/td&gt;
+      &lt;td&gt;Galaxy4&lt;/td&gt;
+      &lt;td&gt;QuickSearchBox&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Calculator&lt;/td&gt;
+      &lt;td&gt;Gallery&lt;/td&gt;
+      &lt;td&gt;SoundRecorder&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Calendar&lt;/td&gt;
+      &lt;td&gt;HoloSpiralWallpaper&lt;/td&gt;
+      &lt;td&gt;SpeechRecorder&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CalendarProvider&lt;/td&gt;
+      &lt;td&gt;LiveWallpapers&lt;/td&gt;
+      &lt;td&gt;Todos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CBMessageWidget&lt;/td&gt;
+      &lt;td&gt;LiveWallpaperPicker&lt;/td&gt;
+      &lt;td&gt;Videos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Contacts&lt;/td&gt;
+      &lt;td&gt;MagicSmokeWallpapers&lt;/td&gt;
+      &lt;td&gt;VisualizationWallpapers&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ContactsCommon&lt;/td&gt;
+      &lt;td&gt;MtkWeatherProvider&lt;/td&gt;
+      &lt;td&gt;VoiceCommand&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DataTransfer&lt;/td&gt;
+      &lt;td&gt;Mms&lt;/td&gt;
+      &lt;td&gt;VoiceDialer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Dialer&lt;/td&gt;
+      &lt;td&gt;Music&lt;/td&gt;
+      &lt;td&gt;VoiceExtension&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Email&lt;/td&gt;
+      &lt;td&gt;MusicFX&lt;/td&gt;
+      &lt;td&gt;VoiceUnlock&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Exchange2&lt;/td&gt;
+      &lt;td&gt;NlpService&lt;/td&gt;
+      &lt;td&gt;WallpaperCropper&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;FMRadio&lt;/td&gt;
+      &lt;td&gt;NoiseField&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;development-frameworks&quot;&gt;Development Frameworks&lt;/h2&gt;
+
+&lt;p&gt;Currently, Cielo LIO does not support applications developed in hybrid platforms, such as, Ionic, Titanium, Xamarin, CronApp and PhoneGap.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h1 id=&quot;cielo-store&quot;&gt;Cielo Store&lt;/h1&gt;
 
