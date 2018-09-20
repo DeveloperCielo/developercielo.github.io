@@ -578,9 +578,1602 @@ Dessa forma, garante-se o funcionamento da aplicação no hardware da LIO V1 com
 
 <hr />
 
-<h1 id="integração-remota">Integração Remota</h1>
+<h1 id="integração-local">Integração Local</h1>
 
 <h2 id="apresentação">Apresentação</h2>
+
+<p>O objetivo da Integração Local da Cielo LIO é permitir que o aplicativo desenvolvido em Android se integre com o módulo de pedidos e pagamentos da Cielo LIO através do Cielo LIO Order Manager SDK.</p>
+
+<p>Nesse modelo de integração, toda a gestão do estabelecimento comercial e da arquitetura da solução fica sob responsabilidade do aplicativo que irá utilizar o SDK nas operações de pagamento.</p>
+
+<ul>
+  <li>O aplicativo do parceiro rodando na Cielo envia informações para o Cielo LIO Order Manager SDK.</li>
+  <li>O Cielo LIO Order Manager SDK executa os fluxos para pagamento.</li>
+  <li>O aplicativo do parceiro recebe as informações do pagamento e continua sua execução.</li>
+</ul>
+
+<p>As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.</p>
+
+<h2 id="cielo-lio-order-manager-sdk">Cielo Lio Order Manager SDK</h2>
+
+<h3 id="sobre-2">Sobre</h3>
+
+<p>O Cielo LIO Order Manager SDK é uma biblioteca Android desenvolvida com base na Cielo LIO Order Manager API, encapsulando a complexidade da comunicação REST em uma API fluente e amigável ao desenvolvedor e permitindo uma integração simples, rápida e segura com a plataforma Cielo LIO.</p>
+
+<p>O principal objetivo do Cielo LIO Order Manager SDK é simplificar a integração com o sistema de pagamentos e permitir que o desenvolvedor concentre esforços no desenvolvimento das características do seu aplicativo. Abaixo, é apresentado um exemplo em alto nível do processo de utilização do Cielo LIO Order Manager SDK por um aplicativo parceiro:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/sdk-order.jpg" alt="fluxo" /></p>
+
+<ol>
+  <li>O aplicativo do parceiro é responsável por gerenciar todas as informações do pedido e, então, enviá-las para o Cielo LIO Order Manager SDK.</li>
+  <li>O Cielo LIO Order Manager SDK recebe as informações e o fluxo de pagamento para o cliente. Neste fluxo, o cliente irá selecionar a forma de pagamento e digitar a senha no Pinpad, tendo a possibilidade de enviar por e-mail o comprovante do pagamento.</li>
+  <li>Ao término do fluxo de pagamento, o aplicativo do parceiro recebe as informações sobre o pagamento realizado e volta a ser executado na tela da Cielo LIO.</li>
+</ol>
+
+<p>Para mais informações e detalhes sobre o desenvolvimento de um aplicativo para a Cielo LIO, acesse a documentação Desenvolva um App para LIO.</p>
+
+<h3 id="ambiente-sandbox---emulador">Ambiente Sandbox - Emulador</h3>
+
+<p>Este aplicativo funciona como um proxy de todas as chamadas que o SDK enviaria para a LIO. Ele simplesmente trata essas chamadas e simula os tipos possíveis de retorno para a aplicação cliente, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.</p>
+
+<blockquote>
+  <p>Não é nem mesmo necessário deixar esse app aberto. Assim que a aplicação cliente utilizar uma função do OrderManager que chamaria a LIO, essa aplicação entra em primeiro plano para seleção do que deve ser retornado (Sucesso, Erro ou Cancelamento)</p>
+</blockquote>
+
+<p>Faça o download do .apk do emulador no link abaixo:</p>
+
+<p><a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.1.0/lio-emulator.apk">Download do Emulador</a></p>
+
+<p>Para instalar o aplicativo, basta seguir os seguintes passos:</p>
+
+<ul>
+  <li>Acesse as configurações do seu aparelho e vá até o menu “Segurança”;</li>
+  <li>Localize o item “Fontes desconhecidas”, na seção “Administração do dispositivo”</li>
+  <li>Toque na chave ao lado e confirme sua escolha para passar a permitir a instalação de arquivos APK baixados por fontes alternativas.</li>
+</ul>
+
+<h3 id="configurar-módulos-e-dependências">Configurar módulos e dependências</h3>
+
+<p>Após configurar um novo projeto no Android Studio, é necessário incluir a dependência abaixo no projeto.</p>
+
+<p>Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.cielo.lio:order-manager:0.19.4'
+</code></pre></div></div>
+
+<p>última versão 0.19.1 - lançada em 15/05/2018</p>
+
+<blockquote>
+  <p>A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
+Adicione essa permissão ao <code class="highlighter-rouge">AndroidManifest.xml</code> da sua aplicação.</p>
+</blockquote>
+
+<h3 id="credenciais">Credenciais</h3>
+
+<p>Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Credentials</span> <span class="n">credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Credentials</span><span class="o">(</span><span class="s">"Seu client id aqui"</span><span class="o">,</span> <span class="s">"Seu accessToken aqui"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Client-Id
+Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu ‘Desenvolvedor’ -&gt; ‘Client ID Cadastrados’.</p>
+  </li>
+  <li>
+    <p>Access-Token
+Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em ‘detalhes’ na coluna ‘Access Tokens’, dentro do menu ‘Desenvolvedor’ -&gt; ‘Client ID Cadastrados’.</p>
+  </li>
+</ul>
+
+<h2 id="criação-e-gerenciamento-de-ordens">Criação e Gerenciamento de Ordens</h2>
+
+<p>O fluxo básico para utilização do SDK pode ser dividido em 7 etapas, conforme o diagrama abaixo:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-lio-sdk.png" alt="order manager sdk fluxo" /></p>
+
+<p>Abaixo, iremos mostrar como realizar cada uma dessas etapas.</p>
+
+<h3 id="criar-ordermanager">Criar OrderManager</h3>
+
+<p>Este método permite iniciar o OrderManager, que é responsável pelas principais operações do Cielo LIO Order Manager SDK. O OrderManager representa a interface com a API REST do Order Manager.</p>
+
+<p>Tudo começa com a criação do OrderManager!</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">OrderManager</span> <span class="n">orderManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OrderManager</span><span class="o">(</span><span class="n">credentials</span><span class="o">,</span> <span class="n">context</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>O construtor do OrderManager recebe 2 parâmetros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>credentials</td>
+      <td>Credenciais de acesso do Parceiro/Desenvolvedor. Depois de se registrar no Portal de Desenvolvedores e criar seu app, o Parceiro/Desenvolvedor recebe as credenciais (Client-Id e Access-Token). Elas servem para identificá-lo unicamente na plataforma LIO e diferenciar as ordens da sua aplicação.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.Credentials</code></td>
+    </tr>
+    <tr>
+      <td>context</td>
+      <td>O contexto da aplicação.</td>
+      <td><code class="highlighter-rouge">android.content.Context</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Atenção:</strong> Recomendamos criar/inicializar o OrderManager no aplicativo do parceiro no momento em que for utilizar as funcionalidades, visando otimizar o desempenho do aplicativo</p>
+</blockquote>
+
+<h3 id="vincular-o-contexto-da-aplicação-ao-sdk">Vincular o contexto da aplicação ao SDK</h3>
+
+<p>Com o método <code class="highlighter-rouge">bind()</code>, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ServiceBindListener</span> <span class="n">serviceBindListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceBindListener</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceBoundError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">throwable</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//Ocorreu um erro ao tentar se conectar com o serviço OrderManager</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceBound</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">//Você deve garantir que sua aplicação se conectou com a LIO a partir desse listener</span>
+        <span class="c1">//A partir desse momento você pode utilizar as funções do OrderManager, caso contrário uma exceção será lançada.</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceUnbound</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// O serviço foi desvinculado</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+
+<span class="n">orderManager</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">serviceBindListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Atenção:</strong> Você deve garantir que o listener <code class="highlighter-rouge">onServiceBound()</code> foi chamado antes de utilizar as funções do OrderManager, caso contrário uma exceção será lançada e causará um crash na sua aplicação.</p>
+</blockquote>
+
+<p>O método Bind recebe dois parâmetros:</p>
+
+<ul>
+  <li>
+    <p><strong>context:</strong> objeto que proverá o contexto em que o serviço será vinculado.</p>
+  </li>
+  <li>
+    <p><strong>serviceBindListener:</strong> listener que notifica o estado da conexão com o serviço OrderManager.</p>
+  </li>
+</ul>
+
+<p>Com o OrderManager inicializado e após a execução do método onServiceBound, se torna possível ir para a próxima etapa e criar um pedido (classe Order).</p>
+
+<h3 id="criar-um-pedido">Criar um pedido</h3>
+
+<p>A Cielo LIO trabalha com o conceito de Order (pedido). É necessário possuir um pedido para então realizar o(s) pagamento(s).</p>
+
+<p>Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">createDraftOrder</span><span class="o">(</span><span class="s">"REFERÊNCIA_DO_PEDIDO"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="adicionar-itens-em-um-pedido">Adicionar itens em um pedido</h3>
+
+<p>Este método permite que sejam adicionados itens em um pedido.</p>
+
+<blockquote>
+  <p><strong>Atenção:</strong> É necessário adicionar no mínimo um item a um pedido para que seja possível dar continuidade ao pagamento.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Identificação do produto (Stock Keeping Unit)</span>
+<span class="n">String</span> <span class="n">sku</span> <span class="o">=</span> <span class="s">"2891820317391823"</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Coca-cola lata"</span><span class="o">;</span>
+
+<span class="c1">// Preço unitário em centavos</span>
+<span class="kt">int</span> <span class="n">unitPrice</span> <span class="o">=</span> <span class="mi">550</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">quantity</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+
+<span class="c1">// Unidade de medida do produto String</span>
+<span class="n">unityOfMeasure</span> <span class="o">=</span> <span class="s">"UNIDADE"</span><span class="o">;</span>
+
+<span class="n">order</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">sku</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">unitPrice</span><span class="o">,</span> <span class="n">quantity</span><span class="o">,</span> <span class="n">unityOfMeasure</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="liberar-pedido-para-pagamento">Liberar pedido para pagamento</h3>
+
+<p>Este método permite atualizar o status de um pedido e liberá-lo para pagamento. O objetivo é utilizar este método depois de adicionar todos os itens no pedido.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">placeOrder</span><span class="o">(</span><span class="n">order</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Após a execução desse método, o status da Order irá trocar de DRAFT para ENTERED, permitindo que a mesma seja paga.</p>
+
+<blockquote>
+  <p><strong>Atenção:</strong> É importante observar que, uma vez que uma Order tenha mudado de status para ENTERED, não será mais possível incluir itens na mesma.
+Iniciar processo de pagamento</p>
+</blockquote>
+
+<p>Este método permite iniciar o processo de pagamento na Cielo LIO.</p>
+
+<h2 id="processo-de-pagamento">Processo de Pagamento</h2>
+
+<p>Estão disponíveis algumas formas de chamar o método checkoutOrder:</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/checkoutOrder.jpg" alt="checkoutorder formas" /></p>
+
+<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">checkoutOrder()</code> para receber os estados relacionados ao pagamento.:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"O pagamento começou."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPayment</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">Order</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Um pagamento foi realizado."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Houve um erro no pagamento."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">};</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. 
+As seguintes ações podem ser notificadas:<br />
+• onStart - Quando se dá o início do pagamento. 
+• onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um pagamento. 
+• onCancel - Quando o pagamento é cancelado. 
+• onError - Quando acontece um erro no pagamento do pedido.</p>
+</blockquote>
+
+<p>O método <code class="highlighter-rouge">onPayment()</code> retorna um objeto <code class="highlighter-rouge">Order</code> com uma lista de <code class="highlighter-rouge">Payment</code> que possui um HashMap <code class="highlighter-rouge">PaymentFields</code> com a maioria dos dados da transação.
+Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Payment Fields  - (<strong>atributo do objeto Payment</strong>)</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+    <tr>
+      <th>Nome do Campo</th>
+      <th>Descrição do Campo</th>
+      <th>Valor Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>clientName</td>
+      <td>Nome do Portador</td>
+      <td>VISA ACQUIRER TEST CARD 03</td>
+    </tr>
+    <tr>
+      <td>hasPassword</td>
+      <td>Validar se a operação pediu senha</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>primaryProductCode</td>
+      <td>Código do produto primário</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>primaryProductName</td>
+      <td>Nome do produto primário</td>
+      <td>CREDITO</td>
+    </tr>
+    <tr>
+      <td>upFrontAmount</td>
+      <td>Valor da entrada da transação</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <td>creditAdminTax</td>
+      <td>Valor da taxa de administração de crédito</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>firstQuotaDate</td>
+      <td>Data de débito da primeira parcela</td>
+      <td>25/12/2018 (dd/MM/yyy)</td>
+    </tr>
+    <tr>
+      <td>externalCallMerchantCode</td>
+      <td>Número do Estabelecimento Comercial</td>
+      <td>0010000244470001</td>
+    </tr>
+    <tr>
+      <td>hasSignature</td>
+      <td>Validar se a operação pediu assinatura</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>hasPrintedClientReceipt</td>
+      <td>Validar se imprimiu a via do cliente</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>applicationName</td>
+      <td>Pacote da aplicação</td>
+      <td>cielo.launcher</td>
+    </tr>
+    <tr>
+      <td>interestAmount</td>
+      <td>Valor de juros</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <td>changeAmount</td>
+      <td>Valor de troco</td>
+      <td>4500</td>
+    </tr>
+    <tr>
+      <td>serviceTax</td>
+      <td>Taxa de serviço</td>
+      <td>2000</td>
+    </tr>
+    <tr>
+      <td>cityState</td>
+      <td>Cidade - Estado</td>
+      <td>Barueri - SP</td>
+    </tr>
+    <tr>
+      <td>v40Code</td>
+      <td>Tipo da transação</td>
+      <td>5 (Lista de Tipos de transação abaixo)</td>
+    </tr>
+    <tr>
+      <td>secondaryProductName</td>
+      <td>Nome do produto secundario</td>
+      <td>PARC. ADM</td>
+    </tr>
+    <tr>
+      <td>paymentTransactionId</td>
+      <td>ID da transação de pagamento</td>
+      <td>98437.29102507174</td>
+    </tr>
+    <tr>
+      <td>pan</td>
+      <td>Número cartão tokenizado (6 primeiros dígitos – 4 últimos dígitos ou 4 últimos)</td>
+      <td>476173-0036 ou **********4242</td>
+    </tr>
+    <tr>
+      <td>originalTransactionId</td>
+      <td>ID da transação original, nos casos de cancelamento</td>
+      <td>“0”</td>
+    </tr>
+    <tr>
+      <td>cardLabelApplication</td>
+      <td>Tipo de aplicação utilizada pelo cartão na transação</td>
+      <td>CREDITO DE VISA</td>
+    </tr>
+    <tr>
+      <td>secondaryProductCode</td>
+      <td>Código do produto secundário</td>
+      <td>205</td>
+    </tr>
+    <tr>
+      <td>documentType</td>
+      <td>(J) = Pessoa Jurídica (F) = Pessoa Física</td>
+      <td>J</td>
+    </tr>
+    <tr>
+      <td>statusCode</td>
+      <td>Status da transação1 - Autorizada 2 - Cancelada</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>merchantAddress</td>
+      <td>Endereço do estabelecimento comercial (lojista)</td>
+      <td>Alameda Grajau, 219</td>
+    </tr>
+    <tr>
+      <td>merchantCode</td>
+      <td>Número do Estabelecimento Comercial</td>
+      <td>0010000244470001</td>
+    </tr>
+    <tr>
+      <td>hasConnectivity</td>
+      <td>Valida se a transação foi online</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>productName</td>
+      <td>forma de pagamento compilada</td>
+      <td>CREDITO PARCELADO ADM - I</td>
+    </tr>
+    <tr>
+      <td>merchantName</td>
+      <td>Nome Fantasia do Estabelecimento Comercial</td>
+      <td>LOJA ON</td>
+    </tr>
+    <tr>
+      <td>firstQuotaAmout</td>
+      <td>Valor da primeira parcela</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>cardCaptureType</td>
+      <td>Código do tipo de captura do cartão</td>
+      <td>0 (Lista de Tipos de Captura abaixo)</td>
+    </tr>
+    <tr>
+      <td>requestDate</td>
+      <td>Data da requisição em milisegundos</td>
+      <td>1293857600000</td>
+    </tr>
+    <tr>
+      <td>boardingTax</td>
+      <td>Taxa de embarque</td>
+      <td>1200</td>
+    </tr>
+    <tr>
+      <td>applicationId</td>
+      <td>Pacote de aplicação</td>
+      <td>cielo.launcher</td>
+    </tr>
+    <tr>
+      <td>numberOfQuotas</td>
+      <td>Número de parcelas</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lista de Tipos de Captura</th>
+      <th> </th>
+    </tr>
+    <tr>
+      <th>Código</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Transação com cartão de chip</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Transação digitada</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Transação com cartão de tarja</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Transação com cartão contactless</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lista de Tipos de Transação - (<strong>Isto não é válido como código primário</strong>)</th>
+      <th> </th>
+    </tr>
+    <tr>
+      <th>Código</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4</td>
+      <td>Crédito à vista</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Crédito parcelado administrativo</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Crédito parcelado loja</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Pré autorização</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Débito à vista</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Débito pré datado</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Crediário venda</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Crediário simulação</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Voucher alimentação/refeição</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Cancelamento de venda</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Todos os valores financeiros são informados sem vírgula, ou seja 2500 são equivalentes a R$ 25,00.</p>
+</blockquote>
+
+<h3 id="1-pagamento-parcial">1. Pagamento Parcial</h3>
+
+<p>No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderId</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>paymentListener</td>
+      <td>Callback de pagamento.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fluxo da transação utilizando o pagamento parcial da Cielo LIO</strong></p>
+
+<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcial:
+<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg" alt="fluxo parcial" /></p>
+
+<h3 id="2-pagamento-de-valor">2. Pagamento de valor</h3>
+
+<p>No pagamento de Valores, o valor a ser pago é informado pelo aplicativo e a forma de pagamento (crédito, débito, parcelado) é escolhida dentro do fluxo de telas da Cielo LIO.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Nessa forma de pagamento é possível enviar qualquer valor a ser pago (valor total ou valor parcial do pedido), tudo depende do modelo de negócio adotado pelo aplicativo do parceiro. Para fazer a chamada é necessário enviar os seguintes parâmetros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderId</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>paymentListener</td>
+      <td>Callback de pagamento.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fluxo da transação utilizando o pagamento de valor da Cielo LIO</strong></p>
+
+<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento de valor:
+<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-valor.jpg" alt="fluxo parcial" /></p>
+
+<h3 id="3-pagamento-direto">3. Pagamento direto</h3>
+
+<p>No Pagamento Direto, o valor a ser pago e a forma de pagamento (crédito, débito, parcelado) será definido dentro da aplicação do parceiro. Na sequência o fluxo de pagamento da Cielo LIO é iniciado (inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail comprovante).</p>
+
+<h4 id="códigos-de-pagamento">Códigos de Pagamento</h4>
+
+<p>Para realizar o pagamento direto é necessário, primeiramente, verificar os tipos de pagamento habilitados para Cielo LIO do estabelecimento comercial utilizando a função de consulta abaixo:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">PrimaryProduct</span><span class="o">&gt;</span> <span class="n">paymentTypes</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrievePaymentType</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Esta função disponibilizará uma lista de objetos do tipo PrimaryProduct onde será possível recuperar os códigos de pagamento habilitados.</p>
+
+<p>Os seguintes campos serão retornados por essa função:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>identificador do código no sistema.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>code</td>
+      <td>utilizado na função de pagamento.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Nome do método de pagamento para efeitos de exibição.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>secondaryProducts</td>
+      <td>Listagem de códigos de pagamento secundário. ex.: À Vista, Parcelado, etc.</td>
+      <td><code class="highlighter-rouge">ArrayList&lt;SecondaryProduct&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Com os códigos de pagamentos disponíveis para a Cielo LIO do estabelecimento comercial, basta realizar a chamada de Pagamento Direto informando os códigos dos produtos:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">PrimaryProduct</span> <span class="n">primaryProduct</span> <span class="o">=</span> <span class="n">paymentTypes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+<span class="n">SecondaryProduct</span> <span class="n">secondaryProduct</span> <span class="o">=</span> <span class="n">primaryProduct</span><span class="o">.</span><span class="na">getSecondaryProducts</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+<span class="n">String</span> <span class="n">primaryCode</span> <span class="o">=</span> <span class="n">primaryProduct</span><span class="o">.</span><span class="na">getCode</span><span class="o">();</span>
+<span class="n">String</span> <span class="n">secondaryCode</span> <span class="o">=</span> <span class="n">secondaryProduct</span><span class="o">.</span><span class="na">getCode</span><span class="o">();</span>
+
+<span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Atenção:</strong> Na versão 0.19.0 do SDK foram introduzidos códigos de pagamento para as principais operações disponibilizadas na LIO, facilitando assim as chamadas de pagamento. É importante ressaltar que as formas de pagamento são configuradas de acordo com o estabelecimento comercial, e nem todas estarão disponíveis em todas os terminais. Caso o método de pagamento selecionado não esteja disponível na LIO em questão, ocorrerá uma exceção do tipo <code class="highlighter-rouge">NoSuchElementException</code>.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>PaymentCode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DEBITO_AVISTA</td>
+    </tr>
+    <tr>
+      <td>DEBITO_PREDATADO</td>
+    </tr>
+    <tr>
+      <td>CREDITO_AVISTA</td>
+    </tr>
+    <tr>
+      <td>CREDITO_PARCELADO_LOJA</td>
+    </tr>
+    <tr>
+      <td>CREDITO_PARCELADO_ADM</td>
+    </tr>
+    <tr>
+      <td>PRE_AUTORIZACAO</td>
+    </tr>
+    <tr>
+      <td>VOUCHER_ALIMENTACAO</td>
+    </tr>
+    <tr>
+      <td>VOUCHER_REFEICAO</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nessa forma de pagamento é possível enviar qualquer valor a ser pago e a forma de pagamento. Para fazer a chamada é necessário enviar os seguintes parâmetros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderId</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>primaryCode</td>
+      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>secondaryCode</td>
+      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>installments (<strong>não obrigatório</strong>)</td>
+      <td>Número de parcelas.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>email (<strong>não obrigatório</strong>)</td>
+      <td>Email informado</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>paymentListener</td>
+      <td>Callback de pagamento.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>ou</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento direto:
+<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-direto.jpg" alt="fluxo parcial" /></p>
+
+<h3 id="4-pagamento-parcelado">4. Pagamento parcelado</h3>
+
+<p>Para efetuar um pagamento parcelado, é preciso consultar as formas de pagamento utilizando a função disponibilizada no SDK, escolher crédito no produto primário e crédito no produto secundário <strong>obrigatoriamente</strong> e informar o número de parcelas no momento do checkout. É importante lembrar que se os códigos de pagamento forem informados incorretamente ou se o número de parcelas não for maior do que <strong>0</strong>, o sistema acusará erro.
+Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderId</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>primaryCode</td>
+      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>secondaryCode</td>
+      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>installments</td>
+      <td>Número de parcelas.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>paymentListener</td>
+      <td>Callback de pagamento.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fluxo da transação utilizando o pagamento parcelado da Cielo LIO</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span>  <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>ou</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrderStore</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span>  <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>ou</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrderAdm</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span>  <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
+<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
+
+<h3 id="5-pagamento-informando-email">5. Pagamento informando email</h3>
+
+<p>Neste caso é possível informar o email para facilitar o preenchimento na hora de enviar o comprovante para o cliente.
+Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderId</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>primaryCode</td>
+      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>secondaryCode</td>
+      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>installments</td>
+      <td>Número de parcelas.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>Email informado</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>paymentListener</td>
+      <td>Callback de pagamento</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com email:
+<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
+
+<h3 id="6-pagamento-informando-ec">6. Pagamento informando EC</h3>
+
+<p>Esse método é disponibilizado para o caso de ser necessário efetuar um pagamento em um EC diferente do principal. O EC informado deve estar configurado na LIO na hora da inicialização para que funcione ou o SDK irá enviar uma exceção do tipo <code class="highlighter-rouge">InvalidParameterException</code>.
+Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderId</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>primaryCode</td>
+      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>secondaryCode</td>
+      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>installments</td>
+      <td>Número de parcelas.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>Email informado</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>merchantCode</td>
+      <td>Número do EC</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>paymentListener</td>
+      <td>Callback de pagamento</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">merchantCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>ou</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">merchantCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com EC:
+<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
+
+<h2 id="cancelamento">Cancelamento</h2>
+
+<p>Existem 2 formas de cancelar um pagamento na Cielo LIO:</p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#cancelar-pagamento-total">Cancelar Pagamento Total</a></p>
+
+<p><a href="https://developercielo.github.io/manual/cielo-lio#cancelar-parte-do-valor-de-um-pagamento">Cancelar Parte do Valor do Pagamento</a></p>
+
+<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">cancelOrder()</code> para receber os estados relacionados ao cancelamento.</p>
+
+<blockquote>
+  <p>CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. 
+As seguintes ações pode ser notificadas: 
+• onSuccess - Quando um cancelamento é realizado com sucesso. 
+• onCancel - Quando o usuário cancela a operação. 
+• onError - Quando acontece um erro no cancelamento do pedido.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">CancellationListener</span> <span class="n">cancellationListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CancellationListener</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">Order</span> <span class="n">cancelledOrder</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"O pagamento foi cancelado."</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Houve um erro no cancelamento"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+
+</code></pre></div></div>
+
+<h3 id="cancelar-pagamento-total">Cancelar Pagamento Total</h3>
+
+<p>No método Cancelar um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders) (link para método). 
+Assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">cancelOrder</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">orderId</span><span class="o">,</span> <span class="n">payment</span><span class="o">,</span> <span class="n">cancellationListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>context</td>
+      <td>Contexto da sua aplicação.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>orderID</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>payment</td>
+      <td>O pagamento a ser cancelado.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
+    </tr>
+    <tr>
+      <td>cancellationListener</td>
+      <td>Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cancelar-parte-do-valor-de-um-pagamento">Cancelar parte do valor de um pagamento</h3>
+
+<p>No método Cancelar parte do valor de um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders). 
+Os parâmetros do método anterior, com a inclusão de um parâmetro que é o valor a ser cancelado.</p>
+
+<blockquote>
+  <p>Nesse cenário é preciso ter atenção para não passar um valor maior do que o do pagamento, caso contrário o sistema retornará um erro.</p>
+</blockquote>
+
+<p>Portanto, assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">cancelOrder</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">orderId</span><span class="o">,</span> <span class="n">payment</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">cancellationListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>context</td>
+      <td>Contexto da sua aplicação.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>orderID</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>payment</td>
+      <td>O pagamento a ser cancelado.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>O valor a ser cancelado.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>cancellationListener</td>
+      <td>Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
+<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
+
+<h3 id="receber-aviso-de-cancelamento-feito-na-lio">Receber aviso de cancelamento feito na LIO</h3>
+
+<p>Toda vez que é feito um cancelamento na LIO utilizando o launcher, o sistema envia um broadcast notificando quaisquer aplicações que estejam registradas sobre o mesmo. Para que sua aplicação seja notificada de um cancelamento, atualize o arquivo <code class="highlighter-rouge">AndroidManifest.xml</code> conforme o exemplo abaixo:</p>
+
+<p><img src="https://developercielo.github.io/images/cielo-lio/manifest.jpg" alt="Manifest" /></p>
+
+<p>em seguida, é necessário implementar um <code class="highlighter-rouge">BroadcastReceiver</code> para tratar o evento da maneira que for pertinente a sua aplicação:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LIOCancelationBroadcastReceiver</span> <span class="kd">extends</span> <span class="n">BroadcastReceiver</span> <span class="o">{</span>
+
+    <span class="n">String</span> <span class="n">MY_CLIENT_ID</span> <span class="o">=</span> <span class="s">"Seu client id aqui"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">MY_ACCESS_KEY</span> <span class="o">=</span> <span class="s">"Seu access key aqui"</span><span class="o">;</span>
+    
+    <span class="n">String</span> <span class="n">INTENT_ORDER_KEY</span> <span class="o">=</span> <span class="s">"ORDER"</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">INTENT_TRANSACTION_KEY</span> <span class="o">=</span> <span class="s">"TRANSACTION"</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ParcelableOrder</span> <span class="n">order</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getParcelable</span><span class="o">(</span><span class="n">INTENT_ORDER_KEY</span><span class="o">);</span>
+        
+        <span class="k">if</span><span class="o">(</span><span class="n">MY_ACCESS_KEY</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getAccessKey</span><span class="o">())</span> <span class="o">&amp;&amp;</span> <span class="n">MY_CLIENT_ID</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getSecretAccessKey</span><span class="o">()))</span> <span class="o">{</span>
+            <span class="n">ParcelableTransaction</span> <span class="n">transaction</span>  <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getParcelable</span><span class="o">(</span><span class="n">INTENT_TRANSACTION_KEY</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<h2 id="listagem-de-pedidos">Listagem de Pedidos</h2>
+
+<p>Na listagem de pedidos, é possível obter todas os pedidos (Orders) abertas na Cielo LIO pelo aplicativo do parceiro. 
+Para isso, basta utilizar a função abaixo, que retorna os pedidos de forma paginada:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Busca 10 items da primeira página</span>
+<span class="n">ResultOrders</span> <span class="n">resultOrders</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrieveOrders</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> 
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ATRIBUTO</th>
+      <th>DESCRIÇÃO</th>
+      <th>DOMÍNIO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pageSize</td>
+      <td>quantidade de items por página</td>
+      <td><code class="highlighter-rouge">Integer</code></td>
+    </tr>
+    <tr>
+      <td>page</td>
+      <td>número da página requistada (iniciando em 0)</td>
+      <td><code class="highlighter-rouge">Integer</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>O objeto ResultOrders contém uma lista com todas as ordens abertas assinadas com as credenciais da aplicação.</p>
+</blockquote>
+
+<h2 id="finalizar-uso-do-ordermanager">Finalizar uso do OrderManager</h2>
+
+<p>Após executar todas as operações de pagamento e caso não seja necessário utilizar o objeto orderManager, utilize método unbind para desvincular o contexto e evitar problemas de integridade.</p>
+
+<p>Fique atento ao local onde o <code class="highlighter-rouge">unbind()</code> será executado para evitar problemas com ciclo de vida da Activity ou Fragment que foi vinculado ao serviço.
+É importante lembrar que se o contexto for alterado, é preciso desvincular o serviço (ex.: troca de Activity)
+Utilize o método abaixo para finalizar o uso do OrderManager:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">unbind</span><span class="o">();</span> 
+</code></pre></div></div>
+
+<h2 id="informações-do-terminal">Informações do terminal</h2>
+
+<p>Todas as informações referentes ao terminal, que foram expostas, estão disponíveis no InfoManager</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">InfoManager</span> <span class="n">infoManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InfoManager</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="nível-de-bateria">Nível de Bateria</h3>
+
+<p>Para consultar o nível de carga da LIO, basta utilizar o métdo abaixo:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getBatteryLevel</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>O valor da bateria será retornado em uma <code class="highlighter-rouge">Float</code> contendo um valor de 0 a 1 em caso de sucesso e -1 em caso de erro.</p>
+</blockquote>
+
+<h3 id="verificar-modelo-da-lio">Verificar Modelo da LIO</h3>
+
+<p>O SDK disponibiliza um método para verificar se seu aplicativo está instalado numa LIO V1 ou V2. Basta acessar da seguinte forma:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getDeviceModel</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>O mesmo irá retornar um enum do tipo <code class="highlighter-rouge">DeviceModel</code> com o modelo correspondente (<code class="highlighter-rouge">LIO_V1</code> ou <code class="highlighter-rouge">LIO_V2</code> ).</p>
+
+<h3 id="obtendo-informações-do-usuário-ec-e-número-lógico">Obtendo informações do usuário (EC e Número Lógico)</h3>
+
+<p>Através do SDK, é possível recuperar os dados do cliente e número lógico de maneira simples utilizando o método abaixo:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getSettings</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Esta função, retornará um objeto do tipo Settings onde é possível recuperar as informações do usuário. 
+Abaixo, segue um descritivo de atributos do objeto Setttings.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>ATRIBUTO</th>
+      <th>DESCRIÇÃO</th>
+      <th>DOMÍNIO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>merchantCode</td>
+      <td>Código do cliente</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>logicNumber</td>
+      <td>Número lógico da LIO</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="impressão-apenas-lio-v2">Impressão [Apenas LIO V2]</h2>
+
+<p>A nova versão da Cielo LIO V2 permite que aplicações parceiras utilizem os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente. Para realizar estas operações, basta utilizar um dos métodos listados abaixo que permite a impressão de uma única linha, uma sequência de linhas, ou imagens.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PrinterManager</span> <span class="n">printerManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrinterManager</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Independende da forma de impressão escolhida, você deverá utilizar o seguinte callback como parâmetro do método de para receber os estados relacionados à impressão:</p>
+
+<blockquote>
+  <p>PrinterListener: Um callback que informa sobre todas as ações tomadas durante o processo de impressão. 
+As seguintes ações pode ser notificadas: 
+• onSuccess - Quando uma impressão é realizada com sucesso. 
+• onError - Quando acontece um erro na impressão.
+• onWithoutPaper - Quando não há papel suficiente para realizar a impressão.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PrinterListerner</span> <span class="n">printerListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrinterListener</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPrintSuccess</span><span class="o">(</span><span class="kt">int</span> <span class="n">printedLines</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"onPrintSuccess"</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"onError"</span><span class="o">);</span> 
+    <span class="o">}</span>
+    
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onWithoutPaper</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span><span class="s">"onWithoutPaper"</span><span class="o">);</span> 
+    <span class="o">}</span> 
+<span class="o">});</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><strong>Atenção:</strong> para alterações na view do aplicativo é necessário rodar o código do callback dentro de um bloco runOnUiThread.</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPrintSuccess</span><span class="o">(</span><span class="kt">int</span> <span class="n">printedLines</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="n">runOnUiThread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">showDialog</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">});</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="mapa-de-estilos-de-impressão">Mapa de Estilos de Impressão</h3>
+
+<p>Você pode formatar a sua impressão criando mapas de estilos utilizando os parâmetros disponíveis:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Valores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">PrinterAttributes.KEY_ALIGN</code></td>
+      <td>Alinhamento da impressão</td>
+      <td><code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_CENTER</code>  <code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_LEFT</code> <code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_RIGHT</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PrinterAttributes.KEY_TEXTSIZE</code></td>
+      <td>Tamanho do texto</td>
+      <td>Valores inteiros</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PrinterAttributes.KEY_TYPEFACE</code></td>
+      <td>Fonte do texto</td>
+      <td>Trabalha com um inteiro de 0 a 8, onde cada um é uma fonte diferente.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINLEFT</code></td>
+      <td>Margem esquerda</td>
+      <td>Valores inteiros</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINRIGHT</code></td>
+      <td>Margem direia</td>
+      <td>Valores inteiros</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINTOP</code></td>
+      <td>Margem superior</td>
+      <td>Valores inteiros</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINBOTTOM</code></td>
+      <td>Margem inferior</td>
+      <td>Valores inteiros</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PrinterAttributes.KEY_LINESPACE</code></td>
+      <td>Espaçamento entre as linhas</td>
+      <td>Valores inteiros</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PrinterAttributes.KEY_WEIGHT</code></td>
+      <td>Varíavel utilizada quando se trbaalho com impressão de múltiplas colunas, para escolher o peso de cada coluna</td>
+      <td>Valores inteiros</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exemplo de mapas de estilos:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignLeft</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_LEFT</span><span class="o">);</span>
+<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+
+<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignCenter</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_CENTER</span><span class="o">);</span>
+<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+
+<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignRight</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_RIGHT</span><span class="o">);</span>
+<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="impressão-de-texto-simples">Impressão de texto simples</h3>
+
+<p>Para imprimir textos simples utilize o método <code class="highlighter-rouge">printText()</code> do PrinterManager. 
+O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de impressão e um listener para tratar o retorno da impressão.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">textToPrint</span> <span class="o">=</span> <span class="s">"Texto simples a ser impresso.\n Com múltiplas linhas"</span><span class="o">;</span>
+<span class="n">printerManager</span><span class="o">.</span><span class="na">printText</span><span class="o">(</span><span class="n">textToPrint</span><span class="o">,</span> <span class="n">alignLeft</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Exemplo de impressão de texto simples:
+<img src="https://developercielo.github.io/images/cielo-lio/print-text.png" alt="Impressão texto simples" height="25%" width="25%" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>text</td>
+      <td>Texto a ser impresso.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>style</td>
+      <td>Mapa de estilos de impressão</td>
+      <td><code class="highlighter-rouge">Map&lt;String, Int&gt;</code></td>
+    </tr>
+    <tr>
+      <td>printerListener</td>
+      <td>Callback de impressão.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="impressão-de-múltiplas-colunas">Impressão de múltiplas colunas</h3>
+
+<p>Para imprimir textos em múltiplas colunas utilize o método <code class="highlighter-rouge">printMultipleColumnText()</code> do PrinterManager. 
+O método recebe como parâmetro um array de texts a serem impresso, um array com mapas de estilos de impressão, respectivamente e um listener para tratar o retorno da impressão.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span><span class="o">[]</span> <span class="n">textsToPrint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span> <span class="s">"Texto alinhado à esquerda."</span><span class="o">,</span> <span class="s">"Texto centralizado"</span><span class="o">,</span> <span class="s">"Texto alinhado à direita"</span>  <span class="o">}</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">stylesMap</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignLeft</span><span class="o">);</span>
+<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignCenter</span><span class="o">);</span>
+<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignRight</span><span class="o">);</span>
+
+<span class="n">printerManager</span><span class="o">.</span><span class="na">printMultipleColumnText</span><span class="o">(</span><span class="n">textsToPrint</span><span class="o">,</span> <span class="n">stylesMap</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
+
+</code></pre></div></div>
+
+<p>Resultado final da impressão:
+<img src="https://developercielo.github.io/images/cielo-lio/print-columns.png" alt="Impressão Múltiplas Colunas" height="25%" width="25%" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>stringArray</td>
+      <td>Lista de textos a serem impressos.</td>
+      <td><code class="highlighter-rouge">String[]</code></td>
+    </tr>
+    <tr>
+      <td>style</td>
+      <td>Lista de mapa de estilos de impressão</td>
+      <td><code class="highlighter-rouge">List&lt;Map&lt;String, Int)&gt;&gt;</code></td>
+    </tr>
+    <tr>
+      <td>printerListener</td>
+      <td>Callback de impressão.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="impressão-de-imagem">Impressão de imagem</h3>
+
+<p>Para imprimir imagens utilize o método <code class="highlighter-rouge">printImage()</code> do PrinterManager. 
+O método recebe como parâmetro o <code class="highlighter-rouge">bitmap</code> a ser impresso, um mapa de estilos de impressão e um listener para tratar o retorno da impressão.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Bitmap</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="n">BitmapFactory</span><span class="o">.</span><span class="na">decodeResource</span><span class="o">(</span><span class="n">getResources</span><span class="o">(),</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">cielo</span><span class="o">);</span>
+<span class="n">printerManager</span><span class="o">.</span><span class="na">printImage</span><span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="n">alignCenter</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Imagem a ser impressa</th>
+      <th>Resultado final</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://developercielo.github.io/images/cielo-lio/cielo.png" alt="Impressão Imagem" height="50%" width="50%" /></td>
+      <td><img src="https://developercielo.github.io/images/cielo-lio/print-image.png" alt="Impressão Imagem" height="25%" width="25%" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bitmap</td>
+      <td>Imagem a ser impressa.</td>
+      <td><code class="highlighter-rouge">Bitmap</code></td>
+    </tr>
+    <tr>
+      <td>style</td>
+      <td>Mapa de estilos de impressão</td>
+      <td><code class="highlighter-rouge">Map&lt;String, Int&gt;</code></td>
+    </tr>
+    <tr>
+      <td>printerListener</td>
+      <td>Callback de impressão.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="fluxo-para-integração">Fluxo para Integração</h2>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-local-new.png" alt="fluxo para integração" /></p>
+
+<ol>
+  <li>Leia toda a documentação sobre a Integração Local.</li>
+  <li>Crie sua conta no Portal de Desenvolvedores da Cielo para obter todas as funcionalidades que o portal pode oferecer para você, desenvolvedor. É obrigatório possuir uma conta para gerar um Client-Id.</li>
+  <li>Realizando o cadastro de Client ID, o desenvolvedor recebe os tokens</li>
+  <li>(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no Emulador Cielo Lio Confira o link: <a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk">Download do Emulador</a></li>
+  <li>Acesse a <a href="https://www.cieloliostore.com.br/login">Cielo Store</a> e faça o upload do APK da sua aplicação. Ao término do upload, submeta seu aplicativo para certificação e preencha todas as informações necessárias.</li>
+  <li>Ao término do upload submeta seu aplicativo, no próprio ambiente da Cielo Store, para certificação e preencha todas as informações necessárias.</li>
+  <li>Assim que a certificação for concluída, o desenvolvedor receberá um e-mail e deverá acessar novamente a Cielo Store para promover o aplicativo para produção.</li>
+  <li>Agora seu aplicativo já está disponível para download na Cielo Store. Sucesso!! Aproveite ao máximo tudo que a Integração Local Cielo LIO pode oferecer para você!!</li>
+</ol>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<p>Na tabela abaixo, é possível verificar as funcionalidades do SDK disponíveis por versão da Cielo LIO e Cielo Mobile.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Funcionalidade</th>
+      <th>Versão Cielo LIO</th>
+      <th>Versão Cielo Mobile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>createDraftOrder(String reference); placeOrder(Order order); updateOrder(Order order); checkoutOrder(String orderId, PaymentListener paymentListener); checkoutOrder(String orderId,long value, PaymentListener paymentListener);</td>
+      <td>1.10.2</td>
+      <td>1.9.1</td>
+    </tr>
+    <tr>
+      <td>retrievePaymentType(); checkoutOrder(String orderId,long value, String primaryCode, String secondaryCode, PaymentListener,paymentListener);</td>
+      <td>1.12.0</td>
+      <td>1.10.3</td>
+    </tr>
+    <tr>
+      <td>retrieveOrders(int pageSize, int page);</td>
+      <td>1.13.0</td>
+      <td>1.10.5</td>
+    </tr>
+    <tr>
+      <td>checkoutOrder (String orderId,long value, String primaryCode, String secondaryCode, Long installments, PaymentListener paymentListener);</td>
+      <td>1.14.0</td>
+      <td>1.12.1</td>
+    </tr>
+    <tr>
+      <td>cancelOrder (Context context, String orderId, Payment payment, CancellationListener paymentListener); cancelOrder(Context context, String orderId, Payment payment, Long amount, CancellationListener paymentListener);</td>
+      <td>1.16.7</td>
+      <td>1.12.10</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Atenção:</strong> Se for utilizada uma funcionalidade que não esteja disponível, será lançada uma exceção – UnsupportedOperationExcepetion –, que deve ser tratada pelo aplicativo.</p>
+</blockquote>
+
+<p>Para descobrir a versão do aplicativo Cielo LIO (versão do Launcher) e Cielo Mobile, bem como utilizar todas as funcionalidades do Cielo LIO Order Manager SDK, acesse “Sobre a Cielo LIO” (Ajuda -&gt; Sobre a Cielo LIO) para obter as informações sobre os aplicativos instalados na Cielo LIO.</p>
+
+<hr />
+
+<h2 id="code-sample">Code Sample</h2>
+
+<p>O código do exemplo do aplicativo integrado com o Cielo LIO Order Manager SDK encontra-se disponível no <a href="https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local">GitHub</a>.</p>
+
+<h2 id="vídeo-demo">Vídeo Demo</h2>
+
+<p>No vídeo abaixo, é possível ver um exemplo de aplicativo integrado com o Cielo LIO Order Manager SDK, utilizando a função de pagamento de valores do SDK.</p>
+
+<p><a href="https://www.youtube.com/watch?v=d7y-x6p36YU"><img src="https://img.youtube.com/vi/d7y-x6p36YU/0.jpg" alt="Vídeo Demo" /></a></p>
+
+<p>Clique na imagem acima, para acessar o vídeo</p>
+
+<h1 id="integração-remota">Integração Remota</h1>
+
+<h2 id="apresentação-1">Apresentação</h2>
 
 <p>O objetivo da Integração Remota da Cielo LIO é permitir que o lojista continue utilizando sua solução de frente de caixa (Automação Comercial ou PDV) e a integre com o módulo de pedidos e pagamentos da Cielo LIO através de uma API construída no padrão RESTful.</p>
 
@@ -597,7 +2190,7 @@ Dessa forma, garante-se o funcionamento da aplicação no hardware da LIO V1 com
   <li>As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.</li>
 </ul>
 
-<h2 id="vídeo-demo">Vídeo Demo</h2>
+<h2 id="vídeo-demo-1">Vídeo Demo</h2>
 
 <p>No vídeo abaixo é possível ver um exemplo de Automação Comercial integrada com a API Order Manager da Cielo LIO.</p>
 
@@ -605,11 +2198,11 @@ Dessa forma, garante-se o funcionamento da aplicação no hardware da LIO V1 com
 
 <p>Clique na imagem acima, para acessar o vídeo.</p>
 
-<h3 id="code-sample">Code Sample</h3>
+<h3 id="code-sample-1">Code Sample</h3>
 
 <p>O código do exemplo da Automação Comercial integrada com a API Order Manager da Cielo LIO encontra-se disponível no <a href="https://github.com/cielolabsbr/SampleAutomacaoComercial1.2">GitHub</a>.</p>
 
-<h2 id="fluxo-para-integração">Fluxo para Integração</h2>
+<h2 id="fluxo-para-integração-1">Fluxo para Integração</h2>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-remote-new.png" alt="fluxo integração remota" /></p>
 
@@ -2148,1599 +3741,6 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<h1 id="integração-local">Integração Local</h1>
-
-<h2 id="apresentação-1">Apresentação</h2>
-
-<p>O objetivo da Integração Local da Cielo LIO é permitir que o aplicativo desenvolvido em Android se integre com o módulo de pedidos e pagamentos da Cielo LIO através do Cielo LIO Order Manager SDK.</p>
-
-<p>Nesse modelo de integração, toda a gestão do estabelecimento comercial e da arquitetura da solução fica sob responsabilidade do aplicativo que irá utilizar o SDK nas operações de pagamento.</p>
-
-<ul>
-  <li>O aplicativo do parceiro rodando na Cielo envia informações para o Cielo LIO Order Manager SDK.</li>
-  <li>O Cielo LIO Order Manager SDK executa os fluxos para pagamento.</li>
-  <li>O aplicativo do parceiro recebe as informações do pagamento e continua sua execução.</li>
-</ul>
-
-<p>As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.</p>
-
-<h2 id="cielo-lio-order-manager-sdk">Cielo Lio Order Manager SDK</h2>
-
-<h3 id="sobre-2">Sobre</h3>
-
-<p>O Cielo LIO Order Manager SDK é uma biblioteca Android desenvolvida com base na Cielo LIO Order Manager API, encapsulando a complexidade da comunicação REST em uma API fluente e amigável ao desenvolvedor e permitindo uma integração simples, rápida e segura com a plataforma Cielo LIO.</p>
-
-<p>O principal objetivo do Cielo LIO Order Manager SDK é simplificar a integração com o sistema de pagamentos e permitir que o desenvolvedor concentre esforços no desenvolvimento das características do seu aplicativo. Abaixo, é apresentado um exemplo em alto nível do processo de utilização do Cielo LIO Order Manager SDK por um aplicativo parceiro:</p>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/sdk-order.jpg" alt="fluxo" /></p>
-
-<ol>
-  <li>O aplicativo do parceiro é responsável por gerenciar todas as informações do pedido e, então, enviá-las para o Cielo LIO Order Manager SDK.</li>
-  <li>O Cielo LIO Order Manager SDK recebe as informações e o fluxo de pagamento para o cliente. Neste fluxo, o cliente irá selecionar a forma de pagamento e digitar a senha no Pinpad, tendo a possibilidade de enviar por e-mail o comprovante do pagamento.</li>
-  <li>Ao término do fluxo de pagamento, o aplicativo do parceiro recebe as informações sobre o pagamento realizado e volta a ser executado na tela da Cielo LIO.</li>
-</ol>
-
-<p>Para mais informações e detalhes sobre o desenvolvimento de um aplicativo para a Cielo LIO, acesse a documentação Desenvolva um App para LIO.</p>
-
-<h3 id="ambiente-sandbox---emulador">Ambiente Sandbox - Emulador</h3>
-
-<p>Este aplicativo funciona como um proxy de todas as chamadas que o SDK enviaria para a LIO. Ele simplesmente trata essas chamadas e simula os tipos possíveis de retorno para a aplicação cliente, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO.</p>
-
-<blockquote>
-  <p>Não é nem mesmo necessário deixar esse app aberto. Assim que a aplicação cliente utilizar uma função do OrderManager que chamaria a LIO, essa aplicação entra em primeiro plano para seleção do que deve ser retornado (Sucesso, Erro ou Cancelamento)</p>
-</blockquote>
-
-<p>Faça o download do .apk do emulador no link abaixo:</p>
-
-<p><a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.1.0/lio-emulator.apk">Download do Emulador</a></p>
-
-<p>Para instalar o aplicativo, basta seguir os seguintes passos:</p>
-
-<ul>
-  <li>Acesse as configurações do seu aparelho e vá até o menu “Segurança”;</li>
-  <li>Localize o item “Fontes desconhecidas”, na seção “Administração do dispositivo”</li>
-  <li>Toque na chave ao lado e confirme sua escolha para passar a permitir a instalação de arquivos APK baixados por fontes alternativas.</li>
-</ul>
-
-<h3 id="configurar-módulos-e-dependências">Configurar módulos e dependências</h3>
-
-<p>Após configurar um novo projeto no Android Studio, é necessário incluir a dependência abaixo no projeto.</p>
-
-<p>Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.cielo.lio:order-manager:0.19.4'
-</code></pre></div></div>
-
-<p>última versão 0.19.1 - lançada em 15/05/2018</p>
-
-<blockquote>
-  <p>A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
-Adicione essa permissão ao <code class="highlighter-rouge">AndroidManifest.xml</code> da sua aplicação.</p>
-</blockquote>
-
-<h3 id="credenciais">Credenciais</h3>
-
-<p>Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Credentials</span> <span class="n">credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Credentials</span><span class="o">(</span><span class="s">"Seu client id aqui"</span><span class="o">,</span> <span class="s">"Seu accessToken aqui"</span><span class="o">);</span>
-</code></pre></div></div>
-
-<ul>
-  <li>
-    <p>Client-Id
-Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu ‘Desenvolvedor’ -&gt; ‘Client ID Cadastrados’.</p>
-  </li>
-  <li>
-    <p>Access-Token
-Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em ‘detalhes’ na coluna ‘Access Tokens’, dentro do menu ‘Desenvolvedor’ -&gt; ‘Client ID Cadastrados’.</p>
-  </li>
-</ul>
-
-<h2 id="criação-e-gerenciamento-de-ordens">Criação e Gerenciamento de Ordens</h2>
-
-<p>O fluxo básico para utilização do SDK pode ser dividido em 7 etapas, conforme o diagrama abaixo:</p>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-lio-sdk.png" alt="order manager sdk fluxo" /></p>
-
-<p>Abaixo, iremos mostrar como realizar cada uma dessas etapas.</p>
-
-<h3 id="criar-ordermanager">Criar OrderManager</h3>
-
-<p>Este método permite iniciar o OrderManager, que é responsável pelas principais operações do Cielo LIO Order Manager SDK. O OrderManager representa a interface com a API REST do Order Manager.</p>
-
-<p>Tudo começa com a criação do OrderManager!</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">OrderManager</span> <span class="n">orderManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OrderManager</span><span class="o">(</span><span class="n">credentials</span><span class="o">,</span> <span class="n">context</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>O construtor do OrderManager recebe 2 parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>credentials</td>
-      <td>Credenciais de acesso do Parceiro/Desenvolvedor. Depois de se registrar no Portal de Desenvolvedores e criar seu app, o Parceiro/Desenvolvedor recebe as credenciais (Client-Id e Access-Token). Elas servem para identificá-lo unicamente na plataforma LIO e diferenciar as ordens da sua aplicação.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.Credentials</code></td>
-    </tr>
-    <tr>
-      <td>context</td>
-      <td>O contexto da aplicação.</td>
-      <td><code class="highlighter-rouge">android.content.Context</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p><strong>Atenção:</strong> Recomendamos criar/inicializar o OrderManager no aplicativo do parceiro no momento em que for utilizar as funcionalidades, visando otimizar o desempenho do aplicativo</p>
-</blockquote>
-
-<h3 id="vincular-o-contexto-da-aplicação-ao-sdk">Vincular o contexto da aplicação ao SDK</h3>
-
-<p>Com o método <code class="highlighter-rouge">bind()</code>, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ServiceBindListener</span> <span class="n">serviceBindListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceBindListener</span><span class="o">()</span> <span class="o">{</span>
-
-    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceBoundError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">throwable</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">//Ocorreu um erro ao tentar se conectar com o serviço OrderManager</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceBound</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">//Você deve garantir que sua aplicação se conectou com a LIO a partir desse listener</span>
-        <span class="c1">//A partir desse momento você pode utilizar as funções do OrderManager, caso contrário uma exceção será lançada.</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceUnbound</span><span class="o">()</span> <span class="o">{</span>
-        <span class="c1">// O serviço foi desvinculado</span>
-    <span class="o">}</span>
-<span class="o">};</span>
-
-<span class="n">orderManager</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">serviceBindListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p><strong>Atenção:</strong> Você deve garantir que o listener <code class="highlighter-rouge">onServiceBound()</code> foi chamado antes de utilizar as funções do OrderManager, caso contrário uma exceção será lançada e causará um crash na sua aplicação.</p>
-</blockquote>
-
-<p>O método Bind recebe dois parâmetros:</p>
-
-<ul>
-  <li>
-    <p><strong>context:</strong> objeto que proverá o contexto em que o serviço será vinculado.</p>
-  </li>
-  <li>
-    <p><strong>serviceBindListener:</strong> listener que notifica o estado da conexão com o serviço OrderManager.</p>
-  </li>
-</ul>
-
-<p>Com o OrderManager inicializado e após a execução do método onServiceBound, se torna possível ir para a próxima etapa e criar um pedido (classe Order).</p>
-
-<h3 id="criar-um-pedido">Criar um pedido</h3>
-
-<p>A Cielo LIO trabalha com o conceito de Order (pedido). É necessário possuir um pedido para então realizar o(s) pagamento(s).</p>
-
-<p>Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">createDraftOrder</span><span class="o">(</span><span class="s">"REFERÊNCIA_DO_PEDIDO"</span><span class="o">);</span>
-</code></pre></div></div>
-
-<h3 id="adicionar-itens-em-um-pedido">Adicionar itens em um pedido</h3>
-
-<p>Este método permite que sejam adicionados itens em um pedido.</p>
-
-<blockquote>
-  <p><strong>Atenção:</strong> É necessário adicionar no mínimo um item a um pedido para que seja possível dar continuidade ao pagamento.</p>
-</blockquote>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Identificação do produto (Stock Keeping Unit)</span>
-<span class="n">String</span> <span class="n">sku</span> <span class="o">=</span> <span class="s">"2891820317391823"</span><span class="o">;</span>
-<span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Coca-cola lata"</span><span class="o">;</span>
-
-<span class="c1">// Preço unitário em centavos</span>
-<span class="kt">int</span> <span class="n">unitPrice</span> <span class="o">=</span> <span class="mi">550</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">quantity</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
-
-<span class="c1">// Unidade de medida do produto String</span>
-<span class="n">unityOfMeasure</span> <span class="o">=</span> <span class="s">"UNIDADE"</span><span class="o">;</span>
-
-<span class="n">order</span><span class="o">.</span><span class="na">addItem</span><span class="o">(</span><span class="n">sku</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">unitPrice</span><span class="o">,</span> <span class="n">quantity</span><span class="o">,</span> <span class="n">unityOfMeasure</span><span class="o">);</span>
-</code></pre></div></div>
-
-<h3 id="liberar-pedido-para-pagamento">Liberar pedido para pagamento</h3>
-
-<p>Este método permite atualizar o status de um pedido e liberá-lo para pagamento. O objetivo é utilizar este método depois de adicionar todos os itens no pedido.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">placeOrder</span><span class="o">(</span><span class="n">order</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Após a execução desse método, o status da Order irá trocar de DRAFT para ENTERED, permitindo que a mesma seja paga.</p>
-
-<blockquote>
-  <p><strong>Atenção:</strong> É importante observar que, uma vez que uma Order tenha mudado de status para ENTERED, não será mais possível incluir itens na mesma.
-Iniciar processo de pagamento</p>
-</blockquote>
-
-<p>Este método permite iniciar o processo de pagamento na Cielo LIO.</p>
-
-<h2 id="processo-de-pagamento">Processo de Pagamento</h2>
-
-<p>Estão disponíveis algumas formas de chamar o método checkoutOrder:</p>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/checkoutOrder.jpg" alt="checkoutorder formas" /></p>
-
-<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">checkoutOrder()</code> para receber os estados relacionados ao pagamento.:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"O pagamento começou."</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPayment</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">Order</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Um pagamento foi realizado."</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Houve um erro no pagamento."</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">};</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>PaymentListener: Um callback que informa sobre todas as ações tomadas durante o processo de pagamento. 
-As seguintes ações podem ser notificadas:<br />
-• onStart - Quando se dá o início do pagamento. 
-• onPayment - Quando um pagamento é realizado. Notem que um pedido pode ser pago por mais de um pagamento. 
-• onCancel - Quando o pagamento é cancelado. 
-• onError - Quando acontece um erro no pagamento do pedido.</p>
-</blockquote>
-
-<p>O método <code class="highlighter-rouge">onPayment()</code> retorna um objeto <code class="highlighter-rouge">Order</code> com uma lista de <code class="highlighter-rouge">Payment</code> que possui um HashMap <code class="highlighter-rouge">PaymentFields</code> com a maioria dos dados da transação.
-Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Payment Fields  - (<strong>atributo do objeto Payment</strong>)</th>
-      <th> </th>
-      <th> </th>
-    </tr>
-    <tr>
-      <th>Nome do Campo</th>
-      <th>Descrição do Campo</th>
-      <th>Valor Exemplo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>clientName</td>
-      <td>Nome do Portador</td>
-      <td>VISA ACQUIRER TEST CARD 03</td>
-    </tr>
-    <tr>
-      <td>hasPassword</td>
-      <td>Validar se a operação pediu senha</td>
-      <td>true</td>
-    </tr>
-    <tr>
-      <td>primaryProductCode</td>
-      <td>Código do produto primário</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>primaryProductName</td>
-      <td>Nome do produto primário</td>
-      <td>CREDITO</td>
-    </tr>
-    <tr>
-      <td>upFrontAmount</td>
-      <td>Valor da entrada da transação</td>
-      <td>2500</td>
-    </tr>
-    <tr>
-      <td>creditAdminTax</td>
-      <td>Valor da taxa de administração de crédito</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>firstQuotaDate</td>
-      <td>Data de débito da primeira parcela</td>
-      <td>25/12/2018 (dd/MM/yyy)</td>
-    </tr>
-    <tr>
-      <td>externalCallMerchantCode</td>
-      <td>Número do Estabelecimento Comercial</td>
-      <td>0010000244470001</td>
-    </tr>
-    <tr>
-      <td>hasSignature</td>
-      <td>Validar se a operação pediu assinatura</td>
-      <td>false</td>
-    </tr>
-    <tr>
-      <td>hasPrintedClientReceipt</td>
-      <td>Validar se imprimiu a via do cliente</td>
-      <td>false</td>
-    </tr>
-    <tr>
-      <td>applicationName</td>
-      <td>Pacote da aplicação</td>
-      <td>cielo.launcher</td>
-    </tr>
-    <tr>
-      <td>interestAmount</td>
-      <td>Valor de juros</td>
-      <td>5000</td>
-    </tr>
-    <tr>
-      <td>changeAmount</td>
-      <td>Valor de troco</td>
-      <td>4500</td>
-    </tr>
-    <tr>
-      <td>serviceTax</td>
-      <td>Taxa de serviço</td>
-      <td>2000</td>
-    </tr>
-    <tr>
-      <td>cityState</td>
-      <td>Cidade - Estado</td>
-      <td>Barueri - SP</td>
-    </tr>
-    <tr>
-      <td>v40Code</td>
-      <td>Tipo da transação</td>
-      <td>5 (Lista de Tipos de transação abaixo)</td>
-    </tr>
-    <tr>
-      <td>secondaryProductName</td>
-      <td>Nome do produto secundario</td>
-      <td>PARC. ADM</td>
-    </tr>
-    <tr>
-      <td>paymentTransactionId</td>
-      <td>ID da transação de pagamento</td>
-      <td>98437.29102507174</td>
-    </tr>
-    <tr>
-      <td>pan</td>
-      <td>Número cartão tokenizado (6 primeiros dígitos – 4 últimos dígitos ou 4 últimos)</td>
-      <td>476173-0036 ou **********4242</td>
-    </tr>
-    <tr>
-      <td>originalTransactionId</td>
-      <td>ID da transação original, nos casos de cancelamento</td>
-      <td>“0”</td>
-    </tr>
-    <tr>
-      <td>cardLabelApplication</td>
-      <td>Tipo de aplicação utilizada pelo cartão na transação</td>
-      <td>CREDITO DE VISA</td>
-    </tr>
-    <tr>
-      <td>secondaryProductCode</td>
-      <td>Código do produto secundário</td>
-      <td>205</td>
-    </tr>
-    <tr>
-      <td>documentType</td>
-      <td>(J) = Pessoa Jurídica (F) = Pessoa Física</td>
-      <td>J</td>
-    </tr>
-    <tr>
-      <td>statusCode</td>
-      <td>Status da transação1 - Autorizada 2 - Cancelada</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>merchantAddress</td>
-      <td>Endereço do estabelecimento comercial (lojista)</td>
-      <td>Alameda Grajau, 219</td>
-    </tr>
-    <tr>
-      <td>merchantCode</td>
-      <td>Número do Estabelecimento Comercial</td>
-      <td>0010000244470001</td>
-    </tr>
-    <tr>
-      <td>hasConnectivity</td>
-      <td>Valida se a transação foi online</td>
-      <td>true</td>
-    </tr>
-    <tr>
-      <td>productName</td>
-      <td>forma de pagamento compilada</td>
-      <td>CREDITO PARCELADO ADM - I</td>
-    </tr>
-    <tr>
-      <td>merchantName</td>
-      <td>Nome Fantasia do Estabelecimento Comercial</td>
-      <td>LOJA ON</td>
-    </tr>
-    <tr>
-      <td>firstQuotaAmout</td>
-      <td>Valor da primeira parcela</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>cardCaptureType</td>
-      <td>Código do tipo de captura do cartão</td>
-      <td>0 (Lista de Tipos de Captura abaixo)</td>
-    </tr>
-    <tr>
-      <td>requestDate</td>
-      <td>Data da requisição em milisegundos</td>
-      <td>1293857600000</td>
-    </tr>
-    <tr>
-      <td>boardingTax</td>
-      <td>Taxa de embarque</td>
-      <td>1200</td>
-    </tr>
-    <tr>
-      <td>applicationId</td>
-      <td>Pacote de aplicação</td>
-      <td>cielo.launcher</td>
-    </tr>
-    <tr>
-      <td>numberOfQuotas</td>
-      <td>Número de parcelas</td>
-      <td>2</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>Lista de Tipos de Captura</th>
-      <th> </th>
-    </tr>
-    <tr>
-      <th>Código</th>
-      <th>Valor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>Transação com cartão de chip</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Transação digitada</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Transação com cartão de tarja</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Transação com cartão contactless</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>Lista de Tipos de Transação - (<strong>Isto não é válido como código primário</strong>)</th>
-      <th> </th>
-    </tr>
-    <tr>
-      <th>Código</th>
-      <th>Valor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>4</td>
-      <td>Crédito à vista</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Crédito parcelado administrativo</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Crédito parcelado loja</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>Pré autorização</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>Débito à vista</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>Débito pré datado</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>Crediário venda</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>Crediário simulação</td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>Voucher alimentação/refeição</td>
-    </tr>
-    <tr>
-      <td>28</td>
-      <td>Cancelamento de venda</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Todos os valores financeiros são informados sem vírgula, ou seja 2500 são equivalentes a R$ 25,00.</p>
-</blockquote>
-
-<h3 id="1-pagamento-parcial">1. Pagamento Parcial</h3>
-
-<p>No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Fluxo da transação utilizando o pagamento parcial da Cielo LIO</strong></p>
-
-<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcial:
-<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg" alt="fluxo parcial" /></p>
-
-<h3 id="2-pagamento-de-valor">2. Pagamento de valor</h3>
-
-<p>No pagamento de Valores, o valor a ser pago é informado pelo aplicativo e a forma de pagamento (crédito, débito, parcelado) é escolhida dentro do fluxo de telas da Cielo LIO.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Nessa forma de pagamento é possível enviar qualquer valor a ser pago (valor total ou valor parcial do pedido), tudo depende do modelo de negócio adotado pelo aplicativo do parceiro. Para fazer a chamada é necessário enviar os seguintes parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Fluxo da transação utilizando o pagamento de valor da Cielo LIO</strong></p>
-
-<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento de valor:
-<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-valor.jpg" alt="fluxo parcial" /></p>
-
-<h3 id="3-pagamento-direto">3. Pagamento direto</h3>
-
-<p>No Pagamento Direto, o valor a ser pago e a forma de pagamento (crédito, débito, parcelado) será definido dentro da aplicação do parceiro. Na sequência o fluxo de pagamento da Cielo LIO é iniciado (inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail comprovante).</p>
-
-<h4 id="códigos-de-pagamento">Códigos de Pagamento</h4>
-
-<p>Para realizar o pagamento direto é necessário, primeiramente, verificar os tipos de pagamento habilitados para Cielo LIO do estabelecimento comercial utilizando a função de consulta abaixo:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">PrimaryProduct</span><span class="o">&gt;</span> <span class="n">paymentTypes</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrievePaymentType</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p>Esta função disponibilizará uma lista de objetos do tipo PrimaryProduct onde será possível recuperar os códigos de pagamento habilitados.</p>
-
-<p>Os seguintes campos serão retornados por essa função:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>id</td>
-      <td>identificador do código no sistema.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>code</td>
-      <td>utilizado na função de pagamento.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td>Nome do método de pagamento para efeitos de exibição.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>secondaryProducts</td>
-      <td>Listagem de códigos de pagamento secundário. ex.: À Vista, Parcelado, etc.</td>
-      <td><code class="highlighter-rouge">ArrayList&lt;SecondaryProduct&gt;</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Com os códigos de pagamentos disponíveis para a Cielo LIO do estabelecimento comercial, basta realizar a chamada de Pagamento Direto informando os códigos dos produtos:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="n">PrimaryProduct</span> <span class="n">primaryProduct</span> <span class="o">=</span> <span class="n">paymentTypes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-<span class="n">SecondaryProduct</span> <span class="n">secondaryProduct</span> <span class="o">=</span> <span class="n">primaryProduct</span><span class="o">.</span><span class="na">getSecondaryProducts</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-
-<span class="n">String</span> <span class="n">primaryCode</span> <span class="o">=</span> <span class="n">primaryProduct</span><span class="o">.</span><span class="na">getCode</span><span class="o">();</span>
-<span class="n">String</span> <span class="n">secondaryCode</span> <span class="o">=</span> <span class="n">secondaryProduct</span><span class="o">.</span><span class="na">getCode</span><span class="o">();</span>
-
-<span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-
-</code></pre></div></div>
-
-<blockquote>
-  <p><strong>Atenção:</strong> Na versão 0.19.0 do SDK foram introduzidos códigos de pagamento para as principais operações disponibilizadas na LIO, facilitando assim as chamadas de pagamento. É importante ressaltar que as formas de pagamento são configuradas de acordo com o estabelecimento comercial, e nem todas estarão disponíveis em todas os terminais. Caso o método de pagamento selecionado não esteja disponível na LIO em questão, ocorrerá uma exceção do tipo <code class="highlighter-rouge">NoSuchElementException</code>.</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>PaymentCode</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DEBITO_AVISTA</td>
-    </tr>
-    <tr>
-      <td>DEBITO_PREDATADO</td>
-    </tr>
-    <tr>
-      <td>CREDITO_AVISTA</td>
-    </tr>
-    <tr>
-      <td>CREDITO_PARCELADO_LOJA</td>
-    </tr>
-    <tr>
-      <td>CREDITO_PARCELADO_ADM</td>
-    </tr>
-    <tr>
-      <td>PRE_AUTORIZACAO</td>
-    </tr>
-    <tr>
-      <td>VOUCHER_ALIMENTACAO</td>
-    </tr>
-    <tr>
-      <td>VOUCHER_REFEICAO</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Nessa forma de pagamento é possível enviar qualquer valor a ser pago e a forma de pagamento. Para fazer a chamada é necessário enviar os seguintes parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>primaryCode</td>
-      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>secondaryCode</td>
-      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>installments (<strong>não obrigatório</strong>)</td>
-      <td>Número de parcelas.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>email (<strong>não obrigatório</strong>)</td>
-      <td>Email informado</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>ou</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento direto:
-<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-direto.jpg" alt="fluxo parcial" /></p>
-
-<h3 id="4-pagamento-parcelado">4. Pagamento parcelado</h3>
-
-<p>Para efetuar um pagamento parcelado, é preciso consultar as formas de pagamento utilizando a função disponibilizada no SDK, escolher crédito no produto primário e crédito no produto secundário <strong>obrigatoriamente</strong> e informar o número de parcelas no momento do checkout. É importante lembrar que se os códigos de pagamento forem informados incorretamente ou se o número de parcelas não for maior do que <strong>0</strong>, o sistema acusará erro.
-Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>primaryCode</td>
-      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>secondaryCode</td>
-      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>installments</td>
-      <td>Número de parcelas.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Fluxo da transação utilizando o pagamento parcelado da Cielo LIO</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span>  <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>ou</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrderStore</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span>  <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>ou</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrderAdm</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span>  <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
-<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
-
-<h3 id="5-pagamento-informando-email">5. Pagamento informando email</h3>
-
-<p>Neste caso é possível informar o email para facilitar o preenchimento na hora de enviar o comprovante para o cliente.
-Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>primaryCode</td>
-      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>secondaryCode</td>
-      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>installments</td>
-      <td>Número de parcelas.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>email</td>
-      <td>Email informado</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com email:
-<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
-
-<h3 id="6-pagamento-informando-ec">6. Pagamento informando EC</h3>
-
-<p>Esse método é disponibilizado para o caso de ser necessário efetuar um pagamento em um EC diferente do principal. O EC informado deve estar configurado na LIO na hora da inicialização para que funcione ou o SDK irá enviar uma exceção do tipo <code class="highlighter-rouge">InvalidParameterException</code>.
-Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>primaryCode</td>
-      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>secondaryCode</td>
-      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>installments</td>
-      <td>Número de parcelas.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>email</td>
-      <td>Email informado</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>merchantCode</td>
-      <td>Número do EC</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">merchantCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>ou</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">merchantCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com EC:
-<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
-
-<h2 id="cancelamento">Cancelamento</h2>
-
-<p>Existem 2 formas de cancelar um pagamento na Cielo LIO:</p>
-
-<p><a href="https://developercielo.github.io/manual/cielo-lio#cancelar-pagamento-total">Cancelar Pagamento Total</a></p>
-
-<p><a href="https://developercielo.github.io/manual/cielo-lio#cancelar-parte-do-valor-de-um-pagamento">Cancelar Parte do Valor do Pagamento</a></p>
-
-<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">cancelOrder()</code> para receber os estados relacionados ao cancelamento.</p>
-
-<blockquote>
-  <p>CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. 
-As seguintes ações pode ser notificadas: 
-• onSuccess - Quando um cancelamento é realizado com sucesso. 
-• onCancel - Quando o usuário cancela a operação. 
-• onError - Quando acontece um erro no cancelamento do pedido.</p>
-</blockquote>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="n">CancellationListener</span> <span class="n">cancellationListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CancellationListener</span><span class="o">()</span> <span class="o">{</span>
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">Order</span> <span class="n">cancelledOrder</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"O pagamento foi cancelado."</span><span class="o">);</span>
-    <span class="o">}</span>
-    
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Houve um erro no cancelamento"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">});</span>
-
-</code></pre></div></div>
-
-<h3 id="cancelar-pagamento-total">Cancelar Pagamento Total</h3>
-
-<p>No método Cancelar um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders) (link para método). 
-Assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">cancelOrder</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">orderId</span><span class="o">,</span> <span class="n">payment</span><span class="o">,</span> <span class="n">cancellationListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>context</td>
-      <td>Contexto da sua aplicação.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>orderID</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>payment</td>
-      <td>O pagamento a ser cancelado.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
-    </tr>
-    <tr>
-      <td>cancellationListener</td>
-      <td>Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="cancelar-parte-do-valor-de-um-pagamento">Cancelar parte do valor de um pagamento</h3>
-
-<p>No método Cancelar parte do valor de um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders). 
-Os parâmetros do método anterior, com a inclusão de um parâmetro que é o valor a ser cancelado.</p>
-
-<blockquote>
-  <p>Nesse cenário é preciso ter atenção para não passar um valor maior do que o do pagamento, caso contrário o sistema retornará um erro.</p>
-</blockquote>
-
-<p>Portanto, assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">cancelOrder</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">orderId</span><span class="o">,</span> <span class="n">payment</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">cancellationListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>context</td>
-      <td>Contexto da sua aplicação.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>orderID</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>payment</td>
-      <td>O pagamento a ser cancelado.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>O valor a ser cancelado.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>cancellationListener</td>
-      <td>Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
-<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
-
-<h3 id="receber-aviso-de-cancelamento-feito-na-lio">Receber aviso de cancelamento feito na LIO</h3>
-
-<p>Toda vez que é feito um cancelamento na LIO utilizando o launcher, o sistema envia um broadcast notificando quaisquer aplicações que estejam registradas sobre o mesmo. Para que sua aplicação seja notificada de um cancelamento, atualize o arquivo <code class="highlighter-rouge">AndroidManifest.xml</code> conforme o exemplo abaixo:</p>
-
-<p><img src="https://developercielo.github.io/images/cielo-lio/manifest.jpg" alt="Manifest" /></p>
-
-<p>em seguida, é necessário implementar um <code class="highlighter-rouge">BroadcastReceiver</code> para tratar o evento da maneira que for pertinente a sua aplicação:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LIOCancelationBroadcastReceiver</span> <span class="kd">extends</span> <span class="n">BroadcastReceiver</span> <span class="o">{</span>
-
-    <span class="n">String</span> <span class="n">MY_CLIENT_ID</span> <span class="o">=</span> <span class="s">"Seu client id aqui"</span><span class="o">;</span>
-    <span class="n">String</span> <span class="n">MY_ACCESS_KEY</span> <span class="o">=</span> <span class="s">"Seu access key aqui"</span><span class="o">;</span>
-    
-    <span class="n">String</span> <span class="n">INTENT_ORDER_KEY</span> <span class="o">=</span> <span class="s">"ORDER"</span><span class="o">;</span>
-    <span class="n">String</span> <span class="n">INTENT_TRANSACTION_KEY</span> <span class="o">=</span> <span class="s">"TRANSACTION"</span><span class="o">;</span>
-
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">ParcelableOrder</span> <span class="n">order</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getParcelable</span><span class="o">(</span><span class="n">INTENT_ORDER_KEY</span><span class="o">);</span>
-        
-        <span class="k">if</span><span class="o">(</span><span class="n">MY_ACCESS_KEY</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getAccessKey</span><span class="o">())</span> <span class="o">&amp;&amp;</span> <span class="n">MY_CLIENT_ID</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getSecretAccessKey</span><span class="o">()))</span> <span class="o">{</span>
-            <span class="n">ParcelableTransaction</span> <span class="n">transaction</span>  <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getParcelable</span><span class="o">(</span><span class="n">INTENT_TRANSACTION_KEY</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<h2 id="listagem-de-pedidos">Listagem de Pedidos</h2>
-
-<p>Na listagem de pedidos, é possível obter todas os pedidos (Orders) abertas na Cielo LIO pelo aplicativo do parceiro. 
-Para isso, basta utilizar a função abaixo, que retorna os pedidos de forma paginada:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Busca 10 items da primeira página</span>
-<span class="n">ResultOrders</span> <span class="n">resultOrders</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrieveOrders</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> 
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>ATRIBUTO</th>
-      <th>DESCRIÇÃO</th>
-      <th>DOMÍNIO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>pageSize</td>
-      <td>quantidade de items por página</td>
-      <td><code class="highlighter-rouge">Integer</code></td>
-    </tr>
-    <tr>
-      <td>page</td>
-      <td>número da página requistada (iniciando em 0)</td>
-      <td><code class="highlighter-rouge">Integer</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>O objeto ResultOrders contém uma lista com todas as ordens abertas assinadas com as credenciais da aplicação.</p>
-</blockquote>
-
-<h2 id="finalizar-uso-do-ordermanager">Finalizar uso do OrderManager</h2>
-
-<p>Após executar todas as operações de pagamento e caso não seja necessário utilizar o objeto orderManager, utilize método unbind para desvincular o contexto e evitar problemas de integridade.</p>
-
-<p>Fique atento ao local onde o <code class="highlighter-rouge">unbind()</code> será executado para evitar problemas com ciclo de vida da Activity ou Fragment que foi vinculado ao serviço.
-É importante lembrar que se o contexto for alterado, é preciso desvincular o serviço (ex.: troca de Activity)
-Utilize o método abaixo para finalizar o uso do OrderManager:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">unbind</span><span class="o">();</span> 
-</code></pre></div></div>
-
-<h2 id="informações-do-terminal">Informações do terminal</h2>
-
-<p>Todas as informações referentes ao terminal, que foram expostas, estão disponíveis no InfoManager</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">InfoManager</span> <span class="n">infoManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InfoManager</span><span class="o">();</span>
-</code></pre></div></div>
-
-<h3 id="nível-de-bateria">Nível de Bateria</h3>
-
-<p>Para consultar o nível de carga da LIO, basta utilizar o métdo abaixo:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getBatteryLevel</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>O valor da bateria será retornado em uma <code class="highlighter-rouge">Float</code> contendo um valor de 0 a 1 em caso de sucesso e -1 em caso de erro.</p>
-</blockquote>
-
-<h3 id="verificar-modelo-da-lio">Verificar Modelo da LIO</h3>
-
-<p>O SDK disponibiliza um método para verificar se seu aplicativo está instalado numa LIO V1 ou V2. Basta acessar da seguinte forma:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getDeviceModel</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p>O mesmo irá retornar um enum do tipo <code class="highlighter-rouge">DeviceModel</code> com o modelo correspondente (<code class="highlighter-rouge">LIO_V1</code> ou <code class="highlighter-rouge">LIO_V2</code> ).</p>
-
-<h3 id="obtendo-informações-do-usuário-ec-e-número-lógico">Obtendo informações do usuário (EC e Número Lógico)</h3>
-
-<p>Através do SDK, é possível recuperar os dados do cliente e número lógico de maneira simples utilizando o método abaixo:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getSettings</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>Esta função, retornará um objeto do tipo Settings onde é possível recuperar as informações do usuário. 
-Abaixo, segue um descritivo de atributos do objeto Setttings.</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>ATRIBUTO</th>
-      <th>DESCRIÇÃO</th>
-      <th>DOMÍNIO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>merchantCode</td>
-      <td>Código do cliente</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>logicNumber</td>
-      <td>Número lógico da LIO</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="impressão-apenas-lio-v2">Impressão [Apenas LIO V2]</h2>
-
-<p>A nova versão da Cielo LIO V2 permite que aplicações parceiras utilizem os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente. Para realizar estas operações, basta utilizar um dos métodos listados abaixo que permite a impressão de uma única linha, uma sequência de linhas, ou imagens.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PrinterManager</span> <span class="n">printerManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrinterManager</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Independende da forma de impressão escolhida, você deverá utilizar o seguinte callback como parâmetro do método de para receber os estados relacionados à impressão:</p>
-
-<blockquote>
-  <p>PrinterListener: Um callback que informa sobre todas as ações tomadas durante o processo de impressão. 
-As seguintes ações pode ser notificadas: 
-• onSuccess - Quando uma impressão é realizada com sucesso. 
-• onError - Quando acontece um erro na impressão.
-• onWithoutPaper - Quando não há papel suficiente para realizar a impressão.</p>
-</blockquote>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PrinterListerner</span> <span class="n">printerListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrinterListener</span><span class="o">()</span> <span class="o">{</span>
-    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPrintSuccess</span><span class="o">(</span><span class="kt">int</span> <span class="n">printedLines</span><span class="o">)</span> <span class="o">{</span> 
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"onPrintSuccess"</span><span class="o">);</span>
-    <span class="o">}</span>
-    
-    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span> 
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"onError"</span><span class="o">);</span> 
-    <span class="o">}</span>
-    
-    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onWithoutPaper</span><span class="o">()</span> <span class="o">{</span> 
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span><span class="s">"onWithoutPaper"</span><span class="o">);</span> 
-    <span class="o">}</span> 
-<span class="o">});</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p><strong>Atenção:</strong> para alterações na view do aplicativo é necessário rodar o código do callback dentro de um bloco runOnUiThread.</p>
-</blockquote>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPrintSuccess</span><span class="o">(</span><span class="kt">int</span> <span class="n">printedLines</span><span class="o">)</span> <span class="o">{</span> 
-        <span class="n">runOnUiThread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
-            <span class="nd">@Override</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-                <span class="n">showDialog</span><span class="o">();</span>
-            <span class="o">}</span>
-        <span class="o">});</span>
-    <span class="o">}</span>
-</code></pre></div></div>
-
-<h3 id="mapa-de-estilos-de-impressão">Mapa de Estilos de Impressão</h3>
-
-<p>Você pode formatar a sua impressão criando mapas de estilos utilizando os parâmetros disponíveis:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Valores</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_ALIGN</code></td>
-      <td>Alinhamento da impressão</td>
-      <td><code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_CENTER</code>  <code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_LEFT</code> <code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_RIGHT</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_TEXTSIZE</code></td>
-      <td>Tamanho do texto</td>
-      <td>Valores inteiros</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_TYPEFACE</code></td>
-      <td>Fonte do texto</td>
-      <td>Trabalha com um inteiro de 0 a 8, onde cada um é uma fonte diferente.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINLEFT</code></td>
-      <td>Margem esquerda</td>
-      <td>Valores inteiros</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINRIGHT</code></td>
-      <td>Margem direia</td>
-      <td>Valores inteiros</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINTOP</code></td>
-      <td>Margem superior</td>
-      <td>Valores inteiros</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINBOTTOM</code></td>
-      <td>Margem inferior</td>
-      <td>Valores inteiros</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_LINESPACE</code></td>
-      <td>Espaçamento entre as linhas</td>
-      <td>Valores inteiros</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_WEIGHT</code></td>
-      <td>Varíavel utilizada quando se trbaalho com impressão de múltiplas colunas, para escolher o peso de cada coluna</td>
-      <td>Valores inteiros</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Exemplo de mapas de estilos:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignLeft</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_LEFT</span><span class="o">);</span>
-<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
-
-<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignCenter</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_CENTER</span><span class="o">);</span>
-<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
-
-<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignRight</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_RIGHT</span><span class="o">);</span>
-<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
-<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
-</code></pre></div></div>
-
-<h3 id="impressão-de-texto-simples">Impressão de texto simples</h3>
-
-<p>Para imprimir textos simples utilize o método <code class="highlighter-rouge">printText()</code> do PrinterManager. 
-O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de impressão e um listener para tratar o retorno da impressão.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">textToPrint</span> <span class="o">=</span> <span class="s">"Texto simples a ser impresso.\n Com múltiplas linhas"</span><span class="o">;</span>
-<span class="n">printerManager</span><span class="o">.</span><span class="na">printText</span><span class="o">(</span><span class="n">textToPrint</span><span class="o">,</span> <span class="n">alignLeft</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Exemplo de impressão de texto simples:
-<img src="https://developercielo.github.io/images/cielo-lio/print-text.png" alt="Impressão texto simples" height="25%" width="25%" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>text</td>
-      <td>Texto a ser impresso.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>style</td>
-      <td>Mapa de estilos de impressão</td>
-      <td><code class="highlighter-rouge">Map&lt;String, Int&gt;</code></td>
-    </tr>
-    <tr>
-      <td>printerListener</td>
-      <td>Callback de impressão.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="impressão-de-múltiplas-colunas">Impressão de múltiplas colunas</h3>
-
-<p>Para imprimir textos em múltiplas colunas utilize o método <code class="highlighter-rouge">printMultipleColumnText()</code> do PrinterManager. 
-O método recebe como parâmetro um array de texts a serem impresso, um array com mapas de estilos de impressão, respectivamente e um listener para tratar o retorno da impressão.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span><span class="o">[]</span> <span class="n">textsToPrint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span> <span class="s">"Texto alinhado à esquerda."</span><span class="o">,</span> <span class="s">"Texto centralizado"</span><span class="o">,</span> <span class="s">"Texto alinhado à direita"</span>  <span class="o">}</span>
-
-<span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">stylesMap</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignLeft</span><span class="o">);</span>
-<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignCenter</span><span class="o">);</span>
-<span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignRight</span><span class="o">);</span>
-
-<span class="n">printerManager</span><span class="o">.</span><span class="na">printMultipleColumnText</span><span class="o">(</span><span class="n">textsToPrint</span><span class="o">,</span> <span class="n">stylesMap</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
-
-</code></pre></div></div>
-
-<p>Resultado final da impressão:
-<img src="https://developercielo.github.io/images/cielo-lio/print-columns.png" alt="Impressão Múltiplas Colunas" height="25%" width="25%" /></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>stringArray</td>
-      <td>Lista de textos a serem impressos.</td>
-      <td><code class="highlighter-rouge">String[]</code></td>
-    </tr>
-    <tr>
-      <td>style</td>
-      <td>Lista de mapa de estilos de impressão</td>
-      <td><code class="highlighter-rouge">List&lt;Map&lt;String, Int)&gt;&gt;</code></td>
-    </tr>
-    <tr>
-      <td>printerListener</td>
-      <td>Callback de impressão.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="impressão-de-imagem">Impressão de imagem</h3>
-
-<p>Para imprimir imagens utilize o método <code class="highlighter-rouge">printImage()</code> do PrinterManager. 
-O método recebe como parâmetro o <code class="highlighter-rouge">bitmap</code> a ser impresso, um mapa de estilos de impressão e um listener para tratar o retorno da impressão.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Bitmap</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="n">BitmapFactory</span><span class="o">.</span><span class="na">decodeResource</span><span class="o">(</span><span class="n">getResources</span><span class="o">(),</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">cielo</span><span class="o">);</span>
-<span class="n">printerManager</span><span class="o">.</span><span class="na">printImage</span><span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="n">alignCenter</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Imagem a ser impressa</th>
-      <th>Resultado final</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="https://developercielo.github.io/images/cielo-lio/cielo.png" alt="Impressão Imagem" height="50%" width="50%" /></td>
-      <td><img src="https://developercielo.github.io/images/cielo-lio/print-image.png" alt="Impressão Imagem" height="25%" width="25%" /></td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>bitmap</td>
-      <td>Imagem a ser impressa.</td>
-      <td><code class="highlighter-rouge">Bitmap</code></td>
-    </tr>
-    <tr>
-      <td>style</td>
-      <td>Mapa de estilos de impressão</td>
-      <td><code class="highlighter-rouge">Map&lt;String, Int&gt;</code></td>
-    </tr>
-    <tr>
-      <td>printerListener</td>
-      <td>Callback de impressão.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<hr />
-
-<h2 id="fluxo-para-integração-1">Fluxo para Integração</h2>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxogram-local-new.png" alt="fluxo para integração" /></p>
-
-<ol>
-  <li>Leia toda a documentação sobre a Integração Local.</li>
-  <li>Crie sua conta no Portal de Desenvolvedores da Cielo para obter todas as funcionalidades que o portal pode oferecer para você, desenvolvedor. É obrigatório possuir uma conta para gerar um Client-Id.</li>
-  <li>Realizando o cadastro de Client ID, o desenvolvedor recebe os tokens</li>
-  <li>(Client ID e Access-Token) e consegue utilizar o Cielo LIO Order Manager SDK. Realize os testes no Emulador Cielo Lio Confira o link: <a href="https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk">Download do Emulador</a></li>
-  <li>Acesse a <a href="https://www.cieloliostore.com.br/login">Cielo Store</a> e faça o upload do APK da sua aplicação. Ao término do upload, submeta seu aplicativo para certificação e preencha todas as informações necessárias.</li>
-  <li>Ao término do upload submeta seu aplicativo, no próprio ambiente da Cielo Store, para certificação e preencha todas as informações necessárias.</li>
-  <li>Assim que a certificação for concluída, o desenvolvedor receberá um e-mail e deverá acessar novamente a Cielo Store para promover o aplicativo para produção.</li>
-  <li>Agora seu aplicativo já está disponível para download na Cielo Store. Sucesso!! Aproveite ao máximo tudo que a Integração Local Cielo LIO pode oferecer para você!!</li>
-</ol>
-
-<h2 id="release-notes">Release Notes</h2>
-
-<p>Na tabela abaixo, é possível verificar as funcionalidades do SDK disponíveis por versão da Cielo LIO e Cielo Mobile.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Funcionalidade</th>
-      <th>Versão Cielo LIO</th>
-      <th>Versão Cielo Mobile</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>createDraftOrder(String reference); placeOrder(Order order); updateOrder(Order order); checkoutOrder(String orderId, PaymentListener paymentListener); checkoutOrder(String orderId,long value, PaymentListener paymentListener);</td>
-      <td>1.10.2</td>
-      <td>1.9.1</td>
-    </tr>
-    <tr>
-      <td>retrievePaymentType(); checkoutOrder(String orderId,long value, String primaryCode, String secondaryCode, PaymentListener,paymentListener);</td>
-      <td>1.12.0</td>
-      <td>1.10.3</td>
-    </tr>
-    <tr>
-      <td>retrieveOrders(int pageSize, int page);</td>
-      <td>1.13.0</td>
-      <td>1.10.5</td>
-    </tr>
-    <tr>
-      <td>checkoutOrder (String orderId,long value, String primaryCode, String secondaryCode, Long installments, PaymentListener paymentListener);</td>
-      <td>1.14.0</td>
-      <td>1.12.1</td>
-    </tr>
-    <tr>
-      <td>cancelOrder (Context context, String orderId, Payment payment, CancellationListener paymentListener); cancelOrder(Context context, String orderId, Payment payment, Long amount, CancellationListener paymentListener);</td>
-      <td>1.16.7</td>
-      <td>1.12.10</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p><strong>Atenção:</strong> Se for utilizada uma funcionalidade que não esteja disponível, será lançada uma exceção – UnsupportedOperationExcepetion –, que deve ser tratada pelo aplicativo.</p>
-</blockquote>
-
-<p>Para descobrir a versão do aplicativo Cielo LIO (versão do Launcher) e Cielo Mobile, bem como utilizar todas as funcionalidades do Cielo LIO Order Manager SDK, acesse “Sobre a Cielo LIO” (Ajuda -&gt; Sobre a Cielo LIO) para obter as informações sobre os aplicativos instalados na Cielo LIO.</p>
-
-<hr />
-
-<h2 id="code-sample-1">Code Sample</h2>
-
-<p>O código do exemplo do aplicativo integrado com o Cielo LIO Order Manager SDK encontra-se disponível no <a href="https://github.com/DeveloperCielo/LIO-SDK-Sample-Integracao-Local">GitHub</a>.</p>
-
-<h2 id="vídeo-demo-1">Vídeo Demo</h2>
-
-<p>No vídeo abaixo, é possível ver um exemplo de aplicativo integrado com o Cielo LIO Order Manager SDK, utilizando a função de pagamento de valores do SDK.</p>
-
-<p><a href="https://www.youtube.com/watch?v=d7y-x6p36YU"><img src="https://img.youtube.com/vi/d7y-x6p36YU/0.jpg" alt="Vídeo Demo" /></a></p>
-
-<p>Clique na imagem acima, para acessar o vídeo</p>
 
 <h1 id="cielo-store">Cielo Store</h1>
 
