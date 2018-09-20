@@ -6497,6 +6497,44 @@ Codes returned in case of error, identifying the reason for the error and its re
 
 **Warning**: There are similar return codes, but with different meanings such as "**6** - Captured" and the "**06** - Canceled Card". These codes are only informative of the processing system. **Only the field `STATUS` should be considered as the current transaction situation**
 
+## Capture Return Codes
+
+|Return Code|Return Message|Meaning|
+|---|---|---|
+|6|Transacao capturada com sucesso|Transaction successfully captured|
+|001|Mensagem inválida|Operation failed. Invalid request|
+|002|Credenciais inválidas|Operation failed. Invalid credentials|
+|003|Transação inexistente|Operation failed. Transaction not found|
+|030|O status da transacao nao permite captura|Operation failed. Transaction not found|
+|031|Prazo de captura vencido|Operation failed. Transaction is expired for capture|
+|032|Valor de captura invalido|Operation failed. Capture amount is invalid|
+|033|Falha ao capturar|Operation failed. Server error for capture|
+|097|Sistema indisponível|Service unavailable|
+|098|Timeout|Operation failed. Operation timed out|
+|099|Erro inesperado|Operation failed|
+
+## Void/Refund Return Codes
+
+|Return Code|Return Message|Meaning|
+|---|---|---|
+|9|Transacao desfeita|Transaction successfully |
+|9|Transacao cancelada com sucesso|Transaction successfully refunded|
+|9|Cancelamento parcial realizado com sucesso|Transaction successfully refunded (partially)|
+|4|Nao foi possivel cancelar a Transacao|Void operation failed|
+|6|Nao foi possivel cancelar a Transacao|Refund operation failed|
+|001|Mensagem inválida|Operation failed. Invalid request|
+|002|Credenciais inválidas|Operation failed. Invalid credentials|
+|003|Transação inexistente|Operation failed. Transaction not found|
+|040|Prazo de cancelamento vencido|Operation failed. Transaction is expired for refund|
+|041|Status nao permite cancelamento|Operation failed. Current status not allowed for refund|
+|042|Falha ao cancelar|Operation failed. Server error for refund|
+|043|Valor de cancelamento é maior que valor autorizado.|Operation failed. Refund amount must be equals or less then authorized amount|
+|097|Sistema indisponível|Operation failed. Service unavailable|
+|098|Timeout|Operation failed. Operation timed out|
+|475|Tempo esgotado|Operation failed. Operation timed out|
+|845|Status nao permite cancelar|Operation failed. Invalid status for refund|
+|099|Erro inesperado|Operation failed|
+
 # Annexes
 
 ## Affiliate Settings.
