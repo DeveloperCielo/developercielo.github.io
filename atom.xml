@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-09-20T17:59:17+00:00</updated>
+    <updated>2018-09-24T16:40:51+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2813,9 +2813,10 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 
 &lt;h2 id=&quot;modelos-disponíveis-da-cielo-lio&quot;&gt;Modelos disponíveis da Cielo LIO&lt;/h2&gt;
 
-&lt;p&gt;Atualmente a Cielo LIO está disponível em 2 modelos: LIO V1 e LIO V2&lt;/p&gt;
+&lt;p&gt;Atualmente a Cielo LIO está disponível em 3 modelos: LIO V1, LIO V2 e LIO +&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v1_v2.png&quot; alt=&quot;Comparação - LIO V1 e LIO V2&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v1_v2.png&quot; alt=&quot;Comparação - LIO V1 e LIO V2&quot; /&gt;
+&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/blue_lio.png&quot; alt=&quot;BLUE&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Ambos os modelos foram desenvolvidos pela Cielo pensando em atender as necessidades específicas de alguns clientes.&lt;/p&gt;
 
