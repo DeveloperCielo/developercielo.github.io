@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-09-24T18:47:53+00:00</updated>
+    <updated>2018-09-26T15:20:51+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1649,10 +1649,10 @@ Below, it is presented an exemple in high-level of the Cielo LIO Order Manager S
 
 &lt;p&gt;For release version, add the module from Cielo LIO Manager SDK on the Gradle dependencies:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.19.4'
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.19.5'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;last version 0.19.1 - launched in 15/05/2018&lt;/p&gt;
+&lt;p&gt;last version 0.19.4 - launched in 25/07/2018&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;From the version 1.17.7-beta of the SDK, it has become required the permission of INTERNET on the costumer application.
