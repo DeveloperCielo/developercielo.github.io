@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-09-26T15:20:45+00:00</updated>
+    <updated>2018-09-26T15:22:20+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3349,10 +3349,10 @@ Dessa forma, garante-se o funcionamento da aplicação no hardware da LIO V1 com
 
 &lt;p&gt;Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.19.4'
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.19.5'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;última versão 0.19.1 - lançada em 15/05/2018&lt;/p&gt;
+&lt;p&gt;última versão 0.19.4 - lançada em 25/07/2018&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
