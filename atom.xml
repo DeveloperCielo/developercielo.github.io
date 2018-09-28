@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-09-28T21:31:04+00:00</updated>
+    <updated>2018-09-28T21:35:37+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -972,7 +972,7 @@
 
 &lt;p&gt;&amp;lt;input type=&quot;button&quot;onclick=&quot;bpmpi_authenticate()&quot; /&amp;gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;etapa-de-autorização&quot;&gt;Etapa de Autorização&lt;/h2&gt;
+&lt;h2 id=&quot;etapa-de-autorização-cielo-e-commerce-30&quot;&gt;Etapa de Autorização (Cielo E-Commerce 3.0)&lt;/h2&gt;
 
 &lt;p&gt;Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó &lt;strong&gt;ExternalAuthentication&lt;/strong&gt; ).
 Este procedimento é válido também para estabelecimentos que realizaram a autenticação fora da Cielo (MPI Externo).&lt;/p&gt;
@@ -1096,6 +1096,8 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 &lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
 
 &lt;p&gt;Vide https://developercielo.github.io/manual/cielo-ecommerce#resposta&lt;/p&gt;
+
+&lt;h2 id=&quot;etapa-de-autorização-cielo-e-commerce-15&quot;&gt;Etapa de Autorização (Cielo E-Commerce 1.5)&lt;/h2&gt;
 
 &lt;p&gt;Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 1.5. Os campos Version e ReferenceID serão disponibilizados em breve:&lt;/p&gt;
 
