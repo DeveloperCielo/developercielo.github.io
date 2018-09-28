@@ -49,6 +49,8 @@
                     
                     <li><a data-language-name='shell'>cURL</a></li>
                     
+                    <li><a data-language-name='xml'>XML</a></li>
+                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -1088,7 +1090,7 @@
 <p>Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de "autenticação externa" (nó <strong>ExternalAuthentication</strong> ).
 Este procedimento é válido também para estabelecimentos que realizaram a autenticação fora da Cielo (MPI Externo).</p>
 
-<p>Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Pagador:</p>
+<p>Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 3.0:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales</span></aside>
 
@@ -1208,6 +1210,72 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 
 <p>Vide https://developercielo.github.io/manual/cielo-ecommerce#resposta</p>
 
+<p>Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 1.5. Os campos Version e ReferenceID serão disponibilizados em breve:</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/servicos/ecommwsec.do</span></aside>
+
+<h3 id="request-2">Request</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">id=</span><span class="s">"1"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;dados-ec&gt;</span>
+   (...)   
+   <span class="nt">&lt;/dados-ec&gt;</span>
+   <span class="nt">&lt;dados-portador&gt;</span>
+   (...)
+   <span class="nt">&lt;/dados-portador&gt;</span>
+   <span class="nt">&lt;dados-pedido&gt;</span>
+   (...)
+   <span class="nt">&lt;/dados-pedido&gt;</span>
+   <span class="nt">&lt;forma-pagamento&gt;</span>
+   (...)
+   <span class="nt">&lt;/forma-pagamento&gt;</span>
+   <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+   <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
+   <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+   <span class="nt">&lt;dados-autenticacao-mpi-externa&gt;</span>
+      <span class="nt">&lt;cavv&gt;</span>A901234A5678A0123A567A90120=<span class="nt">&lt;/cavv&gt;</span>
+      <span class="nt">&lt;xid&gt;</span>A90123A45678A0123A567A90123<span class="nt">&lt;/xid&gt;</span>
+      <span class="nt">&lt;eci&gt;</span>3<span class="nt">&lt;/eci&gt;</span>
+   <span class="nt">&lt;/dados-autenticacao-mpi-externa&gt;</span>
+<span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Campo</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cavv</td>
+      <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
+      <td>Alfanumérico [28 posições]</td>
+      <td>Sim, quando a autenticação foi um sucesso</td>
+    </tr>
+    <tr>
+      <td>Xid</td>
+      <td>XID retornado no processo de autenticação</td>
+      <td>Alfanumérico [28 posições]</td>
+      <td>Sim, quando a versão do 3DS for "1"</td>
+    </tr>
+    <tr>
+      <td>Eci</td>
+      <td>E-Commerce Indicator retornado no processo de autenticação</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-2">Response</h3>
+
+<p>Vide https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno</p>
+
 </div>
 
 
@@ -1297,6 +1365,9 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
             
             langs += "<a data-language-name='shell'>cURL</a>";
             langsArray.push('shell');
+            
+            langs += "<a data-language-name='xml'>XML</a>";
+            langsArray.push('xml');
             
 
             var toggleCode = 'Comutar';
