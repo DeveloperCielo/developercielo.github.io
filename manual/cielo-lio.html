@@ -1719,14 +1719,6 @@ Os parâmetros do método anterior, com a inclusão de um parâmetro que é o va
   </tbody>
 </table>
 
-<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
-<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
-
 <h3 id="receber-aviso-de-cancelamento-feito-na-lio">Receber aviso de cancelamento feito na LIO</h3>
 
 <p>Toda vez que é feito um cancelamento na LIO utilizando o launcher, o sistema envia um broadcast notificando quaisquer aplicações que estejam registradas sobre o mesmo. Para que sua aplicação seja notificada de um cancelamento, atualize o arquivo <code class="highlighter-rouge">AndroidManifest.xml</code> conforme o exemplo abaixo:</p>
