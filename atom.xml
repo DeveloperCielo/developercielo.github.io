@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-09-28T21:24:55+00:00</updated>
+    <updated>2018-09-28T21:31:04+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1103,30 +1103,30 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;
-   (...)   
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
-   (...)
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
-   (...)
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
-   (...)
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;true&lt;span class=&quot;nt&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;gerar-token&amp;gt;&lt;/span&gt;false&lt;span class=&quot;nt&quot;&gt;&amp;lt;/gerar-token&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-autenticacao-mpi-externa&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;cavv&amp;gt;&lt;/span&gt;A901234A5678A0123A567A90120=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/cavv&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;xid&amp;gt;&lt;/span&gt;A90123A45678A0123A567A90123&lt;span class=&quot;nt&quot;&gt;&amp;lt;/xid&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;eci&amp;gt;&lt;/span&gt;3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/eci&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-autenticacao-mpi-externa&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;?xml&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;encoding=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;gerar-token&amp;gt;&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/gerar-token&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;dados-autenticacao-mpi-externa&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;cavv&amp;gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;901234&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5678&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;567&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90120&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&amp;lt;/cavv&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;xid&amp;gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;45678&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;567&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/xid&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;eci&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/eci&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dados-autenticacao-mpi-externa&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;table&gt;
   &lt;thead&gt;

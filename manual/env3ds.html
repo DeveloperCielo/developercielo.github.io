@@ -49,8 +49,6 @@
                     
                     <li><a data-language-name='shell'>cURL</a></li>
                     
-                    <li><a data-language-name='xml'>XML</a></li>
-                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -1216,30 +1214,30 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 
 <h3 id="request-2">Request</h3>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">id=</span><span class="s">"1"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;dados-ec&gt;</span>
-   (...)   
-   <span class="nt">&lt;/dados-ec&gt;</span>
-   <span class="nt">&lt;dados-portador&gt;</span>
-   (...)
-   <span class="nt">&lt;/dados-portador&gt;</span>
-   <span class="nt">&lt;dados-pedido&gt;</span>
-   (...)
-   <span class="nt">&lt;/dados-pedido&gt;</span>
-   <span class="nt">&lt;forma-pagamento&gt;</span>
-   (...)
-   <span class="nt">&lt;/forma-pagamento&gt;</span>
-   <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
-   <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
-   <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
-   <span class="nt">&lt;dados-autenticacao-mpi-externa&gt;</span>
-      <span class="nt">&lt;cavv&gt;</span>A901234A5678A0123A567A90120=<span class="nt">&lt;/cavv&gt;</span>
-      <span class="nt">&lt;xid&gt;</span>A90123A45678A0123A567A90123<span class="nt">&lt;/xid&gt;</span>
-      <span class="nt">&lt;eci&gt;</span>3<span class="nt">&lt;/eci&gt;</span>
-   <span class="nt">&lt;/dados-autenticacao-mpi-externa&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">&lt;?xml</span><span class="w"> </span><span class="err">version=</span><span class="s2">"1.0"</span><span class="w"> </span><span class="err">encoding=</span><span class="s2">"UTF-8"</span><span class="err">?&gt;</span><span class="w">
+</span><span class="err">&lt;requisicao-transacao</span><span class="w"> </span><span class="err">xmlns=</span><span class="s2">"http://ecommerce.cbmp.com.br"</span><span class="w"> </span><span class="err">id=</span><span class="s2">"1"</span><span class="w"> </span><span class="err">versao=</span><span class="s2">"1.2.1"</span><span class="err">&gt;</span><span class="w">
+   </span><span class="err">&lt;dados-ec&gt;</span><span class="w">
+   </span><span class="err">(...)</span><span class="w">   
+   </span><span class="err">&lt;/dados-ec&gt;</span><span class="w">
+   </span><span class="err">&lt;dados-portador&gt;</span><span class="w">
+   </span><span class="err">(...)</span><span class="w">
+   </span><span class="err">&lt;/dados-portador&gt;</span><span class="w">
+   </span><span class="err">&lt;dados-pedido&gt;</span><span class="w">
+   </span><span class="err">(...)</span><span class="w">
+   </span><span class="err">&lt;/dados-pedido&gt;</span><span class="w">
+   </span><span class="err">&lt;forma-pagamento&gt;</span><span class="w">
+   </span><span class="err">(...)</span><span class="w">
+   </span><span class="err">&lt;/forma-pagamento&gt;</span><span class="w">
+   </span><span class="err">&lt;autorizar&gt;</span><span class="mi">3</span><span class="err">&lt;/autorizar&gt;</span><span class="w">
+   </span><span class="err">&lt;capturar&gt;</span><span class="kc">true</span><span class="err">&lt;/capturar&gt;</span><span class="w">
+   </span><span class="err">&lt;gerar-token&gt;</span><span class="kc">false</span><span class="err">&lt;/gerar-token&gt;</span><span class="w">
+   </span><span class="err">&lt;dados-autenticacao-mpi-externa&gt;</span><span class="w">
+      </span><span class="err">&lt;cavv&gt;A</span><span class="mi">901234</span><span class="err">A</span><span class="mi">5678</span><span class="err">A</span><span class="mi">0123</span><span class="err">A</span><span class="mi">567</span><span class="err">A</span><span class="mi">90120</span><span class="err">=&lt;/cavv&gt;</span><span class="w">
+      </span><span class="err">&lt;xid&gt;A</span><span class="mi">90123</span><span class="err">A</span><span class="mi">45678</span><span class="err">A</span><span class="mi">0123</span><span class="err">A</span><span class="mi">567</span><span class="err">A</span><span class="mi">90123</span><span class="err">&lt;/xid&gt;</span><span class="w">
+      </span><span class="err">&lt;eci&gt;</span><span class="mi">3</span><span class="err">&lt;/eci&gt;</span><span class="w">
+   </span><span class="err">&lt;/dados-autenticacao-mpi-externa&gt;</span><span class="w">
+</span><span class="err">&lt;/requisicao-transacao&gt;</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -1365,9 +1363,6 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
             
             langs += "<a data-language-name='shell'>cURL</a>";
             langsArray.push('shell');
-            
-            langs += "<a data-language-name='xml'>XML</a>";
-            langsArray.push('xml');
             
 
             var toggleCode = 'Comutar';
