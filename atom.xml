@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-04T14:24:30+00:00</updated>
+    <updated>2018-10-04T14:32:50+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3364,6 +3364,31 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 &lt;h2 id=&quot;versão-target-da-aplicação&quot;&gt;Versão target da aplicação&lt;/h2&gt;
 
 &lt;p&gt;Recomenda-se que o desenvolvedor utilize para a Cielo LIO+ o APK target version 27 e versão mínima 22 (essa última para garantir compatibilidade com as demais soluções V1 e V2).&lt;/p&gt;
+
+&lt;h2 id=&quot;cielo-lio-app-padrão-de-vendas&quot;&gt;Cielo LIO+ App padrão de vendas&lt;/h2&gt;
+
+&lt;p&gt;Você poderá configurar seu App da Cielo LIO+ como um aplicativo padrão. Para isso, deve submeter o seu app para a CieloStore, solicitando que seja definido como frente de caixa, informando qual Intent e qual nome do parâmetro receberá o valor.&lt;/p&gt;
+
+&lt;p&gt;Após a aprovado/certificado, o App estará disponível para ser selecionado com App Padrão de venda no menu da sua LIO+.&lt;/p&gt;
+
+&lt;h3 id=&quot;intent-para-receber-o-valor-da-venda&quot;&gt;Intent para receber o valor da venda&lt;/h3&gt;
+
+&lt;p&gt;A Intent informada ao submeter o App, deve ser a tela inicial de venda do seu App.&lt;/p&gt;
+
+&lt;p&gt;O parâmetro de valor citado no item anterior, serve para para receber o valor da venda, caso o usuário inicie uma transação usando o App padrão da Cielo, ao invez de usar o App Padrão selecionado.&lt;/p&gt;
+
+&lt;p&gt;Esse valor é passado no formato de centavos, sem separação dos decimais. Por exemplo, o valor 152,25 é passado como 15225, ficando por conta do App fazer o tratamento e formatação.&lt;/p&gt;
+
+&lt;p&gt;Essa Intent será chamada em dois momentos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Quando o seu app estiver marcado como padrão, e o snpap do Pinpad for conectado.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Quando o seu app estiver marcado como padrão, e uma transação for iniciada usando o App Cielo Vender (App padrão vendas da Cielo). Neste cenário o valor digitado no App Cielo Vender será passado como Intent Extra para o seu App.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;recursos-indisponíveis&quot;&gt;Recursos Indisponíveis&lt;/h2&gt;
 

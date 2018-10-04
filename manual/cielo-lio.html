@@ -475,6 +475,31 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:</p>
 
 <p>Recomenda-se que o desenvolvedor utilize para a Cielo LIO+ o APK target version 27 e versão mínima 22 (essa última para garantir compatibilidade com as demais soluções V1 e V2).</p>
 
+<h2 id="cielo-lio-app-padrão-de-vendas">Cielo LIO+ App padrão de vendas</h2>
+
+<p>Você poderá configurar seu App da Cielo LIO+ como um aplicativo padrão. Para isso, deve submeter o seu app para a CieloStore, solicitando que seja definido como frente de caixa, informando qual Intent e qual nome do parâmetro receberá o valor.</p>
+
+<p>Após a aprovado/certificado, o App estará disponível para ser selecionado com App Padrão de venda no menu da sua LIO+.</p>
+
+<h3 id="intent-para-receber-o-valor-da-venda">Intent para receber o valor da venda</h3>
+
+<p>A Intent informada ao submeter o App, deve ser a tela inicial de venda do seu App.</p>
+
+<p>O parâmetro de valor citado no item anterior, serve para para receber o valor da venda, caso o usuário inicie uma transação usando o App padrão da Cielo, ao invez de usar o App Padrão selecionado.</p>
+
+<p>Esse valor é passado no formato de centavos, sem separação dos decimais. Por exemplo, o valor 152,25 é passado como 15225, ficando por conta do App fazer o tratamento e formatação.</p>
+
+<p>Essa Intent será chamada em dois momentos:</p>
+
+<ul>
+  <li>
+    <p>Quando o seu app estiver marcado como padrão, e o snpap do Pinpad for conectado.</p>
+  </li>
+  <li>
+    <p>Quando o seu app estiver marcado como padrão, e uma transação for iniciada usando o App Cielo Vender (App padrão vendas da Cielo). Neste cenário o valor digitado no App Cielo Vender será passado como Intent Extra para o seu App.</p>
+  </li>
+</ul>
+
 <h2 id="recursos-indisponíveis">Recursos Indisponíveis</h2>
 
 <p>Ao personalizar o Android da Cielo LIO, foram removidos alguns recursos para garantir o desempenho e a segurança da plataforma.</p>
