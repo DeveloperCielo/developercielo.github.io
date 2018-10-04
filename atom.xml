@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-04T12:07:50+00:00</updated>
+    <updated>2018-10-04T12:20:29+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3015,11 +3015,19 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 
 &lt;h1 id=&quot;visão-geral-da-plataforma&quot;&gt;Visão Geral da Plataforma&lt;/h1&gt;
 
-&lt;h2 id=&quot;sobre&quot;&gt;Sobre&lt;/h2&gt;
+&lt;h3 id=&quot;cielo-lio&quot;&gt;Cielo LIO&lt;/h3&gt;
 
-&lt;p&gt;A Cielo LIO é plataforma que fornece controle e gestão de negócios que vai além de um sistema de pagamentos tradicional. Essa plataforma suporta aplicativos desenvolvidos para sistema Android, incentivando desenvolvedores parceiros a criar aplicativos especializados para diversos segmentos (restaurantes, vestuário, cosméticos, combustível e outros) e, assim, permitindo que estabelecimentos comerciais escolham o aplicativo que melhor se adapte ao modelo de negócio da empresa.&lt;/p&gt;
+&lt;p&gt;É uma plataforma aberta que fornece controle e gestão de negócios indo além de um sistema de pagamentos tradicional. Essa solução suporta aplicativos desenvolvidos para sistema Android, possibilitando que desenvolvedores parceiros possam criar aplicativos especializados para diversos segmentos e qualquer porte de cliente.&lt;/p&gt;
 
-&lt;p&gt;Quer conhecer mais sobre o produto Cielo LIO? Acesse: http://cielolio.com.br&lt;/p&gt;
+&lt;p&gt;A LIO conta com duas opções de hardware, com e sem impressão.&lt;/p&gt;
+
+&lt;h3 id=&quot;cielo-lio-1&quot;&gt;Cielo LIO+&lt;/h3&gt;
+
+&lt;p&gt;Solução 2 em 1,  a primeira do segmento a oferecer smartphone e maquininha de cartão em um único aparelho, com o objetivo de digitalizar o pequeno negócio.&lt;/p&gt;
+
+&lt;p&gt;A Cielo LIO+ oferece mobilidade e praticidade ao vendedor. Isso porque ela é 2 em 1: o mesmo equipamento opera como um smartphone, com todas as suas funções de voz e aplicativos, e uma maquininha de cartão que se conecta de maneira rápida e intuitiva ao celular com um simples snap (encaixe magnético que oferece uma conexão imediata entre o celular e o módulo de pagamento), diferente das soluções que exigem o pareamento via bluetooth, por exemplo.&lt;/p&gt;
+
+&lt;p&gt;Ambas contam com a Cielo Store, loja de aplicativos B2B disponível em todos as LIO´s, dando escala e distribuição para qualquer aplicativo integrado a ela.&lt;/p&gt;
 
 &lt;h2 id=&quot;modelos-disponíveis-da-cielo-lio&quot;&gt;Modelos disponíveis da Cielo LIO&lt;/h2&gt;
 
@@ -3041,7 +3049,7 @@ Papel Azul 48 gramas, Comprimento: 12 metros, Diâmetro máximo: 30 milímetros,
 
 &lt;h2 id=&quot;arquitetura&quot;&gt;Arquitetura&lt;/h2&gt;
 
-&lt;h3 id=&quot;sobre-1&quot;&gt;Sobre&lt;/h3&gt;
+&lt;h3 id=&quot;sobre&quot;&gt;Sobre&lt;/h3&gt;
 
 &lt;p&gt;A plataforma Cielo LIO é baseada em Android que consiste em:&lt;/p&gt;
 
@@ -3517,7 +3525,7 @@ Dessa forma, garante-se o funcionamento da aplicação no hardware da LIO V1 com
 
 &lt;h2 id=&quot;cielo-lio-order-manager-sdk&quot;&gt;Cielo Lio Order Manager SDK&lt;/h2&gt;
 
-&lt;h3 id=&quot;sobre-2&quot;&gt;Sobre&lt;/h3&gt;
+&lt;h3 id=&quot;sobre-1&quot;&gt;Sobre&lt;/h3&gt;
 
 &lt;p&gt;O Cielo LIO Order Manager SDK é uma biblioteca Android desenvolvida com base na Cielo LIO Order Manager API, encapsulando a complexidade da comunicação REST em uma API fluente e amigável ao desenvolvedor e permitindo uma integração simples, rápida e segura com a plataforma Cielo LIO.&lt;/p&gt;
 
@@ -6657,7 +6665,7 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;h1 id=&quot;cielo-store&quot;&gt;Cielo Store&lt;/h1&gt;
 
-&lt;h2 id=&quot;sobre-3&quot;&gt;Sobre&lt;/h2&gt;
+&lt;h2 id=&quot;sobre-2&quot;&gt;Sobre&lt;/h2&gt;
 
 &lt;p&gt;A Cielo Store é a loja de aplicativos da Cielo LIO.&lt;/p&gt;
 
@@ -6696,7 +6704,7 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;h2 id=&quot;dev-console&quot;&gt;Dev Console&lt;/h2&gt;
 
-&lt;h3 id=&quot;sobre-4&quot;&gt;Sobre&lt;/h3&gt;
+&lt;h3 id=&quot;sobre-3&quot;&gt;Sobre&lt;/h3&gt;
 
 &lt;p&gt;O Dev Console é o ambiente exclusivo para o desenvolvedor realizar o upload e gestão dos aplicativos desenvolvidos para a Cielo LIO.&lt;/p&gt;
 
