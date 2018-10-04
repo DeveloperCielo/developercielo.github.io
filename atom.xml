@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-04T12:20:29+00:00</updated>
+    <updated>2018-10-04T12:26:57+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3324,7 +3324,7 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 &lt;h3 id=&quot;utilização-e-usabilidade&quot;&gt;Utilização e Usabilidade&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Recomendamos aos desenvolvedores que integrem algum tipo de utilitário de relatório de falhas em seus produtos Android. Isso ajudará você a manter a consciência operacional do seu produto.&lt;/li&gt;
+  &lt;li&gt;Recomendamos aos desenvolvedores que integrem algum tipo de utilitário de relatório de falhas em seus produtos Android. Isso ajudará você a manter a consciência operacional do seu produto. Sugerimos a utilização do &lt;a href=&quot;http://try.crashlytics.com&quot;&gt;Crashlytics&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Os desenvolvedores podem coletar métricas sobre o uso do seu aplicativo. Isso irá ajudá-los a construir melhores produtos e aumentar a conscientização a respeito de quaisquer questões impactantes.&lt;/li&gt;
   &lt;li&gt;Garantir que o aplicativo funcione de forma otimizada, evitando que ocorram crash e demora na resposta por processamento da aplicação. Seu aplicativo será usado em condições de trabalho de ritmo rápido e dinâmico, portanto esforce-se para obter fluxos de trabalho claros, fáceis de usar e robustos, com o mínimo de passos possível.&lt;/li&gt;
   &lt;li&gt;O design deve enfatizar clareza e acessibilidade – alto contraste, fontes legíveis, texto grande e entradas.&lt;/li&gt;
