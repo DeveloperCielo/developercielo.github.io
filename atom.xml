@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-04T14:32:50+00:00</updated>
+    <updated>2018-10-04T14:39:25+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3054,11 +3054,11 @@ Papel Azul 48 gramas, Comprimento: 12 metros, Diâmetro máximo: 30 milímetros,
 &lt;p&gt;A plataforma Cielo LIO é baseada em Android que consiste em:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Uma loja de aplicativos (Cielo Store) para os desenvolvedores publicarem seus aplicativos e os disponibilizarem para os estabelecimentos comerciais (lojistas).&lt;/li&gt;
+  &lt;li&gt;Uma loja de aplicativos &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cielo-store&quot;&gt;Cielo Store&lt;/a&gt; para os desenvolvedores publicarem seus aplicativos e os disponibilizarem para os estabelecimentos comerciais (lojistas).&lt;/li&gt;
   &lt;li&gt;Uma plataforma com arquitetura em nuvem e APIs REST que permite a integração com sistemas de automação comercial de parceiros.
- Acesse Documentação da Integração Remota&lt;/li&gt;
+ Acesse Documentação da &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integra%C3%A7%C3%A3o-remota&quot;&gt;Integração Remota&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Um SDK para desenvolvimento em Android, de forma que aplicativos de parceiros possam se integrar com as funcionalidades de pagamento da Cielo LIO. 
-Acesse Documentação da Integração Local&lt;/li&gt;
+Acesse Documentação da &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integra%C3%A7%C3%A3o-local&quot;&gt;Integração Local&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;modelos-de-integração-com-a-plataforma-cielo-lio&quot;&gt;Modelos de integração com a plataforma Cielo LIO&lt;/h3&gt;
