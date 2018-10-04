@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-04T14:05:18+00:00</updated>
+    <updated>2018-10-04T14:16:30+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3353,19 +3353,13 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 
 &lt;h2 id=&quot;linguagem-de-programação&quot;&gt;Linguagem de Programação&lt;/h2&gt;
 
-&lt;p&gt;A Cielo LIO aceita aplicativos desenvolvidos em Java ou Kotlin.&lt;/p&gt;
+&lt;p&gt;A Cielo LIO aceita aplicativos desenvolvidos em Java ou Kotlin, como linguagens oficiais. As demais linguagens são permitidas, porém é de responsabilidade do desenvolvedor.&lt;/p&gt;
 
 &lt;p&gt;Recomendamos que essas linguagens sejam utilizadas para garantir o funcionamento e facilidade de integração com a Cielo LIO.&lt;/p&gt;
 
 &lt;h2 id=&quot;cielo-os&quot;&gt;Cielo OS&lt;/h2&gt;
 
 &lt;p&gt;O sistema operacional da plataforma Cielo LIO foi personalizado e, com isso, surgiu o Cielo OS, que é baseado em Android.&lt;/p&gt;
-
-&lt;p&gt;Na LIO V1, o sistema operacional é baseado no Android 5.1.1 (API Level 22) e disponibiliza a maioria das APIs presentes no framework do Android.&lt;/p&gt;
-
-&lt;p&gt;Na LIO V2, o sistema operacional é baseado no Android 6.0 (API Level 23) e disponibiliza a maioria das APIs presentes no framework do Android.&lt;/p&gt;
-
-&lt;p&gt;Caso queira consultar quais APIs estão disponíveis, acesse https://developer.android.com/reference/packages.html e selecione “API Level 22” ou “API Level 23” no canto esquerdo da tela, de acordo com sua preferência.&lt;/p&gt;
 
 &lt;h2 id=&quot;versão-target-da-aplicação&quot;&gt;Versão target da aplicação&lt;/h2&gt;
 
