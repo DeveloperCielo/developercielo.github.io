@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-04T13:57:58+00:00</updated>
+    <updated>2018-10-04T14:05:18+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3317,8 +3317,8 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 &lt;h3 id=&quot;recursos-de-imagem&quot;&gt;Recursos de imagem&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Os ícones dos aplicativos devem ser recursos do mipmap.&lt;/li&gt;
-  &lt;li&gt;Os ícones devem estar em conformidade com o dimensionamento padrão do Android (você pode usar geradores de ícones de terceiros para redimensionar seu logotipo): 192 × 192 (xxxhdpi).&lt;/li&gt;
+  &lt;li&gt;Os ícones devem estar em conformidade com o dimensionamento padrão do Android&lt;/li&gt;
+  &lt;li&gt;Seguir o &lt;a href=&quot;https://developer.android.com/guide/practices/ui_guidelines/icon_design&quot;&gt;Guideline do Android&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;utilização-e-usabilidade&quot;&gt;Utilização e Usabilidade&lt;/h3&gt;
