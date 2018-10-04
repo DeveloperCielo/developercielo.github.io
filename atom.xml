@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-04T14:39:25+00:00</updated>
+    <updated>2018-10-04T14:49:52+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3345,7 +3345,8 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 
 &lt;h2 id=&quot;ambiente-de-desenvolvimento&quot;&gt;Ambiente de Desenvolvimento&lt;/h2&gt;
 
-&lt;p&gt;É necessário que você utilize uma IDE (Integrated Development Environment) para desenvolvimento do seu aplicativo. A Cielo recomenda que seja utilizada a IDE do Android Studio (versão 2.2.2 ou superior), visando garantir o funcionamento do aplicativo na plataforma Cielo LIO.&lt;/p&gt;
+&lt;p&gt;A Cielo recomenda que seja utilizada a IDE do Android Studio (versão 2.2.2 ou superior), visando garantir o funcionamento do
+aplicativo na plataforma Cielo LIO.&lt;/p&gt;
 
 &lt;p&gt;Para mais detalhes sobre a instalação e configuração do Android Studio, &lt;a href=&quot;https://developer.android.com/index.html&quot;&gt;clique aqui&lt;/a&gt;&lt;/p&gt;
 
