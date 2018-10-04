@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-04T12:26:57+00:00</updated>
+    <updated>2018-10-04T13:57:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3369,8 +3369,7 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:&lt;/p&gt
 
 &lt;h2 id=&quot;versão-target-da-aplicação&quot;&gt;Versão target da aplicação&lt;/h2&gt;
 
-&lt;p&gt;Recomenda-se que o desenvolvedor utilize como versão target da aplicação o Android 5.1.1 (Lollipop).
-Dessa forma, garante-se o funcionamento da aplicação no hardware da LIO V1 como também no hardware da LIO V2.&lt;/p&gt;
+&lt;p&gt;Recomenda-se que o desenvolvedor utilize para a Cielo LIO+ o APK target version 27 e versão mínima 22 (essa última para garantir compatibilidade com as demais soluções V1 e V2).&lt;/p&gt;
 
 &lt;h2 id=&quot;recursos-indisponíveis&quot;&gt;Recursos Indisponíveis&lt;/h2&gt;
 
