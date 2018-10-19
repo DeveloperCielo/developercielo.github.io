@@ -413,7 +413,7 @@
       <td>Numérico [1 posição]1 – 3DS 1.02 – 3DS 2.0</td>
     </tr>
     <tr>
-      <td>ReferenceID</td>
+      <td>ReferenceId</td>
       <td>ID que representa a requisição de autenticação</td>
       <td>GUID [36 posições]</td>
     </tr>
@@ -524,7 +524,7 @@
     <tr>
       <td>bpmpi_cardexpirationyear</td>
       <td>Ano do vencimento do cartão</td>
-      <td>Numérico [2 posições]</td>
+      <td>Numérico [4 posições]</td>
       <td>Sim</td>
       <td>Sim</td>
     </tr>
@@ -655,7 +655,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>bpmpi_billTo_Name</td>
+      <td>bpmpi_shipTo_contactName</td>
       <td>Nome do contato do endereço de cobrança</td>
       <td>Alfanumérico [até 120]</td>
       <td>Não</td>
@@ -732,7 +732,7 @@
       <td>Sim</td>
     </tr>
     <tr>
-      <td>bpmpi_shipTo_name</td>
+      <td>bpmpi_shipTo_addressee</td>
       <td>Nome do contato do endereço de entrega</td>
       <td>Alfanumérico [até 60]</td>
       <td>Não</td>
@@ -741,7 +741,7 @@
     <tr>
       <td>bpmpi_shipTo_phoneNumber</td>
       <td>Telefone de contato do endereço de entrega</td>
-      <td>Alfanumérico [até 15 posições], no formato: 5511999999999</td>
+      <td>Numérico [até 15 posições], no formato: 5511999999999</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -783,7 +783,7 @@
     <tr>
       <td>bpmpi_shipto_zipcode</td>
       <td>CEP do endereço de entrega</td>
-      <td>Alfanumérico [até 10 posições], no formato: 99999999</td>
+      <td>Alfanumérico [8 posições], no formato: 99999999</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -909,7 +909,7 @@
     <tr>
       <td>bpmpi_useraccount_authenticationtimestamp</td>
       <td>A data e hora que o login foi efetuado na loja</td>
-      <td>Numérico [12 posições]<br />AAAAMMDDHHMM</td>
+      <td>Numérico [19 posições]<br /><em>YYYY-MM-ddTHH:mm:ss</em></td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -992,14 +992,14 @@
     </tr>
     <tr>
       <td>bpmpi_airline_passenger_#_name</td>
-      <td>Primeiro nome do passageiro</td>
+      <td>Nome do passageiro</td>
       <td>Alfanumérico [até 60 posições]</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_airline_passenger_#_ticketprice</td>
-      <td>O valor da passagem em centavos  Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 125</td>
+      <td>O valor da passagem em centavos  Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 12554</td>
       <td>Não</td>
       <td>Sim</td>
       <td> </td>
@@ -1157,7 +1157,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
        <span class="s2">"Xid"</span>:<span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span>,
        <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
        <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
-       <span class="s2">"RefereceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
+       <span class="s2">"RefereceId"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
      <span class="o">}</span>
    <span class="o">}</span>
 <span class="o">}</span>
@@ -1198,7 +1198,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       <td>Sim, quando a versão do 3DS for "2"</td>
     </tr>
     <tr>
-      <td>ReferenceID</td>
+      <td>ReferenceId</td>
       <td>RequestID retornado no processo de autenticação</td>
       <td>GUID [36 posições]</td>
       <td>Sim, quando a versão do 3DS for "2"</td>

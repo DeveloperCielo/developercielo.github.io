@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-04T14:49:52+00:00</updated>
+    <updated>2018-10-19T14:57:13+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -302,7 +302,7 @@
       &lt;td&gt;Numérico [1 posição]1 – 3DS 1.02 – 3DS 2.0&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;ReferenceID&lt;/td&gt;
+      &lt;td&gt;ReferenceId&lt;/td&gt;
       &lt;td&gt;ID que representa a requisição de autenticação&lt;/td&gt;
       &lt;td&gt;GUID [36 posições]&lt;/td&gt;
     &lt;/tr&gt;
@@ -413,7 +413,7 @@
     &lt;tr&gt;
       &lt;td&gt;bpmpi_cardexpirationyear&lt;/td&gt;
       &lt;td&gt;Ano do vencimento do cartão&lt;/td&gt;
-      &lt;td&gt;Numérico [2 posições]&lt;/td&gt;
+      &lt;td&gt;Numérico [4 posições]&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
@@ -544,7 +544,7 @@
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_billTo_Name&lt;/td&gt;
+      &lt;td&gt;bpmpi_shipTo_contactName&lt;/td&gt;
       &lt;td&gt;Nome do contato do endereço de cobrança&lt;/td&gt;
       &lt;td&gt;Alfanumérico [até 120]&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -621,7 +621,7 @@
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_shipTo_name&lt;/td&gt;
+      &lt;td&gt;bpmpi_shipTo_addressee&lt;/td&gt;
       &lt;td&gt;Nome do contato do endereço de entrega&lt;/td&gt;
       &lt;td&gt;Alfanumérico [até 60]&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -630,7 +630,7 @@
     &lt;tr&gt;
       &lt;td&gt;bpmpi_shipTo_phoneNumber&lt;/td&gt;
       &lt;td&gt;Telefone de contato do endereço de entrega&lt;/td&gt;
-      &lt;td&gt;Alfanumérico [até 15 posições], no formato: 5511999999999&lt;/td&gt;
+      &lt;td&gt;Numérico [até 15 posições], no formato: 5511999999999&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
@@ -672,7 +672,7 @@
     &lt;tr&gt;
       &lt;td&gt;bpmpi_shipto_zipcode&lt;/td&gt;
       &lt;td&gt;CEP do endereço de entrega&lt;/td&gt;
-      &lt;td&gt;Alfanumérico [até 10 posições], no formato: 99999999&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [8 posições], no formato: 99999999&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
@@ -798,7 +798,7 @@
     &lt;tr&gt;
       &lt;td&gt;bpmpi_useraccount_authenticationtimestamp&lt;/td&gt;
       &lt;td&gt;A data e hora que o login foi efetuado na loja&lt;/td&gt;
-      &lt;td&gt;Numérico [12 posições]&lt;br /&gt;AAAAMMDDHHMM&lt;/td&gt;
+      &lt;td&gt;Numérico [19 posições]&lt;br /&gt;&lt;em&gt;YYYY-MM-ddTHH:mm:ss&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
@@ -881,14 +881,14 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_airline_passenger_#_name&lt;/td&gt;
-      &lt;td&gt;Primeiro nome do passageiro&lt;/td&gt;
+      &lt;td&gt;Nome do passageiro&lt;/td&gt;
       &lt;td&gt;Alfanumérico [até 60 posições]&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_airline_passenger_#_ticketprice&lt;/td&gt;
-      &lt;td&gt;O valor da passagem em centavos  Numérico [até 15 posições],&lt;br /&gt;exemplo: R$ 125,54 = 125&lt;/td&gt;
+      &lt;td&gt;O valor da passagem em centavos  Numérico [até 15 posições],&lt;br /&gt;exemplo: R$ 125,54 = 12554&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -1046,7 +1046,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
        &lt;span class=&quot;s2&quot;&gt;&quot;Xid&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Uk5ZanBHcWw2RjRCbEN5dGtiMTB=&quot;&lt;/span&gt;,
        &lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;,
        &lt;span class=&quot;s2&quot;&gt;&quot;Version&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;RefereceID&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;a24a5d87-b1a1-4aef-a37b-2f30b91274e6&quot;&lt;/span&gt;
+       &lt;span class=&quot;s2&quot;&gt;&quot;RefereceId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;a24a5d87-b1a1-4aef-a37b-2f30b91274e6&quot;&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -1087,7 +1087,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;ReferenceID&lt;/td&gt;
+      &lt;td&gt;ReferenceId&lt;/td&gt;
       &lt;td&gt;RequestID retornado no processo de autenticação&lt;/td&gt;
       &lt;td&gt;GUID [36 posições]&lt;/td&gt;
       &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;
