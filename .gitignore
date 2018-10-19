@@ -6,3 +6,4 @@ Gemfile.lock
 node_modules
 assets/bundles
 tmp
+/.vs
