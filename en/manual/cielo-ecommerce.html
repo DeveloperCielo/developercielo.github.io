@@ -4037,55 +4037,54 @@ Below we specify any existing differences:</p>
         </span><span class="s2">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Assignor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa Teste"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Demonstrative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmonstrative Teste"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5/1/2015"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-31"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11884926754"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento, após essa data juros de 1% dia."</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span><span class="err">```</span><span class="w">
-
-</span><span class="err">```shell</span><span class="w">
-</span><span class="err">curl</span><span class="w">
-</span><span class="err">--request</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
-</span><span class="err">--data-binary</span><span class="w">
-</span><span class="p">{</span><span class="w">  
-    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">  
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador Teste Boleto"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Address"</span><span class="p">:</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenida Marechal Câmara"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sala 934"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"ZipCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"22750012"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"State"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">  
-        </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"INCLUIR PROVIDER"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Assignor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa Teste"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Demonstrative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmonstrative Teste"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5/1/2015"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11884926754"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento, após essa data juros de 1% dia."</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="err">--verbose</span><span class="w">
 </span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>  
+    <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111706"</span>,
+    <span class="s2">"Customer"</span>:
+    <span class="o">{</span>  
+        <span class="s2">"Name"</span>:<span class="s2">"Comprador Teste Boleto"</span>,
+        <span class="s2">"Identity"</span>: <span class="s2">"1234567890"</span>,
+        <span class="s2">"Address"</span>:
+        <span class="o">{</span>
+          <span class="s2">"Street"</span>: <span class="s2">"Avenida Marechal Câmara"</span>,
+          <span class="s2">"Number"</span>: <span class="s2">"160"</span>,
+          <span class="s2">"Complement"</span>: <span class="s2">"Sala 934"</span>,
+          <span class="s2">"ZipCode"</span> : <span class="s2">"22750012"</span>,
+          <span class="s2">"District"</span>: <span class="s2">"Centro"</span>,
+          <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
+          <span class="s2">"State"</span> : <span class="s2">"RJ"</span>,
+          <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>:
+    <span class="o">{</span>  
+        <span class="s2">"Type"</span>:<span class="s2">"Boleto"</span>,
+        <span class="s2">"Amount"</span>:15700,
+        <span class="s2">"Provider"</span>:<span class="s2">"INCLUIR PROVIDER"</span>,
+        <span class="s2">"Address"</span>: <span class="s2">"Rua Teste"</span>,
+        <span class="s2">"BoletoNumber"</span>: <span class="s2">"123"</span>,
+        <span class="s2">"Assignor"</span>: <span class="s2">"Empresa Teste"</span>,
+        <span class="s2">"Demonstrative"</span>: <span class="s2">"Desmonstrative Teste"</span>,
+        <span class="s2">"ExpirationDate"</span>: <span class="s2">"2020-12-31"</span>,
+        <span class="s2">"Identification"</span>: <span class="s2">"11884926754"</span>,
+        <span class="s2">"Instructions"</span>: <span class="s2">"Aceitar somente até a data de vencimento, após essa data juros de 1% dia."</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
 
 <table>
   <thead>
@@ -4483,29 +4482,29 @@ Below we specify any existing differences:</p>
       <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
       <td>NOTE 4</td>
       <td>70</td>
-      <td>See comment</td>
+      <td>NOTE 3 / See comment</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
       <td>NOTE 4</td>
       <td>10</td>
-      <td>See comment</td>
+      <td>NOTE 3 / See comment</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
       <td>NOTE 4</td>
       <td>20</td>
-      <td>See comment</td>
+      <td>NOTE 3 / See comment</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.District</code></td>
       <td>NOTE 4</td>
       <td>50</td>
-      <td>See comment</td>
+      <td>NOTE 3 / See comment</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.City</code></td>
-      <td> </td>
+      <td>N/A</td>
       <td>50 - NOTE 4</td>
       <td>18 - NOTE 3</td>
     </tr>
