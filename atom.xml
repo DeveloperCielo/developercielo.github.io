@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-25T18:14:34+00:00</updated>
+    <updated>2018-10-25T20:17:36+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -17898,7 +17898,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BoletoNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Assignor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Empresa Teste&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Demonstrative&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Desmonstrative Teste&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5/1/2015&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2020-12-31&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Identification&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;11884926754&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Instructions&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Aceitar somente até a data de vencimento, após essa data juros de 1% dia.&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -17939,7 +17939,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
         &lt;span class=&quot;s2&quot;&gt;&quot;BoletoNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;Assignor&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Empresa Teste&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;Demonstrative&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Desmonstrative Teste&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;5/1/2015&quot;&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2020-12-31&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;Identification&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;11884926754&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;Instructions&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Aceitar somente até a data de vencimento, após essa data juros de 1% dia.&quot;&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -18100,7 +18100,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ExpirationDate&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Data de expiração do Boleto.&lt;/td&gt;
+      &lt;td&gt;Data de expiração do Boleto. Ex. 2020-12-31&lt;/td&gt;
       &lt;td&gt;Date&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -18343,29 +18343,29 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Street&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;OBS 4&lt;/td&gt;
       &lt;td&gt;70&lt;/td&gt;
-      &lt;td&gt;Ver comentário&lt;/td&gt;
+      &lt;td&gt;OBS 3 / Ver comentário&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Number&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;OBS 4&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Ver comentário&lt;/td&gt;
+      &lt;td&gt;OBS 3 / Ver comentário&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.Complement&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;OBS 4&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
-      &lt;td&gt;Ver comentário&lt;/td&gt;
+      &lt;td&gt;OBS 3 / Ver comentário&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.District&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;OBS 4&lt;/td&gt;
       &lt;td&gt;50&lt;/td&gt;
-      &lt;td&gt;Ver comentário&lt;/td&gt;
+      &lt;td&gt;OBS 3 / Ver comentário&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.City&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
       &lt;td&gt;50 - OBS 4&lt;/td&gt;
       &lt;td&gt;18 - OBS 3&lt;/td&gt;
     &lt;/tr&gt;
@@ -18404,7 +18404,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;OBS 2:&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;O valor é persistido no banco&lt;/td&gt;
+      &lt;td&gt;O dado é validado pelo banco&lt;/td&gt;
       &lt;td&gt;Quando enviado acima de 9 posições, a API Cielo trunca automaticamente, considerando os últimos 9 dígitos&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -18414,7 +18414,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;OBS 4:&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;O valor é persistido na API Cielo&lt;/td&gt;
+      &lt;td&gt;O dado é validado pela API Cielo&lt;/td&gt;
       &lt;td&gt;N/A&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;

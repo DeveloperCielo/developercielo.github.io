@@ -2778,7 +2778,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
         </span><span class="s2">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Assignor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa Teste"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Demonstrative"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Desmonstrative Teste"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5/1/2015"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-12-31"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11884926754"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Aceitar somente até a data de vencimento, após essa data juros de 1% dia."</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2819,7 +2819,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
         <span class="s2">"BoletoNumber"</span>: <span class="s2">"123"</span>,
         <span class="s2">"Assignor"</span>: <span class="s2">"Empresa Teste"</span>,
         <span class="s2">"Demonstrative"</span>: <span class="s2">"Desmonstrative Teste"</span>,
-        <span class="s2">"ExpirationDate"</span>: <span class="s2">"5/1/2015"</span>,
+        <span class="s2">"ExpirationDate"</span>: <span class="s2">"2020-12-31"</span>,
         <span class="s2">"Identification"</span>: <span class="s2">"11884926754"</span>,
         <span class="s2">"Instructions"</span>: <span class="s2">"Aceitar somente até a data de vencimento, após essa data juros de 1% dia."</span>
     <span class="o">}</span>
@@ -2980,7 +2980,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ExpirationDate</code></td>
-      <td>Data de expiração do Boleto.</td>
+      <td>Data de expiração do Boleto. Ex. 2020-12-31</td>
       <td>Date</td>
       <td>10</td>
       <td>Não</td>
@@ -3223,29 +3223,29 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
       <td>OBS 4</td>
       <td>70</td>
-      <td>Ver comentário</td>
+      <td>OBS 3 / Ver comentário</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
       <td>OBS 4</td>
       <td>10</td>
-      <td>Ver comentário</td>
+      <td>OBS 3 / Ver comentário</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
       <td>OBS 4</td>
       <td>20</td>
-      <td>Ver comentário</td>
+      <td>OBS 3 / Ver comentário</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.District</code></td>
       <td>OBS 4</td>
       <td>50</td>
-      <td>Ver comentário</td>
+      <td>OBS 3 / Ver comentário</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.City</code></td>
-      <td> </td>
+      <td>N/A</td>
       <td>50 - OBS 4</td>
       <td>18 - OBS 3</td>
     </tr>
@@ -3284,7 +3284,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
     </tr>
     <tr>
       <td><strong>OBS 2:</strong></td>
-      <td>O valor é persistido no banco</td>
+      <td>O dado é validado pelo banco</td>
       <td>Quando enviado acima de 9 posições, a API Cielo trunca automaticamente, considerando os últimos 9 dígitos</td>
     </tr>
     <tr>
@@ -3294,7 +3294,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
     </tr>
     <tr>
       <td><strong>OBS 4:</strong></td>
-      <td>O valor é persistido na API Cielo</td>
+      <td>O dado é validado pela API Cielo</td>
       <td>N/A</td>
     </tr>
   </tbody>
