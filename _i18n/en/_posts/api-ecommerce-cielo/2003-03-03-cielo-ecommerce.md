@@ -2067,12 +2067,12 @@ For all text fields, including the instructions field and the ones related with 
         "BoletoNumber": "123",
         "Assignor": "Empresa Teste",
         "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "5/1/2015",
+        "ExpirationDate": "2020-12-31",
         "Identification": "11884926754",
         "Instructions": "Aceitar somente até a data de vencimento, após essa data juros de 1% dia."
     }
 }
-```
+```
 
 ```shell
 curl
@@ -2109,7 +2109,7 @@ curl
         "BoletoNumber": "123",
         "Assignor": "Empresa Teste",
         "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "5/1/2015",
+        "ExpirationDate": "2020-12-31",
         "Identification": "11884926754",
         "Instructions": "Aceitar somente até a data de vencimento, após essa data juros de 1% dia."
     }
@@ -2257,11 +2257,11 @@ Number of characters per field and Provider:
 |`MerchantOrderId`|NOTE 1|27|50|
 |`Payment.BoletoNumber`|NOTE 2|11|9|
 |`Customer.Name`|NOTE 3|34|60|
-|`Customer.Address.Street`|NOTE 4|70|See comment|
-|`Customer.Address.Number`|NOTE 4|10|See comment|
-|`Customer.Address.Complement`|NOTE 4|20|See comment|
-|`Customer.Address.District`|NOTE 4|50|See comment|
-|`Customer.Address.City`||50 - NOTE 4|18 - NOTE 3|
+|`Customer.Address.Street`|NOTE 4|70|NOTE 3 / See comment|
+|`Customer.Address.Number`|NOTE 4|10|NOTE 3 / See comment|
+|`Customer.Address.Complement`|NOTE 4|20|NOTE 3 / See comment|
+|`Customer.Address.District`|NOTE 4|50|NOTE 3 / See comment|
+|`Customer.Address.City`|N/A|50 - NOTE 4|18 - NOTE 3|
 |`Payment.Instructions`|N/A|450|450|
 |`Payment.Demonstrative`|N/A|255|Not sent to banco do Brasil|
 
