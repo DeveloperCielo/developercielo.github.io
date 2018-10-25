@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-10-19T14:57:13+00:00</updated>
+    <updated>2018-10-25T18:14:34+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26471,7 +26471,7 @@ O Submergível pode usar a consulta bins no carrinho para alertar compradores in
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BIN&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;6 primeiros dígitos do cartão&lt;/td&gt;
+      &lt;td&gt;6 primeiros dígitos do cartão&lt;br /&gt;&lt;em&gt;Para simular uma consulta em SandBox com retorno &lt;code class=&quot;highlighter-rouge&quot;&gt;ForeignCard=false&lt;/code&gt;, o terceiro dígito do BIN deve ser 1, e o quinto dígito deve ser diferente de 2 e 3.&lt;br /&gt;Exemplos:001040, 501010, 401050&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;

@@ -10696,6 +10696,98 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
+<h1 id="bin-checker">BIN Checker</h1>
+
+<p>The BIN Checker makes it possible to verify your customers payment information. 
+The following data will be returned about the card:</p>
+
+<ul>
+  <li><strong>Card Brand</strong></li>
+  <li><strong>Card Type:</strong>Credit, Debit or Multiple (Credit and Debit)</li>
+  <li><strong>Card Nationality:</strong> Foreign or national (Brazil)</li>
+</ul>
+
+<p>This information makes it possible to take some actions on the checkout and increase the conversion rate.</p>
+
+<aside class="warning">BIN Check must be enabled by Cielo Support Team. Contact them to enable the service.</aside>
+
+<h2 id="integration">Integration</h2>
+
+<h3 id="request-30">Request</h3>
+
+<p>A <code class="highlighter-rouge">GET</code> request must be sent containing the BIN to be checked:</p>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">BIN</code></td>
+      <td>First 6 digits of the payment card<br /><em>To simulate the request obtaining <code class="highlighter-rouge">ForeignCard=false</code> result, the third digit must be 1 and the fifth must not be 2 or 3.<br />Examples:001040, 501010, 401050</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https</span><span class="p">:</span><span class="err">//apiquerysandbox.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/cardBin/</span><span class="mi">420020</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="response-33">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Text</td>
+      <td>2</td>
+      <td>BIN Check status response: <br /> 00 – Analysis authorized <br /> 01 – Brand not supported<br /> 02 – Card not supported for BIN Check<br /> 73 – Blocked Affiliation</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Provider</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Card Brand</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CardType</code></td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Card Type : <br /> Credit <br /> Debit <br />Multiple</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ForeingCard</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>If card was issued abroad (False/True)</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>NOTE</strong>: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. To check valid resultson BIN Check, production environment must be used.</p>
+</blockquote>
+
 <h1 id="wallet">Wallet</h1>
 
 <h2 id="what-are-wallets">What are Wallets</h2>
@@ -10881,7 +10973,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   </tbody>
 </table>
 
-<h3 id="response-33">Response</h3>
+<h3 id="response-34">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -11254,7 +11346,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   </tbody>
 </table>
 
-<h3 id="response-34">Response</h3>
+<h3 id="response-35">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -11450,7 +11542,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
 <p>To use Masterpass it is necessary to contact directly with the Mastercard site: https://masterpass.com/pt-br/ e solicitar as credenciais.
 More information and complete integration, you can find in the link: https://developer.mastercard.com/product/masterpass “</p>
 
-<h3 id="request-30">Request</h3>
+<h3 id="request-31">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11624,7 +11716,7 @@ More information and complete integration, you can find in the link: https://dev
   </tbody>
 </table>
 
-<h3 id="response-35">Response</h3>
+<h3 id="response-36">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
