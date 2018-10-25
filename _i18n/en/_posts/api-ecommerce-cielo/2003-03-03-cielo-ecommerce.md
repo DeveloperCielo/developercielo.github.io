@@ -5577,6 +5577,55 @@ curl
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
 
+# BIN Checker
+
+The BIN Checker makes it possible to verify your customers payment information. 
+The following data will be returned about the card:
+
+* **Card Brand**
+* **Card Type:**Credit, Debit or Multiple (Credit and Debit)
+* **Card Nationality:** Foreign or national (Brazil)
+
+This information makes it possible to take some actions on the checkout and increase the conversion rate.
+
+<aside class="warning">BIN Check must be enabled by Cielo Support Team. Contact them to enable the service.</aside>
+
+## Integration
+
+### Request
+
+A `GET` request must be sent containing the BIN to be checked:
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
+
+|Field|Description|
+|-----|---------|
+|`BIN`|First 6 digits of the payment card<br>_To simulate the request obtaining `ForeignCard=false` result, the third digit must be 1 and the fifth must not be 2 or 3.<br>Examples:001040, 501010, 401050_ |
+
+``` json
+https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
+```
+
+### Response
+
+``` json
+{
+"Status": "00",
+"Provider": "Visa",
+"CardType": "Credit",
+"ForeignCard": "true"
+}
+```
+
+| Parameter     | Type  | Size | Description                                                                                                                                                                                  |
+|---------------|-------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Status`      | Text | 2       | BIN Check status response: <br><br> 00 – Analysis authorized <br> 01 – Brand not supported<br> 02 – Card not supported for BIN Check<br> 73 – Blocked Affiliation					      |
+| `Provider`    | Text | 255     | Card Brand                                                                                                                                                                                 |
+| `CardType`    | Text | 20      | Card Type : <br><br> Credit <br> Debit <br>Multiple                                                                                                                                        |
+| `ForeingCard` | Text | 255     | If card was issued abroad (False/True)                                                                                                                                             |
+
+> **NOTE**: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. To check valid resultson BIN Check, production environment must be used.
+
 # Wallet
 
 ## What are Wallets
