@@ -5617,12 +5617,12 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 }
 ```
 
-| Parameter     | Type  | Size | Description                                                                                                                                                                                  |
-|---------------|-------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Status`      | Text | 2       | BIN Check status response: <br><br> 00 – Analysis authorized <br> 01 – Brand not supported<br> 02 – Card not supported for BIN Check<br> 73 – Blocked Affiliation					      |
-| `Provider`    | Text | 255     | Card Brand                                                                                                                                                                                 |
-| `CardType`    | Text | 20      | Card Type : <br><br> Credit <br> Debit <br>Multiple                                                                                                                                        |
-| `ForeingCard` | Text | 255     | If card was issued abroad (False/True)                                                                                                                                             |
+| Parameter     | Type  | Size | Description                                                                                                                                                       |
+|---------------|-------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Status`      | Text  | 2    | BIN Check status response: <br><br> 00 – Analysis authorized <br> 01 – Brand not supported<br> 02 – Card not supported for BIN Check<br> 73 – Blocked Affiliation |
+| `Provider`    | Text  | 255  | Card Brand                                                                                                                                                        |
+| `CardType`    | Text  | 20   | Card Type : <br><br> Credit <br> Debit <br>Multiple                                                                                                               |
+| `ForeingCard` | Text  | 255  | If card was issued abroad (False/True)                                                                                                                            |
 
 > **NOTE**: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. To check valid resultson BIN Check, production environment must be used.
 
