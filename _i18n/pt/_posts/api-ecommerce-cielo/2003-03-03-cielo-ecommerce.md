@@ -1414,7 +1414,7 @@ Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST co
         "BoletoNumber": "123",
         "Assignor": "Empresa Teste",
         "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "5/1/2015",
+        "ExpirationDate": "2020-12-31",
         "Identification": "11884926754",
         "Instructions": "Aceitar somente até a data de vencimento, após essa data juros de 1% dia."
     }
@@ -1456,7 +1456,7 @@ curl
         "BoletoNumber": "123",
         "Assignor": "Empresa Teste",
         "Demonstrative": "Desmonstrative Teste",
-        "ExpirationDate": "5/1/2015",
+        "ExpirationDate": "2020-12-31",
         "Identification": "11884926754",
         "Instructions": "Aceitar somente até a data de vencimento, após essa data juros de 1% dia."
     }
@@ -1486,7 +1486,7 @@ curl
 |`Payment.BoletoNumber`|Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos ("NossoNumero").|Texto|50|Não|
 |`Payment.Assignor`|Nome do Cedente.|Texto|200|Não|
 |`Payment.Demonstrative`|Texto de Demonstrativo.|Texto|255|Não|
-|`Payment.ExpirationDate`|Data de expiração do Boleto.|Date|10|Não|
+|`Payment.ExpirationDate`|Data de expiração do Boleto. Ex. 2020-12-31 |Date|10|Não|
 |`Payment.Identification`|Documento de identificação do Cedente.|Texto|14|Não|
 |`Payment.Instructions`|Instruções do Boleto.|Texto|255|Não|
 
@@ -1604,11 +1604,11 @@ Quantidade de caracteres por campo e Provider:
 |`MerchantOrderId`|OBS 1|27|50|
 |`Payment.BoletoNumber`|OBS 2|11|9|
 |`Customer.Name`|OBS 3|34|60|
-|`Customer.Address.Street`|OBS 4|70|Ver comentário|
-|`Customer.Address.Number`|OBS 4|10|Ver comentário|
-|`Customer.Address.Complement`|OBS 4|20|Ver comentário|
-|`Customer.Address.District`|OBS 4|50|Ver comentário|
-|`Customer.Address.City`||50 - OBS 4|18 - OBS 3|
+|`Customer.Address.Street`|OBS 4|70|OBS 3 / Ver comentário|
+|`Customer.Address.Number`|OBS 4|10|OBS 3 / Ver comentário|
+|`Customer.Address.Complement`|OBS 4|20|OBS 3 / Ver comentário|
+|`Customer.Address.District`|OBS 4|50|OBS 3 / Ver comentário|
+|`Customer.Address.City`|N/A|50 - OBS 4|18 - OBS 3|
 |`Payment.Instructions`|N/A|255|255|
 |`Payment.Demonstrative`|N/A|255|Não é enviado ao banco do Brasil|
 
@@ -1617,9 +1617,9 @@ Quantidade de caracteres por campo e Provider:
 |Observações|Bradesco|Banco do Brasil|
 |---|---|---|
 |**OBS 1:**|Apenas Letras, números e caracteres como "_" e "$"|Não é enviado ao banco|
-|**OBS 2:**|O valor é persistido no banco|Quando enviado acima de 9 posições, a API Cielo trunca automaticamente, considerando os últimos 9 dígitos|
+|**OBS 2:**|O dado é validado pelo banco|Quando enviado acima de 9 posições, a API Cielo trunca automaticamente, considerando os últimos 9 dígitos|
 |**OBS 3:**|A API Cielo trunca automaticamente|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras|
-|**OBS 4:**|O valor é persistido na API Cielo|N/A|
+|**OBS 4:**|O dado é validado pela API Cielo|N/A|
 
 <aside class="warning">O Cancelamento de transações de boleto ocorrem apenas via Backoffice. Não há cancelamento via API disponivel.</aside>
 
