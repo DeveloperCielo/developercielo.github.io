@@ -5207,8 +5207,12 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"201411173454307"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">  
       </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito AF"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Mobile"</span><span class="p">:</span><span class="s2">"5521995760078"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Phone"</span><span class="p">:</span><span class="s2">"552125553669"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Address"</span><span class="p">:{</span><span class="w">  
          </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
@@ -5216,7 +5220,8 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
          </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="w">
+         </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"DeliveryAddress"</span><span class="p">:{</span><span class="w">  
          </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
@@ -5225,7 +5230,18 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
          </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="w">
+         </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"BillingAddress"</span><span class="p">:{</span><span class="w">
+         </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">  
@@ -5235,20 +5251,24 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
      </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
          </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4024007197692931"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste accept"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"023"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="w">
      </span><span class="p">},</span><span class="w">
      </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
        </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"CaptureOnLowRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"VoidOnHighRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"TotalOrderAmount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
        </span><span class="s2">"FingerPrintId"</span><span class="p">:</span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Browser"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"CookiesAccepted"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -5350,8 +5370,22 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td><code class="highlighter-rouge">Customer.Name</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Nome do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+      <td>Número do RG, CPF ou CNPJ do Cliente.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Texto</td>
+      <td>24</td>
+      <td>Não</td>
+      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ).</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Status</code></td>
@@ -5372,26 +5406,26 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Date</td>
       <td>10</td>
       <td>Não</td>
-      <td>Data de nascimento do Comprador.</td>
+      <td>Data de nascimento do Comprador no formato AAAA-MM-DD.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
       <td>Texto</td>
-      <td>255</td>
+      <td>54</td>
       <td>Não</td>
       <td>Endereço do Comprador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
       <td>Texto</td>
-      <td>15</td>
+      <td>5</td>
       <td>Não</td>
       <td>Número do endereço do Comprador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
       <td>Texto</td>
-      <td>50</td>
+      <td>14</td>
       <td>Não</td>
       <td>Complemento do endereço do Comprador.</td>
     </tr>
@@ -5419,28 +5453,35 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
       <td>Texto</td>
-      <td>35</td>
+      <td>2</td>
       <td>Não</td>
       <td>Pais do endereço do Comprador.</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td>Texto</td>
+      <td>45</td>
+      <td>Não</td>
+      <td>Bairro do Comprador.</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
       <td>Texto</td>
-      <td>255</td>
-      <td>sim</td>
+      <td>54</td>
+      <td>Não</td>
       <td>Endereço do Comprador.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
       <td>Texto</td>
-      <td>15</td>
+      <td>5</td>
       <td>Não</td>
       <td>Número do endereço do Comprador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
       <td>Texto</td>
-      <td>50</td>
+      <td>14</td>
       <td>Não</td>
       <td>Complemento do endereço do Comprador.</td>
     </tr>
@@ -5468,9 +5509,79 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
     <tr>
       <td><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
       <td>Texto</td>
-      <td>35</td>
+      <td>2</td>
       <td>Não</td>
       <td>Pais do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td>Texto</td>
+      <td>45</td>
+      <td>Não</td>
+      <td>Bairro do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Street</code></td>
+      <td>Texto</td>
+      <td>54</td>
+      <td>Não</td>
+      <td>Endereço de cobrança do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Number</code></td>
+      <td>Texto</td>
+      <td>5</td>
+      <td>Não</td>
+      <td>Número do endereço de cobrança do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Complement</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+      <td>Complemento do endereço de cobrança do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não</td>
+      <td>CEP do endereço de cobrança do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.City</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Cidade do endereço de cobrança do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Estado do endereço de cobrança do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Country</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Pais do endereço de cobrança do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.District</code></td>
+      <td>Texto</td>
+      <td>45</td>
+      <td>Não</td>
+      <td>Bairro do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>—</td>
+      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
@@ -5491,7 +5602,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Texto</td>
       <td>3</td>
       <td>Não</td>
-      <td>Moeda na qual o pagamento será feito (BRL).</td>
+      <td>Moeda na qual o pagamento será feito (BRL / USD / MXN / COP / CLP / ARS / PEN / EUR / PYN / UYU / VEB / VEF / GBP)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Country</code></td>
@@ -5501,18 +5612,11 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Pais na qual o pagamento será feito.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Provider</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>—</td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
-    </tr>
-    <tr>
       <td><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
       <td>Número</td>
       <td>15</td>
-      <td>Não</td>
-      <td>Veja Anexo</td>
+      <td>Sim</td>
+      <td>Montante do valor da autorização que deve ser destinado à taxa de serviço. Veja Anexo</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Installments</code></td>
@@ -5543,9 +5647,16 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão (Default false)</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Não</td>
+      <td>Texto que será impresso na fatura do portador</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
       <td>Texto</td>
-      <td>19</td>
+      <td>16</td>
       <td>Sim</td>
       <td>Número do Cartão do Comprador.</td>
     </tr>
@@ -5553,7 +5664,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
       <td>Texto</td>
       <td>25</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Nome do Comprador impresso no cartão.</td>
     </tr>
     <tr>
@@ -5567,7 +5678,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
       <td>Texto</td>
       <td>4</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
     </tr>
     <tr>
@@ -5585,38 +5696,66 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não (Default false)</td>
+      <td>Booleano que identifica se o cartão será salvo para gerar o token (CardToken)</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code></td>
       <td>Texto</td>
       <td>14</td>
-      <td>Não</td>
-      <td>Tipo de Fluxo para realização da análise de fraude. Padrão: AuthorizeFirst</td>
+      <td>Sim</td>
+      <td>Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code></td>
       <td>Texto</td>
       <td>9</td>
+      <td>Sim</td>
+      <td>Critério do fluxo. <strong>OnSuccess</strong> - Só realiza a análise se tiver sucesso na transação. <strong>Always</strong> - Sempre realiza a análise</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code></td>
+      <td>Booleano</td>
+      <td>—</td>
       <td>Não</td>
-      <td>Critério do fluxo. Padrão: OnSuccess - Só realiza a analise se tiver sucesso na transação/analise.</td>
+      <td>Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro “Capture”. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente “AuthorizeFirst”. Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente “AuthorizeFirst”. Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.TotalOrderAmount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor total do pedido.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.FingerPrintId</code></td>
       <td>Texto</td>
       <td>50</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Browser.CookiesAccepted</code></td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Booleano para identificar se o browser do cliente aceita cookies.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Browser.Email</code></td>
       <td>Texto</td>
       <td>100</td>
-      <td>Sim</td>
+      <td>Não</td>
       <td>E-mail registrado no browser do comprador.</td>
     </tr>
     <tr>
@@ -5630,7 +5769,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td><code class="highlighter-rouge">FraudAnalysis.Browser.IpAddress</code></td>
       <td>Texto</td>
       <td>15</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Endereço IP do comprador. É altamente recomendável o envio deste campo.</td>
     </tr>
     <tr>
@@ -5659,62 +5798,62 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Texto</td>
       <td>9</td>
       <td>Não</td>
-      <td>Campo que avaliará os endereços de cobrança e entrega para difrentes cidades, estados ou países.fraudanalysis.items.giftcategory)</td>
+      <td>Campo que avaliará os endereços de cobrança e entrega para diferentes cidades, estados ou países.<br /><em>“Yes”</em>(Em caso de divergência entre endereços de cobrança e entrega, marca como risco pequeno)<br /><em>“No”</em>(Em caso de divergência entre endereços de cobrança e entrega, marca com risco alto)<br /><em>“Off”</em>(Ignora a análise de risco para endereços divergentes)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.HostHedge</code></td>
       <td>Texto</td>
       <td>—</td>
       <td>Não</td>
-      <td>Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação.</td>
+      <td>Nível de importância do e-mail e endereços IP dos clientes em risco de pontuação.<br /><em>“Low”</em>(Baixa importância do e-mail e endereço IP na análise de risco)<br /><em>“Normal”</em>(Média importância do e-mail e endereço IP na análise de risco)<br /><em>“High”</em>(Alta importância do e-mail e endereço IP na análise de risco)<br /><em>“Off”</em>(E-mail e endereço IP não afetam a análise de risco)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido.</td>
+      <td>Nível dos testes realizados sobre os dados do comprador com pedidos recebidos sem sentido.<br /><em>“Low”</em>(Baixa importância da verificação feita sobre o pedido do comprador, na análise de risco)<br /><em>“Normal”</em>(Média importância da verificação feita sobre o pedido do comprador, na análise de risco)<br /><em>“High”</em>(Alta importância da verificação feita sobre o pedido do comprador, na análise de risco)<br /><em>“Off”</em>(Verificação do pedido do comprador não afeta a análise de risco)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível de obscenidade dos pedidos recebedidos.</td>
+      <td>Nível de obscenidade dos pedidos recebedidos.<br /><em>“Low”</em>(Baixa importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<br /><em>“Normal”</em>(Média importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<br /><em>“High”</em>(Alta importância da verificação sobre obscenidades do pedido do comprador, na análise de risco)<br /><em>“Off”</em>(Verificação de obscenidade no pedido do comprador não afeta a análise de risco)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.PhoneHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível dos testes realizados com os números de telefones.</td>
+      <td>Nível dos testes realizados com os números de telefones.<br /><em>“Low”</em>(Baixa importância nos testes realizados com números de telefone)<br /><em>“Normal”</em>(Média importância nos testes realizados com números de telefone)<br /><em>“High”</em>(Alta importância nos testes realizados com números de telefone)<br /><em>“Off”</em>(Testes de números de telefone não afetam a análise de risco)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Name</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Nome do Produto.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Quantity</code></td>
       <td>Número</td>
       <td>15</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Quantidade do produto a ser adquirido.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Sku</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Código comerciante identificador do produto.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.UnitPrice</code></td>
       <td>Número</td>
       <td>15</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Preço unitário do produto.</td>
     </tr>
     <tr>
@@ -5722,28 +5861,28 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível do risco do produto.</td>
+      <td>Nível do risco do produto.<br />Low (O produto tem um histórico de poucos chargebacks)<br />Normal (O produto tem um histórico de chargebacks considerado normal)<br />High (O produto tem um histórico de chargebacks acima da média)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.TimeHedge</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Nível de importância da hora do dia do pedido do cliente.</td>
+      <td>Nível de importância da hora do dia do pedido do cliente.<br />Low (Baixa importância no horário do dia em que foi feita a compra, para a análise de risco)<br />Normal (Média importância no horário do dia em que foi feita a compra, para a análise de risco)<br />High (Alta importância no horário do dia em que foi feita a compra, para a análise de risco)<br />Off (O horário da compra não afeta a análise de risco)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Type</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo do produto.)</td>
+      <td>Tipo do produto.<br />AdultContent(Conteúdo adulto)<br />Coupon(Cupon de desconto)<br />Default(Opção padrão para análise na CyberSource quando nenhum outro valor é selecionado)<br />EletronicGood(Produto eletrônico)<br />EletronicSoftware(Softwares distribuídos eletronicamente via download)<br />GiftCertificate(Vale presente)<br />HandlingOnly(Taxa de instalação ou manuseio)<br />Service(Serviço)<br />ShippingAndHandling(Frete e taxa de instalação ou manuseio)<br />ShippingOnly(Frete)<br />Subscription(Assinatura)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.VelocityHedge</code></td>
       <td>Texto</td>
       <td>6</td>
       <td>Não</td>
-      <td>Nível de importância de frequência de compra do cliente.</td>
+      <td>Nível de importância de frequência de compra do cliente.<br />Low (Baixa importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<br />Normal (Média importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<br />High (Alta importância no número de compras realizadas pelo cliente nos últimos 15 minutos)<br />Off (A frequência de compras realizadas pelo cliente não afeta a análise de fraude)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Email</code></td>
@@ -5771,14 +5910,14 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Classificação do Passageiro.</td>
+      <td>Classificação do Passageiro.<br />Valores do Campo:<br />“Adult” (Passageiro adulto)<br />“Child”(Passageiro criança)<br />“Infant”(Passageiro infantil)<br />“Youth”(Passageiro adolescente)<br />“Student”(Passageiro estudante)<br />“SeniorCitizen“(Passageiro idoso)<br />“Military“(Passageiro militar)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Phone</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Não</td>
-      <td>Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país.</td>
+      <td>Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país. 552133665599 (Ex. Código do Pais 55, Código da Cidade 21, Telefone 33665599)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Status</code></td>
@@ -5791,14 +5930,14 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td><code class="highlighter-rouge">FraudAnalysis.MerchantDefinedFields.Id</code></td>
       <td>Texto</td>
       <td>—</td>
-      <td>Não</td>
+      <td>Sim (se aplicável)</td>
       <td>Id das informações adicionais a serem enviadas.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.MerchantDefinedFields.Value</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
+      <td>Sim (se aplicável)</td>
       <td>Valor das informações adicionais a serem enviadas.</td>
     </tr>
     <tr>
@@ -5813,49 +5952,84 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
-      <td>Tipo de serviço de entrega do produto.</td>
+      <td>Tipo de serviço de entrega do produto.<br />“SameDay” (Serviço de entrega no mesmo dia)<br />“OneDay” (Serviço de entrega noturna ou no dia seguinte)<br />“TwoDay” (Serviço de entrega em dois dias)<br />“ThreeDay” (Serviço de entrega em três dias)<br />“LowCost” (Serviço de entrega de baixo custo)<br />“Pickup” (Produto retirado na loja)<br />“Other” (Outro método de entrega)<br />“None” (Sem serviço de entrega, pois é um serviço ou assinatura)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Shipping.Phone</code></td>
       <td>Texto</td>
       <td>15</td>
       <td>Não</td>
-      <td>Telefone do destinatário da entrega.</td>
+      <td>Telefone do destinatário da entrega. Ex. 552133665599 (Código do Pais 55, Código da Cidade 21, Telefone 33665599)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Travel.JourneyType</code></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Sim, caso o nó Travel seja enviado.</td>
+      <td>Tipo de viagem.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Travel.DepartureTime</code></td>
       <td>DateTime</td>
       <td>23</td>
       <td>Não</td>
-      <td>Data, hora e minuto de partida do vôo.</td>
+      <td>Data, hora e minuto de partida do vôo. Ex: “2018-01-09 18:00:00”</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Travel.JourneyType</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Passengers.Name</code></td>
+      <td>Texto</td>
+      <td>120</td>
+      <td>Sim, caso o nó Travel seja enviado.</td>
+      <td>Nome do passageiro.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Passengers.Identity</code></td>
       <td>Texto</td>
       <td>32</td>
-      <td>Não</td>
-      <td>Tipo de viagem.</td>
+      <td>Sim, caso o nó Travel seja enviado.</td>
+      <td>Número do RG, CPF ou CNPJ do passageiro.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Route</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Passengers.Status</code></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Sim, caso o nó Travel seja enviado.</td>
+      <td>Classificação da companhia aérea. Valores do campo: “Gold”, “Platina”.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Passengers.Rating</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim, caso o nó Travel seja enviado.</td>
+      <td>Classificação do Passageiro.<br />Valores do Campo:<br />“Adult” (Passageiro adulto)<br />“Child”(Passageiro criança)<br />“Infant”(Passageiro infantil)<br />“Youth”(Passageiro adolescente)<br />“Student”(Passageiro estudante)<br />“SeniorCitizen“(Passageiro idoso)<br />“Military“(Passageiro militar)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Passengers.Email</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
-      <td>Rota da viagem. Concatenação de pernas de viagem individuais no formato ORIG1- DEST1.</td>
+      <td>Sim, caso o nó Travel seja enviado.</td>
+      <td>E-mail do passageiro.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Legs.Destination</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Passengers.Phone</code></td>
       <td>Texto</td>
-      <td>3</td>
+      <td>15</td>
       <td>Não</td>
-      <td>Código do aeroporto do ponto de destino da viagem.</td>
+      <td>Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país. 552133665599 (Ex. Código do Pais 55, Código da Cidade 21, Telefone 33665599)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Legs.Origin</code></td>
+      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
       <td>Texto</td>
       <td>3</td>
-      <td>Não</td>
+      <td>Sim, caso o nó Travel seja enviado.</td>
       <td>Código do aeroporto do ponto de origem da viagem.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Sim, caso o nó Travel seja enviado.</td>
+      <td>Código do aeroporto do ponto de destino da viagem.</td>
     </tr>
   </tbody>
 </table>
@@ -5863,29 +6037,43 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
 <h3 id="resposta-14">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201411173454307"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"201411173454307"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador crédito AF"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito AF"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552125553669"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"174"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
+            </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"174"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+            </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"BillingAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -6851,17 +7039,11 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
 
 <h3 id="configurando-fingerprint">Configurando FingerPrint</h3>
 
-<p>Será necessário adicionar uma imagem de 1-pixel, que não é mostrada na tela, e 2 segmentos de código à tag ** da sua página de checkout, se certificando que serão necessários de 10 segundos entre a execução do código e a submissão da página para o servidor.</p>
+<p>Será necessário adicionar duas tags, a <em>script</em> dentro da tag <em>head</em> para uma performance correta e a <em>noscript</em> dentro da tag <em>body</em>, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.</p>
 
 <blockquote>
-  <p><strong>IMPORTANTE:</strong> Se os 3 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.</p>
+  <p><strong>IMPORTANTE:</strong> Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.</p>
 </blockquote>
-
-<p>Colocando os segmentos de código e substituindo os valores das variáveis</p>
-
-<p>Coloque os segmentos de código imediatamente acima da tag ** para garantir que a página Web será renderizada corretamente. Nunca adicione os segmentos de código em elementos HTML visíveis. Os segmentos de código precisam ser carregados antes que o comprador finalize o pedido de compra, caso contrário um erro será gerado.</p>
-
-<p>Em cada segmento abaixo, substitua as variáveis com os valores referentes a loja e número do pedido.</p>
 
 <h4 id="domain">Domain</h4>
 
@@ -6898,19 +7080,19 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
   <tbody>
     <tr>
       <td><strong>ProviderOrgId</strong></td>
-      <td>Identificador de requisições no AF</td>
+      <td>Sandbox = 1snn5n9w<br />Produção = k8vif92e</td>
       <td>Use o valor padrão <code class="highlighter-rouge">k8vif92e</code></td>
       <td>Dado exclusivo fornecido pela CyberSource</td>
     </tr>
     <tr>
       <td><strong>ProviderMerchantId</strong></td>
-      <td>Identificador da loja no AF</td>
+      <td>Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Cielo</td>
       <td>Use o valor padrão <code class="highlighter-rouge">cielo_webservice</code></td>
       <td>Dado exclusivo fornecido pela CyberSource</td>
     </tr>
     <tr>
-      <td><strong>ProviderSessionId</strong></td>
-      <td>Usar o mesmo valor do campo MerchantOrderId que será enviado na requisição da análise de fraude</td>
+      <td><strong>ProviderIdentifier</strong></td>
+      <td>Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.Este mesmo identificador deve ser atribuído ao campo <code class="highlighter-rouge">Customer.BrowserFingerprint</code> que será enviado na requisição da análise.<br />Exemplo: 123456789<br />Obs.:Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.</td>
       <td>Definido pela loja</td>
       <td>Definido pela loja</td>
     </tr>
@@ -6918,22 +7100,11 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
 </table>
 
 <blockquote>
-  <p>PNG</p>
+  <p><strong>Observação:</strong> O resultado da concatenação entre o campo <code class="highlighter-rouge">ProviderMerchantId</code> e <code class="highlighter-rouge">ProviderIdentifier</code>, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout.
+JavaScript</p>
 </blockquote>
 
-<p><img src="https://developercielo.github.io/images/apicieloecommerce/exemplocyberimage.png" alt="" /></p>
-
-<blockquote>
-  <p>Flash</p>
-</blockquote>
-
-<p><img src="https://developercielo.github.io/images/apicieloecommerce/exemplocyberflash.png" alt="" /></p>
-
-<blockquote>
-  <p>JavaScript</p>
-</blockquote>
-
-<p><img src="https://developercielo.github.io/images/apicieloecommerce/exemplocyberjavascript.png" alt="" /></p>
+<p><img src="https://developercielo.github.io/images/apicieloecommerce/exemploscriptdfp.png" alt="" /></p>
 
 <blockquote>
   <p><strong>IMPORTANTE:</strong> Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</p>
@@ -6941,10 +7112,10 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
 
 <h4 id="configurando-seu-servidor-web">Configurando seu Servidor Web</h4>
 
-<p>Na seção Colocando os segmentos de código e substituindo os valores das variáveis (Domain), todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.</p>
+<p>Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.</p>
 
 <blockquote>
-  <p><strong>IMPORTANTE:</strong> Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie</p>
+  <p><strong>IMPORTANTE:</strong> Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</p>
 </blockquote>
 
 <h1 id="recorrência">Recorrência</h1>
