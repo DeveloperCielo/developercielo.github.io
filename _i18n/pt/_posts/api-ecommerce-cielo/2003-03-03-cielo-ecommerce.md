@@ -2636,11 +2636,11 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
    "MerchantOrderId":"201411173454307",
    "Customer":{  
       "Name":"Comprador crédito AF",
-	  "Identity":"12345678909",
+      "Identity":"12345678909",
       "IdentityType":"CPF",
       "Email":"compradorteste@live.com",
       "Birthdate":"1991-01-02",
-	  "Mobile":"5521995760078",
+      "Mobile":"5521995760078",
       "Phone":"552125553669",
       "Address":{  
          "Street":"Rua Júpter",
@@ -2650,7 +2650,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
          "City":"Rio de Janeiro",
          "State":"RJ",
          "Country":"BRA",
-		 "District":"Alphaville"
+         "District":"Alphaville"
       },
       "DeliveryAddress":{  
          "Street":"Rua Júpter",
@@ -2660,18 +2660,18 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
          "City":"Rio de Janeiro",
          "State":"RJ",
          "Country":"BRA",
-		 "District":"Alphaville"
+         "District":"Alphaville"
       },
-	  "BillingAddress":{
-	     "Street":"Rua Júpter",
+      "BillingAddress":{
+         "Street":"Rua Júpter",
          "Number":"174",
          "Complement":"AP 201",
          "ZipCode":"21241140",
          "City":"Rio de Janeiro",
          "State":"RJ",
          "Country":"BRA",
-		 "District":"Alphaville"
-	  }
+         "District":"Alphaville"
+      }
    },
    "Payment":{  
      "Type":"CreditCard",
@@ -2683,21 +2683,21 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
      "Interest":"ByMerchant",
      "Capture":false,
      "Authenticate":false,
-	 "SoftDescriptor":"Mensagem",
+     "SoftDescriptor":"Mensagem",
      "CreditCard":{  
          "CardNumber":"4024007197692931",
          "Holder":"Teste accept",
          "ExpirationDate":"12/2030",
          "SecurityCode":"023",
          "Brand":"Visa",
-		 "SaveCard":"false"
+         "SaveCard":"false"
      },
      "FraudAnalysis":{
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"OnSuccess",
-	   "CaptureOnLowRisk":false,
-	   "VoidOnHighRisk":false,
-	   "TotalOrderAmount":10000,
+       "CaptureOnLowRisk":false,
+       "VoidOnHighRisk":false,
+       "TotalOrderAmount":10000,
        "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
        "Browser":{
          "CookiesAccepted":false,
@@ -2814,7 +2814,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 | `FraudAnalysis.SequenceCriteria`              | Texto    | 9       | Sim                 | Critério do fluxo. **OnSuccess** - Só realiza a análise se tiver sucesso na transação. **Always** - Sempre realiza a análise      |
 | `FraudAnalysis.CaptureOnLowRisk`              | Booleano | ---     | Não                 | Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro “Capture”. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente “AuthorizeFirst”. Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado.|
 | `FraudAnalysis.VoidOnHighRisk`                | Booleano | ---     | Não                 | Quando true, o estorno deve acontecer automaticamente quando o risco de fraude for considerado alto (Reject). Em casos de Accept ou Review, o fluxo permanece o mesmo, ou seja, o estorno deve ser feito manualmente. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente “AuthorizeFirst”. Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado.|
-| `FraudAnalysis.TotalOrderAmount`              | Número   | 15      | Sim                 | Valor total do pedido.																										       |
+| `FraudAnalysis.TotalOrderAmount`              | Número   | 15      | Sim                 | Valor total do pedido.                                                                                                            |
 | `FraudAnalysis.FingerPrintId`                 | Texto    | 50      | Sim                 | Identificador utilizado para cruzar informações obtidas pelo Browser do internauta com os dados enviados para análise. Este mesmo valor deve ser passado na variável SESSIONID do script do DeviceFingerPrint.|
 | `FraudAnalysis.Browser.CookiesAccepted`       | Booleano | ---     | Sim                 | Booleano para identificar se o browser do cliente aceita cookies.                                                                 |
 | `FraudAnalysis.Browser.Email`                 | Texto    | 100     | Não                 | E-mail registrado no browser do comprador.                                                                                        |
@@ -2855,50 +2855,50 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 | `FraudAnalysis.Travel.Passengers.Rating`      | Texto    | 15      | Sim, caso o nó Travel seja enviado.| Classificação do Passageiro.<br>Valores do Campo:<br>“Adult” (Passageiro adulto)<br>“Child”(Passageiro criança)<br>“Infant”(Passageiro infantil)<br>“Youth”(Passageiro adolescente)<br>“Student”(Passageiro estudante)<br>“SeniorCitizen“(Passageiro idoso)<br>“Military“(Passageiro militar)|
 | `FraudAnalysis.Travel.Passengers.Email`       | Texto    | 255     | Sim, caso o nó Travel seja enviado.| E-mail do passageiro.                                                                                              |
 | `FraudAnalysis.Travel.Passengers.Phone`       | Texto    | 15      | Não                 | Número do telefone do passageiro. Para pedidos fora do U.S., a CyberSource recomenda que inclua o código do país. 552133665599 (Ex. Código do Pais 55, Código da Cidade 21, Telefone 33665599)|
-| `FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto| 3       | Sim, caso o nó Travel seja enviado.| Código do aeroporto do ponto de origem da viagem.																   |
-| `FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto| 3  | Sim, caso o nó Travel seja enviado.| Código do aeroporto do ponto de destino da viagem.						                     			   	       |
+| `FraudAnalysis.Travel.Passengers.TravelLegs.Origin`|Texto| 3       | Sim, caso o nó Travel seja enviado.| Código do aeroporto do ponto de origem da viagem.                                                                  |
+| `FraudAnalysis.Travel.Passengers.TravelLegs.Destination`|Texto| 3  | Sim, caso o nó Travel seja enviado.| Código do aeroporto do ponto de destino da viagem.                                                                 |
 
 ### Resposta
 
 ```json
 {
-    "MerchantOrderId": "201411173454307",
+    "MerchantOrderId":"201411173454307",
     "Customer": {
-        "Name": "Comprador crédito AF",
-		"Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Email": "compradorteste@live.com",
-        "Birthdate": "1991-01-02",
-		"Phone": "552125553669",
+        "Name":"Comprador crédito AF",
+        "Identity":"12345678909",
+        "IdentityType":"CPF",
+        "Email":"compradorteste@live.com",
+        "Birthdate":"1991-01-02",
+        "Phone": "552125553669",
         "Address": {
-            "Street": "Rua Júpter",
-            "Number": "174",
-            "Complement": "AP 201",
-            "ZipCode": "21241140",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA",
-			"District": "Alphaville"
+            "Street":"Rua Júpter",
+            "Number":"174",
+            "Complement":"AP 201",
+            "ZipCode":"21241140",
+            "City":"Rio de Janeiro",
+            "State":"RJ",
+            "Country":"BRA",
+            "District":"Alphaville"
         },
         "DeliveryAddress": {
-            "Street": "Rua Júpter",
-            "Number": "174",
-            "Complement": "AP 201",
-            "ZipCode": "21241140",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA",
-			"District": "Alphaville"
+            "Street":"Rua Júpter",
+            "Number":"174",
+            "Complement":"AP 201",
+            "ZipCode":"21241140",
+            "City":"Rio de Janeiro",
+            "State":"RJ",
+            "Country":"BRA",
+            "District":"Alphaville"
         },
-		"BillingAddress": {
-            "Street": "Rua Júpter",
-            "Number": "174",
-            "Complement": "AP 201",
-            "ZipCode": "21241140",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA",
-			"District": "Alphaville"
+        "BillingAddress": {
+            "Street":"Rua Júpter",
+            "Number":"174",
+            "Complement":"AP 201",
+            "ZipCode":"21241140",
+            "City":"Rio de Janeiro",
+            "State":"RJ",
+            "Country":"BRA",
+            "District":"Alphaville"
     },
     "Payment": {
         "ServiceTaxAmount": 0,
