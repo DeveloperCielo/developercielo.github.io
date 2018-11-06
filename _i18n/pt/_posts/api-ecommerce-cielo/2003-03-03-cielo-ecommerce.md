@@ -2636,12 +2636,12 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
    "MerchantOrderId":"201411173454307",
    "Customer":{  
       "Name":"Comprador crédito AF",
-	  "Identity": "12345678909",
-      "IdentityType": "CPF",
+	  "Identity":"12345678909",
+      "IdentityType":"CPF",
       "Email":"compradorteste@live.com",
       "Birthdate":"1991-01-02",
-	  "Mobile": "5521995760078",
-      "Phone": "552125553669",
+	  "Mobile":"5521995760078",
+      "Phone":"552125553669",
       "Address":{  
          "Street":"Rua Júpter",
          "Number":"174",
@@ -2650,7 +2650,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
          "City":"Rio de Janeiro",
          "State":"RJ",
          "Country":"BRA",
-		 "District": "Alphaville"
+		 "District":"Alphaville"
       },
       "DeliveryAddress":{  
          "Street":"Rua Júpter",
@@ -2660,7 +2660,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
          "City":"Rio de Janeiro",
          "State":"RJ",
          "Country":"BRA",
-		 "District": "Alphaville"
+		 "District":"Alphaville"
       },
 	  "BillingAddress":{
 	     "Street":"Rua Júpter",
@@ -2670,7 +2670,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
          "City":"Rio de Janeiro",
          "State":"RJ",
          "Country":"BRA",
-		 "District": "Alphaville"
+		 "District":"Alphaville"
 	  }
    },
    "Payment":{  
@@ -2683,21 +2683,21 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
      "Interest":"ByMerchant",
      "Capture":false,
      "Authenticate":false,
-	 "SoftDescriptor": "Mensagem",
+	 "SoftDescriptor":"Mensagem",
      "CreditCard":{  
          "CardNumber":"4024007197692931",
          "Holder":"Teste accept",
          "ExpirationDate":"12/2030",
          "SecurityCode":"023",
          "Brand":"Visa",
-		 "SaveCard": "false"
+		 "SaveCard":"false"
      },
      "FraudAnalysis":{
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"OnSuccess",
-	   "CaptureOnLowRisk": false,
-	   "VoidOnHighRisk": false,
-	   "TotalOrderAmount": 10000,
+	   "CaptureOnLowRisk":false,
+	   "VoidOnHighRisk":false,
+	   "TotalOrderAmount":10000,
        "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
        "Browser":{
          "CookiesAccepted":false,
@@ -3283,7 +3283,6 @@ Será necessário adicionar duas tags, a _script_ dentro da tag _head_ para uma 
 | **ProviderIdentifier** | Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise.<br>Exemplo: 123456789<br>Obs.:Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.| Definido pela loja                    | Definido pela loja                        |
 
 > **Observação:** O resultado da concatenação entre o campo `ProviderMerchantId` e `ProviderIdentifier`, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout.
-
 > JavaScript
 
 ![]({{ site.baseurl_root }}/images/apicieloecommerce/exemploscriptdfp.png)
