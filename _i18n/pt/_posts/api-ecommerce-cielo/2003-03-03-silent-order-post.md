@@ -43,6 +43,10 @@ O cliente acaba o checkout, e vai para o processamento do pagamento.
 
 a) O estabelecimento deverá solicitar um ticket (server to server) enviando um POST para a seguinte URL:
 
+**SANDBOX**
+**https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}**
+
+**PRODUÇÃO:**
 **https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid={mid}**
 
 Exemplo: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
@@ -99,6 +103,10 @@ Por questões de segurança, este ticket dará permissão para o estabelecimento
 a) O estabelecimento deverá fazer o download de um script fornecido pela Cielo, e anexá-lo a sua página de checkout. Esse script permitirá à Cielo processar todas as informações de cartão sem intervenção do estabelecimento.
 O download poderá ser realizado a partir da seguinte URL: 
 
+**SANDBOX**
+**https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**
+
+**PRODUÇÃO**
 **https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js**
 
 b) O estabelecimento deverá decorar seus inputs do formulário com as seguintes classes:
