@@ -34,7 +34,6 @@ O desafio é permitir que as lojas virtuais cresçam em vendas e, que suas fraud
 
 Conhecer o seu segmento no mercado, e entender o perfil das fraudes, podem auxiliar nas medidas preventivas para mitigar as tentativas de fraudes.
 
-
 ## Dicas para o estabelecimento vender de forma segura pela Internet.
 
 Realize ações preventivas: a checagem interna pode auxiliar na prevenção a Fraudes**
