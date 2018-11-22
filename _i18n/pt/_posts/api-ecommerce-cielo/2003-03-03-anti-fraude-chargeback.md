@@ -6,7 +6,7 @@ search: true
 translated: false
 toc_footers: true
 categories: manual
-sort_order: 5
+sort_order: 1
 tags:
   - API e-Commerce Cielo
 language_tabs:
