@@ -19,7 +19,7 @@ Tendo em vista o cenário, desenvolvemos este material, como guia de orientaçõ
 
 Este guia irá ajudá-lo a entender quais ações podem ser realizadas para melhorar os processos de gestão de risco, através de conceitos e boas práticas, e a participação dos demais participantes (Bancos e Bandeiras) no fluxo do meio de pagamento via cartão crédito.
 
-Fraudes
+# Fraudes
 
 Uma fraude é identificada a partir do momento que o portador não reconhece ou não autorizou a transação em seu cartão de credito. 
 O tipo de fraude que ocorre com maior frequência são aqueles cometidos via e-commerce. O número elevado de casos muitas vezes é decorrente da maioria das transações não exigir informações acerca do comprador. 
@@ -27,7 +27,7 @@ As fraudes crescem na mesma medida que as vendas pela internet. Com isso, muitas
 O desafio é permitir que as lojas virtuais cresçam em vendas e, que suas fraudes sejam controladas, para isso é importante entender as possíveis tentativas de fraudes e como minimizá-las.
 Conhecer o seu segmento no mercado, e entender o perfil das fraudes, podem auxiliar nas medidas preventivas para mitigar as tentativas de fraudes.
 
-Dicas para o estabelecimento vender de forma segura pela Internet.
+## Dicas para o estabelecimento vender de forma segura pela Internet.
 
 Realize ações preventivas: a checagem interna pode auxiliar na prevenção a Fraudes**
 
@@ -51,7 +51,7 @@ Realize ações preventivas: a checagem interna pode auxiliar na prevenção a F
 
 * **Treine seus colaboradores:** auxilia a identificar atitudes suspeitas e avaliar os riscos e decidir se a transação é segura antes de efetivá-la.
 
-Plataforma de pagamentos pela Internet Cielo e-Commerce
+## Plataforma de pagamentos pela Internet Cielo e-Commerce
 
 A Cielo construiu sua plataforma de pagamentos pela internet, pensando em agilidade e segurança. Veja abaixo as funcionalidades:
 
@@ -69,7 +69,7 @@ A Cielo construiu sua plataforma de pagamentos pela internet, pensando em agilid
 
 * **Autenticação Seletiva:** solução que auxilia no aumento de conversão autenticando transações que foram negadas pelo banco.
 
-Antifraude
+## Antifraude
 
 No e-Commerce, o antifraude tem um papel importantíssimo para avaliar se as transações que passam pela loja virtual são seguras ou fraudulentas. 
 
@@ -87,7 +87,7 @@ Confira os principais recursos que um bom antifraude pode oferecer:
 
 * Permite que a loja virtual crie suas próprias regras de segurança para facilitar o gerenciamento. 
 
-Como a Cielo atua para prevenir as fraudes em seu estabelecimento.
+## Como a Cielo atua para prevenir as fraudes em seu estabelecimento.
 
 A Cielo adota algumas práticas e oferecem serviços que visam minimizar ao máximo os riscos das lojas virtuais em suas vendas pela internet: 
 
@@ -110,19 +110,19 @@ A Cielo adota algumas práticas e oferecem serviços que visam minimizar ao máx
 
 * Monitora e reporta os índices de Fraude e Chargeback, auxiliando na tomada de ações preventivas.
 
-Chargeback
+## Chargeback
 
 O Chargeback é a **contestação** de uma venda feita com cartão de débito ou crédito, que pode acontecer por dois motivos: um deles é por fraude, o **não reconhecimento** da compra por parte do titular do cartão, e o outro pode se dar por uma contestação devido ao um desacordo comercial, que pode contemplar alguns motivos, por exemplo: uma mercadoria não recebida, ou recebida com defeito. Podendo ocorrer em compras nacionais e internacionais.
 Conforme as regras estabelecidas pelo mercado de pagamentos eletrônicos (Bandeiras de Cartões) o Chargeback segue as normas de cartão não presente, para operações realizadas no comércio eletrônico.
 Com base nestas regras o estabelecimento, caso tenha interesse em iniciar uma disputa referente a transação contestada, deverá apresentar uma documentação comprobatória de acordo com os requisitos estipulados pelas Bandeiras de Cartões.
 
-Principais Razões de Chargebacks
+## Principais Razões de Chargebacks
 
 No processo de Chargeback, existem algumas razões, estipuladas pelas Bandeiras de Cartões com base no motivo da contestação do portador do cartão.
 
 ![Razoes de Chargebacks](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/razoes-de-chargeback.jpg)
 
-Bandeiras
+## Bandeiras
 
 Saiba que cada bandeira estabelece suas próprias regras de aplicação de Chargeback, conforme cada motivo informado acima.
 
@@ -145,7 +145,7 @@ Principais fatores que ajudam o estabelecimento a evitar os chargebacks
 * Estrutura de backoffice para prevenção de fraudes e chargebacks;
 * Utilizar a plataforma Cielo e-Commerce e as funcionalidades destinadas ao controle de chargebacks (como o Soft Descriptor). 
 
-Programa de monitoria de Chargebacks e Fraude domésticos e internacionais
+## Programa de monitoria de Chargebacks e Fraude domésticos e internacionais
 
 É o processo de monitoramento realizado pelas bandeiras que consiste na identificação dos estabelecimentos que apresentam elevados índices de chargebacks e fraudes. As regras e métricas são previamente estabelecidas pelas bandeiras. Os resultados apurados geram reportes aos credenciadores, que por sua vez notificam os estabelecimentos. A Cielo auxilia o cliente na criação do plano de ação a ser apresentado para a Bandeira.
 
@@ -153,7 +153,7 @@ Programa de monitoria de Chargebacks e Fraude domésticos e internacionais
 
 ![Monitoria Visa](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/programa-de-monitoria-master.jpg)
 
-Como a Cielo atua para prevenir os chargebacks em seu estabelecimento
+## Como a Cielo atua para prevenir os chargebacks em seu estabelecimento
 
 A Cielo oferece melhores práticas para minimizar as ocorrências de chargebacks:
 
