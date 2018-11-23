@@ -1,4 +1,15 @@
-
+---
+layout: manual
+title: Prevenção contra Fraudes e Chargeback
+description: Manual de prevenção contra fraudes e chargebacks
+search: true
+translated: false
+toc_footers: true
+categories: manual
+sort_order: 1
+tags:
+  - API e-Commerce Cielo
+---
 # Prevenção contra Fraudes e Chargeback
 
 A Cielo entende que o volume de fraudes e chargebacks causam impacto cada vez maior para o comercio, seja no ambiente transacional digital ou físico.
