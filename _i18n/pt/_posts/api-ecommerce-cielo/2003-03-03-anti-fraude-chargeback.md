@@ -3,13 +3,14 @@ layout: manual
 title: Prevenção contra Fraudes e Chargeback
 description: Manual de prevenção contra fraudes e chargebacks
 search: true
-translated: false
+translated: true
 toc_footers: true
 categories: manual
 sort_order: 1
 tags:
   - API e-Commerce Cielo
 language_tabs:
+  json: JSON
   shell: cURL
 ---
 
