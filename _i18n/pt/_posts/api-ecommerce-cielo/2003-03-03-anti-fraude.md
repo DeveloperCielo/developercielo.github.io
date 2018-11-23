@@ -1,5 +1,5 @@
 ---
-layout: manual
+layout: tutorial
 title: Prevenção contra Fraudes e Chargeback
 description: Manual de prevenção contra fraudes e chargebacks
 search: true
@@ -13,6 +13,8 @@ language_tabs:
   json: JSON
   shell: cURL
 ---
+
+#Teste Header
 
 Prevenção contra Fraudes e Chargeback
 
