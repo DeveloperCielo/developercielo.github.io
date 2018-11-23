@@ -13,7 +13,7 @@ language_tabs:
   shell: cURL
 ---
 
-# Prevenção contra Fraudes e Chargeback
+Prevenção contra Fraudes e Chargeback
 
 A Cielo entende que o volume de fraudes e chargebacks causam impacto cada vez maior para o comercio, seja no ambiente transacional digital ou físico.
 
@@ -21,7 +21,7 @@ Tendo em vista o cenário, desenvolvemos este material, como guia de orientaçõ
 
 Este guia irá ajudá-lo a entender quais ações podem ser realizadas para melhorar os processos de gestão de risco, através de conceitos e boas práticas, e a participação dos demais participantes (Bancos e Bandeiras) no fluxo do meio de pagamento via cartão crédito.
 
-# Fraudes
+Fraudes
 
 Uma fraude é identificada a partir do momento que o portador não reconhece ou não autorizou a transação em seu cartão de credito. 
 O tipo de fraude que ocorre com maior frequência são aqueles cometidos via e-commerce. O número elevado de casos muitas vezes é decorrente da maioria das transações não exigir informações acerca do comprador. 
