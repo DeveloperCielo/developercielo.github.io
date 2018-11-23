@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-11-23T18:24:31+00:00</updated>
+    <updated>2018-11-23T18:25:51+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14802,7 +14802,7 @@ Conhecer o seu segmento no mercado, e entender o perfil das fraudes, podem auxil
   &lt;li&gt;Monitora e reporta os índices de Fraude e Chargeback, auxiliando na tomada de ações preventivas.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;chargeback&quot;&gt;Chargeback&lt;/h2&gt;
+&lt;h1 id=&quot;chargeback&quot;&gt;Chargeback&lt;/h1&gt;
 
 &lt;p&gt;O Chargeback é a &lt;strong&gt;contestação&lt;/strong&gt; de uma venda feita com cartão de débito ou crédito, que pode acontecer por dois motivos: um deles é por fraude, o &lt;strong&gt;não reconhecimento&lt;/strong&gt; da compra por parte do titular do cartão, e o outro pode se dar por uma contestação devido ao um desacordo comercial, que pode contemplar alguns motivos, por exemplo: uma mercadoria não recebida, ou recebida com defeito. Podendo ocorrer em compras nacionais e internacionais.
 Conforme as regras estabelecidas pelo mercado de pagamentos eletrônicos (Bandeiras de Cartões) o Chargeback segue as normas de cartão não presente, para operações realizadas no comércio eletrônico.
@@ -32704,210 +32704,6 @@ Eles indicam, por exemplo, se uma transação com &lt;code class=&quot;highlight
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Horário de atendimento:&lt;/strong&gt; 24h por dia, 7 dias por semana.&lt;/p&gt;
-</content>
-    </entry>
-    
-    <entry>
-        <title>Prevenção contra Fraudes e Chargeback</title>
-        <category term="manual" />
-        <link href="https://developercielo.github.io/manual/anti-fraude"/>
-        <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/anti-fraude</id>
-        <content type="html">&lt;p&gt;Prevenção contra Fraudes e Chargeback&lt;/p&gt;
-
-&lt;p&gt;A Cielo entende que o volume de fraudes e chargebacks causam impacto cada vez maior para o comercio, seja no ambiente transacional digital ou físico.&lt;/p&gt;
-
-&lt;p&gt;Tendo em vista o cenário, desenvolvemos este material, como guia de orientações e boas práticas, para auxilia-lo a reduzir os impactos causados com fraudes e chargebacks.&lt;/p&gt;
-
-&lt;p&gt;Este guia irá ajudá-lo a entender quais ações podem ser realizadas para melhorar os processos de gestão de risco, através de conceitos e boas práticas, e a participação dos demais participantes (Bancos e Bandeiras) no fluxo do meio de pagamento via cartão crédito.&lt;/p&gt;
-
-&lt;p&gt;Fraudes&lt;/p&gt;
-
-&lt;p&gt;Uma fraude é identificada a partir do momento que o portador não reconhece ou não autorizou a transação em seu cartão de credito. 
-O tipo de fraude que ocorre com maior frequência são aqueles cometidos via e-commerce. O número elevado de casos muitas vezes é decorrente da maioria das transações não exigir informações acerca do comprador. 
-As fraudes crescem na mesma medida que as vendas pela internet. Com isso, muitas lojas virtuais assumem prejuízos consideráveis, o que resulta no encerramento de suas operações. 
-O desafio é permitir que as lojas virtuais cresçam em vendas e, que suas fraudes sejam controladas, para isso é importante entender as possíveis tentativas de fraudes e como minimizá-las.
-Conhecer o seu segmento no mercado, e entender o perfil das fraudes, podem auxiliar nas medidas preventivas para mitigar as tentativas de fraudes.&lt;/p&gt;
-
-&lt;p&gt;Dicas para o estabelecimento vender de forma segura pela Internet.&lt;/p&gt;
-
-&lt;p&gt;Realize ações preventivas: a checagem interna pode auxiliar na prevenção a Fraudes**&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Conferência de CPF:&lt;/strong&gt; verifique se o CPF cadastrado na compra confere com o nome do cliente.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;E-mail:&lt;/strong&gt; fraudadores normalmente utilizam provedores de e-mail gratuitos pela facilidade de criarem e-mails falsos para utilizarem na compra.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;UF/CEP de entrega:&lt;/strong&gt; pesquisa e análise para entregas em áreas de risco. Pedidos diferentes para entrega no mesmo endereço. Na entrega, solicite documentos e compare com os dados fornecidos no momento da compra.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Registro de compras:&lt;/strong&gt; analise se o cliente tem muitas compras sucessivas em curto período de tempo.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Pedidos urgentes:&lt;/strong&gt; normalmente os fraudadores têm pressa em receber o produto adquirido.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Forma de pagamento:&lt;/strong&gt; mesmo cliente com várias compras utilizando cartões de créditos diferentes. Não mostra preocupação com o valor.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Busca Google:&lt;/strong&gt; Em compras duvidosas procure por informações e registros online. Confira os dados para validação.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Histórico do cliente:&lt;/strong&gt; Mantenha um banco de dados, informações e registros de compra e forma de pagamento dos clientes. Armazene não apenas compras realizadas e pagamentos efetivados, mas também transações não efetivadas e, principalmente, porque motivo. É importante armazenar os dados dos clientes que efetuaram fraudes – nome, CPF, endereço, cep, e-mail.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Crie e utilize “Blacklist”:&lt;/strong&gt; Essas informações auxiliam na construção do perfil fraudador e servem de alerta para outros pedidos, realizados com os mesmos dados.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Treine seus colaboradores:&lt;/strong&gt; auxilia a identificar atitudes suspeitas e avaliar os riscos e decidir se a transação é segura antes de efetivá-la.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Plataforma de pagamentos pela Internet Cielo e-Commerce&lt;/p&gt;
-
-&lt;p&gt;A Cielo construiu sua plataforma de pagamentos pela internet, pensando em agilidade e segurança. Veja abaixo as funcionalidades:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Captura posterior:&lt;/strong&gt; Permite que a loja virtual analise as transações antes de capturá-las. Caso identifique uma transação fraudulenta, permite não realizar a captura.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;AVS (Address Verification Service):&lt;/strong&gt; Análise do endereço do comprador através do CEP, com base no retorno da transação, permite que a loja virtual decida se aceita ou não a transação.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Tokenização:&lt;/strong&gt;  é processo que transforma o número do cartão de credito em um código que auxilia evitar vazamentos de dados no site e exposição de dados dos cartões de clientes.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;3D Secure:&lt;/strong&gt; O comprador virtual é direcionado ao seu banco para concluir a transação mediante a digitação de senha pessoal.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Lynx:&lt;/strong&gt; ferramenta utilizada pela Cielo que possui sistema de inteligência artificial (rede neural) que analisa os riscos das transações, possibilitando comunicação com os bancos emissores e notificação de casos de fraudes.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Velocity Check Cielo:&lt;/strong&gt; solução funciona em real time através de cálculos baseados em analises de repetições de variáveis utilizando toda base de transações dos clientes Cielo.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Autenticação Seletiva:&lt;/strong&gt; solução que auxilia no aumento de conversão autenticando transações que foram negadas pelo banco.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Antifraude&lt;/p&gt;
-
-&lt;p&gt;No e-Commerce, o antifraude tem um papel importantíssimo para avaliar se as transações que passam pela loja virtual são seguras ou fraudulentas.&lt;/p&gt;
-
-&lt;p&gt;O antifraude informa para a loja virtual o resultado da análise e assim a loja virtual, decide se aceita ou não a transação.&lt;/p&gt;
-
-&lt;p&gt;Confira os principais recursos que um bom antifraude pode oferecer:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Informações detalhadas sobre a transação;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Origem da transação, por exemplo: endereço de IP;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Verifica através da rede neural os dados importantes da transação;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Utiliza as regras de mercado para gestão de fraude de acordo com o perfil do cliente;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Permite que a loja virtual crie suas próprias regras de segurança para facilitar o gerenciamento.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Como a Cielo atua para prevenir as fraudes em seu estabelecimento.&lt;/p&gt;
-
-&lt;p&gt;A Cielo adota algumas práticas e oferecem serviços que visam minimizar ao máximo os riscos das lojas virtuais em suas vendas pela internet:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Cesta de Serviços de Segurança;
-    &lt;ul&gt;
-      &lt;li&gt;Monitoria Online&lt;/li&gt;
-      &lt;li&gt;Cielo Alerta&lt;/li&gt;
-      &lt;li&gt;Consultoria de Risco&lt;/li&gt;
-      &lt;li&gt;Pré-Chargeback&lt;/li&gt;
-      &lt;li&gt;Serviços de PCI&lt;/li&gt;
-      &lt;li&gt;Serviços de Proteção Web&lt;/li&gt;
-      &lt;li&gt;Tratamentos de Incidentes&lt;/li&gt;
-      &lt;li&gt;Monitoria Preventiva&lt;/li&gt;
-      &lt;li&gt;Teste Block&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Efetua reuniões periódicas com clientes para acompanhamento das ações e apresentação dos resultados;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Envia relatório das transações reportadas como fraude pelos bancos emissores para análise e providencias;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Identifica e orienta sobre os procedimentos de segurança realizados pelo estabelecimento no momento da venda.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Monitora e reporta os índices de Fraude e Chargeback, auxiliando na tomada de ações preventivas.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Chargeback&lt;/p&gt;
-
-&lt;p&gt;O Chargeback é a &lt;strong&gt;contestação&lt;/strong&gt; de uma venda feita com cartão de débito ou crédito, que pode acontecer por dois motivos: um deles é por fraude, o &lt;strong&gt;não reconhecimento&lt;/strong&gt; da compra por parte do titular do cartão, e o outro pode se dar por uma contestação devido ao um desacordo comercial, que pode contemplar alguns motivos, por exemplo: uma mercadoria não recebida, ou recebida com defeito. Podendo ocorrer em compras nacionais e internacionais.
-Conforme as regras estabelecidas pelo mercado de pagamentos eletrônicos (Bandeiras de Cartões) o Chargeback segue as normas de cartão não presente, para operações realizadas no comércio eletrônico.
-Com base nestas regras o estabelecimento, caso tenha interesse em iniciar uma disputa referente a transação contestada, deverá apresentar uma documentação comprobatória de acordo com os requisitos estipulados pelas Bandeiras de Cartões.&lt;/p&gt;
-
-&lt;p&gt;Principais Razões de Chargebacks&lt;/p&gt;
-
-&lt;p&gt;No processo de Chargeback, existem algumas razões, estipuladas pelas Bandeiras de Cartões com base no motivo da contestação do portador do cartão.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/razoes-de-chargeback.jpg&quot; alt=&quot;Razoes de Chargebacks&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Bandeiras&lt;/p&gt;
-
-&lt;p&gt;Saiba que cada bandeira estabelece suas próprias regras de aplicação de Chargeback, conforme cada motivo informado acima.&lt;/p&gt;
-
-&lt;p&gt;Importante consultar previamente, ou solicitar auxilio ao suporte Cielo:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Regras Gerais&lt;/li&gt;
-  &lt;li&gt;Ciclo de contestação (Chargeback)&lt;/li&gt;
-  &lt;li&gt;Programa de monitoria de Chargebacks e Fraude domésticos e internacionais&lt;/li&gt;
-  &lt;li&gt;Regras das bandeiras Visa e Mastercard para evitar alto índice de Chargebacks.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Ciclo de Contestação (Chargeback):&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ciclo-de-contestacao.png&quot; alt=&quot;Ciclo de contestação&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Principais fatores que ajudam o estabelecimento a evitar os chargebacks&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Atuação na Fraude;&lt;/li&gt;
-  &lt;li&gt;Positivação do portador;&lt;/li&gt;
-  &lt;li&gt;Uso de ferramenta antifraude;&lt;/li&gt;
-  &lt;li&gt;Estrutura de backoffice para prevenção de fraudes e chargebacks;&lt;/li&gt;
-  &lt;li&gt;Utilizar a plataforma Cielo e-Commerce e as funcionalidades destinadas ao controle de chargebacks (como o Soft Descriptor).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Programa de monitoria de Chargebacks e Fraude domésticos e internacionais&lt;/p&gt;
-
-&lt;p&gt;É o processo de monitoramento realizado pelas bandeiras que consiste na identificação dos estabelecimentos que apresentam elevados índices de chargebacks e fraudes. As regras e métricas são previamente estabelecidas pelas bandeiras. Os resultados apurados geram reportes aos credenciadores, que por sua vez notificam os estabelecimentos. A Cielo auxilia o cliente na criação do plano de ação a ser apresentado para a Bandeira.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/programa-de-monitoria-visa.jpg&quot; alt=&quot;Monitoria Visa&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/programa-de-monitoria-master.jpg&quot; alt=&quot;Monitoria Visa&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Como a Cielo atua para prevenir os chargebacks em seu estabelecimento&lt;/p&gt;
-
-&lt;p&gt;A Cielo oferece melhores práticas para minimizar as ocorrências de chargebacks:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Dicas ao estabelecimento, melhores práticas no mercado;&lt;/li&gt;
-  &lt;li&gt;Ferramentas de segurança;&lt;/li&gt;
-  &lt;li&gt;Aderência às regras da bandeira;&lt;/li&gt;
-  &lt;li&gt;Monitoria dos índices de chargebacks e comunica quanto ao excesso;&lt;/li&gt;
-  &lt;li&gt;Estrutura de backoffice para tratar questionamento e prevenção a fraudes;&lt;/li&gt;
-&lt;/ul&gt;
 </content>
     </entry>
     
