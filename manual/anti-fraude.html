@@ -40,19 +40,7 @@
 
     <body>
         
-        <div class="content-container">
-            <div class="language-tabs">
-                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                <ul class="language-buttons">
-                    
-                    <li><a data-language-name='json'>JSON</a></li>
-                    
-                    <li><a data-language-name='shell'>cURL</a></li>
-                    
-                </ul>
-            </div>
-            <div class="dark-box"></div>
-            <div class="overlay"></div>
+        <div class="content-container no-dark-box">
         
             <div id="submenu">
                 <div class="submenu-container">
@@ -423,23 +411,6 @@ Com base nestas regras o estabelecimento, caso tenha interesse em iniciar uma di
         <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
         
 
-        
-        <script>
-            let langs = '';
-            let langsArray = [];
-
-            
-            langs += "<a data-language-name='json'>JSON</a>";
-            langsArray.push('json');
-            
-            langs += "<a data-language-name='shell'>cURL</a>";
-            langsArray.push('shell');
-            
-
-            var toggleCode = 'Comutar';
-        </script>
-
-        <script src='https://developercielo.github.io/assets/bundles/js/language_buttons.min.js'></script>
         
 
         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
