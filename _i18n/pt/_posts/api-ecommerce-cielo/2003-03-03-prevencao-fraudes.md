@@ -1,7 +1,7 @@
 ---
 layout: manual
-title: Prevenção contra Fraudes e Chargeback teste
-description: Manual de prevenção contra fraudes e chargebacks teste
+title: Prevenção contra Fraudes e Chargeback
+description: Manual de prevenção contra fraudes e chargebacks
 search: true
 translated: true
 toc_footers: true
