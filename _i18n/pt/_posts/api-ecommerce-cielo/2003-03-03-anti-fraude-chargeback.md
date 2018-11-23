@@ -100,16 +100,15 @@ Confira os principais recursos que um bom antifraude pode oferecer:
 A Cielo adota algumas práticas e oferecem serviços que visam minimizar ao máximo os riscos das lojas virtuais em suas vendas pela internet: 
 
 * Cesta de Serviços de Segurança;
-
-    - Monitoria Online
-    - Cielo Alerta
-    - Consultoria de Risco
-    - Pré-Chargeback
-    - Serviços de PCI
-    - Serviços de Proteção Web
-    - Tratamentos de Incidentes
-    - Monitoria Preventiva
-    - Teste Block
+  * Monitoria Online
+  * Cielo Alerta
+  * Consultoria de Risco
+  * Pré-Chargeback
+  * Serviços de PCI
+  * Serviços de Proteção Web
+  * Tratamentos de Incidentes
+  * Monitoria Preventiva
+  * Teste Block
 
 * Efetua reuniões periódicas com clientes para acompanhamento das ações e apresentação dos resultados; 
 
