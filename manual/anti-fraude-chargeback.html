@@ -45,6 +45,8 @@
                 <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
                 <ul class="language-buttons">
                     
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
                     <li><a data-language-name='shell'>cURL</a></li>
                     
                 </ul>
@@ -58,6 +60,26 @@
                         <div class="submenu-itens">
                             <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact" class="help">Ajuda</a>
 
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/anti-fraude-chargeback">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/anti-fraude-chargeback">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
                             
                         </div>
 
@@ -406,6 +428,9 @@ Com base nestas regras o estabelecimento, caso tenha interesse em iniciar uma di
             let langs = '';
             let langsArray = [];
 
+            
+            langs += "<a data-language-name='json'>JSON</a>";
+            langsArray.push('json');
             
             langs += "<a data-language-name='shell'>cURL</a>";
             langsArray.push('shell');
