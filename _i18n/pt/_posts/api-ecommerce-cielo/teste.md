@@ -11,7 +11,7 @@ tags:
   - API e-Commerce Cielo
 ---
 
-#Prevenção contra Fraudes e Chargeback
+# Prevenção contra Fraudes e Chargeback
 
 A Cielo entende que o volume de fraudes e chargebacks causam impacto cada vez maior para o comercio, seja no ambiente transacional digital ou físico.
 
