@@ -13,9 +13,7 @@ language_tabs:
   shell: cURL
 ---
 
-# Visão Geral: Prevenção contra Fraudes e Chargeback
-
-## Prevenção contra Fraudes e Chargeback
+# Prevenção contra Fraudes e Chargeback
 
 A Cielo entende que o volume de fraudes e chargebacks causam impacto cada vez maior para o comercio, seja no ambiente transacional digital ou físico.
 
@@ -23,7 +21,7 @@ Tendo em vista o cenário, desenvolvemos este material, como guia de orientaçõ
 
 Este guia irá ajudá-lo a entender quais ações podem ser realizadas para melhorar os processos de gestão de risco, através de conceitos e boas práticas, e a participação dos demais participantes (Bancos e Bandeiras) no fluxo do meio de pagamento via cartão crédito.
 
-## Fraudes
+# Fraudes
 
 Uma fraude é identificada a partir do momento que o portador não reconhece ou não autorizou a transação em seu cartão de credito. 
 
@@ -118,7 +116,7 @@ A Cielo adota algumas práticas e oferecem serviços que visam minimizar ao máx
 
 * Monitora e reporta os índices de Fraude e Chargeback, auxiliando na tomada de ações preventivas.
 
-## Chargeback
+# Chargeback
 
 O Chargeback é a **contestação** de uma venda feita com cartão de débito ou crédito, que pode acontecer por dois motivos: um deles é por fraude, o **não reconhecimento** da compra por parte do titular do cartão, e o outro pode se dar por uma contestação devido ao um desacordo comercial, que pode contemplar alguns motivos, por exemplo: uma mercadoria não recebida, ou recebida com defeito. Podendo ocorrer em compras nacionais e internacionais.
 Conforme as regras estabelecidas pelo mercado de pagamentos eletrônicos (Bandeiras de Cartões) o Chargeback segue as normas de cartão não presente, para operações realizadas no comércio eletrônico.
