@@ -9,8 +9,6 @@ categories: manual
 sort_order: 1
 tags:
   - API e-Commerce Cielo
-language_tabs:
-  shell: cURL
 ---
 
 # Prevenção contra Fraudes e Chargeback
