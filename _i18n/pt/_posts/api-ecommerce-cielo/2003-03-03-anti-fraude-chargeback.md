@@ -21,7 +21,6 @@ Tendo em vista o cenário, desenvolvemos este material, como guia de orientaçõ
 
 Este guia irá ajudá-lo a entender quais ações podem ser realizadas para melhorar os processos de gestão de risco, através de conceitos e boas práticas, e a participação dos demais participantes (Bancos e Bandeiras) no fluxo do meio de pagamento via cartão crédito.
 
-
 # Fraudes
 
 Uma fraude é identificada a partir do momento que o portador não reconhece ou não autorizou a transação em seu cartão de credito. 
@@ -140,7 +139,6 @@ Importante consultar previamente, ou solicitar auxilio ao suporte Cielo:
 * Programa de monitoria de Chargebacks e Fraude domésticos e internacionais
 * Regras das bandeiras Visa e Mastercard para evitar alto índice de Chargebacks.
 
-
 **Ciclo de Contestação (Chargeback):**
 
 ![Ciclo de contestação](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ciclo-de-contestacao.png)
@@ -170,6 +168,3 @@ A Cielo oferece melhores práticas para minimizar as ocorrências de chargebacks
 * Aderência às regras da bandeira; 
 * Monitoria dos índices de chargebacks e comunica quanto ao excesso; 
 * Estrutura de backoffice para tratar questionamento e prevenção a fraudes;
-
-
-
