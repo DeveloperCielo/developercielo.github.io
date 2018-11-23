@@ -1,5 +1,5 @@
 ---
-layout: tutorial
+layout: manual
 title: Prevenção contra Fraudes e Chargeback
 description: Manual de prevenção contra fraudes e chargebacks
 search: true
@@ -9,9 +9,6 @@ categories: manual
 sort_order: 2
 tags:
   - API e-Commerce Cielo
-language_tabs:
-  json: JSON
-  shell: cURL
 ---
 
 # Teste Header
