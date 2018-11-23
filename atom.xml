@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-11-23T16:00:34+00:00</updated>
+    <updated>2018-11-23T16:15:28+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32506,9 +32506,9 @@ Eles indicam, por exemplo, se uma transação com &lt;code class=&quot;highlight
     <entry>
         <title>Prevenção contra Fraudes e Chargeback</title>
         <category term="manual" />
-        <link href="https://developercielo.github.io/manual/anti-fraude-chargeback"/>
+        <link href="https://developercielo.github.io/manual/anti-fraude"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/anti-fraude-chargeback</id>
+        <id>https://developercielo.github.io/manual/anti-fraude</id>
         <content type="html">&lt;p&gt;Prevenção contra Fraudes e Chargeback&lt;/p&gt;
 
 &lt;p&gt;A Cielo entende que o volume de fraudes e chargebacks causam impacto cada vez maior para o comercio, seja no ambiente transacional digital ou físico.&lt;/p&gt;
