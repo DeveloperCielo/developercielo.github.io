@@ -671,6 +671,79 @@ Caso um chargeback seja realizado, a Cielo não se responsabiliza por reembolsar
 
 <p>O Zerto Auth é uma feature disponibilizada penas a alguns lojistas Cielo. Para saber mais sobre o modo de integração, entre em contato com o Suporte Ecommerce Cielo.</p>
 
+<h1 id="3ds-20">3DS 2.0</h1>
+
+<h2 id="1a-autenticação-é-mandatória">1.A autenticação é mandatória?</h2>
+
+<p>Atualmente sim, apenas para cartão de débito (3DS 1.0). As bandeiras Visa e Master já estão prontas com a solução 3DS 2.0 e os lojistas que quiserem, já poderão utilizar a nova solução. A princípio, a obrigatoriedade de adequação do lojista para a nova solução 3DS 2.0 passa a valer a partir de Abril de 2019 (cartões de débito, crédito e pré-pago).</p>
+
+<h2 id="2a-autenticação-é-suportada-para-quais-bandeiras">2.A autenticação é suportada para quais bandeiras?</h2>
+
+<p>Por enquanto apenas Visa e Mastercard. A Elo disponibilizará em breve.</p>
+
+<h2 id="3quais-emissores-estão-preparados-para-3ds-20">3.Quais emissores estão preparados para 3DS 2.0?</h2>
+
+<p>Nesse momento os emissores estão no modo piloto, ou seja, a ativação está acontecendo de forma controlada. A princípio Caixa e Banco do Brasil estão prontos.</p>
+
+<h2 id="4o-3ds-20-está-disponível-para-quais-soluções-cielo">4.O 3DS 2.0 está disponível para quais soluções Cielo?</h2>
+
+<p>API 3.0, 1.5 e checkout Cielo. Nas soluções 1.5 e 3.0 uma adequação técnica deve ser feita do lado do estabelecimento com base na documentação divulgada. Para o checkout, a adaptação técnica será feita no lado da Cielo.</p>
+
+<h2 id="5qual-a-diferença-de-linguagemscript-em-cada-solução-api-30-e-15">5.Qual a diferença de linguagem/script em cada solução (API 3.0 e 1.5)?</h2>
+
+<p>A autenticação 3DS 2.0 é compatível tanto com a API 3.0, quanto com o Webservice 1.5. Porém, é necessário o envio dos dados de autenticação no momento da autorização, conforme descrito no manual técnico.</p>
+
+<h2 id="6a-bandeira-conseguirá-incluir-um-score-de-cada-cartão-essa-informação-ficará-armazenada">6.A Bandeira conseguirá incluir um score de cada cartão? Essa informação ficará armazenada?</h2>
+
+<p>A Bandeira efetua o cálculo de score, mas esse dado não é compartilhado com o estabelecimento. Ele será disponibilizado para o emissor para que essa seja uma informação adicional na decisão de autenticação (silenciosa ou desafio).</p>
+
+<h2 id="7a-partir-de-quando-os-clientes-podem-implantar-a-solução-emv-3ds-20">7.A partir de quando os clientes podem implantar a solução EMV 3DS 2.0?</h2>
+
+<p>Visa e Master já estão prontas. Caso o lojista esteja pronto, mas os bancos ainda não, as bandeiras farão análise das informações adicionais enviadas sobre o portador e incluirá um score da transação. Após isso, o banco emissor fará a autenticação. Esse processo continuará até os bancos emissores concluírem a adequação técnica do lado deles.</p>
+
+<h2 id="8o-cliente-precisa-continuar-com-antifraude-se-o-liability-shift-passa-para-o-banco-emissor">8.O cliente precisa continuar com antifraude se o liability shift passa para o banco emissor?</h2>
+
+<p>Com certeza. Caso não ocorra a autenticação, o antifraude auxiliará o lojista na tomada de decisão, pois terá a liberadade de continuar o fluxo e atingir a autorização da transação.</p>
+
+<h2 id="9É-possível-diferenciar-uma-transação-que-está-no-3ds-10-com-a-transação-que-está-no-3ds-20-como">9.É possível diferenciar uma transação que está no 3DS 1.0 com a transação que está no 3DS 2.0? Como?</h2>
+
+<p>Sim. No retorno do script há um campo “version” que indicará qual a versão do 3DS. Se for 1, é 3DS 1.0, se for 2 é 3DS 2.0.</p>
+
+<h2 id="10as-bandeiras-possuem-uma-data-limite-para-os-bancos-estarem-prontos">10.As bandeiras possuem uma data limite para os bancos estarem prontos?</h2>
+
+<p>A data limite da Visa (mandate Bandeira) é Agosto de 2019. A partir desse mês, mesmo que os bancos não estejam prontos, a responsabilidade pelo chargeback (liability shift) será do banco, desde que a transação seja submetida com solicitação de autenticação. A Master está com mandate em revisão e logo disponibilizará a data.</p>
+
+<h2 id="11sou-cliente-e-estou-fazendo-o-desenvolvimento-da-solução-a-cielo-consegue-verificar-se-o-meu-teste-está-correto-como">11.Sou cliente e estou fazendo o desenvolvimento da solução. A Cielo consegue verificar se o meu teste está correto? Como?</h2>
+
+<p>É possível o cliente rastrear possíveis erros no script no modo “DEBUG” na integração. Maiores detalhes na documentação.</p>
+
+<h1 id="silent-order-post">Silent Order POST</h1>
+
+<h2 id="1a-solução-implica-em-algum-custo-adicional">1.A solução implica em algum custo adicional?</h2>
+
+<p>Não.</p>
+
+<h2 id="2quem-tem-silent-order-post-precisa-ter-a-solução-30">2.Quem tem Silent Order POST precisa ter a solução 3.0?</h2>
+
+<p>Sim. O Silent apenas substitui a necessidade de passar os dados do cartão abertamente. 
+Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a transação.</p>
+
+<h2 id="3a-solução-é-compatível-com-webservice-15">3.A solução é compatível com Webservice 1.5?</h2>
+
+<p>Não.</p>
+
+<h2 id="4registrar-o-ip-é-obrigatório">4.Registrar o IP é obrigatório?</h2>
+
+<p>Sim, por questão de segurança, este procedimento é obrigatório</p>
+
+<h2 id="5há-um-ambiente-de-testes-para-homologarmos-o-silent-order-post">5.Há um ambiente de testes para homologarmos o Silent Order Post?</h2>
+
+<p>Sim, o Sandbox é compatível com Silent Order POST como mostrado na <a href="https://developercielo.github.io/manual/silent-order-post#integra%C3%A7%C3%A3o">documentação</a>.</p>
+
+<h2 id="6estou-recebendo-erro-500-na-hora-de-pedir-o-accesstoken-o-que-pode-ser">6.Estou recebendo erro 500 na hora de pedir o accesstoken, o que pode ser?</h2>
+
+<p>Verificar se o endpoint está correto e tamém verifique se o IP de origem está liberado na plataforma.</p>
+
 <h1 id="integração-de-gateways">Integração de Gateways</h1>
 
 <h2 id="1utilizo-um-gateway-de-pagamentos-posso-usar-a-api-cielo-ecommerce">1.Utilizo um Gateway de pagamentos. Posso usar a API Cielo Ecommerce?</h2>
