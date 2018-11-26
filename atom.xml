@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-11-26T09:28:06+00:00</updated>
+    <updated>2018-11-26T10:02:53+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -50,6 +50,48 @@
 &lt;/ul&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Caso tenha implementado mecanismo de autenticação fora da Cielo (MPI Externo), pule direto para &quot;Etapa de Autorização&quot;&lt;/aside&gt;
+
+&lt;h2 id=&quot;fluxo-de-pagamento-3ds-20--com-desafio&quot;&gt;Fluxo de Pagamento 3DS 2.0 | Com desafio&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://portal-cielo-hlg.sensedia.com/api-portal/sites/default/files/pagamento-com-desafio-01.jpg&quot; alt=&quot;Fluxo com desafio 01&quot; /&gt;
+***
+&lt;img src=&quot;https://portal-cielo-hlg.sensedia.com/api-portal/sites/default/files/pagamento-com-desafio-02.jpg&quot; alt=&quot;Fluxo com desafio 02&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O Portador preenche os dados do cartão no checkout do estabelecimento.&lt;/li&gt;
+  &lt;li&gt;O Estabelecimento aciona a solução 3DS 2.0 da Cielo via script para autenticação.&lt;/li&gt;
+  &lt;li&gt;A solução 3DS 2.0 da Cielo envia ao MPI (plataforma de autenticação) os dados do comprador.&lt;/li&gt;
+  &lt;li&gt;O MPI se comunica com a Bandeira para processar a autenticação. A Bandeira identifica o emissor do cartão, e envia dos dados do comprador para análise. O emissor identifica o portador como um possível risco, desta forma, exige o desafio  e retorna a URL de Autenticação.&lt;/li&gt;
+  &lt;li&gt;A Bandeira retorna a URL de autenticação ao MPI.&lt;/li&gt;
+  &lt;li&gt;O MPI retorna a URL de autenticação à solução 3DS 2.0.&lt;/li&gt;
+  &lt;li&gt;A solução 3DS 2.0 retorna a URL de Autenticação ao estabelecimento via script.&lt;/li&gt;
+  &lt;li&gt;O script apresenta a tela da autenticação via lightbox.&lt;/li&gt;
+  &lt;li&gt;O portador resolve o desafio na tela do emissor.&lt;/li&gt;
+  &lt;li&gt;O emissor retorna o resultado da autenticação à Bandeira.&lt;/li&gt;
+  &lt;li&gt;A Bandeira retorna o resultado da autenticação ao MPI.&lt;/li&gt;
+  &lt;li&gt;O MPI retorna o resultado da autenticação à solução 3DS 2.0.&lt;/li&gt;
+  &lt;li&gt;A solução 3DS 2.0 retorna o resultado da autenticação ao estabelecimento via script (CAVV, ECI e XID).&lt;/li&gt;
+  &lt;li&gt;O estabelecimento envia uma requisição de autorização com os dados da autentiação à API Cielo 3.0.&lt;/li&gt;
+  &lt;li&gt;A API Cielo 3.0 retorna o resultado da autorização ao estabelecimento.&lt;/li&gt;
+  &lt;li&gt;O estabelecimento informa o resultado do pagamento..&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;fluxo-de-pagamento-3ds-20--sem-desafio&quot;&gt;Fluxo de Pagamento 3DS 2.0 | Sem desafio&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://portal-cielo-hlg.sensedia.com/api-portal/sites/default/files/pagamento-sem-desafio.jpg&quot; alt=&quot;Fluxo se desafio&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O Portador preenche os dados do cartão no checkout do estabelecimento&lt;/li&gt;
+  &lt;li&gt;O Estabelecimento aciona a solução 3DS 2.0 da Cielo via script para autenticação&lt;/li&gt;
+  &lt;li&gt;A solução 3DS 2.0 da Cielo envia ao MPI (plataforma de autenticação) os dados do comprador&lt;/li&gt;
+  &lt;li&gt;O MPI se comunica com a Bandeira para processar a autenticação. A Bandeira identifica o emissor do cartão, e envia dos dados do comprador para análise. O emissor identifica o portador como um possível risco, desta forma, exige o desafio e retorna a URL de Autenticação&lt;/li&gt;
+  &lt;li&gt;A Bandeira retorna o resultado da autenticação silenciosa (CAVV e ECI)&lt;/li&gt;
+  &lt;li&gt;O MPI retorna o resultado da autenticação silenciosa à solução 3DS 2.0&lt;/li&gt;
+  &lt;li&gt;A solução 3DS 2.0 retorna o resultado da autenticação silenciona ao estabelecimento via script&lt;/li&gt;
+  &lt;li&gt;O estabelecimento envia uma requisição de autorização com os dados da autentiação à API Cielo 3.0&lt;/li&gt;
+  &lt;li&gt;A API Cielo 3.0 retorna o resultado da autorização ao estabelecimento&lt;/li&gt;
+  &lt;li&gt;O estabelecimento informa o resutlado do pagamento&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h2 id=&quot;como-funciona-a-autorização-com-autenticação-via-3ds-20&quot;&gt;Como funciona a autorização com autenticação via 3DS 2.0?&lt;/h2&gt;
 
