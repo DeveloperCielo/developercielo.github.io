@@ -29,6 +29,20 @@ Esse método possibilita o envio dos dados do pagamento do seu cliente final de 
 * Redução do escopo de PCI DSS
 * Mantenha controle total sobre a experiência de check-out e elementos de gestão da sua marca.
 
+# Fluxo de Autorização
+
+## Fluxo Padrão de Autorização
+
+![Fluxo Padrão](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo-padrao-de-autorizacao.jpg)
+
+É preciso que o estabelecimento seja **PCI Compliance** (PCI = Regras de segurança para manipular os dados do cartão)
+
+## Fluxo de Autorização com Silent Order POST
+
+![Fluxo Padrão](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo-de-autorizacao-com-sop.jpg)
+
+O servidor **não trafega os dados do cartão** abertamente.
+
 # Fluxo Transacional
 
 ![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-silent-order-post-cielo.jpg)
