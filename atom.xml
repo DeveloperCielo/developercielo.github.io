@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-11-26T10:02:53+00:00</updated>
+    <updated>2018-11-26T12:44:13+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14542,6 +14542,20 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
   &lt;li&gt;Redução do escopo de PCI DSS&lt;/li&gt;
   &lt;li&gt;Mantenha controle total sobre a experiência de check-out e elementos de gestão da sua marca.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h1 id=&quot;fluxo-de-autorização&quot;&gt;Fluxo de Autorização&lt;/h1&gt;
+
+&lt;h2 id=&quot;fluxo-padrão-de-autorização&quot;&gt;Fluxo Padrão de Autorização&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo-padrao-de-autorizacao.jpg&quot; alt=&quot;Fluxo Padrão&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;É preciso que o estabelecimento seja &lt;strong&gt;PCI Compliance&lt;/strong&gt; (PCI = Regras de segurança para manipular os dados do cartão)&lt;/p&gt;
+
+&lt;h2 id=&quot;fluxo-de-autorização-com-silent-order-post&quot;&gt;Fluxo de Autorização com Silent Order POST&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo-de-autorizacao-com-sop.jpg&quot; alt=&quot;Fluxo Padrão&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O servidor &lt;strong&gt;não trafega os dados do cartão&lt;/strong&gt; abertamente.&lt;/p&gt;
 
 &lt;h1 id=&quot;fluxo-transacional&quot;&gt;Fluxo Transacional&lt;/h1&gt;
 
