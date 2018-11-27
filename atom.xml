@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-11-26T12:52:58+00:00</updated>
+    <updated>2018-11-27T17:55:33+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3932,7 +3932,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
     &lt;tr&gt;
       &lt;td&gt;paymentTransactionId&lt;/td&gt;
       &lt;td&gt;ID da transação de pagamento&lt;/td&gt;
-      &lt;td&gt;98437.29102507174&lt;/td&gt;
+      &lt;td&gt;4c603b44-19b8-497c-b072-60d5dd6807e7&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;pan&lt;/td&gt;
@@ -3942,7 +3942,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
     &lt;tr&gt;
       &lt;td&gt;originalTransactionId&lt;/td&gt;
       &lt;td&gt;ID da transação original, nos casos de cancelamento&lt;/td&gt;
-      &lt;td&gt;“0”&lt;/td&gt;
+      &lt;td&gt;729d32ac-6c8d-4b0c-b670-263552f07000&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;cardLabelApplication&lt;/td&gt;
