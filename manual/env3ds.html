@@ -653,6 +653,20 @@
       <td>Não</td>
       <td>Sim</td>
     </tr>
+    <tr>
+      <td>bpmpi_transaction_mode</td>
+      <td>Identifica o canal que originou a transação</td>
+      <td>M: MOTO<br />R: Varejo<br />S: E-Commerce<br />P: Mobile<br />T: Tablet</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_merchant_url</td>
+      <td>Endereço do site do estabelcimento</td>
+      <td>Alphanumérico [100] Exemplo: http://www.exemplo.com.br</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
   </tbody>
 </table>
 
@@ -670,7 +684,7 @@
     <tr>
       <td>bpmpi_giftcard_amount</td>
       <td>O total do valor da compra para cartões-presente pré-pagos em valor arredondado</td>
-      <td>Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 125</td>
+      <td>Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 12554</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -696,7 +710,14 @@
   </thead>
   <tbody>
     <tr>
-      <td>bpmpi_shipTo_contactName</td>
+      <td>bpmpi_billto_customerid</td>
+      <td>Identifica o CPF/CNPJ do comprador</td>
+      <td>Numérico [11 a 14 posições]<br />99999999999999</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_contactName</td>
       <td>Nome do contato do endereço de cobrança</td>
       <td>Alfanumérico [até 120]</td>
       <td>Não</td>
@@ -705,7 +726,7 @@
     <tr>
       <td>bpmpi_billTo_phoneNumber</td>
       <td>Telefone de contato do endereço de cobrança</td>
-      <td>Alfanumérico [até 15 posições], no formato: 5511999999999</td>
+      <td>Numérico [até 15 posições], no formato: 5511999999999</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -747,7 +768,14 @@
     <tr>
       <td>bpmpi_billto_zipcode</td>
       <td>CEP do endereço de cobrança</td>
-      <td>Alfanumérico [até 10 posições], no formato: 99999999</td>
+      <td>Alfanumérico [até 8 posições], no formato: 99999999</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billto_country</td>
+      <td>País do endereço de cobrança</td>
+      <td>Texto [2 posições] Ex. BR</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -825,6 +853,13 @@
       <td>bpmpi_shipto_zipcode</td>
       <td>CEP do endereço de entrega</td>
       <td>Alfanumérico [8 posições], no formato: 99999999</td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipto_country</td>
+      <td>País do endereço de cobrança</td>
+      <td>Texto [2 posições] Ex. BR</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -951,6 +986,13 @@
       <td>bpmpi_useraccount_authenticationtimestamp</td>
       <td>A data e hora que o login foi efetuado na loja</td>
       <td>Numérico [19 posições]<br /><em>YYYY-MM-ddTHH:mm:ss</em></td>
+      <td>Não</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_merchant_newcustomer</td>
+      <td>Identifica se um comprador novo na loja</td>
+      <td>Booleano<br />true – sim<br />false – não</td>
       <td>Não</td>
       <td>Sim</td>
     </tr>
@@ -1160,7 +1202,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
        </span><span class="s2">"Xid"</span><span class="p">:</span><span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Eci"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Version"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"RefereceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
+       </span><span class="s2">"ReferenceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1198,7 +1240,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
        <span class="s2">"Xid"</span>:<span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span>,
        <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
        <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
-       <span class="s2">"RefereceId"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
+       <span class="s2">"ReferenceId"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
      <span class="o">}</span>
    <span class="o">}</span>
 <span class="o">}</span>
@@ -1280,6 +1322,8 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       </span><span class="err">&lt;cavv&gt;A</span><span class="mi">901234</span><span class="err">A</span><span class="mi">5678</span><span class="err">A</span><span class="mi">0123</span><span class="err">A</span><span class="mi">567</span><span class="err">A</span><span class="mi">90120</span><span class="err">=&lt;/cavv&gt;</span><span class="w">
       </span><span class="err">&lt;xid&gt;A</span><span class="mi">90123</span><span class="err">A</span><span class="mi">45678</span><span class="err">A</span><span class="mi">0123</span><span class="err">A</span><span class="mi">567</span><span class="err">A</span><span class="mi">90123</span><span class="err">&lt;/xid&gt;</span><span class="w">
       </span><span class="err">&lt;eci&gt;</span><span class="mi">3</span><span class="err">&lt;/eci&gt;</span><span class="w">
+      </span><span class="err">&lt;versao&gt;</span><span class="mi">1</span><span class="err">&lt;/versao&gt;</span><span class="w">
+      </span><span class="err">&lt;dstid&gt;</span><span class="mi">3</span><span class="err">&lt;/dstid&gt;</span><span class="w">
    </span><span class="err">&lt;/dados-autenticacao-mpi-externa&gt;</span><span class="w">
 </span><span class="err">&lt;/requisicao-transacao&gt;</span><span class="w">
 </span></code></pre></div></div>
@@ -1295,22 +1339,34 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
   </thead>
   <tbody>
     <tr>
-      <td>Cavv</td>
+      <td>cavv</td>
       <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
       <td>Alfanumérico [28 posições]</td>
       <td>Sim, quando a autenticação foi um sucesso</td>
     </tr>
     <tr>
-      <td>Xid</td>
+      <td>xid</td>
       <td>XID retornado no processo de autenticação</td>
       <td>Alfanumérico [28 posições]</td>
       <td>Sim, quando a versão do 3DS for "1"</td>
     </tr>
     <tr>
-      <td>Eci</td>
+      <td>eci</td>
       <td>E-Commerce Indicator retornado no processo de autenticação</td>
       <td>Numérico [até 3 posições]</td>
       <td>Sim</td>
+    </tr>
+    <tr>
+      <td>versao</td>
+      <td>Versão do 3DS utilizado no processo de autenticação</td>
+      <td>Alfanumérico [1 posição]</td>
+      <td>Sim, quando a versão do 3DS for "2"</td>
+    </tr>
+    <tr>
+      <td>dstid</td>
+      <td>RequestID retornado no processo de autenticação</td>
+      <td>GUID [36 posições]</td>
+      <td>Sim, quando a versão do 3DS for "2"</td>
     </tr>
   </tbody>
 </table>

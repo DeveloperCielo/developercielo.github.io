@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-11-27T17:55:33+00:00</updated>
+    <updated>2018-12-07T12:24:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -542,6 +542,20 @@
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_transaction_mode&lt;/td&gt;
+      &lt;td&gt;Identifica o canal que originou a transação&lt;/td&gt;
+      &lt;td&gt;M: MOTO&lt;br /&gt;R: Varejo&lt;br /&gt;S: E-Commerce&lt;br /&gt;P: Mobile&lt;br /&gt;T: Tablet&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_merchant_url&lt;/td&gt;
+      &lt;td&gt;Endereço do site do estabelcimento&lt;/td&gt;
+      &lt;td&gt;Alphanumérico [100] Exemplo: http://www.exemplo.com.br&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -559,7 +573,7 @@
     &lt;tr&gt;
       &lt;td&gt;bpmpi_giftcard_amount&lt;/td&gt;
       &lt;td&gt;O total do valor da compra para cartões-presente pré-pagos em valor arredondado&lt;/td&gt;
-      &lt;td&gt;Numérico [até 15 posições],&lt;br /&gt;exemplo: R$ 125,54 = 125&lt;/td&gt;
+      &lt;td&gt;Numérico [até 15 posições],&lt;br /&gt;exemplo: R$ 125,54 = 12554&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
@@ -585,7 +599,14 @@
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_shipTo_contactName&lt;/td&gt;
+      &lt;td&gt;bpmpi_billto_customerid&lt;/td&gt;
+      &lt;td&gt;Identifica o CPF/CNPJ do comprador&lt;/td&gt;
+      &lt;td&gt;Numérico [11 a 14 posições]&lt;br /&gt;99999999999999&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billTo_contactName&lt;/td&gt;
       &lt;td&gt;Nome do contato do endereço de cobrança&lt;/td&gt;
       &lt;td&gt;Alfanumérico [até 120]&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -594,7 +615,7 @@
     &lt;tr&gt;
       &lt;td&gt;bpmpi_billTo_phoneNumber&lt;/td&gt;
       &lt;td&gt;Telefone de contato do endereço de cobrança&lt;/td&gt;
-      &lt;td&gt;Alfanumérico [até 15 posições], no formato: 5511999999999&lt;/td&gt;
+      &lt;td&gt;Numérico [até 15 posições], no formato: 5511999999999&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
@@ -636,7 +657,14 @@
     &lt;tr&gt;
       &lt;td&gt;bpmpi_billto_zipcode&lt;/td&gt;
       &lt;td&gt;CEP do endereço de cobrança&lt;/td&gt;
-      &lt;td&gt;Alfanumérico [até 10 posições], no formato: 99999999&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [até 8 posições], no formato: 99999999&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_billto_country&lt;/td&gt;
+      &lt;td&gt;País do endereço de cobrança&lt;/td&gt;
+      &lt;td&gt;Texto [2 posições] Ex. BR&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
@@ -714,6 +742,13 @@
       &lt;td&gt;bpmpi_shipto_zipcode&lt;/td&gt;
       &lt;td&gt;CEP do endereço de entrega&lt;/td&gt;
       &lt;td&gt;Alfanumérico [8 posições], no formato: 99999999&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_shipto_country&lt;/td&gt;
+      &lt;td&gt;País do endereço de cobrança&lt;/td&gt;
+      &lt;td&gt;Texto [2 posições] Ex. BR&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
@@ -840,6 +875,13 @@
       &lt;td&gt;bpmpi_useraccount_authenticationtimestamp&lt;/td&gt;
       &lt;td&gt;A data e hora que o login foi efetuado na loja&lt;/td&gt;
       &lt;td&gt;Numérico [19 posições]&lt;br /&gt;&lt;em&gt;YYYY-MM-ddTHH:mm:ss&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_merchant_newcustomer&lt;/td&gt;
+      &lt;td&gt;Identifica se um comprador novo na loja&lt;/td&gt;
+      &lt;td&gt;Booleano&lt;br /&gt;true – sim&lt;br /&gt;false – não&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
@@ -1049,7 +1091,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Xid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Uk5ZanBHcWw2RjRCbEN5dGtiMTB=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RefereceID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a24a5d87-b1a1-4aef-a37b-2f30b91274e6&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReferenceID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a24a5d87-b1a1-4aef-a37b-2f30b91274e6&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -1087,7 +1129,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
        &lt;span class=&quot;s2&quot;&gt;&quot;Xid&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Uk5ZanBHcWw2RjRCbEN5dGtiMTB=&quot;&lt;/span&gt;,
        &lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;,
        &lt;span class=&quot;s2&quot;&gt;&quot;Version&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;,
-       &lt;span class=&quot;s2&quot;&gt;&quot;RefereceId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;a24a5d87-b1a1-4aef-a37b-2f30b91274e6&quot;&lt;/span&gt;
+       &lt;span class=&quot;s2&quot;&gt;&quot;ReferenceId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;a24a5d87-b1a1-4aef-a37b-2f30b91274e6&quot;&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -1169,6 +1211,8 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;cavv&amp;gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;901234&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5678&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;567&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90120&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&amp;lt;/cavv&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;xid&amp;gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;45678&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;567&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/xid&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;eci&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/eci&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;versao&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/versao&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;dstid&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dstid&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dados-autenticacao-mpi-externa&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -1184,22 +1228,34 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Cavv&lt;/td&gt;
+      &lt;td&gt;cavv&lt;/td&gt;
       &lt;td&gt;Booleano que indica se a transação é submetida o não para o processo de autenticação&lt;/td&gt;
       &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
       &lt;td&gt;Sim, quando a autenticação foi um sucesso&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Xid&lt;/td&gt;
+      &lt;td&gt;xid&lt;/td&gt;
       &lt;td&gt;XID retornado no processo de autenticação&lt;/td&gt;
       &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
       &lt;td&gt;Sim, quando a versão do 3DS for &quot;1&quot;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Eci&lt;/td&gt;
+      &lt;td&gt;eci&lt;/td&gt;
       &lt;td&gt;E-Commerce Indicator retornado no processo de autenticação&lt;/td&gt;
       &lt;td&gt;Numérico [até 3 posições]&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;versao&lt;/td&gt;
+      &lt;td&gt;Versão do 3DS utilizado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [1 posição]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;dstid&lt;/td&gt;
+      &lt;td&gt;RequestID retornado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;GUID [36 posições]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
