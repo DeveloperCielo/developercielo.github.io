@@ -646,6 +646,22 @@
       <td>No</td>
       <td>Yes</td>
     </tr>
+    <tr>
+      <td>bpmpi_transaction_mode</td>
+      <td>Identifies the channel from which the transaction originates</td>
+      <td>M: MOTO<br />R: Varejo<br />S: E-Commerce<br />P: Mobile<br />T: Tablet</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_merchant_url</td>
+      <td>Address of your company’s web site</td>
+      <td>Alphanumeric [100] Ex: http://www.exemplo.com.br</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
@@ -693,7 +709,15 @@
   </thead>
   <tbody>
     <tr>
-      <td>bpmpi_shipTo_contactName</td>
+      <td>bpmpi_billto_customerid</td>
+      <td>Identifies the CPF/CNPJ of customer</td>
+      <td>Numeric [11 to 14]<br />99999999999999</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_contactName</td>
       <td>Billing address contact name</td>
       <td>Alphanumeric</td>
       <td>Max 120</td>
@@ -703,7 +727,7 @@
     <tr>
       <td>bpmpi_billTo_phoneNumber</td>
       <td>Billing address phone number</td>
-      <td>Alphanumeric</td>
+      <td>Numeric</td>
       <td>Max 15<br /><em>Format: 5511999999999</em></td>
       <td>No</td>
       <td>Yes</td>
@@ -752,9 +776,17 @@
       <td>bpmpi_billto_zipcode</td>
       <td>Billing address zip code</td>
       <td>Alphanumeric</td>
-      <td>Max 10<br /><em>Format: 99999999</em></td>
+      <td>Max 8<br /><em>Format: 99999999</em></td>
       <td>No</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billto_country</td>
+      <td>Billing country for the account</td>
+      <td>String [2] Ex. BR</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -842,6 +874,14 @@
       <td>8<br /><em>Format: 99999999</em></td>
       <td>No</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipto_country</td>
+      <td>Shipping country for the account</td>
+      <td>String [2] Ex. BR</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
     </tr>
     <tr>
       <td>bpmpi_shipTo_shippingMethod</td>
@@ -984,6 +1024,14 @@
       <td>19<br /><em>YYYY-MM-ddTHH:mm:ss</em></td>
       <td>No</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_merchant_newcustomer</td>
+      <td>Indicates whether the consumer is a new or existing customer with the merchant</td>
+      <td>Boolean<br />true – yes<br />false – no</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -1215,7 +1263,7 @@ This procedure is also valid for merchants that performed authentication outside
        </span><span class="s2">"Xid"</span><span class="p">:</span><span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Eci"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Version"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"RefereceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
+       </span><span class="s2">"ReferenceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1253,7 +1301,7 @@ This procedure is also valid for merchants that performed authentication outside
        <span class="s2">"Xid"</span>:<span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span>,
        <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
        <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
-       <span class="s2">"RefereceId"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
+       <span class="s2">"ReferenceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
      <span class="o">}</span>
    <span class="o">}</span>
 <span class="o">}</span>
@@ -1341,6 +1389,8 @@ This procedure is also valid for merchants that performed authentication outside
       </span><span class="err">&lt;cavv&gt;A</span><span class="mi">901234</span><span class="err">A</span><span class="mi">5678</span><span class="err">A</span><span class="mi">0123</span><span class="err">A</span><span class="mi">567</span><span class="err">A</span><span class="mi">90120</span><span class="err">=&lt;/cavv&gt;</span><span class="w">
       </span><span class="err">&lt;xid&gt;A</span><span class="mi">90123</span><span class="err">A</span><span class="mi">45678</span><span class="err">A</span><span class="mi">0123</span><span class="err">A</span><span class="mi">567</span><span class="err">A</span><span class="mi">90123</span><span class="err">&lt;/xid&gt;</span><span class="w">
       </span><span class="err">&lt;eci&gt;</span><span class="mi">3</span><span class="err">&lt;/eci&gt;</span><span class="w">
+      </span><span class="err">&lt;versao&gt;</span><span class="mi">1</span><span class="err">&lt;/versao&gt;</span><span class="w">
+      </span><span class="err">&lt;dstid&gt;</span><span class="mi">3</span><span class="err">&lt;/dstid&gt;</span><span class="w">
    </span><span class="err">&lt;/dados-autenticacao-mpi-externa&gt;</span><span class="w">
 </span><span class="err">&lt;/requisicao-transacao&gt;</span><span class="w">
 </span></code></pre></div></div>
@@ -1357,25 +1407,39 @@ This procedure is also valid for merchants that performed authentication outside
   </thead>
   <tbody>
     <tr>
-      <td>Cavv</td>
+      <td>cavv</td>
       <td>Boolean that indicates if the transaction is submitted to authentication process</td>
       <td>Alphanumeric</td>
       <td>28</td>
       <td>Yes (<em>when authentication is successfull</em>)</td>
     </tr>
     <tr>
-      <td>Xid</td>
+      <td>xid</td>
       <td>XID returned in the authentication process</td>
       <td>Alphanumeric</td>
       <td>28</td>
       <td>Yes (<em>when 3DS version is  "1"</em>)</td>
     </tr>
     <tr>
-      <td>Eci</td>
+      <td>eci</td>
       <td>E-Commerce Indicator returned in authentication process</td>
       <td>Numeric</td>
       <td>Max 3</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td>versao</td>
+      <td>3DS version used in authentication process</td>
+      <td>Alphanumeric [1]</td>
+      <td>Yes, (<em>when 3DS version is  "2"</em>)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dstid</td>
+      <td>RequestID returned in authentication process</td>
+      <td>GUID [36]</td>
+      <td>Yes (<em>when 3DS version is  "2"</em>)</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
