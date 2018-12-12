@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-12-12T21:17:23+00:00</updated>
+    <updated>2018-12-12T21:24:51+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -709,7 +709,7 @@
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_shipTo_phoneNumber&lt;/td&gt;
+      &lt;td&gt;bpmpi_shipTo_phonenumber&lt;/td&gt;
       &lt;td&gt;Delivery address phone number&lt;/td&gt;
       &lt;td&gt;Numeric&lt;/td&gt;
       &lt;td&gt;Max 15&lt;br /&gt;&lt;em&gt;Format: 5511999999999&lt;/em&gt;&lt;/td&gt;
@@ -773,7 +773,7 @@
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_shipTo_shippingMethod&lt;/td&gt;
+      &lt;td&gt;bpmpi_shipTo_shippingmethod&lt;/td&gt;
       &lt;td&gt;Shipping Method Type&lt;/td&gt;
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;lowcost&lt;br /&gt;sameday&lt;br /&gt;oneday&lt;br /&gt;twoday&lt;br /&gt;threeday&lt;br /&gt;pickup&lt;br /&gt;other&lt;/td&gt;
