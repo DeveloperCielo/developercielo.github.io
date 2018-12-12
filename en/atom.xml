@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-12-12T21:37:19+00:00</updated>
+    <updated>2018-12-12T21:40:48+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -606,7 +606,7 @@
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_billTo_contactName&lt;/td&gt;
+      &lt;td&gt;bpmpi_billTo_contactname&lt;/td&gt;
       &lt;td&gt;Billing address contact name&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Max 120&lt;/td&gt;
@@ -614,7 +614,7 @@
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_billTo_phoneNumber&lt;/td&gt;
+      &lt;td&gt;bpmpi_billTo_phonenumber&lt;/td&gt;
       &lt;td&gt;Billing address phone number&lt;/td&gt;
       &lt;td&gt;Numeric&lt;/td&gt;
       &lt;td&gt;Max 15&lt;br /&gt;&lt;em&gt;Format: 5511999999999&lt;/em&gt;&lt;/td&gt;
