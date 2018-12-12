@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-12-07T13:29:11+00:00</updated>
+    <updated>2018-12-12T21:17:18+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -697,7 +697,7 @@
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_shipTo_phoneNumber&lt;/td&gt;
+      &lt;td&gt;bpmpi_shipTo_phonenumber&lt;/td&gt;
       &lt;td&gt;Telefone de contato do endereço de entrega&lt;/td&gt;
       &lt;td&gt;Numérico [até 15 posições], no formato: 5511999999999&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -753,7 +753,7 @@
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;bpmpi_shipTo_shippingMethod&lt;/td&gt;
+      &lt;td&gt;bpmpi_shipTo_shippingmethod&lt;/td&gt;
       &lt;td&gt;Tipo do método de envio&lt;/td&gt;
       &lt;td&gt;lowcost: envio econômico&lt;br /&gt;sameday: envio no mesmo dia&lt;br /&gt;oneday: envio no dia seguinte&lt;br /&gt;twoday: envio em dois dias&lt;br /&gt;threeday: envio em três dias&lt;br /&gt;pickup: retirada na loja&lt;br /&gt;other: outrosnone: não há envio&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
