@@ -69,6 +69,17 @@
 		<fieldset style="width:0">
 			<legend>Billing Address</legend>
 			<div>
+				<label>Customer ID (CPF/CNPJ):</label>
+				<input type="text" size="14" class="bpmpi_billto_customerid" value="12345678909" />
+			</div>
+			<div>
+				<label>New Customer:</label>
+				<select name="newCustomer" class="bpmpi_merchant_newcustomer">
+					<option value="credit" selected="selected">true</option>
+					<option value="debit">false</option>
+				</select>				
+			</div>			
+			<div>
 				<label>Name:</label>
 				<input type="text" size="50" class="bpmpi_billto_name" value="Comprador de Teste" />
 			</div>
@@ -95,6 +106,10 @@
 			<div>
 				<label>State:</label>
 				<input type="text" size="50" class="bpmpi_billto_state" value="RJ" />
+			</div>
+			<div>
+				<label>Country:</label>
+				<input type="text" size="2" class="bpmpi_billto_country" value="BR" />
 			</div>
 			<div>
 				<label>Zipcode:</label>
@@ -136,6 +151,10 @@
 				<label>State:</label>
 				<input type="text" size="50" class="bpmpi_shipto_state" value="RJ" />
 			</div>
+			<div>
+				<label>Country:</label>
+				<input type="text" size="2" class="bpmpi_shipto_country" value="BR" />
+			</div>			
 			<div>
 				<label>Zipcode:</label>
 				<input type="text" size="50" class="bpmpi_shipto_zipcode" value="20011020" />
@@ -325,6 +344,14 @@
 		<!-- dados do pedido -->
 		<fieldset style="width:0">
 			<legend>Order</legend>
+			<div>
+				<label>Transaction Mode:</label>
+				<input type="text" size="50" class="bpmpi_transaction_mode" value="R" />
+			</div>
+			<div>
+				<label>Merchant URL:</label>
+				<input type="text" size="50" class="bpmpi_merchant_url" value="http://www.loja.com.br" />
+			</div>				
 			<div>
 				<label>Recurrence:</label>
 				<input type="text" size="50" class="bpmpi_order_recurrence" value="false" />
