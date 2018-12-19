@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-12-18T16:10:34+00:00</updated>
+    <updated>2018-12-19T21:29:21+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31245,36 +31245,6 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
       &lt;td&gt;187&lt;/td&gt;
       &lt;td&gt;ExtraData Collection contains one or more duplicated names&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;188&lt;/td&gt;
-      &lt;td&gt;Avs with CPF invalid&lt;/td&gt;
-      &lt;td&gt;—&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;189&lt;/td&gt;
-      &lt;td&gt;Avs with length of street exceeded&lt;/td&gt;
-      &lt;td&gt;Dado enviado excede o tamanho do campo&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;190&lt;/td&gt;
-      &lt;td&gt;Avs with length of number exceeded&lt;/td&gt;
-      &lt;td&gt;Dado enviado excede o tamanho do campo&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;190&lt;/td&gt;
-      &lt;td&gt;Avs with length of complement exceeded&lt;/td&gt;
-      &lt;td&gt;Dado enviado excede o tamanho do campo&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;191&lt;/td&gt;
-      &lt;td&gt;Avs with length of district exceeded&lt;/td&gt;
-      &lt;td&gt;Dado enviado excede o tamanho do campo&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;192&lt;/td&gt;
-      &lt;td&gt;Avs with zip code invalid&lt;/td&gt;
-      &lt;td&gt;CEP enviado é invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;193&lt;/td&gt;
