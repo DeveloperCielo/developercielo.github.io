@@ -6378,12 +6378,6 @@ Codes returned in case of error, identifying the reason for the error and its re
 |185|Brand is not supported by selected provider|Card issuer not supported by API Cielo|
 |186|The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)|Payment means does not support the sent command|
 |187|ExtraData Collection contains one or more duplicated names|---|
-|188|Avs with CPF invalid|---|
-|189|Avs with length of street exceeded|Sent data exceeds field size|
-|190|Avs with length of number exceeded|Sent data exceeds field size|
-|190|Avs with length of complement exceeded|Sent data exceeds field size|
-|191|Avs with length of district exceeded|Sent data exceeds field size|
-|192|Avs with zip code invalid|Sent postal code is invalid|
 |193|Split Amount must be greater than zero|Value for SPLIT realization must be greater than 0|
 |194|Split Establishment is Required|SPLIT not enabled for store registration|
 |195|The PlataformId is required|Platforms validated not sent|
