@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-12-19T21:29:25+00:00</updated>
+    <updated>2018-12-19T21:30:52+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26614,36 +26614,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;187&lt;/td&gt;
       &lt;td&gt;ExtraData Collection contains one or more duplicated names&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;188&lt;/td&gt;
-      &lt;td&gt;Avs with CPF invalid&lt;/td&gt;
-      &lt;td&gt;—&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;189&lt;/td&gt;
-      &lt;td&gt;Avs with length of street exceeded&lt;/td&gt;
-      &lt;td&gt;Sent data exceeds field size&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;190&lt;/td&gt;
-      &lt;td&gt;Avs with length of number exceeded&lt;/td&gt;
-      &lt;td&gt;Sent data exceeds field size&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;190&lt;/td&gt;
-      &lt;td&gt;Avs with length of complement exceeded&lt;/td&gt;
-      &lt;td&gt;Sent data exceeds field size&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;191&lt;/td&gt;
-      &lt;td&gt;Avs with length of district exceeded&lt;/td&gt;
-      &lt;td&gt;Sent data exceeds field size&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;192&lt;/td&gt;
-      &lt;td&gt;Avs with zip code invalid&lt;/td&gt;
-      &lt;td&gt;Sent postal code is invalid&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;193&lt;/td&gt;
