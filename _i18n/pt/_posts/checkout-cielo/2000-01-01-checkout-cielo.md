@@ -1035,7 +1035,7 @@ Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de
 
 **REQUEST**
 
-```html
+```json
 --HEADER: MerchantID
  GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/{merchantId}/{merchantOrderNumber}
 ```
