@@ -2122,13 +2122,13 @@ curl
 |`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
 |`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
+|`MerchantOrderId`|Order ID number.|Text|<ul><li>Bradesco: 27</li><li>Banco do Brasil: 50</li></ul>|Yes|
+|`Customer.Name`|Buyer's name.|Text|<li>Bradesco: 34</li><li>Banco do Brasil: 60</li></ul>|No|
 |`Customer.Status`|Buyer registration status in store(NEW / EXISTING) - Used by fraud analysis|Text|255|No|
 |`Customer.Address.ZipCode`|Buyer's address zip code.|Text|9|Yes|
 |`Customer.Address.Country`|Buyer's address country.|Text|35|Yes|
 |`Customer.Address.State`|Buyer's address state.|Text|2|Yes|
-|`Customer.Address.City`|Buyer's address city.|Text|50|Yes|
+|`Customer.Address.City`|Buyer's address city.|Text|<ul><li>Bradesco: 50</li><li>Banco do Brasil: 18</li></ul>|Yes|
 |`Customer.Address.District`|Buyer's neighborhood.|Text|50|Yes|
 |`Customer.Address.Street`|Buyer's address.|Text|255|Yes|
 |`Customer.Address.Number`|Buyer's address number.|Text|15|Yes|
@@ -2136,7 +2136,7 @@ curl
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|Text|15|Yes|
 |`Payment.Adress`|Transferor's address.|Text|255|No|
-|`Payment.BoletoNumber`|Bank slip number sent by the merchant. Used to count issued bank slips ("OurNumber").|Text|50|No|
+|`Payment.BoletoNumber`|Bank slip number sent by the merchant. Used to count issued bank slips ("OurNumber").|Text|<ul><li>Bradesco: 11</li><li>Banco do Brasil: 9</li></ul>|No|
 |`Payment.Assignor`|Transferor's name.|Text|200|No|
 |`Payment.Demonstrative`|Demonstration text.|Text|450|No|
 |`Payment.ExpirationDate`|Bank slip expiration date.|Date|10|No|
