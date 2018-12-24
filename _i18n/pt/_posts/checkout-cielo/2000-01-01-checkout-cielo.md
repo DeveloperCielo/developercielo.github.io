@@ -669,7 +669,7 @@ Os nós que formam as informações de frete abaixo:
 |---|---|---|---|---|
 |`Shipping.Address.Street`|Alphanumeric|Sim|256|Rua, avenida, travessa, etc, do endereço de entrega do comprador.|
 |`Shipping.Address.Number`|Alphanumeric|Sim|8|Número do endereço de entrega do comprador.|
-|`Shipping.Address.Complement`|Alphanumeric|Opcional|256|Complemento do endereço de entrega do comprador.|
+|`Shipping.Address.Complement`|Alphanumeric|Opcional|14|Complemento do endereço de entrega do comprador.|
 |`Shipping.Address.District`|Alphanumeric|Sim|64|Bairro do endereço de entrega do comprador.|
 |`Shipping.Address.City`|Alphanumeric|Sim|64|Cidade do endereço de entrega do comprador.|
 |`Shipping.Address.State`|Alphanumeric|Sim|2|Estado (UF) do endereço de entrega do comprador.|
@@ -1110,7 +1110,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `shipping_address_city`              | Cidade do endereço de entrega                                                                                | Alfanumérico  | 64             |
 | `shipping_address_state`             | Estado de endereço de entrega                                                                                | Alfanumérico  | 64             |
 | `shipping_address_line1`             | Endereço de entrega                                                                                          | Alfanumérico  | 256            |
-| `shipping_address_line2`             | Complemento do endereço de entrega                                                                           | Alfanumérico  | 256            |
+| `shipping_address_line2`             | Complemento do endereço de entrega                                                                           | Alfanumérico  | 14            |
 | `shipping_address_number`            | Número do endereço de entrega                                                                                | Numérico      | 8              |
 | `payment_method_type`                | Cód. do tipo de meio de pagamento                                                                            | Numérico      | 1              |
 | `payment_method_brand`               | Bandeira (somente para transações com meio de pagamento cartão de crédito)                                   | Numérico      | 1              |
