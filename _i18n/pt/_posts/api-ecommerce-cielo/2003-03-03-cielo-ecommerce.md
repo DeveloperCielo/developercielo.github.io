@@ -1469,13 +1469,13 @@ curl
 |`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
+|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|<ul><li>Bradesco: 27</li><li>Banco do Brasil: 50</li></ul>|Sim|
+|`Customer.Name`|Nome do Comprador.|Texto|<ul><li>Bradesco: 34</li><li>Banco do Brasil: 60</li></ul>|Não|
 |`Customer.Status`|Status de cadastro do comprador na loja(NEW / EXISTING) - Utilizado pela análise de fraude|Texto|255|Não|
 |`Customer.Address.ZipCode`|CEP do endereço do Comprador.|Texto|9|Sim|
 |`Customer.Address.Country`|Pais do endereço do Comprador.|Texto|35|Sim|
 |`Customer.Address.State`|Estado do endereço do Comprador.|Texto|2|Sim|
-|`Customer.Address.City`|Cidade do endereço do Comprador.|Texto|50|Sim|
+|`Customer.Address.City`|Cidade do endereço do Comprador.|Texto|<ul><li>Bradesco: 50</li><li>Banco do Brasil: 18</li></ul>|Sim|
 |`Customer.Address.District`|Bairro do Comprador.|Texto|50|Sim|
 |`Customer.Address.Street`|Endereço do Comprador.|Texto|255|Sim|
 |`Customer.Address.Number`|Número do endereço do Comprador.|Texto|15|Sim|
@@ -1483,7 +1483,7 @@ curl
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
 |`Payment.Provider`|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|Sim|
 |`Payment.Adress`|Endereço do Cedente.|Texto|255|Não|
-|`Payment.BoletoNumber`|Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos ("NossoNumero").|Texto|50|Não|
+|`Payment.BoletoNumber`|Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos ("NossoNumero").|Texto|<ul><li>Bradesco: 11</li><li>Banco do Brasil: 9</li></ul>|Não|
 |`Payment.Assignor`|Nome do Cedente.|Texto|200|Não|
 |`Payment.Demonstrative`|Texto de Demonstrativo.|Texto|255|Não|
 |`Payment.ExpirationDate`|Data de expiração do Boleto. Ex. 2020-12-31 |Date|10|Não|
