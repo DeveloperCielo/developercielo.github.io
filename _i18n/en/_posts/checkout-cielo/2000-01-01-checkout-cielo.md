@@ -672,7 +672,7 @@ The nodes that compound the freight information below:
 |---|---|---|---|---|
 |`Shipping.Address.Street`|Alphanumeric|Yes|256|Street, avenue, lane, etc., from buyer's delivery address.|
 |`Shipping.Address.Number`|Alphanumeric|Yes|8|Buyer's delivery address number.|
-|`Shipping.Address.Complement`|Alphanumeric|Optional|256|Buyer's delivery address complement.|
+|`Shipping.Address.Complement`|Alphanumeric|Optional|14|Buyer's delivery address complement.|
 |`Shipping.Address.District`|Alphanumeric|Yes|64|Buyer's delivery address neighborhood.|
 |`Shipping.Address.City`|Alphanumeric|Yes|64|Buyer's delivery address city.|
 |`Shipping.Address.State`|Alphanumeric|Yes|2|Buyer's delivery address state (UF).|
@@ -1145,7 +1145,7 @@ Below are described all the returned fields, as well as their definitions and si
 |`shipping_address_city`|Delivery address city|Alphanumeric|64|
 |`shipping_address_state`|Delivery address state|Alphanumeric|64|
 |`shipping_address_line1`|Delivery address|Alphanumeric|256|
-|`shipping_address_line2`|Delivery address complement|Alphanumeric|256|
+|`shipping_address_line2`|Delivery address complement|Alphanumeric|14|
 |`shipping_address_number`|Delivery address number|Numeric|8|
 |`payment_method_type`|Payment means type code|Numeric|1|
 |`payment_method_brand`|Issuer (only for transactions with credit card payment means)|Numeric|1|
