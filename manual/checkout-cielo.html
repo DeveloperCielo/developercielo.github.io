@@ -47,6 +47,8 @@
                     
                     <li><a data-language-name='json'>JSON</a></li>
                     
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
                 </ul>
             </div>
             <div class="dark-box"></div>
@@ -2324,9 +2326,34 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
 
 <p><strong>REQUEST</strong></p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--HEADER</span><span class="p">:</span><span class="w"> </span><span class="err">MerchantID</span><span class="w">
- </span><span class="err">GET</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//cieloecommerce.cielo.com.br/api/public/v</span><span class="mi">1</span><span class="err">/orders/</span><span class="p">{</span><span class="err">merchantId</span><span class="p">}</span><span class="err">/</span><span class="p">{</span><span class="err">merchantOrderNumber</span><span class="p">}</span><span class="w">
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/<span class="o">{</span>merchantId<span class="o">}</span>/<span class="o">{</span>merchantOrderNumber<span class="o">}</span><span class="s2">"
+--header "</span>Content-Type: application/json<span class="s2">"
+--header "</span>MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx<span class="s2">"
+--data-binary
+--verbose
 </span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>RESPONSE</strong></p>
 
@@ -4246,6 +4273,9 @@ Com os dados inclusos na tela, o comprador pode finalizar a transação</p>
             
             langs += "<a data-language-name='json'>JSON</a>";
             langsArray.push('json');
+            
+            langs += "<a data-language-name='shell'>cURL</a>";
+            langsArray.push('shell');
             
 
             var toggleCode = 'Comutar';
