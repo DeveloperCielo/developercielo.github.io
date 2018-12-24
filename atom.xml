@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-12-24T12:56:02+00:00</updated>
+    <updated>2018-12-24T13:01:24+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18378,14 +18378,14 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Numero de identificação do Pedido.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;Bradesco: 27Banco do Brasil: 50&lt;/td&gt;
+      &lt;td&gt;Bradesco: 27&lt;br /&gt;Banco do Brasil: 50&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Nome do Comprador.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;Bradesco: 34Banco do Brasil: 60&lt;/td&gt;
+      &lt;td&gt;Bradesco: 34&lt;br /&gt;Banco do Brasil: 60&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -18420,7 +18420,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.City&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Cidade do endereço do Comprador.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;Bradesco: 50Banco do Brasil: 18&lt;/td&gt;
+      &lt;td&gt;Bradesco: 50&lt;br /&gt;Banco do Brasil: 18&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -18476,7 +18476,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.BoletoNumber&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos (“NossoNumero”).&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;Bradesco: 11Banco do Brasil: 9&lt;/td&gt;
+      &lt;td&gt;Bradesco: 11&lt;br /&gt;Banco do Brasil: 9&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
