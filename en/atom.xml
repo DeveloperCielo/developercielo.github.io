@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2018-12-24T13:01:29+00:00</updated>
+    <updated>2018-12-24T13:03:02+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18210,14 +18210,14 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Order ID number.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;Bradesco: 27Banco do Brasil: 50&lt;/td&gt;
+      &lt;td&gt;Bradesco: 27&lt;br /&gt;Banco do Brasil: 50&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Buyer’s name.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;Bradesco: 34Banco do Brasil: 60&lt;/td&gt;
+      &lt;td&gt;Bradesco: 34&lt;br /&gt;Banco do Brasil: 60&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -18252,7 +18252,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Address.City&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Buyer’s address city.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;Bradesco: 50Banco do Brasil: 18&lt;/td&gt;
+      &lt;td&gt;Bradesco: 50&lt;br /&gt;Banco do Brasil: 18&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -18308,7 +18308,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.BoletoNumber&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Bank slip number sent by the merchant. Used to count issued bank slips (“OurNumber”).&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;Bradesco: 11Banco do Brasil: 9&lt;/td&gt;
+      &lt;td&gt;Bradesco: 11&lt;br /&gt;Banco do Brasil: 9&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
