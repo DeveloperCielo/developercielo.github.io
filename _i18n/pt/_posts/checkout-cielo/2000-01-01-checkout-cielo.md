@@ -11,6 +11,7 @@ tags:
   - Checkout Cielo
 language_tabs:
   json: JSON
+  shell: cURL
 ---
 
 # Sobre o Checkout Cielo.
@@ -1035,10 +1036,18 @@ Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de
 
 **REQUEST**
 
-```json
---HEADER: MerchantID
- GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/{merchantId}/{merchantOrderNumber}
+```shell
+curl
+--request GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/{merchantId}/{merchantOrderNumber}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
 ```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`MerchantId`|Identificador da loja|Guid|36|Sim|
 
 **RESPONSE**
 
