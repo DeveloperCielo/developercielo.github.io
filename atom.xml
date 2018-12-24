@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-12-20T18:29:45+00:00</updated>
+    <updated>2018-12-24T11:06:27+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -37347,7 +37347,7 @@ Os descontos disponíveis no Checkout Cielo são:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Shipping.Address.Complement&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;Opcional&lt;/td&gt;
-      &lt;td&gt;256&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
       &lt;td&gt;Complemento do endereço de entrega do comprador.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -38325,7 +38325,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shipping_address_line2&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Complemento do endereço de entrega&lt;/td&gt;
       &lt;td&gt;Alfanumérico&lt;/td&gt;
-      &lt;td&gt;256&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;shipping_address_number&lt;/code&gt;&lt;/td&gt;
