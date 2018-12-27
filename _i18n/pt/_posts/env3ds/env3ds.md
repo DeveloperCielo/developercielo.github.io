@@ -15,4 +15,5 @@ language_tabs:
 ---
 
 # Autenticação 3DS 2.0
+
 O endereço mudou para: [https://developercielo.github.io/manual/emv3ds](https://developercielo.github.io/manual/emv3ds)
