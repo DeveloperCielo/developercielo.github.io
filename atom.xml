@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2018-12-27T14:01:07+00:00</updated>
+    <updated>2018-12-27T14:07:41+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1269,9 +1269,9 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
     <entry>
         <title>Manual de Integração</title>
         <category term="manual" />
-        <link href="https://developercielo.github.io/manual/env3ds"/>
+        <link href="https://developercielo.github.io/manual/emv3ds"/>
         <updated>2018-09-10T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/env3ds</id>
+        <id>https://developercielo.github.io/manual/emv3ds</id>
         <content type="html">&lt;h1 id=&quot;autenticação-3ds-20&quot;&gt;Autenticação 3DS 2.0&lt;/h1&gt;
 
 &lt;h2 id=&quot;o-que-é-3ds-20&quot;&gt;O que é 3DS 2.0?&lt;/h2&gt;
