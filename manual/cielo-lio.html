@@ -1621,13 +1621,7 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 
 <h2 id="cancelamento">Cancelamento</h2>
 
-<p>Existem 2 formas de cancelar um pagamento na Cielo LIO:</p>
-
-<p><a href="https://developercielo.github.io/manual/cielo-lio#cancelar-pagamento-total">Cancelar Pagamento Total</a></p>
-
-<p><a href="https://developercielo.github.io/manual/cielo-lio#cancelar-parte-do-valor-de-um-pagamento">Cancelar Parte do Valor do Pagamento</a></p>
-
-<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">cancelOrder()</code> para receber os estados relacionados ao cancelamento.</p>
+<p>Para tratar a resposta do cancelamento, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">cancelOrder()</code> para receber os estados relacionados ao cancelamento.</p>
 
 <blockquote>
   <p>CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. 
@@ -1657,7 +1651,7 @@ As seguintes ações pode ser notificadas:
 
 </code></pre></div></div>
 
-<h3 id="cancelar-pagamento-total">Cancelar Pagamento Total</h3>
+<h3 id="cancelar-pagamento">Cancelar Pagamento</h3>
 
 <p>No método Cancelar um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders) (link para método). 
 Assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
@@ -1690,59 +1684,6 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
       <td>payment</td>
       <td>O pagamento a ser cancelado.</td>
       <td><code class="highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
-    </tr>
-    <tr>
-      <td>cancellationListener</td>
-      <td>Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="cancelar-parte-do-valor-de-um-pagamento">Cancelar parte do valor de um pagamento</h3>
-
-<p>No método Cancelar parte do valor de um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders). 
-Os parâmetros do método anterior, com a inclusão de um parâmetro que é o valor a ser cancelado.</p>
-
-<blockquote>
-  <p>Nesse cenário é preciso ter atenção para não passar um valor maior do que o do pagamento, caso contrário o sistema retornará um erro.</p>
-</blockquote>
-
-<p>Portanto, assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">cancelOrder</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">orderId</span><span class="o">,</span> <span class="n">payment</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">cancellationListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>context</td>
-      <td>Contexto da sua aplicação.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>orderID</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>payment</td>
-      <td>O pagamento a ser cancelado.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>O valor a ser cancelado.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>cancellationListener</td>
