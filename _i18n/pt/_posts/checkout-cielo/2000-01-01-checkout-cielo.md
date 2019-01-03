@@ -324,7 +324,7 @@ Para testar cartões de crédito é necessário que dois dados importantes sejam
 |Autorizado|0000.0000.0000.0000 / 0000.0000.0000.0004|
 |Não Autorizado|0000.0000.0000.0005 / 0000.0000.0000.0009|
 
-**Exemplo:** 540443424293010 **7** = **Autorizado**
+**Exemplo:** 540443424293010**0** = **Autorizado**
 
 **B - Boleto Bancário**
 
