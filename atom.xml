@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-01-03T20:57:03+00:00</updated>
+    <updated>2019-01-03T20:58:54+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -36435,7 +36435,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; 540443424293010 &lt;strong&gt;7&lt;/strong&gt; = &lt;strong&gt;Autorizado&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; 540443424293010&lt;strong&gt;0&lt;/strong&gt; = &lt;strong&gt;Autorizado&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;B - Boleto Bancário&lt;/strong&gt;&lt;/p&gt;
 
