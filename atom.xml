@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-01-02T17:19:23+00:00</updated>
+    <updated>2019-01-03T20:57:03+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -36421,52 +36421,16 @@ Abaixo listamos pontos que devem estar prontos antes da integração:&lt;/p&gt;
     &lt;tr&gt;
       &lt;th&gt;Status da Transação&lt;/th&gt;
       &lt;th&gt;Cartões para realização dos testes&lt;/th&gt;
-      &lt;th&gt;Código de Retorno&lt;/th&gt;
-      &lt;th&gt;Mensagem de Retorno&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Autorizado&lt;/td&gt;
-      &lt;td&gt;0000.0000.0000.0001 / 0000.0000.0000.0004&lt;/td&gt;
-      &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;Operação realizada com sucesso&lt;/td&gt;
+      &lt;td&gt;0000.0000.0000.0000 / 0000.0000.0000.0004&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Não Autorizado&lt;/td&gt;
-      &lt;td&gt;0000.0000.0000.0002&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Não Autorizada&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Não Autorizado&lt;/td&gt;
-      &lt;td&gt;0000.0000.0000.0007&lt;/td&gt;
-      &lt;td&gt;77&lt;/td&gt;
-      &lt;td&gt;Cartão Cancelado&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Não Autorizado&lt;/td&gt;
-      &lt;td&gt;0000.0000.0000.0008&lt;/td&gt;
-      &lt;td&gt;70&lt;/td&gt;
-      &lt;td&gt;Problemas com o Cartão de Crédito&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Não Autorizado&lt;/td&gt;
-      &lt;td&gt;0000.0000.0000.0005&lt;/td&gt;
-      &lt;td&gt;78&lt;/td&gt;
-      &lt;td&gt;Cartão Bloqueado&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Não Autorizado&lt;/td&gt;
-      &lt;td&gt;0000.0000.0000.0003&lt;/td&gt;
-      &lt;td&gt;57&lt;/td&gt;
-      &lt;td&gt;Cartão Expirado&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Não Autorizado&lt;/td&gt;
-      &lt;td&gt;0000.0000.0000.0006&lt;/td&gt;
-      &lt;td&gt;99&lt;/td&gt;
-      &lt;td&gt;Time Out&lt;/td&gt;
+      &lt;td&gt;0000.0000.0000.0005 / 0000.0000.0000.0009&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
