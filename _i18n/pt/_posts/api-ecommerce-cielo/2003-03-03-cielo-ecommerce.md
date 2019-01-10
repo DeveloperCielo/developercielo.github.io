@@ -5065,15 +5065,15 @@ curl
 
 ### Bandeiras e Emissores Habilitados
 
-Bandeiras e Emissores que já estão com o Renova Fácil habilitados:
+Bandeiras e Emissores que já estão com o Renova Facil habilitados:
 
 |Emissores|VISA|MASTER|ELO|
 |---|---|---|---|
-|`BRADESCO`|&check;|&check;|&check;|
-|`BANCO DO BRASIL`|&check;|N/A|N/A|
-|`SANTADER`|&check;|N/A|N/A|
-|`CITI`|&check;|N/A|N/A|
-|`BANCO PAN`|&check;|N/A|N/A|
+|`BRADESCO`|Sim|Sim|Sim|
+|`BANCO DO BRASIL`|Sim|---|---|
+|`SANTADER`|Sim|---|---|
+|`CITI`|Sim|---|---|
+|`BANCO PAN`|Sim|---|---|
 
 # Tokenização de cartões
 
