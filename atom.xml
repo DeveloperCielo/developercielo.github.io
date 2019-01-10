@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-01-10T11:28:05+00:00</updated>
+    <updated>2019-01-10T15:49:02+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25868,6 +25868,53 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       &lt;td&gt;Booleano&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;bandeiras-e-emissores-habilitados&quot;&gt;Bandeiras e Emissores Habilitados&lt;/h3&gt;
+
+&lt;p&gt;Bandeiras e Emissores que já estão com o Renova Fácil habilitados:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Emissores&lt;/th&gt;
+      &lt;th&gt;VISA&lt;/th&gt;
+      &lt;th&gt;MASTER&lt;/th&gt;
+      &lt;th&gt;ELO&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BRADESCO&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&amp;amp;check;&lt;/td&gt;
+      &lt;td&gt;&amp;amp;check;&lt;/td&gt;
+      &lt;td&gt;&amp;amp;check;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BANCO DO BRASIL&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&amp;amp;check;&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SANTADER&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&amp;amp;check;&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CITI&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&amp;amp;check;&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BANCO PAN&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&amp;amp;check;&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
