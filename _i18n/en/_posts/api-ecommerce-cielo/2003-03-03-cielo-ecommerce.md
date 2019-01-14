@@ -1326,6 +1326,8 @@ curl
 |`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
 |`Customer.Email`|Text|255|No|Buyer's e-mail.|
 |`Customer.Birthdate`|Date|10|No|Buyer's date of birth.|
+|`Customer.Identity`|Text|14|Yes|Buyer's document number.|
+|`Customer.IdentityType`|Text|4|Yes|CPF or CNPJ|
 |`Customer.Address.Street`|Text|255|No|Buyer's address.|
 |`Customer.Address.Number`|Text|15|No|Buyer's address number.|
 |`Customer.Address.Complement`|Text|50|No|Buyer's address complement.|
