@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-01-14T20:47:51+00:00</updated>
+    <updated>2019-01-18T19:30:14+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18800,6 +18800,8 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
 &lt;h3 id=&quot;consulta---paymentid&quot;&gt;Consulta - PaymentID&lt;/h3&gt;
 
 &lt;p&gt;Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.&lt;/p&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;São elegíveis para a consulta, apenas transações dentro dos três ultimos meses&lt;/aside&gt;
 
 &lt;h4 id=&quot;requisição-6&quot;&gt;Requisição&lt;/h4&gt;
 
