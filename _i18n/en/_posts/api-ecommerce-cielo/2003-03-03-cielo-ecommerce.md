@@ -3804,6 +3804,8 @@ curl
 
 To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example.
 
+<aside class="notice">Only transactions sent on the last three months are eligible for queries</aside>
+
 ### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
