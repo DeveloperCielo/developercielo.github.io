@@ -1653,6 +1653,8 @@ A Data de validade do cartão possui um valor não permitido  como "08/**A**020"
 
 Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
 
+<aside class="notice">São elegíveis para a consulta, apenas transações dentro dos três ultimos meses</aside>
+
 #### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
