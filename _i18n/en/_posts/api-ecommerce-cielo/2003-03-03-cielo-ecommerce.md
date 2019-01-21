@@ -2492,7 +2492,7 @@ curl
 |`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
+|`Customer.Name`|Buyer's name.|Text|255|Yes|
 |`Payment.Type`|Means of Payment Type.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
