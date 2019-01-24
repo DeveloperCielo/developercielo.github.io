@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-01-21T19:00:53+00:00</updated>
+    <updated>2019-01-24T16:26:52+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -15,9 +15,9 @@
     <entry>
         <title>Integration Manual</title>
         <category term="manual" />
-        <link href="https://developercielo.github.io/en/manual/env3ds"/>
+        <link href="https://developercielo.github.io/en/manual/emv3ds"/>
         <updated>2018-09-10T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/en/manual/env3ds</id>
+        <id>https://developercielo.github.io/en/manual/emv3ds</id>
         <content type="html">&lt;h1 id=&quot;3ds-20-authentication&quot;&gt;3DS 2.0 Authentication&lt;/h1&gt;
 
 &lt;h2 id=&quot;what-is-3ds-20&quot;&gt;What is 3DS 2.0?&lt;/h2&gt;
