@@ -46,9 +46,9 @@ Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:
 
 Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessário obter um token de acesso, conforme os passos abaixo:
 
-1.  Concatenar o _ClientId_ e o _ClientSecret_, **ClientId:ClientSecret**
-2.  Codificar o resultado em **Base64**
-3.  Enviar uma requisição, utilizando o método HTTP POST
+1. Concatenar o _ClientId_ e o _ClientSecret_, **ClientId:ClientSecret**
+2. Codificar o resultado em **Base64**
+3. Enviar uma requisição, utilizando o método HTTP POST
 
 ### Concatenação
 
