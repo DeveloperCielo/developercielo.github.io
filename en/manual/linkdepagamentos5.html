@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Payment links &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/bundles/css/bundle.min.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/en/manual/linkdepagamentos5" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/en/manual/linkdepagamentos5" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/en/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/contact" class="help">Help</a>
+
+                            
+                            <div class="lang">
+                                <span>Languages</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/linkdepagamentos5">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/en/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/linkdepagamentos5">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/en/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/linkdepagamentos5">Payment links</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="cielo-oauth">Cielo OAUTH</h1>
+
+<p>Cielo OAUTH is an authentication process used in Cielo APIs that are correlated to E-commerce products. It uses the <strong><a href="https://oauth.net/2/">OAUTH2</a></strong> protocol, where it is first necessary to obtain an access token, using its credentials, which should then be sent to the CieloOAuth API</p>
+
+<blockquote>
+  <p>To get the <code class="highlighter-rouge">ClientID</code> and<code class="highlighter-rouge"> ClientSecret</code>, contact the Cielo Products team. Credits released only to selected merchants,</p>
+</blockquote>
+
+<p>To use Cielo Oauth you need the following credentials:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">ClientId</code></td>
+      <td>Key identifier provided by CIELO</td>
+      <td>guid</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ClientSecret</code></td>
+      <td>Key that validates the ClientID. Provided by Cielo with <code class="highlighter-rouge">ClientID</code></td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-credentials">Get Credentials</h2>
+
+<p>To obtain the credentials in Checkout Cielo, just follow the flow below:</p>
+
+<p>1 - Access the Backoffice <strong>Checkout Sky</strong>
+2 - On the <strong>“Settings”</strong> tab, access the <strong>“Registration data”</strong> option and click <strong>“Generate access credentials for the APIs”</strong> as in the image below</p>
+
+<p><img src="https://developercielo.github.io/images/gerarcredenciais.png" alt="backoffice" /></p>
+
+<p>3 - The message below will be sent to the <strong>technical contact email</strong>, containing the access credentials:</p>
+
+<p><img src="https://developercielo.github.io/images/emailcredencial.png" alt="e-mail" /></p>
+
+<blockquote>
+  <p>If the <strong>“Generate API Access Credentials”</strong> button is not available on your backoffice, contact the Cielo Products team to activate the functionality</p>
+</blockquote>
+
+<h2 id="access-token">Access token</h2>
+
+<p>To gain access to Cielo services that use <code class="highlighter-rouge">Cielo Oauth</code>, you will need to obtain an access token, according to the steps below:</p>
+
+<ol>
+  <li>Concatenate the <em>ClientId</em> and <em>ClientSecret</em>, <strong>ClientId: ClientSecret</strong></li>
+  <li>Encode the result in <strong>Base64</strong></li>
+  <li>Submit a request using the HTTP POST method</li>
+</ol>
+
+<h3 id="concatenation">Concatenation</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ClientId</strong></td>
+      <td>b521b6b2-b9b4-4a30-881d-3b63dece0006</td>
+    </tr>
+    <tr>
+      <td><strong>ClientSecret</strong></td>
+      <td>08Qkje79NwWRx5BdgNJsIkBuITt5cIVO</td>
+    </tr>
+    <tr>
+      <td><strong>ClientId:ClientSecret</strong></td>
+      <td><em>b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO</em></td>
+    </tr>
+    <tr>
+      <td><strong>Base64</strong></td>
+      <td><em>YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request">Request</h3>
+
+<p>Request must be sent only in the request Header.</p>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">x-www-form-urlencoded</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">  
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="w">  
+</span><span class="err">grant_type=client_credentials</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="response">Response</h3>
+
+<p>The response will have the Token used for new requests in Cielo Services</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Access_token</code></td>
+      <td>Used to access API services</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Token_type</code></td>
+      <td>Will always be <code class="highlighter-rouge">bearer</code> type</td>
+      <td>texto</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Expires_in</code></td>
+      <td>Token lifetime in seconds. Approximately 20 minutes</td>
+      <td>int</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>The returned token (access_token) must be used in every request as an authorization key, emphasizing that it has a validity of 20 minutes (1200 seconds) and after this interval, it will be necessary to obtain a new token to access Cielo services.</p>
+</blockquote>
+
+<h1 id="payment-link">Payment Link</h1>
+
+<p>The <strong>Payment Link API</strong> allows the merchant to create, edit and query payment links.</p>
+
+<p>Its main goal is to allow stores to create payment links (Buttons or QR Codes) through their own systems, without the need to access Checkout Cielo’s Backoffice and share with their customers.</p>
+
+<blockquote>
+  <p><strong>Attention</strong>:</p>
+
+  <ul>
+    <li>The payments link is not a <strong>REQUEST / TRANSACTION</strong> URL. It is a “cart” that can be reused countless times.</li>
+    <li>To receive notifications about transactions originating from Payment Links, the registration of the <strong>Notification URL</strong> in the Checkout backoffice is <strong>REQUIRED</strong>.</li>
+  </ul>
+</blockquote>
+
+<h2 id="authentication">Authentication</h2>
+
+<p>The Payment Link API Authentication Process is the <strong><a href="https://docscielo.github.io/Pilots/manual/linkdepagamentos5#cielo-oauth">Cielo OAUTH</a></strong></p>
+
+<h2 id="create-link">Create Link</h2>
+
+<h3 id="request-1">Request</h3>
+
+<p>To create Checkout payments link, simply send a POST with the Link data to the endpoint:</p>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/</span></aside>
+
+<blockquote>
+  <p>Header: <code class="highlighter-rouge">Authorization: Bearer {access_token}</code></p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Digital"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste description"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2037-06-19"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WithoutShipping"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000000"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Dados do produto</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td>Product name</td>
+      <td>String</td>
+      <td>128</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">description</code></td>
+      <td>Description of the product that will be displayed on the Checkout screen if the <code class="highlighter-rouge">show_description</code> option is true.</td>
+      <td>String</td>
+      <td>512</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">showDescription</code></td>
+      <td>Flag indicating whether or not the description should be displayed on the Checkout screen</td>
+      <td>String</td>
+      <td>–</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">price</code></td>
+      <td>Product price in <strong>cents</strong></td>
+      <td>Int</td>
+      <td>1000000</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">expirationDate</code></td>
+      <td>Link expiration date. If a date is entered, the link becomes unavailable on the given date. If no date is entered, the link will not expire.</td>
+      <td>String</td>
+      <td>YYYY-MM-DD</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">weight</code></td>
+      <td>Product weight in <strong>grams</strong></td>
+      <td>String</td>
+      <td>2000000</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">softDescriptor</code></td>
+      <td>Description to be displayed on the bearer’s credit card invoice.</td>
+      <td>String</td>
+      <td>13</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">maxNumberOfInstallments</code></td>
+      <td>Maximum number of installments that the buyer can select on the Checkout screen. If not informed, the store settings in Checkout Cielo will be used.</td>
+      <td>int</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">type</code></td>
+      <td>Type of sale to be made through the payment link:<br /><strong>Asset</strong> – Physical Material<br /><strong>Digital</strong> – Digital Product<br /><strong>Service</strong> – Service<br /><strong>Payment</strong> – Simple Payments<br /><strong>Recurrent</strong> – Recurrent Payment</td>
+      <td>String</td>
+      <td>255</td>
+      <td>YES</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Within <code class="highlighter-rouge">Description</code> You can use the pipe character<code class="highlighter-rouge">|</code>if it is desirable to break the line when displaying the description on the Checkout screen</p>
+</blockquote>
+
+<p><strong>Shipping Information</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIÇÃO</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>shipping</strong></td>
+      <td>Node containing product delivery information</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.name</code></td>
+      <td>Shipping name. <strong>Required for the shipping type “FixedAmount”</strong></td>
+      <td>string</td>
+      <td>128</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.price</code></td>
+      <td>Shipping price. <strong>Required for the shipping type “FixedAmount”</strong></td>
+      <td>int</td>
+      <td>100000</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.originZipCode</code></td>
+      <td>Order origin zip code. Required for the shipping type “Correios”. Must contain only numbers</td>
+      <td>string</td>
+      <td>8</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.type</code></td>
+      <td>Shipping type.<br /><strong>Correios</strong> – Deliver by correios<br /><strong>FixedAmount</strong> – Fixed amount<br /><strong>Free</strong> - Free<br /><strong>WithoutShippingPickUp</strong> – Without shipping pick up<br /><strong>WithoutShipping</strong> – Without shipping<br />If the chosen product type is “<strong>Asset</strong>”, the allowed shipping types are: <em><strong>“Correios, FixedAmount or Free”</strong></em>.<br />If the chosen product type is “<strong>Digital</strong>” ou “<strong>Service</strong>”, the allowed shipping types are: <em><strong>“WithoutShipping, WithoutShippingPickUp”</strong></em>.<br />If the chosen product type is “<strong>Recurrent</strong>” the allowed shipping type is: <em><strong>“WithoutShipping”</strong></em>.</td>
+      <td>string</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Dados da Recorrência</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>recurrent</strong></td>
+      <td>Node containing information on the recurrence of payment. May be informed if the product type is “Recurrent”</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">recurrent.interval</code></td>
+      <td>Recurrence Charge Interval.<br /><strong>Monthly</strong> - Monthly<br /><strong>Bimonthly</strong> - Bimonthly<br /><strong>Quarterly</strong> - Quarterly<br /><strong>SemiAnnual</strong> - Semi Annual<br /><strong>Annual</strong> – Annual<br /></td>
+      <td>string</td>
+      <td>128</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">recurrrent.endDate</code></td>
+      <td>Recurrence charge end date. If not informed the recurrence will not end, the charging will happen according to the interval selected indefinitely.</td>
+      <td>string</td>
+      <td>128</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-1">Response</h3>
+
+<blockquote>
+  <p>“HTTP Status”: 201 – Created</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shortUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://bit.ly/2smqdhD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"showDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">4500</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correios"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"originZipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30T00:00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The data returned in the response includes all data sent in the request and additional data regarding link creation.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>TYPE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td>guid</td>
+      <td>Unique identifier of the payment link. Can be used to query, update or delete the link.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shortUrl</code></td>
+      <td>string</td>
+      <td>Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links</code></td>
+      <td>object</td>
+      <td>Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="query-link">Query Link</h2>
+
+<h3 id="request-2">Request</h3>
+
+<p>To query an existing link, simply perform a <code class="highlighter-rouge">GET</code> informing the link <code class="highlighter-rouge">ID</code>.</p>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
+
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
+<h3 id="response-2">Response</h3>
+
+<blockquote>
+  <p>HTTP Status: 200 – OK</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shortUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://bit.ly/2smqdhD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"showDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">4500</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correios"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"originZipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">" https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>TYPE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td>guid</td>
+      <td>Unique identifier of the payment link. Can be used to query, update, or delete the link.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shortUrl</code></td>
+      <td>string</td>
+      <td>Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links</code></td>
+      <td>object</td>
+      <td>Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>OBS</strong>: The query Response contains the same data returned on link creation.</p>
+</blockquote>
+
+<h2 id="update-link">Update Link</h2>
+
+<h3 id="request-3">Request</h3>
+
+<p>To update an existing link, simply perform a <code class="highlighter-rouge">GET</code> informing the link <code class="highlighter-rouge">ID</code>.</p>
+
+<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
+
+<blockquote>
+  <p><strong>Header</strong>: Authorization: Bearer {access_token}</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">4700</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entrega Rápida"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="response-3">Response</h3>
+
+<blockquote>
+  <p>HTTP Status: 200 – OK</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shortUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://bit.ly/2smqdhD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"showDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">4700</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entrega Rápida"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>TIPO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">id</code></td>
+      <td>guid</td>
+      <td>Unique identifier of the payment link. Can be used to query, update, or delete the link.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shortUrl</code></td>
+      <td>string</td>
+      <td>Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links</code></td>
+      <td>object</td>
+      <td>Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>OBS</strong>: The query Response contains the same data returned on link creation.</p>
+</blockquote>
+
+<h2 id="excluir-link">Excluir Link</h2>
+
+<h3 id="request-4">Request</h3>
+
+<p>To delete an existing link, simply perform a <code class="highlighter-rouge">GET</code> informing the link <code class="highlighter-rouge">ID</code>.</p>
+
+<aside class="request"><span class="method delete">DELETE</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
+
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
+<h3 id="response-4">Response</h3>
+
+<blockquote>
+  <p>HTTP Status: 204 – No Content</p>
+</blockquote>
+
+<h2 id="http-status-codes">HTTP Status Codes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>CODE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>200 - OK</strong></td>
+      <td>Everything worked correctly.</td>
+    </tr>
+    <tr>
+      <td><strong>400 – Bad Request</strong></td>
+      <td>The request was not accepted. Some parameter was not informed or was incorrectly informed.</td>
+    </tr>
+    <tr>
+      <td><strong>401 - Unauthorized</strong></td>
+      <td>The access token sent in the request header is not valid.</td>
+    </tr>
+    <tr>
+      <td><strong>404 – Not Found</strong></td>
+      <td>The resource being accessed does not exist. Occurs when attempting to update, query, or delete a nonexistent link.</td>
+    </tr>
+    <tr>
+      <td><strong>500 – Internal Server Error</strong></td>
+      <td>A system error ocurred.</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Need Help?</h2>
+        <p>If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">send us a message</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Toggle left column" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://developercielo.github.io/en/">
+        <img src="https://developercielo.github.io/en/assets/images/logo.png" alt="Documentações e tutoriais">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Complementary materials</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/en/manual/checkout-cielo" title="Integração técnica via API">Intagration Manual</a></li>
+                
+            
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contact" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/en/assets/bundles/js/search.min.js"></script>
+        
+
+        
+        <script>
+            let langs = '';
+            let langsArray = [];
+
+            
+            langs += "<a data-language-name='json'>JSON</a>";
+            langsArray.push('json');
+            
+            langs += "<a data-language-name='shell'>cURL</a>";
+            langsArray.push('shell');
+            
+
+            var toggleCode = 'Toggle';
+        </script>
+
+        <script src='https://developercielo.github.io/en/assets/bundles/js/language_buttons.min.js'></script>
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
