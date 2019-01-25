@@ -163,9 +163,6 @@ Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `
 ]
 ```
 
-
-
-
 ### Por Checkout_Cielo_Order_Number
 
 #### Request 
