@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-01-25T10:53:28+00:00</updated>
+    <updated>2019-01-25T10:58:22+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33036,6 +33036,20 @@ Eles indicam, por exemplo, se uma transação com &lt;code class=&quot;highlight
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Horário de atendimento:&lt;/strong&gt; 24h por dia, 7 dias por semana.&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Autenticação Seletiva</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/autenticacaoseletiva9"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/manual/autenticacaoseletiva9</id>
+        <content type="html">&lt;h1 id=&quot;autenticação-seletiva&quot;&gt;Autenticação Seletiva&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Manual em construção.&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
     </entry>
     
