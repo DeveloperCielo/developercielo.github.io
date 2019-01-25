@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-01-25T11:08:10+00:00</updated>
+    <updated>2019-01-25T11:50:51+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4537,6 +4537,10 @@ Nessa forma de pagamento, é necessário apenas fazer a chamada do método envia
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;6-pagamento-informando-ec&quot;&gt;6. Pagamento informando EC&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Para a utilização dessa forma de pagamento, é necessário uma pré habilitação junto a Cielo, para o recebimento com MULTI-EC.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Esse método é disponibilizado para o caso de ser necessário efetuar um pagamento em um EC diferente do principal. O EC informado deve estar configurado na LIO na hora da inicialização para que funcione ou o SDK irá enviar uma exceção do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;InvalidParameterException&lt;/code&gt;.
 Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:&lt;/p&gt;
