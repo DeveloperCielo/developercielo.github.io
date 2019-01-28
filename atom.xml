@@ -5,12 +5,425 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-01-28T17:25:27+00:00</updated>
+    <updated>2019-01-28T17:47:38+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>Manual de Integração</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/qrcode"/>
+        <updated>2019-01-28T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/manual/qrcode</id>
+        <content type="html">&lt;h1 id=&quot;requerimentos-para-acesso&quot;&gt;Requerimentos para acesso&lt;/h1&gt;
+
+&lt;p&gt;Para acesso a APIs é necessário portar um client_id (chave identificadora do app) e client_secret. Para solicitar-los deve-se entrar em contato com a Juliana mediante e-mail: juliana.magalhaes@cielo.com.br, no email deve conter as seguintes informações:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nome&lt;/li&gt;
+  &lt;li&gt;Email&lt;/li&gt;
+  &lt;li&gt;Função&lt;/li&gt;
+  &lt;li&gt;Quem será o responsável pela integração (Responsável Técnico) para cadastro no API Suite?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;** Nota: Futuramente a geração de credenciais será feita via portal do desenvolvedor.**&lt;/p&gt;
+
+&lt;h1 id=&quot;macro-fluxo-de-integração&quot;&gt;Macro fluxo de integração&lt;/h1&gt;
+
+&lt;p&gt;Atualmente dentro da API de pagamentos existem três recursos utilizados para a integração, sendo eles:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;POST&lt;/strong&gt; /access_token&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;GET&lt;/strong&gt; /publicKeys&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;POST&lt;/strong&gt; /payments&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/qrcode/qrcode-fluxointegracaoqrcode.png&quot; alt=&quot;Fluxo de integração Qr Code&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;access-token&quot;&gt;Access Token&lt;/h3&gt;
+
+&lt;p&gt;O recurso &lt;strong&gt;access_token&lt;/strong&gt; é responsável pela autenticação utilizando protocolo OAuth 2.0. Com o client_id e client_secret em mãos a requisição ao &lt;strong&gt;POST /access_token&lt;/strong&gt; deve ser feita portando os parâmetros &lt;strong&gt;client_id&lt;/strong&gt; e &lt;strong&gt;authorization&lt;/strong&gt; no &lt;strong&gt;Header&lt;/strong&gt; e o &lt;strong&gt;grant_type&lt;/strong&gt; no corpo da requisição, segue exemplo abaixo.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota: O valor do authorization deve ser composto da palavra Basic com o Base64 gerado a partir da concatenação do client_id:client_secret&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;contrato&quot;&gt;Contrato&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;POST&lt;/strong&gt; /cielo-payment/v1/access_token&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Headers&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Key&lt;/th&gt;
+        &lt;th&gt;Value&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;client_id&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;Authorization&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;Content-Type&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt;application-json&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+
+  &lt;p&gt;&lt;strong&gt;Body&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+&quot;grant_type&quot;: &quot;client_credentials&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;exemplo-de-requisição&quot;&gt;Exemplo de Requisição&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+curl --request POST \
+  --url 'https:///cielo-payment/v1/access_token' \
+  --header 'Authorization: ' \
+  --header 'Content-Type: application/json' \
+  --header 'client_id: ' \
+  --data '{
+    &quot;grant_type&quot;: &quot;client_credentials&quot;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;exemplo-de-resposta&quot;&gt;Exemplo de Resposta&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+{
+  &quot;access_token&quot;: &quot;g7xDuftvHv5y3Dx3gnQvsOeSG0YN99FcS4NVOtihNflWTUUPgf&quot;,
+  &quot;token_type&quot;: &quot;access_token&quot;,
+  &quot;expires_in&quot;: 600
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;public-keys&quot;&gt;Public Keys&lt;/h3&gt;
+
+&lt;p&gt;Public keys é o recurso responsável por retornar a chave pública da criptografia utilizada para criptografar o número do cartão, que futuramente será enviado no corpo da requisição do recurso &lt;strong&gt;payment&lt;/strong&gt;. O algoritmo de criptografia utilizada é &lt;strong&gt;RSA de 2048 bits e cifra RSA/ECB/PKCS1Padding&lt;/strong&gt;. Para a requisição ao recurso &lt;strong&gt;GET /publicKeys&lt;/strong&gt; é necessário &lt;strong&gt;client_id&lt;/strong&gt; e o &lt;strong&gt;access_token&lt;/strong&gt; que foi gerado no passo anterior.&lt;/p&gt;
+
+&lt;h4 id=&quot;contrato-1&quot;&gt;Contrato&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;GET&lt;/strong&gt; /cielo-payment/v1/publicKeys&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Headers&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Key&lt;/th&gt;
+        &lt;th&gt;Value&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;client_id&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;access_token&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt;{access_token}&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;exemplo-de-requisição-1&quot;&gt;Exemplo de Requisição&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+curl --request GET \
+  --url 'http:///cielo-payment/v1/publicKeys' \
+  --header 'access_token: ' \
+  --header 'client_id: 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;exemplo-de-resposta-1&quot;&gt;Exemplo de Resposta&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT12KMuYsxImzwe9aGX8XXvzEF60E600ZjdvmYU64UnZKgfbttwNi+Tl7ZcB2cnS/oJMrfA0AbRHukJnL/fFsziHOjv0A1xRcE70ZbJRkob5A5s4GenF+jv/xCTOoIetFimZHZDiPPFux2NyrL3ZqSs7F4XJZvo2zPfCVlAcnEbVf+8vWX3goP2TEuAqZtBT543wIDAQAB+dqSzZSqZolYU1sjV7s8FzsjZYqo+AjM8BMuPlMoPEuBqgRFm4fSRIpeJIr0G9FokSU3X6MAZTvC7n3YePHFsFmGxPTrKpEFrp8s28f1qMP5suTsA
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;payments&quot;&gt;Payments&lt;/h3&gt;
+
+&lt;p&gt;O recurso &lt;strong&gt;POST /payments&lt;/strong&gt; é responsável por efetuar o pagamento com base nos dados contidos no payload da requisição. No header da requisição é necessário os dados de &lt;strong&gt;client_id&lt;/strong&gt;, &lt;strong&gt;access_token&lt;/strong&gt;, &lt;strong&gt;Content-type&lt;/strong&gt; e &lt;strong&gt;wallet&lt;/strong&gt;. Wallet representa a carteira digital da aplicação sendo única por app. O corpo da requisição é composto por dados provenientes do aplicativo e do QR Code. &lt;strong&gt;Verificar seção 3 para os campos extraídos do QR Code&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;contrato-2&quot;&gt;Contrato&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;POST&lt;/strong&gt; /cielo-payment/v1/payments&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Headers&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Key&lt;/th&gt;
+        &lt;th&gt;Value&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;client_id&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;access_token&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;Content-Type&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt;application/json&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;wallet&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt; &lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+
+  &lt;p&gt;&lt;strong&gt;Body&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+  &quot;technology&quot;:{
+     &quot;type&quot;:&quot;QRCODE&quot;,
+     &quot;identifier&quot;:&quot;3ac43b36-0d92-48a7-901b-d3a527d9c3fe&quot;
+  },
+  &quot;operationType&quot;:{
+     &quot;id&quot;:1
+  },
+  &quot;amount&quot;:10.11,
+  &quot;paymentInstallments&quot;:0,
+  &quot;terminalLogicalNumber&quot;:1234,
+  &quot;paymentDate&quot;:&quot;2018-03-02T10:00:00.000-03:00&quot;,
+  &quot;mainProduct&quot;:{
+     &quot;id&quot;:1000
+  },
+  &quot;subProduct&quot;:{
+     &quot;id&quot;:1
+  },
+  &quot;merchantAccountInformation&quot;:{
+     &quot;id&quot;:70117799,
+     &quot;merchantName&quot;:&quot;Hotelaria Accor Pdb Ltda&quot;
+  },
+  &quot;card&quot;:{
+     &quot;cardNumber&quot;:1234123412341234,
+     &quot;holder&quot;:&quot;JOAO DA SILVA&quot;,
+     &quot;expirationDate&quot;:&quot;01/25&quot;,
+     &quot;brand&quot;:&quot;VISA&quot;
+  },
+  &quot;carrier&quot;:{
+     &quot;name&quot;:&quot;João da Silva&quot;,
+     &quot;document&quot;:&quot;31727721012&quot;,
+     &quot;deviceId&quot;:&quot;3ac43b36-0d92-48a7-901b-d3a527d9c3fe&quot;
+  },
+  &quot;crc&quot;:{
+     &amp;gt;&quot;qrCodeText&quot;:&quot;00020101021226410005Cielo0116001000024447201&amp;gt;002082010000152045912530398654120000000010005802765923CIA &amp;gt;BRAS MEIO PAGAMENTO6009SAO PAULO801150047\&quot;https://&amp;gt;www.cieloid.com.br/qr_code/&amp;gt;index.html\&quot;0116120967612891923202121004180945120304100004&amp;gt;0400010502010602016304C96D&quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;exemplo-de-requisição-2&quot;&gt;Exemplo de Requisição&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl --request POST \
+  --url 'http:///cielo-payment/v1/payments' \
+  --header 'Content-Type: application/json' \
+  --header 'access_token: ' \
+  --header 'client_id: ' \
+  --data '{
+  &quot;technology&quot;: {
+    &quot;type&quot;: &quot;QRCODE&quot;,
+    &quot;identifier&quot;: &quot;3ac43b36-0d92-48a7-901b-d3a527d9c3fe&quot;
+  },
+  &quot;operationType&quot;: {
+    &quot;id&quot;: 1
+  },
+  &quot;amount&quot;: 10.11,
+  &quot;paymentInstallments&quot;: 0,
+  &quot;terminalLogicalNumber&quot;: 1234,
+  &quot;paymentDate&quot;: &quot;2018-03-02T10:00:00.000-03:00&quot;,
+  &quot;mainProduct&quot;: {
+    &quot;id&quot;: 1000
+  },
+  &quot;subProduct&quot;: {
+    &quot;id&quot;: 1
+  },
+  &quot;merchantAccountInformation&quot;: {
+    &quot;id&quot;: 70117799,
+    &quot;merchantName&quot;: &quot;Hotelaria Accor Pdb Ltda&quot;
+  },
+  &quot;card&quot;: {
+    &quot;cardNumber&quot;: 1234123412341234,
+    &quot;holder&quot;: &quot;JOAO DA SILVA&quot;,
+    &quot;expirationDate&quot;: &quot;01/25&quot;,
+    &quot;brand&quot;: &quot;VISA&quot;
+  },
+  &quot;carrier&quot;: {
+    &quot;name&quot;: &quot;João da Silva&quot;,
+    &quot;document&quot;: &quot;31727721012&quot;,
+    &quot;deviceId&quot;: &quot;3ac43b36-0d92-48a7-901b-d3a527d9c3fe&quot;
+  },
+  &quot;crc&quot;:{
+    &quot;qrCodeText&quot;: &quot;00020101021226410005Cielo0116001000024447201002082010000152045912530398654120000000010005802765923CIA BRAS MEIO PAGAMENTO6009SAO PAULO801150047\&quot;https://www.cieloid.com.br/qr_code/index.html\&quot;01161209676128919232021210041809451203041000040400010502010602016304C96D&quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;exemplo-de-resposta-2&quot;&gt;Exemplo de Resposta&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;transactionDate&quot;: &quot;2018-03-02T10:00:00.000-03:00&quot;,
+    &quot;terminalLogicalNumber&quot;: &quot;12345&quot;,
+    &quot;authorizationCode&quot;: &quot;8888&quot;,
+    &quot;nsu&quot;: &quot;999&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;dê-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/h1&gt;
+
+&lt;p&gt;Para a composição do payload do &lt;strong&gt;/payments&lt;/strong&gt; deve-se mesclar informações provenientes da leitura do QR Code e informações do cartão/portador via aplicativo. Na tabela abaixo é especificado o dê-para dos dados extraídos do QR Code para o payload da requisição. &lt;strong&gt;Para mais informações dos campos provenientes do QR Code verificar a seção 4.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;QR Code&lt;/th&gt;
+      &lt;th&gt;Recurso Payment&lt;/th&gt;
+      &lt;th&gt;Obrigatório&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TransactionID&lt;/td&gt;
+      &lt;td&gt;Technology.Identifier&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Transaction Amount&lt;/td&gt;
+      &lt;td&gt;Amount&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment Installments&lt;/td&gt;
+      &lt;td&gt;PaymentInstallments&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Logic Number&lt;/td&gt;
+      &lt;td&gt;TerminalLogicalNumber&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Transaction Date&lt;/td&gt;
+      &lt;td&gt;PaymentDate&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Main Product&lt;/td&gt;
+      &lt;td&gt;MainProduct.Id&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sub Product&lt;/td&gt;
+      &lt;td&gt;SubProduct.Id&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Merchant Account Information&lt;/td&gt;
+      &lt;td&gt;MerchantAccountInformation.Id&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Merchant Name&lt;/td&gt;
+      &lt;td&gt;MerchantAccountInformation.Name&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota: O campo MerchantAccountInformation.Id tem o tamanho máximo de 10 posições, ao extrair a informação referente no QR Code descontar os dois primeiros e os quatros últimos dígitos.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota: Os campos que não foram especificados na tabela acima não são obrigatórios, porém, caso necessário olhar o swagger no final desta documentação.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;layout-do-qr-code-gerado-pelo-pos&quot;&gt;Layout do QR Code gerado pelo POS&lt;/h1&gt;
+
+&lt;p&gt;Atualmente o POS cria o QR Code a partir das informações especificadas abaixo com base na especificação “&lt;strong&gt;EMVCo-Merchant-Presented-QR-Specification-v1&lt;/strong&gt;”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/qrcode/qrcode-pos.png&quot; alt=&quot;QrCode Gerado Pelo POS&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;como-testar&quot;&gt;Como Testar&lt;/h1&gt;
+
+&lt;p&gt;Atualmente existem duas possibilidades para testar o fluxo de pagamento no ambiente de homologação.&lt;/p&gt;
+
+&lt;h3 id=&quot;via-qr-code&quot;&gt;Via QR Code&lt;/h3&gt;
+
+&lt;p&gt;Caso não esteja com o POS de homologação em mãos, a maneira mais rápida para teste é utilizando o QR Code abaixo.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Posicional de exemplo&lt;/p&gt;
+
+  &lt;p&gt;“00020101021226410005Cielo0116123456789012000102082009130352040000530398654120000000001005802BR5905CIELO6014SANTOANDRESP801010033”https://www.cielo.com.br/qrcode”011613050329197F190A0212150518113349030410000404000105020006020163049872”&lt;/p&gt;
+
+  &lt;p&gt;QR Code Gerado a partir do código Exemplo&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/qrcode/qrcode-qrcodeimg.png&quot; alt=&quot;QrCode gerado a partir do código Exemplo&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;** Observação: Ao testar com o QR Code especificado um erro do tipo 422 é esperado, pois, não existe dados transacionais referentes no autorizador da Cielo.**&lt;/p&gt;
+
+&lt;h1 id=&quot;como-obter-o-pos-de-homologação&quot;&gt;Como obter o POS de homologação.&lt;/h1&gt;
+
+&lt;p&gt;Para a obtenção do POS de homologação deve-se entrar em contato com a Juliana mediante e-mail: juliana.magalhaes@cielo.com.br. Com as devidas informações preenchidas no corpo do e-mail  o POS será enviado via sedex para o estabelecimento requisitante.&lt;/p&gt;
+
+&lt;h1 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Homologação&lt;/strong&gt; : &lt;strong&gt;apihom.cielo.com&lt;/strong&gt;. Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Produção&lt;/strong&gt; : &lt;strong&gt;api.cielo.com.br&lt;/strong&gt;. Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;dúvidas-frequentes&quot;&gt;Dúvidas Frequentes&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Os testes devem ser feitos direto no ambiente de Homologação?&lt;/strong&gt;
+R: Sim, infelizmente hoje não temos ambiente de desenvolvimento.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Qual o processo para adquirir as credenciais de Produção?&lt;/strong&gt;
+R: Vide seção 1.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Qual criptografia é utilizada para criptografar o cartão?&lt;/strong&gt;
+R: Vide seção 2.1.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;A solução de pagamento QR Code Cielo atualmente aceita pagamentos no débito?&lt;/strong&gt;
+R: Não.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;O que seria o campo deviceID?&lt;/strong&gt;
+R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor, Android: https://developer.android.com/training/articles/user-data-ids.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </entry>
     
     <entry>
         <title>Manual de Integração</title>
