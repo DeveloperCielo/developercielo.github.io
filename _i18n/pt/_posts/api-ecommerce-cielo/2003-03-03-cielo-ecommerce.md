@@ -2929,6 +2929,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
          "SaveCard":"false"
      },
      "FraudAnalysis":{
+       "Provider":"cybersource",
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"OnSuccess",
        "CaptureOnLowRisk":false,
@@ -3046,6 +3047,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 | `CreditCard.SaveCard`                         | Booleano | ---     | Não                 | Booleano que identifica se o cartão será salvo para gerar o CardToken.  (Default false)                                           |
 | `CreditCard.Brand`                            | Texto    | 10      | Sim                 | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                                     |
 | `CreditCard.SaveCard`                         | Booleano | ---     | Não (Default false) | Booleano que identifica se o cartão será salvo para gerar o token (CardToken)                                                     |
+| `FraudAnalysis.Provider`                      | Texto    | 14      | Sim                 | Fixo "cybersource"                                                                                                                |
 | `FraudAnalysis.Sequence`                      | Texto    | 14      | Sim                 | Tipo de Fluxo para realização da análise de fraude. Primeiro Analise (AnalyseFirst) ou Primeiro Autorização (AuthorizeFirst)      |
 | `FraudAnalysis.SequenceCriteria`              | Texto    | 9       | Sim                 | Critério do fluxo. **OnSuccess** - Só realiza a análise se tiver sucesso na transação. **Always** - Sempre realiza a análise      |
 | `FraudAnalysis.CaptureOnLowRisk`              | Booleano | ---     | Não                 | Quando true, a autorização deve ser com captura automática quando o risco de fraude for considerado baixo (Accept). Em casos de Reject ou Review, o fluxo permanece o mesmo, ou seja, a captura acontecerá conforme o valor especificado no parâmetro “Capture”. Para a utilização deste parâmetro, a sequência do fluxo de análise de risco deve ser obrigatoriamente “AuthorizeFirst”. Por depender do resutlado de análise de risco, este parâmetro só terá efeito quando o serviço de Antifraude for contratado.|
@@ -3154,6 +3156,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
         "AuthorizationCode": "123456",
         "SoftDescriptor":"123456789ABCD",
         "FraudAnalysis": {
+        "Provider":"cybersource",		
             "Sequence": "AuthorizeFirst",
             "SequenceCriteria": "OnSuccess",
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
