@@ -3156,7 +3156,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
         "AuthorizationCode": "123456",
         "SoftDescriptor":"123456789ABCD",
         "FraudAnalysis": {
-        "Provider":"cybersource",		
+        "Provider":"cybersource",
             "Sequence": "AuthorizeFirst",
             "SequenceCriteria": "OnSuccess",
             "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
