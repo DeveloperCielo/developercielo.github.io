@@ -1143,6 +1143,7 @@ To create a sale with credit card and fraud analysis, it is necessary to submit 
          "Brand":"Visa"
      },
      "FraudAnalysis":{
+        "Provider":"cybersource",
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"Always",
     "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
@@ -1255,6 +1256,7 @@ curl
          "Brand":"Visa"
      },
      "FraudAnalysis":{
+        "Provider":"cybersource",	 
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"Always",
     "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
@@ -1358,6 +1360,7 @@ curl
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+| `FraudAnalysis.Provider`                      | Text    | 14      | Yes                 | Fixed "cybersource"                                                                                                                |
 |`FraudAnalysis.Sequence`|Text|14|No|Flow type to perform the fraud analysis. Standard: AuthorizeFirst|
 |`FraudAnalysis.SequenceCriteria`|Text|9|No|Flow criterion. OnSuccess - Only performs the analysis if it succeeds in the transaction. Always - Always perform the analysis|
 |`FraudAnalysis.FingerPrintId`|Text|50|No|Identifier used to cross information obtained by the internet user Browser with the data sent for analysis. This same value must be passed in the SESSIONID variable of theDeviceFingerPrint script.|
