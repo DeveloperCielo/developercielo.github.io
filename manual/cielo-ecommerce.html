@@ -5686,6 +5686,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
          </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="w">
      </span><span class="p">},</span><span class="w">
      </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
+       </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"cybersource"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"CaptureOnLowRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -6125,6 +6126,13 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Booleano que identifica se o cartão será salvo para gerar o token (CardToken)</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Provider</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+      <td>Fixo “cybersource”</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code></td>
       <td>Texto</td>
       <td>14</td>
@@ -6515,6 +6523,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
         </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"FraudAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"cybersource"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"FingerPrintId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">
