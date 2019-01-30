@@ -1256,7 +1256,7 @@ curl
          "Brand":"Visa"
      },
      "FraudAnalysis":{
-        "Provider":"cybersource",	 
+        "Provider":"cybersource", 
        "Sequence":"AuthorizeFirst",
        "SequenceCriteria":"Always",
     "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
