@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-01-30T13:59:39+00:00</updated>
+    <updated>2019-01-30T14:17:34+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16359,6 +16359,7 @@ Below we specify any existing differences:&lt;/p&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FraudAnalysis&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cybersource&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sequence&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizeFirst&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SequenceCriteria&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Always&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FingerPrintId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;074c1ee676ed4998ab66491013c565e2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -16470,6 +16471,7 @@ Below we specify any existing differences:&lt;/p&gt;
          &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
      &lt;span class=&quot;s2&quot;&gt;&quot;FraudAnalysis&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;Provider&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;cybersource&quot;&lt;/span&gt;, 
        &lt;span class=&quot;s2&quot;&gt;&quot;Sequence&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizeFirst&quot;&lt;/span&gt;,
        &lt;span class=&quot;s2&quot;&gt;&quot;SequenceCriteria&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Always&quot;&lt;/span&gt;,
     &lt;span class=&quot;s2&quot;&gt;&quot;FingerPrintId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;074c1ee676ed4998ab66491013c565e2&quot;&lt;/span&gt;,
@@ -16821,6 +16823,13 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Fixed “cybersource”&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt;&lt;/td&gt;

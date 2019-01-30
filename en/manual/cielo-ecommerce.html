@@ -2271,6 +2271,7 @@ Below we specify any existing differences:</p>
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
      </span><span class="p">},</span><span class="w">
      </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"cybersource"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Sequence"</span><span class="p">:</span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"Always"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"FingerPrintId"</span><span class="p">:</span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">
@@ -2382,6 +2383,7 @@ Below we specify any existing differences:</p>
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
      <span class="o">}</span>,
      <span class="s2">"FraudAnalysis"</span>:<span class="o">{</span>
+        <span class="s2">"Provider"</span>:<span class="s2">"cybersource"</span>, 
        <span class="s2">"Sequence"</span>:<span class="s2">"AuthorizeFirst"</span>,
        <span class="s2">"SequenceCriteria"</span>:<span class="s2">"Always"</span>,
     <span class="s2">"FingerPrintId"</span>:<span class="s2">"074c1ee676ed4998ab66491013c565e2"</span>,
@@ -2733,6 +2735,13 @@ Below we specify any existing differences:</p>
       <td>10</td>
       <td>Yes</td>
       <td>Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Provider</code></td>
+      <td>Text</td>
+      <td>14</td>
+      <td>Yes</td>
+      <td>Fixed “cybersource”</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code></td>
