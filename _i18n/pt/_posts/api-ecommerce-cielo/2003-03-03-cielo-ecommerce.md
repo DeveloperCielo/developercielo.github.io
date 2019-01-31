@@ -1245,7 +1245,7 @@ curl
 |`Status`|Status da Transação.|Byte|---|0|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 
-## Transferência Eletronica
+## Transferência Eletrônica
 
 ### Transação Simples
 
