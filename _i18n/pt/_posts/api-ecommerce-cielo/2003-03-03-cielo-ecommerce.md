@@ -7657,7 +7657,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 
 ## Configurações da Afiliação.
 
-Alguns tipos de transação exigem que sua Afiliação esteja configurada corretamente junto a Cielo. Sugerimos que por padrão valide com nossa central de atendimento se sua afiliação está apta a transacionar em algum dos cenários abaixo:
+Alguns tipos de transação exigem que sua Afiliação esteja configurada corretamente junto a Cielo. Sugerimos que por padrão valide com nossa central de atendimento se sua afiliação está apta a transacionar em algum dos cenários abaixo: 
 
 | Cenário                                     | Efeito                                                                                  |
 |---------------------------------------------|-----------------------------------------------------------------------------------------|
