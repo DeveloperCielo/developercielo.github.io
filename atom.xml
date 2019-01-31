@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-01-31T13:55:26+00:00</updated>
+    <updated>2019-01-31T19:36:30+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19640,7 +19640,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;transferência-eletronica&quot;&gt;Transferência Eletronica&lt;/h2&gt;
+&lt;h2 id=&quot;transferência-eletrônica&quot;&gt;Transferência Eletrônica&lt;/h2&gt;
 
 &lt;h3 id=&quot;transação-simples-1&quot;&gt;Transação Simples&lt;/h3&gt;
 
@@ -20419,8 +20419,6 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;aside class=&quot;warning&quot;&gt;O Cancelamento de transações de boleto ocorrem apenas via Backoffice. Não há cancelamento via API disponivel.&lt;/aside&gt;
 
 &lt;h2 id=&quot;erros-de-integração&quot;&gt;Erros de Integração&lt;/h2&gt;
 
