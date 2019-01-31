@@ -5,7 +5,7 @@ description: Respostas para dúvidas comuns sobre o Checkout
 search: true
 toc_footers: true
 categories: faq
-sort_order: 3
+sort_order: 5
 tags:
   - Checkout Cielo
 ---
