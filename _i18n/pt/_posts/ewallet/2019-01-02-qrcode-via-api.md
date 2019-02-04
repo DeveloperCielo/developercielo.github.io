@@ -8,7 +8,7 @@ toc_footers: true
 categories: manual
 sort_order: 1
 tags:
-  - API e-Commerce Cielo
+  - E-Wallet
 language_tabs:
   json: JSON
   shell: cURL
