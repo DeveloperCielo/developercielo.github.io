@@ -2489,14 +2489,13 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 
 ### Cancelamento via Backoffice
 
-O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de transações de boletos e Débito Online.
+O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de transações de Débito Online.
 É possivel realizar tanto o cancelamento total quanto o Cancelamento parcial via O Backoffice Cielo.
 
 Efeitos sobre o meio de pagamento
 
 |Meio de pagamento|Descrição|Prazo|Participação Cielo|
 |---|---|---|---|
-|Boleto|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|Definido pelo lojista|Não|
 |Transferência Eletrônica|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|Definido pelo lojista|Não|
 
 Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
