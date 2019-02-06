@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-02-04T13:22:08+00:00</updated>
+    <updated>2019-02-06T13:34:24+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -23574,7 +23574,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
 
 &lt;h3 id=&quot;cancelamento-via-backoffice&quot;&gt;Cancelamento via Backoffice&lt;/h3&gt;
 
-&lt;p&gt;O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de transações de boletos e Débito Online.
+&lt;p&gt;O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de transações de Débito Online.
 É possivel realizar tanto o cancelamento total quanto o Cancelamento parcial via O Backoffice Cielo.&lt;/p&gt;
 
 &lt;p&gt;Efeitos sobre o meio de pagamento&lt;/p&gt;
@@ -23589,12 +23589,6 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Boleto&lt;/td&gt;
-      &lt;td&gt;Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista&lt;/td&gt;
-      &lt;td&gt;Definido pelo lojista&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
-    &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Transferência Eletrônica&lt;/td&gt;
       &lt;td&gt;Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista&lt;/td&gt;
