@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-02-06T16:01:29+00:00</updated>
+    <updated>2019-02-06T16:12:54+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14199,6 +14199,26 @@ The return code &lt;strong&gt;“85” represents success in Zero Auth&lt;/stron
   &lt;li&gt;&lt;strong&gt;Attempts quantities:&lt;/strong&gt; Number of times that the API will perform a new transaction in case of non-authorization inside a recurrence. Limited to 4 attempts.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Attempts interval:&lt;/strong&gt; Space of time in between the execution of each new transaction authorization attempt inside a recurrence. Limited to 4 days in between each attempt.&lt;/li&gt;
 &lt;/ul&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Retry</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/en/manual/retentativas8"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/en/manual/retentativas8</id>
+        <content type="html">&lt;h1 id=&quot;online-retry&quot;&gt;Online Retry&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Under construction&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;offline-retry&quot;&gt;Offline Retry&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Under construction&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
     </entry>
     
@@ -29193,6 +29213,20 @@ More information and complete integration, you can find in the link: https://dev
 &lt;/ul&gt;
 
 &lt;p&gt;Opening hours: 24 hours a day, 7 days a week.&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Selective Authentication</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/en/manual/autenticacaoseletiva9"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/en/manual/autenticacaoseletiva9</id>
+        <content type="html">&lt;h1 id=&quot;selective-authentication&quot;&gt;Selective Authentication&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Under construction.&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
     </entry>
     
