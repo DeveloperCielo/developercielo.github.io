@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-02-06T17:45:27+00:00</updated>
+    <updated>2019-02-13T16:16:23+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18,20 +18,7 @@
         <link href="https://developercielo.github.io/manual/qrcode"/>
         <updated>2019-01-28T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/manual/qrcode</id>
-        <content type="html">&lt;h1 id=&quot;requerimentos-para-acesso&quot;&gt;Requerimentos para acesso&lt;/h1&gt;
-
-&lt;p&gt;Para acesso a APIs é necessário portar um client_id (chave identificadora do app) e client_secret. Para solicitar-los deve-se entrar em contato com a Juliana mediante e-mail: juliana.magalhaes@cielo.com.br, no email deve conter as seguintes informações:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Nome&lt;/li&gt;
-  &lt;li&gt;Email&lt;/li&gt;
-  &lt;li&gt;Função&lt;/li&gt;
-  &lt;li&gt;Quem será o responsável pela integração (Responsável Técnico) para cadastro no API Suite?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;** Nota: Futuramente a geração de credenciais será feita via portal do desenvolvedor.**&lt;/p&gt;
-
-&lt;h1 id=&quot;macro-fluxo-de-integração&quot;&gt;Macro fluxo de integração&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;macro-fluxo-de-integração&quot;&gt;Macro fluxo de integração&lt;/h1&gt;
 
 &lt;p&gt;Atualmente dentro da API de pagamentos existem três recursos utilizados para a integração, sendo eles:&lt;/p&gt;
 
@@ -386,10 +373,6 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
 &lt;/blockquote&gt;
 
 &lt;p&gt;** Observação: Ao testar com o QR Code especificado um erro do tipo 422 é esperado, pois, não existe dados transacionais referentes no autorizador da Cielo.**&lt;/p&gt;
-
-&lt;h1 id=&quot;como-obter-o-pos-de-homologação&quot;&gt;Como obter o POS de homologação.&lt;/h1&gt;
-
-&lt;p&gt;Para a obtenção do POS de homologação deve-se entrar em contato com a Juliana mediante e-mail: juliana.magalhaes@cielo.com.br. Com as devidas informações preenchidas no corpo do e-mail  o POS será enviado via sedex para o estabelecimento requisitante.&lt;/p&gt;
 
 &lt;h1 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h1&gt;
 
