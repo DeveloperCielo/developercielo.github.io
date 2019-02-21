@@ -370,6 +370,10 @@
   </thead>
   <tbody>
     <tr>
+      <td>onReady</td>
+      <td>É acionado quando todos os procedimentos de carregamento do script da solução foram concluídos com sucesso, o que incluir a validação do token de acesso, indicando que o checkout está pronto para iniciar a autenticação</td>
+    </tr>
+    <tr>
       <td>onSuccess</td>
       <td>É acionado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornados. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.</td>
     </tr>

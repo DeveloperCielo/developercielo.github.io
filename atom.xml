@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-02-20T14:53:04+00:00</updated>
+    <updated>2019-02-21T18:57:10+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2183,6 +2183,10 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onReady&lt;/td&gt;
+      &lt;td&gt;É acionado quando todos os procedimentos de carregamento do script da solução foram concluídos com sucesso, o que incluir a validação do token de acesso, indicando que o checkout está pronto para iniciar a autenticação&lt;/td&gt;
+    &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;onSuccess&lt;/td&gt;
       &lt;td&gt;É acionado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornados. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.&lt;/td&gt;
