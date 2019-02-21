@@ -333,6 +333,10 @@
   </thead>
   <tbody>
     <tr>
+      <td>onReady</td>
+      <td>This is triggered when the script is completely loaded, which includes validation of the access token, indicating that the checkout is ready to initiate authentication process</td>
+    </tr>
+    <tr>
       <td>onSuccess</td>
       <td>It is triggered when the card is elegible and the authentication process is successfully finished. In this case, the variables CAVV, XID and ECI are returned. These data must be sent in together with the authorization request. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.</td>
     </tr>
