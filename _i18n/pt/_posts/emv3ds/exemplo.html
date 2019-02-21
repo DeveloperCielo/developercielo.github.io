@@ -417,7 +417,7 @@
 				<input type="text" size="50" class="bpmpi_useraccount_authenticationtimestamp" value="201809061510" />
 			</div>
 		</fieldset>
-		<input type="button" onclick="sendOrder()" value="Send Order" />
+		<input type="button" onclick="sendOrder()" value="Send Order" id="btnSendOrder"/>
 	</div>
 </body>
 
@@ -426,6 +426,10 @@
 
 		function bpmpi_config() {
 			return {
+				onReady: function () {
+					// Evento indicando quando a inicialização do script terminou.
+					document.getElementById("btnSendOrder").disabled = false;
+				},
 				onSuccess: function (e) {
 					// Cartão elegível para autenticação, e portador autenticou com sucesso.
 					var cavv = e.Cavv;
