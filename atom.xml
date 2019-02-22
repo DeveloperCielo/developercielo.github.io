@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-02-21T19:53:10+00:00</updated>
+    <updated>2019-02-22T12:27:28+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -12203,7 +12203,7 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
       &lt;td&gt;34&lt;/td&gt;
       &lt;td&gt;Valor da taxa de embarque obrigatório&lt;/td&gt;
       &lt;td&gt;O valor da taxa de embarque é obrigatório se a captura for parcial e a autorização tiver sido feita com taxa de embarque.&lt;/td&gt;
-      &lt;td&gt;Envie novamente a requisição de captura com a tag .&lt;/td&gt;
+      &lt;td&gt;Envie novamente a requisição de captura com a tag .&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;35&lt;/td&gt;
@@ -12593,7 +12593,6 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero&amp;gt;&lt;/span&gt;4012001038443335&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;validade&amp;gt;&lt;/span&gt;201508&lt;span class=&quot;nt&quot;&gt;&amp;lt;/validade&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;codigo-seguranca/&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
