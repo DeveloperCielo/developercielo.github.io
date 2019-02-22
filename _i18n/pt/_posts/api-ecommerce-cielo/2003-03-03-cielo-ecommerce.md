@@ -2880,7 +2880,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
          "ZipCode":"21241140",
          "City":"Rio de Janeiro",
          "State":"RJ",
-         "Country":"BRA",
+         "Country":"BR",
          "District":"Alphaville"
       },
       "DeliveryAddress":{  
