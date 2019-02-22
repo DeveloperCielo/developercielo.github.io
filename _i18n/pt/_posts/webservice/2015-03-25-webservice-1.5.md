@@ -758,7 +758,7 @@ Os erros que podem ser apresentados na mensagem XML, através da TAG `<erro>`, e
 |31|Prazo de captura vencido|A captura não pode ser realizada, pois o prazo para captura está vencido|Rever as regras de captura|
 |32|Valor de captura inválido|O valor solicitado para captura não é válido|Rever as regras de captura|
 |33|Falha ao capturar|Não foi possível realizar a captura|Realizar nova tentativa. Persistindo, entrar em contato com o Suporte eCommerce e informar o TID da transação.|
-|34|Valor da taxa de embarque obrigatório|O valor da taxa de embarque é obrigatório se a captura for parcial e a autorização tiver sido feita com taxa de embarque.|Envie novamente a requisição de captura com a tag .|
+|34|Valor da taxa de embarque obrigatório|O valor da taxa de embarque é obrigatório se a captura for parcial e a autorização tiver sido feita com taxa de embarque.|Envie novamente a requisição de captura com a tag .|
 |35|Bandeira inválida para utilização da Taxa de Embarque|A bandeira utilizada na transação não tem suporte à taxa de embarque.|Remova a taxa de embarque ou utilize um cartão que suporte esta funcionalidade: Visa ou Mastercard.|
 |36|Produto inválido para utilização da Taxa de Embarque|O produto escolhido não tem suporte à taxa de embarque.|Altere o produto.|
 |40|Prazo de cancelamento vencido|O cancelamento não pode ser realizado, pois o prazo está vencido|Rever as regras de cancelamento.|
@@ -931,7 +931,6 @@ A autorização recorrente pode ser feita de duas formas: através do envio de u
   <dados-portador>
     <numero>4012001038443335</numero>
     <validade>201508</validade>
-    <codigo-seguranca/>
   </dados-portador>
 </transacao>
 ```
