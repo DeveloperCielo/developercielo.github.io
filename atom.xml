@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-03-01T17:22:46+00:00</updated>
+    <updated>2019-03-01T17:28:56+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -21933,7 +21933,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;qr-code-via-api&quot;&gt;QR Code via API&lt;/h1&gt;
+&lt;h2 id=&quot;qr-code-via-api&quot;&gt;QR Code via API&lt;/h2&gt;
 
 &lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API E-Commerce da Cielo para gerar o QRCode de Pagamento, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.&lt;/p&gt;
 
@@ -21957,7 +21957,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
 
 &lt;p&gt;Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.&lt;/p&gt;
 
-&lt;h2 id=&quot;arquitetura-1&quot;&gt;Arquitetura&lt;/h2&gt;
+&lt;h3 id=&quot;arquitetura-1&quot;&gt;Arquitetura&lt;/h3&gt;
 
 &lt;p&gt;A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT. Cada tipo de mensagem deve ser enviada para um recurso identificado através do path.&lt;/p&gt;
 
@@ -21984,7 +21984,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;produtos-e-bandeiras-suportadas-1&quot;&gt;Produtos e Bandeiras suportadas&lt;/h2&gt;
+&lt;h3 id=&quot;produtos-e-bandeiras-suportadas-1&quot;&gt;Produtos e Bandeiras suportadas&lt;/h3&gt;
 
 &lt;p&gt;QR Code de Pagamento possui suporte às seguintes bandeiras e produtos:&lt;/p&gt;
 
@@ -22055,9 +22055,9 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;sandbox-e-ferramentas-1&quot;&gt;Sandbox e Ferramentas&lt;/h1&gt;
+&lt;h2 id=&quot;sandbox-e-ferramentas-1&quot;&gt;Sandbox e Ferramentas&lt;/h2&gt;
 
-&lt;h2 id=&quot;sobre-o-sandbox-1&quot;&gt;Sobre o Sandbox&lt;/h2&gt;
+&lt;h3 id=&quot;sobre-o-sandbox-1&quot;&gt;Sobre o Sandbox&lt;/h3&gt;
 
 &lt;p&gt;Para facilitar os testes durante a integração, a Cielo oferece um ambiente Sandbox que é composto por duas áreas:&lt;/p&gt;
 
@@ -22087,7 +22087,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;li&gt;com o cadastro você receberá um &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; e um &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;,que são as credenciais necessarias para os métodos da API&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;ferramenta-para-integração-postman-1&quot;&gt;Ferramenta para Integração: POSTMAN&lt;/h2&gt;
+&lt;h3 id=&quot;ferramenta-para-integração-postman-1&quot;&gt;Ferramenta para Integração: POSTMAN&lt;/h3&gt;
 
 &lt;p&gt;O &lt;strong&gt;Postman&lt;/strong&gt; é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações HTTPs simples e complexas, bem como ler suas respostas.&lt;/p&gt;
 
@@ -22095,19 +22095,19 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
 
 &lt;p&gt;Sugerimos que desenvolvedores acessem nosso &lt;a href=&quot;https://developercielo.github.io/tutorial/postman&quot;&gt;&lt;strong&gt;Tutorial&lt;/strong&gt;&lt;/a&gt; sobre a ferramenta para compreender melhor todas as vantagens que ela oferece.&lt;/p&gt;
 
-&lt;h2 id=&quot;cartão-de-crédito---sandbox-1&quot;&gt;Cartão de crédito - Sandbox&lt;/h2&gt;
+&lt;h3 id=&quot;cartão-de-crédito---sandbox-1&quot;&gt;Cartão de crédito - Sandbox&lt;/h3&gt;
 
 &lt;p&gt;Para testar o cenário de autorização com sucesso via QRCode, utilize o cartão 4551.8700.0000.0183&lt;/p&gt;
 
 &lt;p&gt;As informações de &lt;strong&gt;Cód.Segurança (CVV)&lt;/strong&gt; e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).&lt;/p&gt;
 
-&lt;h1 id=&quot;gerando-um-qrcode-via-api&quot;&gt;Gerando um QRCode via API&lt;/h1&gt;
+&lt;h2 id=&quot;gerando-um-qrcode-via-api&quot;&gt;Gerando um QRCode via API&lt;/h2&gt;
 
 &lt;p&gt;Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.&lt;/aside&gt;
 
-&lt;h2 id=&quot;requisição-6&quot;&gt;Requisição&lt;/h2&gt;
+&lt;h3 id=&quot;requisição-6&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -22224,7 +22224,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;resposta-6&quot;&gt;Resposta&lt;/h2&gt;
+&lt;h3 id=&quot;resposta-6&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2019010101&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -22346,11 +22346,11 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;consulta---paymentid&quot;&gt;Consulta - PaymentID&lt;/h1&gt;
+&lt;h2 id=&quot;consulta---paymentid&quot;&gt;Consulta - PaymentID&lt;/h2&gt;
 
 &lt;p&gt;Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.&lt;/p&gt;
 
-&lt;h2 id=&quot;requisição-7&quot;&gt;Requisição&lt;/h2&gt;
+&lt;h3 id=&quot;requisição-7&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -22406,7 +22406,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;resposta-7&quot;&gt;Resposta&lt;/h2&gt;
+&lt;h3 id=&quot;resposta-7&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -22628,13 +22628,13 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;consulta---merchandorderid&quot;&gt;Consulta - MerchandOrderID&lt;/h1&gt;
+&lt;h2 id=&quot;consulta---merchandorderid&quot;&gt;Consulta - MerchandOrderID&lt;/h2&gt;
 
 &lt;p&gt;Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.&lt;/p&gt;
 
 &lt;p&gt;Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.&lt;/p&gt;
 
-&lt;h2 id=&quot;requisição-8&quot;&gt;Requisição&lt;/h2&gt;
+&lt;h3 id=&quot;requisição-8&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales?merchantOrderId={merchantOrderId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -22690,7 +22690,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;resposta-8&quot;&gt;Resposta&lt;/h2&gt;
+&lt;h3 id=&quot;resposta-8&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -22744,7 +22744,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;captura&quot;&gt;Captura&lt;/h1&gt;
+&lt;h2 id=&quot;captura&quot;&gt;Captura&lt;/h2&gt;
 
 &lt;p&gt;A &lt;strong&gt;Captura&lt;/strong&gt; é passo exclusivo para transações de Cartões de Crédito.&lt;/p&gt;
 
@@ -22762,7 +22762,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: Captura parcial disponível apenas para transações de crédito&lt;/aside&gt;
 
-&lt;h2 id=&quot;requisição---captura-parcial&quot;&gt;Requisição - Captura Parcial&lt;/h2&gt;
+&lt;h3 id=&quot;requisição---captura-parcial&quot;&gt;Requisição - Captura Parcial&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{paymentId}/capture?amount={Valor}&lt;/span&gt;&lt;/aside&gt;
 
@@ -22836,7 +22836,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;resposta-9&quot;&gt;Resposta&lt;/h2&gt;
+&lt;h3 id=&quot;resposta-9&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -22940,7 +22940,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{paymentId}/capture?amount={Valor}&amp;amp;serviceTaxAmount=xxx&lt;/span&gt;&lt;/aside&gt;
 
-&lt;h2 id=&quot;resposta-10&quot;&gt;Resposta&lt;/h2&gt;
+&lt;h3 id=&quot;resposta-10&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -23040,7 +23040,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;cancelamento&quot;&gt;Cancelamento&lt;/h1&gt;
+&lt;h2 id=&quot;cancelamento&quot;&gt;Cancelamento&lt;/h2&gt;
 
 &lt;p&gt;O &lt;strong&gt;cancelamento&lt;/strong&gt; é a operação responsável pela cancelamento total ou parcial de um valor autorizado ou capturado.&lt;/p&gt;
 
@@ -23050,7 +23050,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados&lt;/aside&gt;
 
-&lt;h2 id=&quot;requisição---cancelamento&quot;&gt;Requisição - cancelamento&lt;/h2&gt;
+&lt;h3 id=&quot;requisição---cancelamento&quot;&gt;Requisição - cancelamento&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}/void?amount=XXX &lt;/span&gt;&lt;/aside&gt;
 
@@ -23112,7 +23112,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;resposta-11&quot;&gt;Resposta&lt;/h2&gt;
+&lt;h3 id=&quot;resposta-11&quot;&gt;Resposta&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;

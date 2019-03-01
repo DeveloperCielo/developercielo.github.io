@@ -3300,7 +3300,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h1 id="qr-code-via-api">QR Code via API</h1>
+<h2 id="qr-code-via-api">QR Code via API</h2>
 
 <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API E-Commerce da Cielo para gerar o QRCode de Pagamento, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.</p>
 
@@ -3324,7 +3324,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 
 <p>Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.</p>
 
-<h2 id="arquitetura-1">Arquitetura</h2>
+<h3 id="arquitetura-1">Arquitetura</h3>
 
 <p>A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT. Cada tipo de mensagem deve ser enviada para um recurso identificado através do path.</p>
 
@@ -3351,7 +3351,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h2 id="produtos-e-bandeiras-suportadas-1">Produtos e Bandeiras suportadas</h2>
+<h3 id="produtos-e-bandeiras-suportadas-1">Produtos e Bandeiras suportadas</h3>
 
 <p>QR Code de Pagamento possui suporte às seguintes bandeiras e produtos:</p>
 
@@ -3422,9 +3422,9 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h1 id="sandbox-e-ferramentas-1">Sandbox e Ferramentas</h1>
+<h2 id="sandbox-e-ferramentas-1">Sandbox e Ferramentas</h2>
 
-<h2 id="sobre-o-sandbox-1">Sobre o Sandbox</h2>
+<h3 id="sobre-o-sandbox-1">Sobre o Sandbox</h3>
 
 <p>Para facilitar os testes durante a integração, a Cielo oferece um ambiente Sandbox que é composto por duas áreas:</p>
 
@@ -3454,7 +3454,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   <li>com o cadastro você receberá um <code class="highlighter-rouge">MerchantId</code> e um <code class="highlighter-rouge">MerchantKey</code>,que são as credenciais necessarias para os métodos da API</li>
 </ul>
 
-<h2 id="ferramenta-para-integração-postman-1">Ferramenta para Integração: POSTMAN</h2>
+<h3 id="ferramenta-para-integração-postman-1">Ferramenta para Integração: POSTMAN</h3>
 
 <p>O <strong>Postman</strong> é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações HTTPs simples e complexas, bem como ler suas respostas.</p>
 
@@ -3462,19 +3462,19 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 
 <p>Sugerimos que desenvolvedores acessem nosso <a href="https://developercielo.github.io/tutorial/postman"><strong>Tutorial</strong></a> sobre a ferramenta para compreender melhor todas as vantagens que ela oferece.</p>
 
-<h2 id="cartão-de-crédito---sandbox-1">Cartão de crédito - Sandbox</h2>
+<h3 id="cartão-de-crédito---sandbox-1">Cartão de crédito - Sandbox</h3>
 
 <p>Para testar o cenário de autorização com sucesso via QRCode, utilize o cartão 4551.8700.0000.0183</p>
 
 <p>As informações de <strong>Cód.Segurança (CVV)</strong> e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).</p>
 
-<h1 id="gerando-um-qrcode-via-api">Gerando um QRCode via API</h1>
+<h2 id="gerando-um-qrcode-via-api">Gerando um QRCode via API</h2>
 
 <p>Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método <code class="highlighter-rouge">POST</code> para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
 
 <aside class="notice">Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
 
-<h2 id="requisição-6">Requisição</h2>
+<h3 id="requisição-6">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3591,7 +3591,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h2 id="resposta-6">Resposta</h2>
+<h3 id="resposta-6">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019010101"</span><span class="p">,</span><span class="w">
@@ -3713,11 +3713,11 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h1 id="consulta---paymentid">Consulta - PaymentID</h1>
+<h2 id="consulta---paymentid">Consulta - PaymentID</h2>
 
 <p>Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.</p>
 
-<h2 id="requisição-7">Requisição</h2>
+<h3 id="requisição-7">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -3773,7 +3773,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h2 id="resposta-7">Resposta</h2>
+<h3 id="resposta-7">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -3995,13 +3995,13 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h1 id="consulta---merchandorderid">Consulta - MerchandOrderID</h1>
+<h2 id="consulta---merchandorderid">Consulta - MerchandOrderID</h2>
 
 <p>Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.</p>
 
 <p>Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.</p>
 
-<h2 id="requisição-8">Requisição</h2>
+<h3 id="requisição-8">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -4057,7 +4057,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h2 id="resposta-8">Resposta</h2>
+<h3 id="resposta-8">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4111,7 +4111,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h1 id="captura">Captura</h1>
+<h2 id="captura">Captura</h2>
 
 <p>A <strong>Captura</strong> é passo exclusivo para transações de Cartões de Crédito.</p>
 
@@ -4129,7 +4129,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 
 <aside class="notice">Atenção: Captura parcial disponível apenas para transações de crédito</aside>
 
-<h2 id="requisição---captura-parcial">Requisição - Captura Parcial</h2>
+<h3 id="requisição---captura-parcial">Requisição - Captura Parcial</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
@@ -4203,7 +4203,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h2 id="resposta-9">Resposta</h2>
+<h3 id="resposta-9">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4307,7 +4307,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
 
-<h2 id="resposta-10">Resposta</h2>
+<h3 id="resposta-10">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4407,7 +4407,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h1 id="cancelamento">Cancelamento</h1>
+<h2 id="cancelamento">Cancelamento</h2>
 
 <p>O <strong>cancelamento</strong> é a operação responsável pela cancelamento total ou parcial de um valor autorizado ou capturado.</p>
 
@@ -4417,7 +4417,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 
 <aside class="notice">Atenção: O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
 
-<h2 id="requisição---cancelamento">Requisição - cancelamento</h2>
+<h3 id="requisição---cancelamento">Requisição - cancelamento</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -4479,7 +4479,7 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
   </tbody>
 </table>
 
-<h2 id="resposta-11">Resposta</h2>
+<h3 id="resposta-11">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
