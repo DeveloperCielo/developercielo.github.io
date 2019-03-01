@@ -1621,7 +1621,7 @@ Quantidade de caracteres por campo e Provider:
 |**OBS 3:**|A API Cielo trunca automaticamente|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras|
 |**OBS 4:**|O dado é validado pela API Cielo|N/A|
 
-# QR Code via API
+## QR Code via API
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API E-Commerce da Cielo para gerar o QRCode de Pagamento, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
 
@@ -1641,7 +1641,7 @@ Ambiente Sandbox
 
 Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
 
-## Arquitetura
+### Arquitetura
 
 A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT. Cada tipo de mensagem deve ser enviada para um recurso identificado através do path.
 
@@ -1651,7 +1651,7 @@ A integração é realizada através de serviços disponibilizados como Web Serv
 |**PUT**|O método HTTP `PUT` é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.|
 |**GET**|O método HTTP `GET` é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.|
 
-## Produtos e Bandeiras suportadas
+### Produtos e Bandeiras suportadas
 
 QR Code de Pagamento possui suporte às seguintes bandeiras e produtos:
 
@@ -1667,9 +1667,9 @@ QR Code de Pagamento possui suporte às seguintes bandeiras e produtos:
 | Aura             | Sim             | Sim                    | *Não*  |
 | Hipercard        | Sim             | Sim                    | *Não*  |
 
-# Sandbox e Ferramentas
+## Sandbox e Ferramentas
 
-## Sobre o Sandbox
+### Sobre o Sandbox
 
 Para facilitar os testes durante a integração, a Cielo oferece um ambiente Sandbox que é composto por duas áreas:
 
@@ -1685,7 +1685,7 @@ Para facilitar os testes durante a integração, a Cielo oferece um ambiente San
 * Basta acessar o [**Cadastro do Sandbox**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) criar uma conta.
 * com o cadastro você receberá um `MerchantId` e um `MerchantKey`,que são as credenciais necessarias para os métodos da API
 
-## Ferramenta para Integração: POSTMAN
+### Ferramenta para Integração: POSTMAN
 
 O **Postman** é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações HTTPs simples e complexas, bem como ler suas respostas.
 
@@ -1693,19 +1693,19 @@ A Cielo oferece coleções completas de suas integrações via Postamn, o que fa
 
 Sugerimos que desenvolvedores acessem nosso [**Tutorial**](https://developercielo.github.io/tutorial/postman) sobre a ferramenta para compreender melhor todas as vantagens que ela oferece.
 
-## Cartão de crédito - Sandbox
+### Cartão de crédito - Sandbox
 
 Para testar o cenário de autorização com sucesso via QRCode, utilize o cartão 4551.8700.0000.0183
 
 As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).
 
-# Gerando um QRCode via API
+## Gerando um QRCode via API
 
 Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
 
 <aside class="notice"><strong>Atenção:</strong> Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
 
-## Requisição
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1759,7 +1759,7 @@ curl
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Capture`|Booleano|-|Não|Enviar **true** para uma trasação de captura automática.|
 
-## Resposta
+### Resposta
 
 ```json
 {
@@ -1842,11 +1842,11 @@ curl
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
 
-# Consulta - PaymentID
+## Consulta - PaymentID
 
 Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
 
-## Requisição
+### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -1868,7 +1868,7 @@ curl
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim|
 
-## Resposta
+### Resposta
 
 ```json
 {
@@ -1991,13 +1991,13 @@ curl
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
-# Consulta - MerchandOrderID
+## Consulta - MerchandOrderID
 
 Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.
 
 Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.
 
-## Requisição
+### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -2019,7 +2019,7 @@ curls
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`MerchantOrderId`|Campo Identificador do Pedido na Loja.|Texto|36|Sim|
 
-## Resposta
+### Resposta
 
 ```json
 {
@@ -2058,7 +2058,7 @@ curls
 |---|---|---|---|---|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-# Captura
+## Captura
 
 A **Captura** é passo exclusivo para transações de Cartões de Crédito.
 
@@ -2074,7 +2074,7 @@ O que a captura gera:
 
 <aside class="notice"><strong>Atenção:</strong> Captura parcial disponível apenas para transações de crédito</aside>
 
-## Requisição - Captura Parcial
+### Requisição - Captura Parcial
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
@@ -2103,7 +2103,7 @@ curl
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
 |`ServiceTaxAmount`|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|Número|15|Não|
 
-## Resposta
+### Resposta
 
 ```json
 {
@@ -2168,7 +2168,7 @@ curl
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
 
-## Resposta
+### Resposta
 
 ```json
 {
@@ -2229,7 +2229,7 @@ curl
 |`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
 |`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
 
-# Cancelamento
+## Cancelamento
 
 O **cancelamento** é a operação responsável pela cancelamento total ou parcial de um valor autorizado ou capturado.
 
@@ -2239,7 +2239,7 @@ Basta realizar um `POST` enviando o valor a ser cancelado.
 
 <aside class="notice"><strong>Atenção:</strong> O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
 
-## Requisição - cancelamento
+### Requisição - cancelamento
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -2261,7 +2261,7 @@ curl
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
 
-## Resposta
+### Resposta
 
 ```json
 {
