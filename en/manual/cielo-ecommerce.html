@@ -10812,6 +10812,247 @@ The following data will be returned about the card:</p>
   <p><strong>NOTE</strong>: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. To check valid resultson BIN Check, production environment must be used.</p>
 </blockquote>
 
+<h1 id="zero-auth">Zero Auth</h1>
+
+<p><strong>Zero Auth</strong> is a Credit Card validation tool. It allows the merchant to know whether or not the card is valid before sending it for authorization, anticipating the reason for a possible non-authorization.</p>
+
+<p><strong>Zero Auth</strong> can be used in 2 ways:</p>
+
+<ol>
+  <li><strong>Standard</strong> - Sending a standard card without tokenization or additional analysis</li>
+  <li><strong>Using the “Cardtoken”</strong> - Sending a tokenized card</li>
+</ol>
+
+<p>It is important to note that Zero Auth <strong>does not return or analyze</strong> the following items:</p>
+
+<ol>
+  <li>Card credit limit</li>
+  <li>Information about the bearer</li>
+  <li>Does not trigger SMS notification</li>
+</ol>
+
+<p>Zero Auth supports the following flags/Card Brands:</p>
+
+<ul>
+  <li><strong>Visa</strong></li>
+  <li><strong>MasterCard</strong></li>
+  <li><strong>Elo</strong></li>
+</ul>
+
+<blockquote>
+  <p>If other flags/Brand are sent, the error <strong>57-Bandeira inválida</strong> will be displayed.</p>
+</blockquote>
+
+<h2 id="use-case-2">Use case</h2>
+
+<p>This is an example of how to use zero auth to improve your sales conversion</p>
+
+<p>Zero Auth is a tool from Cielo that allows you to check if a card is valid before the order is finalized. It does this by simulating an authorization, but without affecting the credit limit or alerting the card holders about the test.</p>
+
+<p>It does not inform the limit or characteristics of the card or carrier, but simulates a Cielo authorization, validating data such as:</p>
+
+<ol>
+  <li>If the card is valid with the issuing bank</li>
+  <li>If the card has limit available</li>
+  <li>If the card works in Brazil</li>
+  <li>If the card number is correct</li>
+  <li>If the CVV is valid</li>
+</ol>
+
+<p>Zero Auth also works with tokenized cards in Api Cielo Ecommerce</p>
+
+<h2 id="integration-1">Integration</h2>
+
+<p>In order to use Zero Auth, the merchant must send a <code class="highlighter-rouge">POST</code> request to the Cielo Ecommerce API, simulating a transaction. <code class="highlighter-rouge">POST</code> should be done at the following URLs:</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://`api`.cieloecommerce.cielo.com.br/1/`zeroauth`</span></aside>
+
+<p>Each type of validation requires a different technical contract. They will result in differentiated responses</p>
+
+<h3 id="request-31">Request</h3>
+
+<h4 id="standard">Standard</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Alexsander Rosa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Contact Us</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">CardType</code></td>
+      <td>Defines the type of card used: <br /> <br /> <em>CreditCard</em> <br /> <em>DebitCard</em> <br /> <br /> If not sent, CreditCard as default</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CardNumber</code></td>
+      <td>Card Number</td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Holder</code></td>
+      <td>Buyer’s name, printed on the card.</td>
+      <td>Text</td>
+      <td>25</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ExpirationDate</code></td>
+      <td>Expiration date.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SecurityCode</code></td>
+      <td>Card Security code .</td>
+      <td>Text</td>
+      <td>4</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SaveCard</code></td>
+      <td>Defines if the card must be tokenized</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Brand</code></td>
+      <td>Card Brand: Visa <br /> Master <br /> ELO</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="using-cardtoken">Using CardToken</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"CardToken"</span><span class="p">:</span><span class="s2">"23712c39-bb08-4030-86b3-490a223a8cc9"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Contact Us</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Brand</code></td>
+      <td>Card Brand: Visa <br /> Master <br /> ELO</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>not</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CardToken</code></td>
+      <td>Tokenized Card</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-34">Response</h3>
+
+<p>If there is an error in the request, where it is not possible to validate the card, the service will return error:</p>
+
+<blockquote>
+  <p><strong>500 – Internal Server Erro</strong></p>
+</blockquote>
+
+<h4 id="valid-card">Valid Card</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+        </span><span class="s2">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="err">“</span><span class="mi">00</span><span class="err">”</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReturnMessage"</span><span class="p">,</span><span class="w"> </span><span class="err">“Transacao</span><span class="w"> </span><span class="err">autorizada”</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Contact Us</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">Valid</code></td>
+      <td>Card Status: <br /> <strong>True ** - Valid Card <br /> **False</strong> - Invalid Card</td>
+      <td>Boolean</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>Return code</td>
+      <td>text</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>Return message</td>
+      <td>text</td>
+      <td>255</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>See <a href="https://developercielo.github.io/en/manual/cielo-ecommerce"><strong>Integration Manual</strong></a> for more information about Return Codes.
+The return code <strong>“85” represents success in Zero Auth</strong>, the other codes are defined according to the above documentation.</p>
+</blockquote>
+
+<h4 id="invalid-card">Invalid Card</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+       </span><span class="s2">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autorizacao negada"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="invalid-card---brand-not-supported">Invalid Card - Brand not Supported</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">    
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">     
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bandeira inválida"</span><span class="w">   
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <h1 id="wallet">Wallet</h1>
 
 <h2 id="what-are-wallets">What are Wallets</h2>
@@ -10997,7 +11238,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   </tbody>
 </table>
 
-<h3 id="response-34">Response</h3>
+<h3 id="response-35">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -11370,7 +11611,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   </tbody>
 </table>
 
-<h3 id="response-35">Response</h3>
+<h3 id="response-36">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -11566,7 +11807,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
 <p>To use Masterpass it is necessary to contact directly with the Mastercard site: https://masterpass.com/pt-br/ e solicitar as credenciais.
 More information and complete integration, you can find in the link: https://developer.mastercard.com/product/masterpass “</p>
 
-<h3 id="request-31">Request</h3>
+<h3 id="request-32">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11740,7 +11981,7 @@ More information and complete integration, you can find in the link: https://dev
   </tbody>
 </table>
 
-<h3 id="response-36">Response</h3>
+<h3 id="response-37">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
