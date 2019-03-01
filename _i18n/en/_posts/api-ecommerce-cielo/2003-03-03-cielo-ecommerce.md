@@ -5633,6 +5633,137 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 > **NOTE**: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. To check valid resultson BIN Check, production environment must be used.
 
+# Zero Auth
+
+**Zero Auth** is a Credit Card validation tool. It allows the merchant to know whether or not the card is valid before sending it for authorization, anticipating the reason for a possible non-authorization.
+
+**Zero Auth** can be used in 2 ways:
+
+1. **Standard** - Sending a standard card without tokenization or additional analysis
+2. **Using the "Cardtoken"** - Sending a tokenized card
+
+It is important to note that Zero Auth **does not return or analyze** the following items:
+
+1. Card credit limit
+2. Information about the bearer
+3. Does not trigger SMS notification
+
+Zero Auth supports the following flags/Card Brands:
+
+* **Visa**
+* **MasterCard**
+* **Elo**
+
+> If other flags/Brand are sent, the error **57-Bandeira inválida** will be displayed.
+
+## Use case
+
+This is an example of how to use zero auth to improve your sales conversion
+
+Zero Auth is a tool from Cielo that allows you to check if a card is valid before the order is finalized. It does this by simulating an authorization, but without affecting the credit limit or alerting the card holders about the test.
+
+It does not inform the limit or characteristics of the card or carrier, but simulates a Cielo authorization, validating data such as:
+
+1. If the card is valid with the issuing bank
+2. If the card has limit available
+3. If the card works in Brazil
+4. If the card number is correct
+5. If the CVV is valid
+
+Zero Auth also works with tokenized cards in Api Cielo Ecommerce
+
+## Integration
+
+In order to use Zero Auth, the merchant must send a `POST` request to the Cielo Ecommerce API, simulating a transaction. `POST` should be done at the following URLs:
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://`api`.cieloecommerce.cielo.com.br/1/`zeroauth`</span></aside>
+
+Each type of validation requires a different technical contract. They will result in differentiated responses
+
+### Request
+
+#### Standard
+
+``` json
+{
+    "CardNumber":"1234123412341231",
+    "Holder":"Alexsander Rosa",
+    "ExpirationDate":"12/2021",
+    "SecurityCode":"123",
+    "SaveCard":"false",
+    "Brand":"Visa"
+}
+```
+
+| Field              | Description                                                                                                               | Type      | Contact Us | Required       |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
+| `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard as default       | Text      | 255        | No             |
+| `CardNumber`       | Card Number                                                                                                               | Text      | 16         | Yes            |
+| `Holder`           | Buyer's name, printed on the card.                                                                                        | Text      | 25         | No             |
+| `ExpirationDate`   | Expiration date.                                                                                                          | Text      | 7          | yes            |
+| `SecurityCode`     | Card Security code .                                                                                                      | Text      | 4          | No             |
+| `SaveCard`         | Defines if the card must be tokenized                                                                                     | Boolean   | ---        | No             |
+| `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | No             |
+
+#### Using CardToken
+
+``` json
+{
+  "CardToken":"23712c39-bb08-4030-86b3-490a223a8cc9",
+  "SaveCard":"false",
+  "Brand":"Visa"
+}
+```
+
+| Field              | Description                                                                                                               | Type      | Contact Us | Required       |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
+| `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | not            |
+| `CardToken`        | Tokenized Card                                                                                                            | GUID      | 36         | yes |
+
+### Response
+
+If there is an error in the request, where it is not possible to validate the card, the service will return error:
+
+> **500 – Internal Server Erro**
+
+#### Valid Card
+
+``` json
+{
+        "Valid": true,
+        "ReturnCode": “00”,
+        "ReturnMessage", “Transacao autorizada”
+}
+```
+
+| Field             | Description                                                                        | Type      | Contact Us |
+| ----------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
+| `Valid`           | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
+| `ReturnCode`      | Return code                                                                        | text      | 2          |
+| `ReturnMessage`   | Return message                                                                     | text      | 255        |
+
+> See [**Integration Manual**](https://developercielo.github.io/en/manual/cielo-ecommerce) for more information about Return Codes.
+> The return code **"85" represents success in Zero Auth**, the other codes are defined according to the above documentation.
+
+#### Invalid Card
+
+``` json
+{
+       "Valid": false,
+       "ReturnCode": "57",
+       "ReturnMessage": "Autorizacao negada"
+}
+```
+
+#### Invalid Card - Brand not Supported
+
+``` json
+  {    
+      "Code": 57,     
+      "Message": "Bandeira inválida"   
+  }
+```
+
 # Wallet
 
 ## What are Wallets
