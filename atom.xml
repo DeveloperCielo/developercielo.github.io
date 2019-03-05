@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-03-04T12:05:20+00:00</updated>
+    <updated>2019-03-05T20:54:32+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18,7 +18,13 @@
         <link href="https://developercielo.github.io/manual/qrcode"/>
         <updated>2019-01-28T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/manual/qrcode</id>
-        <content type="html">&lt;h1 id=&quot;macro-fluxo-de-integração&quot;&gt;Macro fluxo de integração&lt;/h1&gt;
+        <content type="html">&lt;h1 id=&quot;requerimentos-para-acesso&quot;&gt;Requerimentos para acesso&lt;/h1&gt;
+
+&lt;p&gt;Para acesso a APIs é necessário abrir um chamado via &lt;a href=&quot;https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000330511&quot;&gt;Zendesk&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;** Nota: Futuramente a geração de credenciais será feita via portal do desenvolvedor.**&lt;/p&gt;
+
+&lt;h1 id=&quot;macro-fluxo-de-integração&quot;&gt;Macro fluxo de integração&lt;/h1&gt;
 
 &lt;p&gt;Atualmente dentro da API de pagamentos existem três recursos utilizados para a integração, sendo eles:&lt;/p&gt;
 
@@ -374,6 +380,10 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
 
 &lt;p&gt;** Observação: Ao testar com o QR Code especificado um erro do tipo 422 é esperado, pois, não existe dados transacionais referentes no autorizador da Cielo.**&lt;/p&gt;
 
+&lt;h1 id=&quot;como-obter-o-pos-de-homologação&quot;&gt;Como obter o POS de homologação.&lt;/h1&gt;
+
+&lt;p&gt;Para a obtenção do POS de homologação deve-se abrir chamado via &lt;a href=&quot;https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000324432&quot;&gt;Zendesk&lt;/a&gt;&lt;/p&gt;
+
 &lt;h1 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h1&gt;
 
 &lt;ul&gt;
@@ -405,6 +415,14 @@ R: Não.&lt;/p&gt;
 R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor, Android: https://developer.android.com/training/articles/user-data-ids.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h1 id=&quot;canal-de-suporte-a-dúvidas&quot;&gt;Canal de Suporte a Dúvidas&lt;/h1&gt;
+
+&lt;p&gt;Caso ainda tenha dúvidas deve-se abrir um chamado via &lt;a href=&quot;https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000316152&quot;&gt;Zendesk&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;para-erros-ou-problemas&quot;&gt;Para Erros ou Problemas&lt;/h1&gt;
+
+&lt;p&gt;Utilize o canal &lt;a href=&quot;https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000316172&quot;&gt;Zendesk&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     
