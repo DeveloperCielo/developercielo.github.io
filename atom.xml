@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-03-05T21:06:35+00:00</updated>
+    <updated>2019-03-06T20:04:08+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -30683,6 +30683,194 @@ O código de retorno &lt;strong&gt;00 representa sucesso no Zero Auth&lt;/strong
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;h1 id=&quot;silent-order-post&quot;&gt;Silent Order Post&lt;/h1&gt;
+
+&lt;p&gt;Integração que a Cielo oferece aos lojistas, onde os dados de pagamentos são trafegue de forma segura, mantendo o controle total sobre a experiência de Ckeckout.&lt;/p&gt;
+
+&lt;p&gt;Esse método possibilita o envio dos dados do pagamento do seu cliente final de forma segura diretamente em nosso sistema. Os campos de pagamento são guardados do lado da Cielo, que conta com a certificação PCI DSS 3.2.&lt;/p&gt;
+
+&lt;p&gt;É ideal para lojistas que exigem um alto nível de segurança, sem perder a identidade de sua página. Esse método permite um alto nível de personalização na sua página de checkout.&lt;/p&gt;
+
+&lt;h1 id=&quot;características&quot;&gt;Características&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Captura de dados de pagamento diretamente para os sistemas da Cielo por meio dos campos hospedados na sua página através de um script (javascript).&lt;/li&gt;
+  &lt;li&gt;Compatibilidade com todos os meios de pagamentos disponibilizados ao Gateway (Nacional e Internacional)&lt;/li&gt;
+  &lt;li&gt;Autenticação do comprador (disponível)&lt;/li&gt;
+  &lt;li&gt;Redução do escopo de PCI DSS&lt;/li&gt;
+  &lt;li&gt;Mantenha controle total sobre a experiência de check-out e elementos de gestão da sua marca.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;fluxo-de-autorização&quot;&gt;Fluxo de Autorização&lt;/h1&gt;
+
+&lt;h2 id=&quot;fluxo-padrão-de-autorização&quot;&gt;Fluxo Padrão de Autorização&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo-padrao-de-autorizacao.jpg&quot; alt=&quot;Fluxo Padrão&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;É preciso que o estabelecimento seja &lt;strong&gt;PCI Compliance&lt;/strong&gt; (PCI = Regras de segurança para manipular os dados do cartão)&lt;/p&gt;
+
+&lt;h2 id=&quot;fluxo-de-autorização-com-silent-order-post&quot;&gt;Fluxo de Autorização com Silent Order POST&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo-de-autorizacao-com-sop.jpg&quot; alt=&quot;Fluxo Padrão&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O servidor &lt;strong&gt;não trafega os dados do cartão&lt;/strong&gt; abertamente.&lt;/p&gt;
+
+&lt;h1 id=&quot;fluxo-transacional&quot;&gt;Fluxo Transacional&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/fluxo-silent-order-post-cielo.jpg&quot; alt=&quot;Fluxo Silent Order Post&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;integração-3&quot;&gt;Integração&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;PASSO 1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;O cliente acaba o checkout, e vai para o processamento do pagamento.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PASSO 2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a) O estabelecimento deverá solicitar um ticket (server to server) enviando um POST para a seguinte URL:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SANDBOX:&lt;/strong&gt;
+&lt;strong&gt;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PRODUÇÃO:&lt;/strong&gt;
+&lt;strong&gt;https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid={mid}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Exemplo: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&lt;/p&gt;
+
+&lt;h2 id=&quot;requisição-33&quot;&gt;Requisição&lt;/h2&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v1/accesstoken?merchantid={mid_loja}&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Obrigatório&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mid_loja&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador da loja na API&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;resposta-40&quot;&gt;Resposta&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;AccessToken&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;Issued&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-07-23T11:09:32&quot;&lt;/span&gt;,
+    &lt;span class=&quot;s2&quot;&gt;&quot;ExpiresIn&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2018-07-23T11:29:32&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Propriedade&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Tipo&lt;/th&gt;
+      &lt;th&gt;Tamanho&lt;/th&gt;
+      &lt;th&gt;Formato&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador da loja na API&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;AccessToken&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Token de Acesso&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Issued&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data e hora da geração&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DDTHH:MM:SS&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExpiresIn&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data e hora da expiração&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;–&lt;/td&gt;
+      &lt;td&gt;AAAA-MM-DDTHH:MM:SS&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;b) Para uso este recurso, por questões de segurança, obrigatoriamente será requerido do lado da Cielo, &lt;strong&gt;no mínimo um IP válido do estabelecimento&lt;/strong&gt;. Caso contrário a requisição não será autorizada (&lt;strong&gt;HTTP 401 NotAuthorized&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PASSO 3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a) Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contendo entre outras informações o ticket (AccessToken), como por exemplo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/response-ticket-silent-order-post-cielo.jpg&quot; alt=&quot;Response Ticket&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo de já estipulado na resposta, através do atributo ExpiresIn (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PASSO 4 ao 6&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a) O estabelecimento deverá fazer o download de um script fornecido pela Cielo, e anexá-lo a sua página de checkout. Esse script permitirá à Cielo processar todas as informações de cartão sem intervenção do estabelecimento.
+O download poderá ser realizado a partir da seguinte URL:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SANDBOX:&lt;/strong&gt;
+&lt;strong&gt;https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PRODUÇÃO:&lt;/strong&gt;
+&lt;strong&gt;https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;b) O estabelecimento deverá decorar seus inputs do formulário com as seguintes classes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Para o portador do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardholdername&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Para o número do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardnumber&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Para a validade do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardexpirationdate&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Para o código de segurança do cartão de crédito/débito: &lt;strong&gt;bp-sop-cardcvvc&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;c) O script fornecido pela Cielo fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: &lt;strong&gt;onSuccess&lt;/strong&gt; (onde será retornado o &lt;strong&gt;“PaymentToken”&lt;/strong&gt; após processar os dados do cartão), &lt;strong&gt;onError&lt;/strong&gt; (caso haja algum erro no consumo dos serviços da Cielo) e &lt;strong&gt;onInvalid&lt;/strong&gt; (onde será retornado o resultado da validação dos inputs).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Na validação dos inputs, o estabelecimento poderá utilizar toda a camada de validação sobre os dados de cartão realizada pela Cielo e assim simplificar o tratamento no seu formulário de checkout. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;O &lt;strong&gt;PaymentToken&lt;/strong&gt; será o token que representará todos os dados de cartão fornecido pelo comprador. O mesmo será utilizado pelo estabelecimento para não haver necessidade de tratar e processar dados de cartão do seu lado.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Por questões de segurança esse PaymentToken poderá ser usado apenas para 1 autorização na Cielo 3.0. Após o processamento do mesmo, este será invalidado.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/html-silent-order-post.jpg&quot; alt=&quot;Pagina Checkout&quot; /&gt;&lt;/p&gt;
+
 &lt;h1 id=&quot;wallet&quot;&gt;Wallet&lt;/h1&gt;
 
 &lt;h2 id=&quot;o-que-são-wallets&quot;&gt;O que são Wallets&lt;/h2&gt;
@@ -30798,7 +30986,7 @@ Cada Wallet possui um formato de &lt;code class=&quot;highlighter-rouge&quot;&gt
 
 &lt;h3 id=&quot;descriptografia&quot;&gt;Descriptografia&lt;/h3&gt;
 
-&lt;h4 id=&quot;requisição-33&quot;&gt;Requisição&lt;/h4&gt;
+&lt;h4 id=&quot;requisição-34&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Descriptografia&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -30951,7 +31139,7 @@ Cada Wallet possui um formato de &lt;code class=&quot;highlighter-rouge&quot;&gt
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;resposta-40&quot;&gt;Resposta&lt;/h4&gt;
+&lt;h4 id=&quot;resposta-41&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -31122,7 +31310,7 @@ Cada Wallet possui um formato de &lt;code class=&quot;highlighter-rouge&quot;&gt
 
 &lt;h3 id=&quot;envio-de-cartão&quot;&gt;Envio de cartão&lt;/h3&gt;
 
-&lt;h4 id=&quot;requisição-34&quot;&gt;Requisição&lt;/h4&gt;
+&lt;h4 id=&quot;requisição-35&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Envio&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;de&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;cartão&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -31495,7 +31683,7 @@ VKeU&lt;br /&gt;
 
 &lt;p&gt;No modelo apresentado a seguir, demonstramos como utilizar a integração Apple Pay Cielo via o envio do WalletKey + EphemeralPublicKey retornados pela Apple via Payload&lt;/p&gt;
 
-&lt;h4 id=&quot;requisição-35&quot;&gt;Requisição&lt;/h4&gt;
+&lt;h4 id=&quot;requisição-36&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;p&gt;Exemplo de Requisição &lt;em&gt;Apple Pay&lt;/em&gt;&lt;/p&gt;
 
@@ -31655,7 +31843,7 @@ VKeU&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;resposta-41&quot;&gt;Resposta&lt;/h4&gt;
+&lt;h4 id=&quot;resposta-42&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -31828,7 +32016,7 @@ VKeU&lt;br /&gt;
 
 &lt;p&gt;No modelo apresentado a seguir, demonstramos como a Apple Pay pode ser utilizada com o envio do cartão aberto, sem a necessidade de WalletKey.&lt;/p&gt;
 
-&lt;h4 id=&quot;requisição-36&quot;&gt;Requisição&lt;/h4&gt;
+&lt;h4 id=&quot;requisição-37&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;p&gt;Nesse modelo, o lojista informa apenas que a transação é de uma Wallet Apple Pay e envia os dados ECI e CAVV fornecidos pela APPLE&lt;/p&gt;
 
@@ -31994,7 +32182,7 @@ VKeU&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;resposta-42&quot;&gt;Resposta&lt;/h4&gt;
+&lt;h4 id=&quot;resposta-43&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6242-642-723&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -32191,7 +32379,7 @@ VKeU&lt;br /&gt;
   &lt;p&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;Walletkey&lt;/code&gt; é o parametro &lt;code class=&quot;highlighter-rouge&quot;&gt;CallID&lt;/code&gt; retornado pelo VisaCheckout&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;requisição-37&quot;&gt;Requisição&lt;/h4&gt;
+&lt;h4 id=&quot;requisição-38&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;p&gt;Exemplo de Requisição padrão &lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/p&gt;
 
@@ -32334,7 +32522,7 @@ VKeU&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;resposta-43&quot;&gt;Resposta&lt;/h4&gt;
+&lt;h4 id=&quot;resposta-44&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -32399,7 +32587,7 @@ VKeU&lt;br /&gt;
 
 &lt;p&gt;No modelo apresentado a seguir, demonstramos como a VisaCheckout pode ser utilizada com o envio do cartão aberto, sem a necessidade de WalletKey.&lt;/p&gt;
 
-&lt;h4 id=&quot;requisição-38&quot;&gt;Requisição&lt;/h4&gt;
+&lt;h4 id=&quot;requisição-39&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;p&gt;Nesse modelo, o lojista informa apenas que a transação é da Wallet VisaCheckout e envia os dados ECI e CAVV fornecidos pela Visa&lt;/p&gt;
 
@@ -32552,7 +32740,7 @@ VKeU&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;resposta-44&quot;&gt;Resposta&lt;/h4&gt;
+&lt;h4 id=&quot;resposta-45&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -32706,7 +32894,7 @@ VKeU&lt;br /&gt;
 
 &lt;p&gt;Para utilizar a wallet &lt;a href=&quot;https://developer.mastercard.com/product/masterpass&quot;&gt;&lt;strong&gt;Masterpass&lt;/strong&gt;&lt;/a&gt; é necessario que a loja ja esteja cadastrada junto a Mastercard, e integrada a busca de dados de cartão da plataforma.&lt;/p&gt;
 
-&lt;h4 id=&quot;requisição-39&quot;&gt;Requisição&lt;/h4&gt;
+&lt;h4 id=&quot;requisição-40&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;p&gt;Exemplo de Requisição &lt;em&gt;Masterpass&lt;/em&gt;&lt;/p&gt;
 
@@ -32861,7 +33049,7 @@ VKeU&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;resposta-45&quot;&gt;Resposta&lt;/h4&gt;
+&lt;h4 id=&quot;resposta-46&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6242-642-723&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -33089,7 +33277,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
 
 &lt;p&gt;No modelo apresentado a seguir, demonstramos como utilizar a integração SamsungPay Cielo via o envio do WalletKey + EphemeralPublicKey retornados pela Samsung via Payload&lt;/p&gt;
 
-&lt;h4 id=&quot;requisição-40&quot;&gt;Requisição&lt;/h4&gt;
+&lt;h4 id=&quot;requisição-41&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;p&gt;Exemplo de Requisição &lt;em&gt;SamsungPay&lt;/em&gt;&lt;/p&gt;
 
@@ -33247,7 +33435,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;resposta-46&quot;&gt;Resposta&lt;/h4&gt;
+&lt;h4 id=&quot;resposta-47&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -33417,7 +33605,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
 
 &lt;p&gt;No modelo apresentado a seguir, demonstramos como a SamsungPay pode ser utilizada com o envio do cartão aberto, sem a necessidade de WalletKey.&lt;/p&gt;
 
-&lt;h4 id=&quot;requisição-41&quot;&gt;Requisição&lt;/h4&gt;
+&lt;h4 id=&quot;requisição-42&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;p&gt;Nesse modelo, o lojista informa apenas que a transação é da Wallet SamsungPay e envia os dados ECI e CAVV fornecidos pela Samsung&lt;/p&gt;
 
@@ -33583,7 +33771,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;resposta-47&quot;&gt;Resposta&lt;/h4&gt;
+&lt;h4 id=&quot;resposta-48&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6242-642-723&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
