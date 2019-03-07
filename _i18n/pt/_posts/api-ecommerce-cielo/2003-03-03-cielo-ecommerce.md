@@ -4238,6 +4238,8 @@ Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de f
 
 # Velocity
 
+## O Que É Velocity
+
 O Velocity é um tipo de mecanismo de prevenção à tentativas de fraude, que analisa especificamente o conceito de **“velocidade X dados transacionais”**. Ela analisa a frequência que determinados dados são utilizados e se esse dados estão inscritos em uma lista de comportamentos passiveis de ações de segurança.
 
 Para estabelecimentos comerciais que atuam no mercado de comércio eletrônico e eventualmente recebem transações fraudulentas, o Velocity é um produto que identificará os comportamentos suspeitos de fraude. A ferramenta tem o intuito de auxiliar na análise de fraude por um custo bem menor que uma ferramenta mais tradicional de mercado.
