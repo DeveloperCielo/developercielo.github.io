@@ -8823,6 +8823,167 @@ JavaScript</p>
   <p><strong>IMPORTANTE:</strong> Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.</p>
 </blockquote>
 
+<h1 id="velocity">Velocity</h1>
+
+<p>O Velocity é um tipo de mecanismo de prevenção à tentativas de fraude, que analisa especificamente o conceito de <strong>“velocidade X dados transacionais”</strong>. Ela analisa a frequência que determinados dados são utilizados e se esse dados estão inscritos em uma lista de comportamentos passiveis de ações de segurança.</p>
+
+<p>Para estabelecimentos comerciais que atuam no mercado de comércio eletrônico e eventualmente recebem transações fraudulentas, o Velocity é um produto que identificará os comportamentos suspeitos de fraude. A ferramenta tem o intuito de auxiliar na análise de fraude por um custo bem menor que uma ferramenta mais tradicional de mercado.</p>
+
+<p>Ela é uma aliada na avaliação de comportamentos suspeitos de compra, pois os cálculos serão baseados em <code class="highlighter-rouge">elementos de rastreabilidade</code>.</p>
+
+<p>O Velocity oferece 4 tipos de funcionalidades para validar dados transacionais:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Funcionalidade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Regras de segurança velocity</td>
+      <td>O Lojista defini um grupo de regras de segurança que vão avaliar se determinados dados transacionais se repetem em um intervalo de tempo suspeito</td>
+    </tr>
+    <tr>
+      <td>Quarentena</td>
+      <td>Criação de uma lista de dados que serão analisados por um periodo de tempo determinado antes de serem considerados validos ou fraudulentos</td>
+    </tr>
+    <tr>
+      <td>BlackList</td>
+      <td>Criação de uma lista de dados que ao serem identificados impedem a transação de ser executada, evitando a criação de uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td>Whitelist</td>
+      <td>Criação de uma lista de dados que ao serem identificados permitem que a transação de seja executada, mesmo que existam regras de segurança em ação</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A funcionalidade deve ser contratada à parte, e posteriormente habilitada em sua loja pela equipe de Suporte Cielo Ecommerce via o Admin 3.0</p>
+
+<h2 id="integração-1">Integração</h2>
+
+<p>O Velocity funciona analisando dados enviados na integração padrão da API Cielo Ecommerce. Não é necessario incluir nenhuma nó adicional a integração da loja para a criação da venda, mas será necessario alterar a forma como os dados são recebidos <code class="highlighter-rouge">Response</code>.</p>
+
+<p>Quando o Velocity está ativo, a resposta da transação trará um nó específico chamado “Velocity”, com os detalhes da análise.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051202"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@cielo.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2027"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"VelocityAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ResultMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3</span><span class="se">\.</span><span class="s2"> HitsTimeRangeInSeconds: 1440</span><span class="se">\.</span><span class="s2"> ExpirationBlockTimeInSeconds: 1440"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AbortedByFraud"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BP171"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rejected by fraud risk (velocity)"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquery.cieloecommerce.cielo.com.br/1/sales/2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.Id</code></td>
+      <td>Identificador da análise efetuada</td>
+      <td>GUID</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.ResultMessage</code></td>
+      <td>Accept ou Reject</td>
+      <td>Texto</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.Score</code></td>
+      <td>100</td>
+      <td>Número</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.RuleId</code></td>
+      <td>Código da Regra que rejeitou</td>
+      <td>Número</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.Message</code></td>
+      <td>Descrição da Regra que rejeitou</td>
+      <td>Texto</td>
+      <td>512</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="recorrência">Recorrência</h1>
 
 <p>Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado periodo de tempo.</p>
@@ -13256,7 +13417,7 @@ O serviço retornar os seguintes dados sobre o cartão:</p>
 <p><strong>Alertar sobre cartões internacionais</strong>
 O Submergível pode usar a consulta bins no carrinho para alertar compradores internacionais, que caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada</p>
 
-<h2 id="integração-1">Integração</h2>
+<h2 id="integração-2">Integração</h2>
 
 <h3 id="request">Request</h3>
 
@@ -13403,7 +13564,7 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
   <li><strong>Recorrência</strong>: todo mês, antes de realizar a cobrança da Assinatura, a Flixnet testa o cartão com o zero auth, assim sabendo se ele será autorizado ou não.  Isso ajuda o FlixNet a prever quais cartões serão negados, já acionando o assinante para atualização do cadastro antes do dia de pagamento.</li>
 </ul>
 
-<h2 id="integração-2">Integração</h2>
+<h2 id="integração-3">Integração</h2>
 
 <p>Para realizar a consulta ao Zero Auth, o lojista deverá enviar uma requisição <code class="highlighter-rouge">POST</code> para a API Cielo Ecommerce, simulando uma transação. O <code class="highlighter-rouge">POST</code> deverá ser realizado nas seguintes URL:</p>
 
@@ -14418,7 +14579,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
 
 <p><img src="https://developercielo.github.io/images/fluxo-silent-order-post-cielo.jpg" alt="Fluxo Silent Order Post" /></p>
 
-<h2 id="integração-3">Integração</h2>
+<h2 id="integração-4">Integração</h2>
 
 <p><strong>PASSO 1</strong></p>
 
