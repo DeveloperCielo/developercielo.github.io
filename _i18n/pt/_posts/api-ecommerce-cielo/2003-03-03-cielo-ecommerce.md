@@ -2722,13 +2722,13 @@ Para captura uma venda que utiliza cartão de crédito, é necessário fazer um 
 
 ```json
 
-https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture
+https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture
 
 ```
 
 ```shell
 curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+--request PUT "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
