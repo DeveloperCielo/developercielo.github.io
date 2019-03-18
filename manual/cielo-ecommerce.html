@@ -5383,12 +5383,12 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5407,12 +5407,12 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
         <span class="o">{</span>
             <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
             <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span>
+            <span class="s2">"Href"</span>: <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span>
         <span class="o">}</span>,
         <span class="o">{</span>
             <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
             <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span>
+            <span class="s2">"Href"</span>: <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span>
         <span class="o">}</span>
     <span class="o">]</span>
 <span class="o">}</span>
@@ -5489,12 +5489,12 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="err">https</span><span class="p">:</span><span class="err">//apisandbox.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/sales/</span><span class="p">{</span><span class="err">paymentId</span><span class="p">}</span><span class="err">/capture?amount=</span><span class="p">{</span><span class="err">Valor</span><span class="p">}</span><span class="w">
+</span><span class="err">https</span><span class="p">:</span><span class="err">//api.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/sales/</span><span class="p">{</span><span class="err">paymentId</span><span class="p">}</span><span class="err">/capture?amount=</span><span class="p">{</span><span class="err">Valor</span><span class="p">}</span><span class="w">
 
 </span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"</span>
+<span class="nt">--request</span> PUT <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -5575,12 +5575,12 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5604,12 +5604,12 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
         <span class="o">{</span>
             <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
             <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"</span>
+            <span class="s2">"Href"</span>: <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"</span>
         <span class="o">}</span>,
         <span class="o">{</span>
             <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
             <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"</span>
+            <span class="s2">"Href"</span>: <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"</span>
         <span class="o">}</span>
     <span class="o">]</span>
 <span class="o">}</span>
@@ -5692,12 +5692,12 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"</span><span class="w">
+            </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5721,12 +5721,12 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
         <span class="o">{</span>
             <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
             <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"</span>
+            <span class="s2">"Href"</span>: <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"</span>
         <span class="o">}</span>,
         <span class="o">{</span>
             <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
             <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"</span>
+            <span class="s2">"Href"</span>: <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"</span>
         <span class="o">}</span>
     <span class="o">]</span>
 <span class="o">}</span>
