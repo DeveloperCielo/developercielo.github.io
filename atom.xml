@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-03-19T12:12:05+00:00</updated>
+    <updated>2019-03-19T12:17:27+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -15167,26 +15167,6 @@ Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o u
   &lt;li&gt;&lt;strong&gt;Quantidades de tentativas:&lt;/strong&gt; Número de vezes a API vai realizar uma nova transação em caso de não autorização dentro de uma recorrência. Limitada a 4 tentativas&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Intervalo de tentativas:&lt;/strong&gt; Espaço de tempo entre a execução de cada nova tentativa de autorização de uma transação dentro de uma recorrência. Limitado a 4 dias entre cada tentativa.&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-    </entry>
-    
-    <entry>
-        <title>Retentativas</title>
-        <category term="manual" />
-        <link href="https://developercielo.github.io/manual/retentativas8"/>
-        <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/retentativas8</id>
-        <content type="html">&lt;h1 id=&quot;retentativa-online&quot;&gt;Retentativa Online&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Manual em construção&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&quot;retentativa-offline&quot;&gt;Retentativa Offline&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Manual em construção&lt;/p&gt;
-&lt;/blockquote&gt;
 </content>
     </entry>
     
