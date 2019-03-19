@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-03-18T16:31:01+00:00</updated>
+    <updated>2019-03-19T12:12:05+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -34693,20 +34693,6 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-</content>
-    </entry>
-    
-    <entry>
-        <title>Autenticação Seletiva</title>
-        <category term="manual" />
-        <link href="https://developercielo.github.io/manual/autenticacaoseletiva9"/>
-        <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/autenticacaoseletiva9</id>
-        <content type="html">&lt;h1 id=&quot;autenticação-seletiva&quot;&gt;Autenticação Seletiva&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Manual em construção.&lt;/p&gt;
-&lt;/blockquote&gt;
 </content>
     </entry>
     
