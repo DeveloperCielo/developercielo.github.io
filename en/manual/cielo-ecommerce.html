@@ -4584,122 +4584,122 @@ Below we specify any existing differences:</p>
 
 <h1 id="api-qr-code-via-api-e-commerce">API QR Code via API E-Commerce</h1>
 
-<p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API E-Commerce da Cielo para gerar o QRCode de Pagamento, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.</p>
+<p>The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce to create payment QRCode, describing the features, methods to be used, listing information to be sent and received, and providing examples.</p>
 
-<p>O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução Cielo eCommerce com sucesso.</p>
+<p>The integration mechanism with Cielo e-Commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.</p>
 
-<p>Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API Cielo eCommerce. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:</p>
+<p>In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints:</p>
 
-<p>Ambiente Produção</p>
-
-<ul>
-  <li><strong>Requisição de transação</strong>: https://api.cieloecommerce.cielo.com.br/</li>
-  <li><strong>Consulta transação</strong>: https://apiquery.cieloecommerce.cielo.com.br/</li>
-</ul>
-
-<p>Ambiente Sandbox</p>
+<p>Production Environment</p>
 
 <ul>
-  <li><strong>Requisição de transação</strong>: https://apisandbox.cieloecommerce.cielo.com.br</li>
-  <li><strong>Consulta transação</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br</li>
+  <li><strong>Transaction request</strong>: https://api.cieloecommerce.cielo.com.br/</li>
+  <li><strong>Transaction query:</strong>: https://apiquery.cieloecommerce.cielo.com.br/</li>
 </ul>
 
-<p>Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.</p>
+<p>Sandbox Environment</p>
 
-<h2 id="arquitetura">Arquitetura</h2>
+<ul>
+  <li><strong>Transaction request</strong>: https://apisandbox.cieloecommerce.cielo.com.br</li>
+  <li><strong>Transaction query:</strong>:  https://apiquerysandbox.cieloecommerce.cielo.com.br</li>
+</ul>
 
-<p>A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT. Cada tipo de mensagem deve ser enviada para um recurso identificado através do path.</p>
+<p>To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.</p>
+
+<h2 id="architecture-1">Architecture</h2>
+
+<p>Integration is performed through services provided as Web Services. The model adopted is quite simple: There are two URLs (endpoint), one specific an operation that causes sides effects - such as authorization, capture and cancellation of transactions, and the o specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a feature identified through the path.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Método</th>
-      <th>Descrição</th>
+      <th>METHOD</th>
+      <th>DESCRIPTION</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>POST</strong></td>
-      <td>O método HTTP <code class="highlighter-rouge">POST</code> é utilizado na criação dos recursos ou no envio de informações que serão processadas. Por exemplo, criação de uma transação.</td>
+      <td>The <code class="highlighter-rouge">POST</code> HTTP method is used in the creation of features or in sending information that will be processed. For example, creation of a transaction.</td>
     </tr>
     <tr>
       <td><strong>PUT</strong></td>
-      <td>O método HTTP <code class="highlighter-rouge">PUT</code> é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.</td>
+      <td>The <code class="highlighter-rouge">PUT</code> HTTP method is used to update an already existing feature. For example, capture or cancellation of a previously authorized transaction.</td>
     </tr>
     <tr>
       <td><strong>GET</strong></td>
-      <td>O método HTTP <code class="highlighter-rouge">GET</code> é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.</td>
+      <td>The <code class="highlighter-rouge">GET</code> HTTP method is used for querying already existing features. For example, transaction query.</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="produtos-e-bandeiras-suportadas">Produtos e Bandeiras suportadas</h2>
 
-<p>QR Code de Pagamento possui suporte às seguintes bandeiras e produtos:</p>
+<p>QR Code  payment supports the following issuers and products:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Bandeira</th>
-      <th>Crédito à vista</th>
-      <th>Crédito parcelado Loja</th>
-      <th>Débito</th>
+      <th>ISSUER</th>
+      <th>DEMAND CREDIT</th>
+      <th>INSTALLMENT CREDIT STORE</th>
+      <th>DEBIT</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Visa</td>
-      <td>Sim</td>
-      <td>Sim</td>
-      <td><em>Não</em></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td><em>No</em></td>
     </tr>
     <tr>
       <td>Master Card</td>
-      <td>Sim</td>
-      <td>Sim</td>
-      <td><em>Não</em></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td><em>No</em></td>
     </tr>
     <tr>
       <td>American Express</td>
-      <td>Sim</td>
-      <td>Sim</td>
-      <td><em>Não</em></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td><em>No</em></td>
     </tr>
     <tr>
       <td>Elo</td>
-      <td>Sim</td>
-      <td>Sim</td>
-      <td><em>Não</em></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td><em>No</em></td>
     </tr>
     <tr>
       <td>Diners Club</td>
-      <td>Sim</td>
-      <td>Sim</td>
-      <td><em>Não</em></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td><em>No</em></td>
     </tr>
     <tr>
       <td>Discover</td>
-      <td>Sim</td>
-      <td><em>Não</em></td>
-      <td><em>Não</em></td>
+      <td>Yes</td>
+      <td><em>No</em></td>
+      <td><em>No</em></td>
     </tr>
     <tr>
       <td>JCB</td>
-      <td>Sim</td>
-      <td>Sim</td>
-      <td><em>Não</em></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td><em>No</em></td>
     </tr>
     <tr>
       <td>Aura</td>
-      <td>Sim</td>
-      <td>Sim</td>
-      <td><em>Não</em></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td><em>No</em></td>
     </tr>
     <tr>
       <td>Hipercard</td>
-      <td>Sim</td>
-      <td>Sim</td>
-      <td><em>Não</em></td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td><em>No</em></td>
     </tr>
   </tbody>
 </table>
@@ -4708,55 +4708,55 @@ Below we specify any existing differences:</p>
 
 <h2 id="sobre-o-sandbox">Sobre o Sandbox</h2>
 
-<p>Para facilitar os testes durante a integração, a Cielo oferece um ambiente Sandbox que é composto por duas áreas:</p>
+<p>To facilitate testing during integration, Cielo offers a Sandbox environment that is composed by two areas:</p>
 
 <ol>
-  <li>Cadastro de conta de testes</li>
-  <li>Endpoints transacionais</li>
+  <li>Test account register</li>
+  <li>Transactional Endpoints</li>
 </ol>
 
 <table>
   <tbody>
     <tr>
-      <td><strong>Requisição</strong></td>
+      <td><strong>Request</strong></td>
       <td>https://apisandbox.cieloecommerce.cielo.com.br</td>
     </tr>
     <tr>
-      <td><strong>Consulta</strong></td>
+      <td><strong>Query</strong></td>
       <td>https://apiquerysandbox.cieloecommerce.cielo.com.br</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Vantagens de utilizar o Sandbox</strong></p>
+<p><strong>Advantages of using the Sandbox</strong></p>
 
 <ul>
-  <li>Não é necessário uma afiliação para utilizar o Sandbox Cielo.</li>
-  <li>Basta acessar o <a href="https://cadastrosandbox.cieloecommerce.cielo.com.br/"><strong>Cadastro do Sandbox</strong></a> criar uma conta.</li>
-  <li>com o cadastro você receberá um <code class="highlighter-rouge">MerchantId</code> e um <code class="highlighter-rouge">MerchantKey</code>,que são as credenciais necessarias para os métodos da API</li>
+  <li>No affiliation is required to use Sandbox Cielo..</li>
+  <li>Just acess the <a href="https://cadastrosandbox.cieloecommerce.cielo.com.br/"><strong>Sandbox Registration</strong></a> to create an account.</li>
+  <li>After registering you will receive a MerchantId and a MerchantKey, which are the credentials required for the API methods.</li>
 </ul>
 
-<h2 id="ferramenta-para-integração-postman">Ferramenta para Integração: POSTMAN</h2>
+<h2 id="integration-tool-postman">Integration Tool: POSTMAN</h2>
 
-<p>O <strong>Postman</strong> é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações HTTPs simples e complexas, bem como ler suas respostas.</p>
+<p><strong>Postman</strong> is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.</p>
 
-<p>A Cielo oferece coleções completas de suas integrações via Postamn, o que facilita o processo de integração com a API Cielo.</p>
+<p>Cielo offers complete collections of its integrations via Postamn, which facilitates the integration process with the API Cielo.</p>
 
-<p>Sugerimos que desenvolvedores acessem nosso <a href="https://developercielo.github.io/tutorial/postman"><strong>Tutorial</strong></a> sobre a ferramenta para compreender melhor todas as vantagens que ela oferece.</p>
+<p>We suggest developers to access our <a href="https://developercielo.github.io/tutorial/postman"><strong>Tutorial</strong></a> about the tool to better understand all the advantages that it offers.</p>
 
-<h2 id="cartão-de-crédito---sandbox">Cartão de crédito - Sandbox</h2>
+<h2 id="credit-card---sandbox-1">Credit Card - Sandbox</h2>
 
-<p>Para testar o cenário de autorização com sucesso via QRCode, utilize o cartão 4551.8700.0000.0183</p>
+<p>To successfully test the authorization scenario using QRCode, we provided an example card that can be use to test it 4551.8700.0000.0183</p>
 
-<p>As informações de <strong>Cód.Segurança (CVV)</strong> e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).</p>
+<p>The <strong>Security Code (CVV)</strong> and expiry date information can be random, but must be kept the format, for exemplo: CVV (3 digits) expiry date (MM/YYYY).</p>
 
-<h1 id="gerando-um-qrcode-via-api">Gerando um QRCode via API</h1>
+<h1 id="creating-a-qrcode-via-api">Creating a QRCode via API</h1>
 
-<p>Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método <code class="highlighter-rouge">POST</code> para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
+<p>To create a transaction that will use a credit card, it is necessary to send a request using the POST method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.</p>
 
-<aside class="notice">Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
+<aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-<h2 id="requisição">Requisição</h2>
+<h2 id="request-7">Request</h2>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4799,11 +4799,11 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -4811,69 +4811,69 @@ Below we specify any existing differences:</p>
       <td><code class="highlighter-rouge">MerchantId</code></td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
-      <td>Identificador da loja na Cielo.</td>
+      <td>Yes</td>
+      <td>Store identifier in Cielo.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantKey</code></td>
-      <td>Texto</td>
+      <td>Text</td>
       <td>40</td>
-      <td>Sim</td>
-      <td>Chave Publica para Autenticação Dupla na Cielo.</td>
+      <td>Yes</td>
+      <td>Public Key for Double Authentication in Cielo.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
       <td>Guid</td>
       <td>36</td>
-      <td>Não</td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>No</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td>Texto</td>
+      <td>Text</td>
       <td>50</td>
-      <td>Sim</td>
-      <td>Numero de identificação do Pedido.</td>
+      <td>Yes</td>
+      <td>Order ID number.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
+      <td>Text</td>
       <td>255</td>
-      <td>Não</td>
-      <td>Nome do Comprador.</td>
+      <td>No</td>
+      <td>Buyer’s name.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
+      <td>Text</td>
       <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do Meio de Pagamento. Enviar <strong>qrcode</strong> para uma transação de QRCode.</td>
+      <td>Yes</td>
+      <td>Payment type. Send <strong>qrcode</strong> for the QRCode transaction.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Amount</code></td>
-      <td>Número</td>
+      <td>Number</td>
       <td>15</td>
-      <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
+      <td>Yes</td>
+      <td>Order Amount (to be sent in cents).</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Installments</code></td>
-      <td>Número</td>
+      <td>Number</td>
       <td>2</td>
-      <td>Sim</td>
-      <td>Número de Parcelas.</td>
+      <td>Yes</td>
+      <td>Number of installments.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Capture</code></td>
-      <td>Booleano</td>
+      <td>Boolean</td>
       <td>-</td>
-      <td>Não</td>
-      <td>Enviar <strong>true</strong> para uma trasação de captura automática.</td>
+      <td>No</td>
+      <td>Send <strong>true</strong> for a auto-capture transaction.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="resposta">Resposta</h2>
+<h2 id="response-7">Response</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019010101"</span><span class="p">,</span><span class="w">
@@ -4893,7 +4893,7 @@ Below we specify any existing differences:</p>
         </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
         </span><span class="s2">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"QrCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRCode gerado com sucesso"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QRCode successfully created"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5d7e8fd3-70b6-4a88-9660-e064d72fdcdd"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qrcode"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
@@ -4930,7 +4930,7 @@ Below we specify any existing differences:</p>
         <span class="s2">"Status"</span>: 12,
         <span class="s2">"IsSplitted"</span>: <span class="nb">false</span>,
         <span class="s2">"QrCodeBase64Image"</span>: <span class="s2">"iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)"</span>,
-        <span class="s2">"ReturnMessage"</span>: <span class="s2">"QRCode gerado com sucesso"</span>,
+        <span class="s2">"ReturnMessage"</span>: <span class="s2">"QRCode successfully created"</span>,
         <span class="s2">"PaymentId"</span>: <span class="s2">"5d7e8fd3-70b6-4a88-9660-e064d72fdcdd"</span>,
         <span class="s2">"Type"</span>: <span class="s2">"qrcode"</span>,
         <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
@@ -4949,57 +4949,57 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">QrCodeBase64Image</code></td>
-      <td>QRCode codificado na base 64. Por exemplo, a imagem poderá ser apresentada na página utilizando o código HTML como este:<br /> &lt;img src=”data:image/png;base64,{código da imagem na base 64}”&gt;</td>
-      <td>Texto</td>
-      <td>variável</td>
-      <td>Texto alfanumérico</td>
+      <td>QRCode encoded in 64. For example, the image may be displayed on the page using the HTML code like this:<br /> &lt;img src=”data:image/png;base64,{image code in the 64 base}”&gt;</td>
+      <td>Text</td>
+      <td>variable</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
+      <td>Order Identifier Field, required for future operations, such as Query, Capture and Cancellation.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
-      <td>Status da Transação. No caso de uma transação de geração de QRCode de pagamento, o status inicial é 12 (Pending).</td>
+      <td>Transaction Status. In the case of creating a QR Code payment transaction, the initial status is 12 (Pending).</td>
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
-      <td>Código de retorno da Adquirência.</td>
+      <td>Return code of Acquiring.</td>
       <td>Texto</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
       <td>Mensagem de retorno da Adquirência.</td>
       <td>Texto</td>
       <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="consulta---paymentid">Consulta - PaymentID</h1>
+<h1 id="consult----paymentid">Consult  - PaymentID</h1>
 
-<p>Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.</p>
+<p>To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example</p>
 
-<h2 id="requisição-1">Requisição</h2>
+<h2 id="request-8">Request</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -5016,51 +5016,51 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API Cielo eCommerce.</td>
+      <td>Store identifier in API Cielo eCommerce.</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API Cielo eCommerce.</td>
-      <td>Texto</td>
+      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Text</td>
       <td>40</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Não</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
-      <td>Numero de identificação do Pagamento.</td>
-      <td>Texto</td>
+      <td>Payment identification number.</td>
+      <td>Text</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="resposta-1">Resposta</h2>
+<h2 id="response-8">Response</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Teste"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buyer test"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -5112,7 +5112,7 @@ Below we specify any existing differences:</p>
 <span class="o">{</span>
     <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014111706"</span>,
     <span class="s2">"Customer"</span>: <span class="o">{</span>
-        <span class="s2">"Name"</span>: <span class="s2">"Comprador Teste"</span>,
+        <span class="s2">"Name"</span>: <span class="s2">"Teste Holder"</span>,
         <span class="s2">"Address"</span>: <span class="o">{}</span>
     <span class="o">}</span>,
     <span class="s2">"Payment"</span>: <span class="o">{</span>
@@ -5123,7 +5123,7 @@ Below we specify any existing differences:</p>
         <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
         <span class="s2">"CreditCard"</span>: <span class="o">{</span>
             <span class="s2">"CardNumber"</span>: <span class="s2">"455187******0183"</span>,
-            <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"Test Holder"</span>,
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
@@ -5161,129 +5161,130 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ProofOfSale</code></td>
-      <td>Número da autorização, identico ao NSU.</td>
-      <td>Texto</td>
+      <td>Authorization number, identical to NSU.</td>
+      <td>Text</td>
       <td>6</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AuthorizationCode</code></td>
-      <td>Código de autorização.</td>
-      <td>Texto</td>
+      <td>Authorization code.</td>
+      <td>Text</td>
       <td>6</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Order Identifier Field.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
+      <td>Transaction Status.</td>
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
+      <td>Buyer’s name</td>
+      <td>No</td>
+      <td>Text</td>
       <td>255</td>
-      <td>Não</td>
-      <td>Nome do Comprador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Status</code></td>
-      <td>Texto</td>
+      <td>Buyer registration status in store (NEW / EXISTING)</td>
+      <td>Text</td>
       <td>255</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
+      <td>Payment method.</td>
+      <td>Text</td>
       <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do Meio de Pagamento.</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Amount</code></td>
-      <td>Número</td>
+      <td>Order Amount (to be sent in cents).</td>
+      <td>Number</td>
       <td>15</td>
-      <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Provider</code></td>
-      <td>Texto</td>
+      <td>Define payment method behavior (See Annex) / NOT REQUIRED FOR CREDIT.</td>
+      <td>Text</td>
       <td>15</td>
       <td>—</td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Installments</code></td>
-      <td>Número</td>
+      <td>Number of Installments.</td>
+      <td>Number</td>
       <td>2</td>
-      <td>Sim</td>
-      <td>Número de Parcelas.</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Texto</td>
+      <td>Buyer’s Card Number.</td>
+      <td>Text</td>
       <td>19</td>
-      <td>Sim</td>
-      <td>Número do Cartão do Comprador.</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Texto</td>
+      <td>Buyer’s name printed on card.</td>
+      <td>Text</td>
       <td>25</td>
-      <td>Não</td>
-      <td>Nome do Comprador impresso no cartão.</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Texto</td>
+      <td>Expiry date printed on card.</td>
+      <td>Text</td>
       <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade impresso no cartão.</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>Texto</td>
+      <td>Security code printed on back of card - See Annex.</td>
+      <td>Text</td>
       <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Texto</td>
+      <td>Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
+      <td>Text</td>
       <td>10</td>
-      <td>Não</td>
-      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="consulta---merchandorderid">Consulta - MerchandOrderID</h1>
+<h1 id="consult---merchandorderid">Consult - MerchandOrderID</h1>
 
-<p>Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.</p>
+<p>It is not possible to consult a payment for the identifier sent by store (MerchantOrderId), but you can get all the
+PaymentIds associated with the identifier.</p>
 
-<p>Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.</p>
+<p>To consult a sale by store identifier, it is necessary to make a GET for the sales resource as the example.</p>
 
-<h2 id="requisição-2">Requisição</h2>
+<h2 id="request-9">Request</h2>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -5300,46 +5301,46 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API Cielo eCommerce.</td>
+      <td>Store identifier in API Cielo eCommerce.</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API Cielo eCommerce.</td>
-      <td>Texto</td>
+      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Text</td>
       <td>40</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Não</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td>Campo Identificador do Pedido na Loja.</td>
-      <td>Texto</td>
+      <td>Order Identifier Field at the Store.</td>
+      <td>Text</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="resposta-2">Resposta</h2>
+<h2 id="response-9">Response</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5375,17 +5376,17 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Order Identifier Field.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -5393,25 +5394,25 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h1 id="captura">Captura</h1>
+<h1 id="capture">Capture</h1>
 
-<p>A <strong>Captura</strong> é passo exclusivo para transações de Cartões de Crédito.</p>
+<p>The <strong>Capture</strong> is an exclusive step for Credit Card transactions.</p>
 
-<p>Ao realizar uma captura, o lojita confirma que o valor autorizado no cartão poderá ser cobrado pela insituição financeira emissora do cartão.</p>
+<p>When making a capture, the merchant confirms that the authorized value on the card may be charged by the financial institution issuing the card.</p>
 
-<p>O que a captura gera:</p>
+<p>What the capture generates:</p>
 
 <ul>
-  <li>Ela executa a cobrança do cartão</li>
-  <li>Ela inclui o valor da venda na fatura do comprador</li>
-  <li>Somente transações capturadas são pagas pela Cielo ao lojista</li>
+  <li>It performs the card charge</li>
+  <li>It includes the value of the sale on the buyer’s invoice</li>
+  <li>Only captured transactions are paid by Cielo to the merchant</li>
 </ul>
 
-<aside class="notice">Atenção: A captura é um processo com prazo de execução. Verifique em sem cadastro cielo qual o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a Captura da transação</aside>
+<aside class="notice">Warning:  The capture is a deadline process. Check in your Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture</aside>
 
-<aside class="notice">Atenção: Captura parcial disponível apenas para transações de crédito</aside>
+<aside class="notice">Warning: Partial capture available for credit transactions only</aside>
 
-<h2 id="requisição---captura-parcial">Requisição - Captura Parcial</h2>
+<h2 id="request---partial-capture">Request - Partial Capture</h2>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
@@ -5432,60 +5433,60 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API Cielo eCommerce.</td>
+      <td>Store identifier in API Cielo eCommerce.</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API Cielo eCommerce.</td>
-      <td>Texto</td>
+      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Text</td>
       <td>40</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Não</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Order Identifier Field.</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Amount</code></td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
+      <td>Order Amount (to be sent in cents).</td>
+      <td>Number</td>
       <td>15</td>
-      <td>Não</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ServiceTaxAmount</code></td>
-      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
-      <td>Número</td>
+      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">See Annex</a></td>
+      <td>Number</td>
       <td>15</td>
-      <td>Não</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="resposta-3">Resposta</h2>
+<h2 id="resposta">Resposta</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -5539,57 +5540,57 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
+      <td>Transaction Status.</td>
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
-      <td>Código de retorno da adquirente.</td>
-      <td>Texto</td>
+      <td>Return code of acquirer.</td>
+      <td>Text</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
-      <td>Mensagem de retorno da adquirente.</td>
-      <td>Texto</td>
+      <td>Return message of acquirer.</td>
+      <td>Text</td>
       <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código de retorno do Provider.</td>
-      <td>Texto</td>
+      <td>Provider return code.</td>
+      <td>Text</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem de retorno do Provider.</td>
-      <td>Texto</td>
+      <td>Provider return message.</td>
+      <td>Text</td>
       <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
   </tbody>
 </table>
 
-<aside class="notice">Captura de Taxa de embarque Para realizar a captura da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser capturado</aside>
+<aside class="notice">Capture of Boarding fee To carry out the capture of *boarding fee*, just add the ServiveTaxAmount value to be captured </aside>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
 
-<h2 id="resposta-4">Resposta</h2>
+<h2 id="response-10">Response</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -5643,63 +5644,69 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
+      <td>Transaction Status.</td>
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
-      <td>Código de retorno da adquirente.</td>
-      <td>Texto</td>
+      <td>Return code of acquirer.</td>
+      <td> </td>
+      <td>Text</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
-      <td>Mensagem de retorno da adquirente.</td>
-      <td>Texto</td>
+      <td>Return message of acquirer.</td>
+      <td>Text</td>
       <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código de retorno do Provider.</td>
-      <td>Texto</td>
+      <td>Provider return code.</td>
+      <td>Text</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem de retorno do Provider.</td>
-      <td>Texto</td>
+      <td>Provider return message.</td>
+      <td>Text</td>
       <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="cancelamento">Cancelamento</h1>
+<h1 id="canceling">Canceling</h1>
 
-<p>O <strong>cancelamento</strong> é a operação responsável pela cancelamento total ou parcial de um valor autorizado ou capturado.</p>
+<p><strong>Canceling</strong> is an operation responsible for canceling total or partial of an authorized or captured value.</p>
 
-<p>Basta realizar um <code class="highlighter-rouge">POST</code> enviando o valor a ser cancelado.</p>
+<p>Just do a <code class="highlighter-rouge">POST</code> sending the value to be canceled.</p>
 
-<aside class="notice">Atenção: Cancelamento parcial é disponível apenas para transações de crédito *CAPTURADAS*</aside>
+<aside class="notice">Warning: Partial cancellation is only available for *CAPTURED* credit transactions </aside>
 
-<aside class="notice">Atenção: O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
+<aside class="notice">Warning:The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
 
-<h2 id="requisição---cancelamento">Requisição - cancelamento</h2>
+<h2 id="request---cancellation">Request - Cancellation</h2>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -5715,53 +5722,53 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API Cielo eCommerce.</td>
+      <td>Store identifier in API Cielo eCommerce.</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API Cielo eCommerce.</td>
-      <td>Texto</td>
+      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Text</td>
       <td>40</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Não</td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Identifier that represents the transaction.</td>
       <td>Guid</td>
       <td>36</td>
-      <td>Sim</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Amount</code></td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
+      <td>Order Amount (to be sent in cents)..</td>
+      <td>Number</td>
       <td>15</td>
-      <td>Não</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="resposta-5">Resposta</h2>
+<h2 id="response-11">Response</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -5815,53 +5822,53 @@ Below we specify any existing differences:</p>
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
+      <td>Transaction Status.</td>
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
-      <td>Código de retorno da adquirente.</td>
-      <td>Texto</td>
+      <td>Return code of acquirer.</td>
+      <td>Text</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
-      <td>Mensagem de retorno da adquirente.</td>
-      <td>Texto</td>
+      <td>Return message of acquirer.</td>
+      <td>Text</td>
       <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código de retorno do Provider.</td>
-      <td>Texto</td>
+      <td>Provider return code.</td>
+      <td>Text</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem de retorno do Provider.</td>
-      <td>Texto</td>
+      <td>Provider return message.</td>
+      <td>Text</td>
       <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>Alphanumeric text</td>
     </tr>
   </tbody>
 </table>
 
-<aside class="notice">Cancelamento de Taxa de embarque Para realizar o cancelamento da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser cancelado</aside>
+<aside class="notice">Cancellation of Boarding FeeTo cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled</aside>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&amp;serviceTaxAmount=xxx
 </code></pre></div></div>
@@ -6111,7 +6118,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>The <code class="highlighter-rouge">Payment.Recurrent</code> parameter must be <code class="highlighter-rouge">true</code>, otherwise the transaction will be declined.</p>
 
-<h3 id="request-7">Request</h3>
+<h3 id="request-10">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6288,7 +6295,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-7">Response</h3>
+<h3 id="response-12">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -6541,7 +6548,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
  of. All subsequent transactions will be automatically captured.</aside>
 
-<h3 id="request-8">Request</h3>
+<h3 id="request-11">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6740,7 +6747,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-8">Response</h3>
+<h3 id="response-13">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -6929,7 +6936,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To create a recurring sale whose first recurrence will not be authorized on the same date with the form of payment as credit card, just do a POST as the example.</p>
 
-<h3 id="request-9">Request</h3>
+<h3 id="request-12">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7186,7 +7193,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-9">Response</h3>
+<h3 id="response-14">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -7338,7 +7345,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the Recurrence buyer’s data, just do a Put as the example.</p>
 
-<h3 id="request-10">Request</h3>
+<h3 id="request-13">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -7602,7 +7609,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-10">Response</h3>
+<h3 id="response-15">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7613,7 +7620,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the end date of the Recurrence, just do a Put as the example.</p>
 
-<h3 id="request-11">Request</h3>
+<h3 id="request-14">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -7680,7 +7687,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-11">Response</h3>
+<h3 id="response-16">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7691,7 +7698,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the Recurrence Interval, just do a Put according to the example.</p>
 
-<h3 id="request-12">Request</h3>
+<h3 id="request-15">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -7758,7 +7765,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-12">Response</h3>
+<h3 id="response-17">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7771,7 +7778,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="notice">Rule: If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03</aside>
 
-<h3 id="request-13">Request</h3>
+<h3 id="request-16">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -7838,7 +7845,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-13">Response</h3>
+<h3 id="response-18">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7849,7 +7856,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To modify the value of the recurrence, just do a Put as example.</p>
 
-<h3 id="request-14">Request</h3>
+<h3 id="request-17">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -7918,7 +7925,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
-<h3 id="response-14">Response</h3>
+<h3 id="response-19">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7929,7 +7936,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the date of the next Payment, just do a Put as the example.</p>
 
-<h3 id="request-15">Request</h3>
+<h3 id="request-18">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -7996,7 +8003,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-15">Response</h3>
+<h3 id="response-20">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -8009,7 +8016,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="notice">Warning: This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.</aside>
 
-<h3 id="request-16">Request</h3>
+<h3 id="request-19">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -8158,7 +8165,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-16">Response</h3>
+<h3 id="response-21">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -8169,7 +8176,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To disable a recurrent order, just do a Put as the example.</p>
 
-<h3 id="request-17">Request</h3>
+<h3 id="request-20">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
@@ -8225,7 +8232,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-17">Response</h3>
+<h3 id="response-22">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -8236,7 +8243,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To Rehabilitate a recurring order, just do a Put as the example.</p>
 
-<h3 id="request-18">Request</h3>
+<h3 id="request-21">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -8292,7 +8299,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-18">Response</h3>
+<h3 id="response-23">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -8306,7 +8313,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <aside class="notice">Warning: It is necessary to request enabling this feature in the register  </aside>
 
-<h3 id="request-19">Request</h3>
+<h3 id="request-22">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -8512,7 +8519,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-19">Response</h3>
+<h3 id="response-24">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -8740,7 +8747,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <aside class="notice">Only transactions sent on the last three months are eligible for queries</aside>
 
-<h3 id="request-20">Request</h3>
+<h3 id="request-23">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -8796,7 +8803,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-20">Response</h3>
+<h3 id="response-25">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -9024,7 +9031,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>To check a sale by store identifier, you need to make a GET for the sales feature as the example.</p>
 
-<h3 id="request-21">Request</h3>
+<h3 id="request-24">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -9080,7 +9087,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-21">Response</h3>
+<h3 id="response-26">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -9138,7 +9145,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>To consult a credit card sale with antifraud, it is necessary to do a GET for the Payment feature as the example.</p>
 
-<h3 id="request-22">Request</h3>
+<h3 id="request-25">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -9194,7 +9201,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-22">Response</h3>
+<h3 id="response-27">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f381c0c4-2bf9-4de1-91e1-e9e1f11d0854"</span><span class="p">,</span><span class="w">
@@ -9443,7 +9450,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>**The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a <code class="highlighter-rouge">GET</code> must be performed in the transaction (Available in” Consulting sales</p>
 
-<h3 id="request-23">Request</h3>
+<h3 id="request-26">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -9499,7 +9506,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-23">Response</h3>
+<h3 id="response-28">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -9710,7 +9717,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>To capture a sale that uses a credit card, it is necessary to do a PUT for the Payment feature as the example.</p>
 
-<h3 id="request-24">Request</h3>
+<h3 id="request-27">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
 
@@ -9784,7 +9791,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-24">Response</h3>
+<h3 id="response-29">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -9872,7 +9879,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <aside class="notice">Warning: Partial capture available for credit transactions only</aside>
 
-<h3 id="request---partial-capture">Request - Partial Capture</h3>
+<h3 id="request---partial-capture-1">Request - Partial Capture</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
@@ -9946,7 +9953,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-25">Response</h3>
+<h3 id="response-30">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -10050,7 +10057,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
 
-<h3 id="response-26">Response</h3>
+<h3 id="response-31">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -10197,7 +10204,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <aside class="notice">Warning: Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method</aside>
 
-<h3 id="request-25">Request</h3>
+<h3 id="request-28">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
 
@@ -10263,7 +10270,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-27">Response</h3>
+<h3 id="response-32">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -10403,7 +10410,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-28">Response</h3>
+<h3 id="response-33">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -10715,7 +10722,7 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 <p>To save a card without authorizing it, just perform a post with the card data.</p>
 
-<h3 id="request-26">Request</h3>
+<h3 id="request-29">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/card/</span></aside>
 
@@ -10795,7 +10802,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
-<h3 id="response-29">Response</h3>
+<h3 id="response-34">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="p">,</span><span class="w">
@@ -10844,7 +10851,7 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 <p>To save a card by creating its token, just send a sales creation standard request by sending SaveCard as “true”. The response will return the card Token.</p>
 
-<h3 id="request-27">Request</h3>
+<h3 id="request-30">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11247,7 +11254,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
-<h3 id="response-30">Response</h3>
+<h3 id="response-35">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -11480,7 +11487,7 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 <p>To create a credit card sale with protected card token, it is necessary to do a POST for the Payment feature as the example.</p>
 
-<h3 id="request-28">Request</h3>
+<h3 id="request-31">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11642,7 +11649,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
-<h3 id="response-31">Response</h3>
+<h3 id="response-36">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -11845,7 +11852,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
-<h3 id="request-29">Request</h3>
+<h3 id="request-32">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11982,7 +11989,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
-<h3 id="response-32">Response</h3>
+<h3 id="response-37">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -12184,7 +12191,7 @@ The following data will be returned about the card:</p>
 
 <h2 id="integration-1">Integration</h2>
 
-<h3 id="request-30">Request</h3>
+<h3 id="request-33">Request</h3>
 
 <p>A <code class="highlighter-rouge">GET</code> request must be sent containing the BIN to be checked:</p>
 
@@ -12208,7 +12215,7 @@ The following data will be returned about the card:</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https</span><span class="p">:</span><span class="err">//apiquerysandbox.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/cardBin/</span><span class="mi">420020</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response-33">Response</h3>
+<h3 id="response-38">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
@@ -12316,7 +12323,7 @@ The following data will be returned about the card:</p>
 
 <p>Each type of validation requires a different technical contract. They will result in differentiated responses</p>
 
-<h3 id="request-31">Request</h3>
+<h3 id="request-34">Request</h3>
 
 <h4 id="standard">Standard</h4>
 
@@ -12430,7 +12437,7 @@ The following data will be returned about the card:</p>
   </tbody>
 </table>
 
-<h3 id="response-34">Response</h3>
+<h3 id="response-39">Response</h3>
 
 <p>If there is an error in the request, where it is not possible to validate the card, the service will return error:</p>
 
@@ -12685,7 +12692,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   </tbody>
 </table>
 
-<h3 id="response-35">Response</h3>
+<h3 id="response-40">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -13058,7 +13065,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   </tbody>
 </table>
 
-<h3 id="response-36">Response</h3>
+<h3 id="response-41">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -13254,7 +13261,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
 <p>To use Masterpass it is necessary to contact directly with the Mastercard site: https://masterpass.com/pt-br/ e solicitar as credenciais.
 More information and complete integration, you can find in the link: https://developer.mastercard.com/product/masterpass “</p>
 
-<h3 id="request-32">Request</h3>
+<h3 id="request-35">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -13428,7 +13435,7 @@ More information and complete integration, you can find in the link: https://dev
   </tbody>
 </table>
 
-<h3 id="response-37">Response</h3>
+<h3 id="response-42">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
