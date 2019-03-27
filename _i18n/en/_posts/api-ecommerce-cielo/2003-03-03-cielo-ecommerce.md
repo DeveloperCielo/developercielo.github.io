@@ -2281,89 +2281,89 @@ Number of characters per field and Provider:
 
 # API QR Code via API E-Commerce
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API E-Commerce da Cielo para gerar o QRCode de Pagamento, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
+The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce to create payment QRCode, describing the features, methods to be used, listing information to be sent and received, and providing examples.
 
-O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução Cielo eCommerce com sucesso.
+The integration mechanism with Cielo e-Commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.
 
-Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API Cielo eCommerce. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
+In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints:
 
-Ambiente Produção
+Production Environment
 
-* **Requisição de transação**: https://api.cieloecommerce.cielo.com.br/
-* **Consulta transação**: https://apiquery.cieloecommerce.cielo.com.br/
+* **Transaction request**: https://api.cieloecommerce.cielo.com.br/
+* **Transaction query:**: https://apiquery.cieloecommerce.cielo.com.br/
 
-Ambiente Sandbox
+Sandbox Environment
 
-* **Requisição de transação**: https://apisandbox.cieloecommerce.cielo.com.br
-* **Consulta transação**: https://apiquerysandbox.cieloecommerce.cielo.com.br
+* **Transaction request**: https://apisandbox.cieloecommerce.cielo.com.br
+* **Transaction query:**:  https://apiquerysandbox.cieloecommerce.cielo.com.br
 
-Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
+To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.
 
-## Arquitetura
+## Architecture
 
-A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT. Cada tipo de mensagem deve ser enviada para um recurso identificado através do path.
+Integration is performed through services provided as Web Services. The model adopted is quite simple: There are two URLs (endpoint), one specific an operation that causes sides effects - such as authorization, capture and cancellation of transactions, and the o specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a feature identified through the path.
 
-|Método|Descrição|
+|METHOD|DESCRIPTION|
 |---|---|
-|**POST**|O método HTTP `POST` é utilizado na criação dos recursos ou no envio de informações que serão processadas. Por exemplo, criação de uma transação.|
-|**PUT**|O método HTTP `PUT` é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.|
-|**GET**|O método HTTP `GET` é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.|
+|**POST**|The `POST` HTTP method is used in the creation of features or in sending information that will be processed. For example, creation of a transaction.|
+|**PUT**|The `PUT` HTTP method is used to update an already existing feature. For example, capture or cancellation of a previously authorized transaction.|
+|**GET**|The `GET` HTTP method is used for querying already existing features. For example, transaction query.|
 
 ## Produtos e Bandeiras suportadas
 
-QR Code de Pagamento possui suporte às seguintes bandeiras e produtos:
+QR Code  payment supports the following issuers and products:
 
-| Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito |
-|------------------|-----------------|------------------------|--------|
-| Visa             | Sim             | Sim                    | *Não*  |
-| Master Card      | Sim             | Sim                    | *Não*  |
-| American Express | Sim             | Sim                    | *Não*  |
-| Elo              | Sim             | Sim                    | *Não*  |
-| Diners Club      | Sim             | Sim                    | *Não*  |
-| Discover         | Sim             | *Não*                  | *Não*  |
-| JCB              | Sim             | Sim                    | *Não*  |
-| Aura             | Sim             | Sim                    | *Não*  |
-| Hipercard        | Sim             | Sim                    | *Não*  |
+| ISSUER           | DEMAND CREDIT   | INSTALLMENT CREDIT STORE | DEBIT |
+|------------------|-----------------|--------------------------|--------|
+| Visa             | Yes             | Yes                      | *No*  |
+| Master Card      | Yes             | Yes                      | *No*  |
+| American Express | Yes             | Yes                      | *No*  |
+| Elo              | Yes             | Yes                      | *No*  |
+| Diners Club      | Yes             | Yes                      | *No*  |
+| Discover         | Yes             | *No*                     | *No*  |
+| JCB              | Yes             | Yes                      | *No*  |
+| Aura             | Yes             | Yes                      | *No*  |
+| Hipercard        | Yes             | Yes                      | *No*  |
 
 # Sandbox e Ferramentas
 
 ## Sobre o Sandbox
 
-Para facilitar os testes durante a integração, a Cielo oferece um ambiente Sandbox que é composto por duas áreas:
+To facilitate testing during integration, Cielo offers a Sandbox environment that is composed by two areas:
 
-1. Cadastro de conta de testes
-2. Endpoints transacionais
+1. Test account register
+2. Transactional Endpoints
 
-|**Requisição**| https://apisandbox.cieloecommerce.cielo.com.br     |
-| **Consulta** | https://apiquerysandbox.cieloecommerce.cielo.com.br|
+|**Request**| https://apisandbox.cieloecommerce.cielo.com.br     |
+| **Query** | https://apiquerysandbox.cieloecommerce.cielo.com.br|
 
-**Vantagens de utilizar o Sandbox**
+**Advantages of using the Sandbox**
 
-* Não é necessário uma afiliação para utilizar o Sandbox Cielo.
-* Basta acessar o [**Cadastro do Sandbox**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) criar uma conta.
-* com o cadastro você receberá um `MerchantId` e um `MerchantKey`,que são as credenciais necessarias para os métodos da API
+* No affiliation is required to use Sandbox Cielo..
+* Just acess the [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) to create an account.
+* After registering you will receive a MerchantId and a MerchantKey, which are the credentials required for the API methods.
 
-## Ferramenta para Integração: POSTMAN
+## Integration Tool: POSTMAN
 
-O **Postman** é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações HTTPs simples e complexas, bem como ler suas respostas.
+**Postman** is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.
 
-A Cielo oferece coleções completas de suas integrações via Postamn, o que facilita o processo de integração com a API Cielo.
+Cielo offers complete collections of its integrations via Postamn, which facilitates the integration process with the API Cielo.
 
-Sugerimos que desenvolvedores acessem nosso [**Tutorial**](https://developercielo.github.io/tutorial/postman) sobre a ferramenta para compreender melhor todas as vantagens que ela oferece.
+We suggest developers to access our [**Tutorial**](https://developercielo.github.io/tutorial/postman) about the tool to better understand all the advantages that it offers.
 
-## Cartão de crédito - Sandbox
+## Credit Card - Sandbox
 
-Para testar o cenário de autorização com sucesso via QRCode, utilize o cartão 4551.8700.0000.0183
+To successfully test the authorization scenario using QRCode, we provided an example card that can be use to test it 4551.8700.0000.0183
 
-As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).
+The **Security Code (CVV)** and expiry date information can be random, but must be kept the format, for exemplo: CVV (3 digits) expiry date (MM/YYYY).
 
-# Gerando um QRCode via API
+# Creating a QRCode via API
 
-Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
+To create a transaction that will use a credit card, it is necessary to send a request using the POST method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.
 
-<aside class="notice"><strong>Atenção:</strong> Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
+<aside class="notice"><strong>Warning:</strong> It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-## Requisição
+## Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -2405,19 +2405,19 @@ curl
 --verbose
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
-|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento. Enviar **qrcode** para uma transação de QRCode.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`Payment.Capture`|Booleano|-|Não|Enviar **true** para uma trasação de captura automática.|
+|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
+|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
+|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
+|`MerchantOrderId`|Text|50|Yes|Order ID number.|
+|`Customer.Name`|Text|255|No|Buyer’s name.|
+|`Payment.Type`|Text|100|Yes|Payment type. Send **qrcode** for the QRCode transaction.|
+|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
+|`Payment.Installments`|Number|2|Yes|Number of installments.|
+|`Payment.Capture`|Boolean|-|No|Send **true** for a auto-capture transaction.|
 
-## Resposta
+## Response
 
 ```json
 {
@@ -2438,7 +2438,7 @@ curl
         "Status": 12,
         "IsSplitted": false,
         "QrCode": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)",
-        "ReturnMessage": "QRCode gerado com sucesso",
+        "ReturnMessage": "QRCode successfully created",
         "PaymentId": "5d7e8fd3-70b6-4a88-9660-e064d72fdcdd",
         "Type": "qrcode",
         "Currency": "BRL",
@@ -2476,7 +2476,7 @@ curl
         "Status": 12,
         "IsSplitted": false,
         "QrCodeBase64Image": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)",
-        "ReturnMessage": "QRCode gerado com sucesso",
+        "ReturnMessage": "QRCode successfully created",
         "PaymentId": "5d7e8fd3-70b6-4a88-9660-e064d72fdcdd",
         "Type": "qrcode",
         "Currency": "BRL",
@@ -2492,19 +2492,19 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`QrCodeBase64Image`|QRCode codificado na base 64. Por exemplo, a imagem poderá ser apresentada na página utilizando o código HTML como este:<br> <code>&lt;img src="data:image/png;base64,{código da imagem na base 64}"&gt;</code>|Texto|variável|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Status da Transação. No caso de uma transação de geração de QRCode de pagamento, o status inicial é 12 (Pending).|Byte|---|2|
-|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
+|`QrCodeBase64Image`|QRCode encoded in 64. For example, the image may be displayed on the page using the HTML code like this:<br> <code>&lt;img src="data:image/png;base64,{image code in the 64 base}"&gt;</code>|Text|variable|Alphanumeric text|
+|`PaymentId`|Order Identifier Field, required for future operations, such as Query, Capture and Cancellation.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Transaction Status. In the case of creating a QR Code payment transaction, the initial status is 12 (Pending).|Byte|---|2|
+|`ReturnCode`|Return code of Acquiring.|Texto|32|Alphanumeric text|
+|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Alphanumeric text|
 
-# Consulta - PaymentID
+# Consult  - PaymentID
 
-Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
+To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example
 
-## Requisição
+## Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -2519,20 +2519,20 @@ curl
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`PaymentId`|Payment identification number.|Text|36|Yes|
 
-## Resposta
+## Response
 
 ```json
 {
     "MerchantOrderId": "2014111706",
     "Customer": {
-        "Name": "Comprador Teste",
+        "Name": "Buyer test",
         "Address": {}
     },
     "Payment": {
@@ -2585,7 +2585,7 @@ curl
 {
     "MerchantOrderId": "2014111706",
     "Customer": {
-        "Name": "Comprador Teste",
+        "Name": "Teste Holder",
         "Address": {}
     },
     "Payment": {
@@ -2596,7 +2596,7 @@ curl
         "Authenticate": false,
         "CreditCard": {
             "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
+            "Holder": "Test Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa"
@@ -2631,31 +2631,32 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Status da Transação.|Byte|---|2|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
-|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Transaction Status.|Byte|---|2|
+|`Customer.Name`|Buyer’s name|No|Text|255|
+|`Customer.Status`|Buyer registration status in store (NEW / EXISTING)|Text|255|No|
+|`Payment.Type`|Payment method.|Text|100|Yes|
+|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
+|`Payment.Provider`|Define payment method behavior (See Annex) / NOT REQUIRED FOR CREDIT.|Text|15|---|
+|`Payment.Installments`|Number of Installments.|Number|2|Yes|
+|`CreditCard.CardNumber`|Buyer’s Card Number.|Text|19|Yes|
+|`CreditCard.Holder`|Buyer’s name printed on card.|Text|25|No|
+|`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
+|`CreditCard.SecurityCode`|Security code printed on back of card - See Annex.|Text|4|No|
+|`CreditCard.Brand`|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|Text|10|No|
 
-# Consulta - MerchandOrderID
+# Consult - MerchandOrderID
 
-Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.
+It is not possible to consult a payment for the identifier sent by store (MerchantOrderId), but you can get all the
+PaymentIds associated with the identifier.
 
-Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.
+To consult a sale by store identifier, it is necessary to make a GET for the sales resource as the example.
 
-## Requisição
+## Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -2670,14 +2671,14 @@ curls
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Campo Identificador do Pedido na Loja.|Texto|36|Sim|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantOrderId`|Order Identifier Field at the Store.|Text|36|Yes|
 
-## Resposta
+## Response
 
 ```json
 {
@@ -2712,27 +2713,27 @@ curls
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-# Captura
+# Capture 
 
-A **Captura** é passo exclusivo para transações de Cartões de Crédito.
+The **Capture** is an exclusive step for Credit Card transactions.
 
-Ao realizar uma captura, o lojita confirma que o valor autorizado no cartão poderá ser cobrado pela insituição financeira emissora do cartão.
+When making a capture, the merchant confirms that the authorized value on the card may be charged by the financial institution issuing the card.
 
-O que a captura gera:
+What the capture generates:
 
-* Ela executa a cobrança do cartão
-* Ela inclui o valor da venda na fatura do comprador
-* Somente transações capturadas são pagas pela Cielo ao lojista
+* It performs the card charge
+* It includes the value of the sale on the buyer’s invoice
+* Only captured transactions are paid by Cielo to the merchant
 
-<aside class="notice"><strong>Atenção:</strong> A captura é um processo com prazo de execução. Verifique em sem cadastro cielo qual o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a Captura da transação</aside>
+<aside class="notice"><strong>Warning: </strong> The capture is a deadline process. Check in your Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture</aside>
 
-<aside class="notice"><strong>Atenção:</strong> Captura parcial disponível apenas para transações de crédito</aside>
+<aside class="notice"><strong>Warning: </strong>Partial capture available for credit transactions only</aside>
 
-## Requisição - Captura Parcial
+## Request - Partial Capture
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
@@ -2752,14 +2753,14 @@ curl
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
-|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
-|`ServiceTaxAmount`|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|Número|15|Não|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
+|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
+|`ServiceTaxAmount`|[See Annex](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|Number|15|No|
 
 ## Resposta
 
@@ -2814,19 +2815,19 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
-|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
-|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
+|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
+|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
 
-<aside class="notice"><strong>Captura de Taxa de embarque</strong> Para realizar a captura da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser capturado</aside>
+<aside class="notice"><strong>Capture of Boarding fee</strong> To carry out the capture of *boarding fee*, just add the ServiveTaxAmount value to be captured </aside>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
 
-## Resposta
+## Response
 
 ```json
 {
@@ -2879,25 +2880,25 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
-|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
-|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReturnCode`|Return code of acquirer.||Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
+|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
+|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
 
-# Cancelamento
+# Canceling
 
-O **cancelamento** é a operação responsável pela cancelamento total ou parcial de um valor autorizado ou capturado.
+**Canceling** is an operation responsible for canceling total or partial of an authorized or captured value.
 
-Basta realizar um `POST` enviando o valor a ser cancelado.
+Just do a `POST` sending the value to be canceled.
 
-<aside class="notice"><strong>Atenção:</strong> Cancelamento parcial é disponível apenas para transações de crédito *CAPTURADAS*</aside>
+<aside class="notice"><strong>Warning:</strong> Partial cancellation is only available for *CAPTURED* credit transactions </aside>
 
-<aside class="notice"><strong>Atenção:</strong> O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
+<aside class="notice"><strong>Warning:</strong>The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
 
-## Requisição - cancelamento
+## Request - Cancellation
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -2911,15 +2912,15 @@ curl
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
-|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`PaymentId`|Identifier that represents the transaction.|Guid|36|Yes|
+|`Amount`|Order Amount (to be sent in cents)..|Number|15|No|
 
-## Resposta
+## Response
 
 ```json
 {
@@ -2972,15 +2973,15 @@ curl
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
-|`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
-|`ProviderReturnMessage`|Mensagem de retorno do Provider.|Texto|512|Texto alfanumérico|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
+|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
+|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
 
-<aside class="notice"><strong>Cancelamento de Taxa de embarque</strong> Para realizar o cancelamento da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser cancelado</aside>
+<aside class="notice"><strong>Cancellation of Boarding Fee</strong>To cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled</aside>
 
 ```
 https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
