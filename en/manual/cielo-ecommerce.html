@@ -4633,7 +4633,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="produtos-e-bandeiras-suportadas">Produtos e Bandeiras suportadas</h2>
+<h2 id="products-and-supported-issuer">Products and supported issuer</h2>
 
 <p>QR Code  payment supports the following issuers and products:</p>
 
@@ -4704,9 +4704,9 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h1 id="sandbox-e-ferramentas">Sandbox e Ferramentas</h1>
+<h2 id="sandbox-and-tools-1">Sandbox and tools</h2>
 
-<h2 id="sobre-o-sandbox">Sobre o Sandbox</h2>
+<h3 id="about-sandbox-1">About Sandbox</h3>
 
 <p>To facilitate testing during integration, Cielo offers a Sandbox environment that is composed by two areas:</p>
 
@@ -4736,7 +4736,7 @@ Below we specify any existing differences:</p>
   <li>After registering you will receive a MerchantId and a MerchantKey, which are the credentials required for the API methods.</li>
 </ul>
 
-<h2 id="integration-tool-postman">Integration Tool: POSTMAN</h2>
+<h3 id="integration-tool-postman">Integration Tool: POSTMAN</h3>
 
 <p><strong>Postman</strong> is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.</p>
 
@@ -4744,19 +4744,19 @@ Below we specify any existing differences:</p>
 
 <p>We suggest developers to access our <a href="https://developercielo.github.io/tutorial/postman"><strong>Tutorial</strong></a> about the tool to better understand all the advantages that it offers.</p>
 
-<h2 id="credit-card---sandbox-1">Credit Card - Sandbox</h2>
+<h3 id="credit-card---sandbox-1">Credit Card - Sandbox</h3>
 
 <p>To successfully test the authorization scenario using QRCode, we provided an example card that can be use to test it 4551.8700.0000.0183</p>
 
 <p>The <strong>Security Code (CVV)</strong> and expiry date information can be random, but must be kept the format, for exemplo: CVV (3 digits) expiry date (MM/YYYY).</p>
 
-<h1 id="creating-a-qrcode-via-api">Creating a QRCode via API</h1>
+<h2 id="creating-a-qrcode-via-api">Creating a QRCode via API</h2>
 
 <p>To create a transaction that will use a credit card, it is necessary to send a request using the POST method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.</p>
 
 <aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-<h2 id="request-7">Request</h2>
+<h3 id="request-7">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4873,7 +4873,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="response-7">Response</h2>
+<h3 id="response-7">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019010101"</span><span class="p">,</span><span class="w">
@@ -4995,11 +4995,11 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h1 id="consult----paymentid">Consult  - PaymentID</h1>
+<h2 id="consult----paymentid">Consult  - PaymentID</h2>
 
 <p>To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example</p>
 
-<h2 id="request-8">Request</h2>
+<h3 id="request-8">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -5055,7 +5055,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="response-8">Response</h2>
+<h3 id="response-8">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -5277,14 +5277,14 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h1 id="consult---merchandorderid">Consult - MerchandOrderID</h1>
+<h2 id="consult---merchandorderid">Consult - MerchandOrderID</h2>
 
 <p>It is not possible to consult a payment for the identifier sent by store (MerchantOrderId), but you can get all the
 PaymentIds associated with the identifier.</p>
 
 <p>To consult a sale by store identifier, it is necessary to make a GET for the sales resource as the example.</p>
 
-<h2 id="request-9">Request</h2>
+<h3 id="request-9">Request</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -5340,7 +5340,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h2 id="response-9">Response</h2>
+<h3 id="response-9">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5394,7 +5394,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h1 id="capture">Capture</h1>
+<h2 id="capture">Capture</h2>
 
 <p>The <strong>Capture</strong> is an exclusive step for Credit Card transactions.</p>
 
@@ -5412,7 +5412,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="notice">Warning: Partial capture available for credit transactions only</aside>
 
-<h2 id="request---partial-capture">Request - Partial Capture</h2>
+<h3 id="request---partial-capture">Request - Partial Capture</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
@@ -5486,7 +5486,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h2 id="resposta">Resposta</h2>
+<h3 id="response-10">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -5590,7 +5590,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
 
-<h2 id="response-10">Response</h2>
+<h3 id="response-11">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -5696,7 +5696,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h1 id="canceling">Canceling</h1>
+<h2 id="canceling">Canceling</h2>
 
 <p><strong>Canceling</strong> is an operation responsible for canceling total or partial of an authorized or captured value.</p>
 
@@ -5706,7 +5706,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="notice">Warning:The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
 
-<h2 id="request---cancellation">Request - Cancellation</h2>
+<h3 id="request---cancellation">Request - Cancellation</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -5768,7 +5768,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h2 id="response-11">Response</h2>
+<h3 id="response-12">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -6295,7 +6295,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-12">Response</h3>
+<h3 id="response-13">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -6747,7 +6747,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-13">Response</h3>
+<h3 id="response-14">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -7193,7 +7193,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-14">Response</h3>
+<h3 id="response-15">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -7609,7 +7609,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-15">Response</h3>
+<h3 id="response-16">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7687,7 +7687,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-16">Response</h3>
+<h3 id="response-17">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7765,7 +7765,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-17">Response</h3>
+<h3 id="response-18">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7845,7 +7845,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-18">Response</h3>
+<h3 id="response-19">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -7925,7 +7925,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
-<h3 id="response-19">Response</h3>
+<h3 id="response-20">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -8003,7 +8003,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-20">Response</h3>
+<h3 id="response-21">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -8165,7 +8165,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-21">Response</h3>
+<h3 id="response-22">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -8232,7 +8232,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-22">Response</h3>
+<h3 id="response-23">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -8299,7 +8299,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-23">Response</h3>
+<h3 id="response-24">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -8519,7 +8519,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-24">Response</h3>
+<h3 id="response-25">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -8803,7 +8803,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-25">Response</h3>
+<h3 id="response-26">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -9087,7 +9087,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-26">Response</h3>
+<h3 id="response-27">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -9201,7 +9201,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-27">Response</h3>
+<h3 id="response-28">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"OrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f381c0c4-2bf9-4de1-91e1-e9e1f11d0854"</span><span class="p">,</span><span class="w">
@@ -9506,7 +9506,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-28">Response</h3>
+<h3 id="response-29">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -9791,7 +9791,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-29">Response</h3>
+<h3 id="response-30">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -9953,7 +9953,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-30">Response</h3>
+<h3 id="response-31">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -10057,7 +10057,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
 
-<h3 id="response-31">Response</h3>
+<h3 id="response-32">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -10270,7 +10270,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-32">Response</h3>
+<h3 id="response-33">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -10410,7 +10410,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-33">Response</h3>
+<h3 id="response-34">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -10802,7 +10802,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
-<h3 id="response-34">Response</h3>
+<h3 id="response-35">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="p">,</span><span class="w">
@@ -11254,7 +11254,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
-<h3 id="response-35">Response</h3>
+<h3 id="response-36">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -11649,7 +11649,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
-<h3 id="response-36">Response</h3>
+<h3 id="response-37">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -11989,7 +11989,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
-<h3 id="response-37">Response</h3>
+<h3 id="response-38">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -12215,7 +12215,7 @@ The following data will be returned about the card:</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https</span><span class="p">:</span><span class="err">//apiquerysandbox.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/cardBin/</span><span class="mi">420020</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response-38">Response</h3>
+<h3 id="response-39">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
@@ -12437,7 +12437,7 @@ The following data will be returned about the card:</p>
   </tbody>
 </table>
 
-<h3 id="response-39">Response</h3>
+<h3 id="response-40">Response</h3>
 
 <p>If there is an error in the request, where it is not possible to validate the card, the service will return error:</p>
 
@@ -12692,7 +12692,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   </tbody>
 </table>
 
-<h3 id="response-40">Response</h3>
+<h3 id="response-41">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -13065,7 +13065,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   </tbody>
 </table>
 
-<h3 id="response-41">Response</h3>
+<h3 id="response-42">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -13435,7 +13435,7 @@ More information and complete integration, you can find in the link: https://dev
   </tbody>
 </table>
 
-<h3 id="response-42">Response</h3>
+<h3 id="response-43">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
