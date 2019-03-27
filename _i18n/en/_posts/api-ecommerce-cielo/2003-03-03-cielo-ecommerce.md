@@ -2325,7 +2325,7 @@ QR Code  payment supports the following issuers and products:
 | Aura             | Yes             | Yes                      | *No*  |
 | Hipercard        | Yes             | Yes                      | *No*  |
 
-## Sandbox and tools
+## Sandbox and tools for QR Code
 
 ### About Sandbox
 
