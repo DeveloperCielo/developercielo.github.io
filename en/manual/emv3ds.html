@@ -471,10 +471,18 @@
     <tr>
       <td>bpmpi_auth</td>
       <td>Boolean that indicates if the transaction will be submitted to authentication process</td>
-      <td>Boolean</td>
+      <td>Boolean<br />true - authenticate;<br />false - not authenticate</td>
       <td>1</td>
       <td>Yes</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_auth_notifyonly</td>
+      <td>Boolean that indicates if the transaction will be submitted to notify mode. In this mode, the authentication process will not be performed. <strong>VALID JUST FOR MASTERCARD</strong></td>
+      <td>Boolean: <br />true – notify mode; <br />false – authentication mode</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td> </td>
     </tr>
     <tr>
       <td>bpmpi_accesstoken</td>

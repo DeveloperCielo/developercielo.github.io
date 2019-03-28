@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-03-27T11:02:29+00:00</updated>
+    <updated>2019-03-28T16:07:07+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -802,7 +802,14 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
     &lt;tr&gt;
       &lt;td&gt;bpmpi_auth&lt;/td&gt;
       &lt;td&gt;Booleano que indica se a transação é submetida o não para o processo de autenticação&lt;/td&gt;
-      &lt;td&gt;Booleanotrue – submeter à autenticaçãofalse – não submeter à autenticação&lt;/td&gt;
+      &lt;td&gt;Booleano: &lt;br /&gt;true – submeter à autenticação; &lt;br /&gt;false – não submeter à autenticação&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_auth_notifyonly&lt;/td&gt;
+      &lt;td&gt;Booleano que indica se a transação com cartão será submetida no modo “somente notificação”. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. &lt;strong&gt;VÁLIDO SOMENTE PARA CARTÕES MASTERCARD&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Booleano: &lt;br /&gt;true – modo somente notificação; &lt;br /&gt;false – modo com autenticação&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
