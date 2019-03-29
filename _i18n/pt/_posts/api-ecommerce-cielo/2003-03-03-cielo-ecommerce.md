@@ -6830,13 +6830,13 @@ Abaixo, a listagem de campos da Requisição:
 
 | Paramêtro        | Descrição                                                                                                             | Tipo    | Tamanho | Obrigatório |
 |------------------|-----------------------------------------------------------------------------------------------------------------------|---------|---------|:-----------:|
-| `CardType`       | Define o tipo de cartão utilizados:<br><br>*CreditCard*<br>*DebitCard*<br><br>Se não enviado, CreditCard como default | Texto   | 255     | Não         |
-| `CardNumber`     | Número do Cartão do Comprador                                                                                         | Texto   | 16      | sim         |
-| `Holder`         | Nome do Comprador impresso no cartão.                                                                                 | Texto   | 25      | não         |
-| `ExpirationDate` | Data de e validade impresso no cartão.                                                                                | Texto   | 7       | sim         |
-| `SecurityCode`   | Código de segurança impresso no verso do cartão.                                                                      | Texto   | 4       | não         |
-| `SaveCard`       | Booleano que identifica se o cartão será salvo para gerar o CardToken.                                                | Boolean | ---     | Não         |
-| `Brand`          | Bandeira do cartão: <br><br>Visa<br>Master<br>| Texto   | 10      | não         |
+| `CardType`       | Define o tipo de cartão utilizados:<br><br>*CreditCard*<br>*DebitCard*<br><br>Se não enviado, CreditCard como default | Texto   | 255     | Sim         |
+| `CardNumber`     | Número do Cartão do Comprador                                                                                         | Texto   | 16      | Sim         |
+| `Holder`         | Nome do Comprador impresso no cartão.                                                                                 | Texto   | 25      | Sim         |
+| `ExpirationDate` | Data de e validade impresso no cartão.                                                                                | Texto   | 7       | Sim         |
+| `SecurityCode`   | Código de segurança impresso no verso do cartão.                                                                      | Texto   | 4       | Sim         |
+| `SaveCard`       | Booleano que identifica se o cartão será salvo para gerar o CardToken.                                                | Boolean | ---     | Sim         |
+| `Brand`          | Bandeira do cartão: <br><br>Visa<br>Master<br>| Texto   | 10      | Sim         |
 | `CardToken`      | Token do cartão na 3.0                                                                                                | GUID    | 36      | Condicional |
 
 #### COM TOKEN
