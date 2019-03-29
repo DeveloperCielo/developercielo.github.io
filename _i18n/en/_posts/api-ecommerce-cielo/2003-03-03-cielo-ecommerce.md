@@ -6514,13 +6514,13 @@ Each type of validation requires a different technical contract. They will resul
 
 | Field              | Description                                                                                                               | Type      | Contact Us | Required       |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
-| `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard as default       | Text      | 255        | No             |
+| `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard as default       | Text      | 255        | Yes             |
 | `CardNumber`       | Card Number                                                                                                               | Text      | 16         | Yes            |
-| `Holder`           | Buyer's name, printed on the card.                                                                                        | Text      | 25         | No             |
-| `ExpirationDate`   | Expiration date.                                                                                                          | Text      | 7          | yes            |
-| `SecurityCode`     | Card Security code .                                                                                                      | Text      | 4          | No             |
-| `SaveCard`         | Defines if the card must be tokenized                                                                                     | Boolean   | ---        | No             |
-| `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | No             |
+| `Holder`           | Buyer's name, printed on the card.                                                                                        | Text      | 25         | Yes             |
+| `ExpirationDate`   | Expiration date.                                                                                                          | Text      | 7          | Yes            |
+| `SecurityCode`     | Card Security code .                                                                                                      | Text      | 4          | Yes             |
+| `SaveCard`         | Defines if the card must be tokenized                                                                                     | Boolean   | ---        | Yes             |
+| `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | Yes             |
 
 #### Using CardToken
 
