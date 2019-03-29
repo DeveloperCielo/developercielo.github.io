@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-03-28T16:07:07+00:00</updated>
+    <updated>2019-03-29T00:43:11+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29292,49 +29292,49 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
       &lt;td&gt;Define o tipo de cartão utilizados:&lt;br /&gt;&lt;em&gt;CreditCard&lt;/em&gt;&lt;br /&gt;&lt;em&gt;DebitCard&lt;/em&gt;&lt;br /&gt;Se não enviado, CreditCard como default&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CardNumber&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Número do Cartão do Comprador&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;16&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Holder&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Nome do Comprador impresso no cartão.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;25&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExpirationDate&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Data de e validade impresso no cartão.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;7&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;sim&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SecurityCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Código de segurança impresso no verso do cartão.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SaveCard&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Booleano que identifica se o cartão será salvo para gerar o CardToken.&lt;/td&gt;
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Não&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Bandeira do cartão: &lt;br /&gt;Visa&lt;br /&gt;Master&lt;br /&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;não&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CardToken&lt;/code&gt;&lt;/td&gt;
