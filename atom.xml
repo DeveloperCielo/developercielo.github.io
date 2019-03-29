@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-03-29T18:11:44+00:00</updated>
+    <updated>2019-03-29T18:16:00+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1721,7 +1721,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;4000000000001091&lt;/td&gt;
       &lt;td&gt;SUCCESS&lt;/td&gt;
       &lt;td&gt;05&lt;/td&gt;
-      &lt;td&gt;Autenticação com desafio e Senha Correta&lt;/td&gt;
+      &lt;td&gt;Autenticação com desafio e portador autenticou com sucesso&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;4000000000001117&lt;/td&gt;
@@ -1733,7 +1733,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;4000000000001109&lt;/td&gt;
       &lt;td&gt;FAILURE&lt;/td&gt;
       &lt;td&gt;07&lt;/td&gt;
-      &lt;td&gt;Autenticação com desafio e portador autenticou com sucesso&lt;/td&gt;
+      &lt;td&gt;Autenticação com desafio e portador falhou na autenticação&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
