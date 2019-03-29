@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-03-29T00:43:16+00:00</updated>
+    <updated>2019-03-29T00:52:21+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26710,7 +26710,7 @@ The following data will be returned about the card:&lt;/p&gt;
       &lt;td&gt;Defines the type of card used: &lt;br /&gt; &lt;br /&gt; &lt;em&gt;CreditCard&lt;/em&gt; &lt;br /&gt; &lt;em&gt;DebitCard&lt;/em&gt; &lt;br /&gt; &lt;br /&gt; If not sent, CreditCard as default&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;255&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CardNumber&lt;/code&gt;&lt;/td&gt;
@@ -26724,35 +26724,35 @@ The following data will be returned about the card:&lt;/p&gt;
       &lt;td&gt;Buyer’s name, printed on the card.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;25&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExpirationDate&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Expiration date.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;yes&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SecurityCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Card Security code .&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SaveCard&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Defines if the card must be tokenized&lt;/td&gt;
       &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Card Brand: Visa &lt;br /&gt; Master &lt;br /&gt; ELO&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
