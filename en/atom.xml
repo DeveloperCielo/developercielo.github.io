@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-03-29T18:31:39+00:00</updated>
+    <updated>2019-03-29T18:46:08+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1595,43 +1595,36 @@ This procedure is also valid for merchants that performed authentication outside
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Card&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;Result&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;ECI&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;4000000000001000&lt;/td&gt;
       &lt;td&gt;SUCCESS&lt;/td&gt;
-      &lt;td&gt;05&lt;/td&gt;
       &lt;td&gt;Silent Authentication successfully authenticated&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;4000000000001018&lt;/td&gt;
       &lt;td&gt;FAILURE&lt;/td&gt;
-      &lt;td&gt;07&lt;/td&gt;
       &lt;td&gt;Failed Silent Authentication&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;4000000000001034&lt;/td&gt;
       &lt;td&gt;UNENROLLED&lt;/td&gt;
-      &lt;td&gt;07&lt;/td&gt;
       &lt;td&gt;Card not enrolled&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;4000000000001091&lt;/td&gt;
       &lt;td&gt;SUCCESS&lt;/td&gt;
-      &lt;td&gt;05&lt;/td&gt;
       &lt;td&gt;Authentication with challenge successfully authenticated&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;4000000000001117&lt;/td&gt;
       &lt;td&gt;UNENROLLED&lt;/td&gt;
-      &lt;td&gt;07&lt;/td&gt;
       &lt;td&gt;Authentication with challenge and card not enrolled&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;4000000000001109&lt;/td&gt;
       &lt;td&gt;FAILURE&lt;/td&gt;
-      &lt;td&gt;07&lt;/td&gt;
       &lt;td&gt;Failed Authentication with challenge&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
