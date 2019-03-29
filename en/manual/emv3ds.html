@@ -1263,7 +1263,7 @@ This procedure is also valid for merchants that performed authentication outside
      </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
      </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.loja.com.br"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4551870000000183"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4000000000001000"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
@@ -1301,7 +1301,7 @@ This procedure is also valid for merchants that performed authentication outside
      <span class="s2">"Authenticate"</span>:true,
      <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.loja.com.br"</span>,
      <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
-         <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,
+         <span class="s2">"CardNumber"</span>:<span class="s2">"4000000000001000"</span>,
          <span class="s2">"Holder"</span>:<span class="s2">"Nome do Portador"</span>,
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2021"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
@@ -1459,6 +1459,57 @@ This procedure is also valid for merchants that performed authentication outside
 <h3 id="response-2">Response</h3>
 
 <p>Vide https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno</p>
+
+<h2 id="card-numbers-for-test-purpose">Card Numbers for test Purpose</h2>
+
+<p>Use the <strong>test</strong> cards below to simulate different scenarios in the <strong>SANDBOX</strong> environment</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Card</strong></td>
+      <td><strong>Result</strong></td>
+      <td><strong>ECI</strong></td>
+      <td><strong>Description</strong></td>
+    </tr>
+    <tr>
+      <td>4000000000001000</td>
+      <td>SUCCESS</td>
+      <td>05</td>
+      <td>Silent Authentication successfully authenticated</td>
+    </tr>
+    <tr>
+      <td>4000000000001018</td>
+      <td>FAILURE</td>
+      <td>07</td>
+      <td>Failed Silent Authentication</td>
+    </tr>
+    <tr>
+      <td>4000000000001034</td>
+      <td>UNENROLLED</td>
+      <td>07</td>
+      <td>Card not enrolled</td>
+    </tr>
+    <tr>
+      <td>4000000000001091</td>
+      <td>SUCCESS</td>
+      <td>05</td>
+      <td>Authentication with challenge successfully authenticated</td>
+    </tr>
+    <tr>
+      <td>4000000000001117</td>
+      <td>UNENROLLED</td>
+      <td>07</td>
+      <td>Authentication with challenge and card not enrolled</td>
+    </tr>
+    <tr>
+      <td>4000000000001109</td>
+      <td>FAILURE</td>
+      <td>07</td>
+      <td>Failed Authentication with challenge</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
