@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-03-29T02:26:10+00:00</updated>
+    <updated>2019-03-29T18:11:44+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1503,7 +1503,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://www.loja.com.br&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4551870000000183&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4000000000001000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Portador&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2021&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -1540,7 +1540,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
      &lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;:true,
      &lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;http://www.loja.com.br&quot;&lt;/span&gt;,
      &lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
-         &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;4551870000000183&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;4000000000001000&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Portador&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2021&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;,
@@ -1686,6 +1686,57 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 &lt;h3 id=&quot;response-2&quot;&gt;Response&lt;/h3&gt;
 
 &lt;p&gt;Vide https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno&lt;/p&gt;
+
+&lt;h2 id=&quot;cartões-de-teste&quot;&gt;Cartões de Teste&lt;/h2&gt;
+
+&lt;p&gt;Utilize os cartões de &lt;strong&gt;teste&lt;/strong&gt; abaixo para simular diversos cenários no ambiente de &lt;strong&gt;SANDBOX&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Cartão&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Resultado&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;ECI&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4000000000001000&lt;/td&gt;
+      &lt;td&gt;SUCCESS&lt;/td&gt;
+      &lt;td&gt;05&lt;/td&gt;
+      &lt;td&gt;Autenticação Silenciosa e portador autenticou com sucesso&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4000000000001018&lt;/td&gt;
+      &lt;td&gt;FAILURE&lt;/td&gt;
+      &lt;td&gt;07&lt;/td&gt;
+      &lt;td&gt;Autenticação Silenciosa e portador finalizou com falha&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4000000000001034&lt;/td&gt;
+      &lt;td&gt;UNENROLLED&lt;/td&gt;
+      &lt;td&gt;07&lt;/td&gt;
+      &lt;td&gt;Cartão não elegível para autenticação&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4000000000001091&lt;/td&gt;
+      &lt;td&gt;SUCCESS&lt;/td&gt;
+      &lt;td&gt;05&lt;/td&gt;
+      &lt;td&gt;Autenticação com desafio e Senha Correta&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4000000000001117&lt;/td&gt;
+      &lt;td&gt;UNENROLLED&lt;/td&gt;
+      &lt;td&gt;07&lt;/td&gt;
+      &lt;td&gt;Autenticação com desafio e Cartão não elegível&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4000000000001109&lt;/td&gt;
+      &lt;td&gt;FAILURE&lt;/td&gt;
+      &lt;td&gt;07&lt;/td&gt;
+      &lt;td&gt;Autenticação com desafio e portador autenticou com sucesso&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     
