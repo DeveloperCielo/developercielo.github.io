@@ -166,7 +166,7 @@
 
 <p>O Data Only é um campo opcional ao lojista que poderá ser utilizado exclusivamente para cartões Mastercard.</p>
 
-<p>Para utilizá-lo, deverá ser parametrizado o campo <strong>bpmpi_auth_notifyonly</strong> descrito no item <a href="https://developercielo.github.io/manual/emv3ds#etapa-de-autentição-passo-3-mapeamento-de-classes"><strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong></a>. No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a Mastercard e Bancos Emissores, porém, sem solicitar a autenticação.</p>
+<p>Para utilizá-lo, deverá ser parametrizado o campo <strong>bpmpi_auth_notifyonly</strong> descrito no item <strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong>. No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a Mastercard e Bancos Emissores, porém, sem solicitar a autenticação.</p>
 
 <p>O benefício do uso do Data Only é enriquecer o banco de dados dos Bancos Emissores e da Mastercard, que passará a receber mais informações sobre os portadores de cada lojista. Esse campo busca aprimorar a autenticação silenciosa e o índice de aprovação dos Emissores, considerando o contexto atual onde o mercado está evoluindo para a integração com o novo protocolo de autenticação 2.0. Além disso, a partir de Maio de 2019, a bandeira Mastercard cobrará um <em>fee</em> adicional por transação não autenticada e o Data Only isenta o valor do <em>fee</em> cobrado.</p>
 
