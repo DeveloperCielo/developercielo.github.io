@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-03-29T18:46:02+00:00</updated>
+    <updated>2019-04-08T09:01:17+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -451,7 +451,7 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
 
 &lt;h2 id=&quot;quem-pode-usar-o-3ds-20&quot;&gt;Quem pode usar o 3DS 2.0?&lt;/h2&gt;
 
-&lt;p&gt;Todos os estabelecimentos eCommerce devem se adequar à solução a partir de Abril de 2019 frente ao mandate de bandeira que exige autenticação em todas as transações digitais, sejam de débito, crédito ou pré-pago. Aos segmentos que possuem alto índice de chargeback/fraude, a solução tende a ser ainda mais vantajosa frente ao benefício de passar o liability shift ao banco emissor.&lt;/p&gt;
+&lt;p&gt;Todos os estabelecimentos eCommerce devem se adequar à solução a partir de Maio de 2019 frente ao mandate de bandeira que exige autenticação em todas as transações digitais, sejam de débito, crédito ou pré-pago. Aos segmentos que possuem alto índice de chargeback/fraude, a solução tende a ser ainda mais vantajosa frente ao benefício de passar o liability shift ao banco emissor.&lt;/p&gt;
 
 &lt;h2 id=&quot;quais-são-requisitos-para-a-utilização-do-3ds-20&quot;&gt;Quais são requisitos para a utilização do 3DS 2.0?&lt;/h2&gt;
 
@@ -464,6 +464,16 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
 &lt;/ul&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Caso tenha implementado mecanismo de autenticação fora da Cielo (MPI Externo), pule direto para &quot;Etapa de Autorização&quot;&lt;/aside&gt;
+
+&lt;h2 id=&quot;o-que-é-o-data-only--somente-notificação&quot;&gt;O que é o Data Only – Somente Notificação&lt;/h2&gt;
+
+&lt;p&gt;O Data Only é um campo opcional ao lojista que poderá ser utilizado exclusivamente para cartões Mastercard.&lt;/p&gt;
+
+&lt;p&gt;Para utilizá-lo, deverá ser parametrizado o campo &lt;strong&gt;bpmpi_auth_notifyonly&lt;/strong&gt; descrito no item &lt;a href=&quot;https://developercielo.github.io/manual/emv3ds#etapa-de-autentica%C3%A7%C3%A3o-passo-3-mapeamento-de-classes&quot;&gt;&lt;strong&gt;Etapa de Autenticação – passo 3 – Mapeamento de classes&lt;/strong&gt;&lt;/a&gt;. No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a Mastercard e Bancos Emissores, porém, sem solicitar a autenticação.&lt;/p&gt;
+
+&lt;p&gt;O benefício do uso do Data Only é enriquecer o banco de dados dos Bancos Emissores e da Mastercard, que passará a receber mais informações sobre os portadores de cada lojista. Esse campo busca aprimorar a autenticação silenciosa e o índice de aprovação dos Emissores, considerando o contexto atual onde o mercado está evoluindo para a integração com o novo protocolo de autenticação 2.0. Além disso, a partir de Maio de 2019, a bandeira Mastercard cobrará um &lt;em&gt;fee&lt;/em&gt; adicional por transação não autenticada e o Data Only isenta o valor do &lt;em&gt;fee&lt;/em&gt; cobrado.&lt;/p&gt;
+
+&lt;p&gt;Vale destacar que nesse modelo, visto que não há autenticação do Emissor, o risco de chargeback por fraude permanece com o lojista.&lt;/p&gt;
 
 &lt;h2 id=&quot;fluxo-de-pagamento-3ds-20--com-desafio&quot;&gt;Fluxo de Pagamento 3DS 2.0 | Com desafio&lt;/h2&gt;
 
