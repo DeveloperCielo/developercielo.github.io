@@ -1295,17 +1295,31 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-    "MerchantOrderId":"2014111706",
+    "MerchantOrderId":"2017051109",
     "Customer":
     {  
-        "Name":"Comprador Transferência Eletronica"
-    },
+        "Name":"Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Address":
+        {
+             "Street":"Alameda Xingu",
+             "Number":"512",
+             "Complement":"27 andar",
+             "ZipCode":"12345987",
+             "City":"São Paulo",
+             "State":"SP",
+             "Country":"BRA",
+             "District":"Alphaville"
+         }
+  },
     "Payment":
     {  
+        "Provider":"Bradesco2",
         "Type":"EletronicTransfer",
-        "Amount":15700,
-        "Provider":"Bradesco",
-        "ReturnUrl":"http://www.cielo.com.br"
+        "Amount":10000,
+        "ReturnUrl":"http://www.braspag.com.br"
     }
 }
 --verbose
