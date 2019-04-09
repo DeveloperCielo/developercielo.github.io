@@ -1257,17 +1257,31 @@ Para criar uma venda de transferência eletronica, é necessário fazer um POST 
 
 ```json
 {  
-    "MerchantOrderId":"2014111706",
+    "MerchantOrderId":"2017051109",
     "Customer":
     {  
-        "Name":"Comprador Transferência Eletronica"
-    },
+        "Name":"Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@braspag.com.br",
+        "Address":
+        {
+             "Street":"Alameda Xingu",
+             "Number":"512",
+             "Complement":"27 andar",
+             "ZipCode":"12345987",
+             "City":"São Paulo",
+             "State":"SP",
+             "Country":"BRA",
+             "District":"Alphaville"
+         }
+  },
     "Payment":
     {  
+        "Provider":"Bradesco2",
         "Type":"EletronicTransfer",
-        "Amount":15700,
-        "Provider":"Bradesco",
-        "ReturnUrl":"http://www.cielo.com.br"
+        "Amount":10000,
+        "ReturnUrl":"http://www.braspag.com.br"
     }
 }
 ```
@@ -1303,8 +1317,19 @@ curl
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
+|`Customer.Name`|Nome do Comprador.|Texto|255|Sim|
+|`Customer.Identity`|Número do RG, CPF ou CNPJ do Cliente|Texto|14|Sim|
+|`Customer.IdentityType`|Tipo de documento de identificação do comprador (CPF ou CNPJ)|Texto|255|Não|
 |`Customer.Status`|Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude|Texto|255|Não|
+|`Customer.Email`|Email do comprador|Texto|255|Não|
+|`Customer.Address.Street`|Endereço de contato do comprador|Texto|255|Sim|
+|`Customer.Address.Number`|Número endereço de contato do comprador|Texto|15|Sim|
+|`Customer.Address.Complement`|Complemento do endereço de contato do Comprador|Texto|50|Sim|
+|`Customer.Address.ZipCode`|CEP do endereço de contato do comprador|Texto|9|Sim|
+|`Customer.Address.City`|Cidade do endereço de contato do comprador|Texto|50|Sim|
+|`Customer.Address.State`|Estado do endereço de contato do comprador|Texto|2|Sim|
+|`Customer.Address.Country`|Pais do endereço de contato do comprador|Texto|35|Sim|
+|`Customer.Address.District`|Bairro do endereço de contato do comprador|Texto|35|Sim|
 |`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
 |`Payment.Provider`|Define comportamento do meio de pagamento ([Veja Anexo](https://developercielo.github.io/Webservice-3.0/#anexos))/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|---|
