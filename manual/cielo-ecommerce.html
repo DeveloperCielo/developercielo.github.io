@@ -2531,17 +2531,31 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">  
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador Transferência Eletronica"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@braspag.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Address"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+             </span><span class="s2">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">  
+        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Bradesco2"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"EletronicTransfer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.cielo.com.br"</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.braspag.com.br"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -2614,6 +2628,20 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td>Nome do Comprador.</td>
       <td>Texto</td>
       <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Número do RG, CPF ou CNPJ do Cliente</td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ)</td>
+      <td>Texto</td>
+      <td>255</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -2622,6 +2650,69 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Email do comprador</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Endereço de contato do comprador</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Número endereço de contato do comprador</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Complemento do endereço de contato do Comprador</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>CEP do endereço de contato do comprador</td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.City</code></td>
+      <td>Cidade do endereço de contato do comprador</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.State</code></td>
+      <td>Estado do endereço de contato do comprador</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
+      <td>Pais do endereço de contato do comprador</td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td>Bairro do endereço de contato do comprador</td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
