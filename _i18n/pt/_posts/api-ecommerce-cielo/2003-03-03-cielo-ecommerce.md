@@ -363,7 +363,11 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      }
    }
 }
@@ -392,7 +396,11 @@ curl
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      }
    }
 }
@@ -415,6 +423,8 @@ curl
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.StoredCredentials.Used`|Booleano|true ou false|Não|*true* se o cartão foi armazenado e é seu primeiro uso.<br>*false* se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.StoredCredentials.Reason`|Texto|25|Não|Indica o propósito de armazenamento de cartões.<br>*CredentialOnFile* - Compra pontual (ex. compra com um clique)<br>*Recurring* - Compra recorrente programada (ex. assinaturas)<br>*UnscheduledCredentialOnFile* - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
 
 #### Resposta
 
@@ -435,7 +445,11 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "ProofOfSale": "674532",
         "Tid": "0305023644309",
@@ -490,7 +504,11 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "ProofOfSale": "674532",
         "Tid": "0305023644309",
@@ -588,7 +606,11 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "SaveCard":"false",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      }
    }
 }
@@ -644,7 +666,11 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "SaveCard":"false",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      }
    }
 }
@@ -694,6 +720,8 @@ curl
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.StoredCredentials.Used`|Booleano|true ou false|Não|*true* se o cartão foi armazenado e é seu primeiro uso.<br>*false* se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.StoredCredentials.Reason`|Texto|25|Não|Indica o propósito de armazenamento de cartões.<br>*CredentialOnFile* - Compra pontual (ex. compra com um clique)<br>*Recurring* - Compra recorrente programada (ex. assinaturas)<br>*UnscheduledCredentialOnFile* - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
 
 #### Resposta
 
@@ -736,7 +764,11 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "ProofOfSale": "674532",
         "Tid": "0305020554239",
@@ -809,7 +841,11 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "ProofOfSale": "674532",
         "Tid": "0305020554239",
@@ -883,7 +919,11 @@ Para criar uma transação com autenticação que utilizará cartão de crédito
             "Holder":"Teste Holder",
             "ExpirationDate":"12/2030",
             "SecurityCode":"123",
-            "Brand":"Visa"
+            "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         }
     }
 }
@@ -914,7 +954,11 @@ curl
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
       }
    }
 }
@@ -939,6 +983,8 @@ curl
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.StoredCredentials.Used`|Booleano|true ou false|Não|*true* se o cartão foi armazenado e é seu primeiro uso.<br>*false* se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.StoredCredentials.Reason`|Texto|25|Não|Indica o propósito de armazenamento de cartões.<br>*CredentialOnFile* - Compra pontual (ex. compra com um clique)<br>*Recurring* - Compra recorrente programada (ex. assinaturas)<br>*UnscheduledCredentialOnFile* - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
 
 #### Resposta
 
@@ -962,7 +1008,11 @@ curl
             "Holder":"Teste Holder",
             "ExpirationDate":"12/2030",
             "SaveCard":false,
-            "Brand":"Visa"
+            "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
         "Tid": "1006993069257E521001",
@@ -1010,7 +1060,11 @@ curl
             "Holder":"Teste Holder",
             "ExpirationDate":"12/2030",
             "SaveCard":false,
-            "Brand":"Visa"
+            "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
         "Tid": "1006993069257E521001",
