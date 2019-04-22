@@ -423,8 +423,8 @@ curl
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`CreditCard.StoredCredentials.Used`|Booleano|true ou false|Não|*true* se o cartão foi armazenado e é seu primeiro uso.<br>*false* se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|`CreditCard.StoredCredentials.Reason`|Texto|25|Não|Indica o propósito de armazenamento de cartões.<br>*CredentialOnFile* - Compra pontual (ex. compra com um clique)<br>*Recurring* - Compra recorrente programada (ex. assinaturas)<br>*UnscheduledCredentialOnFile* - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
+|`CreditCard.StoredCredentials.Used`|Booleano|-|Não|**true** se o cartão foi armazenado e é seu primeiro uso.<br>**false** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
 
 #### Resposta
 
@@ -720,8 +720,8 @@ curl
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`CreditCard.StoredCredentials.Used`|Booleano|true ou false|Não|*true* se o cartão foi armazenado e é seu primeiro uso.<br>*false* se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|`CreditCard.StoredCredentials.Reason`|Texto|25|Não|Indica o propósito de armazenamento de cartões.<br>*CredentialOnFile* - Compra pontual (ex. compra com um clique)<br>*Recurring* - Compra recorrente programada (ex. assinaturas)<br>*UnscheduledCredentialOnFile* - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
+|`CreditCard.StoredCredentials.Used`|Booleano|-|Não|**true** se o cartão foi armazenado e é seu primeiro uso.<br>**false** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
 
 #### Resposta
 
@@ -983,8 +983,8 @@ curl
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`CreditCard.StoredCredentials.Used`|Booleano|true ou false|Não|*true* se o cartão foi armazenado e é seu primeiro uso.<br>*false* se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|`CreditCard.StoredCredentials.Reason`|Texto|25|Não|Indica o propósito de armazenamento de cartões.<br>*CredentialOnFile* - Compra pontual (ex. compra com um clique)<br>*Recurring* - Compra recorrente programada (ex. assinaturas)<br>*UnscheduledCredentialOnFile* - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
+|`CreditCard.StoredCredentials.Used`|Booleano|-|Não|**true** se o cartão foi armazenado e é seu primeiro uso.<br>**false** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
 
 #### Resposta
 
