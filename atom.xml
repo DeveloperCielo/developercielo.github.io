@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-04-22T22:00:45+00:00</updated>
+    <updated>2019-04-22T22:09:05+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16695,16 +16695,16 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Used&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Booleano&lt;/td&gt;
-      &lt;td&gt;true ou false&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;&lt;em&gt;true&lt;/em&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;em&gt;false&lt;/em&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;true&lt;/strong&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;strong&gt;false&lt;/strong&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Reason&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;em&gt;CredentialOnFile&lt;/em&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;em&gt;Recurring&lt;/em&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;em&gt;UnscheduledCredentialOnFile&lt;/em&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17322,16 +17322,16 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Used&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Booleano&lt;/td&gt;
-      &lt;td&gt;true ou false&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;&lt;em&gt;true&lt;/em&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;em&gt;false&lt;/em&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;true&lt;/strong&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;strong&gt;false&lt;/strong&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Reason&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;em&gt;CredentialOnFile&lt;/em&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;em&gt;Recurring&lt;/em&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;em&gt;UnscheduledCredentialOnFile&lt;/em&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17765,16 +17765,16 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Used&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Booleano&lt;/td&gt;
-      &lt;td&gt;true ou false&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;&lt;em&gt;true&lt;/em&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;em&gt;false&lt;/em&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;true&lt;/strong&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;strong&gt;false&lt;/strong&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Reason&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;em&gt;CredentialOnFile&lt;/em&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;em&gt;Recurring&lt;/em&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;em&gt;UnscheduledCredentialOnFile&lt;/em&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
