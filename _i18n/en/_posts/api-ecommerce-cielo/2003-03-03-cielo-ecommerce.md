@@ -407,6 +407,10 @@ To create a transaction that will use a credit card, it is necessary to send a r
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Visa"
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      }
    }
 }
@@ -435,7 +439,11 @@ curl
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      }
    }
 }
@@ -458,6 +466,8 @@ curl
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Attachment.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.StoredCredentials.Used`|Boolean|-|No|**true** if the credentials have been stored and they will be used for the first time.<br>**false** if the credentials have been stored and they were previously used.|
+|`CreditCard.StoredCredentials.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**CredentialOnFile** - Occasional Shopping<br>**Recurring** - Scheduled recurring<br>**UnscheduledCredentialOnFile** - Unscheduled recurring|
 
 ### Response
 
@@ -478,7 +488,11 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "ProofOfSale": "674532",
         "Tid": "0305023644309",
@@ -533,7 +547,11 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "ProofOfSale": "674532",
         "Tid": "0305023644309",
@@ -631,7 +649,11 @@ To create a transaction that will use a credit card, it is necessary to send a r
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "SaveCard":"false",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      }
    }
 }
@@ -687,7 +709,11 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "SaveCard":"false",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      }
    }
 }
@@ -737,6 +763,8 @@ curl
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.StoredCredentials.Used`|Boolean|-|No|**true** if the credentials have been stored and they will be used for the first time.<br>**false** if the credentials have been stored and they were previously used.|
+|`CreditCard.StoredCredentials.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**CredentialOnFile** - Occasional Shopping<br>**Recurring** - Scheduled recurring<br>**UnscheduledCredentialOnFile** - Unscheduled recurring|
 
 ### Response
 
@@ -779,7 +807,11 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "ProofOfSale": "674532",
         "Tid": "0305020554239",
@@ -852,7 +884,11 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "ProofOfSale": "674532",
         "Tid": "0305020554239",
@@ -926,7 +962,11 @@ To create a transaction with authentication that will use a credit card, it is n
       "Holder":"Teste Holder",
       "ExpirationDate":"12/2030",
       "SecurityCode":"123",
-      "Brand":"Visa"
+      "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      }
  }
 }
@@ -957,7 +997,11 @@ curl
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
       }
    }
 }
@@ -982,6 +1026,8 @@ curl
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.StoredCredentials.Used`|Boolean|-|No|**true** if the credentials have been stored and they will be used for the first time.<br>**false** if the credentials have been stored and they were previously used.|
+|`CreditCard.StoredCredentials.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**CredentialOnFile** - Occasional Shopping<br>**Recurring** - Scheduled recurring<br>**UnscheduledCredentialOnFile** - Unscheduled recurring|
 
 ### Response
 
@@ -1005,7 +1051,11 @@ curl
    "Holder":"Test Holder",
    "ExpirationDate":"12/2030",
    "SaveCard":false,
-   "Brand":"Visa"
+   "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
   },
   "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
         "Tid": "1006993069257E521001",
@@ -1053,7 +1103,11 @@ curl
    "Holder":"Teste Holder",
    "ExpirationDate":"12/2030",
    "SaveCard":false,
-   "Brand":"Visa"
+   "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
   },
   "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
         "Tid": "1006993069257E521001",
@@ -1140,7 +1194,11 @@ To create a sale with credit card and fraud analysis, it is necessary to submit 
          "Holder":"Teste accept",
          "ExpirationDate":"12/2030",
          "SecurityCode":"023",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      },
      "FraudAnalysis":{
         "Provider":"cybersource",
@@ -1253,7 +1311,11 @@ curl
          "Holder":"Teste accept",
          "ExpirationDate":"12/2030",
          "SecurityCode":"023",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
      },
      "FraudAnalysis":{
         "Provider":"cybersource", 
@@ -1360,6 +1422,8 @@ curl
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.StoredCredentials.Used`|Boolean|-|No|**true** if the credentials have been stored and they will be used for the first time.<br>**false** if the credentials have been stored and they were previously used.|
+|`CreditCard.StoredCredentials.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**CredentialOnFile** - Occasional Shopping<br>**Recurring** - Scheduled recurring<br>**UnscheduledCredentialOnFile** - Unscheduled recurring|
 | `FraudAnalysis.Provider`                      | Text    | 14      | Yes                 | Fixed "cybersource"                                                                                                                |
 |`FraudAnalysis.Sequence`|Text|14|No|Flow type to perform the fraud analysis. Standard: AuthorizeFirst|
 |`FraudAnalysis.SequenceCriteria`|Text|9|No|Flow criterion. OnSuccess - Only performs the analysis if it succeeds in the transaction. Always - Always perform the analysis|
@@ -1440,7 +1504,11 @@ curl
             "Holder": "Teste accept",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa".
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "ProofOfSale": "492115",
         "Tid": "10069930692606D31001",
@@ -1594,7 +1662,11 @@ curl
             "Holder": "Teste accept",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+         "StoredCredentials":{
+            "Used":false,
+            "Reason":"CredentialOnFile"
+         }
         },
         "ProofOfSale": "492115",
         "Tid": "10069930692606D31001",
