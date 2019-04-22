@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-04-22T22:27:25+00:00</updated>
+    <updated>2019-04-22T22:33:57+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16720,7 +16720,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17347,7 +17347,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17790,7 +17790,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
