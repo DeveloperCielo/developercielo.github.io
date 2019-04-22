@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-04-22T22:22:39+00:00</updated>
+    <updated>2019-04-22T22:27:25+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -15869,7 +15869,13 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 
 &lt;p&gt;Para tal, disponilizamos dois campos: “Used” que indica se trata da primeira transação utilizando um cartão que ficará armazenado para ser usado futuramente (seja em compras pontuais ou com recorrência) ou se é uma transação usando credenciais armazenadas anteriormente. Caso seja a primeira transação o valor deve ser “true”, caso seja uma transação usando credenciais armazenadas que já foram utilizadas em uma transação anterior, o valor deve ser “false”.&lt;/p&gt;
 
-&lt;p&gt;O campo “Reason” indica que tipo de transação está sendo criada, podendo ser categorizado em 4 tipos:1. Compra pontual com credenciais armazenadas: transações eventuais de um cliente que já realizou uma compra em um estabelecimento e armazenou os dados do seu cartão (credenciais) nesse mesmo estabelecimento para facilitar as compras futuras. Neste caso não há nenhuma periodicidade e nem recorrência pré-definida. Neste caso o campo reason deve ser preenchido como “CredentialOnFile”.2. Transação recorrente: transações geradas seguindo uma recorrência pré-definida no momento da primeira transação. Neste caso a transação é gerada sem a necessidade de nenhuma intervenção por parte do cliente, por exemplo assinatura de serviços online e plano de celular. Neste caso o campo reason deve ser preenchido como “Recurring”.3. Transação recorrente sem periodicidade: este tipo de transação similarmente a transação recorrente, é gerado sem a intervenção do cliente, porém não há uma periodicidade pré-definida. Ela é gerada sempre que o cliente consome o produto ou serviço, por exemplo aplicativos de transporte e de aluguel de bicicletas. Neste caso o campo reason deve ser preenchido como “UnscheduledCredentialOnFile”&lt;/p&gt;
+&lt;p&gt;O campo “Reason” indica que tipo de transação está sendo criada, podendo ser categorizado em 4 tipos:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Compra pontual com credenciais armazenadas&lt;/strong&gt;: transações eventuais de um cliente que já realizou uma compra em um estabelecimento e armazenou os dados do seu cartão (credenciais) nesse mesmo estabelecimento para facilitar as compras futuras. Neste caso não há nenhuma periodicidade e nem recorrência pré-definida. Neste caso o campo reason deve ser preenchido como &lt;strong&gt;“CredentialOnFile”&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Transação recorrente&lt;/strong&gt;: transações geradas seguindo uma recorrência pré-definida no momento da primeira transação. Neste caso a transação é gerada sem a necessidade de nenhuma intervenção por parte do cliente, por exemplo assinatura de serviços online e plano de celular. Neste caso o campo reason deve ser preenchido como &lt;strong&gt;“Recurring”&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Transação recorrente sem periodicidade&lt;/strong&gt;: este tipo de transação similarmente a transação recorrente, é gerado sem a intervenção do cliente, porém não há uma periodicidade pré-definida. Ela é gerada sempre que o cliente consome o produto ou serviço, por exemplo aplicativos de transporte e de aluguel de bicicletas. Neste caso o campo reason deve ser preenchido como &lt;strong&gt;“UnscheduledCredentialOnFile”&lt;/strong&gt;&lt;/p&gt;
 </content>
     </entry>
     
