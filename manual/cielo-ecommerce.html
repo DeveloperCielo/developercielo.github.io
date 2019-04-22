@@ -800,7 +800,11 @@ Abaixo especificamos qualquer diferença existente:</p>
          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -828,7 +832,11 @@ Abaixo especificamos qualquer diferença existente:</p>
          <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
+         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>:false,
+            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="o">}</span>
      <span class="o">}</span>
    <span class="o">}</span>
 <span class="o">}</span>
@@ -944,6 +952,20 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Sim</td>
       <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Used</code></td>
+      <td>Booleano</td>
+      <td>true ou false</td>
+      <td>Não</td>
+      <td><em>true</em> se o cartão foi armazenado e é seu primeiro uso.<br /><em>false</em> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Reason</code></td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Não</td>
+      <td>Indica o propósito de armazenamento de cartões.<br /><em>CredentialOnFile</em> - Compra pontual (ex. compra com um clique)<br /><em>Recurring</em> - Compra recorrente programada (ex. assinaturas)<br /><em>UnscheduledCredentialOnFile</em> - Compra recorrente sem agendamento (ex. aplicativos de serviços)</td>
+    </tr>
   </tbody>
 </table>
 
@@ -965,7 +987,11 @@ Abaixo especificamos qualquer diferença existente:</p>
             </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0305023644309"</span><span class="p">,</span><span class="w">
@@ -1019,7 +1045,11 @@ Abaixo especificamos qualquer diferença existente:</p>
             <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
-            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
+         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>:false,
+            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
         <span class="s2">"Tid"</span>: <span class="s2">"0305023644309"</span>,
@@ -1181,7 +1211,11 @@ Abaixo especificamos qualquer diferença existente:</p>
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1236,7 +1270,11 @@ Abaixo especificamos qualquer diferença existente:</p>
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
          <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
+         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>:false,
+            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="o">}</span>
      <span class="o">}</span>
    <span class="o">}</span>
 <span class="o">}</span>
@@ -1541,6 +1579,20 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Sim</td>
       <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Used</code></td>
+      <td>Booleano</td>
+      <td>true ou false</td>
+      <td>Não</td>
+      <td><em>true</em> se o cartão foi armazenado e é seu primeiro uso.<br /><em>false</em> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Reason</code></td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Não</td>
+      <td>Indica o propósito de armazenamento de cartões.<br /><em>CredentialOnFile</em> - Compra pontual (ex. compra com um clique)<br /><em>Recurring</em> - Compra recorrente programada (ex. assinaturas)<br /><em>UnscheduledCredentialOnFile</em> - Compra recorrente sem agendamento (ex. aplicativos de serviços)</td>
+    </tr>
   </tbody>
 </table>
 
@@ -1584,7 +1636,11 @@ Abaixo especificamos qualquer diferença existente:</p>
             </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0305020554239"</span><span class="p">,</span><span class="w">
@@ -1656,7 +1712,11 @@ Abaixo especificamos qualquer diferença existente:</p>
             <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
-            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
+         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>:false,
+            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
         <span class="s2">"Tid"</span>: <span class="s2">"0305020554239"</span>,
@@ -1794,7 +1854,11 @@ Abaixo especificamos qualquer diferença existente:</p>
             </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1824,7 +1888,11 @@ Abaixo especificamos qualquer diferença existente:</p>
          <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
+         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>:false,
+            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="o">}</span>
       <span class="o">}</span>
    <span class="o">}</span>
 <span class="o">}</span>
@@ -1954,6 +2022,20 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Sim</td>
       <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Used</code></td>
+      <td>Booleano</td>
+      <td>true ou false</td>
+      <td>Não</td>
+      <td><em>true</em> se o cartão foi armazenado e é seu primeiro uso.<br /><em>false</em> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Reason</code></td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Não</td>
+      <td>Indica o propósito de armazenamento de cartões.<br /><em>CredentialOnFile</em> - Compra pontual (ex. compra com um clique)<br /><em>Recurring</em> - Compra recorrente programada (ex. assinaturas)<br /><em>UnscheduledCredentialOnFile</em> - Compra recorrente sem agendamento (ex. aplicativos de serviços)</td>
+    </tr>
   </tbody>
 </table>
 
@@ -1978,7 +2060,11 @@ Abaixo especificamos qualquer diferença existente:</p>
             </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+            </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"AuthenticationUrl"</span><span class="p">:</span><span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1006993069257E521001"</span><span class="p">,</span><span class="w">
@@ -2025,7 +2111,11 @@ Abaixo especificamos qualquer diferença existente:</p>
             <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
             <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>:false,
-            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+            <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
+         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>:false,
+            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"AuthenticationUrl"</span>:<span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span>,
         <span class="s2">"Tid"</span>: <span class="s2">"1006993069257E521001"</span>,
