@@ -424,7 +424,7 @@ curl
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 |`CreditCard.StoredCredentials.Used`|Booleano|-|Não|**true** se o cartão foi armazenado e é seu primeiro uso.<br>**false** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
+|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
 
 #### Resposta
 
@@ -721,7 +721,7 @@ curl
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 |`CreditCard.StoredCredentials.Used`|Booleano|-|Não|**true** se o cartão foi armazenado e é seu primeiro uso.<br>**false** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
+|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
 
 #### Resposta
 
@@ -984,7 +984,7 @@ curl
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 |`CreditCard.StoredCredentials.Used`|Booleano|-|Não|**true** se o cartão foi armazenado e é seu primeiro uso.<br>**false** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)|
+|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
 
 #### Resposta
 
