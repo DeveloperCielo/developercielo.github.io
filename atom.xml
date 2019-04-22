@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-04-22T22:09:05+00:00</updated>
+    <updated>2019-04-22T22:22:39+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -15860,6 +15860,16 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 &lt;h2 id=&quot;2como-um-gateway-de-pagamentos-pode-se-integrar&quot;&gt;2.Como um gateway de pagamentos pode se integrar?&lt;/h2&gt;
 
 &lt;p&gt;Utilizando a mesma integração padrão de um lojista Cielo, entretando o Gateway precisará possuir as credenciais do lojista para poder realizar autorizações de pagamentos.&lt;/p&gt;
+
+&lt;h1 id=&quot;pagamento-com-credenciais-armazenadas&quot;&gt;Pagamento com Credenciais Armazenadas&lt;/h1&gt;
+
+&lt;p&gt;Para armazenar dados de cartão (seja através de terceiros ou não) e utilizá-lo em vendas futuras, você precisa obter o consentimento prévio do portador e enviar algumas informações que identifiquem que se trata de uma transação com credenciais armazenadas.&lt;/p&gt;
+
+&lt;p&gt;Essas informações deverão ser enviadas nó StoredCredentials e variam de acordo com o tipo de transação. Caso não se trate de uma transação com credenciais armazenadas, não é necessário enviar este nó.&lt;/p&gt;
+
+&lt;p&gt;Para tal, disponilizamos dois campos: “Used” que indica se trata da primeira transação utilizando um cartão que ficará armazenado para ser usado futuramente (seja em compras pontuais ou com recorrência) ou se é uma transação usando credenciais armazenadas anteriormente. Caso seja a primeira transação o valor deve ser “true”, caso seja uma transação usando credenciais armazenadas que já foram utilizadas em uma transação anterior, o valor deve ser “false”.&lt;/p&gt;
+
+&lt;p&gt;O campo “Reason” indica que tipo de transação está sendo criada, podendo ser categorizado em 4 tipos:1. Compra pontual com credenciais armazenadas: transações eventuais de um cliente que já realizou uma compra em um estabelecimento e armazenou os dados do seu cartão (credenciais) nesse mesmo estabelecimento para facilitar as compras futuras. Neste caso não há nenhuma periodicidade e nem recorrência pré-definida. Neste caso o campo reason deve ser preenchido como “CredentialOnFile”.2. Transação recorrente: transações geradas seguindo uma recorrência pré-definida no momento da primeira transação. Neste caso a transação é gerada sem a necessidade de nenhuma intervenção por parte do cliente, por exemplo assinatura de serviços online e plano de celular. Neste caso o campo reason deve ser preenchido como “Recurring”.3. Transação recorrente sem periodicidade: este tipo de transação similarmente a transação recorrente, é gerado sem a intervenção do cliente, porém não há uma periodicidade pré-definida. Ela é gerada sempre que o cliente consome o produto ou serviço, por exemplo aplicativos de transporte e de aluguel de bicicletas. Neste caso o campo reason deve ser preenchido como “UnscheduledCredentialOnFile”&lt;/p&gt;
 </content>
     </entry>
     
