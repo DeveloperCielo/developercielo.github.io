@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-04-22T22:49:47+00:00</updated>
+    <updated>2019-04-24T17:24:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -668,7 +668,7 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
 
 &lt;p&gt;Neste passo, é implementado o &lt;em&gt;script&lt;/em&gt; e o mapeamento de &lt;em&gt;classes&lt;/em&gt; responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que demonstra a implementação básica. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:&lt;/p&gt;
 
-&lt;p&gt;Para baixar o código, acesse: &lt;a href=&quot;https://bit.ly/2oUaTGD&quot;&gt;https://bit.ly/2oUaTGD&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para baixar o código, &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html&quot;&gt;Acesse aqui&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/exemplo-html.jpg&quot; alt=&quot;Fluxo 3DS 2.0&quot; /&gt;&lt;/p&gt;
 
