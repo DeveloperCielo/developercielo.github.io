@@ -893,9 +893,9 @@ Below we specify any existing differences:</p>
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -925,9 +925,9 @@ Below we specify any existing differences:</p>
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
-            <span class="s2">"Used"</span>:false,
-            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
      <span class="o">}</span>
    <span class="o">}</span>
@@ -1046,17 +1046,17 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Used</code></td>
-      <td>Boolean</td>
+      <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td><strong>true</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>false</strong> if the credentials have been stored and they were previously used.</td>
+      <td><strong>First</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>Used</strong> if the credentials have been stored and they were previously used.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Reason</code></td>
       <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td>Indicates the purpose of credential storage.<br /><strong>CredentialOnFile</strong> - Occasional Shopping<br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>UnscheduledCredentialOnFile</strong> - Unscheduled recurring</td>
+      <td>Indicates the purpose of credential storage.<br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring</td>
     </tr>
   </tbody>
 </table>
@@ -1080,9 +1080,9 @@ Below we specify any existing differences:</p>
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
@@ -1138,9 +1138,9 @@ Below we specify any existing differences:</p>
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
-         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
-            <span class="s2">"Used"</span>:false,
-            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
@@ -1304,9 +1304,9 @@ Below we specify any existing differences:</p>
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -1363,9 +1363,9 @@ Below we specify any existing differences:</p>
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
          <span class="s2">"SaveCard"</span>:<span class="s2">"false"</span>,
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
-            <span class="s2">"Used"</span>:false,
-            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
      <span class="o">}</span>
    <span class="o">}</span>
@@ -1673,17 +1673,17 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Used</code></td>
-      <td>Boolean</td>
+      <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td><strong>true</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>false</strong> if the credentials have been stored and they were previously used.</td>
+      <td><strong>First</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>Used</strong> if the credentials have been stored and they were previously used.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Reason</code></td>
       <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td>Indicates the purpose of credential storage.<br /><strong>CredentialOnFile</strong> - Occasional Shopping<br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>UnscheduledCredentialOnFile</strong> - Unscheduled recurring</td>
+      <td>Indicates the purpose of credential storage.<br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring</td>
     </tr>
   </tbody>
 </table>
@@ -1729,9 +1729,9 @@ Below we specify any existing differences:</p>
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
@@ -1805,9 +1805,9 @@ Below we specify any existing differences:</p>
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
-         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
-            <span class="s2">"Used"</span>:false,
-            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
@@ -1947,9 +1947,9 @@ Below we specify any existing differences:</p>
       </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
  </span><span class="p">}</span><span class="w">
@@ -1981,9 +1981,9 @@ Below we specify any existing differences:</p>
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
-            <span class="s2">"Used"</span>:false,
-            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
       <span class="o">}</span>
    <span class="o">}</span>
@@ -2116,17 +2116,17 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Used</code></td>
-      <td>Boolean</td>
+      <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td><strong>true</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>false</strong> if the credentials have been stored and they were previously used.</td>
+      <td><strong>First</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>Used</strong> if the credentials have been stored and they were previously used.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Reason</code></td>
       <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td>Indicates the purpose of credential storage.<br /><strong>CredentialOnFile</strong> - Occasional Shopping<br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>UnscheduledCredentialOnFile</strong> - Unscheduled recurring</td>
+      <td>Indicates the purpose of credential storage.<br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring</td>
     </tr>
   </tbody>
 </table>
@@ -2153,9 +2153,9 @@ Below we specify any existing differences:</p>
    </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"AuthenticationUrl"</span><span class="p">:</span><span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span><span class="p">,</span><span class="w">
@@ -2204,9 +2204,9 @@ Below we specify any existing differences:</p>
    <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
    <span class="s2">"SaveCard"</span>:false,
    <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
-            <span class="s2">"Used"</span>:false,
-            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
   <span class="o">}</span>,
   <span class="s2">"AuthenticationUrl"</span>:<span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span>,
@@ -2359,9 +2359,9 @@ Below we specify any existing differences:</p>
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"023"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
      </span><span class="p">},</span><span class="w">
      </span><span class="s2">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
@@ -2475,9 +2475,9 @@ Below we specify any existing differences:</p>
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"023"</span>,
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
-         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
-            <span class="s2">"Used"</span>:false,
-            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
      <span class="o">}</span>,
      <span class="s2">"FraudAnalysis"</span>:<span class="o">{</span>
@@ -2836,17 +2836,17 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Used</code></td>
-      <td>Boolean</td>
+      <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td><strong>true</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>false</strong> if the credentials have been stored and they were previously used.</td>
+      <td><strong>First</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>Used</strong> if the credentials have been stored and they were previously used.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.StoredCredentials.Reason</code></td>
       <td>Text</td>
       <td>-</td>
       <td>No</td>
-      <td>Indicates the purpose of credential storage.<br /><strong>CredentialOnFile</strong> - Occasional Shopping<br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>UnscheduledCredentialOnFile</strong> - Unscheduled recurring</td>
+      <td>Indicates the purpose of credential storage.<br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">FraudAnalysis.Provider</code></td>
@@ -3170,9 +3170,9 @@ Below we specify any existing differences:</p>
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="err">.</span><span class="w">
-         </span><span class="s2">"StoredCredentials"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Used"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"CredentialOnFile"</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Used"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"492115"</span><span class="p">,</span><span class="w">
@@ -3327,9 +3327,9 @@ Below we specify any existing differences:</p>
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
-         <span class="s2">"StoredCredentials"</span>:<span class="o">{</span>
-            <span class="s2">"Used"</span>:false,
-            <span class="s2">"Reason"</span>:<span class="s2">"CredentialOnFile"</span>
+         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+            <span class="s2">"Used"</span>: <span class="s2">"Used"</span>,
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"492115"</span>,
