@@ -466,8 +466,8 @@ curl
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Attachment.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`CreditCard.StoredCredentials.Used`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
-|`CreditCard.StoredCredentials.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring|
+|`CreditCard.CardOnFile.Used`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
+|`CreditCard.CardOnFile.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring|
 
 ### Response
 
@@ -763,8 +763,8 @@ curl
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`CreditCard.StoredCredentials.Used`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
-|`CreditCard.StoredCredentials.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring|
+|`CreditCard.CardOnFile.Used`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
+|`CreditCard.CardOnFile.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring|
 
 ### Response
 
@@ -1026,8 +1026,8 @@ curl
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`CreditCard.StoredCredentials.Used`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
-|`CreditCard.StoredCredentials.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring|
+|`CreditCard.CardOnFile.Used`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
+|`CreditCard.CardOnFile.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring|
 
 ### Response
 
@@ -1422,8 +1422,8 @@ curl
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`CreditCard.StoredCredentials.Used`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
-|`CreditCard.StoredCredentials.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring|
+|`CreditCard.CardOnFile.Used`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
+|`CreditCard.CardOnFile.Reason`|Text|-|No|Indicates the purpose of credential storage.<br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring|
 | `FraudAnalysis.Provider`                      | Text    | 14      | Yes                 | Fixed "cybersource"                                                                                                                |
 |`FraudAnalysis.Sequence`|Text|14|No|Flow type to perform the fraud analysis. Standard: AuthorizeFirst|
 |`FraudAnalysis.SequenceCriteria`|Text|9|No|Flow criterion. OnSuccess - Only performs the analysis if it succeeds in the transaction. Always - Always perform the analysis|
