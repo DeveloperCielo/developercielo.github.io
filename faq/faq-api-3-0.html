@@ -754,21 +754,159 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 
 <p>Utilizando a mesma integração padrão de um lojista Cielo, entretando o Gateway precisará possuir as credenciais do lojista para poder realizar autorizações de pagamentos.</p>
 
-<h1 id="pagamento-com-credenciais-armazenadas">Pagamento com Credenciais Armazenadas</h1>
+<h1 id="pagamento-com-credenciais-cartão-armazenadas">Pagamento com Credenciais (Cartão) Armazenadas</h1>
 
 <p>Para armazenar dados de cartão (seja através de terceiros ou não) e utilizá-lo em vendas futuras, você precisa obter o consentimento prévio do portador e enviar algumas informações que identifiquem que se trata de uma transação com credenciais armazenadas.</p>
 
-<p>Essas informações deverão ser enviadas nó StoredCredentials e variam de acordo com o tipo de transação. Caso não se trate de uma transação com credenciais armazenadas, não é necessário enviar este nó.</p>
+<p>Essas informações deverão ser enviadas nó <strong>CardOnFile</strong> e variam de acordo com o tipo de transação. Caso não se trate de uma transação com credenciais armazenadas, não é necessário enviar este nó.</p>
 
-<p>Para tal, disponilizamos dois campos: “Used” que indica se trata da primeira transação utilizando um cartão que ficará armazenado para ser usado futuramente (seja em compras pontuais ou com recorrência) ou se é uma transação usando credenciais armazenadas anteriormente. Caso seja a primeira transação o valor deve ser “true”, caso seja uma transação usando credenciais armazenadas que já foram utilizadas em uma transação anterior, o valor deve ser “false”.</p>
+<p>No campo “<strong>Usage</strong>” você deverá indicar se é a primeira transação utilizando um cartão que ficará armazenado para ser usado futuramente (seja em compras pontuais ou recorrências) ou se é uma transação usando credenciais armazenadas anteriormente. Caso seja a primeira transação o valor deve ser “<strong>First</strong>”. Caso seja uma transação usando credenciais armazenadas que já foram utilizadas em uma transação anterior, o valor deverá ser “<strong>Used</strong>”.</p>
 
-<p>O campo “Reason” indica que tipo de transação está sendo criada, podendo ser categorizado em 4 tipos:</p>
+<p>No campo “<strong>Reason</strong>”, você deverá indicar o motivo pelo qual o merchant está autorizando uma transação com credencias já armazenadas anteriormente (modelo MIT - Merchant Initiated Transaction). Trata-se de um dado obrigatório nesse modelo. São eles:</p>
 
-<p><strong>1. Compra pontual com credenciais armazenadas</strong>: transações eventuais de um cliente que já realizou uma compra em um estabelecimento e armazenou os dados do seu cartão (credenciais) nesse mesmo estabelecimento para facilitar as compras futuras. Neste caso não há nenhuma periodicidade e nem recorrência pré-definida. Neste caso o campo reason deve ser preenchido como <strong>“CredentialOnFile”</strong>.</p>
+<p>a) <strong>Transação recorrente</strong>: transações geradas seguindo uma recorrência pré-definida no momento da primeira transação. Neste caso a transação é gerada sem a necessidade de nenhuma intervenção por parte do cliente, por exemplo assinatura de serviços online e plano de celular. Neste caso o campo reason deve ser preenchido como “<strong>Recurring</strong>”.</p>
 
-<p><strong>2. Transação recorrente</strong>: transações geradas seguindo uma recorrência pré-definida no momento da primeira transação. Neste caso a transação é gerada sem a necessidade de nenhuma intervenção por parte do cliente, por exemplo assinatura de serviços online e plano de celular. Neste caso o campo reason deve ser preenchido como <strong>“Recurring”</strong>.</p>
+<p>b) <strong>Transação recorrente sem periodicidade</strong>: este tipo de transação similarmente a transação recorrente, é gerado sem a intervenção do cliente, porém não há uma periodicidade pré-definida. Ela é gerada sempre que o cliente consome o produto ou serviço, por exemplo aplicativos de transporte e de aluguel de bicicletas. Neste caso o campo reason deve ser preenchido como “<strong>Unscheduled</strong>”.</p>
 
-<p><strong>3. Transação recorrente sem periodicidade</strong>: este tipo de transação similarmente a transação recorrente, é gerado sem a intervenção do cliente, porém não há uma periodicidade pré-definida. Ela é gerada sempre que o cliente consome o produto ou serviço, por exemplo aplicativos de transporte e de aluguel de bicicletas. Neste caso o campo reason deve ser preenchido como <strong>“UnscheduledCredentialOnFile”</strong></p>
+<p>c) <strong>Compra parcelada em transações</strong>: neste tipo de transação, diferente do parcelamento tradicional, não há a pré-autorização do valor total da compra no cartão do cliente. Ao invés de inibir o valor total no cartão do cliente e efetuar a captura parcelada, neste caso cada parcela gera uma nova transação na periodicidade acordada até se chegar ao valor total. Por exemplo, uma academia que vende uma afiliação anual e parcela o pagamento mensalmente. Neste caso o campo reason deve ser preenchido como “<strong>Installments</strong>”.</p>
+
+<p>Obs.: para compras eventuais e/ou pontuais com credenciais armazenadas e inciadas pelo portador do cartão (modelo CIT - Cardholder Initiated Transaction), o campo “Reason” não será utilizado.</p>
+
+<p>Exemplos de integração:</p>
+
+<p>** Modelo CIT (card holder intiated): **</p>
+
+<p>1) Primeira compra com consentimento do cliente para armazenar credenciais para uso futuro:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Creditcard"</span><span class="p">:{</span><span class="w">
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="s2">"First"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>2) Compra eventual e/ou pontual usando credenciais armazenadas previamente:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Creditcard"</span><span class="p">:{</span><span class="w">
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>** Modelo MIT (merchant initiated): **</p>
+
+<p>OBS.: o campo “Reason” será obrigatório nesses casos!</p>
+
+<p>1) Compra recorrente com periodicidade pré-definida usando credenciais armazenadas previamente:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Creditcard"</span><span class="p">:{</span><span class="w">
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"Recurring"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>2) Compra recorrente sem periodicidade definida usando credenciais armazenadas previamente:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Creditcard"</span><span class="p">:{</span><span class="w">
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>3) Compra parcelada em transações:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Creditcard"</span><span class="p">:{</span><span class="w">
+         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"Installments"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 </div>
 
