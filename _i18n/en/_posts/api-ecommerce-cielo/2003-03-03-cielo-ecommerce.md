@@ -408,7 +408,7 @@ To create a transaction that will use a credit card, it is necessary to send a r
          "SecurityCode":"123",
          "Brand":"Visa"
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
      }
@@ -441,7 +441,7 @@ curl
          "SecurityCode":"123",
          "Brand":"Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
      }
@@ -490,7 +490,7 @@ curl
             "SaveCard": false,
             "Brand": "Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
         },
@@ -549,7 +549,7 @@ curl
             "SaveCard": false,
             "Brand": "Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
         },
@@ -651,7 +651,7 @@ To create a transaction that will use a credit card, it is necessary to send a r
          "SaveCard":"false",
          "Brand":"Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
      }
@@ -711,7 +711,7 @@ curl
          "SaveCard":"false",
          "Brand":"Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
      }
@@ -809,7 +809,7 @@ curl
             "SaveCard": false,
             "Brand": "Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
         },
@@ -886,7 +886,7 @@ curl
             "SaveCard": false,
             "Brand": "Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
         },
@@ -964,7 +964,7 @@ To create a transaction with authentication that will use a credit card, it is n
       "SecurityCode":"123",
       "Brand":"Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
      }
@@ -999,7 +999,7 @@ curl
          "SecurityCode":"123",
          "Brand":"Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
       }
@@ -1053,7 +1053,7 @@ curl
    "SaveCard":false,
    "Brand":"Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
   },
@@ -1105,7 +1105,7 @@ curl
    "SaveCard":false,
    "Brand":"Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
   },
@@ -1196,7 +1196,7 @@ To create a sale with credit card and fraud analysis, it is necessary to submit 
          "SecurityCode":"023",
          "Brand":"Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
      },
@@ -1313,7 +1313,7 @@ curl
          "SecurityCode":"023",
          "Brand":"Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
      },
@@ -1506,7 +1506,7 @@ curl
             "SaveCard": false,
             "Brand": "Visa".
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
         },
@@ -1664,7 +1664,7 @@ curl
             "SaveCard": false,
             "Brand": "Visa",
          "CardOnFile":{
-            "Used": "Used",
+            "Usage": "Used",
             "Reason": "Unscheduled"
          }
         },
