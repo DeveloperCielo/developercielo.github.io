@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-04-25T18:51:09+00:00</updated>
+    <updated>2019-04-25T18:52:15+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16858,7 +16858,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Condicional&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Parcelamento através da recorrência&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17485,7 +17485,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Condicional&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Parcelamento através da recorrência&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17928,7 +17928,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Condicional&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Parcelamento através da recorrência&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
