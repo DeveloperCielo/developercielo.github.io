@@ -1052,7 +1052,7 @@ curl
     "amount": 101,
     "discount_amount": 0,
     "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03",
-    "created_date": "12/09/2017 14:38:56",
+    "created_date": "12-09-2017 14:38:56",
     "customer_name": "Test Test",
     "customer_phone": "21987654321",
     "customer_identity": "84261300206",
