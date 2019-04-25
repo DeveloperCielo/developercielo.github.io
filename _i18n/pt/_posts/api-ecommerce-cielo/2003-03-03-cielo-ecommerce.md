@@ -399,7 +399,7 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
      }
    }
@@ -448,7 +448,7 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
         },
         "ProofOfSale": "674532",
@@ -507,7 +507,7 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
         },
         "ProofOfSale": "674532",
@@ -609,7 +609,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
          "Brand":"Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
      }
    }
@@ -669,7 +669,7 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
      }
    }
@@ -767,7 +767,7 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
         },
         "ProofOfSale": "674532",
@@ -844,7 +844,7 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
         },
         "ProofOfSale": "674532",
@@ -922,7 +922,7 @@ Para criar uma transação com autenticação que utilizará cartão de crédito
             "Brand":"Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
         }
     }
@@ -957,7 +957,7 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
       }
    }
@@ -1011,7 +1011,7 @@ curl
             "Brand":"Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
         },
         "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
@@ -1063,7 +1063,7 @@ curl
             "Brand":"Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
         },
         "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
