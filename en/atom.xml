@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-04-25T18:13:44+00:00</updated>
+    <updated>2019-04-25T18:22:46+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -15446,7 +15446,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Used&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -15456,8 +15456,8 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Indicates the purpose of credential storage.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of credential storage, case the value of field “Usage” is “Used” &lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -16073,7 +16073,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Used&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -16083,8 +16083,8 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Indicates the purpose of credential storage.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of credential storage, case the value of field “Usage” is “Used” &lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -16516,7 +16516,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Used&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -16526,8 +16526,8 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Indicates the purpose of credential storage.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of credential storage, case the value of field “Usage” is “Used” &lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17236,7 +17236,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Used&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -17246,8 +17246,8 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Indicates the purpose of credential storage.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of credential storage, case the value of field “Usage” is “Used” &lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Provider&lt;/code&gt;&lt;/td&gt;
