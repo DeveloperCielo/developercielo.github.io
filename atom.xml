@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-04-24T17:24:58+00:00</updated>
+    <updated>2019-04-25T15:30:14+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -41841,7 +41841,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;created_date&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Data da criação do pedido - &lt;code class=&quot;highlighter-rouge&quot;&gt;dd/MM/yyyy HH:mm:ss&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data da criação do pedido - &lt;code class=&quot;highlighter-rouge&quot;&gt;dd-MM-yyyy HH:mm:ss&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Alfanumérico&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
     &lt;/tr&gt;
