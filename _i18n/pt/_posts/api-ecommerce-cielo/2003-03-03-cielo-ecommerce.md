@@ -366,7 +366,7 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
          "Brand":"Visa",
          "CardOnFile":{
             "Usege": "Used",
-            "Reason":"CredentialOnFile"
+            "Reason":"Unscheduled"
          }
      }
    }
