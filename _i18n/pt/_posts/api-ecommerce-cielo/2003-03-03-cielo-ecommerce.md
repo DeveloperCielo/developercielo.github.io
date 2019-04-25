@@ -364,8 +364,8 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
      }
@@ -397,8 +397,8 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
      }
@@ -423,8 +423,8 @@ curl
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`CreditCard.StoredCredentials.Used`|Booleano|-|Não|**true** se o cartão foi armazenado e é seu primeiro uso.<br>**false** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
+|`CreditCard.CardOnFile.Usege`|Texto|-|Não|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.CardOnFile.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
 
 #### Resposta
 
@@ -446,8 +446,8 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
         },
@@ -505,8 +505,8 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
         },
@@ -607,8 +607,8 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
          "SecurityCode":"123",
          "SaveCard":"false",
          "Brand":"Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
      }
@@ -667,8 +667,8 @@ curl
          "SecurityCode":"123",
          "SaveCard":"false",
          "Brand":"Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
      }
@@ -720,8 +720,8 @@ curl
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`CreditCard.StoredCredentials.Used`|Booleano|-|Não|**true** se o cartão foi armazenado e é seu primeiro uso.<br>**false** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
+|`CreditCard.CardOnFile.Usege`|Texto|-|Não|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.CardOnFile.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
 
 #### Resposta
 
@@ -765,8 +765,8 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
         },
@@ -842,8 +842,8 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
         },
@@ -920,8 +920,8 @@ Para criar uma transação com autenticação que utilizará cartão de crédito
             "ExpirationDate":"12/2030",
             "SecurityCode":"123",
             "Brand":"Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
         }
@@ -955,8 +955,8 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
       }
@@ -983,8 +983,8 @@ curl
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
-|`CreditCard.StoredCredentials.Used`|Booleano|-|Não|**true** se o cartão foi armazenado e é seu primeiro uso.<br>**false** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|`CreditCard.StoredCredentials.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões.<br>**CredentialOnFile** - Compra pontual (ex. compra com um clique)<br>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**UnscheduledCredentialOnFile** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
+|`CreditCard.CardOnFile.Usege`|Texto|-|Não|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.CardOnFile.Reason`|Texto|-|Não|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
 
 #### Resposta
 
@@ -1009,8 +1009,8 @@ curl
             "ExpirationDate":"12/2030",
             "SaveCard":false,
             "Brand":"Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
         },
@@ -1061,8 +1061,8 @@ curl
             "ExpirationDate":"12/2030",
             "SaveCard":false,
             "Brand":"Visa",
-         "StoredCredentials":{
-            "Used":false,
+         "CardOnFile":{
+            "Usege": "Used",
             "Reason":"CredentialOnFile"
          }
         },
