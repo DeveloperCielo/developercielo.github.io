@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-04-25T15:30:14+00:00</updated>
+    <updated>2019-04-25T17:22:09+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16557,8 +16557,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -16589,8 +16589,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
          &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;:false,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -16709,18 +16709,18 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Used&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Booleano&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;true&lt;/strong&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;strong&gt;false&lt;/strong&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Reason&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usege&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;First&lt;/strong&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -16744,8 +16744,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -16802,8 +16802,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;:false,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
@@ -16968,8 +16968,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -17027,8 +17027,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
          &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;:false,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -17336,18 +17336,18 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Used&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Booleano&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;true&lt;/strong&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;strong&gt;false&lt;/strong&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Reason&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usege&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;First&lt;/strong&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17393,8 +17393,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -17469,8 +17469,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;:false,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
@@ -17611,8 +17611,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -17645,8 +17645,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
          &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;:false,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
       &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -17779,18 +17779,18 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Used&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Booleano&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;true&lt;/strong&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;strong&gt;false&lt;/strong&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.StoredCredentials.Reason&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usege&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Indica o propósito de armazenamento de cartões.&lt;br /&gt;&lt;strong&gt;CredentialOnFile&lt;/strong&gt; - Compra pontual (ex. compra com um clique)&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;UnscheduledCredentialOnFile&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;First&lt;/strong&gt; se o cartão foi armazenado e é seu primeiro uso.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Compra recorrente programada (ex. assinaturas)&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Compra recorrente sem agendamento (ex. aplicativos de serviços)&lt;br /&gt;&lt;a href=&quot;https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas&quot;&gt;Veja Mais&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -17817,8 +17817,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -17868,8 +17868,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;:false,
             &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;StoredCredentials&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;:false,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Usege&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CredentialOnFile&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
