@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-04-30T14:26:08+00:00</updated>
+    <updated>2019-05-06T12:21:01+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -196,7 +196,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
   &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
   &quot;technology&quot;:{
      &quot;type&quot;:&quot;QRCODE&quot;,
-     &quot;identifier&quot;:&quot;3ac43b36-0d92-48a7-901b-d3a527d9c3fe&quot;
+     &quot;identifier&quot;:&quot;1E9D3006AD33794B&quot;
   },
   &quot;operationType&quot;:{
      &quot;id&quot;:1
