@@ -8641,7 +8641,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 186    | The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments) | Meio de pagamento não suporta o comando enviado                                               |
 | 187    | ExtraData Collection contains one or more duplicated names                                            
 
-### Códigos de Retorno Zero Auth
+### Códigos de Retorno
 
 | Código Resposta | Definição                                     | Significado                                                                 | Ação                                                              | Permite Retentativa |
 |-----------------|-----------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
