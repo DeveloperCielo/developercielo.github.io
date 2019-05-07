@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-06T12:21:01+00:00</updated>
+    <updated>2019-05-07T12:56:34+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33860,7 +33860,7 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;códigos-de-retorno-zero-auth&quot;&gt;Códigos de Retorno Zero Auth&lt;/h3&gt;
+&lt;h3 id=&quot;códigos-de-retorno&quot;&gt;Códigos de Retorno&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
