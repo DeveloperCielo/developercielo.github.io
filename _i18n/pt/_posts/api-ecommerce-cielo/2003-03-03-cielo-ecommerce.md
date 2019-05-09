@@ -8547,10 +8547,6 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:
 ]
 ```
 
-### Códigos de Erros da API
-
-Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.
-
 | Código | Mensagem                                                                                                       | Descrição                                                                                     |
 |--------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | 0      | Internal error                                                                                                 | Dado enviado excede o tamanho do campo                                                        |
@@ -8640,6 +8636,58 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 185    | Brand is not supported by selected provider                                                                    | Bandeira não suportada pela API Cielo                                                         |
 | 186    | The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments) | Meio de pagamento não suporta o comando enviado                                               |
 | 187    | ExtraData Collection contains one or more duplicated names                                            
+| 188    | Avs with CPF invalid                                            
+| 189    | Avs with length of street exceeded                                            
+| 190    | Avs with length of number exceeded                                            
+| 191    | Avs with length of district exceeded                                            
+| 192    | Avs with zip code invalid                                            
+| 193    | Split Amount must be greater than zero                                            
+| 194    | Split Establishment is Required                                            
+| 195    | The PlataformId is required                                            
+| 196    | DeliveryAddress is required                                            
+| 197    | Street is required                                            
+| 198    | Number is required                                            
+| 199    | ZipCode is required                                            
+| 200    | City is required                                            
+| 201    | State is required                                            
+| 202    | District is required                                            
+| 203    | Cart item Name is required                                            
+| 204    | Cart item Quantity is required                                            
+| 205    | Cart item type is required                                            
+| 206    | Cart item name length exceeded                                            
+| 207    | Cart item description length exceeded                                            
+| 208    | Cart item sku length exceeded                                            
+| 209    | Shipping addressee sku length exceeded                                            
+| 210    | Shipping data cannot be null                                            
+| 211    | WalletKey is invalid                                            
+| 212    | Merchant Wallet Configuration not found                                            
+| 213    | Credit Card Number is invalid                                            
+| 214    | Credit Card Holder Must Have Only Letters                                            
+| 215    | Agency is required in Boleto Credential                                            
+| 216    | Customer IP address is invalid                                            
+| 300    | MerchantId was not found                                            
+| 301    | Request IP is not allowed                                            
+| 302    | Sent MerchantOrderId is duplicated                                            
+| 303    | Sent OrderId does not exist                                            
+| 304    | Customer Identity is required                                            
+| 306    | Merchant is blocked                                            
+| 307    | Transaction not found                                            
+| 308    | Transaction not available to capture                                            
+| 309    | Transaction not available to void                                            
+| 310    | Payment method doest not support this operation                                            
+| 311    | Refund is not enabled for this merchant                                            
+| 312    | Transaction not available to refund                                            
+| 313    | Recurrent Payment not found                                            
+| 314    | Invalid Integration                                            
+| 315    | Cannot change NextRecurrency with pending payment                                            
+| 316    | Cannot set NextRecurrency to past date                                            
+| 317    | Invalid Recurrency Day                                            
+| 318    | No transaction found                                            
+| 319    | Smart recurrency is not enabled                                            
+| 320    | Can not Update Affiliation Because this Recurrency not Affiliation saved                                            
+| 321    | Can not set EndDate to before next recurrency                                            
+| 322    | Zero Dollar Auth is not enabled                                            
+| 323    | Bin Query is not enabled                                            
 
 ### Códigos de Retorno
 
