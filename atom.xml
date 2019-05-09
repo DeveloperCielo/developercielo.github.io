@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-07T12:56:34+00:00</updated>
+    <updated>2019-05-09T17:55:10+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7305,7 +7305,7 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 &lt;h2 id=&quot;arquitetura-1&quot;&gt;Arquitetura&lt;/h2&gt;
 
-&lt;p&gt;Para entender a arquitetura da Cielo Store é necessário entender os 3 conceitos abaixo:&lt;/p&gt;
+&lt;p&gt;Para entender a arquitetura da Cielo Store é necessário entender os conceitos abaixo:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -7314,17 +7314,12 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
  &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#dev-console&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Aplicativo Próprios&lt;/strong&gt;
- Aplicativos desenvolvidos para serem distribuídos a clientes específicos. Os aplicativos próprios não estarão disponíveis para download na Cielo Store.
- &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#aplicativos-próprios&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Loja Privada&lt;/strong&gt;
  Modelo específico utilizado para distribuição de aplicativos próprios para os lojistas.
  &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#loja-privada&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Aplicativos Públicos&lt;/strong&gt;
+    &lt;p&gt;&lt;strong&gt;Loja Publica&lt;/strong&gt;
  Aplicativos desenvolvidos para serem disponibilizados na loja de aplicativo Cielo Store. Esses aplicativos poderão ser baixados por estabelecimentos comerciais (lojistas) acessando a Cielo Store via Cielo LIO.
  &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#aplicativos-públicos&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -7616,7 +7611,7 @@ Ao clicar nela, aparecerá um QR Code. Nesse momento, basta abrir o aplicativo T
 &lt;strong&gt;payment.status:&lt;/strong&gt; “CANCELED” (Pagamentos cancelados)
 &lt;strong&gt;payment.status:&lt;/strong&gt; “CIELO_PURCHASE” (pagamentos isentos(compras de teste/desenvolvimento))&lt;/p&gt;
 
-&lt;h2 id=&quot;aplicativos-próprios&quot;&gt;Aplicativos Próprios&lt;/h2&gt;
+&lt;h2 id=&quot;aplicativos-próprios-loja-privada&quot;&gt;Aplicativos Próprios (Loja Privada)&lt;/h2&gt;
 
 &lt;p&gt;Os aplicativos próprios atendem especificamente aqueles desenvolvedores que desejam disponibilizar seu aplicativo apenas para alguns lojistas específicos. O aplicativo próprio não é disponibilizado na Cielo Store e nem utilizado por outros lojistas que não tenham sido solicitados pelo desenvolvedor.&lt;/p&gt;
 
@@ -7651,7 +7646,7 @@ Ao clicar nela, aparecerá um QR Code. Nesse momento, basta abrir o aplicativo T
 
 &lt;p&gt;Clique na aba Ajuda -&amp;gt; Minha LIO -&amp;gt; Buscar atualizações&lt;/p&gt;
 
-&lt;h2 id=&quot;aplicativos-públicos&quot;&gt;Aplicativos Públicos&lt;/h2&gt;
+&lt;h2 id=&quot;aplicativos-públicos-loja-publica&quot;&gt;Aplicativos Públicos (Loja Publica)&lt;/h2&gt;
 
 &lt;p&gt;Os aplicativos públicos são indicados para aqueles desenvolvedores e parceiros que desejam disponibilizar e escalar sua aplicação e permitir o download em todas os equipamentos de Cielo LIO distribuídos nos estabelecimentos comerciais (lojistas) no Brasil via aplicativo da Cielo Store.&lt;/p&gt;
 
