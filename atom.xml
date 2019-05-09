@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-09T18:20:03+00:00</updated>
+    <updated>2019-05-09T18:26:01+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7316,12 +7316,12 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Loja Privada&lt;/strong&gt;
  Modelo específico utilizado para distribuição de aplicativos próprios para os lojistas.
- &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#aplicativos-pr%C3%B3prios-(loja-privada)&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
+ &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#loja-privada&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Loja Publica&lt;/strong&gt;
  Aplicativos desenvolvidos para serem disponibilizados na loja de aplicativo Cielo Store. Esses aplicativos poderão ser baixados por estabelecimentos comerciais (lojistas) acessando a Cielo Store via Cielo LIO.
- [Saiba mais] (https://developercielo.github.io/manual/cielo-lio#aplicativos-p%C3%BAblicos-(loja-publica))&lt;/p&gt;
+ [Saiba mais] (https://developercielo.github.io/manual/cielo-lio#loja-publica)&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
