@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-09T17:55:10+00:00</updated>
+    <updated>2019-05-09T18:20:03+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7316,12 +7316,12 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Loja Privada&lt;/strong&gt;
  Modelo específico utilizado para distribuição de aplicativos próprios para os lojistas.
- &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#loja-privada&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
+ &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#aplicativos-pr%C3%B3prios-(loja-privada)&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Loja Publica&lt;/strong&gt;
  Aplicativos desenvolvidos para serem disponibilizados na loja de aplicativo Cielo Store. Esses aplicativos poderão ser baixados por estabelecimentos comerciais (lojistas) acessando a Cielo Store via Cielo LIO.
- &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#aplicativos-públicos&quot;&gt;Saiba mais&lt;/a&gt;&lt;/p&gt;
+ [Saiba mais] (https://developercielo.github.io/manual/cielo-lio#aplicativos-p%C3%BAblicos-(loja-publica))&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -7378,18 +7378,6 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 &lt;p&gt;Nosso time irá realizar os procedimentos necessários e então, todos os aplicativos publicados pelo desenvolvedor que estejam no status de Desenvolvimento poderão ser baixados em sua Cielo LIO de desenvolvimento.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a habilitação de sua LIO para LIO de Dev.&lt;/p&gt;
-
-&lt;h3 id=&quot;loja-privada&quot;&gt;Loja Privada&lt;/h3&gt;
-
-&lt;p&gt;A loja privada foi um modelo criado para permitir a distribuição dos aplicativos próprios desenvolvidos pelo parceiro. É necessário solicitar a criação da Loja Privada para então ser possível fazer o upload de um aplicativo próprio no Dev Console.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a criação da Loja Privada.&lt;/p&gt;
-
-&lt;p&gt;A partir da Loja Privada criada, o desenvolvedor poderá publicar seu aplicativo no Dev Console selecionando sua loja privada.&lt;/p&gt;
-
-&lt;p&gt;A loja privada é essencial para realizar a distribuição de aplicativos próprios lojistas específicos.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-próprios&quot;&gt;Saiba Mais&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;promover-aplicativo-para-desenvolvimento&quot;&gt;Promover Aplicativo para Desenvolvimento&lt;/h3&gt;
 
@@ -7611,13 +7599,17 @@ Ao clicar nela, aparecerá um QR Code. Nesse momento, basta abrir o aplicativo T
 &lt;strong&gt;payment.status:&lt;/strong&gt; “CANCELED” (Pagamentos cancelados)
 &lt;strong&gt;payment.status:&lt;/strong&gt; “CIELO_PURCHASE” (pagamentos isentos(compras de teste/desenvolvimento))&lt;/p&gt;
 
-&lt;h2 id=&quot;aplicativos-próprios-loja-privada&quot;&gt;Aplicativos Próprios (Loja Privada)&lt;/h2&gt;
+&lt;h2 id=&quot;loja-privada&quot;&gt;Loja Privada&lt;/h2&gt;
 
-&lt;p&gt;Os aplicativos próprios atendem especificamente aqueles desenvolvedores que desejam disponibilizar seu aplicativo apenas para alguns lojistas específicos. O aplicativo próprio não é disponibilizado na Cielo Store e nem utilizado por outros lojistas que não tenham sido solicitados pelo desenvolvedor.&lt;/p&gt;
+&lt;p&gt;A loja privada foi um modelo criado para permitir a distribuição dos aplicativos próprios desenvolvidos pelo parceiro. É necessário solicitar a criação da Loja Privada para então ser possível fazer o upload de um aplicativo próprio no Dev Console.&lt;/p&gt;
 
-&lt;p&gt;Para conhecer mais sobre o modelo de distribuição de aplicativos próprios, &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-próprios&quot;&gt;CLIQUE AQUI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a criação da Loja Privada.&lt;/p&gt;
 
-&lt;h3 id=&quot;upload-de-novos-aplicativos-próprios-e-novas-versões&quot;&gt;Upload de novos Aplicativos Próprios e novas versões&lt;/h3&gt;
+&lt;p&gt;A partir da Loja Privada criada, o desenvolvedor poderá publicar seu aplicativo no Dev Console selecionando sua loja privada.&lt;/p&gt;
+
+&lt;p&gt;A loja privada é essencial para realizar a distribuição de aplicativos próprios lojistas específicos.&lt;/p&gt;
+
+&lt;h3 id=&quot;upload-de-novos-aplicativos-e-novas-versões-na-loja-privada&quot;&gt;Upload de novos Aplicativos e novas versões na loja privada&lt;/h3&gt;
 
 &lt;p&gt;Para realizar o upload de novos aplicativos próprios, acesse o Dev Console e adicione um novo aplicativo selecionando a opção de loja privada e em seguida selecione a loja privada referente a sua empresa.&lt;/p&gt;
 
@@ -7634,19 +7626,17 @@ Ao clicar nela, aparecerá um QR Code. Nesse momento, basta abrir o aplicativo T
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;distribuição-de-aplicativos-próprios&quot;&gt;Distribuição de Aplicativos Próprios&lt;/h3&gt;
+&lt;h3 id=&quot;distribuição-de-aplicativos-na-loja-privada&quot;&gt;Distribuição de Aplicativos na loja privada&lt;/h3&gt;
 
-&lt;p&gt;Aqueles desenvolvedores que optarem por desenvolver aplicativos próprios e distribuir apenas para lojistas específicos devem solicitar via canal do Portal de Desenvolvedores informando quais os números ECs (número com 16 dígitos) e lógicos das LIOs que devem receber o aplicativo.&lt;/p&gt;
+&lt;p&gt;Aqueles desenvolvedores que optarem por desenvolver aplicativos próprios e distribuir apenas para lojistas específicos devem efetuar o vinculo do EC do cliente a sua loja privada, pelo própio DevConsole&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Clique Aqui&lt;/a&gt; para solicitar a distribuição de seu aplicativo.&lt;/p&gt;
-
-&lt;h3 id=&quot;download-de-aplicativo-próprios-na-cielo-lio&quot;&gt;Download de Aplicativo Próprios na Cielo LIO&lt;/h3&gt;
+&lt;h3 id=&quot;download-de-aplicativo-da-loja-privada-na-lio&quot;&gt;Download de Aplicativo da loja privada na LIO&lt;/h3&gt;
 
 &lt;p&gt;Para realizar o download de aplicativos próprios na Cielo LIO, execute o seguinte procedimento&lt;/p&gt;
 
 &lt;p&gt;Clique na aba Ajuda -&amp;gt; Minha LIO -&amp;gt; Buscar atualizações&lt;/p&gt;
 
-&lt;h2 id=&quot;aplicativos-públicos-loja-publica&quot;&gt;Aplicativos Públicos (Loja Publica)&lt;/h2&gt;
+&lt;h2 id=&quot;loja-publica&quot;&gt;Loja Publica&lt;/h2&gt;
 
 &lt;p&gt;Os aplicativos públicos são indicados para aqueles desenvolvedores e parceiros que desejam disponibilizar e escalar sua aplicação e permitir o download em todas os equipamentos de Cielo LIO distribuídos nos estabelecimentos comerciais (lojistas) no Brasil via aplicativo da Cielo Store.&lt;/p&gt;
 
