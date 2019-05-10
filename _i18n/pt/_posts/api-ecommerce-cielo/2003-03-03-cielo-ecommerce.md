@@ -8554,38 +8554,38 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | Código | Mensagem                                                                                                       | Descrição                                                                                     |
 |--------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | 0      | Internal error                                                                                                 | Dado enviado excede o tamanho do campo                                                        |
-| 100    | RequestId is required                                                                                          | Campo enviado está vazio ou invalido                                                          |
-| 101    | MerchantId is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 102    | Payment Type is required                                                                                       | Campo enviado está vazio ou invalido                                                          |
+| 100    | RequestId is required                                                                                          | Campo enviado está vazio ou inválido                                                          |
+| 101    | MerchantId is required                                                                                         | Campo enviado está vazio ou inválido                                                          |
+| 102    | Payment Type is required                                                                                       | Campo enviado está vazio ou inválido                                                          |
 | 103    | Payment Type can only contain letters                                                                          | Caracteres especiais não permitidos                                                           |
-| 104    | Customer Identity is required                                                                                  | Campo enviado está vazio ou invalido                                                          |
-| 105    | Customer Name is required                                                                                      | Campo enviado está vazio ou invalido                                                          |
-| 106    | Transaction ID is required                                                                                     | Campo enviado está vazio ou invalido                                                          |
+| 104    | Customer Identity is required                                                                                  | Campo enviado está vazio ou inválido                                                          |
+| 105    | Customer Name is required                                                                                      | Campo enviado está vazio ou inválido                                                          |
+| 106    | Transaction ID is required                                                                                     | Campo enviado está vazio ou inválido                                                          |
 | 107    | OrderId is invalid or does not exists                                                                          | Campo enviado excede o tamanho ou contem caracteres especiais                                 |
 | 108    | Amount must be greater or equal to zero                                                                        | Valor da transação deve ser maior que "0"                                                     |
-| 109    | Payment Currency is required                                                                                   | Campo enviado está vazio ou invalido                                                          |
-| 110    | Invalid Payment Currency                                                                                       | Campo enviado está vazio ou invalido                                                          |
-| 111    | Payment Country is required                                                                                    | Campo enviado está vazio ou invalido                                                          |
-| 112    | Invalid Payment Country                                                                                        | Campo enviado está vazio ou invalido                                                          |
-| 113    | Invalid Payment Code                                                                                           | Campo enviado está vazio ou invalido                                                          |
+| 109    | Payment Currency is required                                                                                   | Campo enviado está vazio ou inválido                                                          |
+| 110    | Invalid Payment Currency                                                                                       | Campo enviado está vazio ou inválido                                                          |
+| 111    | Payment Country is required                                                                                    | Campo enviado está vazio ou inválido                                                          |
+| 112    | Invalid Payment Country                                                                                        | Campo enviado está vazio ou inválido                                                          |
+| 113    | Invalid Payment Code                                                                                           | Campo enviado está vazio ou inválido                                                          |
 | 114    | The provided MerchantId is not in correct format                                                               | O MerchantId enviado não é um GUID                                                            |
 | 115    | The provided MerchantId was not found                                                                          | O MerchantID não existe ou pertence a outro ambiente (EX: Sandbox)                            |
 | 116    | The provided MerchantId is blocked                                                                             | Loja bloqueada, entre em contato com o suporte Cielo                                          |
-| 117    | Credit Card Holder is required                                                                                 | Campo enviado está vazio ou invalido                                                          |
-| 118    | Credit Card Number is required                                                                                 | Campo enviado está vazio ou invalido                                                          |
+| 117    | Credit Card Holder is required                                                                                 | Campo enviado está vazio ou inválido                                                          |
+| 118    | Credit Card Number is required                                                                                 | Campo enviado está vazio ou inválido                                                          |
 | 119    | At least one Payment is required                                                                               | Nó "Payment" não enviado                                                                      |
 | 120    | Request IP not allowed. Check your IP White List                                                               | IP bloqueado por questões de segurança                                                        |
 | 121    | Customer is required                                                                                           | Nó "Customer" não enviado                                                                     |
-| 122    | MerchantOrderId is required                                                                                    | Campo enviado está vazio ou invalido                                                          |
+| 122    | MerchantOrderId is required                                                                                    | Campo enviado está vazio ou inválido                                                          |
 | 123    | Installments must be greater or equal to one                                                                   | Numero de parcelas deve ser superior a 1                                                      |
-| 124    | Credit Card is Required                                                                                        | Campo enviado está vazio ou invalido                                                          |
-| 125    | Credit Card Expiration Date is required                                                                        | Campo enviado está vazio ou invalido                                                          |
-| 126    | Credit Card Expiration Date is invalid                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 124    | Credit Card is Required                                                                                        | Campo enviado está vazio ou inválido                                                          |
+| 125    | Credit Card Expiration Date is required                                                                        | Campo enviado está vazio ou inválido                                                          |
+| 126    | Credit Card Expiration Date is invalid                                                                         | Campo enviado está vazio ou inválido                                                          |
 | 127    | You must provide CreditCard Number                                                                             | Numero do cartão de crédito é obrigatório                                                     |
 | 128    | Card Number length exceeded                                                                                    | Numero do cartão superiro a 16 digitos                                                        |
-| 129    | Affiliation not found                                                                                          | Meio de pagamento não vinculado a loja ou Provider invalido                                   |
+| 129    | Affiliation not found                                                                                          | Meio de pagamento não vinculado a loja ou Provider inválido                                   |
 | 130    | Could not get Credit Card                                                                                      | ---                                                                                           |
-| 131    | MerchantKey is required                                                                                        | Campo enviado está vazio ou invalido                                                          |
+| 131    | MerchantKey is required                                                                                        | Campo enviado está vazio ou inválido                                                          |
 | 132    | MerchantKey is invalid                                                                                         | O Merchantkey enviado não é um válido                                                         |
 | 133    | Provider is not supported for this Payment Type                                                                | Provider enviado não existe                                                                   |
 | 134    | FingerPrint length exceeded                                                                                    | Dado enviado excede o tamanho do campo                                                        |
@@ -8620,78 +8620,78 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 163    | Return Url is required                                                                                         | URL de retorno não é valida - Não é aceito paginação ou extenções (EX .PHP) na URL de retorno |
 | 166    | AuthorizeNow is required                                                                                       | ---                                                                                           |
 | 167    | Antifraud not configured                                                                                       | Antifraude não vinculado ao cadastro do lojista                                               |
-| 168    | Recurrent Payment not found                                                                                    | Recorrencia não encontrada                                                                    |
-| 169    | Recurrent Payment is not active                                                                                | Recorrencia não está ativa. Execução paralizada                                               |
+| 168    | Recurrent Payment not found                                                                                    | Recorrência não encontrada                                                                    |
+| 169    | Recurrent Payment is not active                                                                                | Recorrência não está ativa. Execução paralizada                                               |
 | 170    | Cartão Protegido not configured                                                                                | Cartão protegido não vinculado ao cadastro do lojista                                         |
 | 171    | Affiliation data not sent                                                                                      | Falha no processamento do pedido - Entre em contato com o suporte Cielo                       |
 | 172    | Credential Code is required                                                                                    | Falha na validação das credenciadas enviadas                                                  |
 | 173    | Payment method is not enabled                                                                                  | Meio de pagamento não vinculado ao cadastro do lojista                                        |
-| 174    | Card Number is required                                                                                        | Campo enviado está vazio ou invalido                                                          |
-| 175    | EAN is required                                                                                                | Campo enviado está vazio ou invalido                                                          |
-| 176    | Payment Currency is not supported                                                                              | Campo enviado está vazio ou invalido                                                          |
-| 177    | Card Number is invalid                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 178    | EAN is invalid                                                                                                 | Campo enviado está vazio ou invalido                                                          |
-| 179    | The max number of installments allowed for recurring payment is 1                                              | Campo enviado está vazio ou invalido                                                          |
+| 174    | Card Number is required                                                                                        | Campo enviado está vazio ou inválido                                                          |
+| 175    | EAN is required                                                                                                | Campo enviado está vazio ou inválido                                                          |
+| 176    | Payment Currency is not supported                                                                              | Campo enviado está vazio ou inválido                                                          |
+| 177    | Card Number is invalid                                                                                         | Campo enviado está vazio ou inválido                                                          |
+| 178    | EAN is invalid                                                                                                 | Campo enviado está vazio ou inválido                                                          |
+| 179    | The max number of installments allowed for recurring payment is 1                                              | Campo enviado está vazio ou inválido                                                          |
 | 180    | The provided Card PaymentToken was not found                                                                   | Token do Cartão protegido não encontrado                                                      |
 | 181    | The MerchantIdJustClick is not configured                                                                      | Token do Cartão protegido bloqueado                                                           |
 | 182    | Brand is required                                                                                              | Bandeira do cartão não enviado                                                                |
-| 183    | Invalid customer bithdate                                                                                      | Data de nascimento invalida ou futura                                                         |
-| 184    | Request could not be empty                                                                                     | Falha no formado ta requisição. Verifique o código enviado                                    |
+| 183    | Invalid customer bithdate                                                                                      | Data de nascimento inválida ou futura                                                         |
+| 184    | Request could not be empty                                                                                     | Falha no formado da requisição. Verifique o código enviado                                    |
 | 185    | Brand is not supported by selected provider                                                                    | Bandeira não suportada pela API Cielo                                                         |
 | 186    | The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments) | Meio de pagamento não suporta o comando enviado                                               |
-| 187    | ExtraData Collection contains one or more duplicated names                                            
-| 188    | Avs with CPF invalid                                            
-| 189    | Avs with length of street exceeded                                            
-| 190    | Avs with length of number exceeded                                            
-| 191    | Avs with length of district exceeded                                            
-| 192    | Avs with zip code invalid                                            
-| 193    | Split Amount must be greater than zero                                            
-| 194    | Split Establishment is Required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 195    | The PlataformId is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 196    | DeliveryAddress is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 197    | Street is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 198    | Number is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 199    | ZipCode is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 200    | City is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 201    | State is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 202    | District is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 203    | Cart item Name is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 204    | Cart item Quantity is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 205    | Cart item type is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 206    | Cart item name length exceeded                                            
-| 207    | Cart item description length exceeded                                            
-| 208    | Cart item sku length exceeded                                            
-| 209    | Shipping addressee sku length exceeded                                            
-| 210    | Shipping data cannot be null                                            
-| 211    | WalletKey is invalid                                            
-| 212    | Merchant Wallet Configuration not found                                            
-| 213    | Credit Card Number is invalid                                            
-| 214    | Credit Card Holder Must Have Only Letters                                            
-| 215    | Agency is required in Boleto Credential                                            
-| 216    | Customer IP address is invalid                                            
-| 300    | MerchantId was not found                                            
-| 301    | Request IP is not allowed                                            
-| 302    | Sent MerchantOrderId is duplicated                                            
-| 303    | Sent OrderId does not exist                                            
-| 304    | Customer Identity is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
-| 306    | Merchant is blocked                                                                                         | Merchant está bloqueado                                                          |
-| 307    | Transaction not found                                            
-| 308    | Transaction not available to capture                                            
-| 309    | Transaction not available to void                                            
-| 310    | Payment method doest not support this operation                                            
-| 311    | Refund is not enabled for this merchant                                            
-| 312    | Transaction not available to refund                                            
-| 313    | Recurrent Payment not found                                            
-| 314    | Invalid Integration                                            
-| 315    | Cannot change NextRecurrency with pending payment                                            
-| 316    | Cannot set NextRecurrency to past date                                            
-| 317    | Invalid Recurrency Day                                            
-| 318    | No transaction found                                            
-| 319    | Smart recurrency is not enabled                                            
-| 320    | Can not Update Affiliation Because this Recurrency not Affiliation saved                                            
-| 321    | Can not set EndDate to before next recurrency                                            
-| 322    | Zero Dollar Auth is not enabled                                            
-| 323    | Bin Query is not enabled                                                                                      
+| 187    | ExtraData Collection contains one or more duplicated names                                                     |                                                                                               |
+| 188    | Avs with CPF invalid                                                                                           |                                                                                               |
+| 189    | Avs with length of street exceeded                                                                             |                                                                                               |
+| 190    | Avs with length of number exceeded                                                                             |                                                                                               |
+| 191    | Avs with length of district exceeded                                                                           |                                                                                               |
+| 192    | Avs with zip code invalid                                                                                      |                                                                                               |
+| 193    | Split Amount must be greater than zero                                                                         |                                                                                               |
+| 194    | Split Establishment is Required                                                                                | Campo enviado está vazio ou inválido                                                          |
+| 195    | The PlataformId is required                                                                                    | Campo enviado está vazio ou inválido                                                          |
+| 196    | DeliveryAddress is required                                                                                    | Campo enviado está vazio ou inválido                                                          |
+| 197    | Street is required                                                                                             | Campo enviado está vazio ou inválido                                                          |
+| 198    | Number is required                                                                                             | Campo enviado está vazio ou inválido                                                          |
+| 199    | ZipCode is required                                                                                            | Campo enviado está vazio ou inválido                                                          |
+| 200    | City is required                                                                                               | Campo enviado está vazio ou inválido                                                          |
+| 201    | State is required                                                                                              | Campo enviado está vazio ou inválido                                                          |
+| 202    | District is required                                                                                           | Campo enviado está vazio ou inválido                                                          |
+| 203    | Cart item Name is required                                                                                     | Campo enviado está vazio ou inválido                                                          |
+| 204    | Cart item Quantity is required                                                                                 | Campo enviado está vazio ou inválido                                                          |
+| 205    | Cart item type is required                                                                                     | Campo enviado está vazio ou inválido                                                          |
+| 206    | Cart item name length exceeded                                                                                 |                                                                                               |
+| 207    | Cart item description length exceeded                                                                          |                                                                                               |
+| 208    | Cart item sku length exceeded                                                                                  |                                                                                               |
+| 209    | Shipping addressee sku length exceeded                                                                         |                                                                                               |
+| 210    | Shipping data cannot be null                                                                                   |                                                                                               |
+| 211    | WalletKey is invalid                                                                                           |                                                                                               |
+| 212    | Merchant Wallet Configuration not found                                                                        |                                                                                               |
+| 213    | Credit Card Number is invalid                                                                                  |                                                                                               |
+| 214    | Credit Card Holder Must Have Only Letters                                                                      |                                                                                               |
+| 215    | Agency is required in Boleto Credential                                                                        |                                                                                               |
+| 216    | Customer IP address is invalid                                                                                 |                                                                                               |
+| 300    | MerchantId was not found                                                                                       |                                                                                               |
+| 301    | Request IP is not allowed                                                                                      |                                                                                               |
+| 302    | Sent MerchantOrderId is duplicated                                                                             |                                                                                               |
+| 303    | Sent OrderId does not exist                                                                                    |                                                                                               |
+| 304    | Customer Identity is required                                                                                  | Campo enviado está vazio ou inválido                                                          |
+| 306    | Merchant is blocked                                                                                            | Merchant está bloqueado                                                                       |
+| 307    | Transaction not found                                                                                          |                                                                                               |
+| 308    | Transaction not available to capture                                                                           |                                                                                               |
+| 309    | Transaction not available to void                                                                              |                                                                                               |
+| 310    | Payment method doest not support this operation                                                                |                                                                                               |
+| 311    | Refund is not enabled for this merchant                                                                        |                                                                                               |
+| 312    | Transaction not available to refund                                                                            |                                                                                               |
+| 313    | Recurrent Payment not found                                                                                    |                                                                                               |
+| 314    | Invalid Integration                                                                                            |                                                                                               |
+| 315    | Cannot change NextRecurrency with pending payment                                                              |                                                                                               |
+| 316    | Cannot set NextRecurrency to past date                                                                         |                                                                                               |
+| 317    | Invalid Recurrency Day                                                                                         |                                                                                               |                                                                                              |
+| 318    | No transaction found                                                                                           |                                                                                               |
+| 319    | Smart recurrency is not enabled                                                                                |                                                                                               |
+| 320    | Can not Update Affiliation Because this Recurrency not Affiliation saved                                       |                                                                                               |
+| 321    | Can not set EndDate to before next recurrency                                                                  |                                                                                               |
+| 322    | Zero Dollar Auth is not enabled                                                                                |                                                                                               |
+| 323    | Bin Query is not enabled                                                                                       |                                                                                               |
 
 ### Códigos de Retorno
 
