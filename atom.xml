@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-09T21:55:15+00:00</updated>
+    <updated>2019-05-10T10:38:17+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33394,6 +33394,10 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h3 id=&quot;códigos-de-erros-da-api&quot;&gt;Códigos de Erros da API&lt;/h3&gt;
+
+&lt;p&gt;Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.&lt;/p&gt;
+
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -33871,62 +33875,62 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
     &lt;tr&gt;
       &lt;td&gt;194&lt;/td&gt;
       &lt;td&gt;Split Establishment is Required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;195&lt;/td&gt;
       &lt;td&gt;The PlataformId is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;196&lt;/td&gt;
       &lt;td&gt;DeliveryAddress is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;197&lt;/td&gt;
       &lt;td&gt;Street is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;198&lt;/td&gt;
       &lt;td&gt;Number is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;199&lt;/td&gt;
       &lt;td&gt;ZipCode is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;200&lt;/td&gt;
       &lt;td&gt;City is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;201&lt;/td&gt;
       &lt;td&gt;State is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;202&lt;/td&gt;
       &lt;td&gt;District is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;203&lt;/td&gt;
       &lt;td&gt;Cart item Name is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;204&lt;/td&gt;
       &lt;td&gt;Cart item Quantity is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;205&lt;/td&gt;
       &lt;td&gt;Cart item type is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;206&lt;/td&gt;
@@ -34006,12 +34010,12 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
     &lt;tr&gt;
       &lt;td&gt;304&lt;/td&gt;
       &lt;td&gt;Customer Identity is required&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Campo enviado está vazio ou invalido&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;306&lt;/td&gt;
       &lt;td&gt;Merchant is blocked&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Merchant está bloqueado&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;307&lt;/td&gt;
