@@ -8547,6 +8547,10 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:
 ]
 ```
 
+### Códigos de Erros da API
+
+Códigos retornados em caso de erro, identificando o motivo do erro e suas respectivas mensagens.
+
 | Código | Mensagem                                                                                                       | Descrição                                                                                     |
 |--------|----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | 0      | Internal error                                                                                                 | Dado enviado excede o tamanho do campo                                                        |
@@ -8642,18 +8646,18 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:
 | 191    | Avs with length of district exceeded                                            
 | 192    | Avs with zip code invalid                                            
 | 193    | Split Amount must be greater than zero                                            
-| 194    | Split Establishment is Required                                            
-| 195    | The PlataformId is required                                            
-| 196    | DeliveryAddress is required                                            
-| 197    | Street is required                                            
-| 198    | Number is required                                            
-| 199    | ZipCode is required                                            
-| 200    | City is required                                            
-| 201    | State is required                                            
-| 202    | District is required                                            
-| 203    | Cart item Name is required                                            
-| 204    | Cart item Quantity is required                                            
-| 205    | Cart item type is required                                            
+| 194    | Split Establishment is Required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 195    | The PlataformId is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 196    | DeliveryAddress is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 197    | Street is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 198    | Number is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 199    | ZipCode is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 200    | City is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 201    | State is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 202    | District is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 203    | Cart item Name is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 204    | Cart item Quantity is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 205    | Cart item type is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
 | 206    | Cart item name length exceeded                                            
 | 207    | Cart item description length exceeded                                            
 | 208    | Cart item sku length exceeded                                            
@@ -8669,8 +8673,8 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:
 | 301    | Request IP is not allowed                                            
 | 302    | Sent MerchantOrderId is duplicated                                            
 | 303    | Sent OrderId does not exist                                            
-| 304    | Customer Identity is required                                            
-| 306    | Merchant is blocked                                            
+| 304    | Customer Identity is required                                                                                         | Campo enviado está vazio ou invalido                                                          |
+| 306    | Merchant is blocked                                                                                         | Merchant está bloqueado                                                          |
 | 307    | Transaction not found                                            
 | 308    | Transaction not available to capture                                            
 | 309    | Transaction not available to void                                            
@@ -8687,7 +8691,7 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:
 | 320    | Can not Update Affiliation Because this Recurrency not Affiliation saved                                            
 | 321    | Can not set EndDate to before next recurrency                                            
 | 322    | Zero Dollar Auth is not enabled                                            
-| 323    | Bin Query is not enabled                                            
+| 323    | Bin Query is not enabled                                                                                      
 
 ### Códigos de Retorno
 
