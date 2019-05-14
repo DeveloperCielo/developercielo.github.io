@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-10T10:53:27+00:00</updated>
+    <updated>2019-05-14T22:32:53+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -423,6 +423,16 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
 &lt;h1 id=&quot;para-erros-ou-problemas&quot;&gt;Para Erros ou Problemas&lt;/h1&gt;
 
 &lt;p&gt;Utilize o canal &lt;a href=&quot;https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000316172&quot;&gt;Zendesk&lt;/a&gt;.&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Google Pay</title>
+        <category term="" />
+        <link href="https://developercielo.github.io/google-pay"/>
+        <updated>2018-10-09T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/google-pay</id>
+        <content type="html">
 </content>
     </entry>
     
