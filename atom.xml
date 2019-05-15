@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-15T12:43:52+00:00</updated>
+    <updated>2019-05-15T14:38:25+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -688,7 +688,7 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
 
 &lt;h2 id=&quot;quem-pode-usar-o-3ds-20&quot;&gt;Quem pode usar o 3DS 2.0?&lt;/h2&gt;
 
-&lt;p&gt;Todos os estabelecimentos eCommerce devem se adequar à solução a partir de Maio de 2019 frente ao mandate de bandeira que exige autenticação em todas as transações digitais, sejam de débito, crédito ou pré-pago. Aos segmentos que possuem alto índice de chargeback/fraude, a solução tende a ser ainda mais vantajosa frente ao benefício de passar o liability shift ao banco emissor.&lt;/p&gt;
+&lt;p&gt;Todos os estabelecimentos eCommerce devem se adequar à solução a partir de Maio de 2019 frente ao Release de Bandeiras. O 3DS 2.0 é válido para todas as transações de eCommerce, sejam de débito, crédito ou pré-pago. Aos segmentos que possuem alto índice de chargeback/fraude, a solução tende a ser ainda mais vantajosa frente ao benefício de passar o liability shift ao banco emissor.&lt;/p&gt;
 
 &lt;h2 id=&quot;quais-são-requisitos-para-a-utilização-do-3ds-20&quot;&gt;Quais são requisitos para a utilização do 3DS 2.0?&lt;/h2&gt;
 
@@ -696,6 +696,7 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
 
 &lt;ul&gt;
   &lt;li&gt;Ter afiliação do Cielo E-Commerce 3.0;&lt;/li&gt;
+  &lt;li&gt;Ter o cadastro de 3DS 2.0 (solicitar para o Suporte eCommerce);&lt;/li&gt;
   &lt;li&gt;Concluir a integração técnica do fluxo de autenticação;&lt;/li&gt;
   &lt;li&gt;Concluir a integração técnica do fluxo de autorização;&lt;/li&gt;
 &lt;/ul&gt;
