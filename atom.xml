@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-14T22:32:53+00:00</updated>
+    <updated>2019-05-15T12:31:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -427,12 +427,239 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
     </entry>
     
     <entry>
-        <title>Google Pay</title>
-        <category term="" />
-        <link href="https://developercielo.github.io/google-pay"/>
+        <title>Manual de integração Google Pay</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/google-pay"/>
         <updated>2018-10-09T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/google-pay</id>
-        <content type="html">
+        <id>https://developercielo.github.io/manual/google-pay</id>
+        <content type="html">&lt;h1 id=&quot;google-pay-&quot;&gt;Google Pay ™&lt;/h1&gt;
+
+&lt;p&gt;Google Pay é uma carteira virtual. Ele permite que os compradores realizem pagamentos em lojas virtuais e apps utilizando de forma prática e segura, seus cartões de crédito e débito armazenados em suas contas “Google Account” e dispositivos Android.&lt;/p&gt;
+
+&lt;h1 id=&quot;requisitos&quot;&gt;Requisitos&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Concordar com os termos do Google Pay&lt;/li&gt;
+  &lt;li&gt;Integrar com o Google Pay em seu site ou app (&lt;a href=&quot;https://developers.google.com/pay/api/android/overview&quot;&gt;https://developers.google.com/pay/api/android/overview&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Contratar o Cielo 3.0 como adquirência&lt;/li&gt;
+  &lt;li&gt;Integrar com o Pagador API REST (&lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce&quot;&gt;https://developercielo.github.io/manual/cielo-ecommerce&lt;/a&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;etapa-1-integrando-google-pay-em-seu-aplicativo-android&quot;&gt;Etapa 1: Integrando Google Pay em seu aplicativo Android&lt;/h1&gt;
+
+&lt;h2 id=&quot;passo-1---configuração-do-projeto&quot;&gt;Passo 1 - Configuração do Projeto&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/setup&quot;&gt;https://developers.google.com/pay/api/android/guides/setup&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Nestes passos, os seguintes pontos devem ser atendidos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Configuração do Projeto&lt;/li&gt;
+  &lt;li&gt;Modificação do arquivo &lt;em&gt;Manifest&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;passo-2---implementação-do-google-pay&quot;&gt;Passo 2 - Implementação do Google Pay&lt;/h2&gt;
+
+&lt;p&gt;Para integrar o Google Pay sem seu aplicativo, siga todos os passos indicados na documentação do Google Pay:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/pay/api/android/guides/tutorial&quot;&gt;https://developers.google.com/pay/api/android/guides/tutorial&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Para a correta integração do Google Pay via Cielo 3.0, é necessário se atentar aos pontos abaixo:&lt;/p&gt;
+
+&lt;h3 id=&quot;definição-do-gateway&quot;&gt;Definição do Gateway&lt;/h3&gt;
+
+&lt;p&gt;No passo “&lt;em&gt;Step 2: Choose a payment tokenization method&lt;/em&gt;”, siga o modelo indicado como “GATEWAY” e preencha o valor para parâmetro “type” como “ &lt;strong&gt;PAYMENT_GATEWAY&lt;/strong&gt;”  e o parâmetro “ &lt;strong&gt;gateway&lt;/strong&gt;” como “ &lt;strong&gt;cielo&lt;/strong&gt;”, conforme o exemplo ao lado:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;private&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;getTokenizationSpecification()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject();&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PAYMENT_GATEWAY&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification.put(&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;parameters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;JSONObject()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gateway&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cielo&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;.put(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gatewayMerchantId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantId&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;tokenizationSpecification;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;No parâmetro “ &lt;strong&gt;gatewayMerchantId&lt;/strong&gt;”, preencha o identificador de sua loja gerado pela Cielo. O identificador da loja tem o formato XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (i.e. GUID(36)).&lt;/p&gt;
+
+&lt;h3 id=&quot;definição-das-bandeiras-aceitas&quot;&gt;Definição das Bandeiras aceitas&lt;/h3&gt;
+
+&lt;p&gt;No passo “&lt;em&gt;Step 3: Define supported payment card networks&lt;/em&gt;”, seguir com as bandeiras: “VISA”, “MASTERCARD”, “AMEX”, “DISCOVER” E “JCB”&lt;/p&gt;
+
+&lt;h3 id=&quot;definição-do-ambiente&quot;&gt;Definição do ambiente&lt;/h3&gt;
+
+&lt;p&gt;No passo “&lt;em&gt;Step 5: Create a PaymentsClient instance&lt;/em&gt;”, utilize o valor “WalletConstants.ENVIRONMENT_TEST” para utilizar o ambiente de teste.&lt;/p&gt;
+
+&lt;h3 id=&quot;definição-dos-dados-de-compra&quot;&gt;Definição dos dados de compra&lt;/h3&gt;
+
+&lt;p&gt;No passo “&lt;em&gt;Step 7: Create a PaymentDataRequest object&lt;/em&gt;”, utilize o valor “BRL” para parâmetro “ &lt;strong&gt;currencyCode&lt;/strong&gt;”. O campo “ &lt;strong&gt;merchantName&lt;/strong&gt;” é o nome que o comprador visualizará durante o pagamento com Google Pay, desta forma, recomenda-se colocar um nome amigável e reconhecido.&lt;/p&gt;
+
+&lt;h3 id=&quot;recuperação-dos-dados-pagamento&quot;&gt;Recuperação dos dados pagamento&lt;/h3&gt;
+
+&lt;p&gt;No passo “&lt;em&gt;Step 9: Handle the response object&lt;/em&gt;”, está descrito o evento “Activity.RESULT_OK”, onde é retornado um objeto com todos os dados referente ao dados de pagamento, inclusive o token de pagamento.&lt;/p&gt;
+
+&lt;p&gt;A partir do &lt;em&gt;PaymentData,&lt;/em&gt; obtém-se o objeto &lt;em&gt;PaymentMethodToken&lt;/em&gt;, através da chamada do método &lt;strong&gt;getPaymentMethodToken()&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;(vide mais informações em: &lt;a href=&quot;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData&quot;&gt;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Na sequência, deve-se obter a &lt;em&gt;string&lt;/em&gt; que contém tokens de pagamento a partir do método &lt;strong&gt;GetToken()&lt;/strong&gt; do objeto &lt;em&gt;PaymentMethodToken&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;(vide mais informações em: &lt;a href=&quot;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken&quot;&gt;https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;O token obtido no passo anterior, possui uma estrutura descrita abaixo:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;protocolVersion&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ECv1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;signature&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;signedMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;encryptedMessage&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:
+  &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ZW5jcnlwdGVkTWVzc2FnZQ==&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ephemeralPublicKey&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:
+  &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ZXBoZW1lcmFsUHVibGljS2V5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;c2lnbmF0dXJl&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Parâmetro&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;signedMessage&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Mensagem asssinada.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;signature&lt;/td&gt;
+      &lt;td&gt;string&lt;/td&gt;
+      &lt;td&gt;Assinatura da mensagem.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;(vide mais informações em: &lt;a href=&quot;https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography&quot;&gt;https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Guarde os dados “&lt;em&gt;signedMessage&lt;/em&gt;” e “&lt;em&gt;signature&lt;/em&gt;”, que serão requisitados na autorização via Cielo 3.0 na próxima etapa (Etapa 2: Autorização com token do Google Pay)&lt;/p&gt;
+
+&lt;h1 id=&quot;etapa-2-autorização-com-o-token-do-google-pay&quot;&gt;Etapa 2: Autorização com o token do Google Pay&lt;/h1&gt;
+
+&lt;p&gt;A autorização com o token do Google Pay acontece da mesma forma que uma autorização padrão de um cartão de crédito, porém, ao invés de fornecer os dados do cartão abertos, deverá fornecer o token recebido pelo Google Pay, confore o exemplo abaixo:&lt;/p&gt;
+
+&lt;h2 id=&quot;request&quot;&gt;Request&lt;/h2&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(…)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Wallet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AndroidPay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;WalletKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;encryptedMessage&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ZW5jcnlwdGVkTWVzc2FnZQ==&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ephemeralPublicKey&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ZXBoZW1lcmFsUHVibGljS2V5&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;c2lnbmF0dXJl&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AdditionalData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Signature&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZXBoZW1lcmFsUHVibGljS2V5&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Parâmetros do Header&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantID&lt;/td&gt;
+      &lt;td&gt;GUID(36)&lt;/td&gt;
+      &lt;td&gt;ID do estabelecimento na Cielo 3.0. Para ambiente Sandbox, utilize fecd2b61-3f0e-4e49-8b4f-eb382fa4da56&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantKey&lt;/td&gt;
+      &lt;td&gt;String(24)&lt;/td&gt;
+      &lt;td&gt;Chave da API para Cielo 3.0. Para ambiente Sandbox, utilize WSCIKUJBVHFPPPAWFPJGRYXRDNGQTMZAGBJSZZBV&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Parâmetros do Body&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MerchantOrderId&lt;/td&gt;
+      &lt;td&gt;String (50)&lt;/td&gt;
+      &lt;td&gt;Número de identificação do Pedido&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Customer&lt;/td&gt;
+      &lt;td&gt;Nó com dados do comprador&lt;/td&gt;
+      &lt;td&gt;Vide &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa&quot;&gt;https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Type&lt;/td&gt;
+      &lt;td&gt;String (100)&lt;/td&gt;
+      &lt;td&gt;Tipo do Meio de Pagamento. Possibilidades: “CreditCard” ou “DebitCard”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Amount&lt;/td&gt;
+      &lt;td&gt;Número (15)&lt;/td&gt;
+      &lt;td&gt;Valor do Pedido (ser enviado em centavos)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Installments&lt;/td&gt;
+      &lt;td&gt;Número (2)&lt;/td&gt;
+      &lt;td&gt;Número de Parcelas&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Wallet.Type&lt;/td&gt;
+      &lt;td&gt;String (15)&lt;/td&gt;
+      &lt;td&gt;Nome da provedora de Meio de Pagamento. Para transações Google Pay, utilize “AndroidPay”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Wallet.WalletKey&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;Preencher com o valor do parâmetro “signedMessage” retornado pelo Google Pay&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Wallet.AdditionalData.Signature&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;Preencher com o valor do parâmetro “signature” retornado pelo Google Pay&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Para mais informações, acesse &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce&quot;&gt;https://developercielo.github.io/manual/cielo-ecommerce&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;response&quot;&gt;Response&lt;/h2&gt;
+
+&lt;p&gt;Vide &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#resposta&quot;&gt;https://developercielo.github.io/manual/cielo-ecommerce#resposta&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;etapa-3-solicitação-de-dados-de-produção&quot;&gt;Etapa 3: Solicitação de dados de produção&lt;/h1&gt;
+
+&lt;h2 id=&quot;passo-1---branding-guideline&quot;&gt;Passo 1 - Branding Guideline&lt;/h2&gt;
+
+&lt;p&gt;Verifique se todas as diretrizes de branding foram seguidas conforme o link: &lt;a href=&quot;https://developers.google.com/pay/api/android/guides/brand-guidelines&quot;&gt;https://developers.google.com/pay/api/android/guides/brand-guidelines&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;passo-2---checklist-e-solicitação-de-credenciais-de-produção&quot;&gt;Passo 2 - Checklist e solicitação de credenciais de produção&lt;/h2&gt;
+
+&lt;p&gt;Verifique se todos os itens do checklist foram atendidos. Quando estiver tudo validado, solicite os dados de acesso produtivos. O checklist está disponível em: &lt;a href=&quot;https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist&quot;&gt;https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     
