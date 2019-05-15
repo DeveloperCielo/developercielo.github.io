@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-15T14:38:30+00:00</updated>
+    <updated>2019-05-15T17:07:16+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -273,18 +273,20 @@
 
 &lt;p&gt;&lt;strong&gt;Key words:&lt;/strong&gt; Credit and Debit Card Authentication, EMVCO, 3DS 2.0, Visa, Mastercard, E-Commerce&lt;/p&gt;
 
-&lt;h2 id=&quot;who-can-use-3ds-20&quot;&gt;Who can use 3DS 2.0?&lt;/h2&gt;
+&lt;h2 id=&quot;who-is-able-to-use-the-3ds-20&quot;&gt;Who is able to use the 3DS 2.0?&lt;/h2&gt;
 
-&lt;p&gt;Any merchant that has an e-Commerce or an application can use the solution. It is particularly recommended to merchants that belong to the risk segment.&lt;/p&gt;
+&lt;p&gt;All the e-Commerce merchant must adapt itself to the solution from May 2019 for the brands release. The 3DS 2.0 
+is valid for all the eCommerce transactions, whether it is debit, credit or prepaid card. All the merchants that have a high chargeback/fraud rate, the solution should be even more useful for the benefit of passing the liability shift to the issue bank.&lt;/p&gt;
 
 &lt;h2 id=&quot;what-is-required-to-use-3ds-20&quot;&gt;What is required to use 3DS 2.0?&lt;/h2&gt;
 
 &lt;p&gt;The merchant must attend the below requirements to use 3DS 2.0:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Cielo E-Commerce 2.0 affiliation;&lt;/li&gt;
-  &lt;li&gt;Integrate the authentication process;&lt;/li&gt;
+  &lt;li&gt;Cielo E-Commerce 3.0 affiliation;&lt;/li&gt;
+  &lt;li&gt;Registered in the 3DS 2.0 (request for eCommerce Support);&lt;/li&gt;
   &lt;li&gt;Integrate the authorization process;&lt;/li&gt;
+  &lt;li&gt;Integrate the authentication process;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;In case you implement the authentication process apart from Cielo (External Authentication), skip to the authorization step.&lt;/aside&gt;
