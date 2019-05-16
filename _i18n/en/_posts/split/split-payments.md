@@ -4,8 +4,10 @@ title: Split Payments
 description: Split Payments Integration Manual
 search: true
 toc_footers: false
+translated: true
 categories: manual
-sort_order: 3
+sort_order: 1
+Order: 1
 hub_visible: false
 tags:
   - Marketplace Solutions
