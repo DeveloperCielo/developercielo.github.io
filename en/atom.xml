@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-16T12:56:02+00:00</updated>
+    <updated>2019-05-16T12:57:18+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1503,7 +1503,7 @@ This procedure is also valid for merchants that performed authentication outside
 
 &lt;h2 id=&quot;authentication-step-via-cielo-e-commerce-15&quot;&gt;Authentication STEP via Cielo E-Commerce 1.5&lt;/h2&gt;
 
-&lt;p&gt;You can find below an example of the authorization request including authentication data to CIELO 1.5 API. Parameters &lt;em&gt;&lt;strong&gt;Version&lt;/strong&gt;&lt;/em&gt; and &lt;em&gt;&lt;strong&gt;ReferenceId&lt;/strong&gt;&lt;/em&gt; will be available soon:&lt;/p&gt;
+&lt;p&gt;You can find below an example of the authorization request including authentication data to CIELO 1.5 API.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/servicos/ecommwsec.do&lt;/span&gt;&lt;/aside&gt;
 
