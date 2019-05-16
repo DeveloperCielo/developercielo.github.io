@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-15T17:07:11+00:00</updated>
+    <updated>2019-05-16T12:55:57+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1855,7 +1855,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 
 &lt;h2 id=&quot;etapa-de-autorização-cielo-e-commerce-15&quot;&gt;Etapa de Autorização (Cielo E-Commerce 1.5)&lt;/h2&gt;
 
-&lt;p&gt;Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 1.5. Os campos Version e ReferenceID serão disponibilizados em breve:&lt;/p&gt;
+&lt;p&gt;Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 1.5.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/servicos/ecommwsec.do&lt;/span&gt;&lt;/aside&gt;
 
