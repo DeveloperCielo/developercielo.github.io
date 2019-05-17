@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-17T16:40:09+00:00</updated>
+    <updated>2019-05-17T16:44:47+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33029,7 +33029,7 @@ More information and complete integration, you can find in the link: https://dev
     &lt;tr&gt;
       &lt;td&gt;GA&lt;/td&gt;
       &lt;td&gt;Wait for contact&lt;/td&gt;
-      &lt;td&gt;Unauthorized transaction. Referred by Lynx Online in a preventive way. Cielo will contact the merchant about this case.&lt;/td&gt;
+      &lt;td&gt;Unauthorized transaction. Referred by Lynx Online in a preventive way.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact the merchant.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
