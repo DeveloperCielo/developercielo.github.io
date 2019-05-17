@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-16T20:11:52+00:00</updated>
+    <updated>2019-05-17T16:34:04+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -34868,6 +34868,13 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;88&lt;/td&gt;
+      &lt;td&gt;Falha na criptografia dos dados.&lt;/td&gt;
+      &lt;td&gt;Falha na criptografia dos dados.&lt;/td&gt;
+      &lt;td&gt;Entre em contato com seu banco emissor.&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;89&lt;/td&gt;
       &lt;td&gt;Erro na transação.&lt;/td&gt;
       &lt;td&gt;Transação não autorizada. Erro na transação. O portador deve tentar novamente e se o erro persistir, entrar em contato com o banco emissor.&lt;/td&gt;
@@ -34900,6 +34907,13 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
       &lt;td&gt;Transação não autorizada. Violação de regra - Possível erro no cadastro.&lt;/td&gt;
       &lt;td&gt;Transação não autorizada. Violação de regra - Possível erro no cadastro.&lt;/td&gt;
       &lt;td&gt;Sua transação não pode ser processada. Entre em contato com a loja virtual.&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;94&lt;/td&gt;
+      &lt;td&gt;Transação duplicada.&lt;/td&gt;
+      &lt;td&gt;Transação duplicada enviado para autorização/captura.&lt;/td&gt;
+      &lt;td&gt;O estabelecimento deve revisar as transações enviadas.&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
