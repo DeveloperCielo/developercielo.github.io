@@ -481,7 +481,7 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 |`MerchantId`|Guid|Sim|36|Identificador único da loja. **Formato:** 00000000-0000-0000-0000-000000000000|
 |`Content-type`|Alphanumeric|Sim|n/a|Tipo do conteúdo da mensagem a ser enviada. **Utilizar:** "application/json"|
 
-**Cabeçalho e Autenticação** - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do `MerchantID`, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP `MerchandId`, como ilustrado abaixo e ao lado:
+**Cabeçalho e Autenticação** - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do `MerchantId`, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP `MerchantId`, como ilustrado abaixo e ao lado:
 
 **Body - Detalhado**
 
