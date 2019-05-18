@@ -1806,9 +1806,41 @@ curl
 
 # Payments with Debit Card
 
-## Creating a simplified sale
+This means of payment is automatically released next to Cielo's affiliation and can be used with the following brands and banks: 
 
-To create a sale that will use a debit card, it is necessary to do a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.
+| MASTERCARD      | VISA            |
+|-----------------|-----------------|
+| Bradesco        | Bradesco        |
+| Banco do Brasil | Banco do Brasil |
+| Santander       | Santander       |
+| Itaú            | Itaú            |
+| CitiBank        | CitiBank        |
+| BRB             | N/A             |
+| Caixa           | N/A             |
+| BancooB         | N/A             |
+
+
+## Debit Authentication
+
+The Debit Card by standard requires the carrier to be directed to the Banking environment, where the password and data reported by the store will be evaluated. There is the option of not authenticating debit transactions, but it is necessary for the card issuing bank to allow such transaction. This isn't a permission granted by Cielo, the seller must activate the bank and request permission
+
+In debit card transactions without authentication, there is a limitation of banks:
+
+| Brand      | Banks                              |
+|------------|------------------------------------|
+| Visa       | Bradesco / Banco do Brasil         |
+| MasterCard | Santander / Banco do Brasil        |
+| Elo        | Bradesco / Banco do Brasil         |
+
+
+## Standard Transaction
+
+To create a sale that will use a debit card, you must do a POST for the Payment resource as example.
+
+> To perform a transaction without authentication, simply send `Authenticate = FALSE`
+
+The example includes the minimum number of fields required to be submitted for authorization.
+
 
 ### Request
 
@@ -1822,6 +1854,7 @@ To create a sale that will use a debit card, it is necessary to do a POST for th
    },
    "Payment":{  
      "Type":"DebitCard",
+	 "Authenticate": true,
      "Amount":15700,
      "ReturnUrl":"http://www.cielo.com.br",
      "DebitCard":{  
@@ -1850,6 +1883,7 @@ curl
    },
    "Payment":{  
      "Type":"DebitCard",
+	 "Authenticate": true,
      "Amount":15700,
      "ReturnUrl":"http://www.cielo.com.br",
      "DebitCard":{  
@@ -1874,13 +1908,15 @@ curl
 |`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
 |`Payment.Type`|Means of Payment Type.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.ReturnUrl`|Merchant's return Url.|Text|1024|Yes|
+|`Payment.Authenticate`|Defines whether the buyer will be directed to the issuing bank for card authentication.|Boolean|---|Yes (Default TRUE)|
 |`Payment.ReturnUrl`|URI to which the user will be redirected after payment ends|Text|1024|Yes|
 |`DebitCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
 |`DebitCard.Holder`|Buyer's name printed on card.|Text|25|No|
 |`DebitCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
 |`DebitCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
 |`DebitCard.Brand`|Card issuer.|Text|10|Yes|
+
+<aside class="warning">Debit cards, by default, must have `Authenticate` as TRUE </aside>
 
 ### Response
 
@@ -1962,7 +1998,7 @@ curl
 |`AuthenticationUrl`|URL to which the Merchant must redirect the Customer to the Debit flow.|Text|56|Authentication Url|
 |`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ReturnUrl`|Merchant's return Url . URL to where the merchant will be redirected at the end of the flow.|Text|1024|http://www.urllogista.com.br|
+|`ReturnUrl`|Merchant's return Url . URL to where the merchant will be redirected at the end of the flow.|Text|1024|http://www.urllojista.com.br|
 |`Status`|Transaction Status.|Byte|---|0|
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 
