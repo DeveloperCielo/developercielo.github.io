@@ -1819,7 +1819,6 @@ This means of payment is automatically released next to Cielo's affiliation and 
 | Caixa           | N/A             |
 | BancooB         | N/A             |
 
-
 ## Debit Authentication
 
 The Debit Card by standard requires the carrier to be directed to the Banking environment, where the password and data reported by the store will be evaluated. There is the option of not authenticating debit transactions, but it is necessary for the card issuing bank to allow such transaction. This isn't a permission granted by Cielo, the seller must activate the bank and request permission
@@ -1832,7 +1831,6 @@ In debit card transactions without authentication, there is a limitation of bank
 | MasterCard | Santander / Banco do Brasil        |
 | Elo        | Bradesco / Banco do Brasil         |
 
-
 ## Standard Transaction
 
 To create a sale that will use a debit card, you must do a POST for the Payment resource as example.
@@ -1840,7 +1838,6 @@ To create a sale that will use a debit card, you must do a POST for the Payment 
 > To perform a transaction without authentication, simply send `Authenticate = FALSE`
 
 The example includes the minimum number of fields required to be submitted for authorization.
-
 
 ### Request
 
