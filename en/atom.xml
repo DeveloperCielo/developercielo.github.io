@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-18T14:04:28+00:00</updated>
+    <updated>2019-05-18T14:07:36+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -40372,7 +40372,7 @@ These data are separated into the following “main nodes”:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Header and Authentication&lt;/strong&gt; - All requests sent to Cielo must be authenticated by the store. Authentication consists of sending &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantID&lt;/code&gt;, which is the unique store identifier provided by Cielo after store affiliation. Store authentication should be done by sending the &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchandId&lt;/code&gt; HTTP header field, as shown below and beside:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Header and Authentication&lt;/strong&gt; - All requests sent to Cielo must be authenticated by the store. Authentication consists of sending &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;, which is the unique store identifier provided by Cielo after store affiliation. Store authentication should be done by sending the &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; HTTP header field, as shown below and beside:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Body - Detailed&lt;/strong&gt;&lt;/p&gt;
 
