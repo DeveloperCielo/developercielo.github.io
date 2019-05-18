@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-18T13:42:25+00:00</updated>
+    <updated>2019-05-18T14:04:22+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -41186,7 +41186,7 @@ Esses dados são separados nos seguintes “nós principais”:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Cabeçalho e Autenticação&lt;/strong&gt; - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantID&lt;/code&gt;, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchandId&lt;/code&gt;, como ilustrado abaixo e ao lado:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cabeçalho e Autenticação&lt;/strong&gt; - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;, como ilustrado abaixo e ao lado:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Body - Detalhado&lt;/strong&gt;&lt;/p&gt;
 
