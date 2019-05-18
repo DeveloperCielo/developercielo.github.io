@@ -3607,9 +3607,89 @@ Below we specify any existing differences:</p>
 
 <h1 id="payments-with-debit-card">Payments with Debit Card</h1>
 
-<h2 id="creating-a-simplified-sale">Creating a simplified sale</h2>
+<p>This means of payment is automatically released next to Cielo’s affiliation and can be used with the following brands and banks:</p>
 
-<p>To create a sale that will use a debit card, it is necessary to do a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.</p>
+<table>
+  <thead>
+    <tr>
+      <th>MASTERCARD</th>
+      <th>VISA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bradesco</td>
+      <td>Bradesco</td>
+    </tr>
+    <tr>
+      <td>Banco do Brasil</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>Santander</td>
+      <td>Santander</td>
+    </tr>
+    <tr>
+      <td>Itaú</td>
+      <td>Itaú</td>
+    </tr>
+    <tr>
+      <td>CitiBank</td>
+      <td>CitiBank</td>
+    </tr>
+    <tr>
+      <td>BRB</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>Caixa</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>BancooB</td>
+      <td>N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="debit-authentication">Debit Authentication</h2>
+
+<p>The Debit Card by standard requires the carrier to be directed to the Banking environment, where the password and data reported by the store will be evaluated. There is the option of not authenticating debit transactions, but it is necessary for the card issuing bank to allow such transaction. This isn’t a permission granted by Cielo, the seller must activate the bank and request permission</p>
+
+<p>In debit card transactions without authentication, there is a limitation of banks:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Banks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>Bradesco / Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>MasterCard</td>
+      <td>Santander / Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>Bradesco / Banco do Brasil</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="standard-transaction">Standard Transaction</h2>
+
+<p>To create a sale that will use a debit card, you must do a POST for the Payment resource as example.</p>
+
+<blockquote>
+  <p>To perform a transaction without authentication, simply send <code class="highlighter-rouge">Authenticate = FALSE</code></p>
+</blockquote>
+
+<p>The example includes the minimum number of fields required to be submitted for authorization.</p>
 
 <h3 id="request-4">Request</h3>
 
@@ -3622,6 +3702,7 @@ Below we specify any existing differences:</p>
    </span><span class="p">},</span><span class="w">
    </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">  
      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
      </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.cielo.com.br"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"DebitCard"</span><span class="p">:{</span><span class="w">  
@@ -3649,6 +3730,7 @@ Below we specify any existing differences:</p>
    <span class="o">}</span>,
    <span class="s2">"Payment"</span>:<span class="o">{</span>  
      <span class="s2">"Type"</span>:<span class="s2">"DebitCard"</span>,
+     <span class="s2">"Authenticate"</span>: <span class="nb">true</span>,
      <span class="s2">"Amount"</span>:15700,
      <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.cielo.com.br"</span>,
      <span class="s2">"DebitCard"</span>:<span class="o">{</span>  
@@ -3731,11 +3813,11 @@ Below we specify any existing differences:</p>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
-      <td>Merchant’s return Url.</td>
-      <td>Text</td>
-      <td>1024</td>
-      <td>Yes</td>
+      <td><code class="highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Defines whether the buyer will be directed to the issuing bank for card authentication.</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Yes (Default TRUE)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
@@ -3781,6 +3863,8 @@ Below we specify any existing differences:</p>
     </tr>
   </tbody>
 </table>
+
+<aside class="warning">Debit cards, by default, must have `Authenticate` as TRUE </aside>
 
 <h3 id="response-4">Response</h3>
 
@@ -3892,7 +3976,7 @@ Below we specify any existing differences:</p>
       <td>Merchant’s return Url . URL to where the merchant will be redirected at the end of the flow.</td>
       <td>Text</td>
       <td>1024</td>
-      <td>http://www.urllogista.com.br</td>
+      <td>http://www.urllojista.com.br</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
@@ -3913,7 +3997,7 @@ Below we specify any existing differences:</p>
 
 <h1 id="payments-with-electronic-transfer">Payments with Electronic Transfer</h1>
 
-<h2 id="creating-a-simplified-sale-1">Creating a simplified sale</h2>
+<h2 id="creating-a-simplified-sale">Creating a simplified sale</h2>
 
 <p>To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.</p>
 

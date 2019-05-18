@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-17T16:44:47+00:00</updated>
+    <updated>2019-05-18T13:42:30+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -21246,9 +21246,89 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;h1 id=&quot;payments-with-debit-card&quot;&gt;Payments with Debit Card&lt;/h1&gt;
 
-&lt;h2 id=&quot;creating-a-simplified-sale&quot;&gt;Creating a simplified sale&lt;/h2&gt;
+&lt;p&gt;This means of payment is automatically released next to Cielo’s affiliation and can be used with the following brands and banks:&lt;/p&gt;
 
-&lt;p&gt;To create a sale that will use a debit card, it is necessary to do a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;MASTERCARD&lt;/th&gt;
+      &lt;th&gt;VISA&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Bradesco&lt;/td&gt;
+      &lt;td&gt;Bradesco&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Banco do Brasil&lt;/td&gt;
+      &lt;td&gt;Banco do Brasil&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Santander&lt;/td&gt;
+      &lt;td&gt;Santander&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Itaú&lt;/td&gt;
+      &lt;td&gt;Itaú&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CitiBank&lt;/td&gt;
+      &lt;td&gt;CitiBank&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BRB&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Caixa&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BancooB&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;debit-authentication&quot;&gt;Debit Authentication&lt;/h2&gt;
+
+&lt;p&gt;The Debit Card by standard requires the carrier to be directed to the Banking environment, where the password and data reported by the store will be evaluated. There is the option of not authenticating debit transactions, but it is necessary for the card issuing bank to allow such transaction. This isn’t a permission granted by Cielo, the seller must activate the bank and request permission&lt;/p&gt;
+
+&lt;p&gt;In debit card transactions without authentication, there is a limitation of banks:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Brand&lt;/th&gt;
+      &lt;th&gt;Banks&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Visa&lt;/td&gt;
+      &lt;td&gt;Bradesco / Banco do Brasil&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MasterCard&lt;/td&gt;
+      &lt;td&gt;Santander / Banco do Brasil&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Elo&lt;/td&gt;
+      &lt;td&gt;Bradesco / Banco do Brasil&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;standard-transaction&quot;&gt;Standard Transaction&lt;/h2&gt;
+
+&lt;p&gt;To create a sale that will use a debit card, you must do a POST for the Payment resource as example.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;To perform a transaction without authentication, simply send &lt;code class=&quot;highlighter-rouge&quot;&gt;Authenticate = FALSE&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The example includes the minimum number of fields required to be submitted for authorization.&lt;/p&gt;
 
 &lt;h3 id=&quot;request-4&quot;&gt;Request&lt;/h3&gt;
 
@@ -21261,6 +21341,7 @@ Below we specify any existing differences:&lt;/p&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://www.cielo.com.br&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
@@ -21288,6 +21369,7 @@ Below we specify any existing differences:&lt;/p&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
    &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
      &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;,
      &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:15700,
      &lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;http://www.cielo.com.br&quot;&lt;/span&gt;,
      &lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
@@ -21370,11 +21452,11 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReturnUrl&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Merchant’s return Url.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;1024&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Authenticate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Defines whether the buyer will be directed to the issuing bank for card authentication.&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Yes (Default TRUE)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReturnUrl&lt;/code&gt;&lt;/td&gt;
@@ -21420,6 +21502,8 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;Debit cards, by default, must have `Authenticate` as TRUE &lt;/aside&gt;
 
 &lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
 
@@ -21531,7 +21615,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Merchant’s return Url . URL to where the merchant will be redirected at the end of the flow.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;1024&lt;/td&gt;
-      &lt;td&gt;http://www.urllogista.com.br&lt;/td&gt;
+      &lt;td&gt;http://www.urllojista.com.br&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Status&lt;/code&gt;&lt;/td&gt;
@@ -21552,7 +21636,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;h1 id=&quot;payments-with-electronic-transfer&quot;&gt;Payments with Electronic Transfer&lt;/h1&gt;
 
-&lt;h2 id=&quot;creating-a-simplified-sale-1&quot;&gt;Creating a simplified sale&lt;/h2&gt;
+&lt;h2 id=&quot;creating-a-simplified-sale&quot;&gt;Creating a simplified sale&lt;/h2&gt;
 
 &lt;p&gt;To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.&lt;/p&gt;
 
