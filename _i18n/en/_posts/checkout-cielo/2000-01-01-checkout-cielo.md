@@ -482,7 +482,7 @@ Endpoint is the URL to where requests with the cart data will be sent. All reque
 |`MerchantId`|Guid|Yes|36|Unique store identifier. **Format:** 00000000-0000-0000-0000-000000000000|
 |`Content-type`|Alphanumeric|Yes|n/a|Type of message content to be sent. **Use:** "application/json"|
 
-**Header and Authentication** - All requests sent to Cielo must be authenticated by the store. Authentication consists of sending `MerchantID`, which is the unique store identifier provided by Cielo after store affiliation. Store authentication should be done by sending the `MerchandId` HTTP header field, as shown below and beside:
+**Header and Authentication** - All requests sent to Cielo must be authenticated by the store. Authentication consists of sending `MerchantId`, which is the unique store identifier provided by Cielo after store affiliation. Store authentication should be done by sending the `MerchantId` HTTP header field, as shown below and beside:
 
 **Body - Detailed**
 
