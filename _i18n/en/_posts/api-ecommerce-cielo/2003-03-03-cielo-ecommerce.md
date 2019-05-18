@@ -1851,7 +1851,7 @@ The example includes the minimum number of fields required to be submitted for a
    },
    "Payment":{  
      "Type":"DebitCard",
-	 "Authenticate": true,
+     "Authenticate": true,
      "Amount":15700,
      "ReturnUrl":"http://www.cielo.com.br",
      "DebitCard":{  
@@ -1880,7 +1880,7 @@ curl
    },
    "Payment":{  
      "Type":"DebitCard",
-	 "Authenticate": true,
+     "Authenticate": true,
      "Amount":15700,
      "ReturnUrl":"http://www.cielo.com.br",
      "DebitCard":{  
