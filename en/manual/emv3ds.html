@@ -198,6 +198,23 @@ is valid for all the eCommerce transactions, whether it is debit, credit or prep
   <li>The merchant notifies the payment result.</li>
 </ol>
 
+<h2 id="payment-flow-3ds-20--without-challenge">Payment Flow 3DS 2.0 | Without challenge</h2>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/pagamento-sem-desafio_-_en.jpg" alt="Flow without challenge" /></p>
+
+<ol>
+  <li>The holder fills the card details at the checkout of the merchant.</li>
+  <li>The merchant set the 3DS 2.0 solution from Cielo via script for authentication.</li>
+  <li>Cielo’s 3DS 2.0 solution sends the buyer’s information to the MPI (authentication platform).</li>
+  <li>MPI communicates with the card brand to process the authentication. The brand identifies the issuer of the card, and sends the buyer’s information for analysis. The issuer identifies the holder as a possible risk, then, requires the challenge and returns the Authentication URL.</li>
+  <li>The card brand returns the silent authentication result (CAVV e ECI).</li>
+  <li>The MPI returns the silent authentication result to the 3DS 2.0 solution.</li>
+  <li>The 3DS 2.0 solution returns the silent authentication result to the merchant via script.</li>
+  <li>The merchant sends an authentication request with the authentication data to the API Cielo 3.0.</li>
+  <li>The API Cielo 3.0 returns the authentication result to the merchant.</li>
+  <li>The merchant notifies the payment result.</li>
+</ol>
+
 <h2 id="how-does-the-authenticated-authorization-via-3ds-20-work">How does the authenticated authorization via 3DS 2.0 work?</h2>
 
 <p>The authorization process using authentication through 3DS 2.0 occurs in two steps:</p>
