@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-20T15:36:11+00:00</updated>
+    <updated>2019-05-20T15:56:51+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3536,7 +3536,7 @@ is valid for all the eCommerce transactions, whether it is debit, credit or prep
 
 &lt;p&gt;It is worth noting  that in this model, since there is no authentication of the Issuer, the risk of chargeback for fraud remains with the merchant.&lt;/p&gt;
 
-&lt;h2 id=&quot;payment-flow-3ds-20-with-challenge&quot;&gt;Payment Flow 3DS 2.0| With challenge&lt;/h2&gt;
+&lt;h2 id=&quot;payment-flow-3ds-20--with-challenge&quot;&gt;Payment Flow 3DS 2.0 | With challenge&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/pagamento-com-desafio-01_0_-_en.jpg&quot; alt=&quot;Flow with challenge 01&quot; /&gt;
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/pagamento-com-desafio-02_-_en.jpg&quot; alt=&quot;Flow with challenge 02&quot; /&gt;&lt;/p&gt;
@@ -3735,7 +3735,7 @@ is valid for all the eCommerce transactions, whether it is debit, credit or prep
 
 &lt;p&gt;Click here to download the code: &lt;a href=&quot;https://bit.ly/2oUaTGD&quot;&gt;https://bit.ly/2oUaTGD&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/exemplo-html.jpg&quot; alt=&quot;Fluxo 3DS 2.0&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/exemplo-html_-_en.jpg&quot; alt=&quot;Fluxo 3DS 2.0&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Events Description&lt;/p&gt;
 
