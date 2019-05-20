@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-20T15:56:51+00:00</updated>
+    <updated>2019-05-20T17:37:57+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3733,7 +3733,7 @@ is valid for all the eCommerce transactions, whether it is debit, credit or prep
 
 &lt;p&gt;This step contains the &lt;em&gt;script&lt;/em&gt; and the mapping of &lt;em&gt;classes&lt;/em&gt; implementation responsable to comunicate with the authentication platform from brands and issuers. The example below shows the basic implementation. It is recommended that the snippet is placed at the end of the checkout HTML code:&lt;/p&gt;
 
-&lt;p&gt;Click here to download the code: &lt;a href=&quot;https://bit.ly/2oUaTGD&quot;&gt;https://bit.ly/2oUaTGD&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To download the code, &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/exemplo-html_-_en.jpg&quot; alt=&quot;Fluxo 3DS 2.0&quot; /&gt;&lt;/p&gt;
 
