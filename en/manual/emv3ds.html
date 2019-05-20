@@ -174,6 +174,30 @@ is valid for all the eCommerce transactions, whether it is debit, credit or prep
 
 <p>It is worth noting  that in this model, since there is no authentication of the Issuer, the risk of chargeback for fraud remains with the merchant.</p>
 
+<h2 id="payment-flow-3ds-20-with-challenge">Payment Flow 3DS 2.0| With challenge</h2>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/pagamento-com-desafio-01_0_-_en.jpg" alt="Flow with challenge 01" />
+<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/pagamento-com-desafio-02_-_en.jpg" alt="Flow with challenge 02" /></p>
+
+<ol>
+  <li>The holder fills the card details at the checkout of the merchant.</li>
+  <li>The merchant set the 3DS 2.0 solution from Cielo via script for authentication.</li>
+  <li>Cielo’s 3DS 2.0 solution sends the buyer’s information to the MPI (authentication platform).</li>
+  <li>MPI communicates with the card brand to process the authentication. The brand identifies the issuer of the card, and sends the buyer’s information for analysis. The issuer identifies the holder as a possible risk, then, requires the challenge and returns the Authentication URL.</li>
+  <li>A card brand returns an authentication URL to MPI.</li>
+  <li>MPI returns the authentication URL to the 3DS 2.0 solution.</li>
+  <li>The 3DS 2.0 solution return the authentication URL to the merchant via script.</li>
+  <li>The script shows the authentication screen via lightbox.</li>
+  <li>The holder solve the challenge on the issuer screen.</li>
+  <li>The issuer returns the authentication result to the card brand.</li>
+  <li>The card brand return the authentication result to the MPI.</li>
+  <li>The MPI return the authentication result to the 3DS 2.0 solution.</li>
+  <li>The 3DS 2.0 solution return the authentication result to the merchant via script (CAVV, ECI e XID).</li>
+  <li>The merchant sends an authentication request with the authentication data to the API Cielo 3.0.</li>
+  <li>The API Cielo 3.0 returns the authentication result to the merchant.</li>
+  <li>The merchant notifies the payment result.</li>
+</ol>
+
 <h2 id="how-does-the-authenticated-authorization-via-3ds-20-work">How does the authenticated authorization via 3DS 2.0 work?</h2>
 
 <p>The authorization process using authentication through 3DS 2.0 occurs in two steps:</p>
