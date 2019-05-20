@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-20T17:37:51+00:00</updated>
+    <updated>2019-05-20T17:48:26+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -675,7 +675,7 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
 
 &lt;p&gt;Com o objetivo de minimizar o índice de fraude sem prejudicar a taxa de conversão, a indústria de meio de pagamento desenvolveu um novo padrão de autenticação, chamado &lt;strong&gt;EMV 3DS&lt;/strong&gt; , ou também chamado de &lt;strong&gt;3DS 2.0&lt;/strong&gt;. A nova versão é capaz de analisar dezenas de variáveis que são utilizadas como critérios para determinar se um comprador é de fato o portador cartão, permitindo em alguns casos, a autenticação silenciosa do mesmo (autenticação sem desafio), sem prejuízo à questão do &lt;em&gt;Liability Shift&lt;/em&gt; dos estabelecimentos.&lt;/p&gt;
 
-&lt;p&gt;Principais benefícios:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Principais benefícios:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Integração facilitada via Java Script;&lt;/li&gt;
