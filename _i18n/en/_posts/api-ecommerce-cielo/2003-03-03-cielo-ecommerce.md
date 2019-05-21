@@ -29,9 +29,16 @@ To perform an operation, combine the base URL of the environment with the URL of
 
 ## Solution features
 
-The API Cielo eCommerce solution of the Cielo eCommerce platform was developed with REST technology, which is market standard and also independent of the technology used by our customers. In this way, it is possible to integrate using the most varied programming languages, such as: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.
+The API Cielo eCommerce solution of the Cielo eCommerce platform was developed with REST technology, which is market standard and also independent of the technology used by our customers. In this way, it is possible to integrate using the most varied programming languages, such as: 
 
-For examples of these languages, see our conversion tutorial via our [**Postman Tutorial**](https://developercielo.github.io/Tutorial//Postman)
+* ASP
+* Net
+* Java
+* PHP
+* Ruby
+* Python
+
+> For examples of these languages, see our conversion tutorial via our [**Postman Tutorial**](https://developercielo.github.io/Tutorial//Postman)
 
 Among other features, the attributes that stand out most in the Cielo eCommerce platform:
 
