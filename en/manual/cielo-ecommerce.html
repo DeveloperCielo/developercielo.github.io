@@ -137,19 +137,27 @@
 
 <p>In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints:</p>
 
-<p>Production Environment</p>
-
-<ul>
-  <li><strong>Transaction request</strong>: https://api.cieloecommerce.cielo.com.br/</li>
-  <li><strong>Transaction query</strong>: https://apiquery.cieloecommerce.cielo.com.br/</li>
-</ul>
-
-<p>Sandbox Environment</p>
-
-<ul>
-  <li><strong>Transaction request</strong>: https://apisandbox.cieloecommerce.cielo.com.br</li>
-  <li><strong>Transaction query</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: center">SandBox</th>
+      <th style="text-align: center">Production</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>Requests</strong></td>
+      <td style="text-align: center">https://apisandbox.cieloecommerce.cielo.com.br</td>
+      <td style="text-align: center">https://api.cieloecommerce.cielo.com.br/</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>Queries</strong></td>
+      <td style="text-align: center">https://apiquerysandbox.cieloecommerce.cielo.com.br</td>
+      <td style="text-align: center">https://apiquery.cieloecommerce.cielo.com.br/</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.</p>
 
