@@ -20,15 +20,10 @@ The integration mechanism with Cielo e-Commerce is simple, so only intermediate 
 
 In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints:
 
-Production Environment
-
-* **Transaction request**: https://api.cieloecommerce.cielo.com.br/
-* **Transaction query**: https://apiquery.cieloecommerce.cielo.com.br/
-
-Sandbox Environment
-
-* **Transaction request**: https://apisandbox.cieloecommerce.cielo.com.br
-* **Transaction query**: https://apiquerysandbox.cieloecommerce.cielo.com.br
+|                 | SandBox                                             | Production                                    |
+|:----------------|:---------------------------------------------------:|:---------------------------------------------:|
+| **Requests**    | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+| **Queries**     | https://apiquerysandbox.cieloecommerce.cielo.com.br | https://apiquery.cieloecommerce.cielo.com.br/ |
 
 To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.
 
