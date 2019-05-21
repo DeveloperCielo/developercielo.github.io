@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-21T17:53:55+00:00</updated>
+    <updated>2019-05-21T18:02:09+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -17853,9 +17853,20 @@ In case the chargeback is performed, Cielo does not take responsibility on refun
 
 &lt;h2 id=&quot;solution-features&quot;&gt;Solution features&lt;/h2&gt;
 
-&lt;p&gt;The API Cielo eCommerce solution of the Cielo eCommerce platform was developed with REST technology, which is market standard and also independent of the technology used by our customers. In this way, it is possible to integrate using the most varied programming languages, such as: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.&lt;/p&gt;
+&lt;p&gt;The API Cielo eCommerce solution of the Cielo eCommerce platform was developed with REST technology, which is market standard and also independent of the technology used by our customers. In this way, it is possible to integrate using the most varied programming languages, such as:&lt;/p&gt;
 
-&lt;p&gt;For examples of these languages, see our conversion tutorial via our &lt;a href=&quot;https://developercielo.github.io/Tutorial//Postman&quot;&gt;&lt;strong&gt;Postman Tutorial&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;ASP&lt;/li&gt;
+  &lt;li&gt;Net&lt;/li&gt;
+  &lt;li&gt;Java&lt;/li&gt;
+  &lt;li&gt;PHP&lt;/li&gt;
+  &lt;li&gt;Ruby&lt;/li&gt;
+  &lt;li&gt;Python&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;For examples of these languages, see our conversion tutorial via our &lt;a href=&quot;https://developercielo.github.io/Tutorial//Postman&quot;&gt;&lt;strong&gt;Postman Tutorial&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Among other features, the attributes that stand out most in the Cielo eCommerce platform:&lt;/p&gt;
 
