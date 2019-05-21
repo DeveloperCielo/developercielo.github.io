@@ -38,7 +38,7 @@ The API Cielo eCommerce solution of the Cielo eCommerce platform was developed w
 * Ruby
 * Python
 
-> To get examples  these languages, see our conversion tutorial [**Postman Tutorial**](https://developercielo.github.io/Tutorial//Postman)
+> To get examples in these languages, see our conversion tutorial [**Postman Tutorial**](https://developercielo.github.io/Tutorial//Postman)
 
 Among other features, the attributes that stand out most in the Cielo eCommerce platform:
 
@@ -58,13 +58,6 @@ Integration is performed through services provided as Web Services. The model em
 | **POST** | The `POST` HTTP method is used in the creation of features or in sending information that will be processed. For example, creation of a transaction. |
 | **PUT**  | The`PUT` HTTP method is used to update an already existing feature. For example, capture or canceltation of a previously authorized transaction.     |
 | **GET**  | The `GET` HTTP method is used for querying already existing features. For example, transaction query.                                                |
-
-
-|                             | Methods            | SandBox                                             | Production                                      |
-|-----------------------------|--------------------|-----------------------------------------------------|-----------------------------------------------|
-| **Transaction request** | **POST** / **PUT** | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
-| **Queries**               | **GET**            | https://apiquerysandbox.cieloecommerce.cielo.com.br | https://apiquery.cieloecommerce.cielo.com.br/ |
-
 
 ## Glossary
 
