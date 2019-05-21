@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-21T18:02:09+00:00</updated>
+    <updated>2019-05-21T19:02:36+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -17865,7 +17865,7 @@ In case the chargeback is performed, Cielo does not take responsibility on refun
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;For examples of these languages, see our conversion tutorial via our &lt;a href=&quot;https://developercielo.github.io/Tutorial//Postman&quot;&gt;&lt;strong&gt;Postman Tutorial&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;To get examples in these languages, see our conversion tutorial &lt;a href=&quot;https://developercielo.github.io/Tutorial//Postman&quot;&gt;&lt;strong&gt;Postman Tutorial&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Among other features, the attributes that stand out most in the Cielo eCommerce platform:&lt;/p&gt;
@@ -17924,7 +17924,7 @@ In case the chargeback is performed, Cielo does not take responsibility on refun
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Authorization&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;rocess to check whether a purchase can or not be realized with a card. At this point, several checks are done with the card and the carrier (e.g., timely payments, card locks, etc.). It is also at this point that the card limit is sensitized with the transaction value.&lt;/td&gt;
+      &lt;td&gt;process to check whether a purchase can or not be realized with a card. At this point, several checks are done with the card and the carrier (e.g., timely payments, card locks, etc.). It is also at this point that the card limit is sensitized with the transaction value.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Cancellation&lt;/strong&gt;&lt;/td&gt;
@@ -18061,6 +18061,10 @@ In case the chargeback is performed, Cielo does not take responsibility on refun
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Cards that was issued abroad do not have permission to pay in installments.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;extended-validation-certificate&quot;&gt;Extended Validation Certificate&lt;/h1&gt;
 
