@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-22T16:33:39+00:00</updated>
+    <updated>2019-05-22T18:47:07+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18415,7 +18415,9 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;payments-with-credit-card&quot;&gt;Payments with Credit Card&lt;/h1&gt;
+&lt;h1 id=&quot;payment-methods&quot;&gt;Payment Methods&lt;/h1&gt;
+
+&lt;h2 id=&quot;credit-card&quot;&gt;Credit Card&lt;/h2&gt;
 
 &lt;p&gt;For you to enjoy all the features available in our API, it is important that you first understand the concepts involved in processing a credit card transaction.&lt;/p&gt;
 
@@ -18429,7 +18431,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Authorization&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;The authorization (or pre-authorization) is the main operation in eCommerce, because through it is that a sale can be realized. Pre-authorization only sensitizes the customer’s limit, but does not yet generate charge for the consumer.&lt;/td&gt;
+      &lt;td&gt;The authorization (or pre-authorization) is the main operation in the eCommerce, because through it is that a sale can be realized. Pre-authorization only sensitizes the customer’s limit, but does not yet generate charge for the consumer.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Capture&lt;/strong&gt;&lt;/td&gt;
@@ -18458,13 +18460,13 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;creating-a-simple-transaction&quot;&gt;Creating a simple transaction&lt;/h2&gt;
+&lt;h3 id=&quot;creating-a-simple-transaction&quot;&gt;Creating a simple transaction&lt;/h3&gt;
 
 &lt;p&gt;To create a transaction that will use a credit card, it is necessary to send a request using the &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.&lt;/aside&gt;
 
-&lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -18652,7 +18654,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -18844,11 +18846,11 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;creating-a-complete-transaction&quot;&gt;Creating a complete transaction&lt;/h2&gt;
+&lt;h3 id=&quot;creating-a-complete-transaction&quot;&gt;Creating a complete transaction&lt;/h3&gt;
 
 &lt;p&gt;To create a transaction that will use a credit card, it is necessary to send a request using the &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; method to the Payment feature as shown. This example covers all the possible fields that can be sent.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-1&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -19279,7 +19281,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-1&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19507,13 +19509,13 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;creating-a-sale-with-authentication&quot;&gt;Creating a sale with Authentication&lt;/h2&gt;
+&lt;h3 id=&quot;creating-a-sale-with-authentication&quot;&gt;Creating a sale with Authentication&lt;/h3&gt;
 
 &lt;p&gt;To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; method for the Payment feature as shown.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Authentication: In this mode, the card carrier is directed to the authentication environment of the card issuing bank where the inclusion of the card password will be requested.&lt;/aside&gt;
 
-&lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-2&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -19722,7 +19724,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-2&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-2&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111903&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19900,11 +19902,11 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;creating-a-sale-with-fraud-analysis&quot;&gt;Creating a sale with Fraud Analysis&lt;/h2&gt;
+&lt;h3 id=&quot;creating-a-sale-with-fraud-analysis&quot;&gt;Creating a sale with Fraud Analysis&lt;/h3&gt;
 
 &lt;p&gt;To create a sale with credit card and fraud analysis, it is necessary to submit a request using the &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; method for Payment feature as shown.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-3&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-3&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -20722,7 +20724,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-3&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-3&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;201411173454307&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;

@@ -725,7 +725,9 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h1 id="payments-with-credit-card">Payments with Credit Card</h1>
+<h1 id="payment-methods">Payment Methods</h1>
+
+<h2 id="credit-card">Credit Card</h2>
 
 <p>For you to enjoy all the features available in our API, it is important that you first understand the concepts involved in processing a credit card transaction.</p>
 
@@ -739,7 +741,7 @@ Below we specify any existing differences:</p>
   <tbody>
     <tr>
       <td><strong>Authorization</strong></td>
-      <td>The authorization (or pre-authorization) is the main operation in eCommerce, because through it is that a sale can be realized. Pre-authorization only sensitizes the customer’s limit, but does not yet generate charge for the consumer.</td>
+      <td>The authorization (or pre-authorization) is the main operation in the eCommerce, because through it is that a sale can be realized. Pre-authorization only sensitizes the customer’s limit, but does not yet generate charge for the consumer.</td>
     </tr>
     <tr>
       <td><strong>Capture</strong></td>
@@ -768,13 +770,13 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="creating-a-simple-transaction">Creating a simple transaction</h2>
+<h3 id="creating-a-simple-transaction">Creating a simple transaction</h3>
 
 <p>To create a transaction that will use a credit card, it is necessary to send a request using the <code class="highlighter-rouge">POST</code> method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.</p>
 
 <aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-<h3 id="request">Request</h3>
+<h4 id="request">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -962,7 +964,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h3 id="response">Response</h3>
+<h4 id="response">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -1154,11 +1156,11 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="creating-a-complete-transaction">Creating a complete transaction</h2>
+<h3 id="creating-a-complete-transaction">Creating a complete transaction</h3>
 
 <p>To create a transaction that will use a credit card, it is necessary to send a request using the <code class="highlighter-rouge">POST</code> method to the Payment feature as shown. This example covers all the possible fields that can be sent.</p>
 
-<h3 id="request-1">Request</h3>
+<h4 id="request-1">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1589,7 +1591,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h3 id="response-1">Response</h3>
+<h4 id="response-1">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -1817,13 +1819,13 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="creating-a-sale-with-authentication">Creating a sale with Authentication</h2>
+<h3 id="creating-a-sale-with-authentication">Creating a sale with Authentication</h3>
 
 <p>To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the <code class="highlighter-rouge">POST</code> method for the Payment feature as shown.</p>
 
 <aside class="notice">Authentication: In this mode, the card carrier is directed to the authentication environment of the card issuing bank where the inclusion of the card password will be requested.</aside>
 
-<h3 id="request-2">Request</h3>
+<h4 id="request-2">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -2032,7 +2034,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h3 id="response-2">Response</h3>
+<h4 id="response-2">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111903"</span><span class="p">,</span><span class="w">
@@ -2210,11 +2212,11 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="creating-a-sale-with-fraud-analysis">Creating a sale with Fraud Analysis</h2>
+<h3 id="creating-a-sale-with-fraud-analysis">Creating a sale with Fraud Analysis</h3>
 
 <p>To create a sale with credit card and fraud analysis, it is necessary to submit a request using the <code class="highlighter-rouge">POST</code> method for Payment feature as shown.</p>
 
-<h3 id="request-3">Request</h3>
+<h4 id="request-3">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3032,7 +3034,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h3 id="response-3">Response</h3>
+<h4 id="response-3">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201411173454307"</span><span class="p">,</span><span class="w">
