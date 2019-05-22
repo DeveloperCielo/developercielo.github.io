@@ -59,6 +59,11 @@ Integration is performed through services provided as Web Services. The model em
 | **PUT**  | The`PUT` HTTP method is used to update an already existing feature. For example, capture or canceltation of a previously authorized transaction.     |
 | **GET**  | The `GET` HTTP method is used for querying already existing features. For example, transaction query.                                                |
 
+|                             | Methods            | SandBox                                             | Production                                    |
+|-----------------------------|--------------------|-----------------------------------------------------|-----------------------------------------------|
+| **Transaction request**     | **POST** / **PUT** | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+| **Queries**                 | **GET**            | https://apiquerysandbox.cieloecommerce.cielo.com.br | https://apiquery.cieloecommerce.cielo.com.br/ |
+
 ## Glossary
 
 In order to facilitate the understanding, we have listed below a short glossary with the main terms related to eCommerce and also to card and acquiring market:
