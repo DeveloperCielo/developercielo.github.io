@@ -322,13 +322,15 @@ Below we specify any existing differences:
 |Debit cardo|The `provider` used must be **SIMULATED** <br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
 |Online transfer|The `provider` used must be **SIMULATED** <br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
 
-# Payments with Credit Card
+# Payment Methods
+
+## Credit Card
 
 For you to enjoy all the features available in our API, it is important that you first understand the concepts involved in processing a credit card transaction.
 
 |Concept|Description|
 |---|---|
-|**Authorization**|The authorization (or pre-authorization) is the main operation in eCommerce, because through it is that a sale can be realized. Pre-authorization only sensitizes the customer's limit, but does not yet generate charge for the consumer.|
+|**Authorization**|The authorization (or pre-authorization) is the main operation in the eCommerce, because through it is that a sale can be realized. Pre-authorization only sensitizes the customer's limit, but does not yet generate charge for the consumer.|
 |**Capture**|When making a pre-authorization, it is necessary to confirm it, so that the charge is effected to the card carrier. Through this operation a pre-authorization is effected, and it can be executed normally within 5 days after the pre-authorization date.|
 |**Cancellation**|The cancellation is necessary when, for some reason, a sale will not be effected anymore.|
 |**Authentication**|The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, thus providing more security for the sale and transferring the risk of fraud to the bank.|
@@ -336,13 +338,13 @@ For you to enjoy all the features available in our API, it is important that you
 |**Anti fraud**|It is a fraud prevention platform that provides a detailed risk analysis of online purchases. Each transaction is submitted to more than 260 rules, besides the specific rules of each segment, and generate a risk recommendation in approximately two seconds. This process is completely transparent to the card carrier. According to the pre-established criteria, the order can be automatically accepted, rejected or sent to manual analysis.|
 |**Recurrent**|The Smart Recurrence is an indispensable feature for establishments that regularly need to charge for their products/services. It is widely used for magazine subscriptions, monthly fees, software licenses, among others. The merchants will count with differentiated features to model their charging according to their business, as all parameterization is configurable, such as: periodicity, start and end date, number of attempts, interval between them, among others.|
 
-## Creating a simple transaction
+### Creating a simple transaction
 
 To create a transaction that will use a credit card, it is necessary to send a request using the `POST` method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.
 
 <aside class="notice"><strong>Warning:</strong> It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -425,7 +427,7 @@ curl
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
 
-### Response
+#### Response
 
 ```json
 {
@@ -554,11 +556,11 @@ curl
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
 
-## Creating a complete transaction
+### Creating a complete transaction
 
 To create a transaction that will use a credit card, it is necessary to send a request using the `POST` method to the Payment feature as shown. This example covers all the possible fields that can be sent.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -722,7 +724,7 @@ curl
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
 
-### Response
+#### Response
 
 ```json
 {
@@ -887,13 +889,13 @@ curl
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
 
-## Creating a sale with Authentication
+### Creating a sale with Authentication
 
 To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the `POST` method for the Payment feature as shown.
 
 <aside class="notice"><strong>Authentication:</strong> In this mode, the card carrier is directed to the authentication environment of the card issuing bank where the inclusion of the card password will be requested.</aside>
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -985,7 +987,7 @@ curl
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
 
-### Response
+#### Response
 
 ```json
 {
@@ -1100,11 +1102,11 @@ curl
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
 
-## Creating a sale with Fraud Analysis
+### Creating a sale with Fraud Analysis
 
 To create a sale with credit card and fraud analysis, it is necessary to submit a request using the `POST` method for Payment feature as shown.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1421,7 +1423,7 @@ curl
 |`FraudAnalysis.Travel.Legs.Destination`|Text|3|No|Travel destination point airport code.|
 |`FraudAnalysis.Travel.Legs.Origin`|Text|3|No|Travel origin point airport code.|
 
-### Response
+#### Response
 
 ```json
 {
