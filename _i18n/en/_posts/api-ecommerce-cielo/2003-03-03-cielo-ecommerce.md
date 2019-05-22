@@ -340,7 +340,7 @@ For you to enjoy all the features available in our API, it is important that you
 
 ### Creating a simple transaction
 
-To create a transaction that will use a credit card, it is necessary to send a request using the `POST` method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization
+To create a transaction that will use a credit card, it is necessary to send a request using the `POST` method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.
 
 <aside class="notice"><strong>Warning:</strong> It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
