@@ -294,9 +294,9 @@ As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, 
 
 <aside class="notice"><strong>Atenção:</strong> O ambiente de **sandbox** avalia o formato e o final do cartão, caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.</aside>
 
-<aside class="notice"><strong>Tokenização:</strong>  transações no ambiente de simulação envolvendo tokenização não funcionaram com base em cartões de teste. Cada cartão salvo na tokenização é tratado como um cartão real, com isso não é usado no processo de simulação.</aside>
+<aside class="notice"><strong>Tokenização:</strong> transações no ambiente de simulação envolvendo tokenização não funcionaram com base em cartões de teste. Cada cartão salvo na tokenização é tratado como um cartão real, com isso não é usado no processo de simulação.</aside>
 
-<aside class="Warning"><strong>Atenção:</strong> Os Códigos de retorno em Sandbox não são os mesmos disponiveis em produção</aside>
+<aside class="Warning"><strong>Atenção:</strong> Os Códigos de retorno em Sandbox não são os mesmos disponiveis em produção.</aside>
 
 ## Cartão de débito - Sandbox
 
