@@ -250,10 +250,10 @@ To facilitate testing during integration, Cielo offers a Sandbox environment tha
 **Advantages of using the Sandbox**
 
 * No affiliation is required to use Sandbox Cielo.
-* Just access the [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) create an accounta.
+* Just access the [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) create an account.
 * with the registration you will receive a `MerchantId` and a `MerchantKey`, which are the credentials required for the API methods
 
-## Integration Toolo: POSTMAN
+## Integration Tool: POSTMAN
 
 **Postman** is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.
 
