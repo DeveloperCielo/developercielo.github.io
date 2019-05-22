@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-22T13:31:45+00:00</updated>
+    <updated>2019-05-22T14:00:06+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18247,11 +18247,11 @@ In case the chargeback is performed, Cielo does not take responsibility on refun
 
 &lt;ul&gt;
   &lt;li&gt;No affiliation is required to use Sandbox Cielo.&lt;/li&gt;
-  &lt;li&gt;Just access the &lt;a href=&quot;https://cadastrosandbox.cieloecommerce.cielo.com.br/&quot;&gt;&lt;strong&gt;Sandbox Registration&lt;/strong&gt;&lt;/a&gt; create an accounta.&lt;/li&gt;
+  &lt;li&gt;Just access the &lt;a href=&quot;https://cadastrosandbox.cieloecommerce.cielo.com.br/&quot;&gt;&lt;strong&gt;Sandbox Registration&lt;/strong&gt;&lt;/a&gt; create an account.&lt;/li&gt;
   &lt;li&gt;with the registration you will receive a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt; and a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;, which are the credentials required for the API methods&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;integration-toolo-postman&quot;&gt;Integration Toolo: POSTMAN&lt;/h2&gt;
+&lt;h2 id=&quot;integration-tool-postman&quot;&gt;Integration Tool: POSTMAN&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Postman&lt;/strong&gt; is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.&lt;/p&gt;
 
@@ -22678,7 +22678,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;li&gt;After registering you will receive a MerchantId and a MerchantKey, which are the credentials required for the API methods.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;integration-tool-postman&quot;&gt;Integration Tool: POSTMAN&lt;/h3&gt;
+&lt;h3 id=&quot;integration-tool-postman-1&quot;&gt;Integration Tool: POSTMAN&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Postman&lt;/strong&gt; is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.&lt;/p&gt;
 
