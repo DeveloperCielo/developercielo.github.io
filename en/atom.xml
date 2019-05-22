@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-22T14:25:30+00:00</updated>
+    <updated>2019-05-22T14:31:42+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18353,6 +18353,8 @@ With this means of payment it is possible to simulate the flows of:&lt;/p&gt;
 &lt;aside class=&quot;notice&quot;&gt;Warning: The **sandbox** environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.&lt;/aside&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Tokenization: Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process&lt;/aside&gt;
+
+&lt;aside class=&quot;Warning&quot;&gt;Warning: Sandbox return codes are not the same as the ones available in production.&lt;/aside&gt;
 
 &lt;h2 id=&quot;debit-card---sandbox&quot;&gt;Debit card - Sandbox&lt;/h2&gt;
 

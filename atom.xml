@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-22T14:25:25+00:00</updated>
+    <updated>2019-05-22T14:31:37+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16870,9 +16870,9 @@ Com esse meio de pagamento é possível simular os fluxos de:&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: O ambiente de **sandbox** avalia o formato e o final do cartão, caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Tokenização:  transações no ambiente de simulação envolvendo tokenização não funcionaram com base em cartões de teste. Cada cartão salvo na tokenização é tratado como um cartão real, com isso não é usado no processo de simulação.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Tokenização: transações no ambiente de simulação envolvendo tokenização não funcionaram com base em cartões de teste. Cada cartão salvo na tokenização é tratado como um cartão real, com isso não é usado no processo de simulação.&lt;/aside&gt;
 
-&lt;aside class=&quot;Warning&quot;&gt;Atenção: Os Códigos de retorno em Sandbox não são os mesmos disponiveis em produção&lt;/aside&gt;
+&lt;aside class=&quot;Warning&quot;&gt;Atenção: Os Códigos de retorno em Sandbox não são os mesmos disponiveis em produção.&lt;/aside&gt;
 
 &lt;h2 id=&quot;cartão-de-débito---sandbox&quot;&gt;Cartão de débito - Sandbox&lt;/h2&gt;
 
