@@ -322,61 +322,6 @@ Below we specify any existing differences:
 |Debit cardo|The `provider` used must be **SIMULATED** <br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
 |Online transfer|The `provider` used must be **SIMULATED** <br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
 
-## Notification Post
-
-The Notification Post is sent based on a selection of events to be made in the API Cielo E-commerce register.
-
-The events that can be notified are:
-
-|Means of payment|Event|
-|---|---|
-|Credit card|Capture|
-|Credit card|Cancellation|
-|Credit card|Survey|
-|Bank slip|Conciliation|
-|Bank slip|Manual Cancellation|
-|Electronic transfer|Confirmed|
-|Recurrence|Disabled on reaching maximum number of attempts (declined transactions)|
-|Recurrence|Waiting for bank slip conciliation|
-|Recurrence|Rehabilitation - After payment of bank slip|
-|Recurrence|Finished - Finished date reached|
-|Recurrence|Deactivation|
-
-<aside class="notice"><strong>Debit card:</strong> We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a `GET` to be run by searching for order information in the API Cielo</aside>
-
-An `URL Status Payment` must be registered by Cielo Support, so that the notification POST is executed.
-
-Features of the `URL Status Payment`
-
-* Must be **static**
-* 255 characters limit.
-
-The store **must** return in response to notification: **HTTP Status Code 200 OK**
-
-If not returned the **HTTP Status Code 200 OK**,  more **two** Notification Post submissions will occur.
-
-```json
-{
-   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": "2"
-}
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`RecurrentPaymentId`|Identifier that represents the Recurring order (applicable only to ChangeType 2 or 4)|GUID|36|No|
-|`PaymentId`|Identifier that represents the transaction|GUID|36|Yes|
-|`ChangeType`|Specifies the type of notification. See table below|Number|1|Yes|
-
-|ChangeType|Description|
-|---|---|
-|1|Payment status change|
-|2|Recurrence created|
-|3|AntiFraud status change|
-|4|Recurring payment status change (Ex. automatic deactivation)|
-|5|cancellation declined|
-
 # Payments with Credit Card
 
 For you to enjoy all the features available in our API, it is important that you first understand the concepts involved in processing a credit card transaction.
