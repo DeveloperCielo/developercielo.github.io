@@ -293,9 +293,9 @@ The information of **Security Code (CVV)** and validity may be random, keeping t
 
 <aside class="notice"><strong>Warning:</strong> The **sandbox** environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.</aside>
 
-<aside class="notice"><strong>Tokenization:</strong> Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process</aside>
+<aside class="notice"><strong>Tokenization:</strong> Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process.</aside>
 
-<aside class="Warning"><strong>Warning:</strong> Sandbox return codes are not the same as the ones available in production.</aside>
+<aside class="Warning"><strong>Warning:</strong> Sandbox return codes are not the same as the ones available in production. </aside>
 
 ## Debit card - Sandbox
 
