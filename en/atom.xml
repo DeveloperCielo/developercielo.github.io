@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-22T18:56:10+00:00</updated>
+    <updated>2019-05-22T18:58:54+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18462,7 +18462,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;h3 id=&quot;creating-a-simple-transaction&quot;&gt;Creating a simple transaction&lt;/h3&gt;
 
-&lt;p&gt;To create a transaction that will use a credit card, it is necessary to send a request using the &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization&lt;/p&gt;
+&lt;p&gt;To create a transaction that will use a credit card, it is necessary to send a request using the &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.&lt;/aside&gt;
 
