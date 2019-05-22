@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-21T19:02:36+00:00</updated>
+    <updated>2019-05-22T13:31:45+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -17902,6 +17902,31 @@ In case the chargeback is performed, Cielo does not take responsibility on refun
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; HTTP method is used for querying already existing features. For example, transaction query.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;Methods&lt;/th&gt;
+      &lt;th&gt;SandBox&lt;/th&gt;
+      &lt;th&gt;Production&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Transaction request&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;POST&lt;/strong&gt; / &lt;strong&gt;PUT&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;https://apisandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;https://api.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Queries&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;https://apiquerysandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;https://apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
