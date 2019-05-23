@@ -1762,7 +1762,7 @@ To successfully test the authorization scenario using QRCode, we provided an exa
 
 The **Security Code (CVV)** and expiry date information can be random, but must be kept the format, for exemplo: CVV (3 digits) expiry date (MM/YYYY).
 
-## Creating a QRCode via API
+### Creating a QRCode via API
 
 To create a transaction that will use a credit card, it is necessary to send a request using the POST method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.
 
