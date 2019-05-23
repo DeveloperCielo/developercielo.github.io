@@ -1104,7 +1104,7 @@ curl
 
 ## Debit Card
 
-This means of payment is automatically released next to Cielo's affiliation and can be used with the following brands and banks: 
+This payment method is automatically released along to the Cielo's affiliation and can be used with the following brands and banks:
 
 | MASTERCARD      | VISA            |
 |-----------------|-----------------|
@@ -1119,7 +1119,7 @@ This means of payment is automatically released next to Cielo's affiliation and 
 
 ### Debit Authentication
 
-The Debit Card by standard requires the carrier to be directed to the Banking environment, where the password and data reported by the store will be evaluated. There is the option of not authenticating debit transactions, but it is necessary for the card issuing bank to allow such transaction. This isn't a permission granted by Cielo, the seller must activate the bank and request permission
+Debit Card by standard requires the carrier to be directed to the Banking environment, where the password and data reported by the store will be evaluated. There is the option of not authenticating debit transactions, but it is necessary for the card issuing bank to allow such transaction. This isn't a permission granted by Cielo, the seller must activate the bank and request permission
 
 In debit card transactions without authentication, there is a limitation of banks:
 
@@ -1201,10 +1201,10 @@ curl
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Buyer's name.|Text|255|No|
 |`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Payment.Type`|Means of Payment Type.|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Authenticate`|Defines whether the buyer will be directed to the issuing bank for card authentication.|Boolean|---|Yes (Default TRUE)|
-|`Payment.ReturnUrl`|URI to which the user will be redirected after payment ends|Text|1024|Yes|
+|`Payment.ReturnUrl`|URI to where the user will be redirected after payment ends|Text|1024|Yes|
 |`DebitCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
 |`DebitCard.Holder`|Buyer's name printed on card.|Text|25|No|
 |`DebitCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
@@ -1299,7 +1299,7 @@ curl
 
 ## Electronic Transfer
 
-### Creating a simplified sale
+### Creating a simple sransaction
 
 To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.
 
