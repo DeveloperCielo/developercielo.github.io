@@ -1714,7 +1714,7 @@ Integration is performed through services provided as Web Services. The model ad
 |**PUT**|The `PUT` HTTP method is used to update an already existing feature. For example, capture or cancellation of a previously authorized transaction.|
 |**GET**|The `GET` HTTP method is used for querying already existing features. For example, transaction query.|
 
-## Products and supported issuer
+### Products and supported issuer
 
 QR Code  payment supports the following issuers and products:
 
