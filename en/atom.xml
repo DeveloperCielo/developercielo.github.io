@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-23T11:12:27+00:00</updated>
+    <updated>2019-05-23T13:42:54+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18419,7 +18419,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;h2 id=&quot;credit-card&quot;&gt;Credit Card&lt;/h2&gt;
 
-&lt;p&gt;For you to enjoy all the features available in our API, it is important that you first understand the concepts involved in processing a credit card transaction.&lt;/p&gt;
+&lt;p&gt;To enjoy all the features available in our API, it is important that you first understand the concepts around processing a credit card transaction.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -18431,11 +18431,11 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Authorization&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;The authorization (or pre-authorization) is the main operation in the eCommerce, because through it is that a sale can be realized. Pre-authorization only sensitizes the customer’s limit, but does not yet generate charge for the consumer.&lt;/td&gt;
+      &lt;td&gt;The authorization (or pre-authorization) is the main operation in the eCommerce, because through it, the sale can be finished. Pre-authorization only sensitizes the customer’s limit, but still does not generate charge for the consumer.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Capture&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;When making a pre-authorization, it is necessary to confirm it, so that the charge is effected to the card carrier. Through this operation a pre-authorization is effected, and it can be executed normally within 5 days after the pre-authorization date.&lt;/td&gt;
+      &lt;td&gt;When making a pre-authorization, it is necessary to confirm it, so that the charge is effected to the card carrier. It is through this operation a pre-authorization is effected, and it can be executed normally within 5 days after the pre-authorization date.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Cancellation&lt;/strong&gt;&lt;/td&gt;
@@ -18443,11 +18443,11 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Authentication&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, thus providing more security for the sale and transferring the risk of fraud to the bank.&lt;/td&gt;
+      &lt;td&gt;The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, then providing more security for the sale and transferring the risk of fraud to the bank.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Protected Card&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;It is a platform that allows secure storage of credit card sensitive data. This data are transformed into an encrypted code named “token”, which can be stored in a database. With the platform, the store can offer features like “1 Click Buy” and “Rettry transaction sending”, always preserving integrity and confidentiality of information.&lt;/td&gt;
+      &lt;td&gt;It is a platform that allows secure storage of credit card sensitive data. This data are transformed into an encrypted code named “token”, which can be stored in a database. In the platform, the store can offer features like “1 Click Buying” and “Retry transaction sending”, always preserving integrity and confidentiality of information.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Anti fraud&lt;/strong&gt;&lt;/td&gt;
@@ -19509,7 +19509,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;creating-a-sale-with-authentication&quot;&gt;Creating a sale with Authentication&lt;/h3&gt;
+&lt;h3 id=&quot;creating-a-authenticated-transaction&quot;&gt;Creating a authenticated transaction&lt;/h3&gt;
 
 &lt;p&gt;To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; method for the Payment feature as shown.&lt;/p&gt;
 
