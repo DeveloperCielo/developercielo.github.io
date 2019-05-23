@@ -3916,7 +3916,6 @@ curl
 
 # Consult - Capture - Cancel
 
-
 ## Consulting Sales
 
 ### Consulting a sale
