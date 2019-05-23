@@ -1299,7 +1299,7 @@ curl
 
 ## Electronic Transfer
 
-### Creating a simple sransaction
+### Creating a simple transaction
 
 To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.
 
