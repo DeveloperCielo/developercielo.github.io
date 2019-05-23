@@ -3914,15 +3914,18 @@ curl
 |`NewCard.Brand`|Card issuer.|Text|10|Yes|
 |`NewCard.SaveCard`|Identifies whether the card generated Cardtoken during the transaction|Boolean|---|Yes|
 
-# Consulting Sales
+# Consult - Capture - Cancel
 
-## Consulting a sale
+
+## Consulting Sales
+
+### Consulting a sale
 
 To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example.
 
 <aside class="notice">Only transactions sent on the last three months are eligible for queries</aside>
 
-### Request
+#### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -3944,7 +3947,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`PaymentId`|Payment identification number.|Text|36|Yes|
 
-### Response
+#### Response
 
 ```json
 {
@@ -4067,13 +4070,13 @@ curl
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
 
-## Consulting a sale by store identifier
+### Consulting a sale by store identifier
 
 It is not possible to directly query a payment by the identifier sent by the store (MerchantOrderId), but it is possible to get all PaymentIds associated with the identifier.
 
 To check a sale by store identifier, you need to make a GET for the sales feature as the example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -4095,7 +4098,7 @@ curls
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`MerchantOrderId`|Order Identifier Field at the Store.|Text|36|Yes|
 
-### Response
+#### Response
 
 ```json
 {
@@ -4134,11 +4137,11 @@ curls
 |---|---|---|---|---|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-## Consulting a sale with Fraud Analysis
+### Consulting a sale with Fraud Analysis
 
 To consult a credit card sale with antifraud, it is necessary to do a GET for the Payment feature as the example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -4160,7 +4163,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`PaymentId`|Payment identification number.|Text|36|Yes|
 
-### Response
+#### Response
 
 ```json
 {
@@ -4322,13 +4325,13 @@ curl
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
 
-## Consulting a Recurrence
+### Consulting a Recurrence
 
 To consult a credit card Recurrence, it is necessary to do a `GET` as shown in the example.
 
 **The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a `GET` must be performed in the transaction (Available in" Consulting sales
 
-### Request
+#### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -4350,7 +4353,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence Identifier Field.|Text|36|Yes|
 
-### Response
+#### Response
 
 ```json
 {
@@ -4448,7 +4451,7 @@ curl
 |`RecurrentTransactions.PaymentNumber`|Number of Recurrence. The first one is zero|Number|2|3|
 |`RecurrentTransactions.TryNumber`|Number of current attempt at the specific recurrence|Number|2|1|
 
-# Capturing a sale
+## Capturing a sale
 
 The **Capture** is an exclusive step for Credit Card transactions.
 
@@ -4462,11 +4465,11 @@ What the capture generates:
 
 <aside class="notice"><strong>Warning:</strong> Capture is a deadline process. Check in without Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture</aside>
 
-## Total capture
+### Total capture
 
 To capture a sale that uses a credit card, it is necessary to do a PUT for the Payment feature as the example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
 
@@ -4495,7 +4498,7 @@ curl
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
 |`ServiceTaxAmount`|[See Annex](https://developercielo.github.io/Webservice-3.0/#anexos)|Number|15|No|
 
-### Response
+#### Response
 
 ```json
 {
@@ -4546,7 +4549,7 @@ curl
 |`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
 
-## Partial Capture
+### Partial Capture
 
 The **partial Capture** is the act of capturing a value less than the authorized value. This capture model can occur only once per transaction.
 
@@ -4556,7 +4559,7 @@ Just do a `POST` sending the value to be captured.
 
 <aside class="notice"><strong>Warning:</strong> Partial capture available for credit transactions only</aside>
 
-### Request - Partial Capture
+#### Request - Partial Capture
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
@@ -4585,7 +4588,7 @@ curl
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
 |`ServiceTaxAmount`|[See Annex](https://developercielo.github.io/Webservice-3.0/#anexos)|Number|15|No|
 
-### Response
+#### Response
 
 ```json
 {
@@ -4650,7 +4653,7 @@ curl
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
 
-### Response
+#### Response
 
 ```json
 {
@@ -4711,15 +4714,15 @@ curl
 |`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
 |`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
 
-## Capture Via Backoffice
+### Capture Via Backoffice
 
 It is possible to carry out both the total capture and the partial capture via The Backoffice Cielo.
 
 Access our [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  for more informations
 
-# Canceling a sale
+## Canceling a sale
 
-## Canceling a sale via API
+### Canceling a sale via API
 
 Cancellation process via API is available only for credit and debit card.
 
@@ -4732,13 +4735,13 @@ Each means of payment suffer different impacts when a cancellation order (VOID) 
 
 NOTE: Partial cancellations are only available for Credit Card.
 
-## Total cancellation
+### Total cancellation
 
 To cancel a sale that uses a credit card, it is necessary to do a PUT for the Payment feature. Cancellation can be made via PaymentID or MerchantOrderId (order number).
 
 <aside class="notice"><strong>Warning:</strong> Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method</aside>
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
 
@@ -4764,7 +4767,7 @@ curl
 |`PaymentId`|Order Identifier Field.|Guid|36|Yes|
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
 
-### Response
+#### Response
 
 ```json
 {
@@ -4805,7 +4808,7 @@ curl
 |`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
 
-## Partial cancellation
+### Partial cancellation
 
 The **partial cancellation** is the act of canceling a value less than the total authorized/captured value. This cancellation model can occur countless times, until the total value of the transaction is canceled.
 
@@ -4815,7 +4818,7 @@ The **partial cancellation** is the act of canceling a value less than the total
 
 <aside class="notice"><strong>Warning:</strong> The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
 
-### Request - partial cancellation
+#### Request - partial cancellation
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -4837,7 +4840,7 @@ curl
 |`PaymentId`|Order Identifier Field.|Guid|36|Yes|
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
 
-### Response
+#### Response
 
 ```json
 {
@@ -4904,7 +4907,7 @@ curl
 https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
 ```
 
-## Cancellation via Backoffice
+### Cancellation via Backoffice
 
 Cancellation via Backoffice is the only option to perform cancellation of bank slip and Online Debit transactions.
 It is possible to carry out both the total cancellation and the partial cancellation via The Backoffice Cielo.
