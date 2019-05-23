@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-23T18:40:15+00:00</updated>
+    <updated>2019-05-23T18:50:22+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -21200,7 +21200,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;products-and-supported-issuer&quot;&gt;Products and supported issuer&lt;/h2&gt;
+&lt;h3 id=&quot;products-and-supported-issuer&quot;&gt;Products and supported issuer&lt;/h3&gt;
 
 &lt;p&gt;QR Code  payment supports the following issuers and products:&lt;/p&gt;
 
