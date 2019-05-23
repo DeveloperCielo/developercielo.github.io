@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-23T14:59:23+00:00</updated>
+    <updated>2019-05-23T16:37:28+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19904,7 +19904,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;h2 id=&quot;debit-card&quot;&gt;Debit Card&lt;/h2&gt;
 
-&lt;p&gt;This means of payment is automatically released next to Cielo’s affiliation and can be used with the following brands and banks:&lt;/p&gt;
+&lt;p&gt;This payment method is automatically released along to the Cielo’s affiliation and can be used with the following brands and banks:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -19951,7 +19951,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;h3 id=&quot;debit-authentication&quot;&gt;Debit Authentication&lt;/h3&gt;
 
-&lt;p&gt;The Debit Card by standard requires the carrier to be directed to the Banking environment, where the password and data reported by the store will be evaluated. There is the option of not authenticating debit transactions, but it is necessary for the card issuing bank to allow such transaction. This isn’t a permission granted by Cielo, the seller must activate the bank and request permission&lt;/p&gt;
+&lt;p&gt;Debit Card by standard requires the carrier to be directed to the Banking environment, where the password and data reported by the store will be evaluated. There is the option of not authenticating debit transactions, but it is necessary for the card issuing bank to allow such transaction. This isn’t a permission granted by Cielo, the seller must activate the bank and request permission&lt;/p&gt;
 
 &lt;p&gt;In debit card transactions without authentication, there is a limitation of banks:&lt;/p&gt;
 
@@ -20097,7 +20097,7 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -20118,7 +20118,7 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReturnUrl&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;URI to which the user will be redirected after payment ends&lt;/td&gt;
+      &lt;td&gt;URI to where the user will be redirected after payment ends&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;1024&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -20294,7 +20294,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;h2 id=&quot;electronic-transfer&quot;&gt;Electronic Transfer&lt;/h2&gt;
 
-&lt;h3 id=&quot;creating-a-simplified-sale&quot;&gt;Creating a simplified sale&lt;/h3&gt;
+&lt;h3 id=&quot;creating-a-simple-sransaction&quot;&gt;Creating a simple sransaction&lt;/h3&gt;
 
 &lt;p&gt;To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.&lt;/p&gt;
 

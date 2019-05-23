@@ -2214,7 +2214,7 @@ Below we specify any existing differences:</p>
 
 <h2 id="debit-card">Debit Card</h2>
 
-<p>This means of payment is automatically released next to Cielo’s affiliation and can be used with the following brands and banks:</p>
+<p>This payment method is automatically released along to the Cielo’s affiliation and can be used with the following brands and banks:</p>
 
 <table>
   <thead>
@@ -2261,7 +2261,7 @@ Below we specify any existing differences:</p>
 
 <h3 id="debit-authentication">Debit Authentication</h3>
 
-<p>The Debit Card by standard requires the carrier to be directed to the Banking environment, where the password and data reported by the store will be evaluated. There is the option of not authenticating debit transactions, but it is necessary for the card issuing bank to allow such transaction. This isn’t a permission granted by Cielo, the seller must activate the bank and request permission</p>
+<p>Debit Card by standard requires the carrier to be directed to the Banking environment, where the password and data reported by the store will be evaluated. There is the option of not authenticating debit transactions, but it is necessary for the card issuing bank to allow such transaction. This isn’t a permission granted by Cielo, the seller must activate the bank and request permission</p>
 
 <p>In debit card transactions without authentication, there is a limitation of banks:</p>
 
@@ -2407,7 +2407,7 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
-      <td>Means of Payment Type.</td>
+      <td>Type of the Payment Method.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
@@ -2428,7 +2428,7 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
-      <td>URI to which the user will be redirected after payment ends</td>
+      <td>URI to where the user will be redirected after payment ends</td>
       <td>Text</td>
       <td>1024</td>
       <td>Yes</td>
@@ -2604,7 +2604,7 @@ Below we specify any existing differences:</p>
 
 <h2 id="electronic-transfer">Electronic Transfer</h2>
 
-<h3 id="creating-a-simplified-sale">Creating a simplified sale</h3>
+<h3 id="creating-a-simple-sransaction">Creating a simple sransaction</h3>
 
 <p>To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.</p>
 
