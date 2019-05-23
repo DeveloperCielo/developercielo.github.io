@@ -326,15 +326,15 @@ Below we specify any existing differences:
 
 ## Credit Card
 
-For you to enjoy all the features available in our API, it is important that you first understand the concepts involved in processing a credit card transaction.
+To enjoy all the features available in our API, it is important that you first understand the concepts around processing a credit card transaction.
 
 |Concept|Description|
 |---|---|
-|**Authorization**|The authorization (or pre-authorization) is the main operation in the eCommerce, because through it is that a sale can be realized. Pre-authorization only sensitizes the customer's limit, but does not yet generate charge for the consumer.|
-|**Capture**|When making a pre-authorization, it is necessary to confirm it, so that the charge is effected to the card carrier. Through this operation a pre-authorization is effected, and it can be executed normally within 5 days after the pre-authorization date.|
+|**Authorization**|The authorization (or pre-authorization) is the main operation in the eCommerce, because through it, the sale can be finished. Pre-authorization only sensitizes the customer's limit, but still does not generate charge for the consumer.|
+|**Capture**|When making a pre-authorization, it is necessary to confirm it, so that the charge is effected to the card carrier. It is through this operation a pre-authorization is effected, and it can be executed normally within 5 days after the pre-authorization date.|
 |**Cancellation**|The cancellation is necessary when, for some reason, a sale will not be effected anymore.|
-|**Authentication**|The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, thus providing more security for the sale and transferring the risk of fraud to the bank.|
-|**Protected Card**|It is a platform that allows secure storage of credit card sensitive data. This data are transformed into an encrypted code named “token”, which can be stored in a database. With the platform, the store can offer features like “1 Click Buy” and “Rettry transaction sending”, always preserving integrity and confidentiality of information.|
+|**Authentication**|The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, then providing more security for the sale and transferring the risk of fraud to the bank.|
+|**Protected Card**|It is a platform that allows secure storage of credit card sensitive data. This data are transformed into an encrypted code named “token”, which can be stored in a database. In the platform, the store can offer features like “1 Click Buying” and “Retry transaction sending”, always preserving integrity and confidentiality of information.|
 |**Anti fraud**|It is a fraud prevention platform that provides a detailed risk analysis of online purchases. Each transaction is submitted to more than 260 rules, besides the specific rules of each segment, and generate a risk recommendation in approximately two seconds. This process is completely transparent to the card carrier. According to the pre-established criteria, the order can be automatically accepted, rejected or sent to manual analysis.|
 |**Recurrent**|The Smart Recurrence is an indispensable feature for establishments that regularly need to charge for their products/services. It is widely used for magazine subscriptions, monthly fees, software licenses, among others. The merchants will count with differentiated features to model their charging according to their business, as all parameterization is configurable, such as: periodicity, start and end date, number of attempts, interval between them, among others.|
 
@@ -889,7 +889,7 @@ curl
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
 
-### Creating a sale with Authentication
+### Creating a authenticated transaction
 
 To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the `POST` method for the Payment feature as shown.
 
