@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-23T18:50:22+00:00</updated>
+    <updated>2019-05-23T18:56:59+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -21317,7 +21317,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;p&gt;The &lt;strong&gt;Security Code (CVV)&lt;/strong&gt; and expiry date information can be random, but must be kept the format, for exemplo: CVV (3 digits) expiry date (MM/YYYY).&lt;/p&gt;
 
-&lt;h2 id=&quot;creating-a-qrcode-via-api&quot;&gt;Creating a QRCode via API&lt;/h2&gt;
+&lt;h3 id=&quot;creating-a-qrcode-via-api&quot;&gt;Creating a QRCode via API&lt;/h3&gt;
 
 &lt;p&gt;To create a transaction that will use a credit card, it is necessary to send a request using the POST method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.&lt;/p&gt;
 
