@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-23T18:56:59+00:00</updated>
+    <updated>2019-05-23T19:33:31+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25306,15 +25306,17 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;consulting-sales&quot;&gt;Consulting Sales&lt;/h1&gt;
+&lt;h1 id=&quot;consult---capture---cancel&quot;&gt;Consult - Capture - Cancel&lt;/h1&gt;
 
-&lt;h2 id=&quot;consulting-a-sale&quot;&gt;Consulting a sale&lt;/h2&gt;
+&lt;h2 id=&quot;consulting-sales&quot;&gt;Consulting Sales&lt;/h2&gt;
+
+&lt;h3 id=&quot;consulting-a-sale&quot;&gt;Consulting a sale&lt;/h3&gt;
 
 &lt;p&gt;To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Only transactions sent on the last three months are eligible for queries&lt;/aside&gt;
 
-&lt;h3 id=&quot;request-22&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-22&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -25370,7 +25372,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-25&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-25&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -25592,13 +25594,13 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;consulting-a-sale-by-store-identifier&quot;&gt;Consulting a sale by store identifier&lt;/h2&gt;
+&lt;h3 id=&quot;consulting-a-sale-by-store-identifier&quot;&gt;Consulting a sale by store identifier&lt;/h3&gt;
 
 &lt;p&gt;It is not possible to directly query a payment by the identifier sent by the store (MerchantOrderId), but it is possible to get all PaymentIds associated with the identifier.&lt;/p&gt;
 
 &lt;p&gt;To check a sale by store identifier, you need to make a GET for the sales feature as the example.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-23&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-23&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales?merchantOrderId={merchantOrderId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -25654,7 +25656,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-26&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-26&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -25708,11 +25710,11 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;consulting-a-sale-with-fraud-analysis&quot;&gt;Consulting a sale with Fraud Analysis&lt;/h2&gt;
+&lt;h3 id=&quot;consulting-a-sale-with-fraud-analysis&quot;&gt;Consulting a sale with Fraud Analysis&lt;/h3&gt;
 
 &lt;p&gt;To consult a credit card sale with antifraud, it is necessary to do a GET for the Payment feature as the example.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-24&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-24&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -25768,7 +25770,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-27&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-27&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f381c0c4-2bf9-4de1-91e1-e9e1f11d0854&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26011,13 +26013,13 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;consulting-a-recurrence&quot;&gt;Consulting a Recurrence&lt;/h2&gt;
+&lt;h3 id=&quot;consulting-a-recurrence&quot;&gt;Consulting a Recurrence&lt;/h3&gt;
 
 &lt;p&gt;To consult a credit card Recurrence, it is necessary to do a &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; as shown in the example.&lt;/p&gt;
 
 &lt;p&gt;**The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; must be performed in the transaction (Available in” Consulting sales&lt;/p&gt;
 
-&lt;h3 id=&quot;request-25&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-25&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -26073,7 +26075,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-28&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-28&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26264,7 +26266,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;capturing-a-sale&quot;&gt;Capturing a sale&lt;/h1&gt;
+&lt;h2 id=&quot;capturing-a-sale&quot;&gt;Capturing a sale&lt;/h2&gt;
 
 &lt;p&gt;The &lt;strong&gt;Capture&lt;/strong&gt; is an exclusive step for Credit Card transactions.&lt;/p&gt;
 
@@ -26280,11 +26282,11 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: Capture is a deadline process. Check in without Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture&lt;/aside&gt;
 
-&lt;h2 id=&quot;total-capture&quot;&gt;Total capture&lt;/h2&gt;
+&lt;h3 id=&quot;total-capture&quot;&gt;Total capture&lt;/h3&gt;
 
 &lt;p&gt;To capture a sale that uses a credit card, it is necessary to do a PUT for the Payment feature as the example.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-26&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-26&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}/capture&lt;/span&gt;&lt;/aside&gt;
 
@@ -26358,7 +26360,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-29&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-29&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26436,7 +26438,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;partial-capture&quot;&gt;Partial Capture&lt;/h2&gt;
+&lt;h3 id=&quot;partial-capture&quot;&gt;Partial Capture&lt;/h3&gt;
 
 &lt;p&gt;The &lt;strong&gt;partial Capture&lt;/strong&gt; is the act of capturing a value less than the authorized value. This capture model can occur only once per transaction.&lt;/p&gt;
 
@@ -26446,7 +26448,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: Partial capture available for credit transactions only&lt;/aside&gt;
 
-&lt;h3 id=&quot;request---partial-capture-1&quot;&gt;Request - Partial Capture&lt;/h3&gt;
+&lt;h4 id=&quot;request---partial-capture-1&quot;&gt;Request - Partial Capture&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{paymentId}/capture?amount={Valor}&lt;/span&gt;&lt;/aside&gt;
 
@@ -26520,7 +26522,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-30&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-30&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26624,7 +26626,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{paymentId}/capture?amount={Valor}&amp;amp;serviceTaxAmount=xxx&lt;/span&gt;&lt;/aside&gt;
 
-&lt;h3 id=&quot;response-31&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-31&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26724,15 +26726,15 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;capture-via-backoffice&quot;&gt;Capture Via Backoffice&lt;/h2&gt;
+&lt;h3 id=&quot;capture-via-backoffice&quot;&gt;Capture Via Backoffice&lt;/h3&gt;
 
 &lt;p&gt;It is possible to carry out both the total capture and the partial capture via The Backoffice Cielo.&lt;/p&gt;
 
 &lt;p&gt;Access our &lt;a href=&quot;https://developercielo.github.io/Tutorial//Backoffice-3.0&quot;&gt;&lt;strong&gt;Tutorial&lt;/strong&gt;&lt;/a&gt;  for more informations&lt;/p&gt;
 
-&lt;h1 id=&quot;canceling-a-sale&quot;&gt;Canceling a sale&lt;/h1&gt;
+&lt;h2 id=&quot;canceling-a-sale&quot;&gt;Canceling a sale&lt;/h2&gt;
 
-&lt;h2 id=&quot;canceling-a-sale-via-api&quot;&gt;Canceling a sale via API&lt;/h2&gt;
+&lt;h3 id=&quot;canceling-a-sale-via-api&quot;&gt;Canceling a sale via API&lt;/h3&gt;
 
 &lt;p&gt;Cancellation process via API is available only for credit and debit card.&lt;/p&gt;
 
@@ -26765,13 +26767,13 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;p&gt;NOTE: Partial cancellations are only available for Credit Card.&lt;/p&gt;
 
-&lt;h2 id=&quot;total-cancellation&quot;&gt;Total cancellation&lt;/h2&gt;
+&lt;h3 id=&quot;total-cancellation&quot;&gt;Total cancellation&lt;/h3&gt;
 
 &lt;p&gt;To cancel a sale that uses a credit card, it is necessary to do a PUT for the Payment feature. Cancellation can be made via PaymentID or MerchantOrderId (order number).&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method&lt;/aside&gt;
 
-&lt;h3 id=&quot;request-27&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-27&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}/void?amount=xxx&lt;/span&gt;&lt;/aside&gt;
 
@@ -26837,7 +26839,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-32&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-32&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26905,7 +26907,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;partial-cancellation&quot;&gt;Partial cancellation&lt;/h2&gt;
+&lt;h3 id=&quot;partial-cancellation&quot;&gt;Partial cancellation&lt;/h3&gt;
 
 &lt;p&gt;The &lt;strong&gt;partial cancellation&lt;/strong&gt; is the act of canceling a value less than the total authorized/captured value. This cancellation model can occur countless times, until the total value of the transaction is canceled.&lt;/p&gt;
 
@@ -26915,7 +26917,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled&lt;/aside&gt;
 
-&lt;h3 id=&quot;request---partial-cancellation&quot;&gt;Request - partial cancellation&lt;/h3&gt;
+&lt;h4 id=&quot;request---partial-cancellation&quot;&gt;Request - partial cancellation&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}/void?amount=XXX &lt;/span&gt;&lt;/aside&gt;
 
@@ -26977,7 +26979,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-33&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-33&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -27082,7 +27084,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&amp;amp;serviceTaxAmount=xxx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;cancellation-via-backoffice&quot;&gt;Cancellation via Backoffice&lt;/h2&gt;
+&lt;h3 id=&quot;cancellation-via-backoffice&quot;&gt;Cancellation via Backoffice&lt;/h3&gt;
 
 &lt;p&gt;Cancellation via Backoffice is the only option to perform cancellation of bank slip and Online Debit transactions.
 It is possible to carry out both the total cancellation and the partial cancellation via The Backoffice Cielo.&lt;/p&gt;
