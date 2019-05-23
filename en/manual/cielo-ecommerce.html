@@ -2898,15 +2898,15 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h1 id="payments-with-bank-slip">Payments with Bank slip</h1>
+<h2 id="bank-slip">Bank slip</h2>
 
-<h2 id="creating-a-bank-slip-sale">Creating a Bank slip sale</h2>
+<h3 id="creating-a-bank-slip-sale">Creating a Bank slip sale</h3>
 
 <p>To create a sale whose form of payment is bank slip, just do a POST as the example.</p>
 
 <p><strong>NOTE:</strong> The API supports registered and unregistered bank slips, with the provider being the differentiator between them. We suggest that you validate with your bank what type of bank slip that is supported by your wallet. The API only accepts <strong>Bradesco</strong> and <strong>Banco do Brasil</strong> bank slips</p>
 
-<h3 id="request-5">Request</h3>
+<h4 id="request-5">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3161,7 +3161,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h3 id="response-5">Response</h3>
+<h4 id="response-5">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -3340,7 +3340,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="additional-rules">Additional Rules</h2>
+<h3 id="additional-rules">Additional Rules</h3>
 
 <p>Number of characters per field and Provider:</p>
 
@@ -3459,7 +3459,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h1 id="api-qr-code-via-api-e-commerce">API QR Code via API E-Commerce</h1>
+<h2 id="api-qr-code-via-api-e-commerce">API QR Code via API E-Commerce</h2>
 
 <p>The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce to create payment QRCode, describing the features, methods to be used, listing information to be sent and received, and providing examples.</p>
 
@@ -3483,7 +3483,7 @@ Below we specify any existing differences:</p>
 
 <p>To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.</p>
 
-<h2 id="architecture-1">Architecture</h2>
+<h3 id="architecture-1">Architecture</h3>
 
 <p>Integration is performed through services provided as Web Services. The model adopted is quite simple: There are two URLs (endpoint), one specific an operation that causes sides effects - such as authorization, capture and cancellation of transactions, and the o specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a feature identified through the path.</p>
 
@@ -3581,9 +3581,9 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="sandbox-and-tools-for-qr-code">Sandbox and tools for QR Code</h2>
+<h3 id="sandbox-and-tools-for-qr-code">Sandbox and tools for QR Code</h3>
 
-<h3 id="about-sandbox-1">About Sandbox</h3>
+<h4 id="about-sandbox-1">About Sandbox</h4>
 
 <p>To facilitate testing during integration, Cielo offers a Sandbox environment that is composed by two areas:</p>
 
@@ -3613,7 +3613,7 @@ Below we specify any existing differences:</p>
   <li>After registering you will receive a MerchantId and a MerchantKey, which are the credentials required for the API methods.</li>
 </ul>
 
-<h3 id="integration-tool-postman-1">Integration Tool: POSTMAN</h3>
+<h4 id="integration-tool-postman-1">Integration Tool: POSTMAN</h4>
 
 <p><strong>Postman</strong> is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.</p>
 
@@ -3621,7 +3621,7 @@ Below we specify any existing differences:</p>
 
 <p>We suggest developers to access our <a href="https://developercielo.github.io/tutorial/postman"><strong>Tutorial</strong></a> about the tool to better understand all the advantages that it offers.</p>
 
-<h3 id="credit-card---sandbox-1">Credit Card - Sandbox</h3>
+<h4 id="credit-card---sandbox-1">Credit Card - Sandbox</h4>
 
 <p>To successfully test the authorization scenario using QRCode, we provided an example card that can be use to test it 4551.8700.0000.0183</p>
 
@@ -3633,7 +3633,7 @@ Below we specify any existing differences:</p>
 
 <aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-<h3 id="request-6">Request</h3>
+<h4 id="request-6">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3750,7 +3750,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h3 id="response-6">Response</h3>
+<h4 id="response-6">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019010101"</span><span class="p">,</span><span class="w">
@@ -3872,11 +3872,11 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="consult----paymentid">Consult  - PaymentID</h2>
+<h3 id="consult----paymentid">Consult  - PaymentID</h3>
 
 <p>To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example</p>
 
-<h3 id="request-7">Request</h3>
+<h4 id="request-7">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -3932,7 +3932,7 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h3 id="response-7">Response</h3>
+<h4 id="response-7">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -4154,14 +4154,14 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
-<h2 id="consult---merchandorderid">Consult - MerchandOrderID</h2>
+<h3 id="consult---merchandorderid">Consult - MerchandOrderID</h3>
 
 <p>It is not possible to consult a payment for the identifier sent by store (MerchantOrderId), but you can get all the
 PaymentIds associated with the identifier.</p>
 
 <p>To consult a sale by store identifier, it is necessary to make a GET for the sales resource as the example.</p>
 
-<h3 id="request-8">Request</h3>
+<h4 id="request-8">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -4217,7 +4217,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h3 id="response-8">Response</h3>
+<h4 id="response-8">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4271,7 +4271,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h2 id="capture">Capture</h2>
+<h3 id="capture">Capture</h3>
 
 <p>The <strong>Capture</strong> is an exclusive step for Credit Card transactions.</p>
 
@@ -4289,7 +4289,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="notice">Warning: Partial capture available for credit transactions only</aside>
 
-<h3 id="request---partial-capture">Request - Partial Capture</h3>
+<h4 id="request---partial-capture">Request - Partial Capture</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
@@ -4363,7 +4363,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h3 id="response-9">Response</h3>
+<h4 id="response-9">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4467,7 +4467,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
 
-<h3 id="response-10">Response</h3>
+<h4 id="response-10">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4573,7 +4573,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h2 id="canceling">Canceling</h2>
+<h3 id="canceling">Canceling</h3>
 
 <p><strong>Canceling</strong> is an operation responsible for canceling total or partial of an authorized or captured value.</p>
 
@@ -4583,7 +4583,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="notice">Warning:The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
 
-<h3 id="request---cancellation">Request - Cancellation</h3>
+<h4 id="request---cancellation">Request - Cancellation</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -4645,7 +4645,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h3 id="response-11">Response</h3>
+<h4 id="response-11">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">

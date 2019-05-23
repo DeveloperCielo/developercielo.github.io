@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-23T17:55:02+00:00</updated>
+    <updated>2019-05-23T18:40:15+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -20588,15 +20588,15 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;payments-with-bank-slip&quot;&gt;Payments with Bank slip&lt;/h1&gt;
+&lt;h2 id=&quot;bank-slip&quot;&gt;Bank slip&lt;/h2&gt;
 
-&lt;h2 id=&quot;creating-a-bank-slip-sale&quot;&gt;Creating a Bank slip sale&lt;/h2&gt;
+&lt;h3 id=&quot;creating-a-bank-slip-sale&quot;&gt;Creating a Bank slip sale&lt;/h3&gt;
 
 &lt;p&gt;To create a sale whose form of payment is bank slip, just do a POST as the example.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; The API supports registered and unregistered bank slips, with the provider being the differentiator between them. We suggest that you validate with your bank what type of bank slip that is supported by your wallet. The API only accepts &lt;strong&gt;Bradesco&lt;/strong&gt; and &lt;strong&gt;Banco do Brasil&lt;/strong&gt; bank slips&lt;/p&gt;
 
-&lt;h3 id=&quot;request-5&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-5&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -20851,7 +20851,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-5&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-5&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -21030,7 +21030,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;additional-rules&quot;&gt;Additional Rules&lt;/h2&gt;
+&lt;h3 id=&quot;additional-rules&quot;&gt;Additional Rules&lt;/h3&gt;
 
 &lt;p&gt;Number of characters per field and Provider:&lt;/p&gt;
 
@@ -21149,7 +21149,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;api-qr-code-via-api-e-commerce&quot;&gt;API QR Code via API E-Commerce&lt;/h1&gt;
+&lt;h2 id=&quot;api-qr-code-via-api-e-commerce&quot;&gt;API QR Code via API E-Commerce&lt;/h2&gt;
 
 &lt;p&gt;The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce to create payment QRCode, describing the features, methods to be used, listing information to be sent and received, and providing examples.&lt;/p&gt;
 
@@ -21173,7 +21173,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;p&gt;To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.&lt;/p&gt;
 
-&lt;h2 id=&quot;architecture-1&quot;&gt;Architecture&lt;/h2&gt;
+&lt;h3 id=&quot;architecture-1&quot;&gt;Architecture&lt;/h3&gt;
 
 &lt;p&gt;Integration is performed through services provided as Web Services. The model adopted is quite simple: There are two URLs (endpoint), one specific an operation that causes sides effects - such as authorization, capture and cancellation of transactions, and the o specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a feature identified through the path.&lt;/p&gt;
 
@@ -21271,9 +21271,9 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;sandbox-and-tools-for-qr-code&quot;&gt;Sandbox and tools for QR Code&lt;/h2&gt;
+&lt;h3 id=&quot;sandbox-and-tools-for-qr-code&quot;&gt;Sandbox and tools for QR Code&lt;/h3&gt;
 
-&lt;h3 id=&quot;about-sandbox-1&quot;&gt;About Sandbox&lt;/h3&gt;
+&lt;h4 id=&quot;about-sandbox-1&quot;&gt;About Sandbox&lt;/h4&gt;
 
 &lt;p&gt;To facilitate testing during integration, Cielo offers a Sandbox environment that is composed by two areas:&lt;/p&gt;
 
@@ -21303,7 +21303,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;li&gt;After registering you will receive a MerchantId and a MerchantKey, which are the credentials required for the API methods.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;integration-tool-postman-1&quot;&gt;Integration Tool: POSTMAN&lt;/h3&gt;
+&lt;h4 id=&quot;integration-tool-postman-1&quot;&gt;Integration Tool: POSTMAN&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;Postman&lt;/strong&gt; is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.&lt;/p&gt;
 
@@ -21311,7 +21311,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;p&gt;We suggest developers to access our &lt;a href=&quot;https://developercielo.github.io/tutorial/postman&quot;&gt;&lt;strong&gt;Tutorial&lt;/strong&gt;&lt;/a&gt; about the tool to better understand all the advantages that it offers.&lt;/p&gt;
 
-&lt;h3 id=&quot;credit-card---sandbox-1&quot;&gt;Credit Card - Sandbox&lt;/h3&gt;
+&lt;h4 id=&quot;credit-card---sandbox-1&quot;&gt;Credit Card - Sandbox&lt;/h4&gt;
 
 &lt;p&gt;To successfully test the authorization scenario using QRCode, we provided an example card that can be use to test it 4551.8700.0000.0183&lt;/p&gt;
 
@@ -21323,7 +21323,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.&lt;/aside&gt;
 
-&lt;h3 id=&quot;request-6&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-6&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -21440,7 +21440,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-6&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-6&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2019010101&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -21562,11 +21562,11 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;consult----paymentid&quot;&gt;Consult  - PaymentID&lt;/h2&gt;
+&lt;h3 id=&quot;consult----paymentid&quot;&gt;Consult  - PaymentID&lt;/h3&gt;
 
 &lt;p&gt;To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example&lt;/p&gt;
 
-&lt;h3 id=&quot;request-7&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-7&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -21622,7 +21622,7 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-7&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-7&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -21844,14 +21844,14 @@ Below we specify any existing differences:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;consult---merchandorderid&quot;&gt;Consult - MerchandOrderID&lt;/h2&gt;
+&lt;h3 id=&quot;consult---merchandorderid&quot;&gt;Consult - MerchandOrderID&lt;/h3&gt;
 
 &lt;p&gt;It is not possible to consult a payment for the identifier sent by store (MerchantOrderId), but you can get all the
 PaymentIds associated with the identifier.&lt;/p&gt;
 
 &lt;p&gt;To consult a sale by store identifier, it is necessary to make a GET for the sales resource as the example.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-8&quot;&gt;Request&lt;/h3&gt;
+&lt;h4 id=&quot;request-8&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales?merchantOrderId={merchantOrderId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -21907,7 +21907,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-8&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-8&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -21961,7 +21961,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;capture&quot;&gt;Capture&lt;/h2&gt;
+&lt;h3 id=&quot;capture&quot;&gt;Capture&lt;/h3&gt;
 
 &lt;p&gt;The &lt;strong&gt;Capture&lt;/strong&gt; is an exclusive step for Credit Card transactions.&lt;/p&gt;
 
@@ -21979,7 +21979,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: Partial capture available for credit transactions only&lt;/aside&gt;
 
-&lt;h3 id=&quot;request---partial-capture&quot;&gt;Request - Partial Capture&lt;/h3&gt;
+&lt;h4 id=&quot;request---partial-capture&quot;&gt;Request - Partial Capture&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{paymentId}/capture?amount={Valor}&lt;/span&gt;&lt;/aside&gt;
 
@@ -22053,7 +22053,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-9&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-9&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -22157,7 +22157,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{paymentId}/capture?amount={Valor}&amp;amp;serviceTaxAmount=xxx&lt;/span&gt;&lt;/aside&gt;
 
-&lt;h3 id=&quot;response-10&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-10&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -22263,7 +22263,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;canceling&quot;&gt;Canceling&lt;/h2&gt;
+&lt;h3 id=&quot;canceling&quot;&gt;Canceling&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;Canceling&lt;/strong&gt; is an operation responsible for canceling total or partial of an authorized or captured value.&lt;/p&gt;
 
@@ -22273,7 +22273,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Warning:The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled&lt;/aside&gt;
 
-&lt;h3 id=&quot;request---cancellation&quot;&gt;Request - Cancellation&lt;/h3&gt;
+&lt;h4 id=&quot;request---cancellation&quot;&gt;Request - Cancellation&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/{PaymentId}/void?amount=XXX &lt;/span&gt;&lt;/aside&gt;
 
@@ -22335,7 +22335,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-11&quot;&gt;Response&lt;/h3&gt;
+&lt;h4 id=&quot;response-11&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
