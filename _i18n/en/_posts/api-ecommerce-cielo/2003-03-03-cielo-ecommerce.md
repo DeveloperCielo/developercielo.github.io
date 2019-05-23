@@ -1356,21 +1356,21 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Buyer's name.|Text|255|No|
-|`Customer.Identity`|Text|14|Yes|Buyer's RG, CPF or CNPJ number|
-|`Customer.IdentityType`|Text|255|No|Type of identification document of the buyer (CPF or CNPJ)|
+|`Customer.Identity`|Buyer's RG, CPF or CNPJ number|14|Yes|Text|
+|`Customer.IdentityType`|Type of identification document of the buyer (CPF or CNPJ)|255|No|Text|
 |`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Customer.Email`|Text|255|No|Buyer's e-mail|
-|`Customer.Address.Street`|Text|255|No|Buyer's contact address|
-|`Customer.Address.Number`|Text|15|No|Buyer's contact address number|
-|`Customer.Address.Complement`|Text|50|No|Buyer's contact address add-on|
-|`Customer.Address.ZipCode`|Text|9|No|Buyer's contact address ZIP Code|
-|`Customer.Address.City`|Text|50|No|Buyer's contact address city|
-|`Customer.Address.State`|Text|2|No|Buyer's contact address state|
-|`Customer.Address.Country`|Text|35|No|Buyer's contact address country|
-|`Customer.Address.District`|Text|35|No|Buyer's contact address neighborhood|
+|`Customer.Email`|Buyer's e-mail|255|No|Text|
+|`Customer.Address.Street`|Buyer's contact address|255|No|Text|
+|`Customer.Address.Number`|Buyer's contact address number|15|No|Text|
+|`Customer.Address.Complement`|Buyer's contact address add-on|50|No|Text|
+|`Customer.Address.ZipCode`|Buyer's contact address ZIP Code|9|No|Text|
+|`Customer.Address.City`|Buyer's contact address city|50|No|Text|
+|`Customer.Address.State`|Buyer's contact address state|2|No|Text|
+|`Customer.Address.Country`|Buyer's contact address country|35|No|Text|
+|`Customer.Address.District`|Buyer's contact address neighborhood|35|No|Text|
 |`Payment.Type`|Means of Payment Type.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.Provider`|Defines behavior of the means of payment  ([See Annex](https://developercielo.github.io/Webservice-3.0/#anexos))/NOT REQUIRED FOR CREDIT.|Text|15|---|
+|`Payment.Provider`|Defines behavior of the means of payment ([See Annex](https://developercielo.github.io/Webservice-3.0/#anexos))/NOT REQUIRED FOR CREDIT.|Text|15|---|
 
 #### Response
 
@@ -1444,15 +1444,6 @@ curl
 To create a sale whose form of payment is bank slip, just do a POST as the example.
 
 **NOTE:** The API supports registered and unregistered bank slips, with the provider being the differentiator between them. We suggest that you validate with your bank what type of bank slip that is supported by your wallet. The API only accepts **Bradesco** and **Banco do Brasil** bank slips
-
-In the **Banco do Brasil Registered Bank slip**, the digitable line will not be returned in the response of the request. This information will be available after conciliation.
-
-For all text fields, including the instructions field and the ones related with address, these are accepted as valid characters:
-* The letters from A to Z (CAPITAL LETTERS)
-* Special characters of conjunction:  **hyphen (-)** / **apostrophe (')** / When used it can not contain spaces between the letters: <br>
-   **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA<br>
-   **Incorrect examples**: D'EL - REI<br>
-* At most one blank space between words
 
 ### Request
 
@@ -1551,7 +1542,7 @@ curl
 |`Customer.Address.District`|Buyer's neighborhood.|Text|50|Yes|
 |`Customer.Address.Street`|Buyer's address.|Text|255|Yes|
 |`Customer.Address.Number`|Buyer's address number.|Text|15|Yes|
-|`Payment.Type`|Means of Payment Type.|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method..|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|Text|15|Yes|
 |`Payment.Adress`|Transferor's address.|Text|255|No|
