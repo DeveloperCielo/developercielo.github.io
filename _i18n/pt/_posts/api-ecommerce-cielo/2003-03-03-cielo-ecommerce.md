@@ -1122,7 +1122,7 @@ Bancos Suportados:
 ### Autenticação Débito
 
 O Cartão de débito por padrão exige que o portador seja direcionado para o ambiente Bancário, onde será avaliada a senha e dados informados pela loja. 
-Existe a opção de não autenticar transações de débito, porem é necessario que o banco emissor do cartão permita tal transação
+Existe a opção de não autenticar transações de débito, porem é necessario que o banco emissor do cartão permita tal transação.
 Essa **não é uma permissão concedida pela cielo**, o lojista deve acionar o banco e solicitar a permissão
 
 Em transações de cartão de débito sem autenticação, há limitação de bancos:
