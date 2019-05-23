@@ -1356,7 +1356,18 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Buyer's name.|Text|255|No|
+|`Customer.Identity`|Text|14|Yes|Buyer's RG, CPF or CNPJ number|
+|`Customer.IdentityType`|Text|255|No|Type of identification document of the buyer (CPF or CNPJ)|
 |`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
+|`Customer.Email`|Text|255|No|Buyer's e-mail|
+|`Customer.Address.Street`|Text|255|No|Buyer's contact address|
+|`Customer.Address.Number`|Text|15|No|Buyer's contact address number|
+|`Customer.Address.Complement`|Text|50|No|Buyer's contact address add-on|
+|`Customer.Address.ZipCode`|Text|9|No|Buyer's contact address ZIP Code|
+|`Customer.Address.City`|Text|50|No|Buyer's contact address city|
+|`Customer.Address.State`|Text|2|No|Buyer's contact address state|
+|`Customer.Address.Country`|Text|35|No|Buyer's contact address country|
+|`Customer.Address.District`|Text|35|No|Buyer's contact address neighborhood|
 |`Payment.Type`|Means of Payment Type.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Provider`|Defines behavior of the means of payment  ([See Annex](https://developercielo.github.io/Webservice-3.0/#anexos))/NOT REQUIRED FOR CREDIT.|Text|15|---|
