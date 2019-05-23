@@ -2700,17 +2700,17 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Identity</code></td>
-      <td>Text</td>
+      <td>Buyer’s RG, CPF or CNPJ number</td>
       <td>14</td>
       <td>Yes</td>
-      <td>Buyer’s RG, CPF or CNPJ number</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Text</td>
+      <td>Type of identification document of the buyer (CPF or CNPJ)</td>
       <td>255</td>
       <td>No</td>
-      <td>Type of identification document of the buyer (CPF or CNPJ)</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Status</code></td>
@@ -2721,66 +2721,66 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Email</code></td>
-      <td>Text</td>
+      <td>Buyer’s e-mail</td>
       <td>255</td>
       <td>No</td>
-      <td>Buyer’s e-mail</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Text</td>
+      <td>Buyer’s contact address</td>
       <td>255</td>
       <td>No</td>
-      <td>Buyer’s contact address</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Text</td>
+      <td>Buyer’s contact address number</td>
       <td>15</td>
       <td>No</td>
-      <td>Buyer’s contact address number</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Text</td>
+      <td>Buyer’s contact address add-on</td>
       <td>50</td>
       <td>No</td>
-      <td>Buyer’s contact address add-on</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Text</td>
+      <td>Buyer’s contact address ZIP Code</td>
       <td>9</td>
       <td>No</td>
-      <td>Buyer’s contact address ZIP Code</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.City</code></td>
-      <td>Text</td>
+      <td>Buyer’s contact address city</td>
       <td>50</td>
       <td>No</td>
-      <td>Buyer’s contact address city</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.State</code></td>
-      <td>Text</td>
+      <td>Buyer’s contact address state</td>
       <td>2</td>
       <td>No</td>
-      <td>Buyer’s contact address state</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Text</td>
+      <td>Buyer’s contact address country</td>
       <td>35</td>
       <td>No</td>
-      <td>Buyer’s contact address country</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Address.District</code></td>
-      <td>Text</td>
+      <td>Buyer’s contact address neighborhood</td>
       <td>35</td>
       <td>No</td>
-      <td>Buyer’s contact address neighborhood</td>
+      <td>Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
@@ -2798,7 +2798,7 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Provider</code></td>
-      <td>Defines behavior of the means of payment  (<a href="https://developercielo.github.io/Webservice-3.0/#anexos">See Annex</a>)/NOT REQUIRED FOR CREDIT.</td>
+      <td>Defines behavior of the means of payment (<a href="https://developercielo.github.io/Webservice-3.0/#anexos">See Annex</a>)/NOT REQUIRED FOR CREDIT.</td>
       <td>Text</td>
       <td>15</td>
       <td>—</td>
@@ -2905,17 +2905,6 @@ Below we specify any existing differences:</p>
 <p>To create a sale whose form of payment is bank slip, just do a POST as the example.</p>
 
 <p><strong>NOTE:</strong> The API supports registered and unregistered bank slips, with the provider being the differentiator between them. We suggest that you validate with your bank what type of bank slip that is supported by your wallet. The API only accepts <strong>Bradesco</strong> and <strong>Banco do Brasil</strong> bank slips</p>
-
-<p>In the <strong>Banco do Brasil Registered Bank slip</strong>, the digitable line will not be returned in the response of the request. This information will be available after conciliation.</p>
-
-<p>For all text fields, including the instructions field and the ones related with address, these are accepted as valid characters:</p>
-<ul>
-  <li>The letters from A to Z (CAPITAL LETTERS)</li>
-  <li>Special characters of conjunction:  <strong>hyphen (-)</strong> / <strong>apostrophe (‘)</strong> / When used it can not contain spaces between the letters: <br />
- <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA<br />
- <strong>Incorrect examples</strong>: D’EL - REI<br /></li>
-  <li>At most one blank space between words</li>
-</ul>
 
 <h3 id="request-5">Request</h3>
 
@@ -3101,7 +3090,7 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
-      <td>Means of Payment Type.</td>
+      <td>Type of the Payment Method..</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
