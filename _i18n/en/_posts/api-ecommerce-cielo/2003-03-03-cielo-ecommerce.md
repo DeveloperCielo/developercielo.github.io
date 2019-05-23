@@ -1437,15 +1437,15 @@ curl
 |`Url`|URL to which the Merchant must redirect the Customer to the Electronic Transfer flow.|Text|256|Authentication Url|
 |`Status`|Transaction Status.|Byte|---|0|
 
-# Payments with Bank slip
+## Bank slip
 
-## Creating a Bank slip sale
+### Creating a Bank slip sale
 
 To create a sale whose form of payment is bank slip, just do a POST as the example.
 
 **NOTE:** The API supports registered and unregistered bank slips, with the provider being the differentiator between them. We suggest that you validate with your bank what type of bank slip that is supported by your wallet. The API only accepts **Bradesco** and **Banco do Brasil** bank slips
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1553,7 +1553,7 @@ curl
 |`Payment.Identification`|Identification document of the Transferor.|Text|14|No|
 |`Payment.Instructions`|Bank slip instructions.|Text|450|No|
 
-### Response
+#### Response
 
 ```json
 {
@@ -1657,7 +1657,7 @@ curl
 |`Identification`|Identification document of the Transferor.|Text|14|CPF or CNPJ of the Transferor without the special characters (., /, -)|
 |`Status`|Transaction Status.|Byte|---|1|
 
-## Additional Rules
+### Additional Rules
 
 Number of characters per field and Provider:
 
@@ -1684,7 +1684,7 @@ Number of characters per field and Provider:
 |**NOTE 3:**|The API Cielo truncates automatically|**Valid characters:** <br> Letters from A to Z - CAPITAL LETTERS <br> **Special characters:** hyphen (-) and apostrophe (') <br> When used, it can not contain spaces between letters; <br><br> **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<br> **Incorrect examples**: D'EL - REI; at most one blank space between words|
 |**NOTE 4:**|The value is persisted in the API Cielo|N/A|
 
-# API QR Code via API E-Commerce
+## API QR Code via API E-Commerce
 
 The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce to create payment QRCode, describing the features, methods to be used, listing information to be sent and received, and providing examples.
 
@@ -1704,7 +1704,7 @@ Sandbox Environment
 
 To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.
 
-## Architecture
+### Architecture
 
 Integration is performed through services provided as Web Services. The model adopted is quite simple: There are two URLs (endpoint), one specific an operation that causes sides effects - such as authorization, capture and cancellation of transactions, and the o specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a feature identified through the path.
 
@@ -1730,9 +1730,9 @@ QR Code  payment supports the following issuers and products:
 | Aura             | Yes             | Yes                      | *No*  |
 | Hipercard        | Yes             | Yes                      | *No*  |
 
-## Sandbox and tools for QR Code
+### Sandbox and tools for QR Code
 
-### About Sandbox
+#### About Sandbox
 
 To facilitate testing during integration, Cielo offers a Sandbox environment that is composed by two areas:
 
@@ -1748,7 +1748,7 @@ To facilitate testing during integration, Cielo offers a Sandbox environment tha
 * Just acess the [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) to create an account.
 * After registering you will receive a MerchantId and a MerchantKey, which are the credentials required for the API methods.
 
-### Integration Tool: POSTMAN
+#### Integration Tool: POSTMAN
 
 **Postman** is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.
 
@@ -1756,7 +1756,7 @@ Cielo offers complete collections of its integrations via Postamn, which facilit
 
 We suggest developers to access our [**Tutorial**](https://developercielo.github.io/tutorial/postman) about the tool to better understand all the advantages that it offers.
 
-### Credit Card - Sandbox
+#### Credit Card - Sandbox
 
 To successfully test the authorization scenario using QRCode, we provided an example card that can be use to test it 4551.8700.0000.0183
 
@@ -1768,7 +1768,7 @@ To create a transaction that will use a credit card, it is necessary to send a r
 
 <aside class="notice"><strong>Warning:</strong> It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1822,7 +1822,7 @@ curl
 |`Payment.Installments`|Number|2|Yes|Number of installments.|
 |`Payment.Capture`|Boolean|-|No|Send **true** for a auto-capture transaction.|
 
-### Response
+#### Response
 
 ```json
 {
@@ -1905,11 +1905,11 @@ curl
 |`ReturnCode`|Return code of Acquiring.|Texto|32|Alphanumeric text|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Alphanumeric text|
 
-## Consult  - PaymentID
+### Consult  - PaymentID
 
 To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example
 
-### Request
+#### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -1931,7 +1931,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`PaymentId`|Payment identification number.|Text|36|Yes|
 
-### Response
+#### Response
 
 ```json
 {
@@ -2054,14 +2054,14 @@ curl
 |`CreditCard.SecurityCode`|Security code printed on back of card - See Annex.|Text|4|No|
 |`CreditCard.Brand`|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|Text|10|No|
 
-## Consult - MerchandOrderID
+### Consult - MerchandOrderID
 
 It is not possible to consult a payment for the identifier sent by store (MerchantOrderId), but you can get all the
 PaymentIds associated with the identifier.
 
 To consult a sale by store identifier, it is necessary to make a GET for the sales resource as the example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -2083,7 +2083,7 @@ curls
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`MerchantOrderId`|Order Identifier Field at the Store.|Text|36|Yes|
 
-### Response
+#### Response
 
 ```json
 {
@@ -2122,7 +2122,7 @@ curls
 |---|---|---|---|---|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-## Capture 
+### Capture 
 
 The **Capture** is an exclusive step for Credit Card transactions.
 
@@ -2138,7 +2138,7 @@ What the capture generates:
 
 <aside class="notice"><strong>Warning: </strong>Partial capture available for credit transactions only</aside>
 
-### Request - Partial Capture
+#### Request - Partial Capture
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
 
@@ -2167,7 +2167,7 @@ curl
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
 |`ServiceTaxAmount`|[See Annex](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|Number|15|No|
 
-### Response
+#### Response
 
 ```json
 {
@@ -2232,7 +2232,7 @@ curl
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
 
-### Response
+#### Response
 
 ```json
 {
@@ -2293,7 +2293,7 @@ curl
 |`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
 |`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
 
-## Canceling
+### Canceling
 
 **Canceling** is an operation responsible for canceling total or partial of an authorized or captured value.
 
@@ -2303,7 +2303,7 @@ Just do a `POST` sending the value to be canceled.
 
 <aside class="notice"><strong>Warning:</strong>The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
 
-### Request - Cancellation
+#### Request - Cancellation
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -2325,7 +2325,7 @@ curl
 |`PaymentId`|Identifier that represents the transaction.|Guid|36|Yes|
 |`Amount`|Order Amount (to be sent in cents)..|Number|15|No|
 
-### Response
+#### Response
 
 ```json
 {
