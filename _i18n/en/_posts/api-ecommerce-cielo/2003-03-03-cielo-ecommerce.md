@@ -1102,7 +1102,7 @@ curl
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
 
-## Payments with Debit Card
+## Debit Card
 
 This means of payment is automatically released next to Cielo's affiliation and can be used with the following brands and banks: 
 
@@ -1297,13 +1297,13 @@ curl
 |`Status`|Transaction Status.|Byte|---|0|
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 
-# Payments with Electronic Transfer
+## Electronic Transfer
 
-## Creating a simplified sale
+### Creating a simplified sale
 
 To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1361,7 +1361,7 @@ curl
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Provider`|Defines behavior of the means of payment  ([See Annex](https://developercielo.github.io/Webservice-3.0/#anexos))/NOT REQUIRED FOR CREDIT.|Text|15|---|
 
-### Response
+#### Response
 
 ```json
 {
