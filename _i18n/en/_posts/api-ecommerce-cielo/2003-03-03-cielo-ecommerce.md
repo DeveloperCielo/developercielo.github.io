@@ -18,7 +18,7 @@ The purpose of this documentation is to guide the developer on how to integrate 
 
 The integration mechanism with Cielo e-Commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.
 
-In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints:
+In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints
 
 |                 | SandBox                                             | Production                                    |
 |:----------------|:---------------------------------------------------:|:---------------------------------------------:|
