@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-23T16:37:28+00:00</updated>
+    <updated>2019-05-23T16:56:22+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -20294,7 +20294,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;h2 id=&quot;electronic-transfer&quot;&gt;Electronic Transfer&lt;/h2&gt;
 
-&lt;h3 id=&quot;creating-a-simple-sransaction&quot;&gt;Creating a simple sransaction&lt;/h3&gt;
+&lt;h3 id=&quot;creating-a-simple-transaction-1&quot;&gt;Creating a simple transaction&lt;/h3&gt;
 
 &lt;p&gt;To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.&lt;/p&gt;
 
