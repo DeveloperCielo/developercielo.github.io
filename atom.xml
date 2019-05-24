@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-24T17:42:14+00:00</updated>
+    <updated>2019-05-24T17:45:43+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1100,6 +1100,13 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
       &lt;td&gt;bpmpi_totalamount&lt;/td&gt;
       &lt;td&gt;Valor total da transação, enviado em centavos&lt;/td&gt;
       &lt;td&gt;Numérico [até 15 posições]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_installments&lt;/td&gt;
+      &lt;td&gt;Número de parcelas da transação&lt;/td&gt;
+      &lt;td&gt;Numérico [até 2 posições]&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
