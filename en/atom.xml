@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-24T17:45:49+00:00</updated>
+    <updated>2019-05-24T17:50:41+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3945,6 +3945,14 @@ is valid for all the eCommerce transactions, whether it is debit, credit or prep
       &lt;td&gt;Max 15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_installments&lt;/td&gt;
+      &lt;td&gt;Number of Installments&lt;/td&gt;
+      &lt;td&gt;Numeric&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_paymentmethod&lt;/td&gt;
