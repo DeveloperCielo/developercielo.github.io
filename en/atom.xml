@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-24T22:09:45+00:00</updated>
+    <updated>2019-05-24T22:20:22+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3617,14 +3617,14 @@ is valid for all the eCommerce transactions, whether it is debit, credit or prep
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;SANDBOX&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;https://mpisandbox.braspag.com.br&lt;/td&gt;
-      &lt;td&gt;Basic ZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlOkQvaWxSc2ZvcUhsU1VDaHdBTW5seUtkRE5kN0ZNc003Y1Uvdm8wMlJFYWc9&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Basic &lt;em&gt;(Authorization)&lt;/em&gt;&lt;/strong&gt;&lt;br /&gt;The Authorization must be generated concatenating “ClientID”, colon character (“:”) and “ClientSecret”&lt;br /&gt;Ex. dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e:D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag=&lt;br /&gt;after this, encode the result in base 64. &lt;br /&gt;Then, the access token will be generated. For test purposes, use these credentials:&lt;br /&gt;ClientID: &lt;strong&gt;dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e&lt;/strong&gt;&lt;br /&gt;ClientSecret: &lt;strong&gt;D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag=&lt;/strong&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;PRODUCTION&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;https://mpi.braspag.com.br&lt;/td&gt;
-      &lt;td&gt;(Please contact our support team after integrating on sandbox environment)&lt;/td&gt;
+      &lt;td&gt;Please contact our support team to generate the “ClientID” and “ClientSecret” after integrating on sandbox environment.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
