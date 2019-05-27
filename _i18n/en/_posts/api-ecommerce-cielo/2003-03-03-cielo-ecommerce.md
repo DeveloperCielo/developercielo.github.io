@@ -3029,7 +3029,7 @@ curl
 
 It is possible to carry out both the total capture and the partial capture via The Backoffice Cielo.
 
-Access our [**Tutorial**]https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations
+Access our [**Tutorial**](https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations
 
 ## Canceling a sale
 
