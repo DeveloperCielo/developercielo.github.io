@@ -1694,13 +1694,13 @@ In this manual, you will find the reference on all operations available on API R
 
 Production Environment
 
-* **Transaction request**: https://api.cieloecommerce.cielo.com.br/
-* **Transaction query:**: https://apiquery.cieloecommerce.cielo.com.br/
+* **Transaction request** https://api.cieloecommerce.cielo.com.br/
+* **Transaction query:** https://apiquery.cieloecommerce.cielo.com.br/
 
 Sandbox Environment
 
-* **Transaction request**: https://apisandbox.cieloecommerce.cielo.com.br
-* **Transaction query:**:  https://apiquerysandbox.cieloecommerce.cielo.com.br
+* **Transaction request** https://apisandbox.cieloecommerce.cielo.com.br
+* **Transaction query:**  https://apiquerysandbox.cieloecommerce.cielo.com.br
 
 To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.
 
@@ -2536,13 +2536,15 @@ What are the advantages of using scheduled recurrence for MusicFy?:
 
 4. **Conversion:** The scheduled recurrence of Cielo has an automatic retentative system. If one of the transactions is declined, it will be retried up to 4 times, seeking to obtain the authorization.
 
-## Creating an OWN RECURRENCE
+## Creating Recurrences
+
+### Creating an OWN RECURRENCE
 
 To create a recurring sale whose recurrence and interval processes will be executed by the store itself, just do a POST as the example.
 
 The `Payment.Recurrent` parameter must be `true`, otherwise the transaction will be declined.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -2620,7 +2622,7 @@ curl
 |`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
 |`CreditCard.Brand`|Card issuer.|Text|10|Yes|
 
-### Response
+#### Response
 
 ```json
 {
@@ -2766,7 +2768,7 @@ curl
 |`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
 |`CreditCard.Brand`|Card issuer.|Text|10|Yes|
 
-## Creating a SCHEDULED RECURRENCE
+### Creating a SCHEDULED RECURRENCE
 
 To create a recurring sale whose first recurrence is authorized with the form of payment as credit card, just do a POST as the example.
 
@@ -2774,7 +2776,7 @@ To create a recurring sale whose first recurrence is authorized with the form of
 
  of. All subsequent transactions will be automatically captured.</aside>
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -2862,7 +2864,7 @@ curl
 |`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
 |`CreditCard.Brand`|Card issuer.|Text|10|Yes|
 
-### Response
+#### Response
 
 ```json
 {
@@ -3213,11 +3215,13 @@ curl
 |`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|true ou false|
 
-## Modifying buyer data
+## Modifying Recurrences
+
+### Modifying buyer data
 
 To change the Recurrence buyer's data, just do a Put as the example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -3316,7 +3320,7 @@ curl
 |`Customer.DeliveryAddress.Country`|Buyer's address country.|Text|35|No|
 |`Customer.DeliveryAddress.District`|Buyer's neighborhood.|Text|50|No|
 
-### Response
+#### Response
 
 ```shell
 HTTP Status 200
@@ -3324,11 +3328,11 @@ HTTP Status 200
 
 See the annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
 
-## Modifying end date of Recurrence
+### Modifying end date of Recurrence
 
 To change the end date of the Recurrence, just do a Put as the example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -3356,7 +3360,7 @@ curl
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 |`EndDate`|End date for recurrence.|Text|10|Yes|
 
-### Response
+#### Response
 
 ```shell
 HTTP Status 200
@@ -3364,11 +3368,11 @@ HTTP Status 200
 
 See the annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
 
-## Modifying Recurrence interval
+### Modifying Recurrence interval
 
 To change the Recurrence Interval, just do a Put according to the example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -3396,7 +3400,7 @@ curl
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 |`Interval`|Recurrence interval. <ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Number|2|Yes|
 
-### Response
+#### Response
 
 ```shell
 HTTP Status 200
@@ -3404,13 +3408,13 @@ HTTP Status 200
 
 See the annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
 
-## Modify day of Recurrence
+### Modify day of Recurrence
 
 To modify the day of recurrence, just do a Put as the example.
 
 <aside class="notice"><strong>Rule:</strong> If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03</aside>
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -3438,7 +3442,7 @@ curl
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 |`RecurrencyDay`|Recurrence day.|Number|2|Yes|
 
-### Response
+#### Response
 
 ```shell
 HTTP Status 200
@@ -3446,11 +3450,11 @@ HTTP Status 200
 
 See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
 
-## Modifying the Recurrence value
+### Modifying the Recurrence value
 
 To modify the value of the recurrence, just do a Put as example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -3480,7 +3484,7 @@ curl
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
-### Response
+#### Response
 
 ```shell
 HTTP Status 200
@@ -3488,11 +3492,11 @@ HTTP Status 200
 
 See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
 
-## Modifying date of next Payment
+### Modifying date of next Payment
 
 To change the date of the next Payment, just do a Put as the example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -3520,7 +3524,7 @@ curl
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 |`NextPaymentDate`|Payment date of the next recurrence.|Text|10|Yes|
 
-### Response
+#### Response
 
 ```shell
 HTTP Status 200
@@ -3528,13 +3532,13 @@ HTTP Status 200
 
 See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
 
-## Modifying Recurrence Payment data
+### Modifying Recurrence Payment data
 
 To change the payment data of the Recurrence, just do a Put as the example.
 
 <aside class="notice"><strong>Warning:</strong> This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.</aside>
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -3596,7 +3600,7 @@ curl
 |`CreditCard.SecurityCode`|Security code printed on back of card|Text|4|No|
 |`CreditCard.Brand`|Card issuer.|Text|10|Yes|
 
-### Response
+#### Response
 
 ```shell
 HTTP Status 200
@@ -3604,11 +3608,11 @@ HTTP Status 200
 
 See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
 
-## Disabling a Recurrent Order
+### Disabling a Recurrent Order
 
 To disable a recurrent order, just do a Put as the example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
@@ -3630,7 +3634,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 
-### Response
+#### Response
 
 ```shell
 HTTP Status 200
@@ -3638,11 +3642,11 @@ HTTP Status 200
 
 See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
 
-## Rehabilitating a Recurrent Order
+### Rehabilitating a Recurrent Order
 
 To Rehabilitate a recurring order, just do a Put as the example.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -3664,7 +3668,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 
-### Response
+#### Response
 
 ```shell
 HTTP Status 200
