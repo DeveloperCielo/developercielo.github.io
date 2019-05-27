@@ -2391,6 +2391,7 @@ curl
 ```
 https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
 ```
+
 ## Integration Errors
 
 In case of integration errors in any of the payment methods, a "response" will be returned containing an error code and a description.
