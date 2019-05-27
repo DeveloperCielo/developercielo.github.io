@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-27T14:06:38+00:00</updated>
+    <updated>2019-05-27T14:13:31+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4979,16 +4979,6 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento parcial da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcial:
-&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento de valor da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento de valor:
-&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-valor.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
-
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Na versão 0.19.0 do SDK foram introduzidos códigos de pagamento para as principais operações disponibilizadas na LIO, facilitando assim as chamadas de pagamento. É importante ressaltar que as formas de pagamento são configuradas de acordo com o estabelecimento comercial, e nem todas estarão disponíveis em todas os terminais. Caso o método de pagamento selecionado não esteja disponível na LIO em questão, ocorrerá uma exceção do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;NoSuchElementException&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -5036,16 +5026,26 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento direto:
+&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento parcial da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando apenas o OrderId:
+&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento de valor da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId e o Valor:
+&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-valor.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId, o Valor e o código de pagamento:
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-direto.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId, o Valor, o código de pagamento e o número de parcelas:
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com email:
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId, o Valor, o código de pagamento, o número de parcelas e o email:
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com EC:
+&lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId, o Valor, o código de pagamento, o número de parcelas, o EC e o email
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;cancelamento&quot;&gt;Cancelamento&lt;/h2&gt;
