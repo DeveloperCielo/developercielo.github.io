@@ -2412,7 +2412,7 @@ The expiry date of the card have values that are not allowed as "08 / A020" and 
 | Property    | Description                                                                                                                            |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `Code`      | API error code. [See the code list](https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes)                        |
-| `Message`   | Error description. [See the code list](https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes)                     |
+| `Message`   | Error description. [See the code list](https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes)                    | 
 
 # Consult - Capture - Cancel
 
