@@ -2447,7 +2447,7 @@ A Data de validade do cartão possui um valor não permitido  como "08/**A**020"
 
 # Consulta - Captura - Cancelamento
 
-## Consulta de transações
+## Consulta de transações 
 
 ### Consulta - PaymentID
 
