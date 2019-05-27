@@ -1187,11 +1187,63 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
   <p>Todos os valores financeiros são informados sem vírgula, ou seja 2500 são equivalentes a R$ 25,00.</p>
 </blockquote>
 
-<h3 id="1-pagamento-parcial">1. Pagamento Parcial</h3>
+<h3 id="1-requisição-de-pagamento">1. Requisição de pagamento</h3>
 
-<p>No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).</p>
+<p>Para realizar um requeste de pagamento é preciso informar, pelo menos, o OrderId criado anteriormamente. Dependendo dos parametros informados na hora de montar o request de pagamento, um dos processos citados acima será iniciado. No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CheckoutRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CheckoutRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+                    <span class="o">.</span><span class="na">orderId</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getId</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
+                    <span class="o">.</span><span class="na">amount</span><span class="o">(</span><span class="mi">123456789</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
+                    <span class="o">.</span><span class="na">ec</span><span class="o">(</span><span class="s">"999999999999999"</span><span class="o">)</span> <span class="cm">/* Opcional (precisa estar habilitado na LIO) */</span>
+                    <span class="o">.</span><span class="na">installments</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
+                    <span class="o">.</span><span class="na">email</span><span class="o">(</span><span class="s">"teste@email.com"</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
+                    <span class="o">.</span><span class="na">paymentCode</span><span class="o">(</span><span class="n">PaymentCode</span><span class="o">.</span><span class="na">CREDITO_PARCELADO_LOJA</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
+                    <span class="o">.</span><span class="na">build</span><span class="o">();</span> 
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderId</td>
+      <td>O identificador do pedido a ser pago.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>amount</td>
+      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
+      <td><code class="highlighter-rouge">Long</code></td>
+    </tr>
+    <tr>
+      <td>ec</td>
+      <td>Em casos de multi-ec, informar aqui o número correspondente</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>installments</td>
+      <td>número de parcelas. para pagamento a vista, não precisa informar</td>
+      <td><code class="highlighter-rouge">Int</code></td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>email pra onde será enviado o comprovante</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>paymentCode</td>
+      <td>Código da operação de pagamento</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentCode</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
 </code></pre></div></div>
 
 <p>Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
@@ -1206,9 +1258,9 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
   </thead>
   <tbody>
     <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td>request</td>
+      <td>O objeto contendo as informações da ordem a ser paga.</td>
+      <td><code class="highlighter-rouge">cielo.orders.domain.CheckoutRequest</code></td>
     </tr>
     <tr>
       <td>paymentListener</td>
@@ -1223,106 +1275,10 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcial:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg" alt="fluxo parcial" /></p>
 
-<h3 id="2-pagamento-de-valor">2. Pagamento de valor</h3>
-
-<p>No pagamento de Valores, o valor a ser pago é informado pelo aplicativo e a forma de pagamento (crédito, débito, parcelado) é escolhida dentro do fluxo de telas da Cielo LIO.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>Nessa forma de pagamento é possível enviar qualquer valor a ser pago (valor total ou valor parcial do pedido), tudo depende do modelo de negócio adotado pelo aplicativo do parceiro. Para fazer a chamada é necessário enviar os seguintes parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
 <p><strong>Fluxo da transação utilizando o pagamento de valor da Cielo LIO</strong></p>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento de valor:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-valor.jpg" alt="fluxo parcial" /></p>
-
-<h3 id="3-pagamento-direto">3. Pagamento direto</h3>
-
-<p>No Pagamento Direto, o valor a ser pago e a forma de pagamento (crédito, débito, parcelado) será definido dentro da aplicação do parceiro. Na sequência o fluxo de pagamento da Cielo LIO é iniciado (inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail comprovante).</p>
-
-<h4 id="códigos-de-pagamento">Códigos de Pagamento</h4>
-
-<p>Para realizar o pagamento direto é necessário, primeiramente, verificar os tipos de pagamento habilitados para Cielo LIO do estabelecimento comercial utilizando a função de consulta abaixo:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">PrimaryProduct</span><span class="o">&gt;</span> <span class="n">paymentTypes</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrievePaymentType</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p>Esta função disponibilizará uma lista de objetos do tipo PrimaryProduct onde será possível recuperar os códigos de pagamento habilitados.</p>
-
-<p>Os seguintes campos serão retornados por essa função:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>id</td>
-      <td>identificador do código no sistema.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>code</td>
-      <td>utilizado na função de pagamento.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td>Nome do método de pagamento para efeitos de exibição.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>secondaryProducts</td>
-      <td>Listagem de códigos de pagamento secundário. ex.: À Vista, Parcelado, etc.</td>
-      <td><code class="highlighter-rouge">ArrayList&lt;SecondaryProduct&gt;</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Com os códigos de pagamentos disponíveis para a Cielo LIO do estabelecimento comercial, basta realizar a chamada de Pagamento Direto informando os códigos dos produtos:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="n">PrimaryProduct</span> <span class="n">primaryProduct</span> <span class="o">=</span> <span class="n">paymentTypes</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-<span class="n">SecondaryProduct</span> <span class="n">secondaryProduct</span> <span class="o">=</span> <span class="n">primaryProduct</span><span class="o">.</span><span class="na">getSecondaryProducts</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-
-<span class="n">String</span> <span class="n">primaryCode</span> <span class="o">=</span> <span class="n">primaryProduct</span><span class="o">.</span><span class="na">getCode</span><span class="o">();</span>
-<span class="n">String</span> <span class="n">secondaryCode</span> <span class="o">=</span> <span class="n">secondaryProduct</span><span class="o">.</span><span class="na">getCode</span><span class="o">();</span>
-
-<span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-
-</code></pre></div></div>
 
 <blockquote>
   <p><strong>Atenção:</strong> Na versão 0.19.0 do SDK foram introduzidos códigos de pagamento para as principais operações disponibilizadas na LIO, facilitando assim as chamadas de pagamento. É importante ressaltar que as formas de pagamento são configuradas de acordo com o estabelecimento comercial, e nem todas estarão disponíveis em todas os terminais. Caso o método de pagamento selecionado não esteja disponível na LIO em questão, ocorrerá uma exceção do tipo <code class="highlighter-rouge">NoSuchElementException</code>.</p>
@@ -1359,266 +1315,26 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
     <tr>
       <td>VOUCHER_REFEICAO</td>
     </tr>
-  </tbody>
-</table>
-
-<p>Nessa forma de pagamento é possível enviar qualquer valor a ser pago e a forma de pagamento. Para fazer a chamada é necessário enviar os seguintes parâmetros:</p>
-
-<table>
-  <thead>
     <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td>CARTAO_LOJA_AVISTA</td>
     </tr>
     <tr>
-      <td>value</td>
-      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td>CARTAO_LOJA_PARCELADO_LOJA</td>
     </tr>
     <tr>
-      <td>primaryCode</td>
-      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>secondaryCode</td>
-      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>installments (<strong>não obrigatório</strong>)</td>
-      <td>Número de parcelas.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>email (<strong>não obrigatório</strong>)</td>
-      <td>Email informado</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+      <td>CARTAO_LOJA_PARCELADO</td>
     </tr>
   </tbody>
 </table>
-
-<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>ou</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento direto:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-direto.jpg" alt="fluxo parcial" /></p>
 
-<h3 id="4-pagamento-parcelado">4. Pagamento parcelado</h3>
-
-<p>Para efetuar um pagamento parcelado, é preciso consultar as formas de pagamento utilizando a função disponibilizada no SDK, escolher crédito no produto primário e crédito no produto secundário <strong>obrigatoriamente</strong> e informar o número de parcelas no momento do checkout. É importante lembrar que se os códigos de pagamento forem informados incorretamente ou se o número de parcelas não for maior do que <strong>0</strong>, o sistema acusará erro.
-Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>primaryCode</td>
-      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>secondaryCode</td>
-      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>installments</td>
-      <td>Número de parcelas.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Fluxo da transação utilizando o pagamento parcelado da Cielo LIO</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span>  <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>ou</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrderStore</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span>  <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>ou</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrderAdm</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span>  <span class="n">installments</span><span class="o">,</span>  <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento parcelado:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
 
-<h3 id="5-pagamento-informando-email">5. Pagamento informando email</h3>
-
-<p>Neste caso é possível informar o email para facilitar o preenchimento na hora de enviar o comprovante para o cliente.
-Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>primaryCode</td>
-      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>secondaryCode</td>
-      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>installments</td>
-      <td>Número de parcelas.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>email</td>
-      <td>Email informado</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com email:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
-
-<h3 id="6-pagamento-informando-ec">6. Pagamento informando EC</h3>
-
-<blockquote>
-  <p><strong>Atenção:</strong> Para a utilização dessa forma de pagamento, é necessário uma pré habilitação junto a Cielo, para o recebimento com MULTI-EC.</p>
-</blockquote>
-
-<p>Esse método é disponibilizado para o caso de ser necessário efetuar um pagamento em um EC diferente do principal. O EC informado deve estar configurado na LIO na hora da inicialização para que funcione ou o SDK irá enviar uma exceção do tipo <code class="highlighter-rouge">InvalidParameterException</code>.
-Nessa forma de pagamento, é necessário apenas fazer a chamada do método enviando os seguintes parâmetros:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Atributo</th>
-      <th>Descrição</th>
-      <th>Domínio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>orderId</td>
-      <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>primaryCode</td>
-      <td>Código identificador do método primário de pagamento ex.: Débito, Crédito.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>secondaryCode</td>
-      <td>Código identificador do método secundário de pagamento ex.: À vista, Parcelado.</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>installments</td>
-      <td>Número de parcelas.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
-    </tr>
-    <tr>
-      <td>email</td>
-      <td>Email informado</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>merchantCode</td>
-      <td>Número do EC</td>
-      <td><code class="highlighter-rouge">String</code></td>
-    </tr>
-    <tr>
-      <td>paymentListener</td>
-      <td>Callback de pagamento</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Fluxo da transação utilizando o pagamento direto da Cielo LIO</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">primaryCode</span><span class="o">,</span> <span class="n">secondaryCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">merchantCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
-
-<p>ou</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">checkoutOrder</span><span class="o">(</span><span class="n">orderId</span><span class="o">,</span> <span class="n">value</span><span class="o">,</span> <span class="n">paymentCode</span><span class="o">,</span> <span class="n">installments</span><span class="o">,</span> <span class="n">email</span><span class="o">,</span> <span class="n">merchantCode</span><span class="o">,</span> <span class="n">paymentListener</span><span class="o">);</span>
-</code></pre></div></div>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas durante o pagamento com EC:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
