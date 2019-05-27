@@ -1347,8 +1347,7 @@ As seguintes ações pode ser notificadas:
 • onError - Quando acontece um erro no cancelamento do pedido.</p>
 </blockquote>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="n">CancellationListener</span> <span class="n">cancellationListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CancellationListener</span><span class="o">()</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CancellationListener</span> <span class="n">cancellationListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CancellationListener</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">Order</span> <span class="n">cancelledOrder</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"O pagamento foi cancelado."</span><span class="o">);</span>
@@ -1364,7 +1363,6 @@ As seguintes ações pode ser notificadas:
         <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Houve um erro no cancelamento"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">});</span>
-
 </code></pre></div></div>
 
 <h3 id="cancelar-pagamento">Cancelar Pagamento</h3>
@@ -1372,7 +1370,13 @@ As seguintes ações pode ser notificadas:
 <p>No método Cancelar um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders) (link para método). 
 Assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">cancelOrder</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">orderId</span><span class="o">,</span> <span class="n">payment</span><span class="o">,</span> <span class="n">cancellationListener</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CancellationRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CancellationRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">orderId</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getId</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
+                <span class="o">.</span><span class="na">authCode</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getPayments</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getAuthCode</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
+                <span class="o">.</span><span class="na">cieloCode</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getPayments</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getCieloCode</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
+                <span class="o">.</span><span class="na">value</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getPayments</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getAmount</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
+                <span class="o">.</span><span class="na">ec</span><span class="o">(</span><span class="s">"0000000000000003"</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 </code></pre></div></div>
 
 <p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
@@ -1387,19 +1391,56 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
   </thead>
   <tbody>
     <tr>
-      <td>context</td>
-      <td>Contexto da sua aplicação.</td>
+      <td>orderID</td>
+      <td>O identificador do pedido a ser pago.</td>
       <td><code class="highlighter-rouge">String</code></td>
     </tr>
     <tr>
-      <td>orderID</td>
-      <td>O identificador do pedido a ser pago.</td>
+      <td>authCode</td>
+      <td>Código de autorização do pagamento.</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>cieloCode</td>
+      <td>NSU do pagamento</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>Valor do pagamento a ser  cancelado</td>
       <td><code class="highlighter-rouge">Long</code></td>
     </tr>
     <tr>
-      <td>payment</td>
-      <td>O pagamento a ser cancelado.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
+      <td>ec</td>
+      <td>Em casos de multi-ec, informar aqui o número correspondente</td>
+      <td><code class="highlighter-rouge">String</code></td>
+    </tr>
+    <tr>
+      <td>cancellationListener</td>
+      <td>Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.</td>
+      <td><code class="highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">orderManager</span><span class="o">.</span><span class="na">cancelOrder</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">cancellationListener</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Abaixo é detalhado cada um dos parâmetros enviados no método:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Atributo</th>
+      <th>Descrição</th>
+      <th>Domínio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>request</td>
+      <td>O objeto contendo as informações da ordem a ser cancelada.</td>
+      <td><code class="highlighter-rouge">cielo.orders.domain.CancellationRequest</code></td>
     </tr>
     <tr>
       <td>cancellationListener</td>
