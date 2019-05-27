@@ -3029,7 +3029,7 @@ curl
 
 It is possible to carry out both the total capture and the partial capture via The Backoffice Cielo.
 
-Access our [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  for more informations
+Access our [**Tutorial**]https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations
 
 ## Canceling a sale
 
@@ -3223,14 +3223,13 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 Cancellation via Backoffice is the only option to perform cancellation of bank slip and Online Debit transactions.
 It is possible to carry out both the total cancellation and the partial cancellation via The Backoffice Cielo.
 
-Effects on the means of payment
+Effects on the payment method
 
-|Means of payment|Description|Deadline|Cielo participation|
+|Payment method|Description|Deadline|Cielo participation|
 |---|---|---|---|
-|Bank slip|Cancellation only in API. The return of the value is made by the merchant himself|Defined by the merchant|No|
 |Electronic Transfer|Cancellation only in API. The return of the value is made by the merchant himself|Defined by the merchant|No|
 
-Access our [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  for more informations
+Access our [**Tutorial**](https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations
 
 ## Notification Post
 
