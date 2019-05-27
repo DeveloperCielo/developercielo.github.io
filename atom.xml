@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-27T14:13:31+00:00</updated>
+    <updated>2019-05-27T14:23:01+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4411,7 +4411,7 @@ aplicativo na plataforma Cielo LIO.&lt;/p&gt;
 
 &lt;p&gt;Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:0.19.5'
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;compile 'com.cielo.lio:order-manager:1.4.0'
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;última versão 0.19.4 - lançada em 25/07/2018&lt;/p&gt;
@@ -5026,12 +5026,8 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento parcial da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
-
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando apenas o OrderId:
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fluxo da transação utilizando o pagamento de valor da Cielo LIO&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId e o Valor:
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-valor.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
