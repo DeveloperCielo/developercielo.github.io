@@ -2122,6 +2122,132 @@ curls
 |---|---|---|---|---|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
+### Consulting a Recurrence
+
+To consult a credit card Recurrence, it is necessary to do a `GET` as shown in the example.
+
+**The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a `GET` must be performed in the transaction (Available in" Consulting sales
+
+#### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
+
+```shell
+curl
+--request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`RecurrentPaymentId`|Recurrence Identifier Field.|Text|36|Yes|
+
+#### Response
+
+```json
+{
+    "Customer": {
+        "Name": "Fulano da Silva"
+    },
+    "RecurrentPayment": {
+        "RecurrentPaymentId": "c30f5c78-fca2-459c-9f3c-9c4b41b09048",
+        "NextRecurrency": "2017-06-07",
+        "StartDate": "2017-04-07",
+        "EndDate": "2017-02-27",
+        "Interval": "Bimonthly",
+        "Amount": 15000,
+        "Country": "BRA",
+        "CreateDate": "2017-04-07T00:00:00",
+        "Currency": "BRL",
+        "CurrentRecurrencyTry": 1,
+        "Provider": "Simulado",
+        "RecurrencyDay": 7,
+        "SuccessfulRecurrences": 0,
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"
+            }
+        ],
+        "RecurrentTransactions": [
+            {
+                "PaymentId": "f70948a8-f1dd-4b93-a4ad-90428bcbdb84",
+                "PaymentNumber": 0,
+                "TryNumber": 1
+            }
+        ],
+        "Status": 1
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Customer": {
+        "Name": "Fulano da Silva"
+    },
+    "RecurrentPayment": {
+        "RecurrentPaymentId": "c30f5c78-fca2-459c-9f3c-9c4b41b09048",
+        "NextRecurrency": "2017-06-07",
+        "StartDate": "2017-04-07",
+        "EndDate": "2017-02-27",
+        "Interval": "Bimonthly",
+        "Amount": 15000,
+        "Country": "BRA",
+        "CreateDate": "2017-04-07T00:00:00",
+        "Currency": "BRL",
+        "CurrentRecurrencyTry": 1,
+        "Provider": "Simulado",
+        "RecurrencyDay": 7,
+        "SuccessfulRecurrences": 0,
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"
+            }
+        ],
+        "RecurrentTransactions": [
+            {
+                "PaymentId": "f70948a8-f1dd-4b93-a4ad-90428bcbdb84",
+                "PaymentNumber": 0,
+                "TryNumber": 1
+            }
+        ],
+        "Status": 1
+    }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`RecurrentPaymentId`|Next recurrence Identifier field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`NextRecurrency`|Date of next recurrence.|Text|7|12/2030 (MM/YYYY)|
+|`StartDate`|Start date of recurrence.|Text|7|12/2030 (MM/YYYY)|
+|`EndDate`|End date of recurrence.|Text|7|12/2030 (MM/YYYY)|
+|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`CurrentRecurrencyTry `|Indicates the number of attempts of the current recurrence|Number|1|1|
+|`OrderNumber`|Order identification at the store|Text|50|2017051101|
+|`Status`|Recurrent order status|Number|1|<br>*1* - Active <br>*2* - Finished <br>*3*- Deactivated by the Merchant <br> *4* - Disabled by number of retries <br> *5* - Disabled by expired credit card|
+|`RecurrencyDay`|Recurrence day|Number|2|22|
+|`SuccessfulRecurrences`|Successful amount of recurrence|Number|2|5|
+|`RecurrentTransactions.RecurrentPaymentId`|Recurrence Id|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RecurrentTransactions.TransactionId`|Payment ID of the transaction generated on recurrence|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RecurrentTransactions.PaymentNumber`|Number of Recurrence. The first one is zero|Number|2|3|
+|`RecurrentTransactions.TryNumber`|Number of current attempt at the specific recurrence|Number|2|1|
+
 ### Capture 
 
 The **Capture** is an exclusive step for Credit Card transactions.
