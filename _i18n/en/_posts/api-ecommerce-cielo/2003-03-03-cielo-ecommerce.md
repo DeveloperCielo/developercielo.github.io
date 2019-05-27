@@ -2409,10 +2409,10 @@ The expiry date of the card have values that are not allowed as "08 / A020" and 
 ]
 ```
 
-| Property    | Description                                                                                                                            |
+| Propriedade | Descrição                                                                                                                              |
 |-------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `Code`      | API error code. [See the code list](https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes)                          |
-| `Message`   | Error description. [See the code list](https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes)                       |
+| `Code`      | Código de Erro da API. [Veja a lista de códigos](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api) |
+| `Message`   | Descrição do erro. [Veja a lista de códigos](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api)     |
 
 # Consult - Capture - Cancel
 
