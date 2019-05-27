@@ -4271,259 +4271,6 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h3 id="consulting-a-recurrence">Consulting a Recurrence</h3>
-
-<p>To consult a credit card Recurrence, it is necessary to do a <code class="highlighter-rouge">GET</code> as shown in the example.</p>
-
-<p>**The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a <code class="highlighter-rouge">GET</code> must be performed in the transaction (Available in” Consulting sales</p>
-
-<h4 id="request-9">Request</h4>
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Recurrence Identifier Field.</td>
-      <td>Text</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-9">Response</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano da Silva"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c30f5c78-fca2-459c-9f3c-9c4b41b09048"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"NextRecurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-07"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-07"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-27"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bimonthly"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"CreateDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-07T00:00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"CurrentRecurrencyTry"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"RecurrencyDay"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"SuccessfulRecurrences"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"RecurrentTransactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f70948a8-f1dd-4b93-a4ad-90428bcbdb84"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"PaymentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"TryNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"Customer"</span>: <span class="o">{</span>
-        <span class="s2">"Name"</span>: <span class="s2">"Fulano da Silva"</span>
-    <span class="o">}</span>,
-    <span class="s2">"RecurrentPayment"</span>: <span class="o">{</span>
-        <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"c30f5c78-fca2-459c-9f3c-9c4b41b09048"</span>,
-        <span class="s2">"NextRecurrency"</span>: <span class="s2">"2017-06-07"</span>,
-        <span class="s2">"StartDate"</span>: <span class="s2">"2017-04-07"</span>,
-        <span class="s2">"EndDate"</span>: <span class="s2">"2017-02-27"</span>,
-        <span class="s2">"Interval"</span>: <span class="s2">"Bimonthly"</span>,
-        <span class="s2">"Amount"</span>: 15000,
-        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-        <span class="s2">"CreateDate"</span>: <span class="s2">"2017-04-07T00:00:00"</span>,
-        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
-        <span class="s2">"CurrentRecurrencyTry"</span>: 1,
-        <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
-        <span class="s2">"RecurrencyDay"</span>: 7,
-        <span class="s2">"SuccessfulRecurrences"</span>: 0,
-        <span class="s2">"Links"</span>: <span class="o">[</span>
-            <span class="o">{</span>
-                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
-                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"</span>
-            <span class="o">}</span>
-        <span class="o">]</span>,
-        <span class="s2">"RecurrentTransactions"</span>: <span class="o">[</span>
-            <span class="o">{</span>
-                <span class="s2">"PaymentId"</span>: <span class="s2">"f70948a8-f1dd-4b93-a4ad-90428bcbdb84"</span>,
-                <span class="s2">"PaymentNumber"</span>: 0,
-                <span class="s2">"TryNumber"</span>: 1
-            <span class="o">}</span>
-        <span class="o">]</span>,
-        <span class="s2">"Status"</span>: 1
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Next recurrence Identifier field.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NextRecurrency</code></td>
-      <td>Date of next recurrence.</td>
-      <td>Text</td>
-      <td>7</td>
-      <td>12/2030 (MM/YYYY)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">StartDate</code></td>
-      <td>Start date of recurrence.</td>
-      <td>Text</td>
-      <td>7</td>
-      <td>12/2030 (MM/YYYY)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">EndDate</code></td>
-      <td>End date of recurrence.</td>
-      <td>Text</td>
-      <td>7</td>
-      <td>12/2030 (MM/YYYY)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Interval</code></td>
-      <td>Interval between recurrences.</td>
-      <td>Text</td>
-      <td>10</td>
-      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CurrentRecurrencyTry </code></td>
-      <td>Indicates the number of attempts of the current recurrence</td>
-      <td>Number</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">OrderNumber</code></td>
-      <td>Order identification at the store</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>2017051101</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
-      <td>Recurrent order status</td>
-      <td>Number</td>
-      <td>1</td>
-      <td><br /><em>1</em> - Active <br /><em>2</em> - Finished <br /><em>3</em>- Deactivated by the Merchant <br /> <em>4</em> - Disabled by number of retries <br /> <em>5</em> - Disabled by expired credit card</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">RecurrencyDay</code></td>
-      <td>Recurrence day</td>
-      <td>Number</td>
-      <td>2</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">SuccessfulRecurrences</code></td>
-      <td>Successful amount of recurrence</td>
-      <td>Number</td>
-      <td>2</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">RecurrentTransactions.RecurrentPaymentId</code></td>
-      <td>Recurrence Id</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">RecurrentTransactions.TransactionId</code></td>
-      <td>Payment ID of the transaction generated on recurrence</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">RecurrentTransactions.PaymentNumber</code></td>
-      <td>Number of Recurrence. The first one is zero</td>
-      <td>Number</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">RecurrentTransactions.TryNumber</code></td>
-      <td>Number of current attempt at the specific recurrence</td>
-      <td>Number</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="capture">Capture</h3>
 
 <p>The <strong>Capture</strong> is an exclusive step for Credit Card transactions.</p>
@@ -4616,7 +4363,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-10">Response</h4>
+<h4 id="response-9">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4720,7 +4467,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-10">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -4898,7 +4645,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-11">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -5048,7 +4795,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="notice">Only transactions sent on the last three months are eligible for queries</aside>
 
-<h4 id="request-10">Request</h4>
+<h4 id="request-9">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -5104,7 +4851,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -5332,7 +5079,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>To check a sale by store identifier, you need to make a GET for the sales feature as the example.</p>
 
-<h4 id="request-11">Request</h4>
+<h4 id="request-10">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -5388,7 +5135,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-14">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5438,6 +5185,259 @@ PaymentIds associated with the identifier.</p>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="consulting-a-recurrence">Consulting a Recurrence</h3>
+
+<p>To consult a credit card Recurrence, it is necessary to do a <code class="highlighter-rouge">GET</code> as shown in the example.</p>
+
+<p>**The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a <code class="highlighter-rouge">GET</code> must be performed in the transaction (Available in” Consulting sales</p>
+
+<h4 id="request-11">Request</h4>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Recurrence Identifier Field.</td>
+      <td>Text</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-14">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano da Silva"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c30f5c78-fca2-459c-9f3c-9c4b41b09048"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"NextRecurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-07"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"StartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-07"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-27"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bimonthly"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreateDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-07T00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CurrentRecurrencyTry"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RecurrencyDay"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SuccessfulRecurrences"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"RecurrentTransactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f70948a8-f1dd-4b93-a4ad-90428bcbdb84"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"PaymentNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"TryNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"Customer"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Fulano da Silva"</span>
+    <span class="o">}</span>,
+    <span class="s2">"RecurrentPayment"</span>: <span class="o">{</span>
+        <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"c30f5c78-fca2-459c-9f3c-9c4b41b09048"</span>,
+        <span class="s2">"NextRecurrency"</span>: <span class="s2">"2017-06-07"</span>,
+        <span class="s2">"StartDate"</span>: <span class="s2">"2017-04-07"</span>,
+        <span class="s2">"EndDate"</span>: <span class="s2">"2017-02-27"</span>,
+        <span class="s2">"Interval"</span>: <span class="s2">"Bimonthly"</span>,
+        <span class="s2">"Amount"</span>: 15000,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"CreateDate"</span>: <span class="s2">"2017-04-07T00:00:00"</span>,
+        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+        <span class="s2">"CurrentRecurrencyTry"</span>: 1,
+        <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+        <span class="s2">"RecurrencyDay"</span>: 7,
+        <span class="s2">"SuccessfulRecurrences"</span>: 0,
+        <span class="s2">"Links"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"</span>
+            <span class="o">}</span>
+        <span class="o">]</span>,
+        <span class="s2">"RecurrentTransactions"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"PaymentId"</span>: <span class="s2">"f70948a8-f1dd-4b93-a4ad-90428bcbdb84"</span>,
+                <span class="s2">"PaymentNumber"</span>: 0,
+                <span class="s2">"TryNumber"</span>: 1
+            <span class="o">}</span>
+        <span class="o">]</span>,
+        <span class="s2">"Status"</span>: 1
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Next recurrence Identifier field.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NextRecurrency</code></td>
+      <td>Date of next recurrence.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>12/2030 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">StartDate</code></td>
+      <td>Start date of recurrence.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>12/2030 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">EndDate</code></td>
+      <td>End date of recurrence.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>12/2030 (MM/YYYY)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Interval</code></td>
+      <td>Interval between recurrences.</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CurrentRecurrencyTry </code></td>
+      <td>Indicates the number of attempts of the current recurrence</td>
+      <td>Number</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">OrderNumber</code></td>
+      <td>Order identification at the store</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>2017051101</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Recurrent order status</td>
+      <td>Number</td>
+      <td>1</td>
+      <td><br /><em>1</em> - Active <br /><em>2</em> - Finished <br /><em>3</em>- Deactivated by the Merchant <br /> <em>4</em> - Disabled by number of retries <br /> <em>5</em> - Disabled by expired credit card</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrencyDay</code></td>
+      <td>Recurrence day</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SuccessfulRecurrences</code></td>
+      <td>Successful amount of recurrence</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentTransactions.RecurrentPaymentId</code></td>
+      <td>Recurrence Id</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentTransactions.TransactionId</code></td>
+      <td>Payment ID of the transaction generated on recurrence</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentTransactions.PaymentNumber</code></td>
+      <td>Number of Recurrence. The first one is zero</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentTransactions.TryNumber</code></td>
+      <td>Number of current attempt at the specific recurrence</td>
+      <td>Number</td>
+      <td>2</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
