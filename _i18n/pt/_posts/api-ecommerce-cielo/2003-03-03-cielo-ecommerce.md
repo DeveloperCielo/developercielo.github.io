@@ -2165,7 +2165,7 @@ O que a captura gera:
 * Ela inclui o valor da venda na fatura do comprador
 * Somente transações capturadas são pagas pela Cielo ao lojista
 
-<aside class="notice"><strong>Atenção:</strong> A captura é um processo com prazo de execução. Verifique em sem cadastro cielo qual o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a Captura da transação</aside>
+<aside class="notice"><strong>Atenção:</strong> A captura é um processo com prazo de execução. Verifique em seu cadastro cielo qual o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a Captura da transação</aside>
 
 <aside class="notice"><strong>Atenção:</strong> Captura parcial disponível apenas para transações de crédito</aside>
 
