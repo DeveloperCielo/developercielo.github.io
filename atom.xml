@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-27T16:49:43+00:00</updated>
+    <updated>2019-05-27T16:57:38+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4898,7 +4898,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
 
 &lt;h3 id=&quot;1-requisição-de-pagamento&quot;&gt;1. Requisição de pagamento&lt;/h3&gt;
 
-&lt;p&gt;Para realizar um requeste de pagamento é preciso informar, pelo menos, o OrderId criado anteriormamente. Dependendo dos parametros informados na hora de montar o request de pagamento, um dos processos citados acima será iniciado. No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).&lt;/p&gt;
+&lt;p&gt;Para realizar um request de pagamento é preciso informar, pelo menos, o OrderId criado anteriormamente. Dependendo dos parametros informados na hora de montar o request de pagamento, um dos processos citados acima será iniciado. No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;CheckoutRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CheckoutRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
                     &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;orderId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* Obrigatório */&lt;/span&gt;
@@ -5030,7 +5030,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId e o Valor:
-&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-valor.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo-pagamento-valores.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId, o Valor e o código de pagamento:
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-direto.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
@@ -5043,6 +5043,10 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
 
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId, o Valor, o código de pagamento, o número de parcelas, o EC e o email
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Para a utilização do EC, é necessário uma pré habilitação junto a Cielo, para o recebimento com MULTI-EC&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;cancelamento&quot;&gt;Cancelamento&lt;/h2&gt;
 

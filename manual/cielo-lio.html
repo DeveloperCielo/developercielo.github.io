@@ -1189,7 +1189,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 
 <h3 id="1-requisição-de-pagamento">1. Requisição de pagamento</h3>
 
-<p>Para realizar um requeste de pagamento é preciso informar, pelo menos, o OrderId criado anteriormamente. Dependendo dos parametros informados na hora de montar o request de pagamento, um dos processos citados acima será iniciado. No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).</p>
+<p>Para realizar um request de pagamento é preciso informar, pelo menos, o OrderId criado anteriormamente. Dependendo dos parametros informados na hora de montar o request de pagamento, um dos processos citados acima será iniciado. No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CheckoutRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CheckoutRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
                     <span class="o">.</span><span class="na">orderId</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getId</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
@@ -1321,7 +1321,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcial.jpg" alt="fluxo parcial" /></p>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId e o Valor:
-<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-valor.jpg" alt="fluxo parcial" /></p>
+<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo-pagamento-valores.jpg" alt="fluxo parcial" /></p>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId, o Valor e o código de pagamento:
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-direto.jpg" alt="fluxo parcial" /></p>
@@ -1334,6 +1334,10 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 
 <p>Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId, o Valor, o código de pagamento, o número de parcelas, o EC e o email
 <img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg" alt="fluxo parcial" /></p>
+
+<blockquote>
+  <p><strong>Atenção:</strong> Para a utilização do EC, é necessário uma pré habilitação junto a Cielo, para o recebimento com MULTI-EC</p>
+</blockquote>
 
 <h2 id="cancelamento">Cancelamento</h2>
 
