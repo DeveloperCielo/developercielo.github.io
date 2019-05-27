@@ -6711,6 +6711,169 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
+<h1 id="velocity">Velocity</h1>
+
+<h2 id="what-is-velocity">What is Velocity</h2>
+
+<p>Velocity is a type of fraud prevention mechanism that specifically analyzes the concept of **“speed x transactional data” **. It analyzes how often certain data is used and whether that data is inscribed in a list of behaviors succeptible to security actions.</p>
+
+<p>For merchants operating in the e-commerce market and eventually receiving fraudulent transactions, Velocity is a product that will identify behaviors suspect of fraud. The tool is intended to assist in fraud analysis at a much lower cost than a more traditional market tool.</p>
+
+<p>It is an ally in the evaluation of suspect buying behaviors because the calculations will be based on <code class="highlighter-rouge">traceability elements</code>.</p>
+
+<p>The Velocity offers 4 types of functionalities to validate transactional data:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Functionality</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Velocity safety rules</td>
+      <td>The Merchantdefines a set of security rules that will evaluate if certain transactional data is repeated in a suspicious time interval</td>
+    </tr>
+    <tr>
+      <td>Quarantine</td>
+      <td>Creation of a list of data that will be analyzed for a determined period of time before being considered valid or fraudulent</td>
+    </tr>
+    <tr>
+      <td>BlackList</td>
+      <td>Creation of a list of data that, when identified, prevents the transaction from being executed, avoiding the creation of a fraudulent transaction</td>
+    </tr>
+    <tr>
+      <td>Whitelist</td>
+      <td>Creation of a list of data that, when identified, allows the transaction to be executed, even if there are security rules in action</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The functionality must be contracted separately, and later enabled in your store by the Cielo Ecommerce Support team via Admin 3.0</p>
+
+<h2 id="integration">Integration</h2>
+
+<p>Velocity works by analyzing data sent in the standard Cielo Ecommerce API integration. It is not necessary to add any additional node to the store integration for the creation of the sale, but it will be necessary to change the way the data is received <code class="highlighter-rouge">Response</code>.</p>
+
+<p>When Velocity is active, the transaction response will bring a specific node called “Velocity” with the details of the analysis.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051202"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@cielo.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2027"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"VelocityAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ResultMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3</span><span class="se">\.</span><span class="s2"> HitsTimeRangeInSeconds: 1440</span><span class="se">\.</span><span class="s2"> ExpirationBlockTimeInSeconds: 1440"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AbortedByFraud"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BP171"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rejected by fraud risk (velocity)"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquery.cieloecommerce.cielo.com.br/1/sales/2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.Id</code></td>
+      <td>Performed analysis identifier</td>
+      <td>GUID</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.ResultMessage</code></td>
+      <td>Accept ou Reject</td>
+      <td>Text</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.Score</code></td>
+      <td>100</td>
+      <td>Number</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.RuleId</code></td>
+      <td>Code of the rule that rejected</td>
+      <td>Number</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.Message</code></td>
+      <td>Description of the rule that rejected</td>
+      <td>Text</td>
+      <td>512</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="recurring-payments">Recurring Payments</h1>
 
 <p>Recurring payments are transactions that must be repeated after a certain period of time.</p>
@@ -9577,169 +9740,6 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       <td>Boolean</td>
       <td>—</td>
       <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="velocity">Velocity</h1>
-
-<h2 id="what-is-velocity">What is Velocity</h2>
-
-<p>Velocity is a type of fraud prevention mechanism that specifically analyzes the concept of **“speed x transactional data” **. It analyzes how often certain data is used and whether that data is inscribed in a list of behaviors succeptible to security actions.</p>
-
-<p>For merchants operating in the e-commerce market and eventually receiving fraudulent transactions, Velocity is a product that will identify behaviors suspect of fraud. The tool is intended to assist in fraud analysis at a much lower cost than a more traditional market tool.</p>
-
-<p>It is an ally in the evaluation of suspect buying behaviors because the calculations will be based on <code class="highlighter-rouge">traceability elements</code>.</p>
-
-<p>The Velocity offers 4 types of functionalities to validate transactional data:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Functionality</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Velocity safety rules</td>
-      <td>The Merchantdefines a set of security rules that will evaluate if certain transactional data is repeated in a suspicious time interval</td>
-    </tr>
-    <tr>
-      <td>Quarantine</td>
-      <td>Creation of a list of data that will be analyzed for a determined period of time before being considered valid or fraudulent</td>
-    </tr>
-    <tr>
-      <td>BlackList</td>
-      <td>Creation of a list of data that, when identified, prevents the transaction from being executed, avoiding the creation of a fraudulent transaction</td>
-    </tr>
-    <tr>
-      <td>Whitelist</td>
-      <td>Creation of a list of data that, when identified, allows the transaction to be executed, even if there are security rules in action</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>The functionality must be contracted separately, and later enabled in your store by the Cielo Ecommerce Support team via Admin 3.0</p>
-
-<h2 id="integration">Integration</h2>
-
-<p>Velocity works by analyzing data sent in the standard Cielo Ecommerce API integration. It is not necessary to add any additional node to the store integration for the creation of the sale, but it will be necessary to change the way the data is received <code class="highlighter-rouge">Response</code>.</p>
-
-<p>When Velocity is active, the transaction response will bring a specific node called “Velocity” with the details of the analysis.</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051202"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@cielo.com.br"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0181"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do Portador"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2027"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"VelocityAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ResultMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reject"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3</span><span class="se">\.</span><span class="s2"> HitsTimeRangeInSeconds: 1440</span><span class="se">\.</span><span class="s2"> ExpirationBlockTimeInSeconds: 1440"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AbortedByFraud"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BP171"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rejected by fraud risk (velocity)"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquery.cieloecommerce.cielo.com.br/1/sales/2d5e0463-47be-4964-b8ac-622a16a2b6c4"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">VelocityAnalysis.Id</code></td>
-      <td>Performed analysis identifier</td>
-      <td>GUID</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">VelocityAnalysis.ResultMessage</code></td>
-      <td>Accept ou Reject</td>
-      <td>Text</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">VelocityAnalysis.Score</code></td>
-      <td>100</td>
-      <td>Number</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.RuleId</code></td>
-      <td>Code of the rule that rejected</td>
-      <td>Number</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">VelocityAnalysis.RejectReasons.Message</code></td>
-      <td>Description of the rule that rejected</td>
-      <td>Text</td>
-      <td>512</td>
     </tr>
   </tbody>
 </table>
