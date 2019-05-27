@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-27T19:03:30+00:00</updated>
+    <updated>2019-05-27T19:34:53+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -23604,7 +23604,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
 
 &lt;p&gt;It is possible to carry out both the total capture and the partial capture via The Backoffice Cielo.&lt;/p&gt;
 
-&lt;p&gt;Access our &lt;a href=&quot;https://developercielo.github.io/Tutorial//Backoffice-3.0&quot;&gt;&lt;strong&gt;Tutorial&lt;/strong&gt;&lt;/a&gt;  for more informations&lt;/p&gt;
+&lt;p&gt;Access our [&lt;strong&gt;Tutorial&lt;/strong&gt;]https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations&lt;/p&gt;
 
 &lt;h2 id=&quot;canceling-a-sale&quot;&gt;Canceling a sale&lt;/h2&gt;
 
@@ -23963,24 +23963,18 @@ PaymentIds associated with the identifier.&lt;/p&gt;
 &lt;p&gt;Cancellation via Backoffice is the only option to perform cancellation of bank slip and Online Debit transactions.
 It is possible to carry out both the total cancellation and the partial cancellation via The Backoffice Cielo.&lt;/p&gt;
 
-&lt;p&gt;Effects on the means of payment&lt;/p&gt;
+&lt;p&gt;Effects on the payment method&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Means of payment&lt;/th&gt;
+      &lt;th&gt;Payment method&lt;/th&gt;
       &lt;th&gt;Description&lt;/th&gt;
       &lt;th&gt;Deadline&lt;/th&gt;
       &lt;th&gt;Cielo participation&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Bank slip&lt;/td&gt;
-      &lt;td&gt;Cancellation only in API. The return of the value is made by the merchant himself&lt;/td&gt;
-      &lt;td&gt;Defined by the merchant&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Electronic Transfer&lt;/td&gt;
       &lt;td&gt;Cancellation only in API. The return of the value is made by the merchant himself&lt;/td&gt;
@@ -23990,7 +23984,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Access our &lt;a href=&quot;https://developercielo.github.io/Tutorial//Backoffice-3.0&quot;&gt;&lt;strong&gt;Tutorial&lt;/strong&gt;&lt;/a&gt;  for more informations&lt;/p&gt;
+&lt;p&gt;Access our &lt;a href=&quot;https://developercielo.github.io/en/tutorial/tutoriais-3-0&quot;&gt;&lt;strong&gt;Tutorial&lt;/strong&gt;&lt;/a&gt;  for more informations&lt;/p&gt;
 
 &lt;h2 id=&quot;notification-post&quot;&gt;Notification Post&lt;/h2&gt;
 
