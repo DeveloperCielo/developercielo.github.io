@@ -3470,15 +3470,15 @@ Below we specify any existing differences:</p>
 <p>Production Environment</p>
 
 <ul>
-  <li><strong>Transaction request</strong>: https://api.cieloecommerce.cielo.com.br/</li>
-  <li><strong>Transaction query:</strong>: https://apiquery.cieloecommerce.cielo.com.br/</li>
+  <li><strong>Transaction request</strong> https://api.cieloecommerce.cielo.com.br/</li>
+  <li><strong>Transaction query:</strong> https://apiquery.cieloecommerce.cielo.com.br/</li>
 </ul>
 
 <p>Sandbox Environment</p>
 
 <ul>
-  <li><strong>Transaction request</strong>: https://apisandbox.cieloecommerce.cielo.com.br</li>
-  <li><strong>Transaction query:</strong>:  https://apiquerysandbox.cieloecommerce.cielo.com.br</li>
+  <li><strong>Transaction request</strong> https://apisandbox.cieloecommerce.cielo.com.br</li>
+  <li><strong>Transaction query:</strong>  https://apiquerysandbox.cieloecommerce.cielo.com.br</li>
 </ul>
 
 <p>To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.</p>
@@ -4989,13 +4989,15 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </li>
 </ol>
 
-<h2 id="creating-an-own-recurrence">Creating an OWN RECURRENCE</h2>
+<h2 id="creating-recurrences">Creating Recurrences</h2>
+
+<h3 id="creating-an-own-recurrence">Creating an OWN RECURRENCE</h3>
 
 <p>To create a recurring sale whose recurrence and interval processes will be executed by the store itself, just do a POST as the example.</p>
 
 <p>The <code class="highlighter-rouge">Payment.Recurrent</code> parameter must be <code class="highlighter-rouge">true</code>, otherwise the transaction will be declined.</p>
 
-<h3 id="request-9">Request</h3>
+<h4 id="request-9">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -5172,7 +5174,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-12">Response</h3>
+<h4 id="response-12">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -5417,7 +5419,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h2 id="creating-a-scheduled-recurrence">Creating a SCHEDULED RECURRENCE</h2>
+<h3 id="creating-a-scheduled-recurrence">Creating a SCHEDULED RECURRENCE</h3>
 
 <p>To create a recurring sale whose first recurrence is authorized with the form of payment as credit card, just do a POST as the example.</p>
 
@@ -5425,7 +5427,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
  of. All subsequent transactions will be automatically captured.</aside>
 
-<h3 id="request-10">Request</h3>
+<h4 id="request-10">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -5624,7 +5626,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-13">Response</h3>
+<h4 id="response-13">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -6218,11 +6220,13 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h2 id="modifying-buyer-data">Modifying buyer data</h2>
+<h2 id="modifying-recurrences">Modifying Recurrences</h2>
+
+<h3 id="modifying-buyer-data">Modifying buyer data</h3>
 
 <p>To change the Recurrence buyer’s data, just do a Put as the example.</p>
 
-<h3 id="request-12">Request</h3>
+<h4 id="request-12">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -6486,18 +6490,18 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-15">Response</h3>
+<h4 id="response-15">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>See the annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
 
-<h2 id="modifying-end-date-of-recurrence">Modifying end date of Recurrence</h2>
+<h3 id="modifying-end-date-of-recurrence">Modifying end date of Recurrence</h3>
 
 <p>To change the end date of the Recurrence, just do a Put as the example.</p>
 
-<h3 id="request-13">Request</h3>
+<h4 id="request-13">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -6564,18 +6568,18 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-16">Response</h3>
+<h4 id="response-16">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>See the annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
 
-<h2 id="modifying-recurrence-interval">Modifying Recurrence interval</h2>
+<h3 id="modifying-recurrence-interval">Modifying Recurrence interval</h3>
 
 <p>To change the Recurrence Interval, just do a Put according to the example.</p>
 
-<h3 id="request-14">Request</h3>
+<h4 id="request-14">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -6642,20 +6646,20 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-17">Response</h3>
+<h4 id="response-17">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>See the annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
 
-<h2 id="modify-day-of-recurrence">Modify day of Recurrence</h2>
+<h3 id="modify-day-of-recurrence">Modify day of Recurrence</h3>
 
 <p>To modify the day of recurrence, just do a Put as the example.</p>
 
 <aside class="notice">Rule: If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03</aside>
 
-<h3 id="request-15">Request</h3>
+<h4 id="request-15">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -6722,18 +6726,18 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-18">Response</h3>
+<h4 id="response-18">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
 
-<h2 id="modifying-the-recurrence-value">Modifying the Recurrence value</h2>
+<h3 id="modifying-the-recurrence-value">Modifying the Recurrence value</h3>
 
 <p>To modify the value of the recurrence, just do a Put as example.</p>
 
-<h3 id="request-16">Request</h3>
+<h4 id="request-16">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -6802,18 +6806,18 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
-<h3 id="response-19">Response</h3>
+<h4 id="response-19">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
 
-<h2 id="modifying-date-of-next-payment">Modifying date of next Payment</h2>
+<h3 id="modifying-date-of-next-payment">Modifying date of next Payment</h3>
 
 <p>To change the date of the next Payment, just do a Put as the example.</p>
 
-<h3 id="request-17">Request</h3>
+<h4 id="request-17">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -6880,20 +6884,20 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-20">Response</h3>
+<h4 id="response-20">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
 
-<h2 id="modifying-recurrence-payment-data">Modifying Recurrence Payment data</h2>
+<h3 id="modifying-recurrence-payment-data">Modifying Recurrence Payment data</h3>
 
 <p>To change the payment data of the Recurrence, just do a Put as the example.</p>
 
 <aside class="notice">Warning: This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.</aside>
 
-<h3 id="request-18">Request</h3>
+<h4 id="request-18">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -7042,18 +7046,18 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-21">Response</h3>
+<h4 id="response-21">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
 
-<h2 id="disabling-a-recurrent-order">Disabling a Recurrent Order</h2>
+<h3 id="disabling-a-recurrent-order">Disabling a Recurrent Order</h3>
 
 <p>To disable a recurrent order, just do a Put as the example.</p>
 
-<h3 id="request-19">Request</h3>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
@@ -7109,18 +7113,18 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-22">Response</h3>
+<h4 id="response-22">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
 <p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
 
-<h2 id="rehabilitating-a-recurrent-order">Rehabilitating a Recurrent Order</h2>
+<h3 id="rehabilitating-a-recurrent-order">Rehabilitating a Recurrent Order</h3>
 
 <p>To Rehabilitate a recurring order, just do a Put as the example.</p>
 
-<h3 id="request-20">Request</h3>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
 
@@ -7176,7 +7180,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-23">Response</h3>
+<h4 id="response-23">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
