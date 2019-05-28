@@ -2640,7 +2640,7 @@ curls
 
 To consult a credit card Recurrence, it is necessary to do a `GET` as shown in the example.
 
-**The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a `GET` must be performed in the transaction (Available in" Consulting sales
+**The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a `GET` must be performed in the transaction (Available in" Consulting sales)**
 
 #### Request
 
