@@ -2671,7 +2671,7 @@ curls
 
 Para consultar uma Recorrência de cartão de crédito, é necessário fazer um `GET`  conforme o exemplo.
 
-**A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um `GET` na transação (Disponivel em "Consultanto vendas)**
+**A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um `GET` na transação (Disponivel em "Consultanto vendas)** 
 
 #### Requisição
 
