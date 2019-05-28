@@ -2814,18 +2814,21 @@ curl
 ```json
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReturnCode": "6",
     "ReturnMessage": "Operation Successful",
     "Links": [
         {
             "Method": "GET",
             "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
         },
         {
             "Method": "PUT",
             "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
         }
     ]
 }
@@ -2837,18 +2840,20 @@ curl
 --data-binary
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
     "ReturnCode": "6",
     "ReturnMessage": "Operation Successful",
     "Links": [
         {
             "Method": "GET",
             "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
         },
         {
             "Method": "PUT",
             "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
         }
     ]
 }
