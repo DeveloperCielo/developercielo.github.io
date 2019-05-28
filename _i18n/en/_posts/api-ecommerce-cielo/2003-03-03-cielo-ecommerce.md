@@ -3119,6 +3119,9 @@ curl
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
 |`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
 
