@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-27T19:51:15+00:00</updated>
+    <updated>2019-05-28T11:59:48+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -21189,7 +21189,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
 
 &lt;p&gt;Para consultar uma Recorrência de cartão de crédito, é necessário fazer um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt;  conforme o exemplo.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; na transação (Disponivel em “Consultanto vendas&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; na transação (Disponivel em “Consultanto vendas)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;requisição-11&quot;&gt;Requisição&lt;/h4&gt;
 
