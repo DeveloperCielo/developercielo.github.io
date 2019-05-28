@@ -3162,6 +3162,9 @@ curl
 ```json
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
     "ProviderReturnCode": "0",
@@ -3189,6 +3192,9 @@ curl
 --data-binary
 {
     "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
     "ReasonCode": 0,
     "ReasonMessage": "Successful",
     "ProviderReturnCode": "0",
