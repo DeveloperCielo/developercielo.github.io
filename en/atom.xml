@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-28T17:39:45+00:00</updated>
+    <updated>2019-05-28T19:20:24+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24068,14 +24068,16 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h2 id=&quot;notification-post&quot;&gt;Notification Post&lt;/h2&gt;
 
-&lt;p&gt;The Notification Post is sent based on a selection of events to be made in the API Cielo E-commerce register.&lt;/p&gt;
+&lt;h3 id=&quot;about-the-post&quot;&gt;About the POST&lt;/h3&gt;
+
+&lt;h3 id=&quot;notified-events&quot;&gt;Notified Events&lt;/h3&gt;
 
 &lt;p&gt;The events that can be notified are:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Means of payment&lt;/th&gt;
+      &lt;th&gt;Payment method&lt;/th&gt;
       &lt;th&gt;Event&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -24104,30 +24106,36 @@ It is possible to carry out both the total cancellation and the partial cancella
       &lt;td&gt;Electronic transfer&lt;/td&gt;
       &lt;td&gt;Confirmed&lt;/td&gt;
     &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;About the Debit card:&lt;/strong&gt;  We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; to be run by searching for order information in the API Cielo.&lt;/p&gt;
+
+&lt;p&gt;Notification also occurs in events related to &lt;strong&gt;Scheduled Recurrence Cielo&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
     &lt;tr&gt;
-      &lt;td&gt;Recurrence&lt;/td&gt;
-      &lt;td&gt;Disabled on reaching maximum number of attempts (declined transactions)&lt;/td&gt;
+      &lt;th&gt;Recurrence Events&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Disabled where reaching maximum number of attempts (transactions denied)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Recurrence&lt;/td&gt;
-      &lt;td&gt;Waiting for bank slip conciliation&lt;/td&gt;
+      &lt;td&gt;Rehabilitation&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Recurrence&lt;/td&gt;
-      &lt;td&gt;Rehabilitation - After payment of bank slip&lt;/td&gt;
+      &lt;td&gt;Completed / End date reached&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Recurrence&lt;/td&gt;
-      &lt;td&gt;Finished - Finished date reached&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Recurrence&lt;/td&gt;
       &lt;td&gt;Deactivation&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Debit card: We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a `GET` to be run by searching for order information in the API Cielo&lt;/aside&gt;
+&lt;h3 id=&quot;notification-endpoint&quot;&gt;Notification Endpoint&lt;/h3&gt;
 
 &lt;p&gt;An &lt;code class=&quot;highlighter-rouge&quot;&gt;URL Status Payment&lt;/code&gt; must be registered by Cielo Support, so that the notification POST is executed.&lt;/p&gt;
 
