@@ -3428,6 +3428,26 @@ curl
 --verbose
 ```
 
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Yes|Store identifier in API Cielo eCommerce.|
+|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in API Cielo eCommerce.|
+|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
+|`MerchantOrderId`|Text|50|Yes|Order ID number.|
+|`Customer.Name`|Text|255|No|Buyer’s name.|
+|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
+|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
+|`Payment.Provider`|Text|15|---|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|
+|`Payment.Installments`|Number|2|Yes|Number of Installments.|
+|`Payment.Authenticate`|Boolean|---|No (Default false) | Indicates whether the transaction must be authenticated (true) or not (false). Even for externally authenticated transactions (authentication provider of your choice), this field must be sent with a "True" value, and on the ExternalAuthentication node, you must send the data returned by the chosen external authentication mechanism (XID, CAVV and ECI).|
+|`Payment.ExternalAuthentication.Cavv`|Text|28|Yes|The Cavv value is returned by the authentication mechanism.|
+|`Payment.ExternalAuthentication.Xid`|Text|28|Yes|The Xid value is returned by the authentication mechanism.|
+|`Payment.ExternalAuthentication.Eci`|Number|1|Yes|The Eci value is returned by the authentication mechanism.|
+|`CreditCard.CardNumber`|Text|19|Yes|Buyer’s Card Number.|
+|`CreditCard.Holder`|Text|25|No|NBuyer’s name printed on card.|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
+
 ### Response
 
 ```json
