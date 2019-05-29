@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-28T19:20:24+00:00</updated>
+    <updated>2019-05-29T12:10:19+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24121,7 +24121,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Disabled where reaching maximum number of attempts (transactions denied)&lt;/td&gt;
+      &lt;td&gt;Disabled when reaching maximum number of attempts (transactions denied)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Rehabilitation&lt;/td&gt;
