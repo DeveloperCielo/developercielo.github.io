@@ -3640,8 +3640,6 @@ characters|Text|13|Alphanumeric text|
 
 #### Configuring your Web Server
 
-
-
 # Velocity
 
 ## What is Velocity
