@@ -3261,6 +3261,18 @@ Access our [**Tutorial**](https://developercielo.github.io/en/tutorial/tutoriais
 
 ### About the POST
 
+The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via 'POST'.
+
+The notification content will be formed by 3 fields:
+
+* `RecurrentPaymentId`- Identifier that represents a set of recurring transactions
+* `PaymentId`- Identifier that represents a transaction
+* `ChangeType` - Specifies the type of notification
+
+With the content above, the merchant can identify the transaction (via `PaymentId` or `RecurrentPaymentId`) and the change suffered by it. With `PaymentId` it is possible to make a consult to the transactional base of the Cielo E-commerce API.
+
+The Notification Post is sent based on a selection of predefined events in the Cielo E-commerce API register. These events are registered by the Cielo support team, when requested by the merchant.
+
 ### Notified Events
 
 The events that can be notified are:
