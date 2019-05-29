@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-29T12:13:21+00:00</updated>
+    <updated>2019-05-29T12:41:01+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24146,9 +24146,21 @@ It is possible to carry out both the total cancellation and the partial cancella
   &lt;li&gt;255 characters limit.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The store &lt;strong&gt;must&lt;/strong&gt; return in response to notification: &lt;strong&gt;HTTP Status Code 200 OK&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Notification Post&lt;/strong&gt; Characteristics&lt;/p&gt;
 
-&lt;p&gt;If not returned the &lt;strong&gt;HTTP Status Code 200 OK&lt;/strong&gt;,  more &lt;strong&gt;two&lt;/strong&gt; Notification Post submissions will occur.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;It is shot every 30 minutes&lt;/li&gt;
+  &lt;li&gt;In case of failure, 3 new attempts will be made. If all 3 attempts fail, new submissions will not occur.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It is possible to register an information to return the request header. Just contact Cielo Support and inform the items below&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;KEY&lt;/code&gt; - Parameter name&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VALUE&lt;/code&gt; - Static value to be returned&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You may register up to 3 types of return information in the header&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RecurrentPaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -24156,6 +24168,8 @@ It is possible to carry out both the total cancellation and the partial cancella
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ChangeType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The store &lt;strong&gt;must&lt;/strong&gt; return in response to notification: &lt;strong&gt;HTTP Status Code 200 OK&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;

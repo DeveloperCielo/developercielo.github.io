@@ -6448,9 +6448,21 @@ It is possible to carry out both the total cancellation and the partial cancella
   <li>255 characters limit.</li>
 </ul>
 
-<p>The store <strong>must</strong> return in response to notification: <strong>HTTP Status Code 200 OK</strong></p>
+<p><strong>Notification Post</strong> Characteristics</p>
 
-<p>If not returned the <strong>HTTP Status Code 200 OK</strong>,  more <strong>two</strong> Notification Post submissions will occur.</p>
+<ul>
+  <li>It is shot every 30 minutes</li>
+  <li>In case of failure, 3 new attempts will be made. If all 3 attempts fail, new submissions will not occur.</li>
+</ul>
+
+<p>It is possible to register an information to return the request header. Just contact Cielo Support and inform the items below</p>
+
+<ul>
+  <li><code class="highlighter-rouge">KEY</code> - Parameter name</li>
+  <li><code class="highlighter-rouge">VALUE</code> - Static value to be returned</li>
+</ul>
+
+<p>You may register up to 3 types of return information in the header</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
@@ -6458,6 +6470,8 @@ It is possible to carry out both the total cancellation and the partial cancella
    </span><span class="s2">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<p>The store <strong>must</strong> return in response to notification: <strong>HTTP Status Code 200 OK</strong></p>
 
 <table>
   <thead>
