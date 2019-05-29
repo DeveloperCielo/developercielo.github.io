@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-29T18:05:16+00:00</updated>
+    <updated>2019-05-29T18:42:16+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24681,11 +24681,11 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h2 id=&quot;what-is-velocity&quot;&gt;What is Velocity&lt;/h2&gt;
 
-&lt;p&gt;Velocity is a type of fraud prevention mechanism that specifically analyzes the concept of **“speed x transactional data” **. It analyzes how often certain data is used and whether that data is inscribed in a list of behaviors succeptible to security actions.&lt;/p&gt;
+&lt;p&gt;Velocity is a type of fraud prevention mechanism that specifically analyzes the concept of &lt;strong&gt;“speed x transactional data”&lt;/strong&gt;. It analyzes how often certain data is used and whether that data is inscribed in a list of behaviors succeptible to security actions.&lt;/p&gt;
 
 &lt;p&gt;For merchants operating in the e-commerce market and eventually receiving fraudulent transactions, Velocity is a product that will identify behaviors suspect of fraud. The tool is intended to assist in fraud analysis at a much lower cost than a more traditional market tool.&lt;/p&gt;
 
-&lt;p&gt;It is an ally in the evaluation of suspect buying behaviors because the calculations will be based on &lt;code class=&quot;highlighter-rouge&quot;&gt;traceability elements&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It is an ally in the evaluation of suspect buying behaviors, because the calculations will be based on &lt;code class=&quot;highlighter-rouge&quot;&gt;traceability elements&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;The Velocity offers 4 types of functionalities to validate transactional data:&lt;/p&gt;
 
@@ -24699,7 +24699,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Velocity safety rules&lt;/td&gt;
-      &lt;td&gt;The Merchantdefines a set of security rules that will evaluate if certain transactional data is repeated in a suspicious time interval&lt;/td&gt;
+      &lt;td&gt;The Merchant defines a set of security rules that will evaluate if certain transactional data is repeated in a suspicious time interval&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Quarantine&lt;/td&gt;
