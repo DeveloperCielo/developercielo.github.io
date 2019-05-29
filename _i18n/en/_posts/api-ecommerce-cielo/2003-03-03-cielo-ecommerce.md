@@ -3280,7 +3280,7 @@ Notification also occurs in events related to **Scheduled Recurrence Cielo**.
 
 | Recurrence Events                                                        |
 |--------------------------------------------------------------------------|
-| Disabled where reaching maximum number of attempts (transactions denied) |
+| Disabled when reaching maximum number of attempts (transactions denied) |
 | Rehabilitation                                                           |
 | Completed / End date reached                                             |
 | Deactivation                                                             |
