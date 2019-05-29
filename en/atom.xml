@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-29T17:50:09+00:00</updated>
+    <updated>2019-05-29T18:05:16+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24257,7 +24257,7 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h2 id=&quot;creating-a-sale-with-external-authentication&quot;&gt;Creating a sale with external authentication&lt;/h2&gt;
 
-&lt;p&gt;To create a credit or debit card sale containing external authentication data, you must send a request using the ‘POST’ method for the Payment feature as the example.&lt;/p&gt;
+&lt;p&gt;To create a credit or debit card sale containing external authentication data, you must send a request using the &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; method for the Payment feature as the example.&lt;/p&gt;
 
 &lt;h3 id=&quot;request-14&quot;&gt;Request&lt;/h3&gt;
 
