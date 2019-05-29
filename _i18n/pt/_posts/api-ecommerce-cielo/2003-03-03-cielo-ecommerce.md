@@ -3354,14 +3354,10 @@ Características da `URL Status Pagamento`
 * Deve ser **estática**
 * Limite de 255  carácteres.
 
-<br>
-
 Características do **Post de notificação** 
 
 * É disparado a cada 30 minutos
 * Em caso de falha, 3 novas tentativas são realizadas.Se as 3 tentativas falharem, novos envios não ocorrerão.
-
-<br> 
 
 É possivel cadastrar uma informação para retorno do header da requisição. Basta entrar em contato com o Suporte Cielo e informar os itens abaixo
 
