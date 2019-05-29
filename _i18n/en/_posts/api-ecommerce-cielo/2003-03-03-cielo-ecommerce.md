@@ -3294,9 +3294,17 @@ Features of the `URL Status Payment`
 * Must be **static**
 * 255 characters limit.
 
-The store **must** return in response to notification: **HTTP Status Code 200 OK**
+**Notification Post** Characteristics
 
-If not returned the **HTTP Status Code 200 OK**,  more **two** Notification Post submissions will occur.
+* It is shot every 30 minutes
+* In case of failure, 3 new attempts will be made. If all 3 attempts fail, new submissions will not occur.
+
+It is possible to register an information to return the request header. Just contact Cielo Support and inform the items below
+
+* `KEY` - Parameter name 
+* `VALUE` - Static value to be returned
+
+You may register up to 3 types of return information in the header
 
 ```json
 {
@@ -3305,6 +3313,8 @@ If not returned the **HTTP Status Code 200 OK**,  more **two** Notification Post
    "ChangeType": "2"
 }
 ```
+
+The store **must** return in response to notification: **HTTP Status Code 200 OK**
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
