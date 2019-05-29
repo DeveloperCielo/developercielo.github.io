@@ -3580,17 +3580,17 @@ characters|Text|13|Alphanumeric text|
 
 ## What is Velocity
 
-Velocity is a type of fraud prevention mechanism that specifically analyzes the concept of **"speed x transactional data" **. It analyzes how often certain data is used and whether that data is inscribed in a list of behaviors succeptible to security actions.
+Velocity is a type of fraud prevention mechanism that specifically analyzes the concept of **"speed x transactional data"**. It analyzes how often certain data is used and whether that data is inscribed in a list of behaviors succeptible to security actions.
 
 For merchants operating in the e-commerce market and eventually receiving fraudulent transactions, Velocity is a product that will identify behaviors suspect of fraud. The tool is intended to assist in fraud analysis at a much lower cost than a more traditional market tool.
 
-It is an ally in the evaluation of suspect buying behaviors because the calculations will be based on `traceability elements`.
+It is an ally in the evaluation of suspect buying behaviors, because the calculations will be based on `traceability elements`.
 
 The Velocity offers 4 types of functionalities to validate transactional data:
 
 | Functionality         | Description                                                  |
 | --------------------- | ------------------------------------------------------------ |
-| Velocity safety rules | The Merchantdefines a set of security rules that will evaluate if certain transactional data is repeated in a suspicious time interval |
+| Velocity safety rules | The Merchant defines a set of security rules that will evaluate if certain transactional data is repeated in a suspicious time interval |
 | Quarantine            | Creation of a list of data that will be analyzed for a determined period of time before being considered valid or fraudulent |
 | BlackList             | Creation of a list of data that, when identified, prevents the transaction from being executed, avoiding the creation of a fraudulent transaction |
 | Whitelist             | Creation of a list of data that, when identified, allows the transaction to be executed, even if there are security rules in action |
