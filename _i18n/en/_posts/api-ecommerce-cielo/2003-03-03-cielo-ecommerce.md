@@ -3566,11 +3566,12 @@ curl
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|	Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
 |`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-|`SoftDescriptor`|Text that will be printed on the carrier’s bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
+|`SoftDescriptor`|Text that will be printed on the carrier’s bank invoice - Available only for VISA/MASTER - does not allow special 
+characters|Text|13|Alphanumeric text|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|	Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|	Examples: 7|
+|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
 |`Status`|Transaction Status.|Byte|---|2|
 |`ReturnCode`|CReturn code of Acquiring.|Text|32|Alphanumeric texto|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
