@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-29T12:41:01+00:00</updated>
+    <updated>2019-05-29T13:13:29+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24069,6 +24069,20 @@ It is possible to carry out both the total cancellation and the partial cancella
 &lt;h2 id=&quot;notification-post&quot;&gt;Notification Post&lt;/h2&gt;
 
 &lt;h3 id=&quot;about-the-post&quot;&gt;About the POST&lt;/h3&gt;
+
+&lt;p&gt;The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via ‘POST’.&lt;/p&gt;
+
+&lt;p&gt;The notification content will be formed by 3 fields:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;- Identifier that represents a set of recurring transactions&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt;- Identifier that represents a transaction&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ChangeType&lt;/code&gt; - Specifies the type of notification&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With the content above, the merchant can identify the transaction (via &lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;) and the change suffered by it. With &lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentId&lt;/code&gt; it is possible to make a consult to the transactional base of the Cielo E-commerce API.&lt;/p&gt;
+
+&lt;p&gt;The Notification Post is sent based on a selection of predefined events in the Cielo E-commerce API register. These events are registered by the Cielo support team, when requested by the merchant.&lt;/p&gt;
 
 &lt;h3 id=&quot;notified-events&quot;&gt;Notified Events&lt;/h3&gt;
 

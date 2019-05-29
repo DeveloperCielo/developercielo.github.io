@@ -6372,6 +6372,20 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 <h3 id="about-the-post">About the POST</h3>
 
+<p>The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via ‘POST’.</p>
+
+<p>The notification content will be formed by 3 fields:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">RecurrentPaymentId</code>- Identifier that represents a set of recurring transactions</li>
+  <li><code class="highlighter-rouge">PaymentId</code>- Identifier that represents a transaction</li>
+  <li><code class="highlighter-rouge">ChangeType</code> - Specifies the type of notification</li>
+</ul>
+
+<p>With the content above, the merchant can identify the transaction (via <code class="highlighter-rouge">PaymentId</code> or <code class="highlighter-rouge">RecurrentPaymentId</code>) and the change suffered by it. With <code class="highlighter-rouge">PaymentId</code> it is possible to make a consult to the transactional base of the Cielo E-commerce API.</p>
+
+<p>The Notification Post is sent based on a selection of predefined events in the Cielo E-commerce API register. These events are registered by the Cielo support team, when requested by the merchant.</p>
+
 <h3 id="notified-events">Notified Events</h3>
 
 <p>The events that can be notified are:</p>
