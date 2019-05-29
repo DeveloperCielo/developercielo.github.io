@@ -3261,7 +3261,7 @@ Access our [**Tutorial**](https://developercielo.github.io/en/tutorial/tutoriais
 
 ### About the POST
 
-The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via 'POST'.
+The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via 'POST'
 
 The notification content will be formed by 3 fields:
 
