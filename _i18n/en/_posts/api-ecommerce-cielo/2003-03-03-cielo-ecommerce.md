@@ -3576,6 +3576,72 @@ characters|Text|13|Alphanumeric text|
 |`ReturnCode`|CReturn code of Acquiring.|Text|32|Alphanumeric texto|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
 
+# Fraud Analysis (AF)
+
+## Integration
+
+### Request
+
+### Response
+
+## AF Tables
+
+### Status do AF
+
+#### FraudAnalysis.Items
+
+##### GiftCategory
+
+##### HostHedge
+
+##### NonSensicalHedge
+
+#### FraudAnalysis.Cart
+
+##### ObscenitiesHedge
+
+##### PhoneHedge
+
+##### Risk
+
+##### TimeHedge
+
+##### Type
+
+##### VelocityHedge
+
+##### Rating
+
+#### FraudAnalysis.Shipping
+
+##### Method
+
+#### FraudAnalysis.ReplyData
+
+##### CardScheme
+
+##### AddressInfoCode
+
+##### InternetInfoCode
+
+##### FraudAnalysisReasonCode
+
+##### FactorCode
+
+## Device FingerPrint
+
+### What is D.FingerPrint
+
+### Configuring FingerPrint
+
+#### Domain
+
+#### Variables
+
+#### Configuring your Web Server
+
+
+
 # Velocity
 
 ## What is Velocity
