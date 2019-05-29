@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-29T13:13:29+00:00</updated>
+    <updated>2019-05-29T13:18:24+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24070,7 +24070,7 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h3 id=&quot;about-the-post&quot;&gt;About the POST&lt;/h3&gt;
 
-&lt;p&gt;The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via ‘POST’.&lt;/p&gt;
+&lt;p&gt;The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via ‘POST’&lt;/p&gt;
 
 &lt;p&gt;The notification content will be formed by 3 fields:&lt;/p&gt;
 
