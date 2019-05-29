@@ -3342,6 +3342,20 @@ The store **must** return in response to notification: **HTTP Status Code 200 OK
 |4|Recurring payment status change (Ex. automatic deactivation)|
 |5|cancellation declined|
 
+# External Authentication
+
+The authentication process makes it possible to make a sale (credit or debit) that will go through the authentication process of the bank issuing the card, then bringing more security for the sales and transferring to the bank, the risk of fraud. This authentication process can be done together or separate from the authorization, and for cases where the merchant chooses to perform authentication to an external provider (of its choice), we are prepared to receive the authorization already with the authentication result.
+
+## Creating a sale with external authentication
+
+To create a credit or debit card sale containing external authentication data, you must send a request using the 'POST' method for the Payment feature as the example.
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+### Response
+
 # Velocity
 
 ## What is Velocity
