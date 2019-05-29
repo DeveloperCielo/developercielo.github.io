@@ -3348,7 +3348,7 @@ The authentication process makes it possible to make a sale (credit or debit) th
 
 ## Creating a sale with external authentication
 
-To create a credit or debit card sale containing external authentication data, you must send a request using the 'POST' method for the Payment feature as the example.
+To create a credit or debit card sale containing external authentication data, you must send a request using the `POST` method for the Payment feature as the example.
 
 ### Request
 
