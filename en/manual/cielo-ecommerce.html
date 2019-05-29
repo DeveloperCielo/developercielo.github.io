@@ -6637,6 +6637,139 @@ It is possible to carry out both the total cancellation and the partial cancella
 <span class="nt">--verbose</span>
 </code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+      <td>Store identifier in API Cielo eCommerce.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>No</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+      <td>Order ID number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+      <td>Buyer’s name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Status</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+      <td>Buyer registration status in store (NEW / EXISTING)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Text</td>
+      <td>100</td>
+      <td>Yes</td>
+      <td>Type of the Payment Method.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>Order Amount (to be sent in cents).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Text</td>
+      <td>15</td>
+      <td>—</td>
+      <td>Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Yes</td>
+      <td>Number of Installments.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No (Default false)</td>
+      <td>Indicates whether the transaction must be authenticated (true) or not (false). Even for externally authenticated transactions (authentication provider of your choice), this field must be sent with a “True” value, and on the ExternalAuthentication node, you must send the data returned by the chosen external authentication mechanism (XID, CAVV and ECI).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
+      <td>Text</td>
+      <td>28</td>
+      <td>Yes</td>
+      <td>The Cavv value is returned by the authentication mechanism.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
+      <td>Text</td>
+      <td>28</td>
+      <td>Yes</td>
+      <td>The Xid value is returned by the authentication mechanism.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
+      <td>Number</td>
+      <td>1</td>
+      <td>Yes</td>
+      <td>The Eci value is returned by the authentication mechanism.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Text</td>
+      <td>19</td>
+      <td>Yes</td>
+      <td>Buyer’s Card Number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Text</td>
+      <td>25</td>
+      <td>No</td>
+      <td>NBuyer’s name printed on card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+      <td>Expiry date printed on card.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="response-20">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
