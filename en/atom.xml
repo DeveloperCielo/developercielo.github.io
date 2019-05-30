@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-30T14:35:02+00:00</updated>
+    <updated>2019-05-30T14:55:55+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24689,33 +24689,372 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h3 id=&quot;status-do-af&quot;&gt;Status do AF&lt;/h3&gt;
 
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Started&lt;/td&gt;
+      &lt;td&gt;Transaction received by Cielo.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Accept&lt;/td&gt;
+      &lt;td&gt;Transaction accepted after fraud analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Review&lt;/td&gt;
+      &lt;td&gt;Transaction under review after fraud analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Reject&lt;/td&gt;
+      &lt;td&gt;Transaction rejected after fraud analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Unfinished&lt;/td&gt;
+      &lt;td&gt;Transaction not finalized due to some internal error in the system.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pendent&lt;/td&gt;
+      &lt;td&gt;Transaction waiting for analysis&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ProviderError&lt;/td&gt;
+      &lt;td&gt;Transaction with error in antifraud provider.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h3 id=&quot;fraudanalysisitems&quot;&gt;FraudAnalysis.Items&lt;/h3&gt;
 
 &lt;h4 id=&quot;giftcategory&quot;&gt;GiftCategory&lt;/h4&gt;
 
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;In case of divergence between billing and delivery addresses, mark as small risk.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;In case of divergence between billing and delivery addresses, mark as high risk.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Off&lt;/td&gt;
+      &lt;td&gt;Ignores risk analysis for divergent addresses.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h4 id=&quot;hosthedge&quot;&gt;HostHedge&lt;/h4&gt;
 
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Low&lt;/td&gt;
+      &lt;td&gt;Low importance of e-mail and IP address in risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Normal&lt;/td&gt;
+      &lt;td&gt;Average importance of e-mail and IP address in risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;High&lt;/td&gt;
+      &lt;td&gt;High importance of e-mail and IP address in risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Off&lt;/td&gt;
+      &lt;td&gt;E-mail and IP address do not affect the risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h4 id=&quot;nonsensicalhedge&quot;&gt;NonSensicalHedge&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Low&lt;/td&gt;
+      &lt;td&gt;Low importance of the verification made on the buyer’s order, in the risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Normal&lt;/td&gt;
+      &lt;td&gt;Average importance of the verification made on the buyer’s order, in the risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;High&lt;/td&gt;
+      &lt;td&gt;High importance of the verification made on the buyer’s order, in the risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Off&lt;/td&gt;
+      &lt;td&gt;Verification of buyer’s order does not affect risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h3 id=&quot;fraudanalysiscart&quot;&gt;FraudAnalysis.Cart&lt;/h3&gt;
 
 &lt;h4 id=&quot;obscenitieshedge&quot;&gt;ObscenitiesHedge&lt;/h4&gt;
 
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Low&lt;/td&gt;
+      &lt;td&gt;Low importance of obscenities verification of buyer’s order, in the risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Normal&lt;/td&gt;
+      &lt;td&gt;Average importance of obscenities verification of buyer’s order, in the risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;High&lt;/td&gt;
+      &lt;td&gt;High importance of obscenities verification of buyer’s order, in the risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Off&lt;/td&gt;
+      &lt;td&gt;Obscenity verification of buyer’s order does not affect risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h4 id=&quot;phonehedge&quot;&gt;PhoneHedge&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Low&lt;/td&gt;
+      &lt;td&gt;Low importance on tests performed with telephone numbers.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Normal&lt;/td&gt;
+      &lt;td&gt;Average importance on tests performed with telephone numbers.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;High&lt;/td&gt;
+      &lt;td&gt;High importance on tests performed with telephone numbers.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Off&lt;/td&gt;
+      &lt;td&gt;Phone number tests do not affect risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h4 id=&quot;risk&quot;&gt;Risk&lt;/h4&gt;
 
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Low&lt;/td&gt;
+      &lt;td&gt;The product has a history of few chargebacks.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Normal&lt;/td&gt;
+      &lt;td&gt;The product has a history of chargebacks considered normal.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;High&lt;/td&gt;
+      &lt;td&gt;Product has an above average chargeback history.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h4 id=&quot;timehedge&quot;&gt;TimeHedge&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Low&lt;/td&gt;
+      &lt;td&gt;Low importance of the time of day when the purchase was made, for the risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Normal&lt;/td&gt;
+      &lt;td&gt;Average importance of the time of day when the purchase was made, for the risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;High&lt;/td&gt;
+      &lt;td&gt;High importance of the time of day when the purchase was made, for the risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Off&lt;/td&gt;
+      &lt;td&gt;Purchase time does not affect risk analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h4 id=&quot;type&quot;&gt;Type&lt;/h4&gt;
 
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CN&lt;/td&gt;
+      &lt;td&gt;Private buyer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CP&lt;/td&gt;
+      &lt;td&gt;Business buyer&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h4 id=&quot;velocityhedge&quot;&gt;VelocityHedge&lt;/h4&gt;
 
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Low&lt;/td&gt;
+      &lt;td&gt;Low importance on the number of purchases made by the customer in the last 15 minutes.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Normal&lt;/td&gt;
+      &lt;td&gt;Average importance on the number of purchases made by the customer in the last 15 minutes.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;High&lt;/td&gt;
+      &lt;td&gt;High importance on the number of purchases made by the customer in the last 15 minutes.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Off&lt;/td&gt;
+      &lt;td&gt;The frequency of purchases made by the customer does not affect the fraud analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h4 id=&quot;rating&quot;&gt;Rating&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Adult&lt;/td&gt;
+      &lt;td&gt;Adult passenger.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Child&lt;/td&gt;
+      &lt;td&gt;Child passenger.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Infant&lt;/td&gt;
+      &lt;td&gt;Infant passenger.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Youth&lt;/td&gt;
+      &lt;td&gt;Teenage passenger.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Student&lt;/td&gt;
+      &lt;td&gt;Student passenger.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SeniorCitizen&lt;/td&gt;
+      &lt;td&gt;Elderly passenger.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Military&lt;/td&gt;
+      &lt;td&gt;Military passenger.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h3 id=&quot;fraudanalysisshipping&quot;&gt;FraudAnalysis.Shipping&lt;/h3&gt;
 
 &lt;h4 id=&quot;method&quot;&gt;Method&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Field&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;None&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SameDay&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;OneDay&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TwoDay&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ThreeDay&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LowCost&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pickup&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Other&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h3 id=&quot;fraudanalysisreplydata&quot;&gt;FraudAnalysis.ReplyData&lt;/h3&gt;
 

@@ -6991,33 +6991,372 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 <h3 id="status-do-af">Status do AF</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Started</td>
+      <td>Transaction received by Cielo.</td>
+    </tr>
+    <tr>
+      <td>Accept</td>
+      <td>Transaction accepted after fraud analysis.</td>
+    </tr>
+    <tr>
+      <td>Review</td>
+      <td>Transaction under review after fraud analysis.</td>
+    </tr>
+    <tr>
+      <td>Reject</td>
+      <td>Transaction rejected after fraud analysis.</td>
+    </tr>
+    <tr>
+      <td>Unfinished</td>
+      <td>Transaction not finalized due to some internal error in the system.</td>
+    </tr>
+    <tr>
+      <td>Pendent</td>
+      <td>Transaction waiting for analysis</td>
+    </tr>
+    <tr>
+      <td>ProviderError</td>
+      <td>Transaction with error in antifraud provider.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="fraudanalysisitems">FraudAnalysis.Items</h3>
 
 <h4 id="giftcategory">GiftCategory</h4>
 
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Yes</td>
+      <td>In case of divergence between billing and delivery addresses, mark as small risk.</td>
+    </tr>
+    <tr>
+      <td>No</td>
+      <td>In case of divergence between billing and delivery addresses, mark as high risk.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>Ignores risk analysis for divergent addresses.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="hosthedge">HostHedge</h4>
 
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance of e-mail and IP address in risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance of e-mail and IP address in risk analysis.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance of e-mail and IP address in risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>E-mail and IP address do not affect the risk analysis.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="nonsensicalhedge">NonSensicalHedge</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance of the verification made on the buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance of the verification made on the buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance of the verification made on the buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>Verification of buyer’s order does not affect risk analysis.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="fraudanalysiscart">FraudAnalysis.Cart</h3>
 
 <h4 id="obscenitieshedge">ObscenitiesHedge</h4>
 
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance of obscenities verification of buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance of obscenities verification of buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance of obscenities verification of buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>Obscenity verification of buyer’s order does not affect risk analysis.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="phonehedge">PhoneHedge</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance on tests performed with telephone numbers.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance on tests performed with telephone numbers.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance on tests performed with telephone numbers.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>Phone number tests do not affect risk analysis.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="risk">Risk</h4>
 
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>The product has a history of few chargebacks.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>The product has a history of chargebacks considered normal.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>Product has an above average chargeback history.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="timehedge">TimeHedge</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance of the time of day when the purchase was made, for the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance of the time of day when the purchase was made, for the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance of the time of day when the purchase was made, for the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>Purchase time does not affect risk analysis.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="type">Type</h4>
 
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CN</td>
+      <td>Private buyer</td>
+    </tr>
+    <tr>
+      <td>CP</td>
+      <td>Business buyer</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="velocityhedge">VelocityHedge</h4>
 
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance on the number of purchases made by the customer in the last 15 minutes.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance on the number of purchases made by the customer in the last 15 minutes.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance on the number of purchases made by the customer in the last 15 minutes.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>The frequency of purchases made by the customer does not affect the fraud analysis.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="rating">Rating</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Adult</td>
+      <td>Adult passenger.</td>
+    </tr>
+    <tr>
+      <td>Child</td>
+      <td>Child passenger.</td>
+    </tr>
+    <tr>
+      <td>Infant</td>
+      <td>Infant passenger.</td>
+    </tr>
+    <tr>
+      <td>Youth</td>
+      <td>Teenage passenger.</td>
+    </tr>
+    <tr>
+      <td>Student</td>
+      <td>Student passenger.</td>
+    </tr>
+    <tr>
+      <td>SeniorCitizen</td>
+      <td>Elderly passenger.</td>
+    </tr>
+    <tr>
+      <td>Military</td>
+      <td>Military passenger.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="fraudanalysisshipping">FraudAnalysis.Shipping</h3>
 
 <h4 id="method">Method</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>SameDay</td>
+    </tr>
+    <tr>
+      <td>OneDay</td>
+    </tr>
+    <tr>
+      <td>TwoDay</td>
+    </tr>
+    <tr>
+      <td>ThreeDay</td>
+    </tr>
+    <tr>
+      <td>LowCost</td>
+    </tr>
+    <tr>
+      <td>Pickup</td>
+    </tr>
+    <tr>
+      <td>Other</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="fraudanalysisreplydata">FraudAnalysis.ReplyData</h3>
 
