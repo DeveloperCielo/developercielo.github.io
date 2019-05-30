@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-30T17:58:48+00:00</updated>
+    <updated>2019-05-30T18:55:54+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25272,6 +25272,93 @@ It is possible to carry out both the total cancellation and the partial cancella
 &lt;/table&gt;
 
 &lt;h4 id=&quot;factorcode&quot;&gt;FactorCode&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Excessive address change. The customer has changed the billing address two or more times in the last six months.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;B&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;BIN of the card or risk authorization. Risk factors are related to credit card BIN and / or card authorization checks.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;C&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Elevated credit card numbers. The customer has used more than six credit card numbers in the last six months.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;D&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Impact of email address. The customer uses a free email provider or the email address is risky.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;E&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Positive list. The customer is on your positive list.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;F&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Negative list. The account number, address, e-mail, or IP address for this purpose appears on your negative list.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;G&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Geolocation inconsistencies. The email client’s domain, phone number, billing address, shipping address, or IP address is suspect.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;H&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Excessive name changes. The customer has changed the name two or more times in the last six months.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;I&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Internet inconsistencies. The IP address and email domain are not consistent with the billing address.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;N&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Meaningless entrance. The client name and the address fields contain nonsense words or language.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;O&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Obscenities. Customer data contains obscene words.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;P&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Morphing identity. Multiple values ​​of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Q&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Phone inconsistencies. The customer’s phone number is suspect.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;R&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Risky order. The transaction, the customer, and the merchant show correlated risk information.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;T&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Coverage Time. The customer is attempting an order outside of the expected time.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;U&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Unverifiable address. The billing or delivery address can not be verified.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;V&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Velocity. The account number has been used many times in the last 15 minutes.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;W&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Z&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Invalid value. The request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the request carefully for any anomalies.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;device-fingerprint&quot;&gt;Device FingerPrint&lt;/h2&gt;
 
