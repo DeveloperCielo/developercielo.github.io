@@ -3712,9 +3712,42 @@ characters|Text|13|Alphanumeric text|
 
 #### CardScheme
 
+| Issuer type            | Description           |
+|------------------------|-----------------------|
+| `MaestroInternational` | International Maestro |
+| `MaestroUkDomestic`    | Domestic UK Maestro   |
+| `MastercardCredit`     | Credit MasterCard     |
+| `MastercardDebit`      | Debit MasterCard      |
+| `VisaCredit`           | Credit Visa           |
+| `VisaDebit`            | Debit Visa            |
+| `VisaElectron`         | Visa Electron         |
+
 #### AddressInfoCode
 
+| Type       | Description                                                                         |
+|------------|-------------------------------------------------------------------------------------|
+| `COR-BA`   | The billing address can be normalized                                               |
+| `COR-SA`   | The delivery address can be normalized                                              |
+| `INTL-SA`  | The delivery country is out side of the U.S                                         |
+| `MIL-USA`  | This is a military address in the U.S.                                              |
+| `MM-A`     | Billing and delivery addresses use different street names                           |
+| `MM-BIN`   | The BIN of the card (the first six digits of the number) does not match the country |
+| `MM-C`     | Billing and delivery addresses use different cities                                 |
+| `MM-CO`    | Billing and delivery addresses use different countries                              |
+| `MM-ST`    | Billing and delivery addresses use different states                                 |
+| `MM-Z`     | Billing and delivery addresses use different postal codes                           |
+| `UNV-ADDR` | The address is unverifiable                                                         |
+
 #### InternetInfoCode
+
+|Type|Description|
+|---------|----------------------------------------------------------------------------------------------------|
+|`MORPH-B`|The same billing address has been used multiple times with multiple customer identities|
+|`MORPH-C`|The same account number has been used multiple times with multiple client identities|
+|`MORPH-E`|The same e-mail address has been used multiple times with multiple customer identities|
+|`MORPH-I`|The same IP address has been used multiple times with multiple customer identities|
+|`MORPH-P`|The same phone number has been used multiple times with multiple customer identities|
+|`MORPH-S`|The same delivery address has been used multiple times with multiple customer identities|
 
 #### FraudAnalysisReasonCode
 
