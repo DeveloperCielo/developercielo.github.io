@@ -3768,6 +3768,28 @@ characters|Text|13|Alphanumeric text|
 
 #### FactorCode
 
+| Type | Description                                                                                                                                                                                  |                          
+|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|                                                                                                                                                                                                    
+| `A`  | Excessive address change. The customer has changed the billing address two or more times in the last six months.                                                                             |
+| `B`  | BIN of the card or risk authorization. Risk factors are related to credit card BIN and / or card authorization checks.                                                                       |
+| `C`  | Elevated credit card numbers. The customer has used more than six credit card numbers in the last six months.                                                                                |      
+| `D`  | Impact of email address. The customer uses a free email provider or the email address is risky.                                                                                              |        
+| `E`  | Positive list. The customer is on your positive list.                                                                                                                                        |                       
+| `F`  | Negative list. The account number, address, e-mail, or IP address for this purpose appears on your negative list.                                                                            |                
+| `G`  | Geolocation inconsistencies. The email client's domain, phone number, billing address, shipping address, or IP address is suspect.                                                           |
+| `H`  | Excessive name changes. The customer has changed the name two or more times in the last six months.                                                                                          |                            
+| `I`  | Internet inconsistencies. The IP address and email domain are not consistent with the billing address.                                                                                       |            
+| `N`  | Meaningless entrance. The client name and the address fields contain nonsense words or language.                                                                                             |                   
+| `O`  | Obscenities. Customer data contains obscene words.                                                                                                                                           |                  
+| `P`  | Morphing identity. Multiple values ​​of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.  |
+| `Q`  | Phone inconsistencies. The customer's phone number is suspect.                                                                                                                               |            
+| `R`  | Risky order. The transaction, the customer, and the merchant show correlated risk information.                                                                                               |           
+| `T`  | Coverage Time. The customer is attempting an order outside of the expected time.                                                                                                             |                           
+| `U`  | Unverifiable address. The billing or delivery address can not be verified.                                                                                                                   |        
+| `V`  | Velocity. The account number has been used many times in the last 15 minutes.                                                                                                                |                          
+| `W`  | Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.                                                                                 |    
+| `Z`  | Invalid value. The request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the request carefully for any anomalies.|
+
 ## Device FingerPrint
 
 ### What is D.FingerPrint
