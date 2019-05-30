@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-29T19:14:33+00:00</updated>
+    <updated>2019-05-30T14:35:02+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24689,45 +24689,45 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h3 id=&quot;status-do-af&quot;&gt;Status do AF&lt;/h3&gt;
 
-&lt;h4 id=&quot;fraudanalysisitems&quot;&gt;FraudAnalysis.Items&lt;/h4&gt;
+&lt;h3 id=&quot;fraudanalysisitems&quot;&gt;FraudAnalysis.Items&lt;/h3&gt;
 
-&lt;h5 id=&quot;giftcategory&quot;&gt;GiftCategory&lt;/h5&gt;
+&lt;h4 id=&quot;giftcategory&quot;&gt;GiftCategory&lt;/h4&gt;
 
-&lt;h5 id=&quot;hosthedge&quot;&gt;HostHedge&lt;/h5&gt;
+&lt;h4 id=&quot;hosthedge&quot;&gt;HostHedge&lt;/h4&gt;
 
-&lt;h5 id=&quot;nonsensicalhedge&quot;&gt;NonSensicalHedge&lt;/h5&gt;
+&lt;h4 id=&quot;nonsensicalhedge&quot;&gt;NonSensicalHedge&lt;/h4&gt;
 
-&lt;h4 id=&quot;fraudanalysiscart&quot;&gt;FraudAnalysis.Cart&lt;/h4&gt;
+&lt;h3 id=&quot;fraudanalysiscart&quot;&gt;FraudAnalysis.Cart&lt;/h3&gt;
 
-&lt;h5 id=&quot;obscenitieshedge&quot;&gt;ObscenitiesHedge&lt;/h5&gt;
+&lt;h4 id=&quot;obscenitieshedge&quot;&gt;ObscenitiesHedge&lt;/h4&gt;
 
-&lt;h5 id=&quot;phonehedge&quot;&gt;PhoneHedge&lt;/h5&gt;
+&lt;h4 id=&quot;phonehedge&quot;&gt;PhoneHedge&lt;/h4&gt;
 
-&lt;h5 id=&quot;risk&quot;&gt;Risk&lt;/h5&gt;
+&lt;h4 id=&quot;risk&quot;&gt;Risk&lt;/h4&gt;
 
-&lt;h5 id=&quot;timehedge&quot;&gt;TimeHedge&lt;/h5&gt;
+&lt;h4 id=&quot;timehedge&quot;&gt;TimeHedge&lt;/h4&gt;
 
-&lt;h5 id=&quot;type&quot;&gt;Type&lt;/h5&gt;
+&lt;h4 id=&quot;type&quot;&gt;Type&lt;/h4&gt;
 
-&lt;h5 id=&quot;velocityhedge&quot;&gt;VelocityHedge&lt;/h5&gt;
+&lt;h4 id=&quot;velocityhedge&quot;&gt;VelocityHedge&lt;/h4&gt;
 
-&lt;h5 id=&quot;rating&quot;&gt;Rating&lt;/h5&gt;
+&lt;h4 id=&quot;rating&quot;&gt;Rating&lt;/h4&gt;
 
-&lt;h4 id=&quot;fraudanalysisshipping&quot;&gt;FraudAnalysis.Shipping&lt;/h4&gt;
+&lt;h3 id=&quot;fraudanalysisshipping&quot;&gt;FraudAnalysis.Shipping&lt;/h3&gt;
 
-&lt;h5 id=&quot;method&quot;&gt;Method&lt;/h5&gt;
+&lt;h4 id=&quot;method&quot;&gt;Method&lt;/h4&gt;
 
-&lt;h4 id=&quot;fraudanalysisreplydata&quot;&gt;FraudAnalysis.ReplyData&lt;/h4&gt;
+&lt;h3 id=&quot;fraudanalysisreplydata&quot;&gt;FraudAnalysis.ReplyData&lt;/h3&gt;
 
-&lt;h5 id=&quot;cardscheme&quot;&gt;CardScheme&lt;/h5&gt;
+&lt;h4 id=&quot;cardscheme&quot;&gt;CardScheme&lt;/h4&gt;
 
-&lt;h5 id=&quot;addressinfocode&quot;&gt;AddressInfoCode&lt;/h5&gt;
+&lt;h4 id=&quot;addressinfocode&quot;&gt;AddressInfoCode&lt;/h4&gt;
 
-&lt;h5 id=&quot;internetinfocode&quot;&gt;InternetInfoCode&lt;/h5&gt;
+&lt;h4 id=&quot;internetinfocode&quot;&gt;InternetInfoCode&lt;/h4&gt;
 
-&lt;h5 id=&quot;fraudanalysisreasoncode&quot;&gt;FraudAnalysisReasonCode&lt;/h5&gt;
+&lt;h4 id=&quot;fraudanalysisreasoncode&quot;&gt;FraudAnalysisReasonCode&lt;/h4&gt;
 
-&lt;h5 id=&quot;factorcode&quot;&gt;FactorCode&lt;/h5&gt;
+&lt;h4 id=&quot;factorcode&quot;&gt;FactorCode&lt;/h4&gt;
 
 &lt;h2 id=&quot;device-fingerprint&quot;&gt;Device FingerPrint&lt;/h2&gt;
 
