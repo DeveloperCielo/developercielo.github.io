@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-30T17:04:46+00:00</updated>
+    <updated>2019-05-30T17:58:48+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25198,6 +25198,78 @@ It is possible to carry out both the total cancellation and the partial cancella
 &lt;/table&gt;
 
 &lt;h4 id=&quot;fraudanalysisreasoncode&quot;&gt;FraudAnalysisReasonCode&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;100&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Operation successful.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;101&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The request is missing one or more required fields. Possible action: See the missing fields in the AntiFraudResponse.MissingFieldCollection list. Resend the request with the complete information.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;102&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;One or more of the fields in the request contain invalid data. Possible action: View the invalid fields in the AntiFraudResponse.InvalidFieldCollection list. Resend the order with the correct information.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;150&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;General system failure. Possible action: Wait a few minutes and try resending the request.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;151&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The request was received, but a time-out occurred on the server. This error does not include time-out between the client and the server. Possible action: Wait a few minutes and try resending the request.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;152&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The request was received, but a time-out occurred. Possible action: Wait a few minutes and resubmit the request.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;202&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Fraud Prevention declined the request because the card has expired. You can also receive this code if the expiry date does not match the date on file of the issuing bank. If the payment processor allows you to issue credits to expired cards, CyberSource does not allow this functionality. Possible action: Request a card or other form of payment.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;231&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The account number is invalid. Possible action: Request a card or other payment method.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;234&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;There is a problem with the merchant configuration. Possible action: Do not send the request. Get in touch with the Customer Support to correct the configuration problem.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;400&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The fraud rate exceeds its limit. Possible action: Review the customer’s request.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;480&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The request has been marked for review by the Decision Manager.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;481&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The request was rejected by the Decision Manager.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h4 id=&quot;factorcode&quot;&gt;FactorCode&lt;/h4&gt;
 
