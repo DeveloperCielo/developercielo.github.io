@@ -3588,6 +3588,8 @@ characters|Text|13|Alphanumeric text|
 
 ### Status do AF
 
+> The status below are displayed in the Backoffice of the Cielo E-Commerce API, inside the Cielo website
+
 |Field|Description|
 |---|---|
 |Started|Transaction received by Cielo.|
