@@ -3588,33 +3588,123 @@ characters|Text|13|Alphanumeric text|
 
 ### Status do AF
 
+|Field|Description|
+|---|---|
+|Started|Transaction received by Cielo.|
+|Accept|Transaction accepted after fraud analysis.|
+|Review|Transaction under review after fraud analysis.|
+|Reject|Transaction rejected after fraud analysis.|
+|Unfinished|Transaction not finalized due to some internal error in the system.|
+|Pendent|Transaction waiting for analysis|
+|ProviderError|Transaction with error in antifraud provider.|
+
 ### FraudAnalysis.Items
 
 #### GiftCategory
 
+|Field|Description|
+|---|---|
+|Yes|In case of divergence between billing and delivery addresses, mark as small risk.|
+|No|In case of divergence between billing and delivery addresses, mark as high risk.|
+|Off|Ignores risk analysis for divergent addresses.|
+
 #### HostHedge
 
+|Field|Description|
+|---|---|
+|Low|Low importance of e-mail and IP address in risk analysis.|
+|Normal|Average importance of e-mail and IP address in risk analysis.|
+|High|High importance of e-mail and IP address in risk analysis.|
+|Off|E-mail and IP address do not affect the risk analysis.|
+
 #### NonSensicalHedge
+
+|Field|Description|
+|---|---|
+|Low|Low importance of the verification made on the buyer's order, in the risk analysis.|
+|Normal|Average importance of the verification made on the buyer's order, in the risk analysis.|
+|High|High importance of the verification made on the buyer's order, in the risk analysis.|
+|Off|Verification of buyer's order does not affect risk analysis.|
 
 ### FraudAnalysis.Cart
 
 #### ObscenitiesHedge
 
+|Field|Description|
+|---|---|
+|Low|Low importance of obscenities verification of buyer's order, in the risk analysis.|
+|Normal|Average importance of obscenities verification of buyer's order, in the risk analysis.|
+|High|High importance of obscenities verification of buyer's order, in the risk analysis.|
+|Off|Obscenity verification of buyer's order does not affect risk analysis.|
+
 #### PhoneHedge
+
+|Field|Description|
+|---|---|
+|Low|Low importance on tests performed with telephone numbers.|
+|Normal|Average importance on tests performed with telephone numbers.|
+|High|High importance on tests performed with telephone numbers.|
+|Off|Phone number tests do not affect risk analysis.|
 
 #### Risk
 
+|Field|Description|
+|---|---|
+|Low|The product has a history of few chargebacks.|
+|Normal|The product has a history of chargebacks considered normal.|
+|High|Product has an above average chargeback history.|
+
 #### TimeHedge
+
+|Field|Description|
+|---|---|
+|Low|Low importance of the time of day when the purchase was made, for the risk analysis.|
+|Normal|Average importance of the time of day when the purchase was made, for the risk analysis.|
+|High|High importance of the time of day when the purchase was made, for the risk analysis.|
+|Off|Purchase time does not affect risk analysis.|
 
 #### Type
 
+|Field|Description|
+|---|---|
+|CN|Private buyer|
+|CP|Business buyer|
+
 #### VelocityHedge
 
+|Field|Description|
+|---|---|
+|Low|Low importance on the number of purchases made by the customer in the last 15 minutes.|
+|Normal|Average importance on the number of purchases made by the customer in the last 15 minutes.|
+|High|High importance on the number of purchases made by the customer in the last 15 minutes.|
+|Off|The frequency of purchases made by the customer does not affect the fraud analysis.|
+
 #### Rating
+
+|Field|Description|
+|---|---|
+|Adult|Adult passenger.|
+|Child|Child passenger.|
+|Infant|Infant passenger.|
+|Youth|Teenage passenger.|
+|Student|Student passenger.|
+|SeniorCitizen|Elderly passenger.|
+|Military|Military passenger.|
 
 ### FraudAnalysis.Shipping
 
 #### Method
+
+|Field|
+|---|
+|None|
+|SameDay|
+|OneDay|
+|TwoDay|
+|ThreeDay|
+|LowCost|
+|Pickup|
+|Other|
 
 ### FraudAnalysis.ReplyData
 
