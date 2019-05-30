@@ -7366,9 +7366,138 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 <h4 id="cardscheme">CardScheme</h4>
 
+<table>
+  <thead>
+    <tr>
+      <th>Issuer type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MaestroInternational</code></td>
+      <td>International Maestro</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MaestroUkDomestic</code></td>
+      <td>Domestic UK Maestro</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MastercardCredit</code></td>
+      <td>Credit MasterCard</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MastercardDebit</code></td>
+      <td>Debit MasterCard</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VisaCredit</code></td>
+      <td>Credit Visa</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VisaDebit</code></td>
+      <td>Debit Visa</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VisaElectron</code></td>
+      <td>Visa Electron</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="addressinfocode">AddressInfoCode</h4>
 
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">COR-BA</code></td>
+      <td>The billing address can be normalized</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">COR-SA</code></td>
+      <td>The delivery address can be normalized</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">INTL-SA</code></td>
+      <td>The delivery country is out side of the U.S</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MIL-USA</code></td>
+      <td>This is a military address in the U.S.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-A</code></td>
+      <td>Billing and delivery addresses use different street names</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-BIN</code></td>
+      <td>The BIN of the card (the first six digits of the number) does not match the country</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-C</code></td>
+      <td>Billing and delivery addresses use different cities</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-CO</code></td>
+      <td>Billing and delivery addresses use different countries</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-ST</code></td>
+      <td>Billing and delivery addresses use different states</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-Z</code></td>
+      <td>Billing and delivery addresses use different postal codes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UNV-ADDR</code></td>
+      <td>The address is unverifiable</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="internetinfocode">InternetInfoCode</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MORPH-B</code></td>
+      <td>The same billing address has been used multiple times with multiple customer identities</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MORPH-C</code></td>
+      <td>The same account number has been used multiple times with multiple client identities</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MORPH-E</code></td>
+      <td>The same e-mail address has been used multiple times with multiple customer identities</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MORPH-I</code></td>
+      <td>The same IP address has been used multiple times with multiple customer identities</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MORPH-P</code></td>
+      <td>The same phone number has been used multiple times with multiple customer identities</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MORPH-S</code></td>
+      <td>The same delivery address has been used multiple times with multiple customer identities</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="fraudanalysisreasoncode">FraudAnalysisReasonCode</h4>
 

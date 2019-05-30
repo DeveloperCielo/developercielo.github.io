@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-30T16:07:12+00:00</updated>
+    <updated>2019-05-30T17:04:46+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25064,9 +25064,138 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h4 id=&quot;cardscheme&quot;&gt;CardScheme&lt;/h4&gt;
 
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Issuer type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MaestroInternational&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;International Maestro&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MaestroUkDomestic&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Domestic UK Maestro&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MastercardCredit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Credit MasterCard&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MastercardDebit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Debit MasterCard&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VisaCredit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Credit Visa&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VisaDebit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Debit Visa&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VisaElectron&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Visa Electron&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h4 id=&quot;addressinfocode&quot;&gt;AddressInfoCode&lt;/h4&gt;
 
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;COR-BA&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The billing address can be normalized&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;COR-SA&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The delivery address can be normalized&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;INTL-SA&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The delivery country is out side of the U.S&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MIL-USA&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;This is a military address in the U.S.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-A&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Billing and delivery addresses use different street names&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-BIN&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The BIN of the card (the first six digits of the number) does not match the country&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-C&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Billing and delivery addresses use different cities&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-CO&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Billing and delivery addresses use different countries&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-ST&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Billing and delivery addresses use different states&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-Z&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Billing and delivery addresses use different postal codes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UNV-ADDR&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The address is unverifiable&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h4 id=&quot;internetinfocode&quot;&gt;InternetInfoCode&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-B&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The same billing address has been used multiple times with multiple customer identities&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-C&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The same account number has been used multiple times with multiple client identities&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-E&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The same e-mail address has been used multiple times with multiple customer identities&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-I&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The same IP address has been used multiple times with multiple customer identities&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-P&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The same phone number has been used multiple times with multiple customer identities&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-S&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The same delivery address has been used multiple times with multiple customer identities&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h4 id=&quot;fraudanalysisreasoncode&quot;&gt;FraudAnalysisReasonCode&lt;/h4&gt;
 
