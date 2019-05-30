@@ -3588,45 +3588,45 @@ characters|Text|13|Alphanumeric text|
 
 ### Status do AF
 
-#### FraudAnalysis.Items
+### FraudAnalysis.Items
 
-##### GiftCategory
+#### GiftCategory
 
-##### HostHedge
+#### HostHedge
 
-##### NonSensicalHedge
+#### NonSensicalHedge
 
-#### FraudAnalysis.Cart
+### FraudAnalysis.Cart
 
-##### ObscenitiesHedge
+#### ObscenitiesHedge
 
-##### PhoneHedge
+#### PhoneHedge
 
-##### Risk
+#### Risk
 
-##### TimeHedge
+#### TimeHedge
 
-##### Type
+#### Type
 
-##### VelocityHedge
+#### VelocityHedge
 
-##### Rating
+#### Rating
 
-#### FraudAnalysis.Shipping
+### FraudAnalysis.Shipping
 
-##### Method
+#### Method
 
-#### FraudAnalysis.ReplyData
+### FraudAnalysis.ReplyData
 
-##### CardScheme
+#### CardScheme
 
-##### AddressInfoCode
+#### AddressInfoCode
 
-##### InternetInfoCode
+#### InternetInfoCode
 
-##### FraudAnalysisReasonCode
+#### FraudAnalysisReasonCode
 
-##### FactorCode
+#### FactorCode
 
 ## Device FingerPrint
 
