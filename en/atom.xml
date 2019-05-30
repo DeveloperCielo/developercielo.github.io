@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-30T14:55:55+00:00</updated>
+    <updated>2019-05-30T16:07:12+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24688,6 +24688,10 @@ It is possible to carry out both the total cancellation and the partial cancella
 &lt;h2 id=&quot;af-tables&quot;&gt;AF Tables&lt;/h2&gt;
 
 &lt;h3 id=&quot;status-do-af&quot;&gt;Status do AF&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The status below are displayed in the Backoffice of the Cielo E-Commerce API, inside the Cielo website&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
