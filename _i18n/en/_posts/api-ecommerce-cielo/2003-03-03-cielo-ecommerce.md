@@ -3578,7 +3578,17 @@ characters|Text|13|Alphanumeric text|
 
 # Fraud Analysis (AF)
 
+The Cielo e-commerce API offers an online transaction fraud risk analysis service. Cielo joins risk analysis companies, such as CyberSource, which performs validation of transactional data and purchase history data of the card holder. This analysis returns risk factors and allows the merchant to make the decision whether to continue the sale.
+
+<aside class="warning">The fraud analysis offered by Cielo rate the risk of a transaction but does not link the result of the analysis to ChargeBacks coverage. Cielo does not make "guaranteed" transactions</aside>
+
+To use AF, it is necessary that the service be activated with Cielo. There are 3 types of fraud analysis settings available:
+
+> Fraud Analysis is available only for credit card transactions.
+
 ## Integration
+
+To create a credit card sale and fraud analysis, , it is necessary to do a POST for the Payment feature as the example.
 
 ### Request
 
