@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-05-30T18:55:49+00:00</updated>
+    <updated>2019-05-31T11:16:55+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -23014,7 +23014,7 @@ Este processo de autenticação pode ser feito junto ou separado da autorizaçã
 
 &lt;h1 id=&quot;análise-de-fraude-af&quot;&gt;Análise de Fraude (AF)&lt;/h1&gt;
 
-&lt;p&gt;A API Cielo e-commerce Cielo oferece um serviço de analise de risco de fraudes em transações online. A Cielo se integra a empresas de analise de risco, como CyberSource, que realizam uma validação dos dados transacionais e do historico de compras do portador do cartão.
+&lt;p&gt;A API e-commerce Cielo oferece um serviço de analise de risco de fraudes em transações online. A Cielo se integra a empresas de analise de risco, como CyberSource, que realizam uma validação dos dados transacionais e do historico de compras do portador do cartão.
 Essa analise retorna fatores de risco e permite que o lojista tome a decisão se dará continuidade a venda.&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;A análise de fraude oferecida pela Cielo avalia o risco de uma transação, mas não vincula o resultado da analise com a cobertura de ChargeBacks. A Cielo não realiza transações &quot;garantidas&quot;&lt;/aside&gt;
