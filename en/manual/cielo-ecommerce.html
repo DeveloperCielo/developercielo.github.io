@@ -7526,6 +7526,90 @@ It is possible to carry out both the total cancellation and the partial cancella
       <td>No (Default false)</td>
       <td>Boolean that identifies whether the card will be saved to generate the CardToken.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Provider</code></td>
+      <td>Text</td>
+      <td>14</td>
+      <td>Yes</td>
+      <td>Fixed “cybersource”</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Sequence</code></td>
+      <td>Text</td>
+      <td>14</td>
+      <td>Yes</td>
+      <td>Flow type to perform the fraud analysis. First Analyze (AnalyzeFirst) or First Authorization (AuthorizeFirst)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.SequenceCriteria</code></td>
+      <td>Text</td>
+      <td>9</td>
+      <td>Yes</td>
+      <td>Flow criterion. <strong>OnSuccess</strong> - Only performs the analysis if it succeeds in the transaction. <strong>Always</strong> - Always perform the analysis.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No</td>
+      <td>When true, the authorization must be with automatic capture when the risk of fraud is considered to be low (Accept). In cases of Reject or Review, the flow stays the same, then, the capture will happen according to the value specified in the “Capture” parameter. To use this parameter, the sequence of the risk analysis flow must be “AuthorizeFirst”. Because it depends on the risk analysis report, this parameter will only take effect when the Anti-Fraud service is hired.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No</td>
+      <td>When true, the repayment of payment should happen automatically when the risk of fraud is considered high (Reject). In cases of Accept or Review, the flow remains the same, the, the repayment of payment must be done manually. To use this parameter, the sequence of the risk analysis flow must be “AuthorizeFirst”. Because it depends on the risk analysis report, this parameter will only take effect when the Anti-Fraud service is hired.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.TotalOrderAmount</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>Order Amount.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.FingerPrintId</code></td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+      <td>Identifier used to cross information obtained by the internet browser with the data sent for analysis. This same value must be passed in the SESSIONID variable of the DeviceFingerPrint script.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Browser.CookiesAccepted</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Boolean to identify if the client browser accepts cookies.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Browser.Email</code></td>
+      <td>Text</td>
+      <td>100</td>
+      <td>No</td>
+      <td>E-mail registered in the buyer’s browser.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Browser.HostName</code></td>
+      <td>Text</td>
+      <td>60</td>
+      <td>No</td>
+      <td>Host name where the buyer was before entering the store’s website.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Browser.IpAddress</code></td>
+      <td>Text</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>IP address of the buyer. We strongly recommend sending this field.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Browser.Type</code></td>
+      <td>Text</td>
+      <td>40</td>
+      <td>No</td>
+      <td>Browser’s name used by the buyer.</td>
+    </tr>
   </tbody>
 </table>
 

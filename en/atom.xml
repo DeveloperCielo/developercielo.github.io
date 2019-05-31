@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-31T17:53:15+00:00</updated>
+    <updated>2019-05-31T18:07:30+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25223,6 +25223,90 @@ It is possible to carry out both the total cancellation and the partial cancella
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;No (Default false)&lt;/td&gt;
       &lt;td&gt;Boolean that identifies whether the card will be saved to generate the CardToken.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Fixed “cybersource”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Sequence&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Flow type to perform the fraud analysis. First Analyze (AnalyzeFirst) or First Authorization (AuthorizeFirst)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.SequenceCriteria&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Flow criterion. &lt;strong&gt;OnSuccess&lt;/strong&gt; - Only performs the analysis if it succeeds in the transaction. &lt;strong&gt;Always&lt;/strong&gt; - Always perform the analysis.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.CaptureOnLowRisk&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;When true, the authorization must be with automatic capture when the risk of fraud is considered to be low (Accept). In cases of Reject or Review, the flow stays the same, then, the capture will happen according to the value specified in the “Capture” parameter. To use this parameter, the sequence of the risk analysis flow must be “AuthorizeFirst”. Because it depends on the risk analysis report, this parameter will only take effect when the Anti-Fraud service is hired.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.VoidOnHighRisk&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;When true, the repayment of payment should happen automatically when the risk of fraud is considered high (Reject). In cases of Accept or Review, the flow remains the same, the, the repayment of payment must be done manually. To use this parameter, the sequence of the risk analysis flow must be “AuthorizeFirst”. Because it depends on the risk analysis report, this parameter will only take effect when the Anti-Fraud service is hired.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.TotalOrderAmount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Order Amount.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.FingerPrintId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Identifier used to cross information obtained by the internet browser with the data sent for analysis. This same value must be passed in the SESSIONID variable of the DeviceFingerPrint script.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Browser.CookiesAccepted&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Boolean to identify if the client browser accepts cookies.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Browser.Email&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;E-mail registered in the buyer’s browser.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Browser.HostName&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;60&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Host name where the buyer was before entering the store’s website.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Browser.IpAddress&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;IP address of the buyer. We strongly recommend sending this field.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Browser.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Browser’s name used by the buyer.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
