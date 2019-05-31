@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-31T11:17:01+00:00</updated>
+    <updated>2019-05-31T11:36:43+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24679,7 +24679,19 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h1 id=&quot;fraud-analysis-af&quot;&gt;Fraud Analysis (AF)&lt;/h1&gt;
 
+&lt;p&gt;The Cielo e-commerce API offers an online transaction fraud risk analysis service. Cielo joins risk analysis companies, such as CyberSource, which performs validation of transactional data and purchase history data of the card holder. This analysis returns risk factors and allows the merchant to make the decision whether to continue the sale.&lt;/p&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;The fraud analysis offered by Cielo rate the risk of a transaction but does not link the result of the analysis to ChargeBacks coverage. Cielo does not make &quot;guaranteed&quot; transactions&lt;/aside&gt;
+
+&lt;p&gt;To use AF, it is necessary that the service be activated with Cielo. There are 3 types of fraud analysis settings available:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fraud Analysis is available only for credit card transactions.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h2 id=&quot;integration&quot;&gt;Integration&lt;/h2&gt;
+
+&lt;p&gt;To create a credit card sale and fraud analysis, , it is necessary to do a POST for the Payment feature as the example.&lt;/p&gt;
 
 &lt;h3 id=&quot;request-15&quot;&gt;Request&lt;/h3&gt;
 
