@@ -7151,6 +7151,258 @@ It is possible to carry out both the total cancellation and the partial cancella
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+      <td>Store identifier in API Cielo eCommerce.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>No</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+      <td>Order ID number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Yes</td>
+      <td>Buyer’s name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Text</td>
+      <td>14</td>
+      <td>Yes</td>
+      <td>Buyer’s RG, CPF or CNPJ number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Text</td>
+      <td>24</td>
+      <td>Yes</td>
+      <td>Type of buyer ID document (CFP/CNPJ).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Status</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+      <td>Buyer registration status in store (NEW / EXISTING).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+      <td>Buyer’s e-mail.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Birthdate</code></td>
+      <td>Date</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Buyer’s date of birth in YYYY-MM-DD format.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Text</td>
+      <td>54</td>
+      <td>No</td>
+      <td>Buyer’s address.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Text</td>
+      <td>5</td>
+      <td>No</td>
+      <td>Buyer’s address number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Text</td>
+      <td>14</td>
+      <td>No</td>
+      <td>Buyer’s address complement.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>Text</td>
+      <td>9</td>
+      <td>No</td>
+      <td>Buyer’s address zip code.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.City</code></td>
+      <td>Text</td>
+      <td>50</td>
+      <td>No</td>
+      <td>Buyer’s address city.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.State</code></td>
+      <td>Text</td>
+      <td>2</td>
+      <td>No</td>
+      <td>Buyer’s address state.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.Country</code></td>
+      <td>Text</td>
+      <td>2</td>
+      <td>No</td>
+      <td>Buyer’s address country.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Address.District</code></td>
+      <td>Text</td>
+      <td>45</td>
+      <td>No</td>
+      <td>Buyer’s neighborhood.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td>Text</td>
+      <td>54</td>
+      <td>No</td>
+      <td>Buyer’s address.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
+      <td>Text</td>
+      <td>5</td>
+      <td>No</td>
+      <td>Buyer’s address number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td>Text</td>
+      <td>14</td>
+      <td>No</td>
+      <td>Buyer’s address complement.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>Text</td>
+      <td>9</td>
+      <td>No</td>
+      <td>Buyer’s address zip code.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Text</td>
+      <td>50</td>
+      <td>No</td>
+      <td>Buyer’s address city.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Text</td>
+      <td>2</td>
+      <td>No</td>
+      <td>Buyer’s address state.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>Text</td>
+      <td>2</td>
+      <td>No</td>
+      <td>Buyer’s address country.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.DeliveryAddress.District</code></td>
+      <td>Text</td>
+      <td>45</td>
+      <td>No</td>
+      <td>Buyer’s neighborhood.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Street</code></td>
+      <td>Text</td>
+      <td>54</td>
+      <td>No</td>
+      <td>Buyer’s address.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Number</code></td>
+      <td>Text</td>
+      <td>5</td>
+      <td>No</td>
+      <td>Buyer’s address number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Complement</code></td>
+      <td>Text</td>
+      <td>14</td>
+      <td>No</td>
+      <td>Buyer’s address complement.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.ZipCode</code></td>
+      <td>Text</td>
+      <td>9</td>
+      <td>No</td>
+      <td>Buyer’s address zip code.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.City</code></td>
+      <td>Text</td>
+      <td>50</td>
+      <td>No</td>
+      <td>Buyer’s address city.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.State</code></td>
+      <td>Text</td>
+      <td>2</td>
+      <td>No</td>
+      <td>Buyer’s address state.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.Country</code></td>
+      <td>Text</td>
+      <td>2</td>
+      <td>No</td>
+      <td>Buyer’s address country.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.BillingAddress.District</code></td>
+      <td>Text</td>
+      <td>45</td>
+      <td>No</td>
+      <td>Buyer’s neighborhood.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="response-21">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
