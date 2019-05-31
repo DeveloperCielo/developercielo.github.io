@@ -3584,6 +3584,12 @@ The Cielo e-commerce API offers an online transaction fraud risk analysis servic
 
 To use AF, it is necessary that the service be activated with Cielo. There are 3 types of fraud analysis settings available:
 
+|Type|Description|Provider|
+|-|-|-|
+|**SuperMID without BPO**|Analysis rules are defined by Cielo <BR> It is not possible to customize the rules in the provider <BR> There is no dedicated risk analyst|CyberSource|
+|**SuperMID with BPO**|Analysis rules are defined by Cielo <BR> It is not possible to customize the rules in the supplier <BR> Dedicated risk analyst contracted by the merchant with the provider|CyberSource|
+|**Hierarchy or Enterprise**|The merchant has a contract directly with the provider of the AF, with specific rules for analysis. Cielo must configure the credentials provided by the AF Provider in the Cielo E-commerce API|CyberSource|
+
 > Fraud Analysis is available only for credit card transactions.
 
 ## Integration
@@ -3592,7 +3598,301 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 
 ### Request
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"201411173454307",
+   "Customer":{  
+      "Name":"Comprador crédito AF",
+      "Identity":"12345678909",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@live.com",
+      "Birthdate":"1991-01-02",
+      "Mobile":"5521995760078",
+      "Phone":"552125553669",
+      "Address":{  
+         "Street":"Rua Júpter",
+         "Number":"174",
+         "Complement":"AP 201",
+         "ZipCode":"21241140",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BR",
+         "District":"Alphaville"
+      },
+      "DeliveryAddress":{  
+         "Street":"Rua Júpter",
+         "Number":"174",
+         "Complement":"AP 201",
+         "ZipCode":"21241140",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BR",
+         "District":"Alphaville"
+      },
+      "BillingAddress":{
+         "Street":"Rua Júpter",
+         "Number":"174",
+         "Complement":"AP 201",
+         "ZipCode":"21241140",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BR",
+         "District":"Alphaville"
+      }
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":100,
+     "Currency":"BRL",
+     "Country":"BRA",
+     "ServiceTaxAmount":0,
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":false,
+     "Authenticate":false,
+     "SoftDescriptor":"Mensagem",
+     "CreditCard":{  
+         "CardNumber":"4024007197692931",
+         "Holder":"Teste accept",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"023",
+         "Brand":"Visa",
+         "SaveCard":"false"
+     },
+     "FraudAnalysis":{
+       "Provider":"cybersource",
+       "Sequence":"AuthorizeFirst",
+       "SequenceCriteria":"OnSuccess",
+       "CaptureOnLowRisk":false,
+       "VoidOnHighRisk":false,
+       "TotalOrderAmount":10000,
+       "FingerPrintId":"074c1ee676ed4998ab66491013c565e2",
+       "Browser":{
+         "CookiesAccepted":false,
+         "Email":"compradorteste@live.com",
+         "HostName":"Teste",
+         "IpAddress":"200.190.150.350",
+         "Type":"Chrome"
+        },
+       "Cart":{
+         "IsGift":false,
+         "ReturnsAccepted":true,
+         "Items":[{
+           "GiftCategory":"Undefined",
+           "HostHedge":"Off",
+           "NonSensicalHedge":"Off",
+           "ObscenitiesHedge":"Off",
+           "PhoneHedge":"Off",
+           "Name":"ItemTeste",
+           "Quantity":1,
+           "Sku":"201411170235134521346",
+           "UnitPrice":123,
+           "Risk":"High",
+           "TimeHedge":"Normal",
+           "Type":"AdultContent",
+           "VelocityHedge":"High",
+           "Passenger":{
+             "Email":"compradorteste@live.com",
+             "Identity":"1234567890",
+             "Name":"Comprador accept",
+             "Rating":"Adult",
+             "Phone":"999994444",
+             "Status":"Accepted"
+            }
+           }]
+       },
+       "MerchantDefinedFields":[{
+            "Id":95,
+            "Value":"Eu defini isso"
+        }],
+        "Shipping":{
+            "Addressee":"Sr Comprador Teste",
+            "Method":"LowCost",
+            "Phone":"21114740"
+        },
+        "Travel":{
+            "DepartureTime":"2010-01-02",
+            "JourneyType":"Ida",
+            "Route":"MAO-RJO",
+          "Legs":[{
+                "Destination":"GYN",
+                "Origin":"VCP"
+          }]
+        }
+     }
+  }
+}
+```
+
 ### Response
+
+```json
+{
+    "MerchantOrderId":"201411173454307",
+    "Customer": {
+        "Name":"Comprador crédito AF",
+        "Identity":"12345678909",
+        "IdentityType":"CPF",
+        "Email":"compradorteste@live.com",
+        "Birthdate":"1991-01-02",
+        "Phone": "552125553669",
+        "Address": {
+            "Street":"Rua Júpter",
+            "Number":"174",
+            "Complement":"AP 201",
+            "ZipCode":"21241140",
+            "City":"Rio de Janeiro",
+            "State":"RJ",
+            "Country":"BRA",
+            "District":"Alphaville"
+        },
+        "DeliveryAddress": {
+            "Street":"Rua Júpter",
+            "Number":"174",
+            "Complement":"AP 201",
+            "ZipCode":"21241140",
+            "City":"Rio de Janeiro",
+            "State":"RJ",
+            "Country":"BRA",
+            "District":"Alphaville"
+        },
+        "BillingAddress": {
+            "Street":"Rua Júpter",
+            "Number":"174",
+            "Complement":"AP 201",
+            "ZipCode":"21241140",
+            "City":"Rio de Janeiro",
+            "State":"RJ",
+            "Country":"BRA",
+            "District":"Alphaville"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "402400******2931",
+            "Holder": "Teste accept",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "492115",
+        "Tid": "10069930692606D31001",
+        "AuthorizationCode": "123456",
+        "SoftDescriptor":"123456789ABCD",
+        "FraudAnalysis": {
+        "Provider":"cybersource",
+            "Sequence": "AuthorizeFirst",
+            "SequenceCriteria": "OnSuccess",
+            "FingerPrintId": "074c1ee676ed4998ab66491013c565e2",
+            "MerchantDefinedFields": [
+                {
+                    "Id": 95,
+                    "Value": "Eu defini isso"
+                }
+            ],
+            "Cart": {
+                "IsGift": false,
+                "ReturnsAccepted": true,
+                "Items": [
+                    {
+                        "Type": "AdultContent",
+                        "Name": "ItemTeste",
+                        "Risk": "High",
+                        "Sku": "201411170235134521346",
+                        "UnitPrice": 123,
+                        "Quantity": 1,
+                        "HostHedge": "Off",
+                        "NonSensicalHedge": "Off",
+                        "ObscenitiesHedge": "Off",
+                        "PhoneHedge": "Off",
+                        "TimeHedge": "Normal",
+                        "VelocityHedge": "High",
+                        "GiftCategory": "Undefined",
+                        "Passenger": {
+                            "Name": "Comprador accept",
+                            "Identity": "1234567890",
+                            "Status": "Accepted",
+                            "Rating": "Adult",
+                            "Email": "compradorteste@live.com",
+                            "Phone": "999994444"
+                        }
+                    }
+                ]
+            },
+            "Travel": {
+                "Route": "MAO-RJO",
+                "DepartureTime": "2010-01-02T00:00:00",
+                "JourneyType": "Ida",
+                "Legs": [
+                    {
+                        "Destination": "GYN",
+                        "Origin": "VCP"
+                    }
+                ]
+            },
+            "Browser": {
+                "HostName": "Teste",
+                "CookiesAccepted": false,
+                "Email": "compradorteste@live.com",
+                "Type": "Chrome",
+                "IpAddress": "200.190.150.350"
+            },
+            "Shipping": {
+                "Addressee": "Sr Comprador Teste",
+                "Phone": "21114740",
+                "Method": "LowCost"
+            },
+            "Id": "0e4d0a3c-e424-4fa5-a573-4eabbd44da42",
+            "Status": 1,
+            "ReplyData": {
+                "AddressInfoCode": "COR-BA^MM-BIN",
+                "FactorCode": "B^D^R^Z",
+                "Score": 42,
+                "BinCountry": "us",
+                "CardIssuer": "FIA CARD SERVICES, N.A.",
+                "CardScheme": "VisaCredit",
+                "HostSeverity": 1,
+                "InternetInfoCode": "FREE-EM^RISK-EM",
+                "IpRoutingMethod": "Undefined",
+                "ScoreModelUsed": "default_lac",
+                "CasePriority": 3
+            }
+        },
+        "PaymentId": "04096cfb-3f0a-4ece-946c-3b7dc5d38f19",
+        "Type": "CreditCard",
+        "Amount": 100,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "ReturnCode": "4",
+        "ReturnMessage": "Transação autorizada",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
 
 ## AF Tables
 
