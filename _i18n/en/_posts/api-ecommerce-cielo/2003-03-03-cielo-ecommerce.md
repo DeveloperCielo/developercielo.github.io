@@ -3726,6 +3726,43 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 }
 ```
 
+| Property                                      |  Type    | Size    | Required            | Description                                                                                                                       |
+|-----------------------------------------------|----------|---------|---------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `MerchantId`                                  | Guid     | 36      | Yes                 | Store identifier in API Cielo eCommerce.                                                                                          |
+| `MerchantKey`                                 | Text     | 40      | Yes                 | Public Key for Double Authentication in API Cielo eCommerce.                                                                      |
+| `RequestId`                                   | Guid     | 36      | No                  | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT                                           |
+| `MerchantOrderId`                             | Text     | 50      | Yes                 | Order ID number.                                                                                                                  |
+| `Customer.Name`                               | Text     | 255     | Yes                 | Buyer’s name.                                                                                                                     |
+| `Customer.Identity`                           | Text     | 14      | Yes                 | Buyer’s RG, CPF or CNPJ number.                                                                                                   |
+| `Customer.IdentityType`                       | Text     | 24      | Yes                 | Type of buyer ID document (CFP/CNPJ).                                                                                             |
+| `Customer.Status`                             | Text     | 255     | No                  | Buyer registration status in store (NEW / EXISTING).                                                                              |
+| `Customer.Email`                              | Text     | 255     | No                  | Buyer’s e-mail.                                                                                                                   |
+| `Customer.Birthdate`                          | Date     | 10      | No                  | Buyer's date of birth in YYYY-MM-DD format.                                                                                       |
+| `Customer.Address.Street`                     | Text     | 54      | No                  | Buyer's address.                                                                                                                  |
+| `Customer.Address.Number`                     | Text     | 5       | No                  | Buyer's address number.                                                                                                           |
+| `Customer.Address.Complement`                 | Text     | 14      | No                  | Buyer's address complement.                                                                                                       |
+| `Customer.Address.ZipCode`                    | Text     | 9       | No                  | Buyer's address zip code.                                                                                                         |
+| `Customer.Address.City`                       | Text     | 50      | No                  | Buyer's address city.                                                                                                             |
+| `Customer.Address.State`                      | Text     | 2       | No                  | Buyer's address state.                                                                                                            |
+| `Customer.Address.Country`                    | Text     | 2       | No                  | Buyer's address country.                                                                                                          |
+| `Customer.Address.District`                   | Text     | 45      | No                  | Buyer's neighborhood.                                                                                                             |
+| `Customer.DeliveryAddress.Street`             | Text     | 54      | No                  | Buyer's address.                                                                                                                  |
+| `Customer.DeliveryAddress.Number`             | Text     | 5       | No                  | Buyer's address number.                                                                                                           |
+| `Customer.DeliveryAddress.Complement`         | Text     | 14      | No                  | Buyer's address complement.                                                                                                       |
+| `Customer.DeliveryAddress.ZipCode`            | Text     | 9       | No                  | Buyer's address zip code.                                                                                                         |
+| `Customer.DeliveryAddress.City`               | Text     | 50      | No                  | Buyer's address city.                                                                                                             |
+| `Customer.DeliveryAddress.State`              | Text     | 2       | No                  | Buyer's address state.                                                                                                            |
+| `Customer.DeliveryAddress.Country`            | Text     | 2       | No                  | Buyer's address country.                                                                                                          |
+| `Customer.DeliveryAddress.District`           | Text     | 45      | No                  | Buyer's neighborhood.                                                                                                             |
+| `Customer.BillingAddress.Street`              | Text     | 54      | No                  | Buyer's address.                                                                                                                  |
+| `Customer.BillingAddress.Number`              | Text     | 5       | No                  | Buyer's address number.                                                                                                           |
+| `Customer.BillingAddress.Complement`          | Text     | 14      | No                  | Buyer's address complement.                                                                                                       |
+| `Customer.BillingAddress.ZipCode`             | Text     | 9       | No                  | Buyer's address zip code.                                                                                                         |
+| `Customer.BillingAddress.City`                | Text     | 50      | No                  | Buyer's address city.                                                                                                             |
+| `Customer.BillingAddress.State`               | Text     | 2       | No                  | Buyer's address state.                                                                                                            |
+| `Customer.BillingAddress.Country`             | Text     | 2       | No                  | Buyer's address country.                                                                                                          |
+| `Customer.BillingAddress.District`            | Text     | 45      | No                  | Buyer's neighborhood.                                                                                                             |
+
 ### Response
 
 ```json
