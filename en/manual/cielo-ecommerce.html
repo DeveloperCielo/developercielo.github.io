@@ -7400,6 +7400,132 @@ It is possible to carry out both the total cancellation and the partial cancella
       <td>No</td>
       <td>Buyer’s neighborhood.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>Text</td>
+      <td>15</td>
+      <td>—</td>
+      <td>Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>Text</td>
+      <td>100</td>
+      <td>Yes</td>
+      <td>Type of the payment method.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>Order Amount (to be sent in cents).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Currency</code></td>
+      <td>Text</td>
+      <td>3</td>
+      <td>No</td>
+      <td>Currency in which payment will be made (BRL).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Country</code></td>
+      <td>Text</td>
+      <td>3</td>
+      <td>No</td>
+      <td>Country where payment will be made.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>The total of the amount of the authorization to be allocated to the service charge. See Annex</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Installments</code></td>
+      <td>Number</td>
+      <td>2</td>
+      <td>Yes</td>
+      <td>Number of Installments.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Interest</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>No</td>
+      <td>Type of installment - Store (ByMerchant) or Card (ByIssuer).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Capture</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No</td>
+      <td>Boolean that identifies that the authorization should be with automatic capture.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No</td>
+      <td>Defines whether the buyer will be directed to the Issuing bank for card authentication</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>Text</td>
+      <td>13</td>
+      <td>No</td>
+      <td>Text that will be printed on the carrier’s bank invoice - Available only for VISA/MASTER - does not allow special characters.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Text</td>
+      <td>16</td>
+      <td>Yes</td>
+      <td>Buyer’s Card Number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Text</td>
+      <td>25</td>
+      <td>Yes</td>
+      <td>Buyer’s name printed on card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+      <td>Expiry date printed on card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Text</td>
+      <td>4</td>
+      <td>Yes</td>
+      <td>Security code printed on back of card - See Annex.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No</td>
+      <td>Boolean that identifies whether the card will be saved to generate the CardToken.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Yes</td>
+      <td>Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No (Default false)</td>
+      <td>Boolean that identifies whether the card will be saved to generate the CardToken.</td>
+    </tr>
   </tbody>
 </table>
 
