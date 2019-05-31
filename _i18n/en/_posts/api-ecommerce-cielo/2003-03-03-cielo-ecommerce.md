@@ -3762,6 +3762,24 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 | `Customer.BillingAddress.State`               | Text     | 2       | No                  | Buyer's address state.                                                                                                            |
 | `Customer.BillingAddress.Country`             | Text     | 2       | No                  | Buyer's address country.                                                                                                          |
 | `Customer.BillingAddress.District`            | Text     | 45      | No                  | Buyer's neighborhood.                                                                                                             |
+| `Payment.Provider`                            | Text     | 15      | ---                 | Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.                                                     |
+| `Payment.Type`                                | Text     | 100     | Yes                 | Type of the payment method.                                                                                                       |
+| `Payment.Amount`                              | Number   | 15      | Yes                 | Order Amount (to be sent in cents).                                                                                               |
+| `Payment.Currency`                            | Text     | 3       | No                  | Currency in which payment will be made (BRL).                                                                                     |
+| `Payment.Country`                             | Text     | 3       | No                  | Country where payment will be made.                                                                                               |
+| `Payment.ServiceTaxAmount`                    | Number   | 15      | Yes                 | The total of the amount of the authorization to be allocated to the service charge. See Annex                                     |
+| `Payment.Installments`                        | Number   | 2       | Yes                 | Number of Installments.                                                                                                           |
+| `Payment.Interest`                            | Text     | 10      | No                  | Type of installment - Store (ByMerchant) or Card (ByIssuer).                                                                      |
+| `Payment.Capture`                             | Boolean  | ---     | No                  | Boolean that identifies that the authorization should be with automatic capture.                                                  |
+| `Payment.Authenticate`                        | Boolean  | ---     | No                  | Defines whether the buyer will be directed to the Issuing bank for card authentication                                            |
+| `Payment.SoftDescriptor`                      | Text     | 13      | No                  | Text that will be printed on the carrier’s bank invoice - Available only for VISA/MASTER - does not allow special characters.     |
+| `CreditCard.CardNumber`                       | Text     | 16      | Yes                 | Buyer’s Card Number.                                                                                                              |
+| `CreditCard.Holder`                           | Text     | 25      | Yes                 | Buyer’s name printed on card.                                                                                                     |
+| `CreditCard.ExpirationDate`                   | Text     | 7       | Yes                 | Expiry date printed on card.                                                                                                      |
+| `CreditCard.SecurityCode`                     | Text     | 4       | Yes                 | Security code printed on back of card - See Annex.                                                                                |
+| `CreditCard.SaveCard`                         | Boolean  | ---     | No                  | Boolean that identifies whether the card will be saved to generate the CardToken.                                                 |
+| `CreditCard.Brand`                            | Text     | 10      | Yes                 | Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                                            |
+| `CreditCard.SaveCard`                         | Boolean  | ---     | No (Default false)  | Boolean that identifies whether the card will be saved to generate the CardToken.                                                 |
 
 ### Response
 
