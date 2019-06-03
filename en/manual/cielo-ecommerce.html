@@ -7631,6 +7631,34 @@ It is possible to carry out both the total cancellation and the partial cancella
       <td>No</td>
       <td>Field that will evaluate the billing and delivery addresses for different cities, states or countries.<br /> <em>“Yes”</em> (In case of divergence between billing and delivery addresses, mark as small risk) <br /><em>“No”</em> (In case of divergence between billing and delivery addresses, high risk mark)<br /> <em>“Off”</em> (Ignores risk analysis for divergent addresses)</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.HostHedge</code></td>
+      <td>Text</td>
+      <td>—</td>
+      <td>No</td>
+      <td>Level of importance of e-mail and IP addresses of clients at risk of scoring.<br /> <em>“Low”</em> (Low importance of e-mail and IP address in risk analysis) importance of e-mail and IP address in risk analysis) <em>“High”</em> (High importance of e-mail and IP address in risk analysis) <em>“Off”</em> (Email and address IP Does Not Affect Risk Analysis)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
+      <td>Text</td>
+      <td>6</td>
+      <td>No</td>
+      <td>Level of the tests performed on the buyer’s data with nonsense orders <br /> <em>“Low”</em> (Low importance of the verification made on the buyer’s order, in the risk analysis) <br /> _ “Normal” _ (Average importance of the verification made on the request of the buyer, in the risk analysis) <br /> _ “High” (High importance of the verification made on the request of the buyer, in the risk analysis) <br /> _ “Off” _ (Verification of buyer’s request Does not affect risk analysis)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
+      <td>Text</td>
+      <td>6</td>
+      <td>No</td>
+      <td>Level of obscenity of the received orders. <br /> <em>“Low”</em> (Low importance of obscene verification of buyer’s order in risk analysis) <br /> <em>“Normal”</em> (Average importance of obscene verification of buyer’s order in risk analysis) <br /> <em>“High”</em> (High importance of obscene verification of buyer’s order in risk analysis) <br /> <em>“Off”</em> (Obscenity check at buyer’s order does not affect risk analysis)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.PhoneHedge</code></td>
+      <td>Text</td>
+      <td>6</td>
+      <td>No</td>
+      <td>Nível dos testes realizados com os Numbers de telefones.<br /><em>“Low”</em>(Baixa importância nos testes realizados com Numbers de telefone)<br /><em>“Normal”</em>(Média importância nos testes realizados com Numbers de telefone)<br /><em>“High”</em>(Alta importância nos testes realizados com Numbers de telefone)<br /><em>“Off”</em>(Testes de Numbers de telefone No afetam a análise de risco)</td>
+    </tr>
   </tbody>
 </table>
 

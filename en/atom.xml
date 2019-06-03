@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-03T12:46:25+00:00</updated>
+    <updated>2019-06-03T13:15:34+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25328,6 +25328,34 @@ It is possible to carry out both the total cancellation and the partial cancella
       &lt;td&gt;9&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
       &lt;td&gt;Field that will evaluate the billing and delivery addresses for different cities, states or countries.&lt;br /&gt; &lt;em&gt;“Yes”&lt;/em&gt; (In case of divergence between billing and delivery addresses, mark as small risk) &lt;br /&gt;&lt;em&gt;“No”&lt;/em&gt; (In case of divergence between billing and delivery addresses, high risk mark)&lt;br /&gt; &lt;em&gt;“Off”&lt;/em&gt; (Ignores risk analysis for divergent addresses)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.HostHedge&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Level of importance of e-mail and IP addresses of clients at risk of scoring.&lt;br /&gt; &lt;em&gt;“Low”&lt;/em&gt; (Low importance of e-mail and IP address in risk analysis) importance of e-mail and IP address in risk analysis) &lt;em&gt;“High”&lt;/em&gt; (High importance of e-mail and IP address in risk analysis) &lt;em&gt;“Off”&lt;/em&gt; (Email and address IP Does Not Affect Risk Analysis)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.NonSensicalHedge&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Level of the tests performed on the buyer’s data with nonsense orders &lt;br /&gt; &lt;em&gt;“Low”&lt;/em&gt; (Low importance of the verification made on the buyer’s order, in the risk analysis) &lt;br /&gt; _ “Normal” _ (Average importance of the verification made on the request of the buyer, in the risk analysis) &lt;br /&gt; _ “High” (High importance of the verification made on the request of the buyer, in the risk analysis) &lt;br /&gt; _ “Off” _ (Verification of buyer’s request Does not affect risk analysis)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.ObscenitiesHedge&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Level of obscenity of the received orders. &lt;br /&gt; &lt;em&gt;“Low”&lt;/em&gt; (Low importance of obscene verification of buyer’s order in risk analysis) &lt;br /&gt; &lt;em&gt;“Normal”&lt;/em&gt; (Average importance of obscene verification of buyer’s order in risk analysis) &lt;br /&gt; &lt;em&gt;“High”&lt;/em&gt; (High importance of obscene verification of buyer’s order in risk analysis) &lt;br /&gt; &lt;em&gt;“Off”&lt;/em&gt; (Obscenity check at buyer’s order does not affect risk analysis)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.PhoneHedge&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Nível dos testes realizados com os Numbers de telefones.&lt;br /&gt;&lt;em&gt;“Low”&lt;/em&gt;(Baixa importância nos testes realizados com Numbers de telefone)&lt;br /&gt;&lt;em&gt;“Normal”&lt;/em&gt;(Média importância nos testes realizados com Numbers de telefone)&lt;br /&gt;&lt;em&gt;“High”&lt;/em&gt;(Alta importância nos testes realizados com Numbers de telefone)&lt;br /&gt;&lt;em&gt;“Off”&lt;/em&gt;(Testes de Numbers de telefone No afetam a análise de risco)&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
