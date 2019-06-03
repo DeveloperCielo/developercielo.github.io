@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-03T19:29:22+00:00</updated>
+    <updated>2019-06-03T19:33:48+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26645,6 +26645,12 @@ It is possible to carry out both the total cancellation and the partial cancella
 &lt;/blockquote&gt;
 
 &lt;h4 id=&quot;configuring-your-web-server&quot;&gt;Configuring your Web Server&lt;/h4&gt;
+
+&lt;p&gt;All objects refer to h.online-metrix.net,which is the DNS of the fingerprint server. When you are ready for production, you must change the server name to a local URL, and configure a URL redirection on your web server to h.online-metrix.net.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; If you do not complete this section, you will not receive correct results, and the fingerprint provider’s domain (URL) will be visible, and your consumer is more likely to block it.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h1 id=&quot;velocity&quot;&gt;Velocity&lt;/h1&gt;
 
