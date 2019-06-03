@@ -7659,6 +7659,104 @@ It is possible to carry out both the total cancellation and the partial cancella
       <td>No</td>
       <td>Level of tests performed on phone numbers. <br /><em>“Low”</em> (Low importance on the tests performed with phone numbers) <br /> <em>“Normal”</em> (Average importance on tests performed with telephone numbers) <br /> <em>“High”</em> (High importance on the tests performed with phone numbers) <br /> <em>“Off”</em> (Phone numbers tests do not affect risk analysis)</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Name</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Yes</td>
+      <td>Product’s name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Quantity</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>Product’s amount to be purchased.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Sku</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Yes</td>
+      <td>Merchant code identifier of the product.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.UnitPrice</code></td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+      <td>Unit price of the product.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Risk</code></td>
+      <td>Text</td>
+      <td>6</td>
+      <td>No</td>
+      <td>Product risk level. <br /> Low (The product has a history of few chargebacks) <br /> Normal (The product has a history of chargebacks considered normal) <br /> High (The product has a history above average of chargebacks)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.TimeHedge</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>No</td>
+      <td>Level of importance of the time of the day of the customer’s order. <br /> Low (Low importance on the time of day when the purchase was made, for the risk analysis) <br /> Normal (Average importance on the time of day when the purchase was made, for the risk analysis) <br /> High (High importance on the time of the day the purchase was made, for the risk analysis) <br /> Off (Purchase time does not affect risk analysis)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Type</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>No</td>
+      <td>Type of product. <br />AdultContent(Adult content) <br />Coupon(Promotional code) <br /> Default (Default option for analysis in CyberSource when no other value is selected) <br /> EletronicGood (Electronic product) <br />EletronicSoftware (Software distributed electronically via download) <br /> GiftCertificate (Gift voucher) <br /> HandlingOnly (Installation fee or handling) <br />ShippingOnly (Freight) <br />Subscription (Subscription)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.VelocityHedge</code></td>
+      <td>Text</td>
+      <td>6</td>
+      <td>No</td>
+      <td>Customer purchase frequency importance level. <br /> Low (Low importance in the number of purchases made by the customer in the last 15 minutes) <br />Normal (Average importance in the number of purchases made by the customer in the last 15 minutes) <br />High (High importance in the number of purchases made by the customer in the last 15 minutes) <br /> Off (The frequency of purchases made by the customer does not affect fraud analysis)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Email</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+      <td>Passenger’s e-mail.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Identity</code></td>
+      <td>Text</td>
+      <td>32</td>
+      <td>No</td>
+      <td>Passenger’s id to who the check-in was issued.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Name</code></td>
+      <td>Text</td>
+      <td>120</td>
+      <td>No</td>
+      <td>Passenger’s name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Rating</code></td>
+      <td>Text</td>
+      <td>-</td>
+      <td>No</td>
+      <td>Passenger’s classification. <br />Field Values: “Adult” (Adult passenger) <br />“Child” (Child passenger) <br /> “Infant” (Child Passenger) <br />“Youth” (Teenage passenger) “Student” (Student passenger) <br />“SeniorCitizen” (Old passenger) <br />“Military” (Military passenger)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Phone</code></td>
+      <td>Text</td>
+      <td>15</td>
+      <td>No</td>
+      <td>Passenger phone number. For orders outside the U.S., CyberSource recommends that you include the country code. 552133665599 (Ex. Country Code 55, City Code 21, Phone 33665599)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Status</code></td>
+      <td>Text</td>
+      <td>32</td>
+      <td>No</td>
+      <td>Airline classification. You can use values ​​such as Gold or Platinum.</td>
+    </tr>
   </tbody>
 </table>
 
