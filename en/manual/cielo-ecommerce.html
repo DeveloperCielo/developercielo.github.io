@@ -7610,6 +7610,27 @@ It is possible to carry out both the total cancellation and the partial cancella
       <td>No</td>
       <td>Browser’s name used by the buyer.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.IsGift</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No</td>
+      <td>Boolean that indicates whether the order is for gift or No.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.ReturnsAccepted</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No</td>
+      <td>Boolean that defines whether returns are accepted for the order.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysis.Cart.Items.GiftCategory</code></td>
+      <td>Text</td>
+      <td>9</td>
+      <td>No</td>
+      <td>Field that will evaluate the billing and delivery addresses for different cities, states or countries.<br /> <em>“Yes”</em> (In case of divergence between billing and delivery addresses, mark as small risk) <br /><em>“No”</em> (In case of divergence between billing and delivery addresses, high risk mark)<br /> <em>“Off”</em> (Ignores risk analysis for divergent addresses)</td>
+    </tr>
   </tbody>
 </table>
 

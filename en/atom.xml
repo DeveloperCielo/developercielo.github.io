@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-05-31T18:07:30+00:00</updated>
+    <updated>2019-06-03T12:46:25+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25307,6 +25307,27 @@ It is possible to carry out both the total cancellation and the partial cancella
       &lt;td&gt;40&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
       &lt;td&gt;Browser’s name used by the buyer.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.IsGift&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Boolean that indicates whether the order is for gift or No.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.ReturnsAccepted&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Boolean that defines whether returns are accepted for the order.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.GiftCategory&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Field that will evaluate the billing and delivery addresses for different cities, states or countries.&lt;br /&gt; &lt;em&gt;“Yes”&lt;/em&gt; (In case of divergence between billing and delivery addresses, mark as small risk) &lt;br /&gt;&lt;em&gt;“No”&lt;/em&gt; (In case of divergence between billing and delivery addresses, high risk mark)&lt;br /&gt; &lt;em&gt;“Off”&lt;/em&gt; (Ignores risk analysis for divergent addresses)&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
