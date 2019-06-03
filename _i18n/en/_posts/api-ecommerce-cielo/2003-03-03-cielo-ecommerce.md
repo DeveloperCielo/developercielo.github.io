@@ -4237,7 +4237,7 @@ The Device FingerPrint is a javascript that once installed at the store checkout
 
 It will be necessary to add two tags, the _script_ inside the _head_ tag for a correct performance and the _noscript_ inside the _body_ tag, so that the data collection of the device is performed even if the Javascript of the browser is disabled.
 
-> **IMPORTANT:** SIf the 2 code segments are not placed on the checkout page, the results may not be accurate.
+> **IMPORTANT:** If the 2 code segments are not placed on the checkout page, the results may not be accurate.
 
 #### Domain
 
