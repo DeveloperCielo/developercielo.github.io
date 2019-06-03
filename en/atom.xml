@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-03T16:57:06+00:00</updated>
+    <updated>2019-06-03T17:08:43+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25439,7 +25439,7 @@ It is possible to carry out both the total cancellation and the partial cancella
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;Passenger’s classification. &lt;br /&gt;Field Values: “Adult” (Adult passenger) &lt;br /&gt;“Child” (Child passenger) &lt;br /&gt; “Infant” (Child Passenger) &lt;br /&gt;“Youth” (Teenage passenger) “Student” (Student passenger) &lt;br /&gt;“SeniorCitizen” (Old passenger) &lt;br /&gt;“Military” (Military passenger)&lt;/td&gt;
+      &lt;td&gt;Passenger’s classification. &lt;br /&gt;Field Values: “Adult” (Adult passenger) &lt;br /&gt;“Child” (Child passenger) &lt;br /&gt; “Infant” (Child Passenger) &lt;br /&gt;“Youth” (Teenage passenger) &lt;br /&gt;“Student” (Student passenger) &lt;br /&gt;“SeniorCitizen” (Old passenger) &lt;br /&gt;“Military” (Military passenger)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FraudAnalysis.Cart.Items.Passenger.Phone&lt;/code&gt;&lt;/td&gt;
