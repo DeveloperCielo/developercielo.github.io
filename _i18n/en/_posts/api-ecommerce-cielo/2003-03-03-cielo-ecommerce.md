@@ -4262,6 +4262,10 @@ It will be necessary to add two tags, the _script_ inside the _head_ tag for a c
 
 #### Configuring your Web Server
 
+All objects refer to h.online-metrix.net,which is the DNS of the fingerprint server. When you are ready for production, you must change the server name to a local URL, and configure a URL redirection on your web server to h.online-metrix.net.
+
+> **IMPORTANT:** If you do not complete this section, you will not receive correct results, and the fingerprint provider's domain (URL) will be visible, and your consumer is more likely to block it.
+
 # Velocity
 
 ## What is Velocity
