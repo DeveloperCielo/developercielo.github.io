@@ -8884,7 +8884,67 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 <h4 id="domain">Domain</h4>
 
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Testing</strong></td>
+      <td>Use <strong>h.online-metrix.net</strong>,which is the DNS of the fingerprint server, as shown in the HTML example below</td>
+    </tr>
+    <tr>
+      <td><strong>Production</strong></td>
+      <td>Change the domain to a local URL, and configure your web server to redirect this URL to<strong>h.online-metrix.net</strong></td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="variables">Variables</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+      <th>SuperMID</th>
+      <th>Hierarchy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ProviderOrgId</strong></td>
+      <td>Sandbox = 1snn5n9w<br />Production = k8vif92e</td>
+      <td>Use default value <code class="highlighter-rouge">k8vif92e</code></td>
+      <td>Data provided exclusively by CyberSource</td>
+    </tr>
+    <tr>
+      <td><strong>ProviderMerchantId</strong></td>
+      <td>Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Cielo</td>
+      <td>Use o valor padrão <code class="highlighter-rouge">cielo_webservice</code></td>
+      <td>Data provided exclusively by CyberSource</td>
+    </tr>
+    <tr>
+      <td><strong>ProviderIdentifier</strong></td>
+      <td>Identifier used to cross information obtained from the buyer’s device.This same identifier must be assigned to the field <code class="highlighter-rouge">Customer.BrowserFingerprint</code> which will be sent at the request of the analysis. <br />Example: 123456789<br /> Note: This identifier can be any value or order number, but must be unique for 48 hours. Defined by store</td>
+      <td>Defined by store</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Note:</strong> The result of the concatenation between the field <code class="highlighter-rouge">ProviderMerchantId</code> and <code class="highlighter-rouge">ProviderIdentifier</code>, dmust be assigned to the field session_id of the  scripts that will be included on the checkout page.</p>
+</blockquote>
+
+<p><img src="https://developercielo.github.io/images/apicieloecommerce/exemploscriptdfp.png" alt="" /></p>
+
+<blockquote>
+  <p><strong>IMPORTANT:</strong> Be sure to copy all data correctly and have replaced the variables correctly by their values.</p>
+</blockquote>
 
 <h4 id="configuring-your-web-server">Configuring your Web Server</h4>
 

@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-03T18:22:46+00:00</updated>
+    <updated>2019-06-03T18:40:22+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26582,7 +26582,67 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h4 id=&quot;domain&quot;&gt;Domain&lt;/h4&gt;
 
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Environment&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Testing&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Use &lt;strong&gt;h.online-metrix.net&lt;/strong&gt;,which is the DNS of the fingerprint server, as shown in the HTML example below&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Production&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Change the domain to a local URL, and configure your web server to redirect this URL to&lt;strong&gt;h.online-metrix.net&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h4 id=&quot;variables&quot;&gt;Variables&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Variable&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;SuperMID&lt;/th&gt;
+      &lt;th&gt;Hierarchy&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ProviderOrgId&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Sandbox = 1snn5n9w&lt;br /&gt;Production = k8vif92e&lt;/td&gt;
+      &lt;td&gt;Use default value &lt;code class=&quot;highlighter-rouge&quot;&gt;k8vif92e&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data provided exclusively by CyberSource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ProviderMerchantId&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Cielo&lt;/td&gt;
+      &lt;td&gt;Use o valor padrão &lt;code class=&quot;highlighter-rouge&quot;&gt;cielo_webservice&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data provided exclusively by CyberSource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ProviderIdentifier&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Identifier used to cross information obtained from the buyer’s device.This same identifier must be assigned to the field &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.BrowserFingerprint&lt;/code&gt; which will be sent at the request of the analysis. &lt;br /&gt;Example: 123456789&lt;br /&gt; Note: This identifier can be any value or order number, but must be unique for 48 hours. Defined by store&lt;/td&gt;
+      &lt;td&gt;Defined by store&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; The result of the concatenation between the field &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderMerchantId&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderIdentifier&lt;/code&gt;, dmust be assigned to the field session_id of the  scripts that will be included on the checkout page.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/apicieloecommerce/exemploscriptdfp.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; Be sure to copy all data correctly and have replaced the variables correctly by their values.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;configuring-your-web-server&quot;&gt;Configuring your Web Server&lt;/h4&gt;
 
