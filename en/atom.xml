@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-03T18:02:59+00:00</updated>
+    <updated>2019-06-03T18:17:18+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26570,7 +26570,15 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h3 id=&quot;what-is-dfingerprint&quot;&gt;What is D.FingerPrint&lt;/h3&gt;
 
+&lt;p&gt;The Device FingerPrint is a javascript that once installed at the store checkout captures browsing data and information about the equipment used in the purchase. This information is used by AF to identify buyer non-standard purchases.&lt;/p&gt;
+
 &lt;h3 id=&quot;configuring-fingerprint&quot;&gt;Configuring FingerPrint&lt;/h3&gt;
+
+&lt;p&gt;It will be necessary to add two tags, the &lt;em&gt;script&lt;/em&gt; inside the &lt;em&gt;head&lt;/em&gt; tag for a correct performance and the &lt;em&gt;noscript&lt;/em&gt; inside the &lt;em&gt;body&lt;/em&gt; tag, so that the data collection of the device is performed even if the Javascript of the browser is disabled.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; SIf the 2 code segments are not placed on the checkout page, the results may not be accurate.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;domain&quot;&gt;Domain&lt;/h4&gt;
 
