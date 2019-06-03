@@ -8032,6 +8032,167 @@ It is possible to carry out both the total cancellation and the partial cancella
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">ProofOfSale</code></td>
+      <td>Authorization number, identical to NSU.</td>
+      <td>Text</td>
+      <td>6</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Tid</code></td>
+      <td>Transaction Id on the acquirer.</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AuthorizationCode</code></td>
+      <td>Authorization code.</td>
+      <td>Text</td>
+      <td>6</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SoftDescriptor</code></td>
+      <td>Text that will be printed on the carrier’s bank invoice - Available only for VISA/MASTER - does not allow special characters</td>
+      <td>Text</td>
+      <td>13</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td>Order Identifier Field.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Id</code></td>
+      <td>Identification of the Transaction in the antifraud.</td>
+      <td>Text</td>
+      <td>300</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Status</code></td>
+      <td>Transaction Status.</td>
+      <td>Byte</td>
+      <td>—</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Score</code></td>
+      <td>Total score calculated for the order. Goes from 0 the 100 - The higher, the greater the risk.</td>
+      <td>Number</td>
+      <td>—</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BinCountry</code></td>
+      <td>Initials of the country of origin of the purchase.</td>
+      <td>Text</td>
+      <td>2</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CardIssuer</code></td>
+      <td>Name of the bank or issuer of the card.</td>
+      <td>Text</td>
+      <td>128</td>
+      <td>Bradesco</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ScoreModelUsed</code></td>
+      <td>Name of the used score model.</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Ex: default_lac</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CasePriority</code></td>
+      <td>If the merchant is subscribe to Enhanced Case Management, it receives this value with the priority level, with 1 being the highest and 5 being the lowest.</td>
+      <td>Number</td>
+      <td>—</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>Return code of acquiring.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>Return message of Acquiring.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">HostSeverity</code></td>
+      <td>Risk level of the buyer’s e-mail domain, from 0 to 5, where 0 is undetermined risk and 5 represents the highest risk.</td>
+      <td>Number</td>
+      <td>—</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CardScheme</code></td>
+      <td>Issuer type</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Ver Tabela <strong>CardScheme</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">InternetInfoCode</code></td>
+      <td>Sequence of codes that indicate that there is an excessive change of buyer identities. The codes are concatenated using the ^ character.</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Ver tabela <strong>InternetInfoCode</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FraudAnalysisReasonCode</code></td>
+      <td>Analysis result.</td>
+      <td>Byte</td>
+      <td>—</td>
+      <td>Ver tabela <strong>FraudAnalysisReasonCode</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AddressInfoCode</code></td>
+      <td>Combination of codes indicating error in the billing address and / or delivery. The codes are concatenated using the ^ character.</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Ex: COR-BA^MM-BIN -&gt; Ver tabela <strong>AddressInfoCode</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">FactorCode</code></td>
+      <td>Combination of codes that indicate the order’s score. The codes are concatenated using the ^ character.</td>
+      <td>Text</td>
+      <td>100</td>
+      <td>Ex: B^D^R^Z -  Ver tabela <strong>FactorCode</strong></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">IpRoutingMethod</code></td>
+      <td>Type of IP routing used by the computer.</td>
+      <td>Text</td>
+      <td>—</td>
+      <td><br />Anonymizer<br />AolBased<br />CacheProxy<br />Fixed<br />InternationalProxy<br />MobileGateway<br />Pop<br />RegionalProxy<br />Satellite<br />SuperPop<br /></td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="af-tables">AF Tables</h2>
 
 <h3 id="status-do-af">Status do AF</h3>
