@@ -3997,6 +3997,30 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 }
 ```
 
+| Property                  | Description                                                                                                                                        | Type   | Size    | Format                                              |
+|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|--------|---------|-----------------------------------------------------|
+| `ProofOfSale`             | Authorization number, identical to NSU.                                                                                                            | Text   | 6       | Alphanumeric text                                  |
+| `Tid`                     | Transaction Id on the acquirer.                                                                                                                    | Text   | 20      | Alphanumeric text                                  |
+| `AuthorizationCode`       | Authorization code.                                                                                                                                | Text   | 6       | Alphanumeric text                                  |
+| `SoftDescriptor`          | Text that will be printed on the carrier’s bank invoice - Available only for VISA/MASTER - does not allow special characters                       | Text   | 13      | Alphanumeric text                                  |
+| `PaymentId`               | Order Identifier Field.                                                                                                                            | Guid   | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx                |
+| `Id`                      | Identification of the Transaction in the antifraud.                                                                                                | Text   | 300     | Alphanumeric text                                  |
+| `Status`                  | Transaction Status.                                                                                                                                | Byte   | ---     | 2                                                   |
+| `Score`                   | Total score calculated for the order. Goes from 0 the 100 - The higher, the greater the risk.                                                      | Number | ---     | Number                                              |
+| `BinCountry`              | Initials of the country of origin of the purchase.                                                                                                 | Text   | 2       | us                                                  |
+| `CardIssuer`              | Name of the bank or issuer of the card.                                                                                                            | Text   | 128     | Bradesco                                            |
+| `ScoreModelUsed`          | Name of the used score model.                                                                                                                      | Text   | 20      | Ex: default_lac                                     |
+| `CasePriority`            | If the merchant is subscribe to Enhanced Case Management, it receives this value with the priority level, with 1 being the highest and 5 being the lowest. | Number | ---     | 3                                                   |
+| `ReturnCode`              | Return code of acquiring.                                                                                                                          | Text   | 32      | Alphanumeric text                                  |
+| `ReturnMessage`           | Return message of Acquiring.                                                                                                                       | Text   | 512     | Alphanumeric text                                  |
+| `HostSeverity`            | Risk level of the buyer's e-mail domain, from 0 to 5, where 0 is undetermined risk and 5 represents the highest risk.                              | Number | ---     | 5                                                   |
+| `CardScheme`              | Issuer type                                                                                                                                        | Text   | 20      | Ver Tabela **CardScheme**                           |
+| `InternetInfoCode`        | Sequence of codes that indicate that there is an excessive change of buyer identities. The codes are concatenated using the ^ character.           | Text   | 255     | Ver tabela **InternetInfoCode**                     |
+| `FraudAnalysisReasonCode` | Analysis result.                                                                                                                                   | Byte   | ---     | Ver tabela **FraudAnalysisReasonCode**              |
+| `AddressInfoCode`         | Combination of codes indicating error in the billing address and / or delivery. The codes are concatenated using the ^ character.                  | Text   | 255     | Ex: COR-BA^MM-BIN -> Ver tabela **AddressInfoCode** |
+| `FactorCode`              | Combination of codes that indicate the order's score. The codes are concatenated using the ^ character.                                            | Text   | 100     | Ex: B^D^R^Z -  Ver tabela **FactorCode**            |
+| `IpRoutingMethod`         | Type of IP routing used by the computer.|Text|---|<BR>Anonymizer<BR>AolBased<BR>CacheProxy<BR>Fixed<BR>InternationalProxy<BR>MobileGateway<BR>Pop<BR>RegionalProxy<BR>Satellite<BR>SuperPop<BR>|
+
 ## AF Tables
 
 ### Status do AF
