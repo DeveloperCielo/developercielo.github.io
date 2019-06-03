@@ -4231,7 +4231,13 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 
 ### What is D.FingerPrint
 
+The Device FingerPrint is a javascript that once installed at the store checkout captures browsing data and information about the equipment used in the purchase. This information is used by AF to identify buyer non-standard purchases.
+
 ### Configuring FingerPrint
+
+It will be necessary to add two tags, the _script_ inside the _head_ tag for a correct performance and the _noscript_ inside the _body_ tag, so that the data collection of the device is performed even if the Javascript of the browser is disabled.
+
+> **IMPORTANT:** SIf the 2 code segments are not placed on the checkout page, the results may not be accurate.
 
 #### Domain
 
