@@ -3792,6 +3792,9 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 | `FraudAnalysis.Browser.HostName`              | Text     | 60      | No                  | Host name where the buyer was before entering the store's website.                                                                |
 | `FraudAnalysis.Browser.IpAddress`             | Text     | 15      | Yes                 | IP address of the buyer. We strongly recommend sending this field.                                                                |
 | `FraudAnalysis.Browser.Type`                  | Text     | 40      | No                  | Browser's name used by the buyer.                                                                                                 |
+| `FraudAnalysis.Cart.IsGift`                   | Boolean  | ---     | No                  | Boolean that indicates whether the order is for gift or No.                                                                           |
+| `FraudAnalysis.Cart.ReturnsAccepted`          | Boolean  | ---     | No                  | Boolean that defines whether returns are accepted for the order.                                                                      |
+| `FraudAnalysis.Cart.Items.GiftCategory`       | Text     | 9       | No                  |Field that will evaluate the billing and delivery addresses for different cities, states or countries.<br> _“Yes”_ (In case of divergence between billing and delivery addresses, mark as small risk) <br>_“No”_ (In case of divergence between billing and delivery addresses, high risk mark)<br> _“Off”_ (Ignores risk analysis for divergent addresses)|
 
 ### Response
 
