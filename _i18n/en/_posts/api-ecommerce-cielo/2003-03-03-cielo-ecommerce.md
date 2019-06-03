@@ -4241,7 +4241,24 @@ It will be necessary to add two tags, the _script_ inside the _head_ tag for a c
 
 #### Domain
 
+|Environment|Description|
+|-|-|
+|**Testing**| Use **h.online-metrix.net**,which is the DNS of the fingerprint server, as shown in the HTML example below|
+|**Production**| Change the domain to a local URL, and configure your web server to redirect this URL to**h.online-metrix.net**|
+
 #### Variables
+
+| Variable               | Description                                                                                     | SuperMID                              | Hierarchy                                 |
+|------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------|-------------------------------------------|
+| **ProviderOrgId**      | Sandbox = 1snn5n9w<br>Production = k8vif92e                                                     | Use default value `k8vif92e`          | Data provided exclusively by CyberSource  |
+| **ProviderMerchantId** | Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Cielo         | Use o valor padrão `cielo_webservice` | Data provided exclusively by CyberSource  |
+| **ProviderIdentifier** | Identifier used to cross information obtained from the buyer's device.This same identifier must be assigned to the field `Customer.BrowserFingerprint` which will be sent at the request of the analysis. <br>Example: 123456789<br> Note: This identifier can be any value or order number, but must be unique for 48 hours. Defined by store | Defined by store |
+
+> **Note:** The result of the concatenation between the field `ProviderMerchantId` and `ProviderIdentifier`, dmust be assigned to the field session_id of the  scripts that will be included on the checkout page.
+
+![]({{ site.baseurl_root }}/images/apicieloecommerce/exemploscriptdfp.png)
+
+> **IMPORTANT:** Be sure to copy all data correctly and have replaced the variables correctly by their values.
 
 #### Configuring your Web Server
 
