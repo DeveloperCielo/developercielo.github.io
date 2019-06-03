@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-03T18:40:17+00:00</updated>
+    <updated>2019-06-03T19:29:17+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24979,10 +24979,10 @@ JavaScript&lt;/p&gt;
 
 &lt;h4 id=&quot;configurando-seu-servidor-web&quot;&gt;Configurando seu Servidor Web&lt;/h4&gt;
 
-&lt;p&gt;Todos os objetos se referem a h.online-metrix.net, que é o DNS do servidor de fingerprint. Quando você estiver pronto para produção, você deve alterar o nome do servidor para uma URL local, e configurar no seu servidor Web um redirecionamento de URL para h.online-metrix.net.&lt;/p&gt;
+&lt;p&gt;All objects refer to h.online-metrix.net,which is the DNS of the fingerprint server. When you are ready for production, you must change the server name to a local URL, and configure a URL redirection on your web server to h.online-metrix.net.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;IMPORTANTE:&lt;/strong&gt; Se você não completar essa seção, você não receberá resultados corretos, e o domínio (URL) do fornecedor de fingerprint ficará visível, sendo mais provável que seu consumidor o bloqueie.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; If you do not complete this section, you will not receive correct results, and the fingerprint provider’s domain (URL) will be visible, and your consumer is more likely to block it.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h1 id=&quot;velocity&quot;&gt;Velocity&lt;/h1&gt;
