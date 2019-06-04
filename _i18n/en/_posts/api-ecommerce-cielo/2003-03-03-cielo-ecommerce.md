@@ -4479,7 +4479,7 @@ Important features of **Scheduled Recurrence**:
 
 ![]({{ site.baseurl_root }}/images/fluxosrecprog_en.png)
 
-#### Use case
+#### Use case 
 
 This is an example of how to use API Cielo Ecommerce's recurrences to increase your sales:
 
