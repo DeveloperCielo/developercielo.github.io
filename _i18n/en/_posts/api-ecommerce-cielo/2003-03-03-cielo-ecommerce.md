@@ -4473,11 +4473,11 @@ Important features of **Scheduled Recurrence**:
 
 **RecurrentPaymentID Structure**
 
-![]({{ site.baseurl_root }}/images/apicieloecommerce/recpaymentid.png)
+![]({{site.baseurl_root }}/images/apicieloecommerce/recpaymentid.png)
 
 **Scheduled Recurrence flow**
 
-![]({{ https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxosrecprog_en.png )
+![]({{site.baseurl_root }}/images/apicieloecommerce/fluxosrecprog_en.png)
 
 #### Use case 
 
