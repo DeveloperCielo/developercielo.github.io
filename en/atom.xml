@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-04T17:30:14+00:00</updated>
+    <updated>2019-06-04T17:38:23+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31206,6 +31206,8 @@ The following data will be returned about the card:&lt;/p&gt;
 
 &lt;aside class=&quot;warning&quot;&gt;BIN Check must be enabled by Cielo Support Team. Contact them to enable the service.&lt;/aside&gt;
 
+&lt;h2 id=&quot;use-case-2&quot;&gt;Use Case&lt;/h2&gt;
+
 &lt;h2 id=&quot;integration-2&quot;&gt;Integration&lt;/h2&gt;
 
 &lt;h3 id=&quot;request-33&quot;&gt;Request&lt;/h3&gt;
@@ -31314,7 +31316,7 @@ The following data will be returned about the card:&lt;/p&gt;
   &lt;p&gt;If other flags/Brand are sent, the error &lt;strong&gt;57-Bandeira inválida&lt;/strong&gt; will be displayed.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;use-case-2&quot;&gt;Use case&lt;/h2&gt;
+&lt;h2 id=&quot;use-case-3&quot;&gt;Use case&lt;/h2&gt;
 
 &lt;p&gt;This is an example of how to use zero auth to improve your sales conversion&lt;/p&gt;
 
