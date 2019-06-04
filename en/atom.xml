@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-04T17:08:26+00:00</updated>
+    <updated>2019-06-04T17:14:14+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18272,7 +18272,7 @@ In case the chargeback is performed, Cielo does not take responsibility on refun
 &lt;p&gt;In sandbox, it is necessary to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Provider&lt;/code&gt; as &lt;strong&gt;SIMULATED&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The Simulated is a configuration that emulates the use of payments with Credit Card.
-With this means of payment it is possible to simulate the flows of:&lt;/p&gt;
+With this payment method it is possible to simulate the flows of:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Authorization&lt;/li&gt;
@@ -18280,7 +18280,7 @@ With this means of payment it is possible to simulate the flows of:&lt;/p&gt;
   &lt;li&gt;Cancellation.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;For best use of the Simulated Payment Means, we are providing &lt;strong&gt;test cards&lt;/strong&gt; in the table below.&lt;/p&gt;
+&lt;p&gt;For best use of the Simulated Payment Methods, we are providing &lt;strong&gt;test cards&lt;/strong&gt; in the table below.&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;The status of the transactions are defined by the FINALS of each card, as well as the ReturnCode.&lt;/aside&gt;
 
