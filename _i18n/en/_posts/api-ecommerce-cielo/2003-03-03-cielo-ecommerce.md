@@ -415,7 +415,7 @@ curl
 |`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|No|Buyer's name.|
-|`Payment.Type`|Text|100|Yes|Means of Payment Type.|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Installments`|Number|2|Yes|Number of installments.|
 |`Payment.SoftDescriptor`|Text|13|No|Text printed on buyer's bank invoice - Available only for VISA/MASTER - does not allow special characters - See Attachment|
@@ -704,7 +704,7 @@ curl
 |`Customer.DeliveryAddress.City`|Text|50|No|Buyer's address city.|
 |`Customer.DeliveryAddress.State`|Text|2|No|Buyer's address state.|
 |`Customer.DeliveryAddress.Country`|Text|35|No|Buyer's address country.|
-|`Payment.Type`|Text|100|Yes|Means of Payment Type.|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL).|
 |`Payment.Country`|Text|3|No|Country where payment will be made.|
@@ -974,7 +974,7 @@ curl
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|No|Buyer's name.|
 |`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Means of Payment Type.|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Provider`|Text|15|---|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
@@ -1368,7 +1368,7 @@ curl
 |`Customer.Address.State`|Buyer's contact address state|2|No|Text|
 |`Customer.Address.Country`|Buyer's contact address country|35|No|Text|
 |`Customer.Address.District`|Buyer's contact address neighborhood|35|No|Text|
-|`Payment.Type`|Means of Payment Type.|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Provider`|Defines behavior of the means of payment ([See Annex](https://developercielo.github.io/Webservice-3.0/#anexos))/NOT REQUIRED FOR CREDIT.|Text|15|---|
 
@@ -1542,7 +1542,7 @@ curl
 |`Customer.Address.District`|Buyer's neighborhood.|Text|50|Yes|
 |`Customer.Address.Street`|Buyer's address.|Text|255|Yes|
 |`Customer.Address.Number`|Buyer's address number.|Text|15|Yes|
-|`Payment.Type`|Type of the Payment Method..|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|Text|15|Yes|
 |`Payment.Adress`|Transferor's address.|Text|255|No|
@@ -2559,7 +2559,7 @@ curl
 |`Status`|Transaction Status.|Byte|---|2|
 |`Customer.Name`|Text|255|No|Buyer's name.|
 |`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Means of Payment Type.|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Provider`|Text|15|---|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
@@ -4594,7 +4594,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Buyer's name.|Text|255|Yes|
-|`Payment.Type`|Means of Payment Type.|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
@@ -4740,7 +4740,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Buyer's name.|Text|255|No|
-|`Payment.Type`|Means of Payment Type.|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
@@ -4834,7 +4834,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Buyer's name.|Text|255|Yes|
-|`Payment.Type`|Means of Payment Type.|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
@@ -5573,7 +5573,7 @@ curl
 |`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
-|`Payment.Type`|Means of Payment Type.|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
@@ -5742,7 +5742,7 @@ curl
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Buyer's name.|Text|255|No|
 |`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Payment.Type`|Means of Payment Type.|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
@@ -6132,7 +6132,7 @@ curl
 |`Customer.DeliveryAddress.City`|Text|50|No|Buyer's address city.|
 |`Customer.DeliveryAddress.State`|Text|2|No|Buyer's address state.|
 |`Customer.DeliveryAddress.Country`|Text|35|No|Buyer's address country.|
-|`Payment.Type`|Text|100|Yes|Means of Payment Type.|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL).|
 |`Payment.Country`|Text|3|No|Country where payment will be made.|
@@ -6373,7 +6373,7 @@ curl
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Buyer's name.|Text|255|No|
 |`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Payment.Type`|Means of Payment Type.|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
@@ -6564,7 +6564,7 @@ curl
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
 |`Customer.Name`|Buyer's name.|Text|255|No|
 |`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Payment.Type`|Means of Payment Type.|Text|100|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`CreditCard.CardToken`|Card identification token.|Guid|300|Yes|
@@ -6960,7 +6960,7 @@ curl
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|No|Buyer's name.|
 |`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Means of Payment Type.|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Payment.ReturnUrl`|Text|1024|---|Required for debit card|
@@ -7143,7 +7143,7 @@ curl
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|No|Buyer's name.|
 |`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Means of Payment Type.|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Payment.ReturnUrl`|Text|1024|---|Required for debit card|
@@ -7354,7 +7354,7 @@ curl
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
 |`Customer.Name`|Text|255|No|Buyer's name.|
 |`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Means of Payment Type.|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`CreditCard.CardNumber.`|Text|19|Yes|Buyer's Card Number|
