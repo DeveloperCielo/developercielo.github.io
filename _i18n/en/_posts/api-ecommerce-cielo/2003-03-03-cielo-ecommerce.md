@@ -4438,7 +4438,7 @@ In this model, the API performs and allows:
 
 The Scheduled Recurrence is formed by a simple transactional structure. The Merchant shall inform in the transaction the following data:
 
-```
+``` json
 "RecurrentPayment":
 {
        "AuthorizeNow":"False",
@@ -4473,7 +4473,7 @@ Important features of **Scheduled Recurrence**:
 
 **RecurrentPaymentID Structure**
 
-![]({{ site.baseurl }}/images/RECpaymentID.PNG)
+![]({{ site.baseurl_root }}/images/apicieloecommerce/recpaymentid.png)
 
 **Scheduled Recurrence flow**
 
