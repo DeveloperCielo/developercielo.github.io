@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-04T13:23:36+00:00</updated>
+    <updated>2019-06-04T16:52:51+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18587,7 +18587,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
@@ -19158,7 +19158,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
@@ -19650,7 +19650,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
@@ -20482,7 +20482,7 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -20788,7 +20788,7 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Type of the Payment Method..&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -22710,7 +22710,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
@@ -27168,7 +27168,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -27413,7 +27413,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -27606,7 +27606,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -29047,7 +29047,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -29380,7 +29380,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -30164,7 +30164,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
@@ -30612,7 +30612,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -30973,7 +30973,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -31665,7 +31665,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
@@ -32010,7 +32010,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
@@ -32401,7 +32401,7 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;100&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Means of Payment Type.&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
