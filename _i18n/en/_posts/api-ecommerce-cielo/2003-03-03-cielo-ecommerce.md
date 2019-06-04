@@ -4448,7 +4448,7 @@ The Scheduled Recurrence is formed by a simple transactional structure. The Merc
 }
 ```
 
-Onde podemos definir os dados como:
+Where can we define the data as:
 
 |Parameters|Description|
 |---|---|
