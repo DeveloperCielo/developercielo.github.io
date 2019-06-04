@@ -12055,25 +12055,24 @@ That way, when a transaction with recurrent markup is submitted to the API and C
     </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span><span class="err">```</span><span class="w">
-
-</span><span class="err">```shell</span><span class="w">
-</span><span class="err">curl</span><span class="w">
-</span><span class="err">--request</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/card/"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
-</span><span class="err">--data-binary</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"CustomerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Teste Cielo"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"4532117080573700"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Comprador T Cielo"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="err">--verbose</span><span class="w">
 </span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/card/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"CustomerName"</span>: <span class="s2">"Comprador Teste Cielo"</span>,
+    <span class="s2">"CardNumber"</span>:<span class="s2">"4532117080573700"</span>,
+    <span class="s2">"Holder"</span>:<span class="s2">"Comprador T Cielo"</span>,
+    <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
+    <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+<span class="o">}</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
 
 <table>
   <thead>
@@ -12133,20 +12132,19 @@ That way, when a transaction with recurrent markup is submitted to the API and C
     </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span><span class="err">```</span><span class="w">
-
-</span><span class="err">```shell</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="w">
-</span><span class="err">--data-binary</span><span class="w">
-</span><span class="p">{</span><span class="w">
-  </span><span class="s2">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+  <span class="s2">"CardToken"</span>: <span class="s2">"db62dc71-d07b-4745-9969-42697b988ccb"</span>,
+  <span class="s2">"Links"</span>: <span class="o">{</span>
+    <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+    <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+    <span class="s2">"Href"</span>: <span class="s2">"https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
 <table>
   <thead>
