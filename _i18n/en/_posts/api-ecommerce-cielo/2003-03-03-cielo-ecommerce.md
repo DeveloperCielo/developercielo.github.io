@@ -311,12 +311,12 @@ The transactional flow of the Debit card works with the Response of the transact
 
 <aside class="notice"><strong>Online Transfer:</strong> The same behavior of the Debit card in Sanbox is valid for debit card</aside>
 
-## Other means of payment - Sandbox
+## Other methods of payment - Sandbox
 
-Other means of payment do not have simulated specific data or cards, as in the case of credit card.
+Other methods of payment do not have simulated specific data or cards, as in the case of credit card.
 Below we specify any existing differences:
 
-|Means of payment|Differences|
+|Payment method|Differences|
 |---|---|
 |Bank slip|There is no bank validation. The bank slip behaves as a bank slip without registration|
 |Debit cardo|The `provider` used must be **SIMULATED** <br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
@@ -708,7 +708,7 @@ curl
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL).|
 |`Payment.Country`|Text|3|No|Country where payment will be made.|
-|`Payment.Provider`|Text|15|---|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|
+|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
 |`Payment.ServiceTaxAmount`|Number|15|No|[See Annex](https://developercielo.github.io/Webservice-3.0/#anexos)|
 |`Payment.SoftDescriptor`|Text|13|No|Text printed on the buyer's bank invoice - Only available for VISA/MASTER - does not allow special characters - See Annex|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
@@ -976,7 +976,7 @@ curl
 |`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
 |`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
-|`Payment.Provider`|Text|15|---|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|
+|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
 |`CreditCard.CardNumber.`|Text|19|Yes|Buyer's Card Number|
@@ -1370,7 +1370,7 @@ curl
 |`Customer.Address.District`|Buyer's contact address neighborhood|35|No|Text|
 |`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.Provider`|Defines behavior of the means of payment ([See Annex](https://developercielo.github.io/Webservice-3.0/#anexos))/NOT REQUIRED FOR CREDIT.|Text|15|---|
+|`Payment.Provider`|Defines behavior of the payment method ([See Annex](https://developercielo.github.io/Webservice-3.0/#anexos))/NOT REQUIRED FOR CREDIT.|Text|15|---|
 
 #### Response
 
@@ -1544,7 +1544,7 @@ curl
 |`Customer.Address.Number`|Buyer's address number.|Text|15|Yes|
 |`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|Text|15|Yes|
+|`Payment.Provider`|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|Text|15|Yes|
 |`Payment.Adress`|Transferor's address.|Text|255|No|
 |`Payment.BoletoNumber`|Bank slip number sent by the merchant. Used to count issued bank slips ("OurNumber").|Text|Bradesco: 11<BR>Banco do Brasil: 9|No|
 |`Payment.Assignor`|Transferor's name.|Text|200|No|
@@ -2046,7 +2046,7 @@ curl
 |`Customer.Status`|Buyer registration status in store (NEW / EXISTING)|Text|255|No|
 |`Payment.Type`|Payment method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.Provider`|Define payment method behavior (See Annex) / NOT REQUIRED FOR CREDIT.|Text|15|---|
+|`Payment.Provider`|Defines behavior of the payment method (See Annex) / NOT REQUIRED FOR CREDIT.|Text|15|---|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`CreditCard.CardNumber`|Buyer’s Card Number.|Text|19|Yes|
 |`CreditCard.Holder`|Buyer’s name printed on card.|Text|25|No|
@@ -2561,7 +2561,7 @@ curl
 |`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
 |`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
-|`Payment.Provider`|Text|15|---|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|
+|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
@@ -3438,7 +3438,7 @@ curl
 |`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
 |`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
-|`Payment.Provider`|Text|15|---|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|
+|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Payment.Authenticate`|Boolean|---|No (Default false) | Indicates whether the transaction must be authenticated (true) or not (false). Even for externally authenticated transactions (authentication provider of your choice), this field must be sent with a "True" value, and on the ExternalAuthentication node, you must send the data returned by the chosen external authentication mechanism (XID, CAVV and ECI).|
 |`Payment.ExternalAuthentication.Cavv`|Text|28|Yes|The Cavv value is returned by the authentication mechanism.|
@@ -3762,7 +3762,7 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 | `Customer.BillingAddress.State`               | Text     | 2       | No                  | Buyer's address state.                                                                                                            |
 | `Customer.BillingAddress.Country`             | Text     | 2       | No                  | Buyer's address country.                                                                                                          |
 | `Customer.BillingAddress.District`            | Text     | 45      | No                  | Buyer's neighborhood.                                                                                                             |
-| `Payment.Provider`                            | Text     | 15      | ---                 | Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.                                                     |
+| `Payment.Provider`                            | Text     | 15      | ---                 | Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.                                                     |
 | `Payment.Type`                                | Text     | 100     | Yes                 | Type of the payment method.                                                                                                       |
 | `Payment.Amount`                              | Number   | 15      | Yes                 | Order Amount (to be sent in cents).                                                                                               |
 | `Payment.Currency`                            | Text     | 3       | No                  | Currency in which payment will be made (BRL).                                                                                     |
@@ -4469,7 +4469,7 @@ Important features of **Scheduled Recurrence**:
 |**Capture**|Scheduled Recurrence transactions do not need to be captured. After the first transaction, all recurrence transactions are automatically captured by the API|
 |**Identification**|Scheduled Recurrence transactions generate two types of identification:<br>**PAYMENTID**: Identify 1 transaction. It is the same identifier of the other transactions in the API    <br>**RECURRENTPAYMENTID**: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence|
 |**Consulting**|To consult, just use one of two types of identification:<br>**PAYMENTID**: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br>**RECURRENTPAYMENTID**: Used to consult THE RECURRENCE.|
-|**Cancellation**|A Scheduled Recurrence can be canceled in two ways: <br>**Merchant**: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br>**By invalid card**: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. <br> **NOTE:** Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the **RecurrentPaymentID** ends future schedules.
+|**Cancellation**|A Scheduled Recurrence can be canceled in two ways: <br>**Merchant**: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br>**By invalid card**: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the payment method. <br> **NOTE:** Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the **RecurrentPaymentID** ends future schedules.
 
 **RecurrentPaymentID Structure**
 
@@ -6136,7 +6136,7 @@ curl
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL).|
 |`Payment.Country`|Text|3|No|Country where payment will be made.|
-|`Payment.Provider`|Text|15|---|Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.|
+|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Payment.Interest`|Text|10|No|Type of installment - Store (ByMerchant) or Card (ByIssuer).|
 |`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
