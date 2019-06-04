@@ -6705,6 +6705,8 @@ This information makes it possible to take some actions on the checkout and incr
 
 <aside class="warning">BIN Check must be enabled by Cielo Support Team. Contact them to enable the service.</aside>
 
+## Use Case
+
 ## Integration
 
 ### Request
