@@ -6047,7 +6047,7 @@ To save a card by creating its token, just send a sales creation standard reques
      }
    }
 }
-```
+```
 
 ```shell
 curl
