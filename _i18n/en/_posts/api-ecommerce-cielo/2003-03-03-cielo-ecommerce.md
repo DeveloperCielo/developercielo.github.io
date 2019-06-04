@@ -5935,7 +5935,7 @@ To save a card without authorizing it, just perform a post with the card data.
     "ExpirationDate":"12/2030",
     "Brand":"Visa"
 }
-```
+```
 
 ```shell
 curl
@@ -5973,7 +5973,7 @@ curl
     "Rel": "self",
     "Href": "https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"}
 }
-```
+```
 
 ```shell
 --header "Content-Type: application/json"
