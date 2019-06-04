@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-04T16:52:51+00:00</updated>
+    <updated>2019-06-04T17:08:26+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18395,15 +18395,15 @@ With this means of payment it is possible to simulate the flows of:&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Online Transfer: The same behavior of the Debit card in Sanbox is valid for debit card&lt;/aside&gt;
 
-&lt;h2 id=&quot;other-means-of-payment---sandbox&quot;&gt;Other means of payment - Sandbox&lt;/h2&gt;
+&lt;h2 id=&quot;other-methods-of-payment---sandbox&quot;&gt;Other methods of payment - Sandbox&lt;/h2&gt;
 
-&lt;p&gt;Other means of payment do not have simulated specific data or cards, as in the case of credit card.
+&lt;p&gt;Other methods of payment do not have simulated specific data or cards, as in the case of credit card.
 Below we specify any existing differences:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Means of payment&lt;/th&gt;
+      &lt;th&gt;Payment method&lt;/th&gt;
       &lt;th&gt;Differences&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
@@ -19186,7 +19186,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ServiceTaxAmount&lt;/code&gt;&lt;/td&gt;
@@ -19664,7 +19664,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
@@ -20496,7 +20496,7 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Defines behavior of the means of payment (&lt;a href=&quot;https://developercielo.github.io/Webservice-3.0/#anexos&quot;&gt;See Annex&lt;/a&gt;)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method (&lt;a href=&quot;https://developercielo.github.io/Webservice-3.0/#anexos&quot;&gt;See Annex&lt;/a&gt;)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
@@ -20802,7 +20802,7 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
@@ -21802,7 +21802,7 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Define payment method behavior (See Annex) / NOT REQUIRED FOR CREDIT.&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method (See Annex) / NOT REQUIRED FOR CREDIT.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
@@ -22724,7 +22724,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
@@ -24407,7 +24407,7 @@ It is possible to carry out both the total cancellation and the partial cancella
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
@@ -25103,7 +25103,7 @@ It is possible to carry out both the total cancellation and the partial cancella
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
@@ -26988,7 +26988,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Cancellation&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;A Scheduled Recurrence can be canceled in two ways: &lt;br /&gt;&lt;strong&gt;Merchant&lt;/strong&gt;: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  &lt;br /&gt;&lt;strong&gt;By invalid card&lt;/strong&gt;: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. &lt;br /&gt; &lt;strong&gt;NOTE:&lt;/strong&gt; Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the &lt;strong&gt;RecurrentPaymentID&lt;/strong&gt; ends future schedules.&lt;/td&gt;
+      &lt;td&gt;A Scheduled Recurrence can be canceled in two ways: &lt;br /&gt;&lt;strong&gt;Merchant&lt;/strong&gt;: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  &lt;br /&gt;&lt;strong&gt;By invalid card&lt;/strong&gt;: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the payment method. &lt;br /&gt; &lt;strong&gt;NOTE:&lt;/strong&gt; Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the &lt;strong&gt;RecurrentPaymentID&lt;/strong&gt; ends future schedules.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -30192,7 +30192,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;

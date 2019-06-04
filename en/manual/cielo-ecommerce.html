@@ -697,15 +697,15 @@ With this means of payment it is possible to simulate the flows of:</p>
 
 <aside class="notice">Online Transfer: The same behavior of the Debit card in Sanbox is valid for debit card</aside>
 
-<h2 id="other-means-of-payment---sandbox">Other means of payment - Sandbox</h2>
+<h2 id="other-methods-of-payment---sandbox">Other methods of payment - Sandbox</h2>
 
-<p>Other means of payment do not have simulated specific data or cards, as in the case of credit card.
+<p>Other methods of payment do not have simulated specific data or cards, as in the case of credit card.
 Below we specify any existing differences:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Means of payment</th>
+      <th>Payment method</th>
       <th>Differences</th>
     </tr>
   </thead>
@@ -1488,7 +1488,7 @@ Below we specify any existing differences:</p>
       <td>Text</td>
       <td>15</td>
       <td>—</td>
-      <td>Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.</td>
+      <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
@@ -1966,7 +1966,7 @@ Below we specify any existing differences:</p>
       <td>Text</td>
       <td>15</td>
       <td>—</td>
-      <td>Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.</td>
+      <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Installments</code></td>
@@ -2798,7 +2798,7 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Provider</code></td>
-      <td>Defines behavior of the means of payment (<a href="https://developercielo.github.io/Webservice-3.0/#anexos">See Annex</a>)/NOT REQUIRED FOR CREDIT.</td>
+      <td>Defines behavior of the payment method (<a href="https://developercielo.github.io/Webservice-3.0/#anexos">See Annex</a>)/NOT REQUIRED FOR CREDIT.</td>
       <td>Text</td>
       <td>15</td>
       <td>—</td>
@@ -3104,7 +3104,7 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Provider</code></td>
-      <td>Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.</td>
+      <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.</td>
       <td>Text</td>
       <td>15</td>
       <td>Yes</td>
@@ -4104,7 +4104,7 @@ Below we specify any existing differences:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Provider</code></td>
-      <td>Define payment method behavior (See Annex) / NOT REQUIRED FOR CREDIT.</td>
+      <td>Defines behavior of the payment method (See Annex) / NOT REQUIRED FOR CREDIT.</td>
       <td>Text</td>
       <td>15</td>
       <td>—</td>
@@ -5026,7 +5026,7 @@ PaymentIds associated with the identifier.</p>
       <td>Text</td>
       <td>15</td>
       <td>—</td>
-      <td>Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.</td>
+      <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Installments</code></td>
@@ -6709,7 +6709,7 @@ It is possible to carry out both the total cancellation and the partial cancella
       <td>Text</td>
       <td>15</td>
       <td>—</td>
-      <td>Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.</td>
+      <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Installments</code></td>
@@ -7405,7 +7405,7 @@ It is possible to carry out both the total cancellation and the partial cancella
       <td>Text</td>
       <td>15</td>
       <td>—</td>
-      <td>Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.</td>
+      <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
@@ -9290,7 +9290,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     </tr>
     <tr>
       <td><strong>Cancellation</strong></td>
-      <td>A Scheduled Recurrence can be canceled in two ways: <br /><strong>Merchant</strong>: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br /><strong>By invalid card</strong>: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the means of payment. <br /> <strong>NOTE:</strong> Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the <strong>RecurrentPaymentID</strong> ends future schedules.</td>
+      <td>A Scheduled Recurrence can be canceled in two ways: <br /><strong>Merchant</strong>: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br /><strong>By invalid card</strong>: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the payment method. <br /> <strong>NOTE:</strong> Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the <strong>RecurrentPaymentID</strong> ends future schedules.</td>
     </tr>
   </tbody>
 </table>
@@ -12494,7 +12494,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       <td>Text</td>
       <td>15</td>
       <td>—</td>
-      <td>Defines behavior of the means of payment (see Annex)/NOT REQUIRED FOR CREDIT.</td>
+      <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Installments</code></td>
