@@ -5901,6 +5901,18 @@ curl
 |`NewCard.Brand`|Card issuer.|Text|10|Yes|
 |`NewCard.SaveCard`|Identifies whether the card generated Cardtoken during the transaction|Boolean|---|Yes|
 
+### Card Brands and Issuers Enabled
+
+Card Brands and Issuers that are already with Renew easy enabled:
+
+|Issuers|VISA|MASTER|ELO|
+|---|---|---|---|
+|`BRADESCO`|Yes|Yes|Yes|
+|`BANCO DO BRASIL`|Yes|---|---|
+|`SANTADER`|Yes|---|---|
+|`CITI`|Yes|---|---|
+|`BANCO PAN`|Yes|---|---|
+
 # Tokenization of cards
 
 ## What is Tokenization of Cards:
