@@ -266,13 +266,13 @@ We suggest developers to access our [**Tutorial**](https://developercielo.github
 In sandbox, it is necessary to use the `Provider` as **SIMULATED**
 
 The Simulated is a configuration that emulates the use of payments with Credit Card.
-With this means of payment it is possible to simulate the flows of:
+With this payment method it is possible to simulate the flows of:
 
 * Authorization
 * Capture
 * Cancellation.
 
-For best use of the Simulated Payment Means, we are providing **test cards** in the table below.
+For best use of the Simulated Payment Methods, we are providing **test cards** in the table below.
 
 <aside class="notice">The <code>status</code> of the transactions are defined by the FINALS of each card, as well as the <code>ReturnCode</code>.</aside>
 
