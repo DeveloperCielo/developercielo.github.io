@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-05T18:16:02+00:00</updated>
+    <updated>2019-06-05T18:23:42+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26999,7 +26999,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;&lt;strong&gt;Scheduled Recurrence flow&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/api-portal/sites/default/files/images/fluxosrecprog_en.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxosrecprog_en.png&quot; alt=&quot;Recprog_EN&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;use-case-1&quot;&gt;Use case&lt;/h4&gt;
 
