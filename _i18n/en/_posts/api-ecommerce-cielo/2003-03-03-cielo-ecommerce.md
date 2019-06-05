@@ -4477,7 +4477,7 @@ Important features of **Scheduled Recurrence**:
 
 **Scheduled Recurrence flow**
 
-![]({{site.baseurl_root }}/images/apicieloecommerce/fluxosrecprog_en.png)
+![]({{site.baseurl_root }}/api-portal/sites/default/files/images/fluxosrecprog_en.png)
 
 #### Use case 
 
