@@ -6787,8 +6787,7 @@ Ela pode aplicar a Consulta bins e 3 cenários!
 1. Impedir erros com tipo de cartão
 2. Oferecer recuperação de carrinhos online
 3. Alertar sobre cartões internacionais
-
-Impedir erros com tipo de cartão
+4. Impedir erros com tipo de cartão
 
 O Submergível pode usar a consulta bins no carrinho para identificar 2 dos principais erros no preenchimento de formulários de pagamento: 
 
