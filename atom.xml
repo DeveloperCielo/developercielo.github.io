@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-10T17:16:09+00:00</updated>
+    <updated>2019-06-10T17:35:27+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29570,9 +29570,8 @@ O serviço retornar os seguintes dados sobre o cartão:&lt;/p&gt;
   &lt;li&gt;Impedir erros com tipo de cartão&lt;/li&gt;
   &lt;li&gt;Oferecer recuperação de carrinhos online&lt;/li&gt;
   &lt;li&gt;Alertar sobre cartões internacionais&lt;/li&gt;
+  &lt;li&gt;Impedir erros com tipo de cartão&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;p&gt;Impedir erros com tipo de cartão&lt;/p&gt;
 
 &lt;p&gt;O Submergível pode usar a consulta bins no carrinho para identificar 2 dos principais erros no preenchimento de formulários de pagamento:&lt;/p&gt;
 
