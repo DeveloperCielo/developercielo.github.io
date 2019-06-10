@@ -6719,9 +6719,20 @@ It can apply the bin checker bins and 3 scenarios!
 
 The Submersible can use the bins checker in the cart to identify 2 of the major errors in completing payment forms:
 
-* **Wrong issuer**and confuse credit card with debit ○ Wrong issuer: When filling out the payment form, it is possible to conduct a checker and set the correct issuer. This is a much safer method than based on algorithms in the form, since the base of the bins are checked is that of the card issuing flag.
+* **Wrong issuer** and confuse credit card with debit ○ Wrong issuer: When filling out the payment form, it is possible to conduct a checker and set the correct issuer. This is a much safer method than based on algorithms in the form, since the base of the bins are checked is that of the card issuing flag.
 
 * **Card confusion:** When filling out the payment form, it is possible to conduct a check and notify the consumer if it is using a debit card when in fact he should use a debit card.
+
+<br>
+
+**Offer a cart recovery online**
+
+* The Submersible can use the bins query in the cart to offer a new means of payment if the transaction fails on the first attempt.
+
+* When running a query at the time of filling out the payment form, if the card is multiple (Credit and Debit), the Submersible may retain the data on the card, and if the credit transaction fails, it can automatically offer the consumer a debit transaction with the same card.
+
+**Alert about international cards**
+The Submersible can use the bin checker in the cart to alert international buyers, that if the card is not enabled to transact in Brazil, the transaction will be denied.
 
 ## Integration
 
