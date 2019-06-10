@@ -6694,8 +6694,7 @@ curl
 
 # BIN Checker
 
-The BIN Checker makes it possible to verify your customers payment information. 
-The following data will be returned about the card:
+The BIN Checker is credit or debit card data search service, that Cielo Ecommerce merchants can use to validate whether the screen filled data on the card is valid. The service return the following data on the card:
 
 * **Card Brand**
 * **Card Type:**Credit, Debit or Multiple (Credit and Debit)
@@ -6741,7 +6740,7 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 | `CardType`    | Text  | 20   | Card Type : <br><br> Credit <br> Debit <br>Multiple                                                                                                               |
 | `ForeingCard` | Text  | 255  | If card was issued abroad (False/True)                                                                                                                            |
 
-> **NOTE**: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. To check valid resultson BIN Check, production environment must be used.
+> **NOTE**: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. For real identification of the BIN Check, production environment must be used.
 
 # Zero Auth
 
