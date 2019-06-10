@@ -6706,6 +6706,23 @@ This information makes it possible to take some actions on the checkout and incr
 
 ## Use Case
 
+See an use case example: **BIN Checker + cart recovery**
+
+Knowing the Bin checker of the Cielo Ecommerce API, how could it prevent the loss of carts?
+
+It can apply the bin checker bins and 3 scenarios!
+
+1. Prevent errors with card type
+2. Offer online car recovery
+3. Alert about international cards
+4. Prevent errors with card type
+
+The Submersible can use the bins checker in the cart to identify 2 of the major errors in completing payment forms:
+
+* **Wrong issuer**and confuse credit card with debit ○ Wrong issuer: When filling out the payment form, it is possible to conduct a checker and set the correct issuer. This is a much safer method than based on algorithms in the form, since the base of the bins are checked is that of the card issuing flag.
+
+* **Card confusion:** When filling out the payment form, it is possible to conduct a check and notify the consumer if it is using a debit card when in fact he should use a debit card.
+
 ## Integration
 
 ### Request
