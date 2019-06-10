@@ -2696,6 +2696,11 @@ Ex.: Crédito, Débito, etc.</p>
 }
 </code></pre></div></div>
 
+<p>Na consulta de pedidos, é possível informar o parâmetro REFERENCE, para identificar as ordens criadas conforme mostrado no exemplo abaixo:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.cielo.com.br/order-management/v1/orders/?reference=EXEMPLO_DE_REFERENCE
+</code></pre></div></div>
+
 <h4 id="put--alterar-status-de-um-pedido">PUT- Alterar status de um pedido</h4>
 
 <p>Esse recurso realiza a alteração do status de um pedido criado. O id do pedido é utilizado para realizar a chamada.</p>
@@ -3490,8 +3495,12 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
          </span><span class="s2">"order_id"</span><span class="p">:</span><span class="mi">0101010101</span><span class="p">,</span><span class="w">
          </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-11-29T15:54:25Z"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-11-29T15:54:25Z"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"mask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"424242-4242"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
          </span><span class="s2">"payment_fields"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"pan"</span><span class="p">:</span><span class="s2">"************1111"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pan"</span><span class="p">:</span><span class="s2">"************4242"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"v40Code"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"typeName"</span><span class="p">:</span><span class="s2">"VENDA A DEBITO"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"cityState"</span><span class="p">:</span><span class="s2">"SAO PEDRO DA ALDEIA RJ"</span><span class="p">,</span><span class="w">
