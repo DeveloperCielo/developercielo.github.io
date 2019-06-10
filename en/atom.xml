@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-10T16:03:44+00:00</updated>
+    <updated>2019-06-10T17:16:15+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31193,8 +31193,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;h1 id=&quot;bin-checker&quot;&gt;BIN Checker&lt;/h1&gt;
 
-&lt;p&gt;The BIN Checker makes it possible to verify your customers payment information. 
-The following data will be returned about the card:&lt;/p&gt;
+&lt;p&gt;The BIN Checker is credit or debit card data search service, that Cielo Ecommerce merchants can use to validate whether the screen filled data on the card is valid. The service return the following data on the card:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Card Brand&lt;/strong&gt;&lt;/li&gt;
@@ -31282,7 +31281,7 @@ The following data will be returned about the card:&lt;/p&gt;
 &lt;/table&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. To check valid resultson BIN Check, production environment must be used.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. For real identification of the BIN Check, production environment must be used.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h1 id=&quot;zero-auth&quot;&gt;Zero Auth&lt;/h1&gt;
