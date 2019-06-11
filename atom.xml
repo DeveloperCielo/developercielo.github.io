@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-11T11:43:52+00:00</updated>
+    <updated>2019-06-11T11:50:30+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -711,13 +711,13 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
   &lt;li&gt;Mastercard: a bandeira possui um modelo de Stand-In, caso o Emissor ainda não esteja apto a responder um pedido de autenticação usando EMV 3DS 2.0. Nesse cenário, a Mastercard avalia os dados enviados, como por exemplo o histórico comportamental do cliente e transacional, classificando em modo Stand-In os pedidos de autenticação como “Baixo Risco” e “Não Baixo Risco”. A partir dessas informações, os Emissores poderão contar com uma proteção meso não possuindo uma solução própria de 3DS 2.0, e terão uma maior confiança nas transações autenticadas. Em casos de Stand-In, a Mastercard responderá a autenticação em 100% dos casos silenciosamente (sem desafio para o portador) e, uma vez que a transação foi autenticada, o liability em caso de fraude ficará com o Emissor.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;**Emissores já prontos com solução própria de 3DS 2.0 Mastercard:** Santander (Débito e Crédito), PagSeguro (Crédito), C6 (Débito e Crédito), Realize (Crédito), Itaú (Crédito) e Acesso (Crédito). O restante dos emissores funcionarão, por enquanto, com a solução de Stand-In da Mastercard.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Emissores já prontos com solução própria de 3DS 2.0 Mastercard: Santander (Débito e Crédito), PagSeguro (Crédito), C6 (Débito e Crédito), Realize (Crédito), Itaú (Crédito) e Acesso (Crédito). O restante dos emissores funcionarão, por enquanto, com a solução de Stand-In da Mastercard.&lt;/aside&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Visa: a bandeira não possui modelo de Stand-In e apenas Emissores 100% prontos com solução própria estão aptos a responder um pedido de autenticação usando EMV 3DS 2.0.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;**Emissores já prontos com solução própria de 3DS 2.0 Visa:** Caixa (Crédito), Santander (Débito e Crédito) e Itaú (Débito e Crédito – atualmente com autenticação silenciosa, sem desafio).&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Emissores já prontos com solução própria de 3DS 2.0 Visa: Caixa (Crédito), Santander (Débito e Crédito) e Itaú (Débito e Crédito – atualmente com autenticação silenciosa, sem desafio).&lt;/aside&gt;
 
 &lt;h2 id=&quot;o-que-é-o-data-only--somente-notificação&quot;&gt;O que é o Data Only – Somente Notificação&lt;/h2&gt;
 
