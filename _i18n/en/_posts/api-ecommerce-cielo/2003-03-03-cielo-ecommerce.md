@@ -6882,7 +6882,7 @@ Below is the list of Requisition fields:
 The response always returns if the card can be authorized at the moment. This information only means that _the card is valid to transact_, but does not necessarily indicate that a certain value will be authorized.
 
 Below the fields returned after validation:
-v  
+
 #### POSITIVE - Valid Card
 
 ``` json
