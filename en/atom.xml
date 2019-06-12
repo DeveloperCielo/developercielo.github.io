@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-12T14:09:50+00:00</updated>
+    <updated>2019-06-12T14:14:27+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31468,6 +31468,13 @@ The Submersible can use the bin checker in the cart to alert international buyer
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CardToken&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Card Token 3.0&lt;/td&gt;
+      &lt;td&gt;GUID&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -31479,6 +31486,8 @@ The Submersible can use the bin checker in the cart to alert international buyer
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Below is the list of Requisition fields:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -31500,7 +31509,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CardToken&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Tokenized Card&lt;/td&gt;
+      &lt;td&gt;Tokenized Card 3.0&lt;/td&gt;
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;yes&lt;/td&gt;
@@ -31511,10 +31520,6 @@ The Submersible can use the bin checker in the cart to alert international buyer
 &lt;h3 id=&quot;response-40&quot;&gt;Response&lt;/h3&gt;
 
 &lt;p&gt;If there is an error in the request, where it is not possible to validate the card, the service will return error:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;500 – Internal Server Erro&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;valid-card&quot;&gt;Valid Card&lt;/h4&gt;
 
