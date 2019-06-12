@@ -6870,11 +6870,11 @@ The response always returns if the card can be authorized at the moment. This in
 
 Below the fields returned after validation:
 
-| Parameter       | Description                                                                     | Type    | Size    |
+| Paramêtro       | Descrição                                                                       | Tipo    | Tamanho |
 |-----------------|---------------------------------------------------------------------------------|---------|:-------:|
-| `Valid`         | Card Status:<br> **True** - Valid card <BR>**False** – Invalid Card             | Boolean | ---     |
-| `ReturnCode`    | Return code                                                                     | Text    | 2       |
-| `ReturnMessage` | Return message                                                                  | Text    | 255     |
+| `Valid`         | Situação do cartão:<br> **True** – Cartão válido<BR>**False** – Cartão Inválido | Boolean | ---     |
+| `ReturnCode`    | Código de retorno                                                               | texto   | 2       |
+| `ReturnMessage` | Mensagem de retorno                                                             | texto   | 255     |
   
 #### POSITIVE - Valid Card
 
