@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-12T13:57:06+00:00</updated>
+    <updated>2019-06-12T14:01:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29720,7 +29720,7 @@ O Submergível pode usar a consulta bins no carrinho para alertar compradores in
 
 &lt;h2 id=&quot;caso-de-uso-3&quot;&gt;Caso de uso&lt;/h2&gt;
 
-&lt;p&gt;Este é um exemplo de como usar o zero auth para melhorar sua conversão de vendas&lt;/p&gt;
+&lt;p&gt;Este é um exemplo de como usar o zero auth para melhorar sua conversão de vendas.&lt;/p&gt;
 
 &lt;p&gt;O Zero Auth é uma ferramenta da Cielo que permite verificar se um cartão está valido para realizar uma compra antes que o pedido seja finalizado. Ele faz isso simulando uma autorização, mas sem afetar o limite de crédito ou alertar o portados do cartão sobre o teste.&lt;/p&gt;
 
