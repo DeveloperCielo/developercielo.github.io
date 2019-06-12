@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-12T13:25:11+00:00</updated>
+    <updated>2019-06-12T13:57:11+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31343,15 +31343,15 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 &lt;ol&gt;
   &lt;li&gt;&lt;strong&gt;Standard&lt;/strong&gt; - Sending a standard card without tokenization or additional analysis&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Using the “Cardtoken”&lt;/strong&gt; - Sending a tokenized card&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Using the “Cardtoken”&lt;/strong&gt; - Sending a TOKEN 3.0 for analysis&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;It is important to note that Zero Auth &lt;strong&gt;does not return or analyze&lt;/strong&gt; the following items:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Card credit limit&lt;/li&gt;
-  &lt;li&gt;Information about the bearer&lt;/li&gt;
-  &lt;li&gt;Does not trigger SMS notification&lt;/li&gt;
+  &lt;li&gt;Information about the holder&lt;/li&gt;
+  &lt;li&gt;Does not trigger the banking base (SMS notification)&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Zero Auth supports the following flags/Card Brands:&lt;/p&gt;
@@ -31368,7 +31368,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 &lt;h2 id=&quot;use-case-3&quot;&gt;Use case&lt;/h2&gt;
 
-&lt;p&gt;This is an example of how to use zero auth to improve your sales conversion&lt;/p&gt;
+&lt;p&gt;This is an example of how to use zero auth to improve your sales conversion.&lt;/p&gt;
 
 &lt;p&gt;Zero Auth is a tool from Cielo that allows you to check if a card is valid before the order is finalized. It does this by simulating an authorization, but without affecting the credit limit or alerting the card holders about the test.&lt;/p&gt;
 
@@ -31382,7 +31382,9 @@ The Submersible can use the bin checker in the cart to alert international buyer
   &lt;li&gt;If the CVV is valid&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Zero Auth also works with tokenized cards in Api Cielo Ecommerce&lt;/p&gt;
+&lt;p&gt;Zero Auth also works with tokenized cards in Api Cielo Ecommerce.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example of usage:&lt;/p&gt;
 
 &lt;h2 id=&quot;integration-3&quot;&gt;Integration&lt;/h2&gt;
 

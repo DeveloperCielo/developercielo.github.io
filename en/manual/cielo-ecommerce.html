@@ -13632,15 +13632,15 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 <ol>
   <li><strong>Standard</strong> - Sending a standard card without tokenization or additional analysis</li>
-  <li><strong>Using the “Cardtoken”</strong> - Sending a tokenized card</li>
+  <li><strong>Using the “Cardtoken”</strong> - Sending a TOKEN 3.0 for analysis</li>
 </ol>
 
 <p>It is important to note that Zero Auth <strong>does not return or analyze</strong> the following items:</p>
 
 <ol>
   <li>Card credit limit</li>
-  <li>Information about the bearer</li>
-  <li>Does not trigger SMS notification</li>
+  <li>Information about the holder</li>
+  <li>Does not trigger the banking base (SMS notification)</li>
 </ol>
 
 <p>Zero Auth supports the following flags/Card Brands:</p>
@@ -13657,7 +13657,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 <h2 id="use-case-3">Use case</h2>
 
-<p>This is an example of how to use zero auth to improve your sales conversion</p>
+<p>This is an example of how to use zero auth to improve your sales conversion.</p>
 
 <p>Zero Auth is a tool from Cielo that allows you to check if a card is valid before the order is finalized. It does this by simulating an authorization, but without affecting the credit limit or alerting the card holders about the test.</p>
 
@@ -13671,7 +13671,9 @@ The Submersible can use the bin checker in the cart to alert international buyer
   <li>If the CVV is valid</li>
 </ol>
 
-<p>Zero Auth also works with tokenized cards in Api Cielo Ecommerce</p>
+<p>Zero Auth also works with tokenized cards in Api Cielo Ecommerce.</p>
+
+<p>Here’s an example of usage:</p>
 
 <h2 id="integration-3">Integration</h2>
 
