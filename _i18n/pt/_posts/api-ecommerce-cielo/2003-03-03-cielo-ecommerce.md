@@ -6969,9 +6969,9 @@ Abaixo os campos retornados após a validação:
 
 ``` json
 {
-        "Valid": true,
-        "ReturnCode": “00”,
-        "ReturnMessage", “Transacao autorizada”
+  "CardToken":"23712c39-bb08-4030-86b3-490a223a8cc9",
+  "SaveCard":"false",
+  "Brand":"Visa"
 }
 ```
 
