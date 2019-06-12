@@ -6777,13 +6777,13 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 **Zero Auth** can be used in 2 ways:
 
 1. **Standard** - Sending a standard card without tokenization or additional analysis
-2. **Using the "Cardtoken"** - Sending a tokenized card
+2. **Using the "Cardtoken"** - Sending a TOKEN 3.0 for analysis
 
 It is important to note that Zero Auth **does not return or analyze** the following items:
 
 1. Card credit limit
-2. Information about the bearer
-3. Does not trigger SMS notification
+2. Information about the holder
+3. Does not trigger the banking base (SMS notification)
 
 Zero Auth supports the following flags/Card Brands:
 
@@ -6795,7 +6795,7 @@ Zero Auth supports the following flags/Card Brands:
 
 ## Use case
 
-This is an example of how to use zero auth to improve your sales conversion
+This is an example of how to use zero auth to improve your sales conversion.
 
 Zero Auth is a tool from Cielo that allows you to check if a card is valid before the order is finalized. It does this by simulating an authorization, but without affecting the credit limit or alerting the card holders about the test.
 
@@ -6807,7 +6807,9 @@ It does not inform the limit or characteristics of the card or carrier, but simu
 4. If the card number is correct
 5. If the CVV is valid
 
-Zero Auth also works with tokenized cards in Api Cielo Ecommerce
+Zero Auth also works with tokenized cards in Api Cielo Ecommerce.
+
+Here's an example of usage:
 
 ## Integration
 
