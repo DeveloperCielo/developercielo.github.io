@@ -6811,6 +6811,19 @@ Zero Auth also works with tokenized cards in Api Cielo Ecommerce.
 
 Here's an example of usage:
 
+**Zero auth as card validator**
+
+A Streaming company called FlixNet has a subscription service, where in addition to making a recurrence, it has saved cards and receives new subscriptions daily. All of these steps require that transactions be performed to gain access to the tool, which raises the cost of FlixNet if transactions are not authorized.
+
+How could the company reduce its cost? Validating the card before sending it to authorized.
+
+FlixNet uses Zero Auth at 2 different times:
+
+Registration: it must be included a card to get 30 days free in the first month.
+The problem is that at the end of this period, if the card is invalid, the new register exists, but it does not work, because the saved card is invalid. FlixNet solved this problem by testing the card with Zero Auth at the time of registration, then, they already know if the card is valid and release the creation of the account. If the card is not accepted, FlixNet may suggest the use of another card.
+
+Recurrence: every month, before you charge the Subscription, Flixnet tests the card with zero auth, then, knowing if it will be authorized or not. This helps FlixNet predict which cards will be denied, already triggering the subscriber to update the registration before the payday.
+
 ## Integration
 
 In order to use Zero Auth, the merchant must send a `POST` request to the Cielo Ecommerce API, simulating a transaction. `POST` should be done at the following URLs:
