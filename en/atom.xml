@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-12T14:32:28+00:00</updated>
+    <updated>2019-06-12T18:12:14+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31385,6 +31385,19 @@ The Submersible can use the bin checker in the cart to alert international buyer
 &lt;p&gt;Zero Auth also works with tokenized cards in Api Cielo Ecommerce.&lt;/p&gt;
 
 &lt;p&gt;Here’s an example of usage:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Zero auth as card validator&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A Streaming company called FlixNet has a subscription service, where in addition to making a recurrence, it has saved cards and receives new subscriptions daily. All of these steps require that transactions be performed to gain access to the tool, which raises the cost of FlixNet if transactions are not authorized.&lt;/p&gt;
+
+&lt;p&gt;How could the company reduce its cost? Validating the card before sending it to authorized.&lt;/p&gt;
+
+&lt;p&gt;FlixNet uses Zero Auth at 2 different times:&lt;/p&gt;
+
+&lt;p&gt;Registration: it must be included a card to get 30 days free in the first month.
+The problem is that at the end of this period, if the card is invalid, the new register exists, but it does not work, because the saved card is invalid. FlixNet solved this problem by testing the card with Zero Auth at the time of registration, then, they already know if the card is valid and release the creation of the account. If the card is not accepted, FlixNet may suggest the use of another card.&lt;/p&gt;
+
+&lt;p&gt;Recurrence: every month, before you charge the Subscription, Flixnet tests the card with zero auth, then, knowing if it will be authorized or not. This helps FlixNet predict which cards will be denied, already triggering the subscriber to update the registration before the payday.&lt;/p&gt;
 
 &lt;h2 id=&quot;integration-3&quot;&gt;Integration&lt;/h2&gt;
 
