@@ -6870,6 +6870,12 @@ The response always returns if the card can be authorized at the moment. This in
 
 Below the fields returned after validation:
 
+| Parameter       | Description                                                                     | Type    | Size    |
+|-----------------|---------------------------------------------------------------------------------|---------|:-------:|
+| `Valid`         | Card Status:<br> **True** - Valid card <BR>**False** – Invalid Card             | Boolean | ---     |
+| `ReturnCode`    | Return code                                                                     | Text    | 2       |
+| `ReturnMessage` | Return message                                                                  | Text    | 255     |
+  
 #### POSITIVE - Valid Card
 
 ``` json
