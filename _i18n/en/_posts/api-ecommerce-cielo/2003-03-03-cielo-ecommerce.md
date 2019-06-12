@@ -6819,10 +6819,10 @@ How could the company reduce its cost? Validating the card before sending it to 
 
 FlixNet uses Zero Auth at 2 different times:
 
-Registration: it must be included a card to get 30 days free in the first month.
+* **Registration:** it must be included a card to get 30 days free in the first month.
 The problem is that at the end of this period, if the card is invalid, the new register exists, but it does not work, because the saved card is invalid. FlixNet solved this problem by testing the card with Zero Auth at the time of registration, then, they already know if the card is valid and release the creation of the account. If the card is not accepted, FlixNet may suggest the use of another card.
 
-Recurrence: every month, before you charge the Subscription, Flixnet tests the card with zero auth, then, knowing if it will be authorized or not. This helps FlixNet predict which cards will be denied, already triggering the subscriber to update the registration before the payday.
+* **Recurrence:** every month, before you charge the Subscription, Flixnet tests the card with zero auth, then, knowing if it will be authorized or not. This helps FlixNet predict which cards will be denied, already triggering the subscriber to update the registration before the payday.
 
 ## Integration
 
