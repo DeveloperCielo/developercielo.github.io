@@ -6834,6 +6834,8 @@ Each type of validation requires a different technical contract. They will resul
 }
 ```
 
+Below the fields returned after validation:
+
 | Field              | Description                                                                                                               | Type      | Contact Us | Required       |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
 | `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard as default       | Text      | 255        | Yes             |
