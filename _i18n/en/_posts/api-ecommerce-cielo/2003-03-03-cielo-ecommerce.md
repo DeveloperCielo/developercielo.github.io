@@ -6870,7 +6870,7 @@ The response always returns if the card can be authorized at the moment. This in
 
 Below the fields returned after validation:
 
-#### Valid Card
+#### POSITIVE - Valid Card
 
 ``` json
 {
@@ -6887,9 +6887,9 @@ Below the fields returned after validation:
 | `ReturnMessage`   | Return message                                                                     | text      | 255        |
 
 > See [**Integration Manual**](https://developercielo.github.io/en/manual/cielo-ecommerce) for more information about Return Codes.
-> The return code **"85" represents success in Zero Auth**, the other codes are defined according to the above documentation.
+> The return code **"00" represents success in Zero Auth**, the other codes are defined according to the above documentation.
 
-#### Invalid Card
+#### NEGATIVE - Invalid Card
 
 ``` json
 {
@@ -6899,7 +6899,7 @@ Below the fields returned after validation:
 }
 ```
 
-#### Invalid Card - Brand not Supported
+#### NEGATIVE - Invalid Card - Brand not Supported
 
 ``` json
   {    
@@ -6907,6 +6907,10 @@ Below the fields returned after validation:
       "Message": "Bandeira inválida"   
   }
 ```
+
+If there is any error in the flow, where it is not possible to validate the card, the service will return error:
+
+* 500 - Internal Server Error
 
 # Wallet
 
