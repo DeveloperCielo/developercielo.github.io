@@ -6869,7 +6869,7 @@ O Zero Auth suporta as seguintes bandeiras:
 
 ## Caso de uso
 
-Este é um exemplo de como usar o zero auth para melhorar sua conversão de vendas
+Este é um exemplo de como usar o zero auth para melhorar sua conversão de vendas.
 
 O Zero Auth é uma ferramenta da Cielo que permite verificar se um cartão está valido para realizar uma compra antes que o pedido seja finalizado. Ele faz isso simulando uma autorização, mas sem afetar o limite de crédito ou alertar o portados do cartão sobre o teste.
 
