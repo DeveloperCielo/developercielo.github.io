@@ -6843,6 +6843,7 @@ Each type of validation requires a different technical contract. They will resul
 | `SecurityCode`     | Card Security code .                                                                                                      | Text      | 4          | Yes             |
 | `SaveCard`         | Defines if the card must be tokenized                                                                                     | Boolean   | ---        | Yes             |
 | `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | Yes             |
+| `CardToken`      | Card Token 3.0                                                                                               | GUID    | 36      | Conditional |
 
 #### Using CardToken
 
@@ -6854,16 +6855,16 @@ Each type of validation requires a different technical contract. They will resul
 }
 ```
 
+Below is the list of Requisition fields:
+
 | Field              | Description                                                                                                               | Type      | Contact Us | Required       |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
 | `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | not            |
-| `CardToken`        | Tokenized Card                                                                                                            | GUID      | 36         | yes |
+| `CardToken`        | Tokenized Card 3.0                                                                                                            | GUID      | 36         | yes |
 
 ### Response
 
 If there is an error in the request, where it is not possible to validate the card, the service will return error:
-
-> **500 – Internal Server Erro**
 
 #### Valid Card
 
