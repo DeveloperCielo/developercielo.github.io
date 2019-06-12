@@ -716,7 +716,7 @@ Adicione essa permissão ao <code class="highlighter-rouge">AndroidManifest.xml<
 
 <p>Para utilizar o Cielo LIO Order Manager SDK, é necessário inserir as seguintes credenciais na inicialização do OrderManager:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Credentials</span> <span class="n">credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Credentials</span><span class="o">(</span><span class="s">"Seu client id aqui"</span><span class="o">,</span> <span class="s">"Seu accessToken aqui"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Credentials</span> <span class="n">credentials</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Credentials</span><span class="o">(</span><span class="s">"Seu client id aqui"</span><span class="o">,</span> <span class="s">"Seu accessToken aqui"</span><span class="o">);</span>
 </code></pre></div></div>
 
 <ul>
@@ -744,7 +744,7 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Tudo começa com a criação do OrderManager!</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">OrderManager</span> <span class="n">orderManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OrderManager</span><span class="o">(</span><span class="n">credentials</span><span class="o">,</span> <span class="n">context</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">OrderManager</span> <span class="n">orderManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OrderManager</span><span class="o">(</span><span class="n">credentials</span><span class="o">,</span> <span class="n">context</span><span class="o">);</span>
 </code></pre></div></div>
 
 <p>O construtor do OrderManager recebe 2 parâmetros:</p>
@@ -779,9 +779,9 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Com o método <code class="highlighter-rouge">bind()</code>, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ServiceBindListener</span> <span class="n">serviceBindListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceBindListener</span><span class="o">()</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ServiceBindListener</span> <span class="n">serviceBindListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServiceBindListener</span><span class="o">()</span> <span class="o">{</span>
 
-    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceBoundError</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">throwable</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onServiceBoundError</span><span class="o">(</span><span class="nc">Throwable</span> <span class="n">throwable</span><span class="o">)</span> <span class="o">{</span>
         <span class="c1">//Ocorreu um erro ao tentar se conectar com o serviço OrderManager</span>
     <span class="o">}</span>
 
@@ -823,7 +823,7 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <p>Este método permite criar uma Order (classe Order). Para realizar essa criação, utilize o método createDraftOrder, que disponibilizará uma Order com status DRAFT:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">createDraftOrder</span><span class="o">(</span><span class="s">"REFERÊNCIA_DO_PEDIDO"</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Order</span> <span class="n">order</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">createDraftOrder</span><span class="o">(</span><span class="s">"REFERÊNCIA_DO_PEDIDO"</span><span class="o">);</span>
 </code></pre></div></div>
 
 <h3 id="adicionar-itens-em-um-pedido">Adicionar itens em um pedido</h3>
@@ -835,8 +835,8 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 </blockquote>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Identificação do produto (Stock Keeping Unit)</span>
-<span class="n">String</span> <span class="n">sku</span> <span class="o">=</span> <span class="s">"2891820317391823"</span><span class="o">;</span>
-<span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Coca-cola lata"</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">sku</span> <span class="o">=</span> <span class="s">"2891820317391823"</span><span class="o">;</span>
+<span class="nc">String</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Coca-cola lata"</span><span class="o">;</span>
 
 <span class="c1">// Preço unitário em centavos</span>
 <span class="kt">int</span> <span class="n">unitPrice</span> <span class="o">=</span> <span class="mi">550</span><span class="o">;</span>
@@ -872,23 +872,23 @@ Iniciar processo de pagamento</p>
 
 <p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">checkoutOrder()</code> para receber os estados relacionados ao pagamento.:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"O pagamento começou."</span><span class="o">);</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"O pagamento começou."</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPayment</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">Order</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Um pagamento foi realizado."</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPayment</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="nc">Order</span> <span class="n">order</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Um pagamento foi realizado."</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
     <span class="o">}</span>
 
-    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Houve um erro no pagamento."</span><span class="o">);</span>
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="nc">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Houve um erro no pagamento."</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">};</span>
 </code></pre></div></div>
@@ -1191,13 +1191,13 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 
 <p>Para realizar um request de pagamento é preciso informar, pelo menos, o OrderId criado anteriormamente. Dependendo dos parametros informados na hora de montar o request de pagamento, um dos processos citados acima será iniciado. No Pagamento parcial, o valor do pagamento é informado dentro do fluxo de telas da Cielo LIO. Na sequência, o fluxo de pagamento da Cielo LIO é iniciado (definir o valor a ser pago, escolher a forma de pagamento, inserir o cartão, digitar a senha e visualizar e/ou enviar por e-mail o comprovante).</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CheckoutRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CheckoutRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CheckoutRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CheckoutRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
                     <span class="o">.</span><span class="na">orderId</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getId</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
                     <span class="o">.</span><span class="na">amount</span><span class="o">(</span><span class="mi">123456789</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
                     <span class="o">.</span><span class="na">ec</span><span class="o">(</span><span class="s">"999999999999999"</span><span class="o">)</span> <span class="cm">/* Opcional (precisa estar habilitado na LIO) */</span>
                     <span class="o">.</span><span class="na">installments</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
                     <span class="o">.</span><span class="na">email</span><span class="o">(</span><span class="s">"teste@email.com"</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
-                    <span class="o">.</span><span class="na">paymentCode</span><span class="o">(</span><span class="n">PaymentCode</span><span class="o">.</span><span class="na">CREDITO_PARCELADO_LOJA</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
+                    <span class="o">.</span><span class="na">paymentCode</span><span class="o">(</span><span class="nc">PaymentCode</span><span class="o">.</span><span class="na">CREDITO_PARCELADO_LOJA</span><span class="o">)</span> <span class="cm">/* Opcional */</span>
                     <span class="o">.</span><span class="na">build</span><span class="o">();</span> 
 </code></pre></div></div>
 
@@ -1351,20 +1351,20 @@ As seguintes ações pode ser notificadas:
 • onError - Quando acontece um erro no cancelamento do pedido.</p>
 </blockquote>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CancellationListener</span> <span class="n">cancellationListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CancellationListener</span><span class="o">()</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CancellationListener</span> <span class="n">cancellationListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CancellationListener</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">Order</span> <span class="n">cancelledOrder</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"O pagamento foi cancelado."</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="nc">Order</span> <span class="n">cancelledOrder</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"O pagamento foi cancelado."</span><span class="o">);</span>
     <span class="o">}</span>
     
     <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCancel</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"A operação foi cancelada."</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Houve um erro no cancelamento"</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nc">PaymentError</span> <span class="n">paymentError</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="s">"SDKClient"</span><span class="o">,</span> <span class="s">"Houve um erro no cancelamento"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">});</span>
 </code></pre></div></div>
@@ -1374,7 +1374,7 @@ As seguintes ações pode ser notificadas:
 <p>No método Cancelar um Pagamento, é necessário ter salvo uma instância da Order que contém as informações da Order. Essa Order pode ser recuperada no sucesso do callback do pagamento ou usando o método de Listagem de Pedidos (Orders) (link para método). 
 Assim que possuir a instância da Order, utilize o método abaixo passando os parâmetros conforme o exemplo abaixo:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CancellationRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CancellationRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CancellationRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CancellationRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
                 <span class="o">.</span><span class="na">orderId</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getId</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
                 <span class="o">.</span><span class="na">authCode</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getPayments</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getAuthCode</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
                 <span class="o">.</span><span class="na">cieloCode</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getPayments</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getCieloCode</span><span class="o">())</span> <span class="cm">/* Obrigatório */</span>
@@ -1463,20 +1463,20 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
 <p>em seguida, é necessário implementar um <code class="highlighter-rouge">BroadcastReceiver</code> para tratar o evento da maneira que for pertinente a sua aplicação:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LIOCancelationBroadcastReceiver</span> <span class="kd">extends</span> <span class="n">BroadcastReceiver</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LIOCancelationBroadcastReceiver</span> <span class="kd">extends</span> <span class="nc">BroadcastReceiver</span> <span class="o">{</span>
 
-    <span class="n">String</span> <span class="n">MY_CLIENT_ID</span> <span class="o">=</span> <span class="s">"Seu client id aqui"</span><span class="o">;</span>
-    <span class="n">String</span> <span class="n">MY_ACCESS_KEY</span> <span class="o">=</span> <span class="s">"Seu access key aqui"</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="no">MY_CLIENT_ID</span> <span class="o">=</span> <span class="s">"Seu client id aqui"</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="no">MY_ACCESS_KEY</span> <span class="o">=</span> <span class="s">"Seu access key aqui"</span><span class="o">;</span>
     
-    <span class="n">String</span> <span class="n">INTENT_ORDER_KEY</span> <span class="o">=</span> <span class="s">"ORDER"</span><span class="o">;</span>
-    <span class="n">String</span> <span class="n">INTENT_TRANSACTION_KEY</span> <span class="o">=</span> <span class="s">"TRANSACTION"</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="no">INTENT_ORDER_KEY</span> <span class="o">=</span> <span class="s">"ORDER"</span><span class="o">;</span>
+    <span class="nc">String</span> <span class="no">INTENT_TRANSACTION_KEY</span> <span class="o">=</span> <span class="s">"TRANSACTION"</span><span class="o">;</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">ParcelableOrder</span> <span class="n">order</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getParcelable</span><span class="o">(</span><span class="n">INTENT_ORDER_KEY</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReceive</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">,</span> <span class="nc">Intent</span> <span class="n">intent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">ParcelableOrder</span> <span class="n">order</span> <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getParcelable</span><span class="o">(</span><span class="no">INTENT_ORDER_KEY</span><span class="o">);</span>
         
-        <span class="k">if</span><span class="o">(</span><span class="n">MY_ACCESS_KEY</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getAccessKey</span><span class="o">())</span> <span class="o">&amp;&amp;</span> <span class="n">MY_CLIENT_ID</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getSecretAccessKey</span><span class="o">()))</span> <span class="o">{</span>
-            <span class="n">ParcelableTransaction</span> <span class="n">transaction</span>  <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getParcelable</span><span class="o">(</span><span class="n">INTENT_TRANSACTION_KEY</span><span class="o">);</span>
+        <span class="k">if</span><span class="o">(</span><span class="no">MY_ACCESS_KEY</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getAccessKey</span><span class="o">())</span> <span class="o">&amp;&amp;</span> <span class="no">MY_CLIENT_ID</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">order</span><span class="o">.</span><span class="na">getSecretAccessKey</span><span class="o">()))</span> <span class="o">{</span>
+            <span class="nc">ParcelableTransaction</span> <span class="n">transaction</span>  <span class="o">=</span> <span class="n">intent</span><span class="o">.</span><span class="na">getExtras</span><span class="o">().</span><span class="na">getParcelable</span><span class="o">(</span><span class="no">INTENT_TRANSACTION_KEY</span><span class="o">);</span>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>
@@ -1489,7 +1489,7 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
 Para isso, basta utilizar a função abaixo, que retorna os pedidos de forma paginada:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Busca 10 items da primeira página</span>
-<span class="n">ResultOrders</span> <span class="n">resultOrders</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrieveOrders</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> 
+<span class="nc">ResultOrders</span> <span class="n">resultOrders</span> <span class="o">=</span> <span class="n">orderManager</span><span class="o">.</span><span class="na">retrieveOrders</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> 
 </code></pre></div></div>
 
 <table>
@@ -1533,7 +1533,7 @@ Utilize o método abaixo para finalizar o uso do OrderManager:</p>
 
 <p>Todas as informações referentes ao terminal, que foram expostas, estão disponíveis no InfoManager</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">InfoManager</span> <span class="n">infoManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InfoManager</span><span class="o">();</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">InfoManager</span> <span class="n">infoManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">InfoManager</span><span class="o">();</span>
 </code></pre></div></div>
 
 <h3 id="nível-de-bateria">Nível de Bateria</h3>
@@ -1594,7 +1594,7 @@ Abaixo, segue um descritivo de atributos do objeto Setttings.</p>
 
 <p>A nova versão da Cielo LIO V2 permite que aplicações parceiras utilizem os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente. Para realizar estas operações, basta utilizar um dos métodos listados abaixo que permite a impressão de uma única linha, uma sequência de linhas, ou imagens.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PrinterManager</span> <span class="n">printerManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrinterManager</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PrinterManager</span> <span class="n">printerManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PrinterManager</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
 </code></pre></div></div>
 
 <p>Independende da forma de impressão escolhida, você deverá utilizar o seguinte callback como parâmetro do método de para receber os estados relacionados à impressão:</p>
@@ -1607,17 +1607,17 @@ As seguintes ações pode ser notificadas:
 • onWithoutPaper - Quando não há papel suficiente para realizar a impressão.</p>
 </blockquote>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PrinterListerner</span> <span class="n">printerListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrinterListener</span><span class="o">()</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PrinterListerner</span> <span class="n">printerListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PrinterListener</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPrintSuccess</span><span class="o">(</span><span class="kt">int</span> <span class="n">printedLines</span><span class="o">)</span> <span class="o">{</span> 
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"onPrintSuccess"</span><span class="o">);</span>
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"onPrintSuccess"</span><span class="o">);</span>
     <span class="o">}</span>
     
-    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span> 
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span> <span class="s">"onError"</span><span class="o">);</span> 
+    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="nc">Throwable</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span> 
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"onError"</span><span class="o">);</span> 
     <span class="o">}</span>
     
     <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onWithoutPaper</span><span class="o">()</span> <span class="o">{</span> 
-        <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">TAG</span><span class="o">,</span><span class="s">"onWithoutPaper"</span><span class="o">);</span> 
+        <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span><span class="s">"onWithoutPaper"</span><span class="o">);</span> 
     <span class="o">}</span> 
 <span class="o">});</span>
 </code></pre></div></div>
@@ -1627,7 +1627,7 @@ As seguintes ações pode ser notificadas:
 </blockquote>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPrintSuccess</span><span class="o">(</span><span class="kt">int</span> <span class="n">printedLines</span><span class="o">)</span> <span class="o">{</span> 
-        <span class="n">runOnUiThread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">runOnUiThread</span><span class="o">(</span><span class="k">new</span> <span class="nc">Runnable</span><span class="o">()</span> <span class="o">{</span>
             <span class="nd">@Override</span>
             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
                 <span class="n">showDialog</span><span class="o">();</span>
@@ -1699,20 +1699,20 @@ As seguintes ações pode ser notificadas:
 
 <p>Exemplo de mapas de estilos:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignLeft</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_LEFT</span><span class="o">);</span>
-<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">alignLeft</span> <span class="o">=</span>  <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_LEFT</span><span class="o">);</span>
+<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+<span class="n">alignLeft</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
 
-<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignCenter</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_CENTER</span><span class="o">);</span>
-<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
-<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+<span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">alignCenter</span> <span class="o">=</span>  <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_CENTER</span><span class="o">);</span>
+<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+<span class="n">alignCenter</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
 
-<span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">alignRight</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
-<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_RIGHT</span><span class="o">);</span>
-<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
-<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+<span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">alignRight</span> <span class="o">=</span>  <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_ALIGN</span><span class="o">,</span> <span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">VAL_ALIGN_RIGHT</span><span class="o">);</span>
+<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TYPEFACE</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+<span class="n">alignRight</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="nc">PrinterAttributes</span><span class="o">.</span><span class="na">KEY_TEXT_SIZE</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
 </code></pre></div></div>
 
 <h3 id="impressão-de-texto-simples">Impressão de texto simples</h3>
@@ -1720,7 +1720,7 @@ As seguintes ações pode ser notificadas:
 <p>Para imprimir textos simples utilize o método <code class="highlighter-rouge">printText()</code> do PrinterManager. 
 O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de impressão e um listener para tratar o retorno da impressão.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">textToPrint</span> <span class="o">=</span> <span class="s">"Texto simples a ser impresso.\n Com múltiplas linhas"</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">textToPrint</span> <span class="o">=</span> <span class="s">"Texto simples a ser impresso.\n Com múltiplas linhas"</span><span class="o">;</span>
 <span class="n">printerManager</span><span class="o">.</span><span class="na">printText</span><span class="o">(</span><span class="n">textToPrint</span><span class="o">,</span> <span class="n">alignLeft</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
 </code></pre></div></div>
 
@@ -1759,9 +1759,9 @@ O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de im
 <p>Para imprimir textos em múltiplas colunas utilize o método <code class="highlighter-rouge">printMultipleColumnText()</code> do PrinterManager. 
 O método recebe como parâmetro um array de texts a serem impresso, um array com mapas de estilos de impressão, respectivamente e um listener para tratar o retorno da impressão.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span><span class="o">[]</span> <span class="n">textsToPrint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span> <span class="s">"Texto alinhado à esquerda."</span><span class="o">,</span> <span class="s">"Texto centralizado"</span><span class="o">,</span> <span class="s">"Texto alinhado à direita"</span>  <span class="o">}</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span><span class="o">[]</span> <span class="n">textsToPrint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[]</span> <span class="o">{</span> <span class="s">"Texto alinhado à esquerda."</span><span class="o">,</span> <span class="s">"Texto centralizado"</span><span class="o">,</span> <span class="s">"Texto alinhado à direita"</span>  <span class="o">}</span>
 
-<span class="n">List</span><span class="o">&lt;</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">stylesMap</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;&gt;</span> <span class="n">stylesMap</span> <span class="o">=</span>  <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
 <span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignLeft</span><span class="o">);</span>
 <span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignCenter</span><span class="o">);</span>
 <span class="n">stylesMap</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">alignRight</span><span class="o">);</span>
@@ -1805,7 +1805,7 @@ O método recebe como parâmetro um array de texts a serem impresso, um array co
 <p>Para imprimir imagens utilize o método <code class="highlighter-rouge">printImage()</code> do PrinterManager. 
 O método recebe como parâmetro o <code class="highlighter-rouge">bitmap</code> a ser impresso, um mapa de estilos de impressão e um listener para tratar o retorno da impressão.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Bitmap</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="n">BitmapFactory</span><span class="o">.</span><span class="na">decodeResource</span><span class="o">(</span><span class="n">getResources</span><span class="o">(),</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">cielo</span><span class="o">);</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Bitmap</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="nc">BitmapFactory</span><span class="o">.</span><span class="na">decodeResource</span><span class="o">(</span><span class="n">getResources</span><span class="o">(),</span> <span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">cielo</span><span class="o">);</span>
 <span class="n">printerManager</span><span class="o">.</span><span class="na">printImage</span><span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="n">alignCenter</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
 </code></pre></div></div>
 
