@@ -6864,7 +6864,9 @@ Below is the list of Requisition fields:
 
 ### Response
 
-If there is an error in the request, where it is not possible to validate the card, the service will return error:
+The response always returns if the card can be authorized at the moment. This information only means that _the card is valid to transact_, but does not necessarily indicate that a certain value will be authorized.
+
+Below the fields returned after validation:
 
 #### Valid Card
 
