@@ -6869,13 +6869,7 @@ Below is the list of Requisition fields:
 The response always returns if the card can be authorized at the moment. This information only means that _the card is valid to transact_, but does not necessarily indicate that a certain value will be authorized.
 
 Below the fields returned after validation:
-
-| Paramêtro       | Descrição                                                                       | Tipo    | Tamanho |
-|-----------------|---------------------------------------------------------------------------------|---------|:-------:|
-| `Valid`         | Situação do cartão:<br> **True** – Cartão válido<BR>**False** – Cartão Inválido | Boolean | ---     |
-| `ReturnCode`    | Código de retorno                                                               | texto   | 2       |
-| `ReturnMessage` | Mensagem de retorno                                                             | texto   | 255     |
-  
+v  
 #### POSITIVE - Valid Card
 
 ``` json
