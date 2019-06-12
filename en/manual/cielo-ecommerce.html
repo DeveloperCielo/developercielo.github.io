@@ -13814,7 +13814,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 <p>Below the fields returned after validation:</p>
 
-<h4 id="valid-card">Valid Card</h4>
+<h4 id="positive---valid-card">POSITIVE - Valid Card</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
         </span><span class="s2">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -13856,10 +13856,10 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 <blockquote>
   <p>See <a href="https://developercielo.github.io/en/manual/cielo-ecommerce"><strong>Integration Manual</strong></a> for more information about Return Codes.
-The return code <strong>“85” represents success in Zero Auth</strong>, the other codes are defined according to the above documentation.</p>
+The return code <strong>“00” represents success in Zero Auth</strong>, the other codes are defined according to the above documentation.</p>
 </blockquote>
 
-<h4 id="invalid-card">Invalid Card</h4>
+<h4 id="negative---invalid-card">NEGATIVE - Invalid Card</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
        </span><span class="s2">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -13868,13 +13868,19 @@ The return code <strong>“85” represents success in Zero Auth</strong>, the o
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="invalid-card---brand-not-supported">Invalid Card - Brand not Supported</h4>
+<h4 id="negative---invalid-card---brand-not-supported">NEGATIVE - Invalid Card - Brand not Supported</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">    
       </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">     
       </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bandeira inválida"</span><span class="w">   
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<p>If there is any error in the flow, where it is not possible to validate the card, the service will return error:</p>
+
+<ul>
+  <li>500 - Internal Server Error</li>
+</ul>
 
 <h1 id="wallet">Wallet</h1>
 

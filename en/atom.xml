@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-12T14:25:29+00:00</updated>
+    <updated>2019-06-12T14:32:28+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31525,7 +31525,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 &lt;p&gt;Below the fields returned after validation:&lt;/p&gt;
 
-&lt;h4 id=&quot;valid-card&quot;&gt;Valid Card&lt;/h4&gt;
+&lt;h4 id=&quot;positive---valid-card&quot;&gt;POSITIVE - Valid Card&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Valid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -31567,10 +31567,10 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 &lt;blockquote&gt;
   &lt;p&gt;See &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce&quot;&gt;&lt;strong&gt;Integration Manual&lt;/strong&gt;&lt;/a&gt; for more information about Return Codes.
-The return code &lt;strong&gt;“85” represents success in Zero Auth&lt;/strong&gt;, the other codes are defined according to the above documentation.&lt;/p&gt;
+The return code &lt;strong&gt;“00” represents success in Zero Auth&lt;/strong&gt;, the other codes are defined according to the above documentation.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;invalid-card&quot;&gt;Invalid Card&lt;/h4&gt;
+&lt;h4 id=&quot;negative---invalid-card&quot;&gt;NEGATIVE - Invalid Card&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Valid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -31579,13 +31579,19 @@ The return code &lt;strong&gt;“85” represents success in Zero Auth&lt;/stron
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;invalid-card---brand-not-supported&quot;&gt;Invalid Card - Brand not Supported&lt;/h4&gt;
+&lt;h4 id=&quot;negative---invalid-card---brand-not-supported&quot;&gt;NEGATIVE - Invalid Card - Brand not Supported&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;    
       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Code&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;57&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;     
       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bandeira inválida&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If there is any error in the flow, where it is not possible to validate the card, the service will return error:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;500 - Internal Server Error&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h1 id=&quot;wallet&quot;&gt;Wallet&lt;/h1&gt;
 
