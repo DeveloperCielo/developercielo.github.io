@@ -13950,7 +13950,27 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
 
 <h3 id="request-35">Request</h3>
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
 <h3 id="response-41">Response</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantId"</span>: <span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>,
+    <span class="s2">"AccessToken"</span>: <span class="s2">"NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ=="</span>,
+    <span class="s2">"Issued"</span>: <span class="s2">"2018-07-23T11:09:32"</span>,
+    <span class="s2">"ExpiresIn"</span>: <span class="s2">"2018-07-23T11:29:32"</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
 <h1 id="wallet">Wallet</h1>
 
