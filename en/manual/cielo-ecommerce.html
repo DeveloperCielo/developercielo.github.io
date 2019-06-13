@@ -14067,6 +14067,19 @@ The download can be made from the following URL:</p>
 
 <p>c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: <strong>onSuccess</strong> (where <strong>PaymentToken</strong> will be returned after processing the card data), <strong>onError</strong> (if there is any error in the consumption of Cielo services) and <strong>onInvalid</strong> (where the result of the validation of the inputs will be returned).</p>
 
+<ul>
+  <li>
+    <p>In the input validation, the establishment can use the entire layer of validation on the card data made by Cielo and then simplify the treatment on your checkout form. The messages returned in the validation result are available in the following languages: portuguese (default), english and spanish.</p>
+  </li>
+  <li>
+    <p>The <em>PaymentToken</em> will be the token that will represent all the card data provided by the buyer. The same will be used by the establishment so there is no need to process and process card data on its side.</p>
+  </li>
+</ul>
+
+<p><strong>For security reasons this PaymentToken can only be used for 1 authorization in Cielo 3.0. After processing, it will be invalidated.</strong></p>
+
+<p>Example of setup to be performed by the establishment on the checkout page:</p>
+
 <p><img src="https://developercielo.github.io/images/html-silent-order-post.jpg" alt="Pagina Checkout" /></p>
 
 <h1 id="wallet">Wallet</h1>

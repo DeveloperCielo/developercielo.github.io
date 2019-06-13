@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-13T18:49:14+00:00</updated>
+    <updated>2019-06-13T19:50:27+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31777,6 +31777,19 @@ The download can be made from the following URL:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: &lt;strong&gt;onSuccess&lt;/strong&gt; (where &lt;strong&gt;PaymentToken&lt;/strong&gt; will be returned after processing the card data), &lt;strong&gt;onError&lt;/strong&gt; (if there is any error in the consumption of Cielo services) and &lt;strong&gt;onInvalid&lt;/strong&gt; (where the result of the validation of the inputs will be returned).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;In the input validation, the establishment can use the entire layer of validation on the card data made by Cielo and then simplify the treatment on your checkout form. The messages returned in the validation result are available in the following languages: portuguese (default), english and spanish.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The &lt;em&gt;PaymentToken&lt;/em&gt; will be the token that will represent all the card data provided by the buyer. The same will be used by the establishment so there is no need to process and process card data on its side.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;For security reasons this PaymentToken can only be used for 1 authorization in Cielo 3.0. After processing, it will be invalidated.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Example of setup to be performed by the establishment on the checkout page:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/html-silent-order-post.jpg&quot; alt=&quot;Pagina Checkout&quot; /&gt;&lt;/p&gt;
 
