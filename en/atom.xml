@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-13T17:05:36+00:00</updated>
+    <updated>2019-06-13T17:07:51+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3518,7 +3518,7 @@ is valid for all the eCommerce transactions, whether it is debit, credit or prep
 &lt;p&gt;The merchant must attend the below requirements to use 3DS 2.0:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Cielo E-Commerce 3.0 affiliation;&lt;/li&gt;
+  &lt;li&gt;Cielo E-Commerce 1.5 or 3.0 affiliation;&lt;/li&gt;
   &lt;li&gt;Registered in the 3DS 2.0 (request for eCommerce Support);&lt;/li&gt;
   &lt;li&gt;Integrate the authorization process;&lt;/li&gt;
   &lt;li&gt;Integrate the authentication process;&lt;/li&gt;
