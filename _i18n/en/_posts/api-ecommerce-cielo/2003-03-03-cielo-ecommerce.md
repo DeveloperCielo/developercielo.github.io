@@ -6943,13 +6943,33 @@ It is ideal for merchants who require a high level of security without losing th
 
 ## Authorization Flow
 
+The establishment must be **PCI Compliance** (PCI = Security Rules to manipulate card data)
+
 ### Standard Authorization Flow
+
+The server **does not pass the card data** openly.
 
 ### Authorization Flow with Silent Order POST
 
 ## Transactional Flow
 
 ## Integration
+
+**STEP 1**
+
+The buyer finishes the checkout, and goes to the payment processing.
+
+**STEP 2**
+
+a) The merchant must request a ticket (server to server) sending a POST to the following URL:
+
+**SANDBOX:**
+**https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}**
+
+**PRODUCTION:**
+**https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid={mid}**
+
+Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000
 
 ### Request
 
