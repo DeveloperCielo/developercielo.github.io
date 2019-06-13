@@ -6946,7 +6946,7 @@ Abaixo, a listagem de campos da Requisição:
 }
 ```
 
-Abaixo, a listagem de campos da Requisição:
+Abaixo, a listagem de campos da Requisição: 
 
 | Paramêtro        | Descrição                                                                                                             | Tipo    | Tamanho | Obrigatório |
 |------------------|-----------------------------------------------------------------------------------------------------------------------|---------|---------|:-----------:|
