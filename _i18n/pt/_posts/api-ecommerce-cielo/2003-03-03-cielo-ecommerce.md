@@ -6936,7 +6936,7 @@ Abaixo, a listagem de campos da Requisição:
 | `Brand`          | Bandeira do cartão: <br><br>Visa<br>Master<br>| Texto   | 10      | Sim         |
 | `CardToken`      | Token do cartão na 3.0                                                                                                | GUID    | 36      | Condicional |
 
-#### COM TOKEN
+#### COM TOKENw
 
 ``` json
 {
@@ -6969,9 +6969,9 @@ Abaixo os campos retornados após a validação:
 
 ``` json
 {
-  "CardToken":"23712c39-bb08-4030-86b3-490a223a8cc9",
-  "SaveCard":"false",
-  "Brand":"Visa"
+  "Valid": true,
+  "ReturnCode": “00”,
+  "ReturnMessage", “Transacao autorizada”
 }
 ```
 
