@@ -13959,6 +13959,27 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
 <span class="nt">--verbose</span>
 </code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">mid_loja</code></td>
+      <td>API store identifier</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="response-41">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
@@ -13971,6 +13992,48 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
     <span class="s2">"ExpiresIn"</span>: <span class="s2">"2018-07-23T11:29:32"</span>
 <span class="o">}</span>
 </code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier in Cielo</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">AccessToken</code></td>
+      <td>Access token</td>
+      <td>Text</td>
+      <td>–</td>
+      <td>NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Issued</code></td>
+      <td>Date and time generation</td>
+      <td>Text</td>
+      <td>–</td>
+      <td>AAAA-MM-DDTHH:MM:SS</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ExpiresIn</code></td>
+      <td>Date and time of expiration</td>
+      <td>Text</td>
+      <td>–</td>
+      <td>AAAA-MM-DDTHH:MM:SS</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="wallet">Wallet</h1>
 
