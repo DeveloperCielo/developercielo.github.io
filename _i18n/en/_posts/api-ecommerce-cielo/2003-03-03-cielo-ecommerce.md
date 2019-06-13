@@ -6872,23 +6872,17 @@ Below the fields returned after validation:
 
 Below is the list of Requisition fields:
 
-| Field              | Description                                                                                                               | Type      | Contact Us | Required       |
-|--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
-| `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | not            |
-| `CardToken`        | Tokenized Card 3.0                                                                                                            | GUID      | 36         | yes |
-
-### Response
-
-The response always returns if the card can be authorized at the moment. This information only means that _the card is valid to transact_, but does not necessarily indicate that a certain value will be authorized.
-
-Below the fields returned after validation:
-
 | Field             | Description                                                                        | Type      | Contact Us |
 | ----------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
 | `Valid`           | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
 | `ReturnCode`      | Return code                                                                        | text      | 2          |
 | `ReturnMessage`   | Return message                                                                     | text      | 255        |
 
+### Response
+
+The response always returns if the card can be authorized at the moment. This information only means that _the card is valid to transact_, but does not necessarily indicate that a certain value will be authorized.
+
+Below the fields returned after validation:
 
 #### POSITIVE - Valid Card
 
