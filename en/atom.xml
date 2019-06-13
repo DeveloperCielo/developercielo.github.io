@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-13T17:10:50+00:00</updated>
+    <updated>2019-06-13T17:31:17+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31611,6 +31611,38 @@ The return code &lt;strong&gt;“00” represents success in Zero Auth&lt;/stron
   &lt;li&gt;500 - Internal Server Error&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h1 id=&quot;silent-order-post&quot;&gt;Silent Order Post&lt;/h1&gt;
+
+&lt;p&gt;Integration that Cielo offers to merchants, where the payment data is safely traced, while maintaining full control over the Ckeckout experience.&lt;/p&gt;
+
+&lt;p&gt;This method allows you to send payment data from your final customer securely directly to our system. Payment fields are stored on Cielo’s side, that counts on with the PCI DSS 3.2 certified.&lt;/p&gt;
+
+&lt;p&gt;It is ideal for merchants who require a high level of security without losing the identity of your page. This method allows a high level of customization on your checkout page.&lt;/p&gt;
+
+&lt;h2 id=&quot;characteristics&quot;&gt;Characteristics&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It captures payment data directly to Cielo’s systems through the fields hosted on your page through a script (javascript).&lt;/li&gt;
+  &lt;li&gt;Compatibility with all payment methods available to the Gateway (National and International)&lt;/li&gt;
+  &lt;li&gt;Buyer Authentication (available)&lt;/li&gt;
+  &lt;li&gt;Reducing the scope of the PCI DSS&lt;/li&gt;
+  &lt;li&gt;Keep the full control over the checkout experience and brand management elements.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;authorization-flow&quot;&gt;Authorization Flow&lt;/h2&gt;
+
+&lt;h3 id=&quot;standard-authorization-flow&quot;&gt;Standard Authorization Flow&lt;/h3&gt;
+
+&lt;h3 id=&quot;authorization-flow-with-silent-order-post&quot;&gt;Authorization Flow with Silent Order POST&lt;/h3&gt;
+
+&lt;h2 id=&quot;transactional-flow&quot;&gt;Transactional Flow&lt;/h2&gt;
+
+&lt;h2 id=&quot;integration-4&quot;&gt;Integration&lt;/h2&gt;
+
+&lt;h3 id=&quot;request-35&quot;&gt;Request&lt;/h3&gt;
+
+&lt;h3 id=&quot;response-41&quot;&gt;Response&lt;/h3&gt;
+
 &lt;h1 id=&quot;wallet&quot;&gt;Wallet&lt;/h1&gt;
 
 &lt;h2 id=&quot;what-are-wallets&quot;&gt;What are Wallets&lt;/h2&gt;
@@ -31796,7 +31828,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-41&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-42&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -32169,7 +32201,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-42&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-43&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -32365,7 +32397,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
 &lt;p&gt;To use Masterpass it is necessary to contact directly with the Mastercard site: https://masterpass.com/pt-br/ e solicitar as credenciais.
 More information and complete integration, you can find in the link: https://developer.mastercard.com/product/masterpass “&lt;/p&gt;
 
-&lt;h3 id=&quot;request-35&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-36&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -32539,7 +32571,7 @@ More information and complete integration, you can find in the link: https://dev
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-43&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-44&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;

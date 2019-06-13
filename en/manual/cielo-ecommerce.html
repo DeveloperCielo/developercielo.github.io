@@ -13900,6 +13900,38 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   <li>500 - Internal Server Error</li>
 </ul>
 
+<h1 id="silent-order-post">Silent Order Post</h1>
+
+<p>Integration that Cielo offers to merchants, where the payment data is safely traced, while maintaining full control over the Ckeckout experience.</p>
+
+<p>This method allows you to send payment data from your final customer securely directly to our system. Payment fields are stored on Cielo’s side, that counts on with the PCI DSS 3.2 certified.</p>
+
+<p>It is ideal for merchants who require a high level of security without losing the identity of your page. This method allows a high level of customization on your checkout page.</p>
+
+<h2 id="characteristics">Characteristics</h2>
+
+<ul>
+  <li>It captures payment data directly to Cielo’s systems through the fields hosted on your page through a script (javascript).</li>
+  <li>Compatibility with all payment methods available to the Gateway (National and International)</li>
+  <li>Buyer Authentication (available)</li>
+  <li>Reducing the scope of the PCI DSS</li>
+  <li>Keep the full control over the checkout experience and brand management elements.</li>
+</ul>
+
+<h2 id="authorization-flow">Authorization Flow</h2>
+
+<h3 id="standard-authorization-flow">Standard Authorization Flow</h3>
+
+<h3 id="authorization-flow-with-silent-order-post">Authorization Flow with Silent Order POST</h3>
+
+<h2 id="transactional-flow">Transactional Flow</h2>
+
+<h2 id="integration-4">Integration</h2>
+
+<h3 id="request-35">Request</h3>
+
+<h3 id="response-41">Response</h3>
+
 <h1 id="wallet">Wallet</h1>
 
 <h2 id="what-are-wallets">What are Wallets</h2>
@@ -14085,7 +14117,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   </tbody>
 </table>
 
-<h3 id="response-41">Response</h3>
+<h3 id="response-42">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -14458,7 +14490,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   </tbody>
 </table>
 
-<h3 id="response-42">Response</h3>
+<h3 id="response-43">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -14654,7 +14686,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
 <p>To use Masterpass it is necessary to contact directly with the Mastercard site: https://masterpass.com/pt-br/ e solicitar as credenciais.
 More information and complete integration, you can find in the link: https://developer.mastercard.com/product/masterpass “</p>
 
-<h3 id="request-35">Request</h3>
+<h3 id="request-36">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -14828,7 +14860,7 @@ More information and complete integration, you can find in the link: https://dev
   </tbody>
 </table>
 
-<h3 id="response-43">Response</h3>
+<h3 id="response-44">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
