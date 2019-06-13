@@ -6973,7 +6973,29 @@ Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/acce
 
 ### Request
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
+
+```shell
+curl
+--request POST "https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000"
+--header "Content-Type: application/json"
+--data-binary
+--verbose
+```
+
 ### Response
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "AccessToken": "NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==",
+    "Issued": "2018-07-23T11:09:32",
+    "ExpiresIn": "2018-07-23T11:29:32"
+}
+```
 
 # Wallet
 
