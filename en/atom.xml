@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-13T19:50:27+00:00</updated>
+    <updated>2019-06-13T20:14:42+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31808,6 +31808,46 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
 
 &lt;aside class=&quot;notice&quot;&gt;Warning:  For Visa Chekcout, the Wallet node can be sent only with the &quot;Type&quot;, thus marking the transaction as being from wallet. In this context, the credit card must be sent. &lt;/aside&gt;
 
+&lt;h2 id=&quot;base-integration&quot;&gt;Base integration&lt;/h2&gt;
+
+&lt;h3 id=&quot;components&quot;&gt;Components&lt;/h3&gt;
+
+&lt;h4 id=&quot;walletkey&quot;&gt;Walletkey&lt;/h4&gt;
+
+&lt;h4 id=&quot;ephemeralpublickey&quot;&gt;EphemeralPublicKey&lt;/h4&gt;
+
+&lt;h3 id=&quot;decryption&quot;&gt;Decryption&lt;/h3&gt;
+
+&lt;h4 id=&quot;request-36&quot;&gt;Request&lt;/h4&gt;
+
+&lt;h4 id=&quot;response-42&quot;&gt;Response&lt;/h4&gt;
+
+&lt;h3 id=&quot;sending-the-card&quot;&gt;Sending the card&lt;/h3&gt;
+
+&lt;h4 id=&quot;request-37&quot;&gt;Request&lt;/h4&gt;
+
+&lt;h4 id=&quot;response-43&quot;&gt;Response&lt;/h4&gt;
+
+&lt;h2 id=&quot;apple-pay&quot;&gt;Apple Pay&lt;/h2&gt;
+
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+
+&lt;h4 id=&quot;merchantidentifier&quot;&gt;MerchantIdentifier&lt;/h4&gt;
+
+&lt;h4 id=&quot;csr-certificate&quot;&gt;CSR Certificate&lt;/h4&gt;
+
+&lt;h3 id=&quot;decryption-1&quot;&gt;Decryption&lt;/h3&gt;
+
+&lt;h4 id=&quot;request-38&quot;&gt;Request&lt;/h4&gt;
+
+&lt;h4 id=&quot;response-44&quot;&gt;Response&lt;/h4&gt;
+
+&lt;h3 id=&quot;sending-the-card-1&quot;&gt;Sending the card&lt;/h3&gt;
+
+&lt;h4 id=&quot;request-39&quot;&gt;Request&lt;/h4&gt;
+
+&lt;h4 id=&quot;response-45&quot;&gt;Response&lt;/h4&gt;
+
 &lt;h2 id=&quot;how-to-perform-transaction-with-visacheckout&quot;&gt;How to perform transaction with VisaCheckout&lt;/h2&gt;
 
 &lt;p&gt;It is possible to carry out a transaction with VisaCheckout in two ways:&lt;/p&gt;
@@ -31978,7 +32018,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-42&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-46&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -32351,7 +32391,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-43&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-47&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -32547,7 +32587,7 @@ To use wallets in the API Cielo eCommerce, the merchant must have the wallets in
 &lt;p&gt;To use Masterpass it is necessary to contact directly with the Mastercard site: https://masterpass.com/pt-br/ e solicitar as credenciais.
 More information and complete integration, you can find in the link: https://developer.mastercard.com/product/masterpass “&lt;/p&gt;
 
-&lt;h3 id=&quot;request-36&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-40&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -32721,7 +32761,7 @@ More information and complete integration, you can find in the link: https://dev
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-44&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-48&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
