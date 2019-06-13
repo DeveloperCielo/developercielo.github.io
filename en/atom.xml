@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-13T17:07:51+00:00</updated>
+    <updated>2019-06-13T17:10:50+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33599,7 +33599,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;th&gt;Meaning&lt;/th&gt;
       &lt;th&gt;Action&lt;/th&gt;
       &lt;th&gt;Allows Retry&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -33609,7 +33608,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Successfully authorized transaction.&lt;/td&gt;
       &lt;td&gt;Successfully authorized transaction.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;000&lt;/td&gt;
@@ -33617,7 +33615,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Successfully authorized transaction.&lt;/td&gt;
       &lt;td&gt;Successfully authorized transaction.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;01&lt;/td&gt;
@@ -33625,7 +33622,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Referred (suspected fraud) by the issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;02&lt;/td&gt;
@@ -33633,7 +33629,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Referred (suspected fraud) by the issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;03&lt;/td&gt;
@@ -33641,7 +33636,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Invalid establishment. Contact Cielo.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Contact the Virtual Store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;04&lt;/td&gt;
@@ -33649,7 +33643,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Card blocked by issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;05&lt;/td&gt;
@@ -33657,7 +33650,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Could not process transaction. Issue related to security, defaults or carrier limit.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;06&lt;/td&gt;
@@ -33665,7 +33657,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Could not process transaction. Card permanently canceled by issuing bank.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;07&lt;/td&gt;
@@ -33673,7 +33664,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not authorized by issuing bank rules.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;08&lt;/td&gt;
@@ -33681,7 +33671,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Invalid security code. Orient the carrier to correct the data and try again.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Incorrect data. Review the data and enter again.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;11&lt;/td&gt;
@@ -33689,7 +33678,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Successfully authorized transaction.&lt;/td&gt;
       &lt;td&gt;Successfully authorized transaction.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;12&lt;/td&gt;
@@ -33697,7 +33685,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Could not process transaction. Ask the carrier to check the card data and try again.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Review the reported data and try again. If the error persists, contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;13&lt;/td&gt;
@@ -33705,7 +33692,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Invalid value. Ask the carrier to review the data and try again. If the error persists, contact Cielo.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Invalid value. Redo the transaction confirming the reported data. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;14&lt;/td&gt;
@@ -33713,7 +33699,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Invalid Card. It may be card locking at the issuing bank, incorrect data or card testing attempts. Use the Lhum Algorithm (Mod 10) to avoid unauthorized transactions for this reason. See www.cielo.com.br/desenvolvedores to deploy the Lhum Algorithm.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Review the reported data and try again. If the error persists, contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;15&lt;/td&gt;
@@ -33721,7 +33706,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Issuing bank unavailable.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;19&lt;/td&gt;
@@ -33729,7 +33713,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Could not process transaction. Redo the transaction or try again later. If the error persists, contact Cielo.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Redo the transaction or try again later. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;21&lt;/td&gt;
@@ -33737,7 +33720,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Cancellation was not processed. If the error persists, contact Cielo.&lt;/td&gt;
       &lt;td&gt;Cancellation was not processed. Try again later. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;22&lt;/td&gt;
@@ -33745,7 +33727,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Could not process transaction. Invalid number of installments. If the error persists, contact Cielo.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Invalid value. Redo the transaction confirming the reported data. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;23&lt;/td&gt;
@@ -33753,7 +33734,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Could not process transaction. Invalid installment value. If the error persists, contact Cielo.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Invalid installment value. Redo the transaction confirming the reported data. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;24&lt;/td&gt;
@@ -33761,7 +33741,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Could not process transaction. Invalid number of installments. If the error persists, contact Cielo.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Invalid number of installments. Redo the transaction confirming the reported data. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;25&lt;/td&gt;
@@ -33769,7 +33748,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Could not process transaction. Request for authorization did not send the card number. If the error persists, check the communication between virtual store and Cielo.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Review the reported data and try again. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;28&lt;/td&gt;
@@ -33777,7 +33755,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Could not process transaction. File temporarily unavailable. Review the communication between Virtual Store and Cielo. If the error persists, contact Cielo.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Contact the Virtual Store.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;30&lt;/td&gt;
@@ -33785,7 +33762,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Could not process transaction. Ask the carrier to review the data and try again. If the error persists, check that communication with Cielo is being made correctly.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Review the data and try again. If the error persists, contact the store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;39&lt;/td&gt;
@@ -33793,7 +33769,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Error at the issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;41&lt;/td&gt;
@@ -33801,7 +33776,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Card locked for loss.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;43&lt;/td&gt;
@@ -33809,7 +33783,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Card locked for theft.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;51&lt;/td&gt;
@@ -33817,7 +33790,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Limit exceeded/no balance.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;From the following day, only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;52&lt;/td&gt;
@@ -33825,7 +33797,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Could not process transaction. Card with invalid control digit.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Review the reported data and try again.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;53&lt;/td&gt;
@@ -33833,7 +33804,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Invalid Savings card.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;54&lt;/td&gt;
@@ -33841,7 +33811,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Expired card.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Redo the transaction confirming data.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;55&lt;/td&gt;
@@ -33849,7 +33818,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Invalid password.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;57&lt;/td&gt;
@@ -33857,7 +33825,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Transaction not allowed for the card.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;58&lt;/td&gt;
@@ -33865,7 +33832,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Invalid payment option. Review if the chosen payment option is enabled in the register&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;59&lt;/td&gt;
@@ -33873,7 +33839,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Suspected fraud.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;60&lt;/td&gt;
@@ -33881,7 +33846,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Try again. If the error persists the carrier should contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;Could not process transaction. Try again later. If the error persists, contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;61&lt;/td&gt;
@@ -33889,7 +33853,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Issuing bank unavailable.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Try again. If the error persists, contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;62&lt;/td&gt;
@@ -33897,7 +33860,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Card restricted for home use.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;From the following day, only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;63&lt;/td&gt;
@@ -33905,7 +33867,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Security breach.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;64&lt;/td&gt;
@@ -33913,7 +33874,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Value below the minimum required by the issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;65&lt;/td&gt;
@@ -33921,7 +33881,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Exceeded the number of transactions for the card.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;67&lt;/td&gt;
@@ -33929,7 +33888,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Card locked for shopping today. Blocking may be due to excessive invalid attempts. Card will be automatically unlocked at midnight.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Card locked temporarily. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;From the following day, only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;70&lt;/td&gt;
@@ -33937,7 +33895,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Limit exceeded/no balance.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;From the following day, only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;72&lt;/td&gt;
@@ -33945,7 +33902,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Cancellation not done. Not enough available balance for cancellation. If the error persists, contact Cielo.&lt;/td&gt;
       &lt;td&gt;Cancellation not done. Try again later. If the error persists, contact the virtual store..&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;74&lt;/td&gt;
@@ -33953,7 +33909,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. The password is expired.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;75&lt;/td&gt;
@@ -33961,7 +33916,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction.&lt;/td&gt;
       &lt;td&gt;Your Transaction can not be processed. Contact your card issuer.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;76&lt;/td&gt;
@@ -33969,7 +33923,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Cancellation not done. Issuer bank did not locate the original transaction&lt;/td&gt;
       &lt;td&gt;Cancellation not done. Contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;77&lt;/td&gt;
@@ -33977,7 +33930,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Cancellation not done. The original transaction was not found&lt;/td&gt;
       &lt;td&gt;Cancellation not done. Contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;78&lt;/td&gt;
@@ -33985,7 +33937,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Locked card first use. Ask the carrier to unblock the card directly from their issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank and request that the card to be unlocked.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;80&lt;/td&gt;
@@ -33993,7 +33944,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Invalid transaction date or first payment date.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Redo the transaction confirming data.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;82&lt;/td&gt;
@@ -34001,7 +33951,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Invalid card. Ask the carrier to review the data and try again.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Redo the transaction confirming data. If the error persists, contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;83&lt;/td&gt;
@@ -34009,7 +33958,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Error in password control&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Redo the transaction confirming data. If the error persists, contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;85&lt;/td&gt;
@@ -34017,7 +33965,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if there is a persistent error there may be a problem at the merchant’s terminal, in which case the merchant should contact Cielo.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Re-enter the card data. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;86&lt;/td&gt;
@@ -34025,7 +33972,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if there is a persistent error there may be a problem at the merchant’s terminal, in which case the merchant should contact Cielo.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Re-enter the card data. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;89&lt;/td&gt;
@@ -34033,7 +33979,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Transaction error. The carrier must try again and if the error persists, contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Transaction error. Try again and if the error persists, contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;90&lt;/td&gt;
@@ -34041,7 +33986,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if there is a persistent error there may be a problem at the merchant’s terminal, in which case the merchant should contact Cielo.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Re-enter the card data. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;91&lt;/td&gt;
@@ -34049,7 +33993,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Issuing bank temporarily unavailable.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Issuing bank temporarily unavailable. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;92&lt;/td&gt;
@@ -34057,7 +34000,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Communication time exceeded.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Temporarily unavailable communication. Contact the virtual store.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;93&lt;/td&gt;
@@ -34065,7 +34007,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Rule violation - Possible error in register.&lt;/td&gt;
       &lt;td&gt;Your transaction can not be processed. Contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;96&lt;/td&gt;
@@ -34073,7 +34014,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Could not process transaction. Failure in Cielo’s system. If the error persists, contact Cielo.&lt;/td&gt;
       &lt;td&gt;Your Transaction can not be processed, try again later. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;97&lt;/td&gt;
@@ -34081,7 +34021,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Value not allowed for this transaction.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Value not allowed for this transaction.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;98&lt;/td&gt;
@@ -34089,7 +34028,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;There was no request response within the set time.&lt;/td&gt;
       &lt;td&gt;The transaction may have been processed. To confirm, check the transaction by the store order number and evaluate whether it was actually processed.&lt;/td&gt;
       &lt;td&gt;Retry only after reviewing the original transaction by the order number and confirm that it was not processed.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;99&lt;/td&gt;
@@ -34097,7 +34035,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Issuer system without communication. Try later. Can be error in SITEF, please check!&lt;/td&gt;
       &lt;td&gt;Your Transaction can not be processed, try again later. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;From the following day, only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;999&lt;/td&gt;
@@ -34105,7 +34042,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Issuer system without communication. Try later. Can be error in SITEF, please check!&lt;/td&gt;
       &lt;td&gt;Your Transaction can not be processed, try again later. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;From the following day, only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;AA&lt;/td&gt;
@@ -34113,7 +34049,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Time exceeded in communication with the issuing bank. Orient the carrier to try again, if the error persists it will be necessary for the carrier to contact their issuing bank.&lt;/td&gt;
       &lt;td&gt;Time exceeded in their communication with the issuing bank, try again later. If the error persists, contact your bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;AC&lt;/td&gt;
@@ -34121,7 +34056,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Debit card being used as credit. Ask the carrier to select the Debit Card payment option.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Try again by selecting the debit card payment option.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;AE&lt;/td&gt;
@@ -34129,7 +34063,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Time exceeded in communication with the issuing bank. Orient the carrier to try again, if the error persists it will be necessary for the carrier to contact their issuing bank.&lt;/td&gt;
       &lt;td&gt;Time exceeded in their communication with the issuing bank, try again later. If the error persists, contact your bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;AF&lt;/td&gt;
@@ -34137,7 +34070,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if there is a persistent error there may be a problem at the merchant’s terminal, in which case the merchant should contact Cielo.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Re-enter the card data. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;AG&lt;/td&gt;
@@ -34145,7 +34077,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if there is a persistent error there may be a problem at the merchant’s terminal, in which case the merchant should contact Cielo.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Re-enter the card data. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;AH&lt;/td&gt;
@@ -34153,7 +34084,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Credit card being used as debit. Ask the carrier to select the Credit Card payment option.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Try again by selecting the credit card payment option.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;AI&lt;/td&gt;
@@ -34161,7 +34091,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Authentication was not performed. The carrier did not complete the authentication. Ask the carrier to review the data and try again. If the error persists, contact Cielo informing the BIN (6 first digits of the card)&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Authentication failed. Try again and correctly enter the requested data. If the error persists, contact the merchant.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;AJ&lt;/td&gt;
@@ -34169,7 +34098,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Credit or debit transaction in an operation that allows only Private Label. Ask the carrier to try again by selecting the Private Label option. If not available the Private Label option check in Cielo if your establishment allows this operation.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Credit or debit transaction in an operation that allows only Private Label. Try again and select the Private Label option. In case of a new error, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;AV&lt;/td&gt;
@@ -34177,7 +34105,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Validation of transaction data failed. Guide the carrier to review the data and try again.&lt;/td&gt;
       &lt;td&gt;Data validation failed. Review the reported data and try again.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;BD&lt;/td&gt;
@@ -34185,7 +34112,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if there is a persistent error there may be a problem at the merchant’s terminal, in which case the merchant should contact Cielo.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Re-enter the card data. If the error persists, contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;BL&lt;/td&gt;
@@ -34193,7 +34119,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Daily limit exceeded. Ask the carrier to contact their issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Daily limit exceeded. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;From the following day, only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;BM&lt;/td&gt;
@@ -34201,7 +34126,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Invalid card. It may be card locking at the issuing bank or incorrect data. Try to use the Lhum Algorithm (Mod 10) to avoid unauthorized transactions for this reason.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Invalid card. Redo the transaction confirming the reported data.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;BN&lt;/td&gt;
@@ -34209,7 +34133,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Carrier’s card or account is locked. Ask the carrier to contact their issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Carrier’s card or account is locked. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;BO&lt;/td&gt;
@@ -34217,7 +34140,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if the error persists, contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. There was a processing error. Re-enter card data, if error persists, contact issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;BP&lt;/td&gt;
@@ -34225,7 +34147,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. The transaction could not be processed due to an error related to the carrier’s card or account. Ask the carrier to contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Could not process the transaction due to an error related to the carrier’s card or account. Contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;BP176&lt;/td&gt;
@@ -34233,7 +34154,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Partner should check if the onboarding process has been completed successfully.&lt;/td&gt;
       &lt;td&gt;Partner should check if the onboarding process has been completed successfully.&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;BV&lt;/td&gt;
@@ -34241,7 +34161,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Expired card.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Redo the transaction confirming data.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;CF&lt;/td&gt;
@@ -34249,7 +34168,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Data validation failed. Ask the carrier to contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Data validation failed. Contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;CG&lt;/td&gt;
@@ -34257,7 +34175,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Data validation faileds. Ask the carrier to contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Data validation failed. Contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;DA&lt;/td&gt;
@@ -34265,7 +34182,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Data validation failed. Ask the carrier to contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Data validation failed. Contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;DF&lt;/td&gt;
@@ -34273,7 +34189,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Invalid card or card failure. Ask the carrier to re-enter the card data, if the error persists, contact the bank&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Invalid card or card failure. Re-enter card data, if error persists, contact bank&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;DM&lt;/td&gt;
@@ -34281,7 +34196,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Limit exceeded/no balance.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;From the following day, only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;DQ&lt;/td&gt;
@@ -34289,7 +34203,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Data validation failed. Ask the carrier to contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Data validation failed. Contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;DS&lt;/td&gt;
@@ -34297,7 +34210,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Transaction not allowed for the card.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;EB&lt;/td&gt;
@@ -34305,7 +34217,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Daily limit exceeded. Ask the carrier to contact their issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Daily limit exceeded. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;A partir do dia seguinte, only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;EE&lt;/td&gt;
@@ -34313,7 +34224,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Installment value below the minimum allowed. It is not permitted installments lower than R$5,00. It is necessary to revise the calculation for installments.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Installment value is below the minimum allowed. Contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;EK&lt;/td&gt;
@@ -34321,7 +34231,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Transaction not allowed for the card.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;FA&lt;/td&gt;
@@ -34329,7 +34238,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;AmEx unauthorized transaction.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;FC&lt;/td&gt;
@@ -34337,7 +34245,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Guide the carrier to contact the issuing bank.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;FD&lt;/td&gt;
@@ -34345,7 +34252,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not authorized by issuing bank rules.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;FE&lt;/td&gt;
@@ -34353,7 +34259,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Invalid transaction date or first payment date.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Redo the transaction confirming data.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;FF&lt;/td&gt;
@@ -34361,7 +34266,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Cancellation transaction authorized successfully. WARNING: This return is for cases of cancellations and not for cases of authorizations.&lt;/td&gt;
       &lt;td&gt;Transação de cancelamento autorizada com sucesso&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;FG&lt;/td&gt;
@@ -34369,7 +34273,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Guide the carrier to contact AmEx Call Center.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact the AmEx Call Center at the phone number 08007285090&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;GA&lt;/td&gt;
@@ -34377,12 +34280,10 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Referred by Lynx Online in a preventive way.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact the merchant.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;GD&lt;/td&gt;
       &lt;td&gt;Transaction not allowed.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Transaction can not be processed in the establishment. Contact Cielo for more details.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Contact the virtual store&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -34393,7 +34294,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Invalid Coban operation code.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Invalid Coban operation code. Contact the merchant.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;IA&lt;/td&gt;
@@ -34401,7 +34301,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Invalid Coban operation indicator.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Invalid Coban operation indicator. Contact the merchant.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;JB&lt;/td&gt;
@@ -34409,7 +34308,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Invalid Coban operation value.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Invalid Coban operation value. Contact the merchant.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;KA&lt;/td&gt;
@@ -34417,7 +34315,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. There was a failure in data validation. Ask the carrier to review the data and try again. If the error persists, check the communication between virtual store and Cielo.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. There was a failure in data validation. Review the reported data and try again. If the error persists, contact the Virtual Store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;KB&lt;/td&gt;
@@ -34425,7 +34322,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. Wrong option selected. Ask the carrier to review the data and try again. If the error persists, the communication between virtual store and Cielo must be checked.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Wrong option selected. Try again. If the error persists, contact the Virtual Store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;KE&lt;/td&gt;
@@ -34433,7 +34329,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Data validation failed. Selected option is not enabled. Check the options available to the carrier.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Data validation failed. Selected option is not enabled. Contact the virtual store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;N7&lt;/td&gt;
@@ -34441,7 +34336,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Invalid security code. Guide the carrier to correct the data and try again.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Review the data and enter again.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;R1&lt;/td&gt;
@@ -34449,7 +34343,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Unauthorized transaction. Could not process transaction. Issue related to security, default or carrier limit.&lt;/td&gt;
       &lt;td&gt;Unauthorized transaction. Contact your issuing bank.&lt;/td&gt;
       &lt;td&gt;Only 4 times in 16 days.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;U3&lt;/td&gt;
@@ -34457,7 +34350,6 @@ More information and complete integration, you can find in the link: https://dev
       &lt;td&gt;Transaction not allowed. There was a failure in data validation. Ask the carrier to review the data and try again. If the error persists, check the communication between virtual store and Cielo.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. There was a failure in data validation. Review the reported data and try again. If the error persists, contact the Virtual Store.&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
