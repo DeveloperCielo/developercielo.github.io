@@ -13805,49 +13805,6 @@ The problem is that at the end of this period, if the card is invalid, the new r
       <th>Description</th>
       <th>Type</th>
       <th>Contact Us</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">Brand</code></td>
-      <td>Card Brand: Visa <br /> Master <br /> ELO</td>
-      <td>Text</td>
-      <td>10</td>
-      <td>not</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CardToken</code></td>
-      <td>Tokenized Card 3.0</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>yes</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-40">Response</h3>
-
-<p>The response always returns if the card can be authorized at the moment. This information only means that <em>the card is valid to transact</em>, but does not necessarily indicate that a certain value will be authorized.</p>
-
-<p>Below the fields returned after validation:</p>
-
-<h4 id="positive---valid-card">POSITIVE - Valid Card</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-        </span><span class="s2">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="err">“</span><span class="mi">00</span><span class="err">”</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ReturnMessage"</span><span class="p">,</span><span class="w"> </span><span class="err">“Transacao</span><span class="w"> </span><span class="err">autorizada”</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Contact Us</th>
     </tr>
   </thead>
   <tbody>
@@ -13871,6 +13828,21 @@ The problem is that at the end of this period, if the card is invalid, the new r
     </tr>
   </tbody>
 </table>
+
+<h3 id="response-40">Response</h3>
+
+<p>The response always returns if the card can be authorized at the moment. This information only means that <em>the card is valid to transact</em>, but does not necessarily indicate that a certain value will be authorized.</p>
+
+<p>Below the fields returned after validation:</p>
+
+<h4 id="positive---valid-card">POSITIVE - Valid Card</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+        </span><span class="s2">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="err">“</span><span class="mi">00</span><span class="err">”</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ReturnMessage"</span><span class="p">,</span><span class="w"> </span><span class="err">“Transacao</span><span class="w"> </span><span class="err">autorizada”</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <blockquote>
   <p>See <a href="https://developercielo.github.io/en/manual/cielo-ecommerce"><strong>Integration Manual</strong></a> for more information about Return Codes.
