@@ -7807,6 +7807,7 @@ Codes returned in case of error, identifying the reason for the error and its re
 |BN|Unauthorized transaction. Card or account locked.|Unauthorized transaction. Carrier's card or account is locked. Ask the carrier to contact their issuing bank.|Unauthorized transaction. Carrier's card or account is locked. Contact your issuing bank.|No|
 |BO|Transaction not allowed. Operation failed.|Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if the error persists, contact the issuing bank.|Transaction not allowed. There was a processing error. Re-enter card data, if error persists, contact issuing bank.|Only 4 times in 16 days.|
 |BP|Unauthorized transaction. Non-existent checking account.|Unauthorized transaction. The transaction could not be processed due to an error related to the carrier's card or account. Ask the carrier to contact the issuing bank.|Unauthorized transaction. Could not process the transaction due to an error related to the carrier's card or account. Contact the issuing bank.|No|
+|BP176|Transaction not allowed.|Partner should check if the onboarding process has been completed successfully.|Partner should check if the onboarding process has been completed successfully.|---|
 |BV|Unauthorized transaction. Expired card|Unauthorized transaction. Expired card.|Unauthorized transaction. Redo the transaction confirming data.|No|
 |CF|Unauthorized transaction.C79:J79 Data validation failed.|Unauthorized transaction. Data validation failed. Ask the carrier to contact the issuing bank.|Unauthorized transaction. Data validation failed. Contact the issuing bank.|No|
 |CG|Unauthorized transaction. Data validation failed.|Unauthorized transaction. Data validation faileds. Ask the carrier to contact the issuing bank.|Unauthorized transaction. Data validation failed. Contact the issuing bank.|No|
@@ -7823,9 +7824,9 @@ Codes returned in case of error, identifying the reason for the error and its re
 |FD|Transaction declined. Hold special condition card|Transaction not authorized by issuing bank rules.|Unauthorized transaction. Contact your issuing bank|No|
 |FE|Unauthorized transaction. Divergence on transaction/payment date.|Unauthorized transaction. Invalid transaction date or first payment date.|Unauthorized transaction. Redo the transaction confirming data.|No|
 |FF|Cancellation OK|Cancellation transaction authorized successfully. WARNING: This return is for cases of cancellations and not for cases of authorizations.|Transação de cancelamento autorizada com sucesso|No|
-|FG|Unauthorized transaction. Call AmEx.|Unauthorized transaction. Guide the carrier to contact AmEx Call Center.|Unauthorized transaction. Contact the AmEx Call Center at the phone number 08007285090|No|
-|FG|Call 08007285090|Unauthorized transaction. Guide the carrier to contact AmEx Call Center.|Unauthorized transaction. Contact the AmEx Call Center at the phone number 08007285090|No|
+|FG|Unauthorized transaction. Call AmEx 08007285090.|Unauthorized transaction. Guide the carrier to contact AmEx Call Center.|Unauthorized transaction. Contact the AmEx Call Center at the phone number 08007285090|No|
 |GA|Wait for contact|Unauthorized transaction. Referred by Lynx Online in a preventive way.|Unauthorized transaction. Contact the merchant.|No|
+|GD|Transaction not allowed|Transaction not allowed|Transaction can not be processed in the establishment. Contact Cielo for more details.|Transaction not allowed. Contact the virtual store|No|
 |HJ|Transaction not allowed. Invalid operation code.|Transaction not allowed. Invalid Coban operation code.|Transaction not allowed. Invalid Coban operation code. Contact the merchant.|No|
 |IA|Transaction not allowed. Invalid operation indicator.|Transaction not allowed. Invalid Coban operation indicator.|Transaction not allowed. Invalid Coban operation indicator. Contact the merchant.|No|
 |JB|Transaction not allowed. Invalid operation value.|Transaction not allowed. Invalid Coban operation value.|Transaction not allowed. Invalid Coban operation value. Contact the merchant.|No|
@@ -7835,7 +7836,6 @@ Codes returned in case of error, identifying the reason for the error and its re
 |N7|Unauthorized transaction. Invalid security code.|Unauthorized transaction. Invalid security code. Guide the carrier to correct the data and try again.|Unauthorized transaction. Review the data and enter again.|No|
 |R1|Unauthorized transaction. Default card (Do not honor).|Unauthorized transaction. Could not process transaction. Issue related to security, default or carrier limit.|Unauthorized transaction. Contact your issuing bank.|Only 4 times in 16 days.|
 |U3|Transaction not allowed. Data validation failed.|Transaction not allowed. There was a failure in data validation. Ask the carrier to review the data and try again. If the error persists, check the communication between virtual store and Cielo.|Transaction not allowed. There was a failure in data validation. Review the reported data and try again. If the error persists, contact the Virtual Store.|No|
-|GD|Transaction not allowed|Transaction not allowed|Transaction can not be processed in the establishment. Contact Cielo for more details..|Transaction not allowed. Contact the virtual store|No|
 
 **Warning**: There are similar return codes, but with different meanings such as "**6** - Captured" and the "**06** - Canceled Card". These codes are only informative of the processing system. **Only the field `STATUS` should be considered as the current transaction situation**
 
