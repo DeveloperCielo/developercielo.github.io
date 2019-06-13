@@ -7065,6 +7065,46 @@ API Cielo eCommerce supports two payment wallets: VisaCheckout and Masterpass.
 
 <aside class="notice"><strong>Warning:</strong>  For Visa Chekcout, the Wallet node can be sent only with the "Type", thus marking the transaction as being from wallet. In this context, the credit card must be sent. </aside>
 
+## Base integration
+
+### Components
+
+#### Walletkey
+
+#### EphemeralPublicKey
+
+### Decryption
+
+#### Request
+
+#### Response
+
+### Sending the card
+
+#### Request
+
+#### Response
+
+## Apple Pay
+
+### Prerequisites
+
+#### MerchantIdentifier
+
+#### CSR Certificate
+
+### Decryption
+
+#### Request
+
+#### Response
+
+### Sending the card
+
+#### Request
+
+#### Response
+
 ## How to perform transaction with VisaCheckout
 
 It is possible to carry out a transaction with VisaCheckout in two ways:
