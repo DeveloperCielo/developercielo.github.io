@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-13T17:31:17+00:00</updated>
+    <updated>2019-06-13T17:53:09+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31631,13 +31631,33 @@ The return code &lt;strong&gt;“00” represents success in Zero Auth&lt;/stron
 
 &lt;h2 id=&quot;authorization-flow&quot;&gt;Authorization Flow&lt;/h2&gt;
 
+&lt;p&gt;The establishment must be &lt;strong&gt;PCI Compliance&lt;/strong&gt; (PCI = Security Rules to manipulate card data)&lt;/p&gt;
+
 &lt;h3 id=&quot;standard-authorization-flow&quot;&gt;Standard Authorization Flow&lt;/h3&gt;
+
+&lt;p&gt;The server &lt;strong&gt;does not pass the card data&lt;/strong&gt; openly.&lt;/p&gt;
 
 &lt;h3 id=&quot;authorization-flow-with-silent-order-post&quot;&gt;Authorization Flow with Silent Order POST&lt;/h3&gt;
 
 &lt;h2 id=&quot;transactional-flow&quot;&gt;Transactional Flow&lt;/h2&gt;
 
 &lt;h2 id=&quot;integration-4&quot;&gt;Integration&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;STEP 1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The buyer finishes the checkout, and goes to the payment processing.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;STEP 2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a) The merchant must request a ticket (server to server) sending a POST to the following URL:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SANDBOX:&lt;/strong&gt;
+&lt;strong&gt;https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PRODUCTION:&lt;/strong&gt;
+&lt;strong&gt;https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid={mid}&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&lt;/p&gt;
 
 &lt;h3 id=&quot;request-35&quot;&gt;Request&lt;/h3&gt;
 

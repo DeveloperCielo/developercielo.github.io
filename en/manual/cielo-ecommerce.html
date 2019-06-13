@@ -13920,13 +13920,33 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
 
 <h2 id="authorization-flow">Authorization Flow</h2>
 
+<p>The establishment must be <strong>PCI Compliance</strong> (PCI = Security Rules to manipulate card data)</p>
+
 <h3 id="standard-authorization-flow">Standard Authorization Flow</h3>
+
+<p>The server <strong>does not pass the card data</strong> openly.</p>
 
 <h3 id="authorization-flow-with-silent-order-post">Authorization Flow with Silent Order POST</h3>
 
 <h2 id="transactional-flow">Transactional Flow</h2>
 
 <h2 id="integration-4">Integration</h2>
+
+<p><strong>STEP 1</strong></p>
+
+<p>The buyer finishes the checkout, and goes to the payment processing.</p>
+
+<p><strong>STEP 2</strong></p>
+
+<p>a) The merchant must request a ticket (server to server) sending a POST to the following URL:</p>
+
+<p><strong>SANDBOX:</strong>
+<strong>https://transactionsandbox.pagador.com.br/post/api/public/v1/accesstoken?merchantid={mid_loja}</strong></p>
+
+<p><strong>PRODUCTION:</strong>
+<strong>https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid={mid}</strong></p>
+
+<p>Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
 <h3 id="request-35">Request</h3>
 
