@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-13T18:15:07+00:00</updated>
+    <updated>2019-06-13T18:26:56+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31745,6 +31745,18 @@ The return code &lt;strong&gt;“00” represents success in Zero Auth&lt;/stron
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;p&gt;b) In order to use this resource, for security reasons, it will be obligatory on the Cielo’s behalf, &lt;strong&gt;at least one valid IP of the establishment.&lt;/strong&gt; Otherwise the request will not be authorized (HTTP 401 NotAuthorized).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;STEP 3&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a) In response, the establishment will receive a json (HTTP 201 Created) containing among other information, the ticket (AccessToken), such as:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/response-ticket-silent-order-post-cielo.jpg&quot; alt=&quot;Response Ticket&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For security reasons, this ticket will allow the establishment to save only 1 card within a deadline already stipulated in the response, using the ExpiresIn attribute (by default, 20 minutes). Whatever happens first will invalidate this same ticket for future use.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/html-silent-order-post.jpg&quot; alt=&quot;Pagina Checkout&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;wallet&quot;&gt;Wallet&lt;/h1&gt;
 
