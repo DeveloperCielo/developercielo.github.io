@@ -6925,6 +6925,36 @@ If there is any error in the flow, where it is not possible to validate the card
 
 * 500 - Internal Server Error
 
+# Silent Order Post
+
+Integration that Cielo offers to merchants, where the payment data is safely traced, while maintaining full control over the Ckeckout experience.
+
+This method allows you to send payment data from your final customer securely directly to our system. Payment fields are stored on Cielo's side, that counts on with the PCI DSS 3.2 certified.
+
+It is ideal for merchants who require a high level of security without losing the identity of your page. This method allows a high level of customization on your checkout page.
+
+## Characteristics
+
+* It captures payment data directly to Cielo's systems through the fields hosted on your page through a script (javascript).
+* Compatibility with all payment methods available to the Gateway (National and International)
+* Buyer Authentication (available)
+* Reducing the scope of the PCI DSS
+* Keep the full control over the checkout experience and brand management elements.
+
+## Authorization Flow
+
+### Standard Authorization Flow
+
+### Authorization Flow with Silent Order POST
+
+## Transactional Flow
+
+## Integration
+
+### Request
+
+### Response
+
 # Wallet
 
 ## What are Wallets
