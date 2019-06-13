@@ -7040,6 +7040,14 @@ b) The establishment should customize its inputs of the form with the following 
 
 c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: **onSuccess** (where **PaymentToken** will be returned after processing the card data), **onError** (if there is any error in the consumption of Cielo services) and **onInvalid** (where the result of the validation of the inputs will be returned).
 
+* In the input validation, the establishment can use the entire layer of validation on the card data made by Cielo and then simplify the treatment on your checkout form. The messages returned in the validation result are available in the following languages: portuguese (default), english and spanish.
+
+* The *PaymentToken* will be the token that will represent all the card data provided by the buyer. The same will be used by the establishment so there is no need to process and process card data on its side.
+
+**For security reasons this PaymentToken can only be used for 1 authorization in Cielo 3.0. After processing, it will be invalidated.**
+
+Example of setup to be performed by the establishment on the checkout page:
+
 ![Pagina Checkout]({{ site.baseurl_root }}/images/html-silent-order-post.jpg)
 
 # Wallet
