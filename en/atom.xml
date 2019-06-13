@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-13T18:26:56+00:00</updated>
+    <updated>2019-06-13T18:49:14+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31755,6 +31755,28 @@ The return code &lt;strong&gt;“00” represents success in Zero Auth&lt;/stron
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/response-ticket-silent-order-post-cielo.jpg&quot; alt=&quot;Response Ticket&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;For security reasons, this ticket will allow the establishment to save only 1 card within a deadline already stipulated in the response, using the ExpiresIn attribute (by default, 20 minutes). Whatever happens first will invalidate this same ticket for future use.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;STEP 4 to 6&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a) The establishment should download a script provided by Cielo, and attach it to its checkout page. This script will allow Cielo to process all the card information without intervention of the establishment.
+The download can be made from the following URL:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;SANDBOX:&lt;/strong&gt;
+&lt;strong&gt;https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PRODUÇÃO:&lt;/strong&gt;
+&lt;strong&gt;https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;b) The establishment should customize its inputs of the form with the following classes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;For the credit/debit card holder: &lt;strong&gt;bp-sop-cardholdername&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;For credit/debit card number: &lt;strong&gt;bp-sop-cardnumber&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;For credit/debit card validity: &lt;strong&gt;bp-sop-cardexpirationdate&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;For credit/debit card security code: &lt;strong&gt;bp-sop-cardcvvc&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: &lt;strong&gt;onSuccess&lt;/strong&gt; (where &lt;strong&gt;PaymentToken&lt;/strong&gt; will be returned after processing the card data), &lt;strong&gt;onError&lt;/strong&gt; (if there is any error in the consumption of Cielo services) and &lt;strong&gt;onInvalid&lt;/strong&gt; (where the result of the validation of the inputs will be returned).&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/html-silent-order-post.jpg&quot; alt=&quot;Pagina Checkout&quot; /&gt;&lt;/p&gt;
 

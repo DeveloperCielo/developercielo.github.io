@@ -14045,6 +14045,28 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
 
 <p>For security reasons, this ticket will allow the establishment to save only 1 card within a deadline already stipulated in the response, using the ExpiresIn attribute (by default, 20 minutes). Whatever happens first will invalidate this same ticket for future use.</p>
 
+<p><strong>STEP 4 to 6</strong></p>
+
+<p>a) The establishment should download a script provided by Cielo, and attach it to its checkout page. This script will allow Cielo to process all the card information without intervention of the establishment.
+The download can be made from the following URL:</p>
+
+<p><strong>SANDBOX:</strong>
+<strong>https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js</strong></p>
+
+<p><strong>PRODUÇÃO:</strong>
+<strong>https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js</strong></p>
+
+<p>b) The establishment should customize its inputs of the form with the following classes:</p>
+
+<ul>
+  <li>For the credit/debit card holder: <strong>bp-sop-cardholdername</strong></li>
+  <li>For credit/debit card number: <strong>bp-sop-cardnumber</strong></li>
+  <li>For credit/debit card validity: <strong>bp-sop-cardexpirationdate</strong></li>
+  <li>For credit/debit card security code: <strong>bp-sop-cardcvvc</strong></li>
+</ul>
+
+<p>c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: <strong>onSuccess</strong> (where <strong>PaymentToken</strong> will be returned after processing the card data), <strong>onError</strong> (if there is any error in the consumption of Cielo services) and <strong>onInvalid</strong> (where the result of the validation of the inputs will be returned).</p>
+
 <p><img src="https://developercielo.github.io/images/html-silent-order-post.jpg" alt="Pagina Checkout" /></p>
 
 <h1 id="wallet">Wallet</h1>
