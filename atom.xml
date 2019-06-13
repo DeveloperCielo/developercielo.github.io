@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-13T14:23:46+00:00</updated>
+    <updated>2019-06-13T16:41:43+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -34859,6 +34859,13 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
       &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;BP176&lt;/td&gt;
+      &lt;td&gt;Transação não permitida.&lt;/td&gt;
+      &lt;td&gt;Parceiro deve checar se o processo de integração foi concluído com sucesso.&lt;/td&gt;
+      &lt;td&gt;Parceiro deve checar se o processo de integração foi concluído com sucesso.&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;BV&lt;/td&gt;
       &lt;td&gt;Transação não autorizada. Cartão vencido&lt;/td&gt;
       &lt;td&gt;Transação não autorizada. Cartão vencido.&lt;/td&gt;
@@ -34972,14 +34979,7 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;FG&lt;/td&gt;
-      &lt;td&gt;Transação não autorizada. Ligue AmEx.&lt;/td&gt;
-      &lt;td&gt;Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.&lt;/td&gt;
-      &lt;td&gt;Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090&lt;/td&gt;
-      &lt;td&gt;Não&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;FG&lt;/td&gt;
-      &lt;td&gt;Ligue 08007285090&lt;/td&gt;
+      &lt;td&gt;Transação não autorizada. Ligue AmEx 08007285090.&lt;/td&gt;
       &lt;td&gt;Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.&lt;/td&gt;
       &lt;td&gt;Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
@@ -34990,6 +34990,13 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
       &lt;td&gt;Transação não autorizada. Referida pelo Lynx Online de forma preventiva.&lt;/td&gt;
       &lt;td&gt;Transação não autorizada. Entre em contato com o lojista.&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GD&lt;/td&gt;
+      &lt;td&gt;Transação não permitida.&lt;/td&gt;
+      &lt;td&gt;Transação não permitida. Entre em contato com a Cielo.&lt;/td&gt;
+      &lt;td&gt;Transação não permitida. Entre em contato com a Cielo.&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;HJ&lt;/td&gt;
