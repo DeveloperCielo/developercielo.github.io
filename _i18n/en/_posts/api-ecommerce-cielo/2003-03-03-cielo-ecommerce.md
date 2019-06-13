@@ -7008,6 +7008,18 @@ curl
 |`Issued`|Date and time generation |Text|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Date and time of expiration |Text|--|AAAA-MM-DDTHH:MM:SS|
 
+b) In order to use this resource, for security reasons, it will be obligatory on the Cielo's behalf, **at least one valid IP of the establishment.** Otherwise the request will not be authorized (HTTP 401 NotAuthorized).
+
+**STEP 3**
+
+a) In response, the establishment will receive a json (HTTP 201 Created) containing among other information, the ticket (AccessToken), such as:
+
+![Response Ticket]({{ site.baseurl_root }}/images/response-ticket-silent-order-post-cielo.jpg)
+
+For security reasons, this ticket will allow the establishment to save only 1 card within a deadline already stipulated in the response, using the ExpiresIn attribute (by default, 20 minutes). Whatever happens first will invalidate this same ticket for future use.
+
+![Pagina Checkout]({{ site.baseurl_root }}/images/html-silent-order-post.jpg)
+
 # Wallet
 
 ## What are Wallets
