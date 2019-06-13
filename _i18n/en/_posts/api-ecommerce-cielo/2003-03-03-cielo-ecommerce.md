@@ -7018,6 +7018,28 @@ a) In response, the establishment will receive a json (HTTP 201 Created) contain
 
 For security reasons, this ticket will allow the establishment to save only 1 card within a deadline already stipulated in the response, using the ExpiresIn attribute (by default, 20 minutes). Whatever happens first will invalidate this same ticket for future use.
 
+**STEP 4 to 6**
+
+a) The establishment should download a script provided by Cielo, and attach it to its checkout page. This script will allow Cielo to process all the card information without intervention of the establishment.
+The download can be made from the following URL:
+
+**SANDBOX:**
+**https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**
+
+**PRODUÇÃO:**
+**https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js**
+
+b) The establishment should customize its inputs of the form with the following classes:
+
+* For the credit/debit card holder: **bp-sop-cardholdername**
+* For credit/debit card number: **bp-sop-cardnumber**
+* For credit/debit card validity: **bp-sop-cardexpirationdate**
+* For credit/debit card security code: **bp-sop-cardcvvc**
+
+<br>
+
+c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: **onSuccess** (where **PaymentToken** will be returned after processing the card data), **onError** (if there is any error in the consumption of Cielo services) and **onInvalid** (where the result of the validation of the inputs will be returned).
+
 ![Pagina Checkout]({{ site.baseurl_root }}/images/html-silent-order-post.jpg)
 
 # Wallet
