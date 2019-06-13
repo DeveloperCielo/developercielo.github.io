@@ -6883,6 +6883,13 @@ The response always returns if the card can be authorized at the moment. This in
 
 Below the fields returned after validation:
 
+| Field             | Description                                                                        | Type      | Contact Us |
+| ----------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
+| `Valid`           | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
+| `ReturnCode`      | Return code                                                                        | text      | 2          |
+| `ReturnMessage`   | Return message                                                                     | text      | 255        |
+
+
 #### POSITIVE - Valid Card
 
 ``` json
@@ -6892,12 +6899,6 @@ Below the fields returned after validation:
         "ReturnMessage", “Transacao autorizada”
 }
 ```
-
-| Field             | Description                                                                        | Type      | Contact Us |
-| ----------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
-| `Valid`           | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
-| `ReturnCode`      | Return code                                                                        | text      | 2          |
-| `ReturnMessage`   | Return message                                                                     | text      | 255        |
 
 > See [**Integration Manual**](https://developercielo.github.io/en/manual/cielo-ecommerce) for more information about Return Codes.
 > The return code **"00" represents success in Zero Auth**, the other codes are defined according to the above documentation.
