@@ -6936,7 +6936,7 @@ Abaixo, a listagem de campos da Requisição:
 | `Brand`          | Bandeira do cartão: <br><br>Visa<br>Master<br>| Texto   | 10      | Sim         |
 | `CardToken`      | Token do cartão na 3.0                                                                                                | GUID    | 36      | Condicional |
 
-#### COM TOKENw
+#### COM TOKEN
 
 ``` json
 {
