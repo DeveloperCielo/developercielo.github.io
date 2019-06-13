@@ -6983,6 +6983,10 @@ curl
 --verbose
 ```
 
+|Property|Description|Type|Size|Required|
+|-----------|---------|----|-------|-----------|
+|`mid_loja`|API store identifier |Guid |36 |Yes|
+
 ### Response
 
 ```shell
@@ -6996,6 +7000,13 @@ curl
     "ExpiresIn": "2018-07-23T11:29:32"
 }
 ```
+
+|Property|Description|Type|Size|Format|
+|-----------|---------|----|-------|-------|
+|`MerchantId`|Store identifier in Cielo |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Access token |Text|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Date and time generation |Text|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Date and time of expiration |Text|--|AAAA-MM-DDTHH:MM:SS|
 
 # Wallet
 
