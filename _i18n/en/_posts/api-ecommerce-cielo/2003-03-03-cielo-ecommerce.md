@@ -7826,7 +7826,7 @@ Codes returned in case of error, identifying the reason for the error and its re
 |FF|Cancellation OK|Cancellation transaction authorized successfully. WARNING: This return is for cases of cancellations and not for cases of authorizations.|Transação de cancelamento autorizada com sucesso|No|
 |FG|Unauthorized transaction. Call AmEx 08007285090.|Unauthorized transaction. Guide the carrier to contact AmEx Call Center.|Unauthorized transaction. Contact the AmEx Call Center at the phone number 08007285090|No|
 |GA|Wait for contact|Unauthorized transaction. Referred by Lynx Online in a preventive way.|Unauthorized transaction. Contact the merchant.|No|
-|GD|Transaction not allowed.||Transaction can not be processed in the establishment. Contact Cielo for more details.|Transaction not allowed. Contact the virtual store|No|
+|GD|Transaction not allowed.|Transaction can not be processed in the establishment. Contact Cielo for more details.|Transaction not allowed. Contact the virtual store|No|
 |HJ|Transaction not allowed. Invalid operation code.|Transaction not allowed. Invalid Coban operation code.|Transaction not allowed. Invalid Coban operation code. Contact the merchant.|No|
 |IA|Transaction not allowed. Invalid operation indicator.|Transaction not allowed. Invalid Coban operation indicator.|Transaction not allowed. Invalid Coban operation indicator. Contact the merchant.|No|
 |JB|Transaction not allowed. Invalid operation value.|Transaction not allowed. Invalid Coban operation value.|Transaction not allowed. Invalid Coban operation value. Contact the merchant.|No|
