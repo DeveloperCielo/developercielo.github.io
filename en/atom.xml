@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-13T16:57:59+00:00</updated>
+    <updated>2019-06-13T17:05:36+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -34381,8 +34381,8 @@ More information and complete integration, you can find in the link: https://dev
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;GD&lt;/td&gt;
-      &lt;td&gt;Transaction not allowed&lt;/td&gt;
-      &lt;td&gt;Transaction not allowed&lt;/td&gt;
+      &lt;td&gt;Transaction not allowed.&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Transaction can not be processed in the establishment. Contact Cielo for more details.&lt;/td&gt;
       &lt;td&gt;Transaction not allowed. Contact the virtual store&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
