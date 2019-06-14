@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-13T20:14:42+00:00</updated>
+    <updated>2019-06-14T12:50:55+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31797,16 +31797,45 @@ The download can be made from the following URL:&lt;/p&gt;
 
 &lt;h2 id=&quot;what-are-wallets&quot;&gt;What are Wallets&lt;/h2&gt;
 
-&lt;p&gt;They are repositories of cards and payment data for online consumers. The digital wallets allow a consumer to register their payment data, thus streamlining the purchase process in authorized stores in their purchases for having only one registration.
-To use wallets in the API Cielo eCommerce, the merchant must have the wallets integrated in their checkout. For more information, we suggest that you contact the technical department of the wallet that you wish to implement.&lt;/p&gt;
+&lt;p&gt;They are card repositories and payment data for online consumers. The digital wallets allow a consumer to register their payment data, then speeding up the purchase process in qualified stores in their purchases by having only one registration.&lt;/p&gt;
 
-&lt;p&gt;API Cielo eCommerce supports two payment wallets: VisaCheckout and Masterpass.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;To use wallets in the API Cielo eCommerce, the merchant must have the wallets integrated in their checkout.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For more information, we suggest that you contact the technical department of the wallet that you wish to implement.&lt;/p&gt;
+
+&lt;h3 id=&quot;wallets-available&quot;&gt;Wallets Available&lt;/h3&gt;
+
+&lt;p&gt;The Cielo Ecommerce API is integrated with:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Wallet&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.apple.com/br/apple-pay/&quot;&gt;&lt;em&gt;Apple Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://vaidevisa.visa.com.br/site/visa-checkout&quot;&gt;&lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://masterpass.com/pt-br/&quot;&gt;&lt;em&gt;MasterPass&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.samsung.com.br/samsungpay/&quot;&gt;&lt;em&gt;Samsung Pay&lt;/em&gt;&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.&lt;/aside&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: For debit card, when the “Wallet” node is sent in the request, the “DebitCard” node will be needed containing the “ReturnUrl”.&lt;/aside&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Warning:  For Visa Chekcout, the Wallet node can be sent only with the &quot;Type&quot;, thus marking the transaction as being from wallet. In this context, the credit card must be sent. &lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Warning:  Due to the need of using ephemeral keys to carry out credit operations, the Recurrence is not available for Wallets transactions &lt;/aside&gt;
 
 &lt;h2 id=&quot;base-integration&quot;&gt;Base integration&lt;/h2&gt;
 

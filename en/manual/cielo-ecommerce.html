@@ -14086,16 +14086,45 @@ The download can be made from the following URL:</p>
 
 <h2 id="what-are-wallets">What are Wallets</h2>
 
-<p>They are repositories of cards and payment data for online consumers. The digital wallets allow a consumer to register their payment data, thus streamlining the purchase process in authorized stores in their purchases for having only one registration.
-To use wallets in the API Cielo eCommerce, the merchant must have the wallets integrated in their checkout. For more information, we suggest that you contact the technical department of the wallet that you wish to implement.</p>
+<p>They are card repositories and payment data for online consumers. The digital wallets allow a consumer to register their payment data, then speeding up the purchase process in qualified stores in their purchases by having only one registration.</p>
 
-<p>API Cielo eCommerce supports two payment wallets: VisaCheckout and Masterpass.</p>
+<blockquote>
+  <p>To use wallets in the API Cielo eCommerce, the merchant must have the wallets integrated in their checkout.</p>
+</blockquote>
+
+<p>For more information, we suggest that you contact the technical department of the wallet that you wish to implement.</p>
+
+<h3 id="wallets-available">Wallets Available</h3>
+
+<p>The Cielo Ecommerce API is integrated with:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Wallet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://www.apple.com/br/apple-pay/"><em>Apple Pay</em></a></td>
+    </tr>
+    <tr>
+      <td><a href="https://vaidevisa.visa.com.br/site/visa-checkout"><em>VisaCheckout</em></a></td>
+    </tr>
+    <tr>
+      <td><a href="https://masterpass.com/pt-br/"><em>MasterPass</em></a></td>
+    </tr>
+    <tr>
+      <td><a href="https://www.samsung.com.br/samsungpay/"><em>Samsung Pay</em></a></td>
+    </tr>
+  </tbody>
+</table>
 
 <aside class="notice">Warning: When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 
 <aside class="notice">Warning: For debit card, when the “Wallet” node is sent in the request, the “DebitCard” node will be needed containing the “ReturnUrl”.</aside>
 
-<aside class="notice">Warning:  For Visa Chekcout, the Wallet node can be sent only with the "Type", thus marking the transaction as being from wallet. In this context, the credit card must be sent. </aside>
+<aside class="notice">Warning:  Due to the need of using ephemeral keys to carry out credit operations, the Recurrence is not available for Wallets transactions </aside>
 
 <h2 id="base-integration">Base integration</h2>
 
