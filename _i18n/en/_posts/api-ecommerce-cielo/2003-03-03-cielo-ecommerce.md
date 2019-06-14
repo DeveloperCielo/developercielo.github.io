@@ -7247,7 +7247,7 @@ Each Wallet has an `EphemeralPublicKey` format.
 #### Request
 
 ``` json
--- Envio de cartão
+-- Sending the card
 {
   "MerchantOrderId": "6242-642-723",
   "Customer": {
@@ -7592,7 +7592,7 @@ In the model below, we demonstrate how VisaCheckout can be used with the sending
 
 In this model, the merchant only informs that the transaction is from Wallet VisaCheckout and sends the ECI and CAVV data provided by Visa
 
-* ** ECI ** - returned by Visa on the payload as `DSC_ECI`
+* **ECI** - returned by Visa on the payload as `DSC_ECI`
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
