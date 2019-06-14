@@ -7401,7 +7401,6 @@ In the model presented below, we demonstrate how to use the integration VisaChec
 
 #### Request
 
-
 Default request sample *VisaCheckout*
 
 > It is necessary that the store already has a VisaCheckout integration and registration, otherwise it will not be possible to integrate with the API
