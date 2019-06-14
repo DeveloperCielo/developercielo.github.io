@@ -14860,7 +14860,19 @@ Each Wallet has an <code class="highlighter-rouge">EphemeralPublicKey</code> for
 
 <h3 id="decryption-2">Decryption</h3>
 
+<p>In the model presented below, we demonstrate how to use the integration VisaCheckout Cielo by sending the WalletKey returned by Visa via Payload</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">Walletkey</code> is the <code class="highlighter-rouge">CallID</code> parameter returned by VisaCheckout</p>
+</blockquote>
+
 <h4 id="request-40">Request</h4>
+
+<p>Default request sample <em>VisaCheckout</em></p>
+
+<blockquote>
+  <p>It is necessary that the store already has a VisaCheckout integration and registration, otherwise it will not be possible to integrate with the API</p>
+</blockquote>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -15205,7 +15217,15 @@ Each Wallet has an <code class="highlighter-rouge">EphemeralPublicKey</code> for
 
 <h3 id="sending-the-card-2">Sending the card</h3>
 
+<p>In the model below, we demonstrate how VisaCheckout can be used with the sending of the open card without a WalletKey.</p>
+
 <h4 id="request-41">Request</h4>
+
+<p>In this model, the merchant only informs that the transaction is from Wallet VisaCheckout and sends the ECI and CAVV data provided by Visa</p>
+
+<ul>
+  <li>** ECI ** - returned by Visa on the payload as <code class="highlighter-rouge">DSC_ECI</code></li>
+</ul>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 

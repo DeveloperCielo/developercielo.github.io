@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-14T18:38:44+00:00</updated>
+    <updated>2019-06-14T18:55:01+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32571,7 +32571,19 @@ Each Wallet has an &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPubl
 
 &lt;h3 id=&quot;decryption-2&quot;&gt;Decryption&lt;/h3&gt;
 
+&lt;p&gt;In the model presented below, we demonstrate how to use the integration VisaCheckout Cielo by sending the WalletKey returned by Visa via Payload&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Walletkey&lt;/code&gt; is the &lt;code class=&quot;highlighter-rouge&quot;&gt;CallID&lt;/code&gt; parameter returned by VisaCheckout&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h4 id=&quot;request-40&quot;&gt;Request&lt;/h4&gt;
+
+&lt;p&gt;Default request sample &lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It is necessary that the store already has a VisaCheckout integration and registration, otherwise it will not be possible to integrate with the API&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -32916,7 +32928,15 @@ Each Wallet has an &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPubl
 
 &lt;h3 id=&quot;sending-the-card-2&quot;&gt;Sending the card&lt;/h3&gt;
 
+&lt;p&gt;In the model below, we demonstrate how VisaCheckout can be used with the sending of the open card without a WalletKey.&lt;/p&gt;
+
 &lt;h4 id=&quot;request-41&quot;&gt;Request&lt;/h4&gt;
+
+&lt;p&gt;In this model, the merchant only informs that the transaction is from Wallet VisaCheckout and sends the ECI and CAVV data provided by Visa&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;** ECI ** - returned by Visa on the payload as &lt;code class=&quot;highlighter-rouge&quot;&gt;DSC_ECI&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
