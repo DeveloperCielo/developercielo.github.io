@@ -7103,11 +7103,109 @@ Each Wallet has a `WalletKeys` format.
 
 #### EphemeralPublicKey
 
+The `EphemeralPublicKey` is the key used by Cielo to decrypt payloads containing `WalletKeys` sent by the merchant. It is used only in integrations in the formed `Decryption`
+Each Wallet has an `EphemeralPublicKey` format.
+
+| Wallet       | Example                                                                                                                          |
+|----------------|----------------------------------------------------------------------------------------------------------------------------------|
+| *Apple Pay*    | `MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==`   |
+
+> *VisaCheckout* / *MasterPass* / *SamsungPay* **do not have** EphemeralPublicKey
+
 ### Decryption
 
 #### Request
 
+```json
+-- Descriptografia
+{
+  "MerchantOrderId": "2014111708",
+  "Customer": {
+    "Name": "Exemplo Wallet Padrão",
+    "Identity": "11225468954",
+    "IdentityType": "CPF"
+  },
+  "Payment": {
+    "Type": "CreditCard",
+    "Amount": 100,
+    "Installments": 1,
+    "Currency": "BRL",
+    "Wallet": {
+      "Type": "TIPO DE WALLET",
+      "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
+      "AdditionalData": {
+        "EphemeralPublicKey": "TOKEN INFORMADO PELA WALLET"
+      }
+    }
+  }
+}
+
+```
+
 #### Response
+
+```json
+{
+    "MerchantOrderId": "2014111703",
+    "Customer": {
+        "Name": "[Guest]"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "453211******1521",
+            "Holder": "Leonardo Romano",
+            "ExpirationDate": "08/2020",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "0319040817883",
+        "ProofOfSale": "817883",
+        "AuthorizationCode": "027795",
+        "Wallet": {
+            "Type": "TIPO DE WALLET",
+            "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
+            "Eci": 0
+            "AdditionalData": {
+                "EphemeralPublicKey": "TOKEN INFORMADO PELA WALLET"
+                              },                
+                 },
+        "SoftDescriptor": "123456789ABCD",
+        "Amount": 100,
+        "ReceivedDate": "2018-03-19 16:08:16",
+        "Status": 1,
+        "IsSplitted": false,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "4",
+        "PaymentId": "e57b09eb-475b-44b6-ac71-01b9b82f2491",
+        "Type": "CreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"
+            }
+        ]
+    }
+}
+```
 
 ### Sending the card
 
