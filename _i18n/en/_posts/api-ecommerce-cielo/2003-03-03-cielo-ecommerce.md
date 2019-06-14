@@ -6487,7 +6487,7 @@ curl
 
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric texto|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
 |`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
 |`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
 `SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
@@ -7117,7 +7117,7 @@ Each Wallet has an `EphemeralPublicKey` format.
 #### Request
 
 ```json
--- Descriptografia
+-- Decryption
 {
   "MerchantOrderId": "2014111708",
   "Customer": {
@@ -7141,6 +7141,25 @@ Each Wallet has an `EphemeralPublicKey` format.
 }
 
 ```
+
+| Property                   | Type   | Size    | Required    | Description                                                                                             |
+|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
+| `MerchantId`               | Guid   | 36      | Sim         | Store identifier in Cielo.                                                                              |
+| `MerchantKey`              | Texto  | 40      | Sim         | Public Key for Double Authentication in Cielo.                                                          |
+| `RequestId`                | Guid   | 36      | Não         | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.                |
+| `MerchantOrderId`          | Texto  | 50      | Sim         | Order ID number.                                                                                        |
+| `Customer.Name`            | Texto  | 255     | Não         | Buyer's name.                                                                                           |
+| `Customer.Status`          | Texto  | 255     | Não         | Buyer registration status in store (NEW / EXISTING).                                                    |
+| `Payment.Type`             | Texto  | 100     | Sim         | Type of the Payment Method..                                                                            |
+| `Payment.Amount`           | Número | 15      | Sim         | Order Amount (to be sent in cents).                                                                     |
+| `Payment.Installments`     | Número | 2       | Sim         | Number of installments.                                                                                 |
+| `CreditCard.CardNumber.`   | Texto  | 19      | Sim         | Buyer's Card Number.                                                                                    |
+| `CreditCard.SecurityCode`  | Texto  | 4       | Não         | Security code printed on back of card - See Annex.                                                      |
+| `CreditCard.Brand`         |Texto   |10       |Sim          | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).           |
+| `Wallet.Type`              | Texto  | 255     | Sim         | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `SamsungPay`                                 |
+| `Wallet.Walletkey`         | Texto  | 255     | Sim         | Cryptographic key that identifies stores in Wallets - See the WalletKey table for more information      |
+| `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Key returned by Wallet for decryption. Must be submitted in Integrations: `ApplePay`             |
+| `Wallet.AdditionalData.capturecode`       | Texto  | 255    | Sim  | Code informed by MasterPass to the merchant                                                      |                                                      
 
 #### Response
 
@@ -7206,6 +7225,22 @@ Each Wallet has an `EphemeralPublicKey` format.
     }
 }
 ```
+
+| Property            | Description                                                                                                                    | Type  | Size    | Format                               |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
+| `ProofOfSale`       | Authorization number, identical to NSU.                                                                                        | Text  | 6       | Alphanumeric text                   |
+| `Tid`               | Transaction Id on the acquirer.                                                                                                | Text  | 20      | Alphanumeric text                   |
+| `AuthorizationCode` | Authorization code.                                                                                                            | Text  | 6       | Alphanumeric text                   |
+| `SoftDescriptor`    | Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters   | Text  | 13      | Alphanumeric text                   |
+| `PaymentId`         | Order Identifier Field.                                                                                                        | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ECI`               | Eletronic Commerce Indicator. Represents how secure a transaction is.                                                          | Text  | 2       | Examples: 7                          |
+| `Status`            | Transaction Status.                                                                                                            | Byte  | ---     | 2                                    |
+| `ReturnCode`        | Return code of Acquiring.                                                                                                      | Text  | 32      | Alphanumeric text                   |
+| `ReturnMessage`     | Return message of Acquiring.                                                                                                   | Text  | 512     | Alphanumeric text                   |
+| `Type`              | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                                      | Text  | 255     | Alphanumeric text                   |
+| `AdditionalData.capturecode` | Code informed by `MasterPass` to the merchant                                                                   | Text  | 255     | 3                                   | 
+| `Walletkey`         | Cryptographic key  that identifies stores in the Wallets - See the WalletKey table for more information                            | Text  | 255     | See `WalletKey` table               |       
+| `AdditionalData.EphemeralPublicKey` | Key returned by Wallet for decryption. Must be submitted in Integrations: `ApplePay`                                         | Text | 255      | See `EphemeralPublicKey` table      | 
 
 ### Sending the card
 
