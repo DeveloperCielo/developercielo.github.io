@@ -7079,6 +7079,8 @@ The Cielo Ecommerce API is integrated with:
 
 ## Base integration
 
+The wallets on Api Cielo E-commerce have two ways to be used.
+
 ### Components
 
 #### Walletkey
