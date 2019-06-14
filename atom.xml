@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-14T12:50:50+00:00</updated>
+    <updated>2019-06-14T12:56:56+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -30194,7 +30194,7 @@ O download poderá ser realizado a partir da seguinte URL:&lt;/p&gt;
 
 &lt;aside class=&quot;notice&quot;&gt;Atenção: Para o cartão de débito, quando for enviado na requisição o nó “Wallet”, será necessário o nó “DebitCard” contendo a “ReturnUrl”.&lt;/aside&gt;
 
-&lt;aside class=&quot;Warning&quot;&gt;Atenção:  Devido a necessidade de utilização de Chaves efemeras para realizar operações de crédito, a Recorrnência não está disponivel para transações de Wallets &lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Atenção:  Devido a necessidade de utilização de Chaves efemeras para realizar operações de crédito, a Recorrnência não está disponivel para transações de Wallets &lt;/aside&gt;
 
 &lt;h2 id=&quot;integração-base&quot;&gt;Integração base&lt;/h2&gt;
 
