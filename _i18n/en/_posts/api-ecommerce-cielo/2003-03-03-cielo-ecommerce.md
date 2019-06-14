@@ -7397,13 +7397,388 @@ Each Wallet has an `EphemeralPublicKey` format.
 
 #### Request
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111703",
+   "Customer":{  
+      "Name":"Comprador Teste"
+   },
+   "Payment":{  
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "SoftDescriptor":"123456789ABCD",
+      "CreditCard":{  
+         "SecurityCode":"123"
+      },
+      "Wallet":{  
+         "Type":"VisaCheckout",
+         "WalletKey":"1140814777695873901"
+      }
+   }
+}
+
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador Teste"
+   },
+   "Payment":{
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{
+         "SecurityCode":"123",
+            },
+     "Wallet":{
+         "Type":"VisaCheckout",
+         "WalletKey":"1140814777695873901"
+  }
+  }
+}
+
+--verbose
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
+|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
+|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
+|`MerchantOrderId`|Text|50|Yes|Order ID number.|
+|`Customer.Name`|Text|255|No|Buyer's name.|
+|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
+|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
+|`Payment.Installments`|Number|2|Yes|Number of Installments.|
+|`Payment.ReturnUrl`|Text|1024|---|Required for debit card|
+|`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
+|`Wallet.Type`|Text|255|Yes|indicates the wallet type: "VisaCheckout" or "Masterpass"|
+|`Wallet.Walletkey`|Text|255|---|Cryptographic key sent by VisaCheckout. Required if TYPE =  "Visa Checkout"|
+
 #### Response
+
+```json
+{
+  "MerchantOrderId": "2014111708",
+  "Customer": {
+    "Name": "comprador VisaCheckout"
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": 0,
+    "Capture": false,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "SaveCard": false,
+      "Brand": "Undefined"
+    },
+    "Tid": "0915052340115",
+    "Provider": "Simulado",
+    "Wallet": {
+      "Type": "VisaCheckout",
+      "WalletKey": "1140814777695873901",
+      "Eci": 0
+    },
+    "PaymentId": "efdb3338-9c8f-445a-8836-2cc93d8beacf",
+    "Type": "CreditCard",
+    "Amount": 15700,
+    "ReceivedDate": "2016-09-15 17:23:39",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ReturnCode": "77",
+    "ReturnMessage": "Card Canceled",
+    "Status": 3,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/efdb3338-9c8f-445a-8836-2cc93d8beacf"
+      }
+    ]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "MerchantOrderId": "2014111708",
+  "Customer": {
+    "Name": "comprador VisaCheckout"
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": 0,
+    "Capture": false,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "SaveCard": false,
+      "Brand": "Undefined"
+    },
+    "Tid": "0915052340115",
+    "Provider": "Simulado",
+    "Wallet": {
+      "Type": "VisaCheckout",
+      "WalletKey": "1140814777695873901",
+      "Eci": 0
+    },
+    "PaymentId": "efdb3338-9c8f-445a-8836-2cc93d8beacf",
+    "Type": "CreditCard",
+    "Amount": 15700,
+    "ReceivedDate": "2016-09-15 17:23:39",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ReturnCode": "77",
+    "ReturnMessage": "Card Canceled",
+    "Status": 3,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/efdb3338-9c8f-445a-8836-2cc93d8beacf"
+      }
+    ]
+  }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
+|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
+|`Type`|indicates the wallet type: "VisaCheckout" or "Masterpass"|Text|255|Yes|
+|`Walletkey`|Cryptographic key sent by VisaCheckout|Text|255|---|
 
 ### Sending the card
 
 #### Request
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111703",
+   "Customer":{  
+      "Name":"Comprador Teste"
+   },
+   "Payment":{  
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "SoftDescriptor":"123456789ABCD",
+      "Wallet":{  
+      "Type":"VisaCheckout"
+ },
+      "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "Brand":"Visa"
+    },
+  },
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111703",
+   "Customer":{  
+      "Name":"Comprador Teste"
+   },
+   "Payment":{  
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "SoftDescriptor":"123456789ABCD",
+      "Wallet":{  
+      "Type":"VisaCheckout"
+ },
+      "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "Brand":"Visa"
+    },
+  },
+}
+--verbose
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
+|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
+|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
+|`MerchantOrderId`|Text|50|Yes|Order ID number.|
+|`Customer.Name`|Text|255|No|Buyer's name.|
+|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
+|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
+|`Payment.Installments`|Number|2|Yes|Number of Installments.|
+|`Payment.ReturnUrl`|Text|1024|---|Required for debit card|
+|`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
+|`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
+|`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
+|`Wallet.Type`|Text|255|Yes|indicates the wallet type: "VisaCheckout" or "Masterpass"|
+
 #### Response
+
+```json
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador Visa Checkout"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "674532",
+        "Tid": "0305023644309",
+        "AuthorizationCode": "123456",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 15700,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "ReturnCode": "4",
+        "ReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador Visa Checkout"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "674532",
+        "Tid": "0305023644309",
+        "AuthorizationCode": "123456",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 15700,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "ReturnCode": "4",
+        "ReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
+|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
+|`Type`|indicates the wallet type: "VisaCheckout" or "Masterpass"|Text|255|Yes|
 
 ## MasterPass
 
