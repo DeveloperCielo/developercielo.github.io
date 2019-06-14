@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-14T14:00:10+00:00</updated>
+    <updated>2019-06-14T14:02:43+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -30244,7 +30244,7 @@ O &lt;code class=&quot;highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt; Apple P
 &lt;h4 id=&quot;ephemeralpublickey&quot;&gt;EphemeralPublicKey&lt;/h4&gt;
 
 &lt;p&gt;O &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPublicKey&lt;/code&gt; é a chave utilizado pela Cielo para descriptografar payloads contendo &lt;code class=&quot;highlighter-rouge&quot;&gt;WalletKeys&lt;/code&gt; enviados pelos lojistas. Ele utilizado apenas em integrações no formado &lt;code class=&quot;highlighter-rouge&quot;&gt;Descriptografia&lt;/code&gt;
-Cada Wallet possui um formato de &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPublicKey&lt;/code&gt;.&lt;/p&gt;
+Cada Wallet possui um formato de &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPublicKey&lt;/code&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
