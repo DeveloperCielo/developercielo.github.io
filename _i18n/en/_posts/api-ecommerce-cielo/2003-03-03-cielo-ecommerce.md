@@ -7246,7 +7246,131 @@ Each Wallet has an `EphemeralPublicKey` format.
 
 #### Request
 
+``` json
+-- Envio de cartão
+{
+  "MerchantOrderId": "6242-642-723",
+  "Customer": {
+    "Name": "Guilherme Gama",
+    "Identity": "11225468954",
+    "IdentityType": "CPF"
+  },
+  "Payment": {
+    "Type": "CreditCard",
+    "Amount": 1100,
+    "Provider": "Cielo",
+    "Installments": 1,
+    "CreditCard": {
+      "CardNumber":"4532********6521",
+      "Holder":"Guilherme Gama",
+          "ExpirationDate":"12/2021",
+          "SecurityCode":"123",
+          "Brand":"Master"
+    },
+    "Wallet": {
+      "Type": "Tipo de wallet",
+      "Eci":"7",
+      "Cavv":"AM1mbqehL24XAAa0J04CAoABFA=="
+    }
+  }
+}
+```
+
+| Property                   | Type   | Size    | Required    | Description                                                                                             |
+|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
+| `MerchantId`               | Guid   | 36      | Yes         | Store identifier in Cielo.                                                                              |
+| `MerchantKey`              | Text   | 40      | Yes         | Public Key for Double Authentication in Cielo.                                                          |
+| `RequestId`                | Guid   | 36      | No          | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.                |
+| `MerchantOrderId`          | Text   | 50      | Yes         | Order ID number.                                                                                        |
+| `Customer.Name`            | Text   | 255     | No          | Buyer's name.                                                                                           |
+| `Customer.Status`          | Text   | 255     | No          | Buyer registration status in store (NEW / EXISTING).                                                    |
+| `Payment.Type`             | Text   | 100     | Yes         | Type of the Payment Method..                                                                            |
+| `Payment.Amount`           | Number | 15      | Yes         | Order Amount (to be sent in cents).                                                                     |
+| `Payment.Installments`     | Number | 2       | Yes         | Number of installments.                                                                                 |
+| `CreditCard.CardNumber.`   | Text   | 19      | Yes         | Buyer's Card Number.                                                                                    |
+| `CreditCard.SecurityCode`  | Text   | 4       | No          | Security code printed on back of card - See Annex.                                                      |
+| `CreditCard.Brand`         | Text   |10       | Yes         | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                   |
+| `Wallet.Type`              | Text   | 255     | Yes         | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                    |
+| `Wallet.Walletkey`         | Text   | 255     | Yes         | Cryptographic key that identifies stores in Wallets - See the WalletKey table for more information      |
+| `Wallet.ECI`               | Text   | 3       | Yes         | The ECI (Electronic Commerce Indicator) represents how secure a transaction is. This amount should be taken into consideration by the merchant to decide on the capture of the transaction.|
+| `Wallet.CAVV`              | Text   | 255     | Yes         | Validation field returned by Wallet and used as the authorization basis                           | 
+
+
 #### Response
+
+```json
+{
+    "MerchantOrderId": "2014111703",
+    "Customer": {
+        "Name": "[Guest]"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "453211******1521",
+            "Holder": "Gama Gama",
+            "ExpirationDate": "08/2020",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "0319040817883",
+        "ProofOfSale": "817883",
+        "AuthorizationCode": "027795",
+        "Wallet": {
+            "Type": "TIPO DE WALLET",
+            "Eci": 0
+                 },
+        "SoftDescriptor": "123456789ABCD",
+        "Amount": 100,
+        "ReceivedDate": "2018-03-19 16:08:16",
+        "Status": 1,
+        "IsSplitted": false,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "4",
+        "PaymentId": "e57b09eb-475b-44b6-ac71-01b9b82f2491",
+        "Type": "CreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"
+            }
+        ]
+    }
+}
+```
+
+| Property            | Description                                                                                                                    | Type  | Size    | Format                               |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
+| `ProofOfSale`       | Authorization number, identical to NSU.                                                                                        | Text | 6       | Alphanumeric text                     |
+| `Tid`               | Transaction Id on the acquirer.                                                                                                | Text | 20      | Alphanumeric text                     |
+| `AuthorizationCode` | Authorization code.                                                                                                            | Text | 6       | Alphanumeric text                     |
+| `SoftDescriptor`    | Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters   | Text | 13      | Alphanumeric text                     |
+| `PaymentId`         | Order Identifier Field.                                                                                                        | Guid | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  |
+| `ECI`               | Eletronic Commerce Indicator. Represents how secure a transaction is.                                                          | Text | 2       | Exemplos: 7                           |
+| `Status`            | Transaction Status.                                                                                                            | Byte | ---     | 2                                     |
+| `ReturnCode`        | Return code of Acquiring.                                                                                                      | Text | 32      | Alphanumeric text                     |
+| `ReturnMessage`     | Return message of Acquiring.                                                                                                   | Text | 512     | Alphanumeric text                     |
+| `Type`              | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                                           | Text | 255     | Alphanumeric text                     |
+| `Walletkey`         | Cryptographic key  that identifies stores in the Wallets - See the WalletKey table for more information                        | Text | 255     | Ver tabela `WalletKey`                |       
+| `AdditionalData.capturecode`| Key returned by Wallet for decryption. Must be submitted in Integrations: `ApplePay`                                   | Text | 255     | 3                                     | 
 
 ## Apple Pay
 
