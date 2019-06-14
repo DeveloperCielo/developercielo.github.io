@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-14T14:33:19+00:00</updated>
+    <updated>2019-06-14T14:37:51+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31838,6 +31838,8 @@ The download can be made from the following URL:&lt;/p&gt;
 &lt;aside class=&quot;notice&quot;&gt;Warning:  Due to the need of using ephemeral keys to carry out credit operations, the Recurrence is not available for Wallets transactions &lt;/aside&gt;
 
 &lt;h2 id=&quot;base-integration&quot;&gt;Base integration&lt;/h2&gt;
+
+&lt;p&gt;The wallets on Api Cielo E-commerce have two ways to be used.&lt;/p&gt;
 
 &lt;h3 id=&quot;components&quot;&gt;Components&lt;/h3&gt;
 
