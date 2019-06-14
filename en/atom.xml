@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-14T17:52:51+00:00</updated>
+    <updated>2019-06-14T18:00:43+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32586,10 +32586,10 @@ Each Wallet has an &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPubl
 &lt;h3 id=&quot;sending-the-card-3&quot;&gt;Sending the card&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;A Wallet MasterPass possui integração apenas no formato &lt;code class=&quot;highlighter-rouge&quot;&gt;Envio de cartão&lt;/code&gt;.&lt;/p&gt;
+  &lt;p&gt;Wallet MasterPass has integration only in the format &lt;code class=&quot;highlighter-rouge&quot;&gt;Sending card&lt;/code&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;To use the wallet Masterpass &lt;a href=&quot;https://developer.mastercard.com/product/masterpass&quot;&gt;&lt;strong&gt;Masterpass&lt;/strong&gt;&lt;/a&gt; it is necessary that the store is already registered with Mastercard, and integrated the search of card data of the platform.&lt;/p&gt;
+&lt;p&gt;To use the wallet &lt;a href=&quot;https://developer.mastercard.com/product/masterpass&quot;&gt;&lt;strong&gt;Masterpass&lt;/strong&gt;&lt;/a&gt; it is necessary that the store is already registered with Mastercard, and integrated the search of card data of the platform.&lt;/p&gt;
 
 &lt;h4 id=&quot;request-42&quot;&gt;Request&lt;/h4&gt;
 
