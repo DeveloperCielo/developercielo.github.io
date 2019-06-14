@@ -7079,11 +7079,6 @@ The Cielo Ecommerce API is integrated with:
 
 ## Base integration
 
-The wallets on Api Cielo E-commerce have two ways to be used.
-
-1. **Decryption** - When the merchant sends the data from the wallet so that API Cielo e-commerce performs the card processing
-2.  **Card sending** - When the store searches the card, and send its own to the API Cielo e-commerce for processing 
-
 ### Components
 
 #### Walletkey
