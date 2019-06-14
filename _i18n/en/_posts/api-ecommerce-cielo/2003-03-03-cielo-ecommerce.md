@@ -7295,7 +7295,6 @@ Each Wallet has an `EphemeralPublicKey` format.
 | `Wallet.ECI`               | Text   | 3       | Yes         | The ECI (Electronic Commerce Indicator) represents how secure a transaction is. This amount should be taken into consideration by the merchant to decide on the capture of the transaction.|
 | `Wallet.CAVV`              | Text   | 255     | Yes         | Validation field returned by Wallet and used as the authorization basis                           | 
 
-
 #### Response
 
 ```json
