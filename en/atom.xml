@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-14T14:37:51+00:00</updated>
+    <updated>2019-06-14T14:41:49+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31840,6 +31840,10 @@ The download can be made from the following URL:&lt;/p&gt;
 &lt;h2 id=&quot;base-integration&quot;&gt;Base integration&lt;/h2&gt;
 
 &lt;p&gt;The wallets on Api Cielo E-commerce have two ways to be used.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Decryption&lt;/strong&gt; - When the merchant sends the data from the wallet so that API Cielo e-commerce performs the card processing.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h3 id=&quot;components&quot;&gt;Components&lt;/h3&gt;
 
