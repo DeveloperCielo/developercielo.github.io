@@ -7409,9 +7409,9 @@ Each Wallet has an `EphemeralPublicKey` format.
 
 ### Sending the card
 
-> A Wallet MasterPass possui integração apenas no formato `Envio de cartão`.
+> Wallet MasterPass has integration only in the format `Sending card`.
 
-To use the wallet Masterpass [**Masterpass**](https://developer.mastercard.com/product/masterpass) it is necessary that the store is already registered with Mastercard, and integrated the search of card data of the platform.
+To use the wallet [**Masterpass**](https://developer.mastercard.com/product/masterpass) it is necessary that the store is already registered with Mastercard, and integrated the search of card data of the platform.
 
 #### Request
 
