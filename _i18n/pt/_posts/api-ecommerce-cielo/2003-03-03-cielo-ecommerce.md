@@ -7183,14 +7183,14 @@ Cada Wallet possui um formato de `WalletKeys`.
 
 #### EphemeralPublicKey
 
-O `EphemeralPublicKey` é a chave utilizado pela Cielo para descriptografar payloads contendo `WalletKeys` enviados pelos lojistas. Ele utilizado apenas em integrações no formado `Descriptografia`
-Cada Wallet possui um formato de `EphemeralPublicKey`. 
+O `EphemeralPublicKey` é a chave utilizado pela Cielo para descriptografar payloads contendo `WalletKeys` enviados pelos lojistas. Ele utilizado apenas em integrações no formado `Descriptografia` Cada Wallet possui um formato de `EphemeralPublicKey`. 
 
 | Carteira       | Exemplo                                                                                                                          |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
 | *Apple Pay*    | `MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==`   |
 
 > *VisaCheckout* / *MasterPass* / *SamsungPay* **não possuem** EphemeralPublicKey
+
 ### Descriptografia
 
 #### Requisição
