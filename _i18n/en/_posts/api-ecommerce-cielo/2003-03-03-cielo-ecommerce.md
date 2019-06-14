@@ -7054,16 +7054,28 @@ Example of setup to be performed by the establishment on the checkout page:
 
 ## What are Wallets
 
-They are repositories of cards and payment data for online consumers. The digital wallets allow a consumer to register their payment data, thus streamlining the purchase process in authorized stores in their purchases for having only one registration.
-To use wallets in the API Cielo eCommerce, the merchant must have the wallets integrated in their checkout. For more information, we suggest that you contact the technical department of the wallet that you wish to implement.
+They are card repositories and payment data for online consumers. The digital wallets allow a consumer to register their payment data, then speeding up the purchase process in qualified stores in their purchases by having only one registration.
 
-API Cielo eCommerce supports two payment wallets: VisaCheckout and Masterpass.
+> To use wallets in the API Cielo eCommerce, the merchant must have the wallets integrated in their checkout. 
+
+For more information, we suggest that you contact the technical department of the wallet that you wish to implement.
+
+### Wallets Available
+
+The Cielo Ecommerce API is integrated with:
+
+| Wallet                                                          | 
+|--------------------------------------------------------------------|
+| [*Apple Pay*](https://www.apple.com/br/apple-pay/)                 |
+| [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout) | 
+| [*MasterPass*](https://masterpass.com/pt-br/)                      | 
+| [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)            |
 
 <aside class="notice"><strong>Warning:</strong> When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 
 <aside class="notice"><strong>Warning:</strong> For debit card, when the “Wallet” node is sent in the request, the “DebitCard” node will be needed containing the “ReturnUrl”.</aside>
 
-<aside class="notice"><strong>Warning:</strong>  For Visa Chekcout, the Wallet node can be sent only with the "Type", thus marking the transaction as being from wallet. In this context, the credit card must be sent. </aside>
+<aside class="notice"><strong>Warning:</strong>  Due to the need of using ephemeral keys to carry out credit operations, the Recurrence is not available for Wallets transactions </aside>
 
 ## Base integration
 
