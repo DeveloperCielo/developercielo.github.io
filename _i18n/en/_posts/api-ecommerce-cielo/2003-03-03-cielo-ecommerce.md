@@ -7395,7 +7395,16 @@ Each Wallet has an `EphemeralPublicKey` format.
 
 ### Decryption
 
+In the model presented below, we demonstrate how to use the integration VisaCheckout Cielo by sending the WalletKey returned by Visa via Payload
+
+> `Walletkey` is the `CallID` parameter returned by VisaCheckout
+
 #### Request
+
+
+Default request sample *VisaCheckout*
+
+> It is necessary that the store already has a VisaCheckout integration and registration, otherwise it will not be possible to integrate with the API
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7578,7 +7587,13 @@ curl
 
 ### Sending the card
 
+In the model below, we demonstrate how VisaCheckout can be used with the sending of the open card without a WalletKey.
+
 #### Request
+
+In this model, the merchant only informs that the transaction is from Wallet VisaCheckout and sends the ECI and CAVV data provided by Visa
+
+* ** ECI ** - returned by Visa on the payload as `DSC_ECI`
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
