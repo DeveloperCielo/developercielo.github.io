@@ -7391,6 +7391,248 @@ Each Wallet has an `EphemeralPublicKey` format.
 
 #### Response
 
+## VisaCheckout
+
+### Decryption
+
+#### Request
+
+#### Response
+
+### Sending the card
+
+#### Request
+
+#### Response
+
+## MasterPass
+
+### Sending the card
+
+> A Wallet MasterPass possui integração apenas no formato `Envio de cartão`.
+
+To use the wallet Masterpass [**Masterpass**](https://developer.mastercard.com/product/masterpass) it is necessary that the store is already registered with Mastercard, and integrated the search of card data of the platform.
+
+#### Request
+
+Request Sample *Masterpass*
+
+> It is necessary that the store already has a Masterpass integration and registration, otherwise it will not be possible to integrate with the API
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111708",
+   "Customer":{  
+      "Name":"Comprador MasterPass"     
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Installments":1,
+     "CreditCard":{
+               "CardNumber": "4532117080573703",
+               "Brand": "Visa",
+         "SecurityCode":"023"
+     },
+     "Wallet":{
+         "Type":"MasterPass",
+         "AdditionalData":{
+               "CaptureCode": "103"
+         }
+     }
+   }
+}
+
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111708",
+   "Customer":{  
+      "Name":"Comprador MasterPass"     
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Installments":1,
+     "CreditCard":{
+               "CardNumber": "4532117080573703",
+               "Brand": "Visa",
+         "SecurityCode":"023"
+     },
+     "Wallet":{
+         "Type":"MasterPass",
+         "AdditionalData":{
+               "CaptureCode": "103"
+         }
+     }
+   }
+}
+
+--verbose
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
+|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
+|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
+|`MerchantOrderId`|Text|50|Yes|Order ID number.|
+|`Customer.Name`|Text|255|No|Buyer's name.|
+|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
+|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
+|`Payment.Installments`|Number|2|Yes|Number of Installments.|
+|`CreditCard.CardNumber.`|Text|19|Yes|Buyer's Card Number|
+|`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
+|`Wallet.Type`|Text|255|Yes|indicates the wallet type: "VisaCheckout" or "Masterpass"|
+|`Wallet.AdditionalData`|---|---|---|Instance for extra data reported by MasterPass. Required only if TYPE = "MasterPass"|
+|`Wallet.capturecode`|Text|255|Yes|Code reported by MasterPass to the merchant|
+
+#### Response
+
+```json
+{
+  "MerchantOrderId": "2014111708",
+  "Customer": {
+    "Name": "comprador Masterpass"
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": 0,
+    "Capture": false,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "453211******3703",
+      "Holder": "Teste Holder",
+      "ExpirationDate": "12/2016",
+      "SaveCard": false,
+      "Brand": "Visa"
+    },
+    "Tid": "0915052536103",
+    "Provider": "Simulado",
+    "Wallet": {
+      "Type": "Masterpass",
+      "Eci": 0,
+      "AdditionalData": {
+        "CaptureCode": "103"
+      }
+    },
+    "PaymentId": "689da793-fc99-4900-89f1-9e7fdaa06ef8",
+    "Type": "CreditCard",
+    "Amount": 15700,
+    "ReceivedDate": "2016-09-15 17:25:35",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ReturnCode": "57",
+    "ReturnMessage": "Card Expired",
+    "Status": 3,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/689da793-fc99-4900-89f1-9e7fdaa06ef8"
+      }
+    ]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "MerchantOrderId": "2014111708",
+  "Customer": {
+    "Name": "comprador Masterpass"
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": 0,
+    "Capture": false,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "453211******3703",
+      "Holder": "Teste Holder",
+      "ExpirationDate": "12/2016",
+      "SaveCard": false,
+      "Brand": "Visa"
+    },
+    "Tid": "0915052536103",
+    "Provider": "Simulado",
+    "Wallet": {
+      "Type": "Masterpass",
+      "Eci": 0,
+      "AdditionalData": {
+        "CaptureCode": "103"
+      }
+    },
+    "PaymentId": "689da793-fc99-4900-89f1-9e7fdaa06ef8",
+    "Type": "CreditCard",
+    "Amount": 15700,
+    "ReceivedDate": "2016-09-15 17:25:35",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ReturnCode": "57",
+    "ReturnMessage": "Card Expired",
+    "Status": 3,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/689da793-fc99-4900-89f1-9e7fdaa06ef8"
+      }
+    ]
+  }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
+|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
+|`Type`|indicates the wallet type: "VisaCheckout" or "Masterpass"|Text|255|Yes|
+|`Capturecode`|Code reported by MasterPass to the merchant|Text|255|Yes|
+
+## Samsung Pay
+
+### Prerequisites
+
+#### CSR Certificate
+
+### Decryption
+
+#### Request
+
+#### Response
+
+### Sending the card
+
+#### Request
+
+#### Response
+
 ## How to perform transaction with VisaCheckout
 
 It is possible to carry out a transaction with VisaCheckout in two ways:
