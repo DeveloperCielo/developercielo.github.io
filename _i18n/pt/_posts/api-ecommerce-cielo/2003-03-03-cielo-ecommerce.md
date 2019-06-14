@@ -7184,7 +7184,7 @@ Cada Wallet possui um formato de `WalletKeys`.
 #### EphemeralPublicKey
 
 O `EphemeralPublicKey` é a chave utilizado pela Cielo para descriptografar payloads contendo `WalletKeys` enviados pelos lojistas. Ele utilizado apenas em integrações no formado `Descriptografia`
-Cada Wallet possui um formato de `EphemeralPublicKey` 
+Cada Wallet possui um formato de `EphemeralPublicKey`.
 
 | Carteira       | Exemplo                                                                                                                          |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------|
