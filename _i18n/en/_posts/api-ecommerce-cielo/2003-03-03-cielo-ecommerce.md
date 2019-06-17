@@ -7566,6 +7566,8 @@ In this model, the merchant only informs that the transaction is from an Apple P
 * **CAVV** - can be extracted from the `onlinePaymentCryptogram` field returned by Apple in payload
 * **ECI** - can be extracted from the `eciIndicator` field returned by Apple in payload
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
 ```json
 {
   "MerchantOrderId": "6242-642-723",
