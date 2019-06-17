@@ -8315,7 +8315,6 @@ curl
 
 To use Samsung **Decryption** format, it is necessary that the store is already registered with [**Samsung**](https://pay.samsung.com/developers) platform. The **Decryption** integration requires the merchant to manually upload a CSR certificate in the PEM format provided by Cielo. Contact the Cielo customer service team to obtain the Certificate.
 
-
 #### CSR Certificate
 
 After registering with SamsungPay, the store should request a certificate of extension `PEM` to the  team of Cielo products. With the certificate, you should follow the following steps:
