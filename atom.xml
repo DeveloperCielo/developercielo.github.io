@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-14T19:11:02+00:00</updated>
+    <updated>2019-06-17T11:54:28+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -30237,7 +30237,7 @@ Cada Wallet possui um formato de &lt;code class=&quot;highlighter-rouge&quot;&gt
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Observações:&lt;/strong&gt;
-A Wallet MasterPass não possui &lt;code class=&quot;highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt;
+A Wallet MasterPass não possui &lt;code class=&quot;highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt;.
 O &lt;code class=&quot;highlighter-rouge&quot;&gt;WalletKey&lt;/code&gt; Apple Pay pode ser obtido dentro do campo &lt;code class=&quot;highlighter-rouge&quot;&gt;DATA&lt;/code&gt; do payload Apple&lt;/p&gt;
 &lt;/blockquote&gt;
 
