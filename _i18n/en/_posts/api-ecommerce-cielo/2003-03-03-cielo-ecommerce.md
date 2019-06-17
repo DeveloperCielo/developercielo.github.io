@@ -8364,7 +8364,90 @@ Request Sample *SamsungPay*
 
 > It is necessary that the store already has a registration and a SamsungPay integration, otherwise it will not be possible to integrate with the API
 
+```json
+{
+  "MerchantOrderId":"6242-642-723",
+  "Customer":{
+     "Name":"Exemplo Wallet Padrão",
+     "Identity":"11225468954",
+      "IdentityType":"CPF"
+  },
+  "Payment":{
+     "Type":"CreditCard",
+     "Amount":1,
+     "Provider":"Cielo",
+     "Installments":1,
+     "Currency":"BRL",
+     "Wallet":{
+       "Type":"SamsungPay",
+       "WalletKey":"eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR--gApzoXH-LldMArSoG59x6i0BbI7jttqxyAdcriSy8q_77VAp3854P9kekjj54RKLrP6APDIr46DI97kjG9E99ONXImnEyamHj95ZH_AW8lvkfa09KAr4537RM8GEXyZoys2vfIW8zqjjicZ8EKIpAixNlmrFJu6-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ"
+    }
+  }
+}
+
+```
+
 #### Response
+
+```json
+{
+    "MerchantOrderId": "2014111703",
+    "Customer": {
+        "Name": "[Guest]"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "453211******1521",
+            "Holder": "Leonardo Romano",
+            "ExpirationDate": "08/2020",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "0319040817883",
+        "ProofOfSale": "817883",
+        "AuthorizationCode": "027795",
+        "Wallet": {
+            "Type": "SamsungPay",
+            "WalletKey": "eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR--gApzoXH-LldMArSoG59x6i0BbI7jttqxyAdcriSy8q_77VAp3854P9kekjj54RKLrP6APDIr46DI97kjG9E99ONXImnEyamHj95ZH_AW8lvkfa09KAr4537RM8GEXyZoys2vfIW8zqjjicZ8EKIpAixNlmrFJu6-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ",
+            "Eci": 0
+                 },
+        "SoftDescriptor": "123456789ABCD",
+        "Amount": 100,
+        "ReceivedDate": "2018-03-19 16:08:16",
+        "Status": 1,
+        "IsSplitted": false,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "4",
+        "PaymentId": "e57b09eb-475b-44b6-ac71-01b9b82f2491",
+        "Type": "CreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"
+            }
+        ]
+    }
+}
+```
 
 ### Sending the card
 
@@ -8377,7 +8460,104 @@ In this model, the merchant only informs that the transaction is from an Samsung
 * **CAVV** - can be extracted from the `Cryptogram` field returned by Apple Samsung in payload
 * **ECI** - returned by Samsung Pay in the payload field `eci_indicator` 
 
+```json
+{
+  "MerchantOrderId": "6242-642-723",
+  "Customer": {
+    "Name": "Exemplo Wallet Padrão",
+    "Identity": "11225468954",
+    "IdentityType": "CPF"
+  },
+  "Payment": {
+    "Type": "CreditCard",
+    "Amount": 1100,
+    "Provider": "Cielo",
+    "Installments": 1,
+    "CreditCard": {
+      "CardNumber":"4532********6521",
+      "Holder":"Exemplo Wallet Padrão",
+          "ExpirationDate":"12/2021",
+          "SecurityCode":"123",
+          "Brand":"Master"
+    },
+    "Currency": "BRL",
+    "Wallet": {
+      "Type": "SamsungPay",
+      "Eci":"7",
+      "Cavv":"AM1mbqehL24XAAa0J04CAoABFA=="
+    }
+  }
+}
+```
+
 #### Response
+
+```json
+{
+    "MerchantOrderId": "6242-642-723",
+    "Customer": {
+        "Name": "Exemplo Wallet Padrão",
+        "Identity": "11225468954",
+        "IdentityType": "CPF"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": false,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "453265******6521",
+            "Holder": "Exemplo Wallet Padrão",
+            "ExpirationDate": "12/2021",
+            "SaveCard": false,
+            "Brand": "Visa"
+        },
+        "Tid": "10447480687BVV8COCRB",
+        "ProofOfSale": "457033",
+        "Provider": "Cielo",
+        "Eci": "7",
+        "Wallet": {
+            "Type": "Samsung",
+            "Cavv": "AM1mbqehL24XAAa0J04CAoABFA==",
+            "Eci": 7
+        },
+        "VelocityAnalysis": {
+            "Id": "98652f2c-bdfd-47b9-8673-77b80a6fe705",
+            "ResultMessage": "Accept",
+            "Score": 0
+        },
+        "Amount": 1100,
+        "ReceivedDate": "2018-04-18 16:27:22",
+        "Status": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "4",
+        "PaymentId": "98652f2c-bdfd-47b9-8673-77b80a6fe705",
+        "Type": "CreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"
+            }
+        ]
+    }
+}
+```
 
 # API codes
 
