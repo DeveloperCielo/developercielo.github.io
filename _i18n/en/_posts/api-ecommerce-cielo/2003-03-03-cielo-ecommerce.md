@@ -7590,6 +7590,25 @@ In this model, the merchant only informs that the transaction is from an Apple P
 }
 ```
 
+| Property                   | Type   | Size    | Required    | Description                                                                                             |
+|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
+| `MerchantId`               | Guid   | 36      | Yes         | Store identifier in Cielo.                                                                              |
+| `MerchantKey`              | Text   | 40      | Yes         | Public Key for Double Authentication in Cielo.                                                          |
+| `RequestId`                | Guid   | 36      | No          | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.                |
+| `MerchantOrderId`          | Text   | 50      | Yes         | Order ID number.                                                                                        |
+| `Customer.Name`            | Text   | 255     | No          | Buyer's name.                                                                                           |
+| `Customer.Status`          | Text   | 255     | No          | Buyer registration status in store (NEW / EXISTING).                                                    |
+| `Payment.Type`             | Text   | 100     | Yes         | Type of the Payment Method.                                                                             |
+| `Payment.Amount`           | Number | 15      | Yes         | Order Amount (to be sent in cents).                                                                     |
+| `Payment.Installments`     | Number | 2       | Yes         | Number of installments.                                                                                 |
+| `CreditCard.CardNumber.`   | Text   | 19      | Yes         | Buyer's Card Number.                                                                                    |
+| `CreditCard.SecurityCode`  | Text   | 4       | No          | Security code printed on back of card - See Annex.                                                      |
+| `CreditCard.Brand`         | Text    |10      | Yes         | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                   |
+| `Wallet.Type`              | Text   | 255     | Yes         | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                    |
+| `Wallet.Walletkey`         | Text   | 255     | Yes         | Cryptographic key that identifies stores in Wallets - See the WalletKey table for more information      |
+| `Wallet.ECI`               | Text   | 3       | Yes         | The ECI (Electronic Commerce Indicator) represents how secure a transaction is. This amount should be taken into consideration by the merchant to decide on the capture of the transaction.|
+| `Wallet.CAVV`              | Text   | 255     | Yes         | Validation field returned by Wallet and used as the authorization basis                           | 
+
 #### Response
 
 ```json
