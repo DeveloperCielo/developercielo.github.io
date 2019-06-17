@@ -1240,8 +1240,8 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
     <data-hora>2011-12-07T11:43:37</data-hora>
     <descricao>[origem:10.50.54.156]</descricao>
     <idioma>PT</idioma>
-    <soft-descriptor>softdescriptor</soft-descriptor>
     <taxa-embarque>1000</taxa-embarque>
+    <soft-descriptor>softdescriptor</soft-descriptor>
   </dados-pedido>
   <!-- ... -->
 </requisicao-transacao>
@@ -1268,8 +1268,8 @@ O produto débito obrigatoriamente exige uma transação autenticada, caso contr
     <data-hora>2011-12-07T11:43:37</data-hora>
     <descricao>[origem:10.50.54.156]</descricao>
     <idioma>PT</idioma>
-    <soft-descriptor>softdescriptor</soft-descriptor>
     <taxa-embarque>1000</taxa-embarque>
+    <soft-descriptor>softdescriptor</soft-descriptor>
     <avs>
   <![CDATA[
       <dados-avs>
