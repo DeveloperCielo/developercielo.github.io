@@ -7375,19 +7375,67 @@ Each Wallet has an `EphemeralPublicKey` format.
 
 ### Prerequisites
 
+To use Apple Pay in the *Decryption* format, it is necessary that the store is already registered with Apple and has a `MerchantIdentifier`. The `Decryption` integration requires the merchant to manually upload a *CSR certificate in the PEM format* provided by Cielo. Contact the Cielo customer service team to obtain the Certificate.
+
 #### MerchantIdentifier
+
+To get the `MerchantIdentifier` perform the following steps:
+
+1. Log in [**Apple Developer**](https://developer.apple.com/)
+2. Select [**Certificates, IDs & Profiles**](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html)
+3. Inside the area "Identifiers" click on "Merchant IDs"
+4. Click on **+** in the right corner, below "Registering a Merchant ID"
+5. Set the MerchantID description and identifier. Example: "merchant.com.CIELO.merchantAccount"
+6. Click on "continue" and verify that the information entered is correct.
+7. End the process.
+
+> The `MerchantIdentifier` must be sent to Cielo for the creation of a CSR Certificate in PEM format.
 
 #### CSR Certificate
 
+After sending the `MerchantIdentifier` to the Cielo service team, the store will receive a extension certificate of `PEM` and should follow the following steps:
+
+1. Log in [**Apple Developer**](https://developer.apple.com/)
+2. Select [**Certificates, IDs & Profiles**](https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html)
+3. Perform the certificate upload 
+7. End the process.
+
+> The PEM Certificate contains the CSR code requested by Apple. <br>
+> Format of a Certificate `.PEM`
+
+-
+
+> -----BEGIN CERTIFICATE REQUEST-----<BR>
+> MIHwMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYD<BR>
+> VQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBIP<BR>
+> ULN00aAwYW+sfTettoIl8l9YrDCkF1HEiI9PgwLcM4jCkIAvnrKZ3loLWDi4J8Jh<BR>
+> ML01OuTohYS46lqF6p4wCgYIKoZIzj0EAwIDRwAwRAIgWLAPtSWKQ3sJYLc6jmWa<BR>
+> RNWCoNR2XBQZKdg5bIGNYpYCIHSLsQVSK8taL7dGirOBxXiOqtUA9hWxn0g1Mf3U<BR>
+> VKeU<BR>
+> -----END CERTIFICATE REQUEST-----<BR>
+
 ### Decryption
 
+In the model below, we demonstrate how to use the Apple Pay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Apple via Payload
+
 #### Request
+
+Request Sample *Apple Pay*
+
+> It is necessary that the store already has a registration and an Apple Pay integration, otherwise it will not be possible to integrate with the API
 
 #### Response
 
 ### Sending the card
 
+In the model below, we demonstrate how Apple Pay can be used with sending the card open, without the need for WalletKey.
+
 #### Request
+
+In this model, the merchant only informs that the transaction is from an Apple Pay Wallet and sends the ECI and CAVV data provided by APPLE
+
+* **CAVV** - can be extracted from the `onlinePaymentCryptogram` field returned by Apple in payload
+* **ECI** - can be extracted from the `eciIndicator` field returned by Apple in payload
 
 #### Response
 
