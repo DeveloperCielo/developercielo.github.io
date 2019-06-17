@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-17T13:33:13+00:00</updated>
+    <updated>2019-06-17T14:08:09+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11677,8 +11677,8 @@ das transações que pararam após a execução deste processo. A mensagem para 
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor&amp;gt;&lt;/span&gt;softdescriptor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soft-descriptor&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor&amp;gt;&lt;/span&gt;softdescriptor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soft-descriptor&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;
@@ -11712,8 +11712,8 @@ das transações que pararam após a execução deste processo. A mensagem para 
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor&amp;gt;&lt;/span&gt;softdescriptor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soft-descriptor&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque&amp;gt;&lt;/span&gt;1000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/taxa-embarque&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor&amp;gt;&lt;/span&gt;softdescriptor&lt;span class=&quot;nt&quot;&gt;&amp;lt;/soft-descriptor&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;avs&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[
       &amp;lt;dados-avs&amp;gt;&lt;/span&gt;
