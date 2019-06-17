@@ -7677,7 +7677,6 @@ In this model, the merchant only informs that the transaction is from an Apple P
 | `ECI`                               | The Electronic Commerce Indicator (ECI) indicates the security of a transaction. Must be taken into account by the merchant to decide on the capture | Text  | 3       | 2                                    |
 | `CAVV`                              | Validation field returned by Wallet and used as the authorization basis                                                                              | Text  | 255     | --                                   |
 
-
 ## VisaCheckout
 
 ### Decryption
