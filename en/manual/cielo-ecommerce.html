@@ -14840,19 +14840,81 @@ Each Wallet has an <code class="highlighter-rouge">EphemeralPublicKey</code> for
 
 <h3 id="prerequisites">Prerequisites</h3>
 
+<p>To use Apple Pay in the <em>Decryption</em> format, it is necessary that the store is already registered with Apple and has a <code class="highlighter-rouge">MerchantIdentifier</code>. The <code class="highlighter-rouge">Decryption</code> integration requires the merchant to manually upload a <em>CSR certificate in the PEM format</em> provided by Cielo. Contact the Cielo customer service team to obtain the Certificate.</p>
+
 <h4 id="merchantidentifier">MerchantIdentifier</h4>
+
+<p>To get the <code class="highlighter-rouge">MerchantIdentifier</code> perform the following steps:</p>
+
+<ol>
+  <li>Log in <a href="https://developer.apple.com/"><strong>Apple Developer</strong></a></li>
+  <li>Select <a href="https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html"><strong>Certificates, IDs &amp; Profiles</strong></a></li>
+  <li>Inside the area “Identifiers” click on “Merchant IDs”</li>
+  <li>Click on <strong>+</strong> in the right corner, below “Registering a Merchant ID”</li>
+  <li>Set the MerchantID description and identifier. Example: “merchant.com.CIELO.merchantAccount”</li>
+  <li>Click on “continue” and verify that the information entered is correct.</li>
+  <li>End the process.</li>
+</ol>
+
+<blockquote>
+  <p>The <code class="highlighter-rouge">MerchantIdentifier</code> must be sent to Cielo for the creation of a CSR Certificate in PEM format.</p>
+</blockquote>
 
 <h4 id="csr-certificate">CSR Certificate</h4>
 
+<p>After sending the <code class="highlighter-rouge">MerchantIdentifier</code> to the Cielo service team, the store will receive a extension certificate of <code class="highlighter-rouge">PEM</code> and should follow the following steps:</p>
+
+<ol>
+  <li>Log in <a href="https://developer.apple.com/"><strong>Apple Developer</strong></a></li>
+  <li>Select <a href="https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html"><strong>Certificates, IDs &amp; Profiles</strong></a></li>
+  <li>Perform the certificate upload</li>
+  <li>End the process.</li>
+</ol>
+
+<blockquote>
+  <p>The PEM Certificate contains the CSR code requested by Apple. <br />
+Format of a Certificate <code class="highlighter-rouge">.PEM</code></p>
+</blockquote>
+
+<p>-</p>
+
+<blockquote>
+  <p>—–BEGIN CERTIFICATE REQUEST—–<br />
+MIHwMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYD<br />
+VQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBIP<br />
+ULN00aAwYW+sfTettoIl8l9YrDCkF1HEiI9PgwLcM4jCkIAvnrKZ3loLWDi4J8Jh<br />
+ML01OuTohYS46lqF6p4wCgYIKoZIzj0EAwIDRwAwRAIgWLAPtSWKQ3sJYLc6jmWa<br />
+RNWCoNR2XBQZKdg5bIGNYpYCIHSLsQVSK8taL7dGirOBxXiOqtUA9hWxn0g1Mf3U<br />
+VKeU<br />
+—–END CERTIFICATE REQUEST—–<br /></p>
+</blockquote>
+
 <h3 id="decryption-1">Decryption</h3>
 
+<p>In the model below, we demonstrate how to use the Apple Pay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Apple via Payload</p>
+
 <h4 id="request-38">Request</h4>
+
+<p>Request Sample <em>Apple Pay</em></p>
+
+<blockquote>
+  <p>It is necessary that the store already has a registration and an Apple Pay integration, otherwise it will not be possible to integrate with the API</p>
+</blockquote>
 
 <h4 id="response-44">Response</h4>
 
 <h3 id="sending-the-card-1">Sending the card</h3>
 
+<p>In the model below, we demonstrate how Apple Pay can be used with sending the card open, without the need for WalletKey.</p>
+
 <h4 id="request-39">Request</h4>
+
+<p>In this model, the merchant only informs that the transaction is from an Apple Pay Wallet and sends the ECI and CAVV data provided by APPLE</p>
+
+<ul>
+  <li><strong>CAVV</strong> - can be extracted from the <code class="highlighter-rouge">onlinePaymentCryptogram</code> field returned by Apple in payload</li>
+  <li><strong>ECI</strong> - can be extracted from the <code class="highlighter-rouge">eciIndicator</code> field returned by Apple in payload</li>
+</ul>
 
 <h4 id="response-45">Response</h4>
 

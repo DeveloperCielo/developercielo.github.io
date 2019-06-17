@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-17T11:54:33+00:00</updated>
+    <updated>2019-06-17T12:27:22+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32551,19 +32551,81 @@ Each Wallet has an &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPubl
 
 &lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
 
+&lt;p&gt;To use Apple Pay in the &lt;em&gt;Decryption&lt;/em&gt; format, it is necessary that the store is already registered with Apple and has a &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantIdentifier&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;Decryption&lt;/code&gt; integration requires the merchant to manually upload a &lt;em&gt;CSR certificate in the PEM format&lt;/em&gt; provided by Cielo. Contact the Cielo customer service team to obtain the Certificate.&lt;/p&gt;
+
 &lt;h4 id=&quot;merchantidentifier&quot;&gt;MerchantIdentifier&lt;/h4&gt;
+
+&lt;p&gt;To get the &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantIdentifier&lt;/code&gt; perform the following steps:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Log in &lt;a href=&quot;https://developer.apple.com/&quot;&gt;&lt;strong&gt;Apple Developer&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Select &lt;a href=&quot;https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html&quot;&gt;&lt;strong&gt;Certificates, IDs &amp;amp; Profiles&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Inside the area “Identifiers” click on “Merchant IDs”&lt;/li&gt;
+  &lt;li&gt;Click on &lt;strong&gt;+&lt;/strong&gt; in the right corner, below “Registering a Merchant ID”&lt;/li&gt;
+  &lt;li&gt;Set the MerchantID description and identifier. Example: “merchant.com.CIELO.merchantAccount”&lt;/li&gt;
+  &lt;li&gt;Click on “continue” and verify that the information entered is correct.&lt;/li&gt;
+  &lt;li&gt;End the process.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantIdentifier&lt;/code&gt; must be sent to Cielo for the creation of a CSR Certificate in PEM format.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;csr-certificate&quot;&gt;CSR Certificate&lt;/h4&gt;
 
+&lt;p&gt;After sending the &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantIdentifier&lt;/code&gt; to the Cielo service team, the store will receive a extension certificate of &lt;code class=&quot;highlighter-rouge&quot;&gt;PEM&lt;/code&gt; and should follow the following steps:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Log in &lt;a href=&quot;https://developer.apple.com/&quot;&gt;&lt;strong&gt;Apple Developer&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Select &lt;a href=&quot;https://developer.apple.com/library/content/ApplePay_Guide/Configuration.html&quot;&gt;&lt;strong&gt;Certificates, IDs &amp;amp; Profiles&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Perform the certificate upload&lt;/li&gt;
+  &lt;li&gt;End the process.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The PEM Certificate contains the CSR code requested by Apple. &lt;br /&gt;
+Format of a Certificate &lt;code class=&quot;highlighter-rouge&quot;&gt;.PEM&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;-&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;—–BEGIN CERTIFICATE REQUEST—–&lt;br /&gt;
+MIHwMIGYAgEAMDgxCzAJBgNVBAYTAkJSMRAwDgYDVQQKDAdicmFzcGFnMRcwFQYD&lt;br /&gt;
+VQQDDA5icmFzcGFnLmNvbS5icjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBIP&lt;br /&gt;
+ULN00aAwYW+sfTettoIl8l9YrDCkF1HEiI9PgwLcM4jCkIAvnrKZ3loLWDi4J8Jh&lt;br /&gt;
+ML01OuTohYS46lqF6p4wCgYIKoZIzj0EAwIDRwAwRAIgWLAPtSWKQ3sJYLc6jmWa&lt;br /&gt;
+RNWCoNR2XBQZKdg5bIGNYpYCIHSLsQVSK8taL7dGirOBxXiOqtUA9hWxn0g1Mf3U&lt;br /&gt;
+VKeU&lt;br /&gt;
+—–END CERTIFICATE REQUEST—–&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;h3 id=&quot;decryption-1&quot;&gt;Decryption&lt;/h3&gt;
 
+&lt;p&gt;In the model below, we demonstrate how to use the Apple Pay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Apple via Payload&lt;/p&gt;
+
 &lt;h4 id=&quot;request-38&quot;&gt;Request&lt;/h4&gt;
+
+&lt;p&gt;Request Sample &lt;em&gt;Apple Pay&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It is necessary that the store already has a registration and an Apple Pay integration, otherwise it will not be possible to integrate with the API&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;response-44&quot;&gt;Response&lt;/h4&gt;
 
 &lt;h3 id=&quot;sending-the-card-1&quot;&gt;Sending the card&lt;/h3&gt;
 
+&lt;p&gt;In the model below, we demonstrate how Apple Pay can be used with sending the card open, without the need for WalletKey.&lt;/p&gt;
+
 &lt;h4 id=&quot;request-39&quot;&gt;Request&lt;/h4&gt;
+
+&lt;p&gt;In this model, the merchant only informs that the transaction is from an Apple Pay Wallet and sends the ECI and CAVV data provided by APPLE&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;CAVV&lt;/strong&gt; - can be extracted from the &lt;code class=&quot;highlighter-rouge&quot;&gt;onlinePaymentCryptogram&lt;/code&gt; field returned by Apple in payload&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ECI&lt;/strong&gt; - can be extracted from the &lt;code class=&quot;highlighter-rouge&quot;&gt;eciIndicator&lt;/code&gt; field returned by Apple in payload&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h4 id=&quot;response-45&quot;&gt;Response&lt;/h4&gt;
 
