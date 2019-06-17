@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-17T17:59:38+00:00</updated>
+    <updated>2019-06-17T18:21:01+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32949,6 +32949,8 @@ VKeU&lt;br /&gt;
   &lt;li&gt;&lt;strong&gt;CAVV&lt;/strong&gt; - can be extracted from the &lt;code class=&quot;highlighter-rouge&quot;&gt;onlinePaymentCryptogram&lt;/code&gt; field returned by Apple in payload&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;ECI&lt;/strong&gt; - can be extracted from the &lt;code class=&quot;highlighter-rouge&quot;&gt;eciIndicator&lt;/code&gt; field returned by Apple in payload&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6242-642-723&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
