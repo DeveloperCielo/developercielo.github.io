@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-17T17:52:55+00:00</updated>
+    <updated>2019-06-17T17:59:38+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31631,17 +31631,21 @@ The return code &lt;strong&gt;“00” represents success in Zero Auth&lt;/stron
 
 &lt;h2 id=&quot;authorization-flow&quot;&gt;Authorization Flow&lt;/h2&gt;
 
+&lt;h3 id=&quot;standard-authorization-flow&quot;&gt;Standard Authorization Flow&lt;/h3&gt;
+
 &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-padrao-de-autorizacao_2_en.png&quot; alt=&quot;Authorization_Flow&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The establishment must be &lt;strong&gt;PCI Compliance&lt;/strong&gt; (PCI = Security Rules to manipulate card data)&lt;/p&gt;
 
-&lt;h3 id=&quot;standard-authorization-flow&quot;&gt;Standard Authorization Flow&lt;/h3&gt;
+&lt;h3 id=&quot;authorization-flow-with-silent-order-post&quot;&gt;Authorization Flow with Silent Order POST&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-de-autorizacao-com-sop_1_en.png&quot; alt=&quot;Authorization_Flow_POST&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The server &lt;strong&gt;does not pass the card data&lt;/strong&gt; openly.&lt;/p&gt;
 
-&lt;h3 id=&quot;authorization-flow-with-silent-order-post&quot;&gt;Authorization Flow with Silent Order POST&lt;/h3&gt;
-
 &lt;h2 id=&quot;transactional-flow&quot;&gt;Transactional Flow&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-silent-order-post-cielo_-_3_en.png&quot; alt=&quot;Transactional_Flow&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;integration-4&quot;&gt;Integration&lt;/h2&gt;
 
