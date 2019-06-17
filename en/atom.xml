@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-17T17:34:37+00:00</updated>
+    <updated>2019-06-17T17:45:13+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31630,6 +31630,8 @@ The return code &lt;strong&gt;“00” represents success in Zero Auth&lt;/stron
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;authorization-flow&quot;&gt;Authorization Flow&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-padrao-de-autorizacao 2_en.png&quot; alt=&quot;Authorization_Flow&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The establishment must be &lt;strong&gt;PCI Compliance&lt;/strong&gt; (PCI = Security Rules to manipulate card data)&lt;/p&gt;
 
