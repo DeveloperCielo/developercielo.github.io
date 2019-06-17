@@ -6943,17 +6943,21 @@ It is ideal for merchants who require a high level of security without losing th
 
 ## Authorization Flow
 
+### Standard Authorization Flow
+
 ![Authorization_Flow]( https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-padrao-de-autorizacao_2_en.png)
 
 The establishment must be **PCI Compliance** (PCI = Security Rules to manipulate card data)
 
-### Standard Authorization Flow
+### Authorization Flow with Silent Order POST
+
+![Authorization_Flow_POST]( https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-de-autorizacao-com-sop_1_en.png)
 
 The server **does not pass the card data** openly.
 
-### Authorization Flow with Silent Order POST
-
 ## Transactional Flow
+
+![Transactional_Flow]( https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-silent-order-post-cielo_-_3_en.png)
 
 ## Integration
 
