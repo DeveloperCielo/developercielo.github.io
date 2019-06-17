@@ -8313,17 +8313,62 @@ curl
 
 ### Prerequisites
 
+To use Samsung **Decryption** format, it is necessary that the store is already registered with [**Samsung**](https://pay.samsung.com/developers) platform. The **Decryption** integration requires the merchant to manually upload a CSR certificate in the PEM format provided by Cielo. Contact the Cielo customer service team to obtain the Certificate.
+
+
 #### CSR Certificate
+
+After registering with SamsungPay, the store should request a certificate of extension `PEM` to the  team of Cielo products. With the certificate, you should follow the following steps:
+
+1. Log in [**Samsung**](https://pay.samsung.com/developers)
+2. Select [**My Projects**](https://pay.samsung.com/developers/projects/prdnsvc) para criar serviço
+3. Perform the certificate upload
+7. End the process.
+
+> The PEM Certificate contains the CSR code requested by Samsung. <br>
+> Format of a Certificate `.PEM`
+
+--
+
+> -----BEGIN CERTIFICATE REQUEST-----
+> MIICezCCAWMCAQAwODELMAkGA1UEBhMCQlIxEDAOBgNVBAoMB2JyYXNwYWcxFzAV<br>
+> BgNVBAMMDmJyYXNwYWcuY29tLmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB<br>
+> CgKCAQEApsk94DAhdgvgUgGT/fufNkofB2AeX/sPXRT0mm92DM8XgbyWw6FgsE2T<br>
+> 3SFi5WmYwDo12tVjAydUCRzMc6HDIrLBFJsfHgrZWLlf9QIPLZFW/zA9+qZLP+VW<br>
+> nGyGBil+rgNhylXfDGjCvUMJ5bSLbcC2oC1HGO613HsJrbsB96sE107RkFhDEChD<br>
+> 9fZi3MoD2lCwVjbAu/zDatoloxy8Bc02HqlK4sVZuPUzFIZ9gg19G/QU6WI2ompv<br>
+> akkhc07xS8QIU/XuzMV5KdpCs/mlRH1QQICSHdviu2UKbKlM9KWqpBOeLwGsQ59P<br>
+> mQVb5bPgdAix8KvBAWAi8pcdgjWiIwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBh<br>
+> 4XwAmQabopYgJgb+8UwIV+LbWKszwXVUq9nYfiDN0OT4KguilfNQQMHvULlHVahJ<br>
+> ibiRsuFfkmEkvGkrUm1IMCHjwZjDzJmbB/7VwqHzq5HJ9pa9Dt6xRO7psCycSE4N<br>
+> m+iQs18muHWkzPFouBw+HDVgD8NJZS0mPKSnOmdWpajUHkpDsXY+XctLI2n6NAc3<br>
+> sy65A6ljFGpjdHG+aJc7TjzjSBpNXyY5bys5zGF44wgOKq/md5nMp6IeqYAZ+D1N<br>
+> aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br>
+> /mYyDuIyBIna9ij0Ygff<br>
+> -----END CERTIFICATE REQUEST-----<br>",
 
 ### Decryption
 
+In the model below, we demonstrate how to use the SamsungPay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Samsung via Payload
+
 #### Request
+
+Request Sample *SamsungPay*
+
+> It is necessary that the store already has a registration and a SamsungPay integration, otherwise it will not be possible to integrate with the API
 
 #### Response
 
 ### Sending the card
 
+In the model below, we demonstrate how SamsungPay can be used with sending the card open, without the need for WalletKey.
+
 #### Request
+
+In this model, the merchant only informs that the transaction is from an SamsungPay and sends the ECI and CAVV data provided by Samsung
+
+* **CAVV** - can be extracted from the `Cryptogram` field returned by Apple Samsung in payload
+* **ECI** - returned by Samsung Pay in the payload field `eci_indicator` 
 
 #### Response
 
