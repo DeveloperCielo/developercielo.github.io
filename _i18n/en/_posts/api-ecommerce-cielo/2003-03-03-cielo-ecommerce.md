@@ -6943,6 +6943,8 @@ It is ideal for merchants who require a high level of security without losing th
 
 ## Authorization Flow
 
+![Authorization_Flow]( https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-padrao-de-autorizacao 2_en.png)
+
 The establishment must be **PCI Compliance** (PCI = Security Rules to manipulate card data)
 
 ### Standard Authorization Flow
