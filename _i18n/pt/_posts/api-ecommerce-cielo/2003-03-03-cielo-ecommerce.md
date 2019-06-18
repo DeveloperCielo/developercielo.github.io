@@ -87,7 +87,7 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 |**Transação**|é o pedido de compra do portador do cartão na Cielo.|
 |**VBV (Verified by Visa)**|Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.|
 
-## Produtos e Bandeiras suportadas
+## Produtos e Bandeiras suportadas 
 
 A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
