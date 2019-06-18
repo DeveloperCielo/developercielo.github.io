@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-18T17:49:13+00:00</updated>
+    <updated>2019-06-18T17:53:42+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -22252,10 +22252,10 @@ PaymentIds associated with the identifier.&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Operation return code.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonMessage&lt;/code&gt;&lt;/td&gt;
@@ -22431,7 +22431,6 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;th&gt;Type&lt;/th&gt;
       &lt;th&gt;Size&lt;/th&gt;
       &lt;th&gt;Format&lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -22441,12 +22440,10 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;td&gt;Byte&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Operation return code.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
@@ -22457,7 +22454,6 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt;&lt;/td&gt;
@@ -22465,7 +22461,6 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnMessage&lt;/code&gt;&lt;/td&gt;
@@ -22473,7 +22468,6 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnCode&lt;/code&gt;&lt;/td&gt;
@@ -22481,7 +22475,6 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ProviderReturnMessage&lt;/code&gt;&lt;/td&gt;
@@ -22489,7 +22482,6 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
