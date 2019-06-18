@@ -7033,7 +7033,7 @@ O servidor **não trafega os dados do cartão** abertamente.
 
 ## Fluxo Transacional
 
-![Fluxo Silent Order Post]({{ site.baseurl_root }}/images/fluxo-silent-order-post-cielo_new.png)
+![Fluxo Silent Order Post]( https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-silent-order-post-cielo_new.png)
 
 ## Integração
 
