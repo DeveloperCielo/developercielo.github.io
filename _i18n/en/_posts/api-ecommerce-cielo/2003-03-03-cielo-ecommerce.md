@@ -8389,6 +8389,25 @@ Request Sample *SamsungPay*
 
 ```
 
+| Property                   | Type   | Size    | Required    | Description                                                                                             |
+|----------------------------|--------|---------|-------------|---------------------------------------------------------------------------------------------------------|
+| `MerchantId`               | Guid   | 36      | Yes         | Store identifier in Cielo.                                                                              |
+| `MerchantKey`              | Text   | 40      | Yes         | Public Key for Double Authentication in Cielo.                                                          |
+| `RequestId`                | Guid   | 36      | No          | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.                |
+| `MerchantOrderId`          | Text   | 50      | Yes         | Order ID number.                                                                                        |
+| `Customer.Name`            | Text   | 255     | No          | Buyer's name.                                                                                           |
+| `Customer.Status`          | Text   | 255     | No          | Buyer registration status in store (NEW / EXISTING).                                                    |
+| `Payment.Type`             | Text   | 100     | Yes         | Type of the Payment Method.                                                                             |
+| `Payment.Amount`           | Número | 15      | Yes         | Order Amount (to be sent in cents).                                                                     |
+| `Payment.Installments`     | Número | 2       | Yes         | Number of installments.                                                                                 |
+| `CreditCard.CardNumber.`   | Text   | 19      | Yes         | Buyer's Card Number.                                                                                    |
+| `CreditCard.SecurityCode`  | Text   | 4       | No          | Security code printed on back of card - See Annex.                                                      |
+| `CreditCard.Brand`         | Text   | 10      | Yes         | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                   |
+| `Wallet.Type`              | Text   | 255     | Yes         | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                    |
+| `Wallet.Walletkey`         | Text   | 255     | Yes         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações       |
+| `Wallet.AdditionalData.EphemeralPublicKey`| Text  | 255    | Yes  | Key returned by Wallet for decryption. Must be submitted in Integrations: `ApplePay`              |
+| `Wallet.AdditionalData.capturecode`       | Text  | 255    | Yes  | Code informed by `MasterPass` to the merchant                                                     | 
+
 #### Response
 
 ```json
@@ -8450,6 +8469,22 @@ Request Sample *SamsungPay*
     }
 }
 ```
+
+| Property            | Description                                                                                                                    | Type  | Size    | Format                               |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
+| `ProofOfSale`       | Authorization number, identical to NSU.                                                                                        | Text  | 6       | Alphanumeric text                    |
+| `Tid`               | Transaction Id on the acquirer.                                                                                                | Text  | 20      | Alphanumeric text                    |
+| `AuthorizationCode` | Authorization code.                                                                                                            | Text  | 6       | Alphanumeric text                    |
+| `SoftDescriptor`    | Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters   | Text  | 13      | Alphanumeric text                    |
+| `PaymentId`         | Order Identifier Field.                                                                                                        | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `ECI`               | Eletronic Commerce Indicator. Represents how secure a transaction is.                                                          | Text  | 2       | Examples: 7                          |
+| `Status`            | Transaction Status.                                                                                                            | Byte  | ---     | 2                                    |
+| `ReturnCode`        | Return code of Acquiring.                                                                                                      | Text  | 32      | Alphanumeric text                    |
+| `ReturnMessage`     | Return message of Acquiring.                                                                                                   | Text  | 512     | Alphanumeric text                    |
+| `Type`              | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                                           | Text  | 255     | Alphanumeric text                    |
+| `Walletkey`         |  Cryptographic key  that identifies stores in the Wallets - See the WalletKey table for more information                       | Text  | 255     | See `WalletKey` table                |       
+| `AdditionalData.EphemeralPublicKey` | Key returned by Wallet for decryption. Must be submitted in Integrations: `ApplePay`                           | Text  | 255     | See `EphemeralPublicKey` table      |  
+| `AdditionalData.capturecode`        | Code informed by `MasterPass` to the merchant                                                                  | Text  | 255     | 3                                    | 
 
 ### Sending the card
 
