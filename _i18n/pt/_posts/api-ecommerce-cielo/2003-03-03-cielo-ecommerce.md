@@ -8821,32 +8821,32 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 
 ### Códigos de Motivo de Retorno
 
-| Reason Code                         | Reason Message                      |
-|-------------------------------------|-------------------------------------|
-| 0	                                  | Successful                          |
-| 1	                                  | AffiliationNotFound                 |
-| 2	                                  | IssuficientFunds                    |
-| 3	                                  | CouldNotGetCreditCard               |
-| 4	                                  | ConnectionWithAcquirerFailed        |
-| 5	                                  | InvalidTransactionType              |
-| 6	                                  | InvalidPaymentPlan                  |
-| 7	                                  | Denied                              |
-| 8	                                  | Scheduled                           |
-| 9	                                  | Waiting                             |
-| 10	                                | Authenticated                       |
-| 11	                                | NotAuthenticated                    |
-| 12	                                | ProblemsWithCreditCard              |
-| 13	                                | CardCanceled                        |
-| 14	                                | BlockedCreditCard                   |
-| 15	                                | CardExpired                         |
-| 16	                                | AbortedByFraud                      |
-| 17	                                | CouldNotAntifraud                   |
-| 18	                                | TryAgain                            |
-| 19	                                | InvalidAmount                       |
-| 20	                                | ProblemsWithIssuer                  |
-| 21	                                | InvalidCardNumber                   |
-| 22	                                | TimeOut                             |
-| 23	                                | CartaoProtegidoIsNotEnabled         |
-| 24	                                | PaymentMethodIsNotEnabled           |
-| 98	                                | InvalidRequest                      |
-| 99	                                | InternalError                       |
+|Reason Code|Reason Message|
+|---|---|
+|0|Successful|
+|1|AffiliationNotFound|
+|2|IssuficientFunds|
+|3|CouldNotGetCreditCard|
+|4|ConnectionWithAcquirerFailed|
+|5|InvalidTransactionType|
+|6|InvalidPaymentPlan|
+|7|Denied|
+|8|Scheduled|
+|9|Waiting|
+|10|Authenticated|
+|11|NotAuthenticated|
+|12|ProblemsWithCreditCard|
+|13|CardCanceled|
+|14|BlockedCreditCard|
+|15|CardExpired|
+|16|AbortedByFraud|
+|17|CouldNotAntifraud|
+|18|TryAgain|
+|19|InvalidAmount|
+|20|ProblemsWithIssuer|
+|21|InvalidCardNumber|
+|22|TimeOut|
+|23|CartaoProtegidoIsNotEnabled|
+|24|PaymentMethodIsNotEnabled|
+|98|InvalidRequest|
+|99|InternalError|
