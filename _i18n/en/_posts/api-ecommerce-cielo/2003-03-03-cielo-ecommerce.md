@@ -4110,8 +4110,8 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 
 |Field|Description|
 |---|---|
-|CN|Private buyer|
-|CP|Business buyer|
+|CN|Business buyer|
+|CP|Private buyer|
 
 #### VelocityHedge
 
