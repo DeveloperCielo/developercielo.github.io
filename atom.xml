@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-18T12:43:12+00:00</updated>
+    <updated>2019-06-18T12:51:44+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29998,7 +29998,7 @@ O código de retorno &lt;strong&gt;00 representa sucesso no Zero Auth&lt;/strong
 
 &lt;h2 id=&quot;fluxo-transacional&quot;&gt;Fluxo Transacional&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/fluxo-silent-order-post-cielo_new.png&quot; alt=&quot;Fluxo Silent Order Post&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-silent-order-post-cielo_new.png&quot; alt=&quot;Fluxo Silent Order Post&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;integração-4&quot;&gt;Integração&lt;/h2&gt;
 
