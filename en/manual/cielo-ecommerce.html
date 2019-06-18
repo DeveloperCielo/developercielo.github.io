@@ -4539,6 +4539,22 @@ PaymentIds associated with the identifier.</p>
       <td> </td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">ReasonCode</code></td>
+      <td>Operation return code.</td>
+      <td> </td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReasonMessage</code></td>
+      <td>Operation return message.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
       <td>Return code of acquirer.</td>
       <td> </td>
@@ -4704,6 +4720,7 @@ PaymentIds associated with the identifier.</p>
       <th>Type</th>
       <th>Size</th>
       <th>Format</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -4713,6 +4730,23 @@ PaymentIds associated with the identifier.</p>
       <td>Byte</td>
       <td>—</td>
       <td>2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReasonCode</code></td>
+      <td>Operation return code.</td>
+      <td> </td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ReasonMessage</code></td>
+      <td>Operation return message.</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Alphanumeric text</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
@@ -4720,6 +4754,7 @@ PaymentIds associated with the identifier.</p>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric text</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
@@ -4727,6 +4762,7 @@ PaymentIds associated with the identifier.</p>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric text</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnCode</code></td>
@@ -4734,6 +4770,7 @@ PaymentIds associated with the identifier.</p>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric text</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ProviderReturnMessage</code></td>
@@ -4741,6 +4778,7 @@ PaymentIds associated with the identifier.</p>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric text</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -13511,6 +13549,8 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>See an use case example: <strong>BIN Checker + cart recovery</strong></p>
 
+<p>A marketplace called Submersible has a range of payment methods available for its stores to offer to the buyer, but even with all that supply available, it continues with a low conversion rate.</p>
+
 <p>Knowing the Bin checker of the Cielo Ecommerce API, how could it prevent the loss of carts?</p>
 
 <p>It can apply the bin checker bins and 3 scenarios!</p>
@@ -19867,11 +19907,11 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   <tbody>
     <tr>
       <td>CN</td>
-      <td>Private buyer</td>
+      <td>Business buyer</td>
     </tr>
     <tr>
       <td>CP</td>
-      <td>Business buyer</td>
+      <td>Private buyer</td>
     </tr>
   </tbody>
 </table>
