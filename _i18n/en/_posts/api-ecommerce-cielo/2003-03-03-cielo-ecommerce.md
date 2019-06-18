@@ -9144,7 +9144,7 @@ The table below lists all possible codes to be sent in the MerchantDefinedData p
 |High|High importance of the time of day when the purchase was made, for the risk analysis.|
 |Off|Purchase time does not affect risk analysis.|
 
-### FraudAnalysis.Items.Type
+### FraudAnalysis.Items.Type 
 
 |Field|Description|
 |---|---|
