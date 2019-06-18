@@ -12,6 +12,7 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
+---
 
 # Visão geral - API Cielo eCommerce
 
