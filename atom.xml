@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-18T12:51:44+00:00</updated>
+    <updated>2019-06-18T16:57:12+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -16110,12 +16110,29 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
     </entry>
     
     <entry>
-        <title>Manual de Integração</title>
-        <category term="manual" />
-        <link href="https://developercielo.github.io/manual/cielo-ecommerce"/>
+        <title>Cielo Ecommerce</title>
+        <category term="" />
+        <link href="https://developercielo.github.io/cielo-ecommerce"/>
         <updated>2003-03-03T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/manual/cielo-ecommerce</id>
-        <content type="html">&lt;h1 id=&quot;visão-geral---api-cielo-ecommerce&quot;&gt;Visão geral - API Cielo eCommerce&lt;/h1&gt;
+        <id>https://developercielo.github.io/cielo-ecommerce</id>
+        <content type="html">&lt;hr /&gt;
+&lt;p&gt;layout: manual
+title: Manual de Integração
+description: Manual integração técnica via API
+search: true
+translated: true
+toc_footers: true
+categories: manual
+sort_order: 1
+tags:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;API e-Commerce Cielo
+language_tabs:
+  json: JSON
+  shell: cURL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;visão-geral---api-cielo-ecommerce&quot;&gt;Visão geral - API Cielo eCommerce&lt;/h1&gt;
 
 &lt;p&gt;O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a &lt;strong&gt;API Cielo eCommerce da Cielo&lt;/strong&gt;, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.&lt;/p&gt;
 
@@ -20456,6 +20473,20 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
       &lt;td&gt;2&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Código de retorno da Operação.&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonMessage&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Mensagem de retorno da Operaçãoe.&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;512&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Código de retorno da adquirente.&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
@@ -24515,11 +24546,11 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CN&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Comprador particular&lt;/td&gt;
+      &lt;td&gt;Comprador de negócios&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CP&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Comprador de negócios&lt;/td&gt;
+      &lt;td&gt;Comprador particular&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -29572,7 +29603,7 @@ O serviço retornar os seguintes dados sobre o cartão:&lt;/p&gt;
 
 &lt;p&gt;Veja um exemplo de uso: &lt;strong&gt;Consulta Bins + recuperação de carrinho&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Um marketplace chamada Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas possam oferecer ao comprador, mas mesmo com toda essa oferta, ela continua com uma taxa de conversão que&lt;/p&gt;
+&lt;p&gt;Um marketplace chamada Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas possam oferecer ao comprador, mas mesmo com toda essa oferta, ela continua com uma taxa de conversão baixa.&lt;/p&gt;
 
 &lt;p&gt;Conhecendo a função de consulta Bins da API Cielo Ecommerce, como ela poderia evitar a perda de carrinhos?&lt;/p&gt;
 
