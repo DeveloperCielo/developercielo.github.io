@@ -8818,3 +8818,35 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |R1|Transação não autorizada. Cartão inadimplente (Do not honor).|Transação não autorizada. Não foi possível processar a transação. Questão relacionada a segurança, inadimplencia ou limite do portador.|Transação não autorizada. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
 |U3|Transação não permitida. Falha na validação dos dados.|Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.|Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.|Não|
 |GD|Transação não permitida|Transação não permitida|Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes Transação|Não| 
+
+### Códigos de Motivo de Retorno
+
+| Reason Code                         | Reason Message
+|-------------------------------------|-------------------------------------|
+| 0	                                  | Successful                          |
+| 1	                                  | AffiliationNotFound                 |
+| 2	                                  | IssuficientFunds                    |
+| 3	                                  | CouldNotGetCreditCard               |
+| 4	                                  | ConnectionWithAcquirerFailed        |
+| 5	                                  | InvalidTransactionType              |
+| 6	                                  | InvalidPaymentPlan                  |
+| 7	                                  | Denied                              |
+| 8	                                  | Scheduled                           |
+| 9	                                  | Waiting                             |
+| 10	                                | Authenticated                       |
+| 11	                                | NotAuthenticated                    |
+| 12	                                | ProblemsWithCreditCard              |
+| 13	                                | CardCanceled                        |
+| 14	                                | BlockedCreditCard                   |
+| 15	                                | CardExpired                         |
+| 16	                                | AbortedByFraud                      |
+| 17	                                | CouldNotAntifraud                   |
+| 18	                                | TryAgain                            |
+| 19	                                | InvalidAmount                       |
+| 20	                                | ProblemsWithIssuer                  |
+| 21	                                | InvalidCardNumber                   |
+| 22	                                | TimeOut                             |
+| 23	                                | CartaoProtegidoIsNotEnabled         |
+| 24	                                | PaymentMethodIsNotEnabled           |
+| 98	                                | InvalidRequest                      |
+| 99	                                | InternalError                       |
