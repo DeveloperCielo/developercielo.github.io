@@ -8821,7 +8821,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 
 ### Códigos de Motivo de Retorno
 
-| Reason Code                         | Reason Message
+| Reason Code                         | Reason Message                      |
 |-------------------------------------|-------------------------------------|
 | 0	                                  | Successful                          |
 | 1	                                  | AffiliationNotFound                 |
