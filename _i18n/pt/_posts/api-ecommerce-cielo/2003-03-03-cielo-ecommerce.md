@@ -2321,6 +2321,8 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`Status`|Status da Transação.|Byte|---|2|
+|`ReasonCode`|Código de retorno da Operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da Operaçãoe.|Texto|512|Texto alfanumérico|
 |`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
 |`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
@@ -2414,6 +2416,8 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`Status`|Status da Transação.|Byte|---|2|
+|`ReasonCode`|Código de retorno da Operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da Operaçãoe.|Texto|512|Texto alfanumérico|
 |`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
 |`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
