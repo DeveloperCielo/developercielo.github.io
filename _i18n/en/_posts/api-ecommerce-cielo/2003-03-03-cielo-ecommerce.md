@@ -2288,6 +2288,8 @@ curl
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
+|`ReasonCode`|Operation return code.||Text|32|Alphanumeric text|
+|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric text|
 |`ReturnCode`|Return code of acquirer.||Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
 |`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
@@ -2381,6 +2383,8 @@ curl
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
+|`ReasonCode`|Operation return code.||Text|32|Alphanumeric text|
+|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric text|
 |`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
 |`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
@@ -6708,6 +6712,8 @@ This information makes it possible to take some actions on the checkout and incr
 
 See an use case example: **BIN Checker + cart recovery**
 
+A marketplace called Submersible has a range of payment methods available for its stores to offer to the buyer, but even with all that supply available, it continues with a low conversion rate.
+
 Knowing the Bin checker of the Cielo Ecommerce API, how could it prevent the loss of carts?
 
 It can apply the bin checker bins and 3 scenarios!
@@ -9142,8 +9148,8 @@ The table below lists all possible codes to be sent in the MerchantDefinedData p
 
 |Field|Description|
 |---|---|
-|CN|Private buyer|
-|CP|Business buyer|
+|CN|Business buyer|
+|CP|Private buyer|
 
 ### FraudAnalysis.Items.VelocityHedge
 
