@@ -12,7 +12,6 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
----
 
 # Visão geral - API Cielo eCommerce
 
@@ -2254,6 +2253,8 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`Status`|Status da Transação.|Byte|---|2|
+|`ReasonCode`|Código de retorno da Operação.|Texto|32|Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da Operaçãoe.|Texto|512|Texto alfanumérico|
 |`ReturnCode`|Código de retorno da adquirente.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da adquirente.|Texto|512|Texto alfanumérico|
 |`ProviderReturnCode`|Código de retorno do Provider.|Texto|32|Texto alfanumérico|
@@ -4166,8 +4167,8 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 
 |Campo|Descrição|
 |---|---|
-|`CN`|Comprador particular|
-|`CP`|Comprador de negócios|
+|`CN`|Comprador de negócios|
+|`CP`|Comprador particular|
 
 #### VelocityHedge
 
@@ -6778,7 +6779,7 @@ Essas informações permitem tomar ações no momento do checkout para melhorar 
 
 Veja um exemplo de uso: **Consulta Bins + recuperação de carrinho**
 
-Um marketplace chamada Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas possam oferecer ao comprador, mas mesmo com toda essa oferta, ela continua com uma taxa de conversão que 
+Um marketplace chamada Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas possam oferecer ao comprador, mas mesmo com toda essa oferta, ela continua com uma taxa de conversão baixa.
 
 Conhecendo a função de consulta Bins da API Cielo Ecommerce, como ela poderia evitar a perda de carrinhos?
 
