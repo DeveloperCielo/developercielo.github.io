@@ -8364,6 +8364,8 @@ Request Sample *SamsungPay*
 
 > It is necessary that the store already has a registration and a SamsungPay integration, otherwise it will not be possible to integrate with the API
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
 ```json
 {
   "MerchantOrderId":"6242-642-723",
@@ -8459,6 +8461,8 @@ In this model, the merchant only informs that the transaction is from an Samsung
 
 * **CAVV** - can be extracted from the `Cryptogram` field returned by Apple Samsung in payload
 * **ECI** - returned by Samsung Pay in the payload field `eci_indicator` 
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 ```json
 {
