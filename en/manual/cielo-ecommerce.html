@@ -17546,7 +17546,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<h2 id="status">Status</h2>
+<h2 id="status-transactional">Status transactional</h2>
 
 <table>
   <thead>
@@ -17560,55 +17560,55 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   <tbody>
     <tr>
       <td>0</td>
-      <td>NotFinished</td>
+      <td><strong>NotFinished</strong></td>
       <td>ALL</td>
       <td>Waiting for status update</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>Authorized</td>
+      <td><strong>Authorized</strong></td>
       <td>ALL</td>
       <td>Payment apt to be captured or defined as paid</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>PaymentConfirmed</td>
+      <td><strong>PaymentConfirmed</strong></td>
       <td>ALL</td>
       <td>Confirmed and finalized payment</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>Declined</td>
+      <td><strong>Declined</strong></td>
       <td>CC + CD + TF</td>
       <td>Payment declined by Authorizer</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>Voided</td>
+      <td><strong>Voided</strong></td>
       <td>ALL</td>
       <td>Canceled payment</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>Refunded</td>
+      <td><strong>Refunded</strong></td>
       <td>CC + CD</td>
       <td>Payment canceled after 11:59 pm on the authorization day</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>Pending</td>
+      <td><strong>Pending</strong></td>
       <td>ALL</td>
       <td>Waiting for financial institution status</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>Aborted</td>
+      <td><strong>Aborted</strong></td>
       <td>ALL</td>
       <td>Payment canceled due to processing failure</td>
     </tr>
     <tr>
       <td>20</td>
-      <td>Scheduled</td>
+      <td><strong>Scheduled</strong></td>
       <td>CC</td>
       <td>Scheduled recurrence</td>
     </tr>
@@ -17620,7 +17620,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 <table>
   <thead>
     <tr>
-      <th>Means of payment</th>
+      <th>Payment method</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -17648,7 +17648,22 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<h2 id="api-error-codes">API Error Codes</h2>
+<h2 id="integration-errors-1">Integration errors</h2>
+
+<blockquote>
+  <p><strong>API Errors</strong> - These codes are the responses to <strong>validation of the content of the data sent</strong>. <br />
+If this code is displayed, the request contains errors (e.g: size/conditions/registration errors) which prevent the creation of the transaction <br /><em>Returned at the time of request to the API</em></p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Card Expiration Date is invalid"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="api-error-codes">API Error Codes</h3>
 
 <p>Codes returned in case of error, identifying the reason for the error and its respective messages.</p>
 
@@ -18334,7 +18349,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<h2 id="sales-return-codes">Sales Return Codes</h2>
+<h3 id="sales-return-codes">Sales Return Codes</h3>
 
 <table>
   <thead>
@@ -19101,170 +19116,123 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 
 <p><strong>Warning</strong>: There are similar return codes, but with different meanings such as “<strong>6</strong> - Captured” and the “<strong>06</strong> - Canceled Card”. These codes are only informative of the processing system. <strong>Only the field <code class="highlighter-rouge">STATUS</code> should be considered as the current transaction situation</strong></p>
 
-<h2 id="capture-return-codes">Capture Return Codes</h2>
+<h3 id="return-reason-codes">Return Reason Codes</h3>
 
 <table>
   <thead>
     <tr>
-      <th>Return Code</th>
-      <th>Return Message</th>
-      <th>Meaning</th>
+      <th>Reason Code</th>
+      <th>Reason Message</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>6</td>
-      <td>Transacao capturada com sucesso</td>
-      <td>Transaction successfully captured</td>
+      <td>0</td>
+      <td>Successful</td>
     </tr>
     <tr>
-      <td>001</td>
-      <td>Mensagem inválida</td>
-      <td>Operation failed. Invalid request</td>
+      <td>1</td>
+      <td>AffiliationNotFound</td>
     </tr>
     <tr>
-      <td>002</td>
-      <td>Credenciais inválidas</td>
-      <td>Operation failed. Invalid credentials</td>
+      <td>2</td>
+      <td>IssuficientFunds</td>
     </tr>
     <tr>
-      <td>003</td>
-      <td>Transação inexistente</td>
-      <td>Operation failed. Transaction not found</td>
-    </tr>
-    <tr>
-      <td>030</td>
-      <td>O status da transacao nao permite captura</td>
-      <td>Operation failed. Transaction not found</td>
-    </tr>
-    <tr>
-      <td>031</td>
-      <td>Prazo de captura vencido</td>
-      <td>Operation failed. Transaction is expired for capture</td>
-    </tr>
-    <tr>
-      <td>032</td>
-      <td>Valor de captura invalido</td>
-      <td>Operation failed. Capture amount is invalid</td>
-    </tr>
-    <tr>
-      <td>033</td>
-      <td>Falha ao capturar</td>
-      <td>Operation failed. Server error for capture</td>
-    </tr>
-    <tr>
-      <td>097</td>
-      <td>Sistema indisponível</td>
-      <td>Service unavailable</td>
-    </tr>
-    <tr>
-      <td>098</td>
-      <td>Timeout</td>
-      <td>Operation failed. Operation timed out</td>
-    </tr>
-    <tr>
-      <td>099</td>
-      <td>Erro inesperado</td>
-      <td>Operation failed</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="voidrefund-return-codes">Void/Refund Return Codes</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Return Code</th>
-      <th>Return Message</th>
-      <th>Meaning</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>9</td>
-      <td>Transacao desfeita</td>
-      <td>Transaction successfully</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>Transacao cancelada com sucesso</td>
-      <td>Transaction successfully refunded</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>Cancelamento parcial realizado com sucesso</td>
-      <td>Transaction successfully refunded (partially)</td>
+      <td>3</td>
+      <td>CouldNotGetCreditCard</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>Nao foi possivel cancelar a Transacao</td>
-      <td>Void operation failed</td>
+      <td>ConnectionWithAcquirerFailed</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>InvalidTransactionType</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>Nao foi possivel cancelar a Transacao</td>
-      <td>Refund operation failed</td>
+      <td>InvalidPaymentPlan</td>
     </tr>
     <tr>
-      <td>001</td>
-      <td>Mensagem inválida</td>
-      <td>Operation failed. Invalid request</td>
+      <td>7</td>
+      <td>Denied</td>
     </tr>
     <tr>
-      <td>002</td>
-      <td>Credenciais inválidas</td>
-      <td>Operation failed. Invalid credentials</td>
+      <td>8</td>
+      <td>Scheduled</td>
     </tr>
     <tr>
-      <td>003</td>
-      <td>Transação inexistente</td>
-      <td>Operation failed. Transaction not found</td>
+      <td>9</td>
+      <td>Waiting</td>
     </tr>
     <tr>
-      <td>040</td>
-      <td>Prazo de cancelamento vencido</td>
-      <td>Operation failed. Transaction is expired for refund</td>
+      <td>10</td>
+      <td>Authenticated</td>
     </tr>
     <tr>
-      <td>041</td>
-      <td>Status nao permite cancelamento</td>
-      <td>Operation failed. Current status not allowed for refund</td>
+      <td>11</td>
+      <td>NotAuthenticated</td>
     </tr>
     <tr>
-      <td>042</td>
-      <td>Falha ao cancelar</td>
-      <td>Operation failed. Server error for refund</td>
+      <td>12</td>
+      <td>ProblemsWithCreditCard</td>
     </tr>
     <tr>
-      <td>043</td>
-      <td>Valor de cancelamento é maior que valor autorizado.</td>
-      <td>Operation failed. Refund amount must be equals or less then authorized amount</td>
+      <td>13</td>
+      <td>CardCanceled</td>
     </tr>
     <tr>
-      <td>097</td>
-      <td>Sistema indisponível</td>
-      <td>Operation failed. Service unavailable</td>
+      <td>14</td>
+      <td>BlockedCreditCard</td>
     </tr>
     <tr>
-      <td>098</td>
-      <td>Timeout</td>
-      <td>Operation failed. Operation timed out</td>
+      <td>15</td>
+      <td>CardExpired</td>
     </tr>
     <tr>
-      <td>475</td>
-      <td>Tempo esgotado</td>
-      <td>Operation failed. Operation timed out</td>
+      <td>16</td>
+      <td>AbortedByFraud</td>
     </tr>
     <tr>
-      <td>845</td>
-      <td>Status nao permite cancelar</td>
-      <td>Operation failed. Invalid status for refund</td>
+      <td>17</td>
+      <td>CouldNotAntifraud</td>
     </tr>
     <tr>
-      <td>099</td>
-      <td>Erro inesperado</td>
-      <td>Operation failed</td>
+      <td>18</td>
+      <td>TryAgain</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>InvalidAmount</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>ProblemsWithIssuer</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>InvalidCardNumber</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>TimeOut</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>CartaoProtegidoIsNotEnabled</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>PaymentMethodIsNotEnabled</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>InvalidRequest</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>InternalError</td>
     </tr>
   </tbody>
 </table>
