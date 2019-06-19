@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-19T14:43:50+00:00</updated>
+    <updated>2019-06-19T17:06:59+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -36824,8 +36824,6 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: There are similar return codes, but with different meanings such as “&lt;strong&gt;6&lt;/strong&gt; - Captured” and the “&lt;strong&gt;06&lt;/strong&gt; - Canceled Card”. These codes are only informative of the processing system. &lt;strong&gt;Only the field &lt;code class=&quot;highlighter-rouge&quot;&gt;STATUS&lt;/code&gt; should be considered as the current transaction situation&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;return-reason-codes&quot;&gt;Return Reason Codes&lt;/h3&gt;
 
