@@ -8959,8 +8959,6 @@ Codes returned in case of error, identifying the reason for the error and its re
 |R1|Unauthorized transaction. Default card (Do not honor).|Unauthorized transaction. Could not process transaction. Issue related to security, default or carrier limit.|Unauthorized transaction. Contact your issuing bank.|Only 4 times in 16 days.|
 |U3|Transaction not allowed. Data validation failed.|Transaction not allowed. There was a failure in data validation. Ask the carrier to review the data and try again. If the error persists, check the communication between virtual store and Cielo.|Transaction not allowed. There was a failure in data validation. Review the reported data and try again. If the error persists, contact the Virtual Store.|No|
 
-**Warning**: There are similar return codes, but with different meanings such as "**6** - Captured" and the "**06** - Canceled Card". These codes are only informative of the processing system. **Only the field `STATUS` should be considered as the current transaction situation**
-
 ### Return Reason Codes
 
 |Reason Code|Reason Message|
