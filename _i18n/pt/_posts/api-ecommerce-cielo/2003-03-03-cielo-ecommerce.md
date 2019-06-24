@@ -3009,6 +3009,8 @@ curl
 | `ProofOfSale`           | Número da autorização, identico ao NSU. | Texto | 6       | Texto alfanumérico |
 | `Tid`                   | Id da transação na adquirente.          | Texto | 20      | Texto alfanumérico |
 | `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
+| `ReasonCode`            | Código de retorno da Operação.          | Texto | 32      | Texto alfanumérico |
+| `ReasonMessage`         | Mensagem de retorno da Operação.        | Texto | 512     | Texto alfanumérico |
 | `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
 | `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico |
 
@@ -3081,6 +3083,8 @@ curl
 | `ProofOfSale`           | Número da autorização, identico ao NSU. | Texto | 6       | Texto alfanumérico |
 | `Tid`                   | Id da transação na adquirente.          | Texto | 20      | Texto alfanumérico |
 | `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
+| `ReasonCode`            | Código de retorno da Operação.          | Texto | 32      | Texto alfanumérico |
+| `ReasonMessage`         | Mensagem de retorno da Operação.        | Texto | 512     | Texto alfanumérico |
 | `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
 | `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico ||
 
