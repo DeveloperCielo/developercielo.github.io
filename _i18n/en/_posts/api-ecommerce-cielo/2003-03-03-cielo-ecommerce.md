@@ -2969,7 +2969,9 @@ curl
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric texto|
+|`ReasonCode`|Operation return code.|Text|32|Alphanumeric texto|
+|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric texto|
+|`ReasonCode`|Return code of acquirer.|Text|32|Alphanumeric texto|
 |`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric texto|
 |`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
 |`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
@@ -3034,6 +3036,8 @@ curl
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
+|`ReasonCode`|Operation return code.|Text|32|Alphanumeric texto|
+|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric texto|
 |`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
 |`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
