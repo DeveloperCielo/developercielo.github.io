@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-06-24T12:10:16+00:00</updated>
+    <updated>2019-06-24T12:15:25+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -23560,13 +23560,6 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;td&gt;Operation return message.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
-      &lt;td&gt;Alphanumeric texto&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReasonCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Return code of acquirer.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Alphanumeric texto&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
