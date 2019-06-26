@@ -3011,6 +3011,8 @@ curl
 | `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
 | `ReasonCode`            | Código de retorno da Operação.          | Texto | 32      | Texto alfanumérico |
 | `ReasonMessage`         | Mensagem de retorno da Operação.        | Texto | 512     | Texto alfanumérico |
+| `ProviderReturnCode`    | Código de retorno do Provider.          | Texto | 32      | Texto alfanumérico |
+| `ProviderReturnMessage` | Mensagem de retorno do Provider.        | Texto | 512     | Texto alfanumérico ||
 | `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
 | `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico |
 
@@ -3085,6 +3087,8 @@ curl
 | `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
 | `ReasonCode`            | Código de retorno da Operação.          | Texto | 32      | Texto alfanumérico |
 | `ReasonMessage`         | Mensagem de retorno da Operação.        | Texto | 512     | Texto alfanumérico |
+| `ProviderReturnCode`    | Código de retorno do Provider.          | Texto | 32      | Texto alfanumérico |
+| `ProviderReturnMessage` | Mensagem de retorno do Provider.        | Texto | 512     | Texto alfanumérico ||
 | `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
 | `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico ||
 
