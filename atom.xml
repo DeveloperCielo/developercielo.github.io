@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-06-26T12:08:46+00:00</updated>
+    <updated>2019-07-01T19:41:03+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19602,6 +19602,12 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
       &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Hiper&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;Não&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -20173,7 +20179,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -21127,7 +21133,7 @@ Essa &lt;strong&gt;não é uma permissão concedida pela cielo&lt;/strong&gt;, o
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -22953,7 +22959,7 @@ Este processo de autenticação pode ser feito junto ou separado da autorizaçã
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -23686,7 +23692,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:&lt;/p&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.SaveCard&lt;/code&gt;&lt;/td&gt;
@@ -28741,7 +28747,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -30500,7 +30506,7 @@ Cada Wallet possui um formato de &lt;code class=&quot;highlighter-rouge&quot;&gt
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -30828,7 +30834,7 @@ Cada Wallet possui um formato de &lt;code class=&quot;highlighter-rouge&quot;&gt
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -31204,7 +31210,7 @@ VKeU&lt;br /&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -31543,7 +31549,7 @@ VKeU&lt;br /&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard /  Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -31897,7 +31903,7 @@ VKeU&lt;br /&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -32108,7 +32114,7 @@ VKeU&lt;br /&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -32417,7 +32423,7 @@ VKeU&lt;br /&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -32796,7 +32802,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -33132,7 +33138,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
