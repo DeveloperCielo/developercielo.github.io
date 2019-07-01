@@ -8860,3 +8860,4 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |24|PaymentMethodIsNotEnabled|
 |98|InvalidRequest|
 |99|InternalError|
+ 
