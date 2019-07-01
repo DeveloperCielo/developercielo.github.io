@@ -101,6 +101,7 @@ The current version of Cielo Webservice supports the following issuers and produ
 | JCB              | Yes           | Yes                      | *No*  | *No*    |
 | Aura             | Yes           | Yes                      | *No*  | *No*    |
 | Hipercard        | Yes           | Yes                      | *No*  | *No*    |
+| Hiper            | Yes           | Yes                      | *No*  | *No*    |
 
 > Cards that was issued abroad do not have permission to pay in installments.
 
@@ -423,7 +424,7 @@ curl
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on the card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Attachment.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
 
@@ -720,7 +721,7 @@ curl
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
 
@@ -983,7 +984,7 @@ curl
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
 
@@ -1729,6 +1730,7 @@ QR Code  payment supports the following issuers and products:
 | JCB              | Yes             | Yes                      | *No*  |
 | Aura             | Yes             | Yes                      | *No*  |
 | Hipercard        | Yes             | Yes                      | *No*  |
+| Hiper            | Yes             | Yes                      | *No*  |
 
 ### Sandbox and tools for QR Code
 
@@ -2052,7 +2054,7 @@ curl
 |`CreditCard.Holder`|Buyer’s name printed on card.|Text|25|No|
 |`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on back of card - See Annex.|Text|4|No|
-|`CreditCard.Brand`|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|Text|10|No|
+|`CreditCard.Brand`|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|Text|10|No|
 
 ### Consult - MerchandOrderID
 
@@ -2573,7 +2575,7 @@ curl
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 
 ### Consult - MerchandOrderID
 
@@ -3457,7 +3459,7 @@ curl
 |`CreditCard.Holder`|Text|25|No|NBuyer’s name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 
 ### Response
 
@@ -3787,7 +3789,7 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 | `CreditCard.ExpirationDate`                   | Text     | 7       | Yes                 | Expiry date printed on card.                                                                                                      |
 | `CreditCard.SecurityCode`                     | Text     | 4       | Yes                 | Security code printed on back of card - See Annex.                                                                                |
 | `CreditCard.SaveCard`                         | Boolean  | ---     | No                  | Boolean that identifies whether the card will be saved to generate the CardToken.                                                 |
-| `CreditCard.Brand`                            | Text     | 10      | Yes                 | Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                                            |
+| `CreditCard.Brand`                            | Text     | 10      | Yes                 | Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).                                    |
 | `CreditCard.SaveCard`                         | Boolean  | ---     | No (Default false)  | Boolean that identifies whether the card will be saved to generate the CardToken.                                                 |
 | `FraudAnalysis.Provider`                      | Text     | 14      | Yes                 | Fixed "cybersource"                                                                                                               |
 | `FraudAnalysis.Sequence`                      | Text     | 14      | Yes                 | Flow type to perform the fraud analysis. First Analyze (AnalyzeFirst) or First Authorization (AuthorizeFirst)                     |
@@ -6156,7 +6158,7 @@ curl
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 
 ### Response
 
@@ -7172,7 +7174,7 @@ Each Wallet has an `EphemeralPublicKey` format.
 | `Payment.Installments`     | Número | 2       | Sim         | Number of installments.                                                                                 |
 | `CreditCard.CardNumber.`   | Texto  | 19      | Sim         | Buyer's Card Number.                                                                                    |
 | `CreditCard.SecurityCode`  | Texto  | 4       | Não         | Security code printed on back of card - See Annex.                                                      |
-| `CreditCard.Brand`         |Texto   |10       |Sim          | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).           |
+| `CreditCard.Brand`         |Texto   |10       |Sim          | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).           |
 | `Wallet.Type`              | Texto  | 255     | Sim         | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `SamsungPay`                                 |
 | `Wallet.Walletkey`         | Texto  | 255     | Sim         | Cryptographic key that identifies stores in Wallets - See the WalletKey table for more information      |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Texto  | 255    | Sim  | Key returned by Wallet for decryption. Must be submitted in Integrations: `ApplePay`             |
@@ -7306,7 +7308,7 @@ Each Wallet has an `EphemeralPublicKey` format.
 | `Payment.Installments`     | Number | 2       | Yes         | Number of installments.                                                                                 |
 | `CreditCard.CardNumber.`   | Text   | 19      | Yes         | Buyer's Card Number.                                                                                    |
 | `CreditCard.SecurityCode`  | Text   | 4       | No          | Security code printed on back of card - See Annex.                                                      |
-| `CreditCard.Brand`         | Text   |10       | Yes         | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                   |
+| `CreditCard.Brand`         | Text   |10       | Yes         | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).       |
 | `Wallet.Type`              | Text   | 255     | Yes         | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                    |
 | `Wallet.Walletkey`         | Text   | 255     | Yes         | Cryptographic key that identifies stores in Wallets - See the WalletKey table for more information      |
 | `Wallet.ECI`               | Text   | 3       | Yes         | The ECI (Electronic Commerce Indicator) represents how secure a transaction is. This amount should be taken into consideration by the merchant to decide on the capture of the transaction.|
@@ -7479,7 +7481,7 @@ Request Sample *Apple Pay*
 | `Payment.Installments`     | Number | 2       | Yes         | Number of installments.                                                                                 |
 | `CreditCard.CardNumber.`   | Text   | 19      | Yes         | Buyer's Card Number.                                                                                    |
 | `CreditCard.SecurityCode`  | Text   | 4       | No          | Security code printed on back of card - See Annex.                                                      |
-| `CreditCard.Brand`         |Text    |10       |Yes          | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                   |
+| `CreditCard.Brand`         |Text    |10       |Yes          | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).       |
 | `Wallet.Type`              | Text   | 255     | Yes         | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                    |
 | `Wallet.Walletkey`         | Text   | 255     | Yes         | Cryptographic key that identifies stores in Wallets - See the WalletKey table for more information      |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Text  | 255    | Yes  | Key returned by Wallet for decryption. Must be submitted in Integrations: `ApplePay`              |
@@ -7622,7 +7624,7 @@ In this model, the merchant only informs that the transaction is from an Apple P
 | `Payment.Installments`     | Number | 2       | Yes         | Number of installments.                                                                                 |
 | `CreditCard.CardNumber.`   | Text   | 19      | Yes         | Buyer's Card Number.                                                                                    |
 | `CreditCard.SecurityCode`  | Text   | 4       | No          | Security code printed on back of card - See Annex.                                                      |
-| `CreditCard.Brand`         | Text    |10      | Yes         | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                   |
+| `CreditCard.Brand`         | Text    |10      | Yes         | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).       |
 | `Wallet.Type`              | Text   | 255     | Yes         | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                    |
 | `Wallet.Walletkey`         | Text   | 255     | Yes         | Cryptographic key that identifies stores in Wallets - See the WalletKey table for more information      |
 | `Wallet.ECI`               | Text   | 3       | Yes         | The ECI (Electronic Commerce Indicator) represents how secure a transaction is. This amount should be taken into consideration by the merchant to decide on the capture of the transaction.|
@@ -7992,7 +7994,7 @@ curl
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).|
+|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`Wallet.Type`|Text|255|Yes|indicates the wallet type: "VisaCheckout" or "Masterpass"|
 
@@ -8413,7 +8415,7 @@ Request Sample *SamsungPay*
 | `Payment.Installments`     | Número | 2       | Yes         | Number of installments.                                                                                 |
 | `CreditCard.CardNumber.`   | Text   | 19      | Yes         | Buyer's Card Number.                                                                                    |
 | `CreditCard.SecurityCode`  | Text   | 4       | No          | Security code printed on back of card - See Annex.                                                      |
-| `CreditCard.Brand`         | Text   | 10      | Yes         | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                   |
+| `CreditCard.Brand`         | Text   | 10      | Yes         | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).       |
 | `Wallet.Type`              | Text   | 255     | Yes         | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                    |
 | `Wallet.Walletkey`         | Text   | 255     | Yes         | Cryptographic key  that identifies stores in the Wallets - See the WalletKey table for more information       |
 | `Wallet.AdditionalData.EphemeralPublicKey`| Text  | 255    | Yes  | Key returned by Wallet for decryption. Must be submitted in Integrations: `ApplePay`              |
@@ -8553,7 +8555,7 @@ In this model, the merchant only informs that the transaction is from an Samsung
 | `Payment.Installments`     | Number | 2       | Yes         | Number of installments.                                                                                 |
 | `CreditCard.CardNumber.`   | Text   | 19      | Yes         | Buyer's Card Number.                                                                                    |
 | `CreditCard.SecurityCode`  | Text   | 4       | No          | Security code printed on back of card - See Annex.                                                      |
-| `CreditCard.Brand`         | Text   |10       |Yes          | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).                   |
+| `CreditCard.Brand`         | Text   |10       |Yes          | Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).       |
 | `Wallet.Type`              | Text   | 255     | Yes         | Indicates the wallet type:  `VisaCheckout`/ `Masterpass` / `ApplePay` / `SamsungPay`                    |
 | `Wallet.Walletkey`         | Text   | 255     | Yes         | Cryptographic key  that identifies stores in the Wallets - See the WalletKey table for more information |
 | `Wallet.ECI`               | Text   | 3       | Yes         | The ECI (Electronic Commerce Indicator) represents how secure a transaction is. This amount should be taken into consideration by the merchant to decide on the capture of the transaction. |
