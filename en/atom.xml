@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-01T19:41:08+00:00</updated>
+    <updated>2019-07-01T19:47:49+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18105,6 +18105,13 @@ In case the chargeback is performed, Cielo does not take responsibility on refun
       &lt;td&gt;&lt;em&gt;No&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;No&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Hiper&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;No&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;No&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -18656,7 +18663,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
@@ -19283,7 +19290,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
@@ -19726,7 +19733,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
@@ -21289,6 +21296,12 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;&lt;em&gt;No&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Hiper&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;&lt;em&gt;No&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -21857,7 +21870,7 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.Brand&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
@@ -22823,7 +22836,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -24555,7 +24568,7 @@ It is possible to carry out both the total cancellation and the partial cancella
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -25293,7 +25306,7 @@ It is possible to carry out both the total cancellation and the partial cancella
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.SaveCard&lt;/code&gt;&lt;/td&gt;
@@ -30344,7 +30357,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -32101,7 +32114,7 @@ Each Wallet has an &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPubl
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -32429,7 +32442,7 @@ Each Wallet has an &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPubl
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -32802,7 +32815,7 @@ VKeU&lt;br /&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -33141,7 +33154,7 @@ VKeU&lt;br /&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -33902,7 +33915,7 @@ VKeU&lt;br /&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
@@ -34666,7 +34679,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
@@ -35002,7 +35015,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard).&lt;/td&gt;
+      &lt;td&gt;Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Wallet.Type&lt;/code&gt;&lt;/td&gt;
