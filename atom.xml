@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-04T13:03:48+00:00</updated>
+    <updated>2019-07-08T13:04:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7443,6 +7443,7 @@ Ao clicar nela, aparecerá um QR Code. Nesse momento, basta abrir o aplicativo T
   &lt;li&gt;Os conteúdos no aplicativos não violem as regras da Cielo&lt;/li&gt;
   &lt;li&gt;Os SKUs dos produtos são enviados corretamente&lt;/li&gt;
   &lt;li&gt;Informações para vitrine da Cielo Store estejam preenchidas corretamente, exclusivo para aplicativos públicos&lt;/li&gt;
+  &lt;li&gt;Todo aplicativo da loja publica que contenha video URL, deverá ser validado no seguinte formato: “https://www.youtube.com/embed/”&lt;/li&gt;
   &lt;li&gt;Gerar valores para teste até R$0,05 centavos&lt;/li&gt;
   &lt;li&gt;Não mencionar a palavra Cielo&lt;/li&gt;
   &lt;li&gt;Caso o APP tenha webview, não ficar disponível a URL para a troca de URL dentro do APP. A URL não deverá aparecer.&lt;/li&gt;
