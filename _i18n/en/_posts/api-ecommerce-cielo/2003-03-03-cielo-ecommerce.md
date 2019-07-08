@@ -6767,10 +6767,13 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 ``` json
 {
-"Status": "00",
-"Provider": "Visa",
-"CardType": "Credit",
-"ForeignCard": "true"
+    "Status": "00",
+    "Provider": "VISA",
+    "CardType": "Crédito",
+    "ForeignCard": true,
+    "CorporateCard": true,
+    "Issuer": "Bradesco",
+    "IssuerCode": "237"
 }
 ```
 
@@ -6778,8 +6781,11 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 |---------------|-------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Status`      | Text  | 2    | BIN Check status response: <br><br> 00 – Analysis authorized <br> 01 – Brand not supported<br> 02 – Card not supported for BIN Check<br> 73 – Blocked Affiliation |
 | `Provider`    | Text  | 255  | Card Brand                                                                                                                                                        |
-| `CardType`    | Text  | 20   | Card Type : <br><br> Credit <br> Debit <br>Multiple                                                                                                               |
-| `ForeingCard` | Text  | 255  | If card was issued abroad (False/True)                                                                                                                            |
+| `CardType`    | Text  | 20   | Card Type : <br><br> Crédito <br> Débito <br>Multiplo                                                                                                              |
+| `ForeingCard` | Boolean  | -  | If card was issued abroad (False/True)                                                                                                                            |
+| `CorporateCard` | Boolean | -     | If card is coporate type (False/True)                                                                                                                                             |
+| `Issuer` | Text | 255     | Card issuer's name                                                                                                                                        |
+| `IssuerCode` | Text | 255     | Card issuer's code                                                                                                                                           |
 
 > **NOTE**: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. For real identification of the BIN Check, production environment must be used.
 
