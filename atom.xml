@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-08T14:19:33+00:00</updated>
+    <updated>2019-07-08T15:24:44+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29803,7 +29803,7 @@ O Submergível pode usar a consulta bins no carrinho para alertar compradores in
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CardType&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;20&lt;/td&gt;
-      &lt;td&gt;Tipo do cartão em uso : &lt;br /&gt; Credito &lt;br /&gt; Debito &lt;br /&gt;Multiplo&lt;/td&gt;
+      &lt;td&gt;Tipo do cartão em uso : &lt;br /&gt; Crédito &lt;br /&gt; Débito &lt;br /&gt;Multiplo&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ForeingCard&lt;/code&gt;&lt;/td&gt;
