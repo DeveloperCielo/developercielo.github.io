@@ -13656,10 +13656,13 @@ The Submersible can use the bin checker in the cart to alert international buyer
 <h3 id="response-39">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-</span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crédito"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CorporateCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -13689,13 +13692,31 @@ The Submersible can use the bin checker in the cart to alert international buyer
       <td><code class="highlighter-rouge">CardType</code></td>
       <td>Text</td>
       <td>20</td>
-      <td>Card Type : <br /> Credit <br /> Debit <br />Multiple</td>
+      <td>Card Type : <br /> Crédito <br /> Débito <br />Multiplo</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ForeingCard</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>If card was issued abroad (False/True)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CorporateCard</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>If card is coporate type (False/True)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Issuer</code></td>
       <td>Text</td>
       <td>255</td>
-      <td>If card was issued abroad (False/True)</td>
+      <td>Card issuer’s name</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">IssuerCode</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Card issuer’s code</td>
     </tr>
   </tbody>
 </table>
