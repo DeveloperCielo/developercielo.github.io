@@ -6844,10 +6844,13 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 ``` json
 {
-"Status": "00",
-"Provider": "Visa",
-"CardType": "Credit",
-"ForeignCard": "true"
+    "Status": "00",
+    "Provider": "VISA",
+    "CardType": "Crédito",
+    "ForeignCard": true,
+    "CorporateCard": true,
+    "Issuer": "Bradesco",
+    "IssuerCode": "237"
 }
 ```
 
@@ -6856,7 +6859,10 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 | `Status`      | Texto | 2       | Status da requisição de análise de Bins: <br><br> 00 – Analise autorizada <br> 01 – Bandeira não suportada <br> 02 – Cartão não suportado na consulta de bin <br> 73 – Afiliação bloqueada |
 | `Provider`    | Texto | 255     | Bandeira do cartão                                                                                                                                                                         |
 | `CardType`    | Texto | 20      | Tipo do cartão em uso : <br><br> Credito <br> Debito <br>Multiplo                                                                                                                          |
-| `ForeingCard` | Texto | 255     | Se o cartão é emitido no exterior (False/True)                                                                                                                                             |
+| `ForeingCard` | Booleano | -     | Se o cartão é emitido no exterior (False/True)                                                                                                                                             |
+| `CorporateCard` | Booleano | -     | Se o cartão é corporativo (False/True)                                                                                                                                             |
+| `Issuer` | Texto | 255     | Nome do emissor do cartão                                                                                                                                        |
+| `IssuerCode` | Texto | 255     | Código do emissor do cartão                                                                                                                                           |
 
 > **Atenção**: Em SANDBOX os valores retornados são simulações e não validações reais de BINS. Deve ser considerado apenas o retorno do Request e o seu formato. Para identificação real dos BINS, o ambiente de Produção deverá ser utilizado.
 
