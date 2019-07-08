@@ -13780,10 +13780,13 @@ O Submergível pode usar a consulta bins no carrinho para alertar compradores in
 <h3 id="response">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-</span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crédito"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CorporateCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -13817,9 +13820,27 @@ O Submergível pode usar a consulta bins no carrinho para alertar compradores in
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ForeingCard</code></td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Se o cartão é emitido no exterior (False/True)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CorporateCard</code></td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Se o cartão é corporativo (False/True)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Issuer</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Se o cartão é emitido no exterior (False/True)</td>
+      <td>Nome do emissor do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">IssuerCode</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Código do emissor do cartão</td>
     </tr>
   </tbody>
 </table>
