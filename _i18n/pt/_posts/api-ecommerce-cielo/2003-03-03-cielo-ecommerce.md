@@ -369,7 +369,8 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
      }
    }
@@ -402,7 +403,8 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
      }
    }
@@ -428,6 +430,7 @@ curl
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).       |
 |`CreditCard.CardOnFile.Usage`|Texto|-|Não|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
 |`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
+|`CreditCard.CardOnFile.IsCryptocurrencyNegotiation`|Booleano|-|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|
 
 #### Resposta
 
@@ -451,7 +454,8 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         },
         "ProofOfSale": "674532",
@@ -510,7 +514,8 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         },
         "ProofOfSale": "674532",
@@ -612,7 +617,8 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
      }
    }
@@ -672,7 +678,8 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
      }
    }
@@ -725,6 +732,7 @@ curl
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).       |
 |`CreditCard.CardOnFile.Usage`|Texto|-|Não|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
 |`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
+|`CreditCard.CardOnFile.IsCryptocurrencyNegotiation`|Booleano|-|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|
 
 #### Resposta
 
@@ -770,7 +778,8 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         },
         "ProofOfSale": "674532",
@@ -847,7 +856,8 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         },
         "ProofOfSale": "674532",
@@ -925,7 +935,8 @@ Para criar uma transação com autenticação que utilizará cartão de crédito
             "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         }
     }
@@ -960,7 +971,8 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
       }
    }
@@ -988,6 +1000,7 @@ curl
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).       |
 |`CreditCard.CardOnFile.Usage`|Texto|-|Não|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
 |`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas)|
+|`CreditCard.CardOnFile.IsCryptocurrencyNegotiation`|Booleano|-|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|
 
 #### Resposta
 
@@ -1014,7 +1027,8 @@ curl
             "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         },
         "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
@@ -1066,7 +1080,8 @@ curl
             "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason":"Unscheduled"
+            "Reason":"Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         },
         "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
