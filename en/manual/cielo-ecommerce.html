@@ -805,7 +805,8 @@ Below we specify any existing differences:</p>
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
          </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
          </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -837,7 +838,8 @@ Below we specify any existing differences:</p>
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
          <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
+            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
          <span class="o">}</span>
      <span class="o">}</span>
    <span class="o">}</span>
@@ -968,6 +970,13 @@ Below we specify any existing differences:</p>
       <td>Conditional</td>
       <td>Indicates the purpose of credential storage, case the value of field “Usage” is “Used” <br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring<br /><strong>Installments</strong> - Installments Transaction</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardOnFile.IsCryptocurrencyNegotiation</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>No (default false)</td>
+      <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
+    </tr>
   </tbody>
 </table>
 
@@ -992,7 +1001,8 @@ Below we specify any existing differences:</p>
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
          </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
@@ -1050,7 +1060,8 @@ Below we specify any existing differences:</p>
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
          <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
+            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
          <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
@@ -1216,7 +1227,8 @@ Below we specify any existing differences:</p>
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
          </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -1275,7 +1287,8 @@ Below we specify any existing differences:</p>
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
          <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
+            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
          <span class="o">}</span>
      <span class="o">}</span>
    <span class="o">}</span>
@@ -1595,6 +1608,13 @@ Below we specify any existing differences:</p>
       <td>Conditional</td>
       <td>Indicates the purpose of credential storage, case the value of field “Usage” is “Used” <br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring<br /><strong>Installments</strong> - Installments Transaction</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardOnFile.IsCryptocurrencyNegotiation</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>No (default false)</td>
+      <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
+    </tr>
   </tbody>
 </table>
 
@@ -1641,7 +1661,8 @@ Below we specify any existing differences:</p>
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
          </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
@@ -1717,7 +1738,8 @@ Below we specify any existing differences:</p>
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
          <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
+            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
          <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
@@ -1859,7 +1881,8 @@ Below we specify any existing differences:</p>
       </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
          </span><span class="p">}</span><span class="w">
      </span><span class="p">}</span><span class="w">
  </span><span class="p">}</span><span class="w">
@@ -1893,7 +1916,8 @@ Below we specify any existing differences:</p>
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
          <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
+            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
          <span class="o">}</span>
       <span class="o">}</span>
    <span class="o">}</span>
@@ -2038,6 +2062,13 @@ Below we specify any existing differences:</p>
       <td>Conditional</td>
       <td>Indicates the purpose of credential storage, case the value of field “Usage” is “Used” <br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring<br /><strong>Installments</strong> - Installments Transaction</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.CardOnFile.IsCryptocurrencyNegotiation</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>No (default false)</td>
+      <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
+    </tr>
   </tbody>
 </table>
 
@@ -2065,7 +2096,8 @@ Below we specify any existing differences:</p>
    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
          </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"AuthenticationUrl"</span><span class="p">:</span><span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span><span class="p">,</span><span class="w">
@@ -2116,7 +2148,8 @@ Below we specify any existing differences:</p>
    <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
          <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
+            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
          <span class="o">}</span>
   <span class="o">}</span>,
   <span class="s2">"AuthenticationUrl"</span>:<span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span>,
