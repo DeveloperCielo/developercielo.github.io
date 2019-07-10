@@ -368,7 +368,8 @@ To create a transaction that will use a credit card, it is necessary to send a r
          "Brand":"Visa"
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
      }
    }
@@ -401,7 +402,8 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
      }
    }
@@ -427,6 +429,7 @@ curl
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
+|`CreditCard.CardOnFile.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
 
 #### Response
 
@@ -450,7 +453,8 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         },
         "ProofOfSale": "674532",
@@ -509,7 +513,8 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         },
         "ProofOfSale": "674532",
@@ -611,7 +616,8 @@ To create a transaction that will use a credit card, it is necessary to send a r
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
      }
    }
@@ -671,7 +677,8 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
      }
    }
@@ -724,6 +731,7 @@ curl
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
+|`CreditCard.CardOnFile.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
 
 #### Response
 
@@ -769,7 +777,8 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         },
         "ProofOfSale": "674532",
@@ -846,7 +855,8 @@ curl
             "Brand": "Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
         },
         "ProofOfSale": "674532",
@@ -924,7 +934,8 @@ To create a transaction with authentication that will use a credit card, it is n
       "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
      }
  }
@@ -959,7 +970,8 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
       }
    }
@@ -987,6 +999,7 @@ curl
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
+|`CreditCard.CardOnFile.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
 
 #### Response
 
@@ -1013,7 +1026,8 @@ curl
    "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
   },
   "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
@@ -1065,7 +1079,8 @@ curl
    "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason": "Unscheduled",
+            "IsCryptoCurrencyNegotiation": true
          }
   },
   "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
