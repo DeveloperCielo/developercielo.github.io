@@ -296,6 +296,7 @@
 <ul>
   <li>Por <strong>Merchant_Order_Number</strong> - Número de pedido enviado pelo lojista</li>
   <li>Por <strong>Checkout_Cielo_Order_Number</strong> - Número de pedido gerado pelo Checkout Cielo.</li>
+  <li>Por <strong>id</strong> – Número id gerado ao criar um link de pagamento.</li>
 </ul>
 
 <h3 id="por-merchant_order_number">Por Merchant_Order_Number</h3>
@@ -492,9 +493,56 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   </tbody>
 </table>
 
+<h3 id="por-id-do-link-de-pagamento">Por id (do link de pagamento)</h3>
+
+<h4 id="request-3">Request</h4>
+
+<p>Para consultar uma transação pelo <code class="highlighter-rouge">id</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
+
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
+<h4 id="response-3">Response</h4>
+
+<blockquote>
+  <p>“HTTP Status”: 200 – OK</p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9487e3a9-f204-4188-96c5-a5a3013b2517"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:35:04.947"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"orderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b74df3e3c1ac49ccb7ad89fde2d787f7"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:37:23.447"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">11500</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"numberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:37:23.447"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Denied"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                   </span><span class="s2">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+                   </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                   </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                   </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+           </span><span class="p">]</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <h2 id="capturar-transação">Capturar transação</h2>
 
-<h3 id="request-3">Request</h3>
+<h3 id="request-4">Request</h3>
 
 <p>Para capturar uma transação pelo <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="highlighter-rouge">PUT</code>.</p>
 
@@ -510,7 +558,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h3 id="response-3">Response</h3>
+<h3 id="response-4">Response</h3>
 
 <blockquote>
   <p>HTTP Status: 200 – OK</p>
@@ -575,7 +623,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <h2 id="cancelar-transação">Cancelar transação</h2>
 
-<h3 id="request-4">Request</h3>
+<h3 id="request-5">Request</h3>
 
 <p>Para cancelar uma transação pelo <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="highlighter-rouge">PUT</code>.</p>
 
@@ -591,7 +639,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <blockquote>
   <p>HTTP Status: 200 – OK</p>

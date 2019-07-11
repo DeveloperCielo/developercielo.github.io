@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-11T13:05:07+00:00</updated>
+    <updated>2019-07-11T14:09:31+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -38410,6 +38410,7 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
 &lt;ul&gt;
   &lt;li&gt;Por &lt;strong&gt;Merchant_Order_Number&lt;/strong&gt; - Número de pedido enviado pelo lojista&lt;/li&gt;
   &lt;li&gt;Por &lt;strong&gt;Checkout_Cielo_Order_Number&lt;/strong&gt; - Número de pedido gerado pelo Checkout Cielo.&lt;/li&gt;
+  &lt;li&gt;Por &lt;strong&gt;id&lt;/strong&gt; – Número id gerado ao criar um link de pagamento.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;por-merchant_order_number&quot;&gt;Por Merchant_Order_Number&lt;/h3&gt;
@@ -38606,9 +38607,56 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;h3 id=&quot;por-id-do-link-de-pagamento&quot;&gt;Por id (do link de pagamento)&lt;/h3&gt;
+
+&lt;h4 id=&quot;request-3&quot;&gt;Request&lt;/h4&gt;
+
+&lt;p&gt;Para consultar uma transação pelo &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt;, basta realizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt;.&lt;/p&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments&lt;/span&gt;&lt;/aside&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;response-3&quot;&gt;Response&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“HTTP Status”: 200 – OK&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;productId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;9487e3a9-f204-4188-96c5-a5a3013b2517&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;createdDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2019-07-11T10:35:04.947&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;orders&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;orderNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b74df3e3c1ac49ccb7ad89fde2d787f7&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;createdDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2019-07-11T10:37:23.447&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;price&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;numberOfPayments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;createdDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2019-07-11T10:37:23.447&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Denied&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;links&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;rel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;self&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h2 id=&quot;capturar-transação&quot;&gt;Capturar transação&lt;/h2&gt;
 
-&lt;h3 id=&quot;request-3&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-4&quot;&gt;Request&lt;/h3&gt;
 
 &lt;p&gt;Para capturar uma transação pelo &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_Cielo_Order_Number&lt;/code&gt;, basta realizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt;.&lt;/p&gt;
 
@@ -38624,7 +38672,7 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
   &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;response-3&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;HTTP Status: 200 – OK&lt;/p&gt;
@@ -38689,7 +38737,7 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 
 &lt;h2 id=&quot;cancelar-transação&quot;&gt;Cancelar transação&lt;/h2&gt;
 
-&lt;h3 id=&quot;request-4&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-5&quot;&gt;Request&lt;/h3&gt;
 
 &lt;p&gt;Para cancelar uma transação pelo &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_Cielo_Order_Number&lt;/code&gt;, basta realizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt;.&lt;/p&gt;
 
@@ -38705,7 +38753,7 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
   &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-5&quot;&gt;Response&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;HTTP Status: 200 – OK&lt;/p&gt;
