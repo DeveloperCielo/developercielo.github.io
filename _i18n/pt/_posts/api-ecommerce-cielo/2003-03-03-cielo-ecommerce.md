@@ -1178,7 +1178,8 @@ O exemplo contempla o mínimo de campos necessários a serem enviados para a aut
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Visa"
-     }
+     },
+     "IsCryptoCurrencyNegotiation": true
    }
 }
 ```
@@ -1207,7 +1208,8 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Visa"
-     }
+     },
+     "IsCryptoCurrencyNegotiation": true
    }
 }
 --verbose
@@ -1225,6 +1227,7 @@ curl
 | `Payment.Amount`           | Valor do Pedido (ser enviado em centavos).                                                            | Número   | 15      | Sim                |
 | `Payment.Authenticate`     | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão                   | Booleano | ---     | Sim (Default TRUE) |
 | `Payment.ReturnUrl`        | URI para onde o usuário será redirecionado após o fim do pagamento                                    | Texto    | 1024    | Sim                |
+|`Payment.IsCryptocurrencyNegotiation`|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|Booleano|-|Não (default false)|
 | `DebitCard.CardNumber`     | Número do Cartão do Comprador.                                                                        | Texto    | 19      | Sim                |
 | `DebitCard.Holder`         | Nome do Comprador impresso no cartão.                                                                 | Texto    | 25      | Não                |
 | `DebitCard.ExpirationDate` | Data de validade impresso no cartão.                                                                  | Texto    | 7       | Sim                |
@@ -1249,6 +1252,7 @@ curl
             "SaveCard": false,
             "Brand": "Visa"
         },
+        "IsCryptoCurrencyNegotiation": true,
         "AuthenticationUrl": "https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}",
         "Tid": "1006993069207A31A001",
         "PaymentId": "0309f44f-fe5a-4de1-ba39-984f456130bd",
@@ -1287,6 +1291,7 @@ curl
             "SaveCard": false,
             "Brand": "Visa"
         },
+        "IsCryptoCurrencyNegotiation": true,
         "AuthenticationUrl": "https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}",
         "Tid": "1006993069207A31A001",
         "PaymentId": "0309f44f-fe5a-4de1-ba39-984f456130bd",
