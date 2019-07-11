@@ -564,7 +564,7 @@ curl
 |`Status`|Status da Transação.|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-|`tryautomaticcancellation`|Caso ocorra algum erro durante a autorização (status Não Finalizada - "0"), a resposta incluirá o campo “tryautomaticcancellation” como true. Neste caso, a transação será sondada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico. |Texto|512|Texto alfanumérico|
+|`tryautomaticcancellation`|Caso ocorra algum erro durante a autorização (status Não Finalizada - "0"), a resposta incluirá o campo “tryautomaticcancellation” como true. Neste caso, a transação será sondada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico. |Booleano|-|true ou false|
 
 ### Transação completa
 
@@ -905,7 +905,7 @@ curl
 |`Status`|Status da Transação.|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-|`tryautomaticcancellation`|Caso ocorra algum erro durante a autorização (status Não Finalizada - "0"), a resposta incluirá o campo “tryautomaticcancellation” como true. Neste caso, a transação será sondada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico. |Texto|512|Texto alfanumérico|
+|`tryautomaticcancellation`|Caso ocorra algum erro durante a autorização (status Não Finalizada - "0"), a resposta incluirá o campo “tryautomaticcancellation” como true. Neste caso, a transação será sondada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico. |Booleano|-|true ou false|
 
 ### Transação Autenticada
 
@@ -1259,7 +1259,6 @@ curl
             "Brand": "Visa"
         },
         "IsCryptoCurrencyNegotiation": true,
-        "tryautomaticcancellation":true,
         "AuthenticationUrl": "https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}",
         "Tid": "1006993069207A31A001",
         "PaymentId": "0309f44f-fe5a-4de1-ba39-984f456130bd",
@@ -1299,7 +1298,6 @@ curl
             "Brand": "Visa"
         },
         "IsCryptoCurrencyNegotiation": true,
-        "tryautomaticcancellation":true,
         "AuthenticationUrl": "https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}",
         "Tid": "1006993069207A31A001",
         "PaymentId": "0309f44f-fe5a-4de1-ba39-984f456130bd",
@@ -1329,7 +1327,6 @@ curl
 |`ReturnUrl`|Url de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.|Texto|1024|http://www.urllogista.com.br|
 |`Status`|Status da Transação.|Byte|---|0|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`tryautomaticcancellation`|Caso ocorra algum erro durante a autorização (status Não Finalizada - "0"), a resposta incluirá o campo “tryautomaticcancellation” como true. Neste caso, a transação será sondada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico. |Texto|512|Texto alfanumérico|
 
 ## Transferência Eletrônica
 
