@@ -457,6 +457,7 @@ curl
             }
         },
         "IsCryptoCurrencyNegotiation": true,
+        "tryautomaticcancellation":true,
         "ProofOfSale": "674532",
         "Tid": "0305023644309",
         "AuthorizationCode": "123456",
@@ -517,6 +518,7 @@ curl
             }
         },
         "IsCryptoCurrencyNegotiation": true,
+        "tryautomaticcancellation":true,
         "ProofOfSale": "674532",
         "Tid": "0305023644309",
         "AuthorizationCode": "123456",
@@ -561,6 +563,7 @@ curl
 |`Status`|Transaction Status.|Byte|---|2|
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
+|`tryautomaticcancellation`|In case of error during authorization (status "Not Finished - 0"), the response will include the "tryautomaticcancellation" field as "true". In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. |Boolean|-|true or false|
 
 ### Creating a complete transaction
 
@@ -781,6 +784,7 @@ curl
            }
         },
         "IsCryptoCurrencyNegotiation": true,
+        "tryautomaticcancellation":true,
         "ProofOfSale": "674532",
         "Tid": "0305020554239",
         "AuthorizationCode": "123456",
@@ -859,6 +863,7 @@ curl
             }
         },
         "IsCryptoCurrencyNegotiation": true,
+        "tryautomaticcancellation":true,
         "ProofOfSale": "674532",
         "Tid": "0305020554239",
         "AuthorizationCode": "123456",
@@ -899,6 +904,7 @@ curl
 |`Status`|Transaction Status.|Byte|---|2|
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
+|`tryautomaticcancellation`|In case of error during authorization (status "Not Finished - 0"), the response will include the "tryautomaticcancellation" field as "true". In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. |Boolean|-|true or false|
 
 ### Creating a authenticated transaction
 
