@@ -797,7 +797,7 @@ Below we specify any existing differences:</p>
      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
+     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
          </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
@@ -805,10 +805,10 @@ Below we specify any existing differences:</p>
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
          </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
-     </span><span class="p">}</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -830,7 +830,7 @@ Below we specify any existing differences:</p>
      <span class="s2">"Amount"</span>:15700,
      <span class="s2">"Installments"</span>:1,
      <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
-  <span class="s2">"CreditCard"</span>:<span class="o">{</span>
+     <span class="s2">"CreditCard"</span>:<span class="o">{</span>
          <span class="s2">"CardNumber"</span>:<span class="s2">"1234123412341231"</span>,
          <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
@@ -838,10 +838,10 @@ Below we specify any existing differences:</p>
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
          <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
-            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
-     <span class="o">}</span>
+     <span class="o">}</span>,
+     <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
    <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -922,6 +922,13 @@ Below we specify any existing differences:</p>
       <td>Text printed on buyer’s bank invoice - Available only for VISA/MASTER - does not allow special characters - See Attachment</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>No (default false)</td>
+      <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
       <td>Text</td>
       <td>19</td>
@@ -970,13 +977,6 @@ Below we specify any existing differences:</p>
       <td>Conditional</td>
       <td>Indicates the purpose of credential storage, case the value of field “Usage” is “Used” <br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring<br /><strong>Installments</strong> - Installments Transaction</td>
     </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.CardOnFile.IsCryptocurrencyNegotiation</code></td>
-      <td>Boolean</td>
-      <td>-</td>
-      <td>No (default false)</td>
-      <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
-    </tr>
   </tbody>
 </table>
 
@@ -999,12 +999,12 @@ Below we specify any existing differences:</p>
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-         </span><span class="p">}</span><span class="w">
+            </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+               </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0305023644309"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
@@ -1058,12 +1058,12 @@ Below we specify any existing differences:</p>
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
-         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
-            <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
-            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
-         <span class="o">}</span>
+            <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+               <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
+               <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
+            <span class="o">}</span>
         <span class="o">}</span>,
+        <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
         <span class="s2">"Tid"</span>: <span class="s2">"0305023644309"</span>,
         <span class="s2">"AuthorizationCode"</span>: <span class="s2">"123456"</span>,
@@ -1218,7 +1218,7 @@ Below we specify any existing differences:</p>
      </span><span class="s2">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
      </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
+     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">  
          </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
@@ -1227,10 +1227,10 @@ Below we specify any existing differences:</p>
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
             </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
-     </span><span class="p">}</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1287,10 +1287,10 @@ Below we specify any existing differences:</p>
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
          <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
-            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
-     <span class="o">}</span>
+     <span class="o">}</span>,
+     <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
    <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -1553,6 +1553,13 @@ Below we specify any existing differences:</p>
       <td>Defines whether the buyer will be directed to the Issuing bank for card authentication</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>No (default false)</td>
+      <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
       <td>Text</td>
       <td>19</td>
@@ -1608,13 +1615,6 @@ Below we specify any existing differences:</p>
       <td>Conditional</td>
       <td>Indicates the purpose of credential storage, case the value of field “Usage” is “Used” <br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring<br /><strong>Installments</strong> - Installments Transaction</td>
     </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.CardOnFile.IsCryptocurrencyNegotiation</code></td>
-      <td>Boolean</td>
-      <td>-</td>
-      <td>No (default false)</td>
-      <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
-    </tr>
   </tbody>
 </table>
 
@@ -1659,12 +1659,12 @@ Below we specify any existing differences:</p>
             </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-         </span><span class="p">}</span><span class="w">
+            </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+               </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0305020554239"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
@@ -1736,12 +1736,12 @@ Below we specify any existing differences:</p>
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
-         <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
-            <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
-            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
-         <span class="o">}</span>
+            <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
+               <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
+               <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
+            <span class="o">}</span>
         <span class="o">}</span>,
+        <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
         <span class="s2">"Tid"</span>: <span class="s2">"0305020554239"</span>,
         <span class="s2">"AuthorizationCode"</span>: <span class="s2">"123456"</span>,
@@ -1860,32 +1860,29 @@ Below we specify any existing differences:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111903"</span><span class="p">,</span><span class="w">
- </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w">
- </span><span class="p">{</span><span class="w">
+ </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
   </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito autenticação"</span><span class="w">
  </span><span class="p">},</span><span class="w">
- </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w">
- </span><span class="p">{</span><span class="w">
+ </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Authenticate"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="s2">"https://www.cielo.com.br"</span><span class="p">,</span><span class="w">
-     </span><span class="s2">"CreditCard"</span><span class="p">:</span><span class="w">
-     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-     </span><span class="p">}</span><span class="w">
- </span><span class="p">}</span><span class="w">
+     </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"ReturnUrl"</span><span class="p">:</span><span class="s2">"https://www.cielo.com.br"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"CreditCard"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+           </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1916,10 +1913,10 @@ Below we specify any existing differences:</p>
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
          <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
-            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
-      <span class="o">}</span>
+      <span class="o">}</span>,
+      <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
    <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -2014,6 +2011,13 @@ Below we specify any existing differences:</p>
       <td>Defines whether the buyer will be directed to the Issuing bank for card authentication</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>No (default false)</td>
+      <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber.</code></td>
       <td>Text</td>
       <td>19</td>
@@ -2062,13 +2066,6 @@ Below we specify any existing differences:</p>
       <td>Conditional</td>
       <td>Indicates the purpose of credential storage, case the value of field “Usage” is “Used” <br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring<br /><strong>Installments</strong> - Installments Transaction</td>
     </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.CardOnFile.IsCryptocurrencyNegotiation</code></td>
-      <td>Boolean</td>
-      <td>-</td>
-      <td>No (default false)</td>
-      <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
-    </tr>
   </tbody>
 </table>
 
@@ -2094,15 +2091,15 @@ Below we specify any existing differences:</p>
    </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
    </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
    </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-         </span><span class="p">}</span><span class="w">
+   </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
+       </span><span class="s2">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"AuthenticationUrl"</span><span class="p">:</span><span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1006993069257E521001"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1006993069257E521001"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="s2">"f2dbd5df-c2ee-482f-ab1b-7fee039108c0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
@@ -2148,13 +2145,13 @@ Below we specify any existing differences:</p>
    <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>,
          <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
             <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
-            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>,
-            <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
+            <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
   <span class="o">}</span>,
+  <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
   <span class="s2">"AuthenticationUrl"</span>:<span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe"</span>,
-        <span class="s2">"Tid"</span>: <span class="s2">"1006993069257E521001"</span>,
-        <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
+  <span class="s2">"Tid"</span>: <span class="s2">"1006993069257E521001"</span>,
+  <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
   <span class="s2">"PaymentId"</span>:<span class="s2">"f2dbd5df-c2ee-482f-ab1b-7fee039108c0"</span>,
   <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
   <span class="s2">"Amount"</span>:15700,

@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-11T12:23:32+00:00</updated>
+    <updated>2019-07-11T12:30:12+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -18508,7 +18508,7 @@ Below we specify any existing differences:&lt;/p&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1234123412341231&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Teste Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -18516,10 +18516,10 @@ Below we specify any existing differences:&lt;/p&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -18541,7 +18541,7 @@ Below we specify any existing differences:&lt;/p&gt;
      &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:15700,
      &lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;:1,
      &lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;,
-  &lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
          &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;1234123412341231&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Teste Holder&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;,
@@ -18549,10 +18549,10 @@ Below we specify any existing differences:&lt;/p&gt;
          &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
@@ -18633,6 +18633,13 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Text printed on buyer’s bank invoice - Available only for VISA/MASTER - does not allow special characters - See Attachment&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.IsCryptocurrencyNegotiation&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;No (default false)&lt;/td&gt;
+      &lt;td&gt;Send true if the transaction refers to the sell of the cryptocurrency&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;19&lt;/td&gt;
@@ -18681,13 +18688,6 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
       &lt;td&gt;Indicates the purpose of credential storage, case the value of field “Usage” is “Used” &lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installments Transaction&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.IsCryptocurrencyNegotiation&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Boolean&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;No (default false)&lt;/td&gt;
-      &lt;td&gt;Send true if the transaction refers to the sell of the cryptocurrency&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -18710,12 +18710,12 @@ Below we specify any existing differences:&lt;/p&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;674532&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Tid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0305023644309&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -18769,12 +18769,12 @@ Below we specify any existing differences:&lt;/p&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
-         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+               &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
+               &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;674532&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;Tid&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;0305023644309&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;,
@@ -18929,7 +18929,7 @@ Below we specify any existing differences:&lt;/p&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Capture&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1234123412341231&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Teste Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -18938,10 +18938,10 @@ Below we specify any existing differences:&lt;/p&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -18998,10 +18998,10 @@ Below we specify any existing differences:&lt;/p&gt;
          &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
@@ -19264,6 +19264,13 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Defines whether the buyer will be directed to the Issuing bank for card authentication&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.IsCryptocurrencyNegotiation&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;No (default false)&lt;/td&gt;
+      &lt;td&gt;Send true if the transaction refers to the sell of the cryptocurrency&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;19&lt;/td&gt;
@@ -19319,13 +19326,6 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
       &lt;td&gt;Indicates the purpose of credential storage, case the value of field “Usage” is “Used” &lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installments Transaction&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.IsCryptocurrencyNegotiation&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Boolean&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;No (default false)&lt;/td&gt;
-      &lt;td&gt;Send true if the transaction refers to the sell of the cryptocurrency&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -19370,12 +19370,12 @@ Below we specify any existing differences:&lt;/p&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
             &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;674532&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Tid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0305020554239&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19447,12 +19447,12 @@ Below we specify any existing differences:&lt;/p&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
             &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
-         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+               &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
+               &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+        &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;674532&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;Tid&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;0305020554239&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;,
@@ -19571,32 +19571,29 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111903&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Comprador crédito autenticação&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+ &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://www.cielo.com.br&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1234123412341231&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Teste Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
- &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://www.cielo.com.br&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1234123412341231&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Teste Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -19627,10 +19624,10 @@ Below we specify any existing differences:&lt;/p&gt;
          &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+      &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
@@ -19725,6 +19722,13 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Defines whether the buyer will be directed to the Issuing bank for card authentication&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.IsCryptocurrencyNegotiation&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;No (default false)&lt;/td&gt;
+      &lt;td&gt;Send true if the transaction refers to the sell of the cryptocurrency&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardNumber.&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;19&lt;/td&gt;
@@ -19773,13 +19777,6 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
       &lt;td&gt;Indicates the purpose of credential storage, case the value of field “Usage” is “Used” &lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installments Transaction&lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.IsCryptocurrencyNegotiation&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Boolean&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-      &lt;td&gt;No (default false)&lt;/td&gt;
-      &lt;td&gt;Send true if the transaction refers to the sell of the cryptocurrency&lt;/td&gt;
-    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -19805,15 +19802,15 @@ Below we specify any existing differences:&lt;/p&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-            &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AuthenticationUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Tid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1006993069257E521001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Tid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1006993069257E521001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;f2dbd5df-c2ee-482f-ab1b-7fee039108c0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -19859,13 +19856,13 @@ Below we specify any existing differences:&lt;/p&gt;
    &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
             &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Used&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Reason&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Unscheduled&quot;&lt;/span&gt;
          &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+  &lt;span class=&quot;s2&quot;&gt;&quot;IsCryptoCurrencyNegotiation&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;,
   &lt;span class=&quot;s2&quot;&gt;&quot;AuthenticationUrl&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Tid&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;1006993069257E521001&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;,
+  &lt;span class=&quot;s2&quot;&gt;&quot;Tid&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;1006993069257E521001&quot;&lt;/span&gt;,
+  &lt;span class=&quot;s2&quot;&gt;&quot;SoftDescriptor&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123456789ABCD&quot;&lt;/span&gt;,
   &lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;f2dbd5df-c2ee-482f-ab1b-7fee039108c0&quot;&lt;/span&gt;,
   &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;,
   &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;:15700,
