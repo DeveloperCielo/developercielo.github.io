@@ -289,22 +289,12 @@
 
 <p>O <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code> é gerado apenas quando o pagamento é <em>finalizado na tela transacional</em>. Ele é enviado apenas pela <em>URL de Notificação</em> e não pelo Response da criação da tela transacional.</p>
 
-<h2 id="consultar-transação">Consultar transação</h2>
-
-<p>A consulta de transações via a API de controle transacional pode ser feita de duas maneiras:</p>
-
-<ul>
-  <li>Por <strong>Merchant_Order_Number</strong> - Número de pedido enviado pelo lojista</li>
-  <li>Por <strong>Checkout_Cielo_Order_Number</strong> - Número de pedido gerado pelo Checkout Cielo.</li>
-  <li>Por <strong>id</strong> – Número id gerado ao criar um link de pagamento.</li>
-</ul>
-
-<h3 id="por-merchant_order_number">Por Merchant_Order_Number</h3>
+<h2 id="consultar-transação-por-merchant_order_number">Consultar transação por Merchant_Order_Number</h2>
 
 <p>A consulta de transações por <code class="highlighter-rouge">Merchant_Order_Number</code> retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
 O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code> que deverá ser usado na consulta de uma transação em especifico.</p>
 
-<h4 id="request-1">Request</h4>
+<h3 id="request-1">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="highlighter-rouge">Merchant_Order_Number</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
 
@@ -314,7 +304,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h4 id="response-1">Response</h4>
+<h3 id="response-1">Response</h3>
 
 <blockquote>
   <p>“HTTP Status”: 200 – OK</p>
@@ -350,9 +340,9 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h3>
+<h2 id="consultar-transação-por-checkout_cielo_order_number">Consultar transação por Checkout_Cielo_Order_Number</h2>
 
-<h4 id="request-2">Request</h4>
+<h3 id="request-2">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
 
@@ -362,7 +352,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h4 id="response-2">Response</h4>
+<h3 id="response-2">Response</h3>
 
 <blockquote>
   <p>“HTTP Status”: 200 – OK</p>
@@ -493,9 +483,9 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   </tbody>
 </table>
 
-<h3 id="por-id-do-link-de-pagamento">Por id (do link de pagamento)</h3>
+<h2 id="consultar-transação-por-id-do-link-de-pagamento">Consultar transação por id (do link de pagamento)</h2>
 
-<h4 id="request-3">Request</h4>
+<h3 id="request-3">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="highlighter-rouge">id</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
 
@@ -505,7 +495,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h4 id="response-3">Response</h4>
+<h3 id="response-3">Response</h3>
 
 <blockquote>
   <p>“HTTP Status”: 200 – OK</p>
