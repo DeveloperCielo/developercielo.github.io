@@ -360,7 +360,7 @@ To create a transaction that will use a credit card, it is necessary to send a r
      "Amount":15700,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-  "CreditCard":{
+     "CreditCard":{
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -368,10 +368,10 @@ To create a transaction that will use a credit card, it is necessary to send a r
          "Brand":"Visa"
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
+            "Reason": "Unscheduled"
          }
-     }
+     },
+     "IsCryptoCurrencyNegotiation": true
    }
 }
 ```
@@ -394,7 +394,7 @@ curl
      "Amount":15700,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-  "CreditCard":{
+     "CreditCard":{
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -402,10 +402,10 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
+            "Reason": "Unscheduled"
          }
-     }
+     },
+     "IsCryptoCurrencyNegotiation": true
    }
 }
 --verbose
@@ -422,6 +422,7 @@ curl
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Installments`|Number|2|Yes|Number of installments.|
 |`Payment.SoftDescriptor`|Text|13|No|Text printed on buyer's bank invoice - Available only for VISA/MASTER - does not allow special characters - See Attachment|
+|`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
 |`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on the card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
@@ -429,7 +430,6 @@ curl
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
-|`CreditCard.CardOnFile.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
 
 #### Response
 
@@ -451,12 +451,12 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
-         }
+            "CardOnFile":{
+               "Usage": "Used",
+               "Reason": "Unscheduled"
+            }
         },
+        "IsCryptoCurrencyNegotiation": true,
         "ProofOfSale": "674532",
         "Tid": "0305023644309",
         "AuthorizationCode": "123456",
@@ -511,12 +511,12 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
-         }
+            "CardOnFile":{
+               "Usage": "Used",
+               "Reason": "Unscheduled"
+            }
         },
+        "IsCryptoCurrencyNegotiation": true,
         "ProofOfSale": "674532",
         "Tid": "0305023644309",
         "AuthorizationCode": "123456",
@@ -607,7 +607,7 @@ To create a transaction that will use a credit card, it is necessary to send a r
      "Capture":true,
      "Authenticate":false,
      "SoftDescriptor":"123456789ABCD",
-  "CreditCard":{  
+     "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
@@ -616,10 +616,10 @@ To create a transaction that will use a credit card, it is necessary to send a r
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
+            "Reason": "Unscheduled"
          }
-     }
+     },
+     "IsCryptoCurrencyNegotiation": true
    }
 }
 ```
@@ -677,10 +677,10 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
+            "Reason": "Unscheduled"
          }
-     }
+     },
+     "IsCryptoCurrencyNegotiation": true
    }
 }
 --verbose
@@ -723,6 +723,7 @@ curl
 |`Payment.Interest`|Text|10|No|Type of installment - Store (ByMerchant) or Card (ByIssuer).|
 |`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
 |`Payment.Authenticate`|Booleano|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
+|`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
 |`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
@@ -731,7 +732,6 @@ curl
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
-|`CreditCard.CardOnFile.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
 
 #### Response
 
@@ -775,12 +775,12 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
-         }
+            "CardOnFile":{
+               "Usage": "Used",
+               "Reason": "Unscheduled"
+           }
         },
+        "IsCryptoCurrencyNegotiation": true,
         "ProofOfSale": "674532",
         "Tid": "0305020554239",
         "AuthorizationCode": "123456",
@@ -853,12 +853,12 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
-         }
+            "CardOnFile":{
+               "Usage": "Used",
+               "Reason": "Unscheduled"
+            }
         },
+        "IsCryptoCurrencyNegotiation": true,
         "ProofOfSale": "674532",
         "Tid": "0305020554239",
         "AuthorizationCode": "123456",
@@ -913,32 +913,29 @@ To create a transaction with authentication that will use a credit card, it is n
 ```json
 {
  "MerchantOrderId":"2014111903",
- "Customer":
- {
+ "Customer":{
   "Name":"Comprador crédito autenticação"
  },
- "Payment":
- {
+ "Payment":{
      "Type":"CreditCard",
      "Amount":15700,
      "Installments":1,
      "Authenticate":true,
-  "SoftDescriptor":"123456789ABCD",
-  "ReturnUrl":"https://www.cielo.com.br",
-     "CreditCard":
-     {
-      "CardNumber":"1234123412341231",
-      "Holder":"Teste Holder",
-      "ExpirationDate":"12/2030",
-      "SecurityCode":"123",
-      "Brand":"Visa",
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
-         }
-     }
- }
+     "SoftDescriptor":"123456789ABCD",
+     "ReturnUrl":"https://www.cielo.com.br",
+     "CreditCard":{
+        "CardNumber":"1234123412341231",
+        "Holder":"Teste Holder",
+        "ExpirationDate":"12/2030",
+        "SecurityCode":"123",
+        "Brand":"Visa",
+        "CardOnFile":{
+           "Usage": "Used",
+           "Reason": "Unscheduled"
+        }
+     },
+     "IsCryptoCurrencyNegotiation": true
+   }
 }
 ```
 
@@ -970,10 +967,10 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
+            "Reason": "Unscheduled"
          }
-      }
+      },
+      "IsCryptoCurrencyNegotiation": true
    }
 }
 --verbose
@@ -992,6 +989,7 @@ curl
 |`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
+|`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
 |`CreditCard.CardNumber.`|Text|19|Yes|Buyer's Card Number|
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
@@ -999,7 +997,6 @@ curl
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
 |`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
-|`CreditCard.CardOnFile.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
 
 #### Response
 
@@ -1024,15 +1021,15 @@ curl
    "ExpirationDate":"12/2030",
    "SaveCard":false,
    "Brand":"Visa",
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
-         }
+   "CardOnFile":{
+       "Usage": "Used",
+        "Reason": "Unscheduled"
+    }
   },
+  "IsCryptoCurrencyNegotiation": true,
   "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
-        "Tid": "1006993069257E521001",
-        "SoftDescriptor":"123456789ABCD",
+  "Tid": "1006993069257E521001",
+  "SoftDescriptor":"123456789ABCD",
   "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
   "Type":"CreditCard",
   "Amount":15700,
@@ -1079,13 +1076,13 @@ curl
    "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled",
-            "IsCryptoCurrencyNegotiation": true
+            "Reason": "Unscheduled"
          }
   },
+  "IsCryptoCurrencyNegotiation": true,
   "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
-        "Tid": "1006993069257E521001",
-        "SoftDescriptor":"123456789ABCD",
+  "Tid": "1006993069257E521001",
+  "SoftDescriptor":"123456789ABCD",
   "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
   "Type":"CreditCard",
   "Amount":15700,
