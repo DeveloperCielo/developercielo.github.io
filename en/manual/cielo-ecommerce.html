@@ -2355,7 +2355,8 @@ Below we specify any existing differences:</p>
          </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
          </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-     </span><span class="p">}</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -2383,7 +2384,8 @@ Below we specify any existing differences:</p>
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
          <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-     <span class="o">}</span>
+     <span class="o">}</span>,
+     <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
    <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -2471,6 +2473,13 @@ Below we specify any existing differences:</p>
       <td>Yes</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
+      <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>No (default false)</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">DebitCard.CardNumber</code></td>
       <td>Buyer’s Card Number.</td>
       <td>Text</td>
@@ -2525,6 +2534,7 @@ Below we specify any existing differences:</p>
             </span><span class="s2">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"AuthenticationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1006993069207A31A001"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0309f44f-fe5a-4de1-ba39-984f456130bd"</span><span class="p">,</span><span class="w">
@@ -2562,6 +2572,7 @@ Below we specify any existing differences:</p>
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
         <span class="o">}</span>,
+        <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
         <span class="s2">"AuthenticationUrl"</span>: <span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}"</span>,
         <span class="s2">"Tid"</span>: <span class="s2">"1006993069207A31A001"</span>,
         <span class="s2">"PaymentId"</span>: <span class="s2">"0309f44f-fe5a-4de1-ba39-984f456130bd"</span>,
