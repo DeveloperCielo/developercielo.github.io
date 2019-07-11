@@ -6,9 +6,9 @@ search: true
 translated: true
 toc_footers: true
 categories: manual
-sort_order: 6
+sort_order: 5
 tags:
-  - API e-Commerce Cielo
+  - API Pagamento
 ---
 
 # Prevenção contra Fraudes e Chargeback
