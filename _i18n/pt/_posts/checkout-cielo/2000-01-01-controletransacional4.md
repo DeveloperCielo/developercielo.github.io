@@ -108,20 +108,12 @@ A notificação é obrigatorio pois todos os comandos da API (Consulta / Captura
 
 O `Checkout_Cielo_Order_Number` é gerado apenas quando o pagamento é *finalizado na tela transacional*. Ele é enviado apenas pela *URL de Notificação* e não pelo Response da criação da tela transacional. 
 
-## Consultar transação
-
-A consulta de transações via a API de controle transacional pode ser feita de duas maneiras:
-
-* Por **Merchant_Order_Number** - Número de pedido enviado pelo lojista
-* Por **Checkout_Cielo_Order_Number** - Número de pedido gerado pelo Checkout Cielo.
-* Por **id** – Número id gerado ao criar um link de pagamento.
-
-### Por Merchant_Order_Number
+## Consultar transação por Merchant_Order_Number
 
 A consulta de transações por `Merchant_Order_Number` retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
 O response possuirá o `Checkout_Cielo_Order_Number` que deverá ser usado na consulta de uma transação em especifico.
 
-#### Request 
+### Request 
 
 Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `GET`.
 
@@ -129,7 +121,7 @@ Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `
 
 > **Header:** Authorization: Bearer {access_token}
 
-#### Response
+### Response
 
 > "HTTP Status": 200 – OK
 
@@ -164,9 +156,9 @@ Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `
 ]
 ```
 
-### Por Checkout_Cielo_Order_Number
+## Consultar transação por Checkout_Cielo_Order_Number
 
-#### Request 
+### Request 
 
 Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `GET`.
 
@@ -174,7 +166,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 
 > **Header:** Authorization: Bearer {access_token}
 
-#### Response
+### Response
 
 > "HTTP Status": 200 – OK
 
@@ -264,9 +256,9 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 | **8** | Não Aplicavel            |
 | **9** | Transaçõe de Recorrência |
 
-### Por id (do link de pagamento)
+## Consultar transação por id (do link de pagamento)
 
-#### Request 
+### Request 
 
 Para consultar uma transação pelo `id`, basta realizar um `GET`.
 
@@ -274,7 +266,7 @@ Para consultar uma transação pelo `id`, basta realizar um `GET`.
 
 > **Header:** Authorization: Bearer {access_token}
 
-#### Response
+### Response
 
 > "HTTP Status": 200 – OK
 
