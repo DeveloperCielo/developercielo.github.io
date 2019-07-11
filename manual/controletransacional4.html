@@ -133,9 +133,7 @@
 
 <p>O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/">OAUTH2</a></strong>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth</p>
 
-<blockquote>
-  <p>Para obter o <code class="highlighter-rouge">ClientID</code> e o <code class="highlighter-rouge">ClientSecret</code>, acione a equipe de Produtos Cielo. Credênciais liberadas apenas para lojistas selecionados,</p>
-</blockquote>
+<aside class="notice">Para obter o `ClientID` e o `ClientSecret`, acione a equipe de Produtos Cielo. Credênciais liberadas apenas para lojistas selecionados.</aside>
 
 <p>Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:</p>
 
@@ -250,9 +248,7 @@
   </tbody>
 </table>
 
-<blockquote>
-  <p>O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.</p>
-</blockquote>
+<aside class="notice">O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo. </aside>
 
 <h1 id="controle-transacional">Controle transacional</h1>
 
@@ -268,9 +264,7 @@
 
 <p>Seu principal objetivo é permitir que lojas e plataformas possam automatizar as operações através de seus próprios sistemas.</p>
 
-<blockquote>
-  <p><strong>Endpoint Central</strong> https://cieloecommerce.cielo.com.br/api/public/v2/orders/</p>
-</blockquote>
+<aside class="notice">**Endpoint Central** https://cieloecommerce.cielo.com.br/api/public/v2/orders/</aside>
 
 <h2 id="autenticação">Autenticação</h2>
 
@@ -300,15 +294,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
 
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
-
 <h3 id="response-1">Response</h3>
-
-<blockquote>
-  <p>“HTTP Status”: 200 – OK</p>
-</blockquote>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -347,10 +333,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 <p>Para consultar uma transação pelo <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
-
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<aside class="notice">**Header:** Authorization: Bearer {access_token} </aside>
 
 <h3 id="response-2">Response</h3>
 
@@ -426,9 +409,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<blockquote>
-  <p>Os campos e tamanhos são descritos no <a href="https://developercielo.github.io/manual/checkout-cielo">Manual de Integração do Checkout Cielo</a></p>
-</blockquote>
+<aside class="notice">Os campos e tamanhos são descritos no [Manual de Integração do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo)</aside>
 
 <h2 id="consultar-transação-por-id-do-link-de-pagamento">Consultar transação por id (do link de pagamento)</h2>
 
@@ -437,16 +418,9 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 <p>Para consultar uma transação pelo <code class="highlighter-rouge">id</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
-
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
 
 <h3 id="response-3">Response</h3>
-
-<blockquote>
-  <p>“HTTP Status”: 200 – OK</p>
-</blockquote>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -491,15 +465,9 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <p><strong>OBS</strong>: A captura parcial pode ser realizada apenas 1 vez e é exclusiva para cartão de crédito.</p>
 
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
 
 <h3 id="response-4">Response</h3>
-
-<blockquote>
-  <p>HTTP Status: 200 – OK</p>
-</blockquote>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
     </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> 
@@ -572,15 +540,9 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <p><strong>OBS</strong>: O cancelamento parcial pode ser realizada apenas após a captura. O cancelamento parcial pode ser realizado inumeras vezes até que o valor total seja cancelado.</p>
 
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
 
 <h3 id="response-5">Response</h3>
-
-<blockquote>
-  <p>HTTP Status: 200 – OK</p>
-</blockquote>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
     </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> 

@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-11T16:58:42+00:00</updated>
+    <updated>2019-07-11T17:12:23+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -38247,9 +38247,7 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
 
 &lt;p&gt;O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo &lt;strong&gt;&lt;a href=&quot;https://oauth.net/2/&quot;&gt;OAUTH2&lt;/a&gt;&lt;/strong&gt;, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Para obter o &lt;code class=&quot;highlighter-rouge&quot;&gt;ClientID&lt;/code&gt; e o &lt;code class=&quot;highlighter-rouge&quot;&gt;ClientSecret&lt;/code&gt;, acione a equipe de Produtos Cielo. Credênciais liberadas apenas para lojistas selecionados,&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;aside class=&quot;notice&quot;&gt;Para obter o `ClientID` e o `ClientSecret`, acione a equipe de Produtos Cielo. Credênciais liberadas apenas para lojistas selecionados.&lt;/aside&gt;
 
 &lt;p&gt;Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:&lt;/p&gt;
 
@@ -38364,9 +38362,7 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;aside class=&quot;notice&quot;&gt;O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo. &lt;/aside&gt;
 
 &lt;h1 id=&quot;controle-transacional&quot;&gt;Controle transacional&lt;/h1&gt;
 
@@ -38382,9 +38378,7 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
 
 &lt;p&gt;Seu principal objetivo é permitir que lojas e plataformas possam automatizar as operações através de seus próprios sistemas.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Endpoint Central&lt;/strong&gt; https://cieloecommerce.cielo.com.br/api/public/v2/orders/&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;aside class=&quot;notice&quot;&gt;**Endpoint Central** https://cieloecommerce.cielo.com.br/api/public/v2/orders/&lt;/aside&gt;
 
 &lt;h2 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h2&gt;
 
@@ -38414,15 +38408,7 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}&lt;/span&gt;&lt;/aside&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
-&lt;/blockquote&gt;
-
 &lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“HTTP Status”: 200 – OK&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -38461,10 +38447,7 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 &lt;p&gt;Para consultar uma transação pelo &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_Cielo_Order_Number&lt;/code&gt;, basta realizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt;.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}&lt;/span&gt;&lt;/aside&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;aside class=&quot;notice&quot;&gt;**Header:** Authorization: Bearer {access_token} &lt;/aside&gt;
 
 &lt;h3 id=&quot;response-2&quot;&gt;Response&lt;/h3&gt;
 
@@ -38540,9 +38523,7 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;Os campos e tamanhos são descritos no &lt;a href=&quot;https://developercielo.github.io/manual/checkout-cielo&quot;&gt;Manual de Integração do Checkout Cielo&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;aside class=&quot;notice&quot;&gt;Os campos e tamanhos são descritos no [Manual de Integração do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo)&lt;/aside&gt;
 
 &lt;h2 id=&quot;consultar-transação-por-id-do-link-de-pagamento&quot;&gt;Consultar transação por id (do link de pagamento)&lt;/h2&gt;
 
@@ -38551,16 +38532,9 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 &lt;p&gt;Para consultar uma transação pelo &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt;, basta realizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt;.&lt;/p&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments&lt;/span&gt;&lt;/aside&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;aside class=&quot;notice&quot;&gt;**Header:** Authorization: Bearer {access_token}&lt;/aside&gt;
 
 &lt;h3 id=&quot;response-3&quot;&gt;Response&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“HTTP Status”: 200 – OK&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;$id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -38605,15 +38579,9 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 
 &lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: A captura parcial pode ser realizada apenas 1 vez e é exclusiva para cartão de crédito.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;aside class=&quot;notice&quot;&gt;**Header:** Authorization: Bearer {access_token}&lt;/aside&gt;
 
 &lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;HTTP Status: 200 – OK&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;success&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
@@ -38686,15 +38654,9 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 
 &lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: O cancelamento parcial pode ser realizada apenas após a captura. O cancelamento parcial pode ser realizado inumeras vezes até que o valor total seja cancelado.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;aside class=&quot;notice&quot;&gt;**Header:** Authorization: Bearer {access_token}&lt;/aside&gt;
 
 &lt;h3 id=&quot;response-5&quot;&gt;Response&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;HTTP Status: 200 – OK&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
     &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;success&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
