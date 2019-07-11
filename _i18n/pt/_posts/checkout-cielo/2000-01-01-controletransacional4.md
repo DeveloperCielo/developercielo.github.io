@@ -18,7 +18,7 @@ language_tabs:
 
 O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/)**, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth
 
-> Para obter o `ClientID` e o `ClientSecret`, acione a equipe de Produtos Cielo. Credênciais liberadas apenas para lojistas selecionados,
+<aside class="notice">Para obter o `ClientID` e o `ClientSecret`, acione a equipe de Produtos Cielo. Credênciais liberadas apenas para lojistas selecionados.</aside>
 
 Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:
 
@@ -75,7 +75,7 @@ O response possuirá o Token utilizado para novas requisições em Serviços Cie
 |`Token_type`  | Sempre será do tipo `bearer`                              |texto |
 |`Expires_in`  | Validade do token em segundos. Aproximadamente 20 minutos |int   |
 
-> O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo. 
+<aside class="notice">O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo. </aside>
 
 # Controle transacional 
 
@@ -89,7 +89,7 @@ As operações possíveis de serem realizadas são:
 
 Seu principal objetivo é permitir que lojas e plataformas possam automatizar as operações através de seus próprios sistemas. 
 
-> **Endpoint Central** https://cieloecommerce.cielo.com.br/api/public/v2/orders/  
+<aside class="notice">**Endpoint Central** https://cieloecommerce.cielo.com.br/api/public/v2/orders/</aside>
 
 ## Autenticação
 
@@ -119,11 +119,7 @@ Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
 
-> **Header:** Authorization: Bearer {access_token}
-
 ### Response
-
-> "HTTP Status": 200 – OK
 
 ``` json
 [
@@ -163,8 +159,7 @@ Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `
 Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `GET`.
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
-
-> **Header:** Authorization: Bearer {access_token}
+<aside class="notice">**Header:** Authorization: Bearer {access_token} </aside>
 
 ### Response
 
@@ -239,7 +234,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 }
 ```
 
-> Os campos e tamanhos são descritos no [Manual de Integração do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo)
+<aside class="notice">Os campos e tamanhos são descritos no [Manual de Integração do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo)</aside>
 
 ## Consultar transação por id (do link de pagamento)
 
@@ -248,12 +243,9 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 Para consultar uma transação pelo `id`, basta realizar um `GET`.
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
-
-> **Header:** Authorization: Bearer {access_token}
+<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
 
 ### Response
-
-> "HTTP Status": 200 – OK
 
 ``` json
 {
@@ -299,11 +291,9 @@ Para capturar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar
 
 **OBS**: A captura parcial pode ser realizada apenas 1 vez e é exclusiva para cartão de crédito.
 
-> **Header:** Authorization: Bearer {access_token}
+<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
 
 ### Response
-
-> HTTP Status: 200 – OK
 
 ``` json
 { 
@@ -347,11 +337,9 @@ Para cancelar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar
 
 **OBS**: O cancelamento parcial pode ser realizada apenas após a captura. O cancelamento parcial pode ser realizado inumeras vezes até que o valor total seja cancelado.
 
-> **Header:** Authorization: Bearer {access_token}
+<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
 
 ### Response
-
-> HTTP Status: 200 – OK
 
 ``` json
 { 
