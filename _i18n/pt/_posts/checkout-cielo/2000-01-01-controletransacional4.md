@@ -108,18 +108,20 @@ A notificação é obrigatorio pois todos os comandos da API (Consulta / Captura
 
 O `Checkout_Cielo_Order_Number` é gerado apenas quando o pagamento é *finalizado na tela transacional*. Ele é enviado apenas pela *URL de Notificação* e não pelo Response da criação da tela transacional. 
 
-## Consultar transação por Merchant_Order_Number
+## Consultas
+
+### Por Merchant_Order_Number
 
 A consulta de transações por `Merchant_Order_Number` retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
 O response possuirá o `Checkout_Cielo_Order_Number` que deverá ser usado na consulta de uma transação em especifico.
 
-### Request 
+#### Request 
 
 Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `GET`.
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
 
-### Response
+#### Response
 
 ``` json
 [
@@ -150,131 +152,6 @@ Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `
         ]
     }
 ]
-```
-
-## Consultar transação por Checkout_Cielo_Order_Number
-
-### Request 
-
-Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `GET`.
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
-<aside class="notice">**Header:** Authorization: Bearer {access_token} </aside>
-
-### Response
-
-> "HTTP Status": 200 – OK
-
-``` json
-{ 
-    "merchantId": "c89fdfbb-dbe2-4e77-806a-6d75cd397dac", 
-    "orderNumber": "054f5b509f7149d6aec3b4023a6a2957", 
-    "softDescriptor": "Pedido1234", 
-    "cart": { 
-        "items": [ 
-            { 
-                "name": "Pedido ABC", 
-                "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00", 
-                "unitPrice": 9000, 
-                "quantity": 1, 
-                "type": "1" 
-            } 
-        ] 
-    }, 
-    "shipping": { 
-        "type": "FixedAmount", 
-        "services": [ 
-            { 
-              "name": "Entrega Rápida", 
-                "price": 2000 
-            } 
-        ], 
-        "address": { 
-            "street": "Estrada Caetano Monteiro", 
-            "number": "391A", 
-            "complement": "BL 10 AP 208", 
-            "district": "Badu", 
-            "city": "Niterói", 
-            "state": "RJ" 
-        } 
-    }, 
-    "payment": { 
-        "status": "Paid", 
-        "tid": "10127355487AK2C3EOTB",
-        "nsu": "149111",
-        "authorizationCode": "294551",
-        "numberOfPayments": 1,
-        "createdDate": "2018-03-02T14:29:43.767",
-        "finishedDate": "2018-03-02T14:29:46.117",
-        "cardMaskedNumber": "123456******2007",
-        "brand": "Visa",
-        "antifraud": { 
-            "antifraudeResult": 0,
-            "description": "Lojista optou não realizar a análise do antifraude." 
-        } 
-    }, 
-    "customer": { 
-        "identity": "12345678911", 
-        "fullName": "Fulano da Silva", 
-        "email": "exemplo@email.com.br", 
-        "phone": "11123456789" 
-    }, 
-    "links": [ 
-        { 
-            "method": "GET", 
-            "rel": "self", 
-            "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957" 
-        }, 
-        { 
-            "method": "PUT", 
-            "rel": "void", 
-            "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957/void" 
-        } 
-    ] 
-}
-```
-
-<aside class="notice">Os campos e tamanhos são descritos no [Manual de Integração do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo)</aside>
-
-## Consultar transação por id (do link de pagamento)
-
-### Request 
-
-Para consultar uma transação pelo `id`, basta realizar um `GET`.
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
-<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
-
-### Response
-
-``` json
-{
-   "$id": "1",
-   "productId": "9487e3a9-f204-4188-96c5-a5a3013b2517",
-   "createdDate": "2019-07-11T10:35:04.947",
-   "orders": [
-       {
-           "$id": "2",
-           "orderNumber": "b74df3e3c1ac49ccb7ad89fde2d787f7",
-           "createdDate": "2019-07-11T10:37:23.447",
-           "payment": {
-               "$id": "3",
-               "price": 11500,
-               "numberOfPayments": 6,
-               "createdDate": "2019-07-11T10:37:23.447",
-               "status": "Denied"
-           },
-           "links": [
-               {
-                   "$id": "4",
-                   "method": "GET",
-                   "rel": "self",
-                   "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7"
-               }
-           ]
-       }
-   ]
-}
 ```
 
 ## Capturar transação
