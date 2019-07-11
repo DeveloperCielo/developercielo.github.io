@@ -154,6 +154,16 @@ Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `
 ]
 ```
 
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`$id`|id do nó|Numérico|-|Exemplo: 1|
+|`checkoutOrderNumber`|Código de pedido gerado pelo Checkout Cielo|Texto|32|Exmeplo: a58995ce24fd4f1cb025701e95a51478|
+|`createdDate`|Data de criação do pedido |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
+|`links.$id`|Id do nó|Numérico|-|Exemplo: 1|
+|`links.method`|Método para consumo da operação|Texto|10|Exmeplos: GET, POST, PUT|
+|`links.rel`|Relação para consumo da operação|Texto|10|Exemplo: self|
+|`links.href`|Endpoint para consumo da operação|Texto|512|Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e|
+
 ## Capturar transação
 
 ### Request
