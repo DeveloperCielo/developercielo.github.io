@@ -1184,9 +1184,9 @@ Abaixo especificamos qualquer diferença existente:</p>
     <tr>
       <td><code class="highlighter-rouge">tryautomaticcancellation</code></td>
       <td>Caso ocorra algum erro durante a autorização (status Não Finalizada - “0”), a resposta incluirá o campo “tryautomaticcancellation” como true. Neste caso, a transação será sondada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>true ou false</td>
     </tr>
   </tbody>
 </table>
@@ -1867,9 +1867,9 @@ Abaixo especificamos qualquer diferença existente:</p>
     <tr>
       <td><code class="highlighter-rouge">tryautomaticcancellation</code></td>
       <td>Caso ocorra algum erro durante a autorização (status Não Finalizada - “0”), a resposta incluirá o campo “tryautomaticcancellation” como true. Neste caso, a transação será sondada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>true ou false</td>
     </tr>
   </tbody>
 </table>
@@ -2567,7 +2567,6 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
             </span><span class="s2">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"tryautomaticcancellation"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"AuthenticationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1006993069207A31A001"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0309f44f-fe5a-4de1-ba39-984f456130bd"</span><span class="p">,</span><span class="w">
@@ -2606,7 +2605,6 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
         <span class="o">}</span>,
         <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
-        <span class="s2">"tryautomaticcancellation"</span>:true,
         <span class="s2">"AuthenticationUrl"</span>: <span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}"</span>,
         <span class="s2">"Tid"</span>: <span class="s2">"1006993069207A31A001"</span>,
         <span class="s2">"PaymentId"</span>: <span class="s2">"0309f44f-fe5a-4de1-ba39-984f456130bd"</span>,
@@ -2679,13 +2677,6 @@ Essa <strong>não é uma permissão concedida pela cielo</strong>, o lojista dev
       <td>Código de retorno da Adquirência.</td>
       <td>Texto</td>
       <td>32</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">tryautomaticcancellation</code></td>
-      <td>Caso ocorra algum erro durante a autorização (status Não Finalizada - “0”), a resposta incluirá o campo “tryautomaticcancellation” como true. Neste caso, a transação será sondada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico.</td>
-      <td>Texto</td>
-      <td>512</td>
       <td>Texto alfanumérico</td>
     </tr>
   </tbody>

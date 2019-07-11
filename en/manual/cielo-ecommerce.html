@@ -1005,6 +1005,7 @@ Below we specify any existing differences:</p>
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tryautomaticcancellation"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0305023644309"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
@@ -1064,6 +1065,7 @@ Below we specify any existing differences:</p>
             <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
+        <span class="s2">"tryautomaticcancellation"</span>:true,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
         <span class="s2">"Tid"</span>: <span class="s2">"0305023644309"</span>,
         <span class="s2">"AuthorizationCode"</span>: <span class="s2">"123456"</span>,
@@ -1170,6 +1172,13 @@ Below we specify any existing differences:</p>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tryautomaticcancellation</code></td>
+      <td>In case of error during authorization (status “Not Finished - 0”), the response will include the “tryautomaticcancellation” field as “true”. In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support.</td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>true or false</td>
     </tr>
   </tbody>
 </table>
@@ -1665,6 +1674,7 @@ Below we specify any existing differences:</p>
            </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tryautomaticcancellation"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0305020554239"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
@@ -1742,6 +1752,7 @@ Below we specify any existing differences:</p>
             <span class="o">}</span>
         <span class="o">}</span>,
         <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
+        <span class="s2">"tryautomaticcancellation"</span>:true,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
         <span class="s2">"Tid"</span>: <span class="s2">"0305020554239"</span>,
         <span class="s2">"AuthorizationCode"</span>: <span class="s2">"123456"</span>,
@@ -1844,6 +1855,13 @@ Below we specify any existing differences:</p>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric texto</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tryautomaticcancellation</code></td>
+      <td>In case of error during authorization (status “Not Finished - 0”), the response will include the “tryautomaticcancellation” field as “true”. In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support.</td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>true or false</td>
     </tr>
   </tbody>
 </table>
