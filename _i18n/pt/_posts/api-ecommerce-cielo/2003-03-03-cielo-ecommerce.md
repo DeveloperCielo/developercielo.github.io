@@ -1,14 +1,14 @@
 ---
 layout: manual
-title: Manual de Integração
+title: Manual de Integração eCommerce Cielo
 description: Manual integração técnica via API
 search: true
 translated: true
 toc_footers: true
 categories: manual
-sort_order: 1
+sort_order: 2
 tags:
-  - API e-Commerce Cielo
+  - API Pagamento
 language_tabs:
   json: JSON
   shell: cURL
@@ -4269,24 +4269,24 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 | `COR-SA`   | O endereço de entrega pode ser normalizado                                    |
 | `INTL-SA`  | O país de entrega é fora dos U.S                                              |
 | `MIL-USA`  | Este é um endereço militar nos U.S                                            |
-| `MM-A`     | Os endereços de cobrança e entrega usam nomes de ruas diferentes              |
-| `MM-BIN`   | O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país |
-| `MM-C`     | Os endereços de cobrança e entrega usam cidades diferentes                    |
-| `MM-CO`    | Os endereços de cobrança e entrega usam países diferentes                     |
-| `MM-ST`    | Os endereços de cobrança e entrega usam estados diferentes                    |
-| `MM-Z`     | Os endereços de cobrança e entrega usam códidos postais diferentes            |
+| `MM-A`     | CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados              |
+| `MM-BIN`   | CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cartão usado foi emitido em outro país |
+| `MM-C`     | CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados                    |
+| `MM-CO`    | CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados                     |
+| `MM-ST`    | CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados                    |
+| `MM-Z`     | CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados            |
 | `UNV-ADDR` | O endereço é inverificável                                                    |
 
 #### InternetInfoCode
 
 |Tipo|Descrição|
 |---------|----------------------------------------------------------------------------------------------------|
-|`MORPH-B`|O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos|
-|`MORPH-C`|O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos|
-|`MORPH-E`|O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos|
+|`MORPH-B`|CUIDADO: endereço de cobrança foi usado por diversos clientes diferentes|
+|`MORPH-C`|CUIDADO: cartão foi usado por diversos clientes diferentes|
+|`MORPH-E`|CUIDADO: endereço de email foi usado por diversos clientes diferentes|
 |`MORPH-I`|O mesmo endereço IP tem sido utilizado várias vezes com identidades de clientes múltiplos|
-|`MORPH-P`|O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos|
-|`MORPH-S`|O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos|
+|`MORPH-P`|CUIDADO: número de telefone foi usado por diversos clientes diferentes|
+|`MORPH-S`|CUIDADO: endereço de envio foi usado por diversos clientes diferentes|
 
 #### FraudAnalysisReasonCode
 
@@ -4309,25 +4309,27 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 
 | Tipo | Descrição                                                                                                                                                                                                            |
 |------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `A`  | Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.                                                                                                     |
+| `A`  | CONFIRME O ENDEREÇO: o cliente mudou o endereço de entrega duas ou mais vezes nos últimos meses.                                                                                                     |
 | `B`  | BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.                                                               |
-| `C`  | Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.                                                                                      |
+| `C`  | CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cliente usou mais de seis cartões nos últimos meses.
+                                                                                      |
 | `D`  | Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.                                                                                                      |
 | `E`  | Lista positiva. O cliente está na sua lista positiva.                                                                                                                                                                |
-| `F`  | Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.                                                                                             |
-| `G`  | Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.                                                            |
-| `H`  | Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.                                                                                                                       |
-| `I`  | Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.                                                                                                   |
-| `N`  | Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.                                                                                                                |
-| `O`  | Obscenidades. Dados do cliente contém palavras obscenas.                                                                                                                                                             |
-| `P`  | Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única. |
+| `F`  | CUIDADO: alguma das informações a seguir está relacionada a uma transação que foi reportada como fraudulenta (cartão, endereço ou email).                                                                                             |
+| `G`  | Localização do computador diferente da localização informada no momento da compra. Atenção!!                                                            |
+| `H`  | CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cliente trocou de nome duas ou mais vezes nos últimos meses.                                                                                                                       |
+| `I`  | CONFIRME O ENDEREÇO: o endereço IP e o domínio de email não correspondem ao endereço de entrega.                                                                                                   |
+| `N`  | CONFIRME O DONO DO CARTÃO E O ENDEREÇO: eles contém palavras sem sentido.                                                                                                                |
+| `O`  | CONFIRME O DONO DO CARTÃO E O ENDEREÇO: eles contém palavras sem sentido.                                                                                                                                                             |
+| `P`  | CONFIRME O DONO DO CARTÃO E O ENDEREÇO: informações cadastrais estão compartilhadas entre diferentes clientes.
+ |
 | `Q`  | Inconsistências do telefone. O número de telefone do cliente é suspeito.                                                                                                                                             |
-| `R`  | Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.                                                                                                               |
+| `R`  | CONFIRME O DONO DO CARTÃO E O ENDEREÇO: há correlações arriscadas no pedido.                                                                                                               |
 | `T`  | Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.                                                                                                                                         |
 | `U`  | Endereço não verificável. O endereço de cobrança ou de entrega não pode ser verificado.                                                                                                                              |
-| `V`  | Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.                                                                                                                                           |
-| `W`  | Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.                                                                                            |
-| `Z`  | Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.                |
+| `V`  | CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cartão foi usado muitas vezes nos últimos 15 minutos.                                                                                                                                           |
+| `W`  | CUIDADO: o endereço está relacionado a uma transação que foi reportada como fraudulenta.                                                                                            |
+| `Z`  | CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados.                |
 
 ## Device FingerPrint
 
