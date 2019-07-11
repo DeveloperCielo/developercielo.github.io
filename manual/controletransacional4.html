@@ -430,59 +430,6 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   <p>Os campos e tamanhos são descritos no <a href="https://developercielo.github.io/manual/checkout-cielo">Manual de Integração do Checkout Cielo</a></p>
 </blockquote>
 
-<p><strong>AntifraudeResult</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Campo</th>
-      <th>Definição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><strong>0</strong></td>
-      <td>N\A</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>1</strong></td>
-      <td>Risco baixo</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>2</strong></td>
-      <td>Risco Alto</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>3</strong></td>
-      <td>Não finalizada</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>4</strong></td>
-      <td>Risco Moderado</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>5</strong></td>
-      <td>Autenticado</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>6</strong></td>
-      <td>Não contratado</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>7</strong></td>
-      <td>Dispensado</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>8</strong></td>
-      <td>Não Aplicavel</td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><strong>9</strong></td>
-      <td>Transaçõe de Recorrência</td>
-    </tr>
-  </tbody>
-</table>
-
 <h2 id="consultar-transação-por-id-do-link-de-pagamento">Consultar transação por id (do link de pagamento)</h2>
 
 <h3 id="request-3">Request</h3>
@@ -1523,6 +1470,59 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
       <td>Transação não permitida</td>
       <td>Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes Transação</td>
       <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="status-do-antifraude">Status do Antifraude</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Campo</th>
+      <th>Definição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>0</strong></td>
+      <td>N\A</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>1</strong></td>
+      <td>Risco baixo</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>2</strong></td>
+      <td>Risco Alto</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>3</strong></td>
+      <td>Não finalizada</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>4</strong></td>
+      <td>Risco Moderado</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>5</strong></td>
+      <td>Autenticado</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>6</strong></td>
+      <td>Não contratado</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>7</strong></td>
+      <td>Dispensado</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>8</strong></td>
+      <td>Não Aplicavel</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>9</strong></td>
+      <td>Transaçõe de Recorrência</td>
     </tr>
   </tbody>
 </table>

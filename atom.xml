@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-11T14:28:29+00:00</updated>
+    <updated>2019-07-11T16:58:42+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -38544,59 +38544,6 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
   &lt;p&gt;Os campos e tamanhos são descritos no &lt;a href=&quot;https://developercielo.github.io/manual/checkout-cielo&quot;&gt;Manual de Integração do Checkout Cielo&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;AntifraudeResult&lt;/strong&gt;&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Campo&lt;/th&gt;
-      &lt;th&gt;Definição&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;0&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;N\A&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Risco baixo&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Risco Alto&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Não finalizada&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Risco Moderado&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;5&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Autenticado&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;6&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Não contratado&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;7&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Dispensado&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;8&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Não Aplicavel&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;9&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;Transaçõe de Recorrência&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
 &lt;h2 id=&quot;consultar-transação-por-id-do-link-de-pagamento&quot;&gt;Consultar transação por id (do link de pagamento)&lt;/h2&gt;
 
 &lt;h3 id=&quot;request-3&quot;&gt;Request&lt;/h3&gt;
@@ -39637,6 +39584,59 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
       &lt;td&gt;Transação não permitida&lt;/td&gt;
       &lt;td&gt;Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes Transação&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;status-do-antifraude&quot;&gt;Status do Antifraude&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Definição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;0&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;N\A&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;1&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Risco baixo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Risco Alto&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Não finalizada&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;4&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Risco Moderado&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;5&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Autenticado&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;6&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Não contratado&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;7&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Dispensado&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;8&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Não Aplicavel&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;strong&gt;9&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Transaçõe de Recorrência&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
