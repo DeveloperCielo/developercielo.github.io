@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-11T02:56:14+00:00</updated>
+    <updated>2019-07-11T02:59:00+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -713,7 +713,7 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
 
 &lt;p&gt;&lt;strong&gt;- Visa:&lt;/strong&gt; a bandeira não possui modelo de Stand-In e apenas Emissores 100% prontos com solução própria estão aptos a responder um pedido de autenticação usando EMV 3DS 2.0.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Emissores já prontos com solução própria de 3DS 2.0 Visa: Caixa (Crédito), Banco do Brasil (Débito e Crédito), Santander (Débito e Crédito) e Itaú (Débito e Crédito – atualmente com autenticação silenciosa, sem desafio).&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Emissores já prontos com solução própria de 3DS 2.0 Visa: Caixa (Crédito – atualmente com autenticação silenciosa, sem desafio), Santander (Débito e Crédito) e Itaú (Débito e Crédito – atualmente com autenticação silenciosa, sem desafio).&lt;/aside&gt;
 
 &lt;h2 id=&quot;o-que-é-o-data-only--somente-notificação&quot;&gt;O que é o Data Only – Somente Notificação&lt;/h2&gt;
 
