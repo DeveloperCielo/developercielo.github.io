@@ -1171,7 +1171,8 @@ The example includes the minimum number of fields required to be submitted for a
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Visa"
-     }
+     },
+     "IsCryptoCurrencyNegotiation": true
    }
 }
 ```
@@ -1200,7 +1201,8 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Visa"
-     }
+     },
+     "IsCryptoCurrencyNegotiation": true
    }
 }
 --verbose
@@ -1218,6 +1220,7 @@ curl
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Authenticate`|Defines whether the buyer will be directed to the issuing bank for card authentication.|Boolean|---|Yes (Default TRUE)|
 |`Payment.ReturnUrl`|URI to where the user will be redirected after payment ends|Text|1024|Yes|
+|`Payment.IsCryptocurrencyNegotiation`|Send true if the transaction refers to the sell of the cryptocurrency|Boolean|-|No (default false)|
 |`DebitCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
 |`DebitCard.Holder`|Buyer's name printed on card.|Text|25|No|
 |`DebitCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
@@ -1242,6 +1245,7 @@ curl
             "SaveCard": false,
             "Brand": "Visa"
         },
+        "IsCryptoCurrencyNegotiation": true,
         "AuthenticationUrl": "https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}",
         "Tid": "1006993069207A31A001",
         "PaymentId": "0309f44f-fe5a-4de1-ba39-984f456130bd",
@@ -1280,6 +1284,7 @@ curl
             "SaveCard": false,
             "Brand": "Visa"
         },
+        "IsCryptoCurrencyNegotiation": true,
         "AuthenticationUrl": "https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}",
         "Tid": "1006993069207A31A001",
         "PaymentId": "0309f44f-fe5a-4de1-ba39-984f456130bd",
