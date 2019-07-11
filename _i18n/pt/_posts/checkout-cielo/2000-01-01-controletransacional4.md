@@ -114,6 +114,7 @@ A consulta de transações via a API de controle transacional pode ser feita de 
 
 * Por **Merchant_Order_Number** - Número de pedido enviado pelo lojista
 * Por **Checkout_Cielo_Order_Number** - Número de pedido gerado pelo Checkout Cielo.
+* Por **id** – Número id gerado ao criar um link de pagamento.
 
 ### Por Merchant_Order_Number
 
@@ -262,6 +263,50 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 | **7** | Dispensado               |
 | **8** | Não Aplicavel            |
 | **9** | Transaçõe de Recorrência |
+
+### Por id (do link de pagamento)
+
+#### Request 
+
+Para consultar uma transação pelo `id`, basta realizar um `GET`.
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
+
+> **Header:** Authorization: Bearer {access_token}
+
+#### Response
+
+> "HTTP Status": 200 – OK
+
+``` json
+{
+   "$id": "1",
+   "productId": "9487e3a9-f204-4188-96c5-a5a3013b2517",
+   "createdDate": "2019-07-11T10:35:04.947",
+   "orders": [
+       {
+           "$id": "2",
+           "orderNumber": "b74df3e3c1ac49ccb7ad89fde2d787f7",
+           "createdDate": "2019-07-11T10:37:23.447",
+           "payment": {
+               "$id": "3",
+               "price": 11500,
+               "numberOfPayments": 6,
+               "createdDate": "2019-07-11T10:37:23.447",
+               "status": "Denied"
+           },
+           "links": [
+               {
+                   "$id": "4",
+                   "method": "GET",
+                   "rel": "self",
+                   "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7"
+               }
+           ]
+       }
+   ]
+}
+```
 
 ## Capturar transação
 
