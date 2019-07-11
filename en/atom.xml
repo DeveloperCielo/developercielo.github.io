@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-11T02:51:19+00:00</updated>
+    <updated>2019-07-11T02:56:19+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3533,11 +3533,11 @@ Currently are available:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;- Mastercard:&lt;/strong&gt; the brand has a Stand-In model, in case that the issuer is not able yet to respond an authenticated request using 3DS 2.0 EMV. In this scenario, Mastercard evaluates the uploaded data, for example the client’s historical behavioral and transactional classifying authentication requests as “Low Risk” and “No Low Risk” in Stand-In mode. With this information, the Issuers have a protection even if they do not have their own solution of 3DS 2.0, and will have greater confidence in authenticated transactions. In Stand-In cases, Mastercard will respond to the authentication in 100% of cases silently (no challenge to the carrier) and, once the transaction has been authenticated, the liability in case of fraud will remain with the Issuer.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Issuers that are ready with its own solution of 3DS 2.0 Mastercard: Santander (Debit e Credit), PagSeguro (Credit), C6 (Debit e Credit), Realize (Credit), Itaú (Credit) e Acesso (Credit). The rest of the issuers will work,  for the time being, with the Mastercard Stand-In solution.&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Issuers that are ready with its own solution of 3DS 2.0 Mastercard: Santander (Debit and Credit), PagSeguro (Credit), C6 (Debit and Credit), Realize (Credit), Itaú (Credit) e Acesso (Credit). The rest of the issuers will work,  for the time being, with the Mastercard Stand-In solution.&lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;- Visa:&lt;/strong&gt; the card brand does not has a Stand-In model and just issuers 100% ready with its own solution are able to respond to an authenticated request using the 3DS 2.0 EMV.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt; Issuers that are ready with its own solution of 3DS 2.0 Visa: Caixa (Credit), Santander (Debit e Credit) e Itaú (Debit e Credit – currently with silent authentication, no challenge). &lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt; Issuers that are ready with its own solution of 3DS 2.0 Visa: Caixa (Credit – currently with silent authentication, no challenge), Santander (Debit and Credit) e Itaú (Debit and Credit – currently with silent authentication, no challenge). &lt;/aside&gt;
 
 &lt;h2 id=&quot;what-is-the-data-only---notification-only&quot;&gt;What is the Data Only - Notification Only&lt;/h2&gt;
 
