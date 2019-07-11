@@ -12,7 +12,7 @@
 
     <title>
         
-        Manual de Integração &middot; Documentações e tutoriais
+        Manual de Integração eCommerce Cielo &middot; Documentações e tutoriais
         
     </title>
 
@@ -119,7 +119,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de Integração</a></li>
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de Integração eCommerce Cielo</a></li>
                                     
                                 
                             
@@ -8906,27 +8906,27 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MM-A</code></td>
-      <td>Os endereços de cobrança e entrega usam nomes de ruas diferentes</td>
+      <td>CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MM-BIN</code></td>
-      <td>O BIN do cartão (os seis primeiros dígitos do número) não corresponde ao país</td>
+      <td>CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cartão usado foi emitido em outro país</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MM-C</code></td>
-      <td>Os endereços de cobrança e entrega usam cidades diferentes</td>
+      <td>CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MM-CO</code></td>
-      <td>Os endereços de cobrança e entrega usam países diferentes</td>
+      <td>CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MM-ST</code></td>
-      <td>Os endereços de cobrança e entrega usam estados diferentes</td>
+      <td>CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MM-Z</code></td>
-      <td>Os endereços de cobrança e entrega usam códidos postais diferentes</td>
+      <td>CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">UNV-ADDR</code></td>
@@ -8947,15 +8947,15 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MORPH-B</code></td>
-      <td>O mesmo endereço de cobrança tem sido utilizado várias vezes com identidades de clientes múltiplos</td>
+      <td>CUIDADO: endereço de cobrança foi usado por diversos clientes diferentes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MORPH-C</code></td>
-      <td>O mesmo número de conta tem sido utilizado várias vezes com identidades de clientes múltiplos</td>
+      <td>CUIDADO: cartão foi usado por diversos clientes diferentes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MORPH-E</code></td>
-      <td>O mesmo endereço de e-mail tem sido utilizado várias vezes com identidades de clientes múltiplos</td>
+      <td>CUIDADO: endereço de email foi usado por diversos clientes diferentes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MORPH-I</code></td>
@@ -8963,11 +8963,11 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MORPH-P</code></td>
-      <td>O mesmo número de telefone tem sido usado várias vezes com identidades de clientes múltiplos</td>
+      <td>CUIDADO: número de telefone foi usado por diversos clientes diferentes</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MORPH-S</code></td>
-      <td>O mesmo endereço de entrega tem sido utilizado várias vezes com identidades de clientes múltiplos</td>
+      <td>CUIDADO: endereço de envio foi usado por diversos clientes diferentes</td>
     </tr>
   </tbody>
 </table>
@@ -9045,7 +9045,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">A</code></td>
-      <td>Mudança de endereço excessiva. O cliente mudou o endereço de cobrança duas ou mais vezes nos últimos seis meses.</td>
+      <td>CONFIRME O ENDEREÇO: o cliente mudou o endereço de entrega duas ou mais vezes nos últimos meses.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">B</code></td>
@@ -9053,7 +9053,11 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">C</code></td>
-      <td>Elevado números de cartões de créditos. O cliente tem usado mais de seis números de cartões de créditos nos últimos seis meses.</td>
+      <td>CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cliente usou mais de seis cartões nos últimos meses.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">D</code></td>
@@ -9065,31 +9069,35 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">F</code></td>
-      <td>Lista negativa. O número da conta, endereço, endereço de e-mail ou endereço IP para este fim aparece sua lista negativa.</td>
+      <td>CUIDADO: alguma das informações a seguir está relacionada a uma transação que foi reportada como fraudulenta (cartão, endereço ou email).</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">G</code></td>
-      <td>Inconsistências de geolocalização. O domínio do cliente de e-mail, número de telefone, endereço de cobrança, endereço de envio ou endereço IP é suspeito.</td>
+      <td>Localização do computador diferente da localização informada no momento da compra. Atenção!!</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">H</code></td>
-      <td>Excessivas mudanças de nome. O cliente mudou o nome duas ou mais vezes nos últimos seis meses.</td>
+      <td>CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cliente trocou de nome duas ou mais vezes nos últimos meses.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">I</code></td>
-      <td>Inconsistências de internet. O endereço IP e de domínio de e-mail não são consistentes com o endereço de cobrança.</td>
+      <td>CONFIRME O ENDEREÇO: o endereço IP e o domínio de email não correspondem ao endereço de entrega.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">N</code></td>
-      <td>Entrada sem sentido. O nome do cliente e os campos de endereço contém palavras sem sentido ou idioma.</td>
+      <td>CONFIRME O DONO DO CARTÃO E O ENDEREÇO: eles contém palavras sem sentido.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">O</code></td>
-      <td>Obscenidades. Dados do cliente contém palavras obscenas.</td>
+      <td>CONFIRME O DONO DO CARTÃO E O ENDEREÇO: eles contém palavras sem sentido.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">P</code></td>
-      <td>Identidade morphing. Vários valores de um elemento de identidade estão ligados a um valor de um elemento de identidade diferentes. Por exemplo, vários números de telefone estão ligados a um número de conta única.</td>
+      <td>CONFIRME O DONO DO CARTÃO E O ENDEREÇO: informações cadastrais estão compartilhadas entre diferentes clientes.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Q</code></td>
@@ -9097,7 +9105,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">R</code></td>
-      <td>Ordem arriscada. A transação, o cliente e o lojista mostram informações correlacionadas de alto risco.</td>
+      <td>CONFIRME O DONO DO CARTÃO E O ENDEREÇO: há correlações arriscadas no pedido.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">T</code></td>
@@ -9109,15 +9117,15 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">V</code></td>
-      <td>Velocity. O número da conta foi usado muitas vezes nos últimos 15 minutos.</td>
+      <td>CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cartão foi usado muitas vezes nos últimos 15 minutos.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">W</code></td>
-      <td>Marcado como suspeito. O endereço de cobrança ou de entrega é semelhante a um endereço previamente marcado como suspeito.</td>
+      <td>CUIDADO: o endereço está relacionado a uma transação que foi reportada como fraudulenta.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Z</code></td>
-      <td>Valor inválido. Como a solicitação contém um valor inesperado, um valor padrão foi substituído. Embora a transação ainda possa ser processada, examinar o pedido com cuidado para detectar anomalias.</td>
+      <td>CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados.</td>
     </tr>
   </tbody>
 </table>
@@ -19459,26 +19467,6 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
 
             <ul class="toc-footer">
             
-                
-            
-                
-                    
-                    <li><a href="https://developercielo.github.io/tutorial/tutoriais-3-0" title="O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.">Tutoriais</a></li>
-                
-            
-                
-                    
-                    <li><a href="https://developercielo.github.io/faq/faq-api-3-0" title="Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com a API Cielo.">FAQ</a></li>
-                
-            
-                
-                    
-                    <li><a href="https://developercielo.github.io/manual/prevencao-fraudes" title="Manual de prevenção contra fraudes e chargebacks">Prevenção contra Fraudes e Chargeback</a></li>
-                
-            
-                
-                    
-                    <li><a href="https://developercielo.github.io/tutorial/postman" title="O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs.">Postman Cielo</a></li>
                 
             
             </ul>

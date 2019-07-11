@@ -328,6 +328,69 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">$id</code></td>
+      <td>id do nó</td>
+      <td>Numérico</td>
+      <td>-</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">checkoutOrderNumber</code></td>
+      <td>Código de pedido gerado pelo Checkout Cielo</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Exmeplo: a58995ce24fd4f1cb025701e95a51478</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">createdDate</code></td>
+      <td>Data de criação do pedido</td>
+      <td>Data</td>
+      <td>-</td>
+      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.$id</code></td>
+      <td>Id do nó</td>
+      <td>Numérico</td>
+      <td>-</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.method</code></td>
+      <td>Método para consumo da operação</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Exmeplos: GET, POST, PUT</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.rel</code></td>
+      <td>Relação para consumo da operação</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Exemplo: self</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.href</code></td>
+      <td>Endpoint para consumo da operação</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="capturar-transação">Capturar transação</h2>
 
 <h3 id="request-2">Request</h3>
