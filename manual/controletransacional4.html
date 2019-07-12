@@ -397,8 +397,11 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <p>Para consultar uma transação pelo <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
 
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
-<aside class="notice">**Header:** Authorization: Bearer {access_token} </aside>
 
 <h4 id="response-2">Response</h4>
 
@@ -470,7 +473,243 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<aside class="notice">Os campos e tamanhos são descritos no [Manual de Integração do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo)</aside>
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">merchantId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Número do pedido da loja.</td>
+      <td>Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orderNumber</code></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Número do pedido da loja.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">softDescriptor</code></td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços</td>
+      <td>Exemplo: <code class="highlighter-rouge">Loja_ABC_1234</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cart.items.name</code></td>
+      <td>Texto</td>
+      <td>128</td>
+      <td>Nome do item no carrinho.</td>
+      <td>Exemplo: Pedido ABC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cart.items.description</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Descrição do item no carrinho.</td>
+      <td>Exemplo: 50 canetas - R$30,00</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cart.items.unitPrice</code></td>
+      <td>Numérico</td>
+      <td>18</td>
+      <td>Preço unitário do produto em centavos</td>
+      <td>Exemplo: R$ 1,00 = 100</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cart.items.quantity</code></td>
+      <td>Numérico</td>
+      <td>9</td>
+      <td>Quantidade do item no carrinho.</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cart.items.type</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Tipo do item no carrinho</td>
+      <td><code class="highlighter-rouge">Asset</code><br /><code class="highlighter-rouge">Digital</code><br /><code class="highlighter-rouge">Service</code><br /><code class="highlighter-rouge">Payment</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.type</code></td>
+      <td>Numérico</td>
+      <td>36</td>
+      <td>Modalidade de frete</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.services.name</code></td>
+      <td>Texto</td>
+      <td>128</td>
+      <td>Modalidade de frete</td>
+      <td>Exemplo: Casa Principal</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.services.price</code></td>
+      <td>Numérico</td>
+      <td>10</td>
+      <td>Valor do serviço de frete, em centavos</td>
+      <td>Exemplo: R$ 10,00 = 1000</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.street</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Endereço de entrega</td>
+      <td>Exemplo: Rua João da Silva</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.number</code></td>
+      <td>Numérico</td>
+      <td>8</td>
+      <td>Número do endereço de entrega</td>
+      <td>Exemplo: 123</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.complement</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Complemento do endereço de entrega</td>
+      <td>Exemplo: Casa</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.district</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Bairro do endereço de entrega</td>
+      <td>Exemplo: Alphaville</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.city</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Cidade do endereço de entrega</td>
+      <td>Exemplo: São Paulo</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.state</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Estado de endereço de entrega</td>
+      <td>Exemplo: SP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.status</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Status da transação</td>
+      <td>Exemplo: Paid</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.tid</code></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>TID Cielo gerado no momento da autorização da transação</td>
+      <td>Exemplo: 10127355487AK2C3EOTB</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.nsu</code></td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>NSU Cielo gerado no momento da autorização da transação</td>
+      <td>Exemplo: 123456</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.authorizationCode</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Código de autorização.</td>
+      <td>Exemplo:</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.numberOfPayments</code></td>
+      <td>Numérico</td>
+      <td>6</td>
+      <td>Número de Parcelas.</td>
+      <td>Exemplo: 123456</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.createdDate</code></td>
+      <td>Texto</td>
+      <td>22</td>
+      <td>Data de criação da transação</td>
+      <td>Exemplo: AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.finishedDate</code></td>
+      <td>Texto</td>
+      <td>22</td>
+      <td>Data de finalização da transação</td>
+      <td>Exemplo: AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.cardMaskedNumber</code></td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>Número do cartão mascarado</td>
+      <td>Exemplo: 123456<strong>**</strong>2007</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Bandeira do cartão</td>
+      <td>Exemplo: Visa</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.antifraud.antifraudeResult</code></td>
+      <td>Numeric</td>
+      <td>1</td>
+      <td>Status do antifraude</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.antifraud.description</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Descrição do status do antifraude</td>
+      <td>Exemplo: Lojista optou não realizar a análise do antifraude</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Numérico</td>
+      <td>14</td>
+      <td>CPF ou CNPJ do comprador.</td>
+      <td>Exemplo: 12345678909</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.FullName</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Nome completo do comprador.</td>
+      <td>Exemplo: Fulano da Silva</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Email do comprador.</td>
+      <td>Exemplo: exemplo@email.com.br</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td>Numérico</td>
+      <td>11</td>
+      <td>Telefone do comprador.</td>
+      <td>Exemplo: 11123456789</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="por-id-do-link-de-pagamento">Por ID do link de pagamento</h3>
 
