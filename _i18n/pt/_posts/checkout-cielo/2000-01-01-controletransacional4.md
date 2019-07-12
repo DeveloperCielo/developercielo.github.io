@@ -170,8 +170,9 @@ Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `
 
 Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `GET`.
 
+>**Header:** Authorization: Bearer {access_token}
+
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
-<aside class="notice">**Header:** Authorization: Bearer {access_token} </aside>
 
 #### Response
 
@@ -244,7 +245,40 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 }
 ```
 
-<aside class="notice">Os campos e tamanhos são descritos no [Manual de Integração do Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo)</aside>
+|Campo|Tipo|Tamanho|Descrição|Formato|
+|---|---|---|---|---|
+|`merchantId`|GUID|36|Número do pedido da loja.|Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac|
+|`orderNumber`|Texto|32|Número do pedido da loja.|
+|`softDescriptor`|Texto|13|Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços|Exemplo: `Loja_ABC_1234`|
+|`cart.items.name`|Texto|128|Nome do item no carrinho.|Exemplo: Pedido ABC|
+|`cart.items.description`|Texto|256|Descrição do item no carrinho.|Exemplo: 50 canetas - R$30,00|
+|`cart.items.unitPrice`|Numérico|18|Preço unitário do produto em centavos|Exemplo: R$ 1,00 = 100|
+|`cart.items.quantity`|Numérico|9|Quantidade do item no carrinho.|Exemplo: 1|
+|`cart.items.type`|Texto|255|Tipo do item no carrinho|`Asset`<br>`Digital`<br>`Service`<br>`Payment`|
+|`shipping.type`|Numérico|36|Modalidade de frete|Exemplo: 1|
+|`shipping.services.name`|Texto|128|Modalidade de frete|Exemplo: Casa Principal|
+|`shipping.services.price`|Numérico|10|Valor do serviço de frete, em centavos|Exemplo: R$ 10,00 = 1000|
+|`shipping.address.street`|Texto|256|Endereço de entrega|Exemplo: Rua João da Silva|
+|`shipping.address.number`|Numérico|8|Número do endereço de entrega|Exemplo: 123|
+|`shipping.address.complement`|Texto|64|Complemento do endereço de entrega|Exemplo: Casa|
+|`shipping.address.district`|Texto|64|Bairro do endereço de entrega|Exemplo: Alphaville|
+|`shipping.address.city`|Texto|64|Cidade do endereço de entrega|Exemplo: São Paulo|
+|`shipping.address.state`|Texto|2|Estado de endereço de entrega|Exemplo: SP|
+|`Payment.status`|Texto|10|Status da transação|Exemplo: Paid|
+|`Payment.tid`|Texto|32|TID Cielo gerado no momento da autorização da transação|Exemplo: 10127355487AK2C3EOTB|
+|`Payment.nsu`|Texto|6|NSU Cielo gerado no momento da autorização da transação|Exemplo: 123456|
+|`Payment.authorizationCode`|Texto|3|Código de autorização.|Exemplo: |
+|`Payment.numberOfPayments`|Numérico|6|Número de Parcelas.|Exemplo: 123456|
+|`Payment.createdDate`|Texto|22|Data de criação da transação|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
+|`Payment.finishedDate`|Texto|22|Data de finalização da transação|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
+|`Payment.cardMaskedNumber`|Texto|19|Número do cartão mascarado|Exemplo: 123456******2007|
+|`Payment.brand`|Texto|10|Bandeira do cartão|Exemplo: Visa|
+|`Payment.antifraud.antifraudeResult`|Numeric|1|Status do antifraude|Exemplo: 1|
+|`Payment.antifraud.description`|Texto|256|Descrição do status do antifraude|Exemplo: Lojista optou não realizar a análise do antifraude|
+|`Customer.Identity`|Numérico|14|CPF ou CNPJ do comprador.|Exemplo: 12345678909|
+|`Customer.FullName`|Texto|256|Nome completo do comprador.|Exemplo: Fulano da Silva|
+|`Customer.Email`|Texto|64|Email do comprador.|Exemplo: exemplo@email.com.br|
+|`Customer.Phone`|Numérico|11|Telefone do comprador.|Exemplo: 11123456789|
 
 ### Por ID do link de pagamento
 
