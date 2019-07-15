@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-15T12:31:57+00:00</updated>
+    <updated>2019-07-15T12:52:31+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -43953,7 +43953,7 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;merchantId&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;GUID&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Número do pedido da loja.&lt;/td&gt;
+      &lt;td&gt;Id da Loja no Checkout&lt;/td&gt;
       &lt;td&gt;Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
