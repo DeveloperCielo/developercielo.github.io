@@ -392,6 +392,8 @@ Para capturar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar
 
 Para cancelar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `PUT`.
 
+>**Header:** Authorization: Bearer {access_token}
+
 **Cancelamento total**
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void</span></aside>
 
@@ -399,8 +401,6 @@ Para cancelar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void?amount={Valor}</span></aside>
 
 **OBS**: O cancelamento parcial pode ser realizada apenas após a captura. O cancelamento parcial pode ser realizado inumeras vezes até que o valor total seja cancelado.
-
-<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
 
 ### Response
 
