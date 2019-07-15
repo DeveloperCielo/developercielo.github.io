@@ -248,7 +248,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 |Campo|Tipo|Tamanho|Descrição|Formato|
 |---|---|---|---|---|
 |`merchantId`|GUID|36|Id da Loja no Checkout|Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac|
-|`orderNumber`|Texto|32|Número do pedido da loja.|
+|`orderNumber`|Texto|32|Número do pedido da loja.|Exemplo: 123456|
 |`softDescriptor`|Texto|13|Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços|Exemplo: `Loja_ABC_1234`|
 |`cart.items.name`|Texto|128|Nome do item no carrinho.|Exemplo: Pedido ABC|
 |`cart.items.description`|Texto|256|Descrição do item no carrinho.|Exemplo: 50 canetas - R$30,00|
@@ -267,7 +267,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 |`Payment.status`|Texto|10|Status da transação|Exemplo: Paid|
 |`Payment.tid`|Texto|32|TID Cielo gerado no momento da autorização da transação|Exemplo: 10127355487AK2C3EOTB|
 |`Payment.nsu`|Texto|6|NSU Cielo gerado no momento da autorização da transação|Exemplo: 123456|
-|`Payment.authorizationCode`|Texto|3|Código de autorização.|Exemplo: |
+|`Payment.authorizationCode`|Texto|3|Código de autorização.|Exemplo: 456789|
 |`Payment.numberOfPayments`|Numérico|6|Número de Parcelas.|Exemplo: 123456|
 |`Payment.createdDate`|Texto|22|Data de criação da transação|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
 |`Payment.finishedDate`|Texto|22|Data de finalização da transação|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
