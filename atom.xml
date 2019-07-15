@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-15T12:52:31+00:00</updated>
+    <updated>2019-07-15T13:04:45+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -43961,7 +43961,7 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Número do pedido da loja.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Exemplo: 123456&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;softDescriptor&lt;/code&gt;&lt;/td&gt;
@@ -44094,7 +44094,7 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;Código de autorização.&lt;/td&gt;
-      &lt;td&gt;Exemplo:&lt;/td&gt;
+      &lt;td&gt;Exemplo: 456789&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.numberOfPayments&lt;/code&gt;&lt;/td&gt;
