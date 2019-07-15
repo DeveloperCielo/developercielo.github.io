@@ -247,7 +247,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 
 |Campo|Tipo|Tamanho|Descrição|Formato|
 |---|---|---|---|---|
-|`merchantId`|GUID|36|Número do pedido da loja.|Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac|
+|`merchantId`|GUID|36|Id da Loja no Checkout|Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac|
 |`orderNumber`|Texto|32|Número do pedido da loja.|
 |`softDescriptor`|Texto|13|Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços|Exemplo: `Loja_ABC_1234`|
 |`cart.items.name`|Texto|128|Nome do item no carrinho.|Exemplo: Pedido ABC|
