@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-15T12:28:02+00:00</updated>
+    <updated>2019-07-15T12:31:57+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -44421,6 +44421,10 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 
 &lt;p&gt;Para cancelar uma transação pelo &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_Cielo_Order_Number&lt;/code&gt;, basta realizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt;.&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;&lt;strong&gt;Cancelamento total&lt;/strong&gt;&lt;/p&gt;
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void&lt;/span&gt;&lt;/aside&gt;
 
@@ -44428,8 +44432,6 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void?amount={Valor}&lt;/span&gt;&lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: O cancelamento parcial pode ser realizada apenas após a captura. O cancelamento parcial pode ser realizado inumeras vezes até que o valor total seja cancelado.&lt;/p&gt;
-
-&lt;aside class=&quot;notice&quot;&gt;**Header:** Authorization: Bearer {access_token}&lt;/aside&gt;
 
 &lt;h3 id=&quot;response-5&quot;&gt;Response&lt;/h3&gt;
 

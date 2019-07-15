@@ -956,6 +956,10 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <p>Para cancelar uma transação pelo <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="highlighter-rouge">PUT</code>.</p>
 
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
 <p><strong>Cancelamento total</strong></p>
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void</span></aside>
 
@@ -963,8 +967,6 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void?amount={Valor}</span></aside>
 
 <p><strong>OBS</strong>: O cancelamento parcial pode ser realizada apenas após a captura. O cancelamento parcial pode ser realizado inumeras vezes até que o valor total seja cancelado.</p>
-
-<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
 
 <h3 id="response-5">Response</h3>
 
