@@ -725,9 +725,171 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
   </tbody>
 </table>
 
+<h3 id="by-payment-link-id">By Payment Link ID</h3>
+
+<h4 id="request-3">Request</h4>
+
+<p>To query a transaction by <code class="highlighter-rouge">id</code>, just perform <code class="highlighter-rouge">GET</code>.</p>
+
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
+
+<h4 id="response-3">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9487e3a9-f204-4188-96c5-a5a3013b2517"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:35:04.947"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="s2">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"orderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b74df3e3c1ac49ccb7ad89fde2d787f7"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:37:23.447"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">11500</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"numberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:37:23.447"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Denied"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="s2">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                   </span><span class="s2">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+                   </span><span class="s2">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                   </span><span class="s2">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                   </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+           </span><span class="p">]</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">$id</code></td>
+      <td>Node’s ID</td>
+      <td>Numeric</td>
+      <td>-</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">productId</code></td>
+      <td>Payment Link ID</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Exmeplo: 9487e3a9-f204-4188-96c5-a5a3013b2517</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">createdDate</code></td>
+      <td>Payment Link creation date</td>
+      <td>Date</td>
+      <td>-</td>
+      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.$id</code></td>
+      <td>Node’s ID</td>
+      <td>Numeric</td>
+      <td>-</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.orderNumber</code></td>
+      <td>Order number generated by Checkout Cielo</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Example: b74df3e3c1ac49ccb7ad89fde2d787f7</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.createdDate</code></td>
+      <td>Order creation date</td>
+      <td>Date</td>
+      <td>-</td>
+      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.payment.$id</code></td>
+      <td>Node’s ID</td>
+      <td>Numeric</td>
+      <td>-</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.payment.price</code></td>
+      <td>Transaction amount</td>
+      <td>Numeric</td>
+      <td>-</td>
+      <td>Example: R$ 1,00 = 100</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.payment.numberOfPayments</code></td>
+      <td>Number of installments</td>
+      <td>-</td>
+      <td>Example: 3</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.payment.createdDate</code></td>
+      <td>Transaction creation date</td>
+      <td>Date</td>
+      <td>-</td>
+      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.payment.status</code></td>
+      <td>Transaction status</td>
+      <td>Text</td>
+      <td>Example: Denied</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.$id</code></td>
+      <td>Node’s ID</td>
+      <td>Numeric</td>
+      <td>-</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.method</code></td>
+      <td>method’s name</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Exmeplos: GET, POST, PUT</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.rel</code></td>
+      <td>relation’s type</td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Example: self</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.href</code></td>
+      <td>Operation’s endpoint</td>
+      <td>Text</td>
+      <td>512</td>
+      <td>Example: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="capture-transaction">Capture transaction</h2>
 
-<h3 id="request-3">Request</h3>
+<h3 id="request-4">Request</h3>
 
 <p>To capture a transaction by <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, just perform a <code class="highlighter-rouge">PUT</code>.</p>
 
@@ -745,7 +907,7 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h3 id="response-3">Response</h3>
+<h3 id="response-4">Response</h3>
 
 <blockquote>
   <p>HTTP Status: 200 – OK</p>
@@ -810,7 +972,7 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
 
 <h2 id="cancel-transaction">Cancel transaction</h2>
 
-<h3 id="request-4">Request</h3>
+<h3 id="request-5">Request</h3>
 
 <p>To cancel a transaction by <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, just perform a <code class="highlighter-rouge">PUT</code>.</p>
 
@@ -828,7 +990,7 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <blockquote>
   <p>HTTP Status: 200 – OK</p>
