@@ -286,8 +286,9 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 
 Para consultar uma transação pelo `id`, basta realizar um `GET`.
 
+>**Header:** Authorization: Bearer {access_token}
+
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
-<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
 
 #### Response
 
@@ -345,15 +346,15 @@ Para consultar uma transação pelo `id`, basta realizar um `GET`.
 
 Para capturar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `PUT`.
 
+>**Header:** Authorization: Bearer {access_token}
+
 **Captura Total**
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/capture</span></aside>
 
 **Captura Parcial**
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/capture?amount={Valor}</span></aside>
 
-**OBS**: A captura parcial pode ser realizada apenas 1 vez e é exclusiva para cartão de crédito.
-
-<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
+<aside class="notice">**OBS**: A captura parcial pode ser realizada apenas 1 vez e é exclusiva para cartão de crédito.</aside>
 
 ### Response
 
