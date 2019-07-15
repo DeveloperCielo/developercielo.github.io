@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-12T22:52:08+00:00</updated>
+    <updated>2019-07-15T12:28:02+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -44182,8 +44182,11 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 
 &lt;p&gt;Para consultar uma transação pelo &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt;, basta realizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt;.&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments&lt;/span&gt;&lt;/aside&gt;
-&lt;aside class=&quot;notice&quot;&gt;**Header:** Authorization: Bearer {access_token}&lt;/aside&gt;
 
 &lt;h4 id=&quot;response-3&quot;&gt;Response&lt;/h4&gt;
 
@@ -44341,15 +44344,17 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
 
 &lt;p&gt;Para capturar uma transação pelo &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_Cielo_Order_Number&lt;/code&gt;, basta realizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt;.&lt;/p&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Header:&lt;/strong&gt; Authorization: Bearer {access_token}&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;&lt;strong&gt;Captura Total&lt;/strong&gt;&lt;/p&gt;
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/capture&lt;/span&gt;&lt;/aside&gt;
 
 &lt;p&gt;&lt;strong&gt;Captura Parcial&lt;/strong&gt;&lt;/p&gt;
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt;&lt;span class=&quot;endpoint&quot;&gt;https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/capture?amount={Valor}&lt;/span&gt;&lt;/aside&gt;
 
-&lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: A captura parcial pode ser realizada apenas 1 vez e é exclusiva para cartão de crédito.&lt;/p&gt;
-
-&lt;aside class=&quot;notice&quot;&gt;**Header:** Authorization: Bearer {access_token}&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;**OBS**: A captura parcial pode ser realizada apenas 1 vez e é exclusiva para cartão de crédito.&lt;/aside&gt;
 
 &lt;h3 id=&quot;response-4&quot;&gt;Response&lt;/h3&gt;
 

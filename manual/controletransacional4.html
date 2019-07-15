@@ -717,8 +717,11 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <p>Para consultar uma transação pelo <code class="highlighter-rouge">id</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
 
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
-<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
 
 <h4 id="response-3">Response</h4>
 
@@ -876,15 +879,17 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <p>Para capturar uma transação pelo <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="highlighter-rouge">PUT</code>.</p>
 
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
 <p><strong>Captura Total</strong></p>
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/capture</span></aside>
 
 <p><strong>Captura Parcial</strong></p>
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/capture?amount={Valor}</span></aside>
 
-<p><strong>OBS</strong>: A captura parcial pode ser realizada apenas 1 vez e é exclusiva para cartão de crédito.</p>
-
-<aside class="notice">**Header:** Authorization: Bearer {access_token}</aside>
+<aside class="notice">**OBS**: A captura parcial pode ser realizada apenas 1 vez e é exclusiva para cartão de crédito.</aside>
 
 <h3 id="response-4">Response</h3>
 
