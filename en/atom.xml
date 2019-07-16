@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-16T18:04:23+00:00</updated>
+    <updated>2019-07-16T18:07:39+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3537,7 +3537,7 @@ Currently are available:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;- Visa:&lt;/strong&gt; the card brand does not has a Stand-In model and just issuers 100% ready with its own solution are able to respond to an authenticated request using the 3DS 2.0 EMV.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt; Issuers that are ready with its own solution of 3DS 2.0 Visa: Caixa (Credit – currently with silent authentication, no challenge), Santander (Debit and Credit) e Itaú (Debit and Credit – currently with silent authentication, no challenge). &lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt; Issuers that are ready with its own solution of 3DS 2.0 Visa: Caixa (Credit – currently with silent authentication, no challenge), Santander (Debit and Credit) e Itaú (Credit – currently with silent authentication, no challenge). &lt;/aside&gt;
 
 &lt;h2 id=&quot;what-is-the-data-only---notification-only&quot;&gt;What is the Data Only - Notification Only&lt;/h2&gt;
 
