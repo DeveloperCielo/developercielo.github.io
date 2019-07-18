@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-16T18:07:33+00:00</updated>
+    <updated>2019-07-18T21:46:09+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6298,6 +6298,10 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
     &lt;tr&gt;
       &lt;td&gt;onError&lt;/td&gt;
       &lt;td&gt;É acionado quando o processo de autenticação recebeu um erro sistêmico. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;onUnsupportedBrand&lt;/td&gt;
+      &lt;td&gt;É acionado quando a bandeira do cartão não é suportado pelo 3DS 2.0&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
