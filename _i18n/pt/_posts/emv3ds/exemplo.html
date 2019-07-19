@@ -468,6 +468,11 @@
 					var returnMessage = e.ReturnMessage;
 					var referenceId = e.ReferenceId;
 				},
+				onUnsupportedBrand: function (e) {
+					// Bandeira não suportada para autenticação.
+					var returnCode = e.ReturnCode;
+					var returnMessage = e.ReturnMessage;
+				},				
 				Environment: env ? env : "SDB",
 				Debug: true
 			};
