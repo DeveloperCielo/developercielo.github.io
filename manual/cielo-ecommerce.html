@@ -9130,6 +9130,283 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
   </tbody>
 </table>
 
+<h4 id="outros">Outros</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">INV-EM</code></td>
+      <td>CONFIRME O EMAIL: O email é inválido.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-EMBCO</code></td>
+      <td>Localização do computador diferente da localização informada no momento da compra. Atenção!!</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-IPBC</code></td>
+      <td>CONFIRME O ENDEREÇO: O endereço de cobrança não está relacionado com a localidade do IP.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-IPBCO</code></td>
+      <td>CONFIRME O ENDEREÇO: O endereço de cobrança não está relacionado com a localidade do IP.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-IPBST</code></td>
+      <td>CONFIRME O ENDEREÇO: O endereço de cobrança não está relacionado com a localidade do IP.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-IPEM</code></td>
+      <td>CONFIRME O ENDEREÇO: O endereço de cobrança não está relacionado com a localidade do IP.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-EM</code></td>
+      <td>CONFIRME A COMPRA E O EMAIL COM O PORTADOR DO CARTÃO: o domínio do email é de alto risco.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UNV-NID</code></td>
+      <td>CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o IP usado pertence a um proxy anônimo.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UNV-RISK</code></td>
+      <td>CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o IP usado é de alto risco.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">UNV-EMBCO</code></td>
+      <td>CONFIRME O ENDEREÇO: O endereço de cobrança não está relacionado com a localidade do IP.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CON-POSNEG</code></td>
+      <td>CUIDADO: alguma das informações a seguir está relacionada a uma transação que foi reportada como fraudulenta (cartão, endereço ou email).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-BA</code></td>
+      <td>CUIDADO: endereço de cobrança relacionado a transação reportada como fraudulenta.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-BCO</code></td>
+      <td>CUIDADO: endereço de cobrança relacionado a transação reportada como fraudulenta.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-BIN</code></td>
+      <td>CUIDADO: BIN do cartão relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-BZC</code></td>
+      <td>CUIDADO: CEP do endereço de cobrança relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-CC</code></td>
+      <td>CUIDADO: cartão relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-EM</code></td>
+      <td>CUIDADO: email relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-EMDOM</code></td>
+      <td>CUIDADO: domínio de email relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-HIST</code></td>
+      <td>CUIDADO: tranação está relacionada a uma transação que foi reportada como fraudulenta.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-ID</code></td>
+      <td>CUIDADO: cartão relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-IP</code></td>
+      <td>CUIDADO: IP relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-IP3</code></td>
+      <td>CUIDADO: IP relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-PEM</code></td>
+      <td>CUIDADO: email do passageiro relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-PH</code></td>
+      <td>CUIDADO: número de telefone relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-PID</code></td>
+      <td>CUIDADO: ID do passageiro relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-PPH</code></td>
+      <td>CUIDADO: número de telefone do passageiro relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NEG-SA</code></td>
+      <td>CUIDADO: endereço de envio relacionado a transação reportada como fraudulenta.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VEL-ADDR</code></td>
+      <td>CONFIRME A COMPRA E O ENDEREÇO COM O PORTADOR DO CARTÃO: há diversos endereços relacionados ao cartão ou email.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VEL-CC</code></td>
+      <td>CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: há diversos cartões relacionados ao nome ou email.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VEL-NAME</code></td>
+      <td>CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: há diversos nomes relacionados ao cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELS-CC</code></td>
+      <td>Cartão utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELI-CC</code></td>
+      <td>Cartão utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELL-CC</code></td>
+      <td>Cartão utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELV-CC</code></td>
+      <td>Cartão utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELS-EM</code></td>
+      <td>Email utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELI-EM</code></td>
+      <td>Email utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELL-EM</code></td>
+      <td>Email utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELV-EM</code></td>
+      <td>Email utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELS-IP</code></td>
+      <td>IP utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELI-IP</code></td>
+      <td>IP utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELL-IP</code></td>
+      <td>IP utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELV-IP</code></td>
+      <td>IP utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELS-SA</code></td>
+      <td>Endereço de envio utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELI-SA</code></td>
+      <td>Endereço de envio utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELL-SA</code></td>
+      <td>Endereço de envio utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELV-SA</code></td>
+      <td>Endereço de envio utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELS-TIP</code></td>
+      <td>IP utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELI-TIP</code></td>
+      <td>IP utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">VELL-TIP</code></td>
+      <td>IP utilizado diversas vezes recentemente</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">BAD-FP</code></td>
+      <td>CUIDADO: dispositivo de risco.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">INTL-BIN</code></td>
+      <td>Cartão de crédito emitido fora do Brasil.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MM-TZTLO</code></td>
+      <td>Fuso horário do dispositivo é incompatível com os fusos horários do país.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MUL-EM</code></td>
+      <td>O cliente utilizou diversos endereços de email diferentes em várias ordens.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NON-BC</code></td>
+      <td>Digitação suspeita no nome da cidade.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NON-FN</code></td>
+      <td>O primeiro e último nome do cliente são identicos.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">NON-LN</code></td>
+      <td>Digitação suspeita no sobrenome do cliente.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-BC</code></td>
+      <td>Digitação suspeita no nome da cidade.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-BIN</code></td>
+      <td>CUIDADO: BIN do cartão relacionado a transações reportadas como fraudulentas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-DEV</code></td>
+      <td>CUIDADO: dispositivo de risco.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-FN</code></td>
+      <td>Digitação suspeita no nome do cliente.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-LN</code></td>
+      <td>Digitação suspeita no sobrenome do cliente.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-PIP</code></td>
+      <td>IP proxy de risco.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-SD</code></td>
+      <td>País de envio e de cobrança são diferenres.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-TB</code></td>
+      <td>Horário do pedido suspeito.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-TIP</code></td>
+      <td>Endereço de IP de risco.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RISK-TS</code></td>
+      <td>Horário do pedido suspeito.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="device-fingerprint">Device FingerPrint</h2>
 
 <h3 id="o-que-é-o-dfingerprint">O que é o D.FingerPrint</h3>
