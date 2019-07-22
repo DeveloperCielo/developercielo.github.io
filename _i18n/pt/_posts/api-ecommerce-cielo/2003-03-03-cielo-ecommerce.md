@@ -4332,6 +4332,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 | `Z`  | CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados.                |
 
 #### Outros
+
 | Tipo | Descrição                                                                                                                                                                                                            |
 |------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |`INV-EM`    | CONFIRME O EMAIL: O email é inválido.|
