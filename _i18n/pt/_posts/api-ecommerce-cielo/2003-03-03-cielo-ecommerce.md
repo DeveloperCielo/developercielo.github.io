@@ -4331,6 +4331,76 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 | `W`  | CUIDADO: o endereço está relacionado a uma transação que foi reportada como fraudulenta.                                                                                            |
 | `Z`  | CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados.                |
 
+#### Outros
+| Tipo | Descrição                                                                                                                                                                                                            |
+|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`INV-EM`    | CONFIRME O EMAIL: O email é inválido.|
+|`MM-EMBCO`  | Localização do computador diferente da localização informada no momento da compra. Atenção!!|
+|`MM-IPBC`   | CONFIRME O ENDEREÇO: O endereço de cobrança não está relacionado com a localidade do IP.|
+|`MM-IPBCO`  | CONFIRME O ENDEREÇO: O endereço de cobrança não está relacionado com a localidade do IP.|
+|`MM-IPBST`  | CONFIRME O ENDEREÇO: O endereço de cobrança não está relacionado com a localidade do IP.|
+|`MM-IPEM`   | CONFIRME O ENDEREÇO: O endereço de cobrança não está relacionado com a localidade do IP.|
+|`RISK-EM`   | CONFIRME A COMPRA E O EMAIL COM O PORTADOR DO CARTÃO: o domínio do email é de alto risco.|
+|`UNV-NID`   | CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o IP usado pertence a um proxy anônimo.|
+|`UNV-RISK`  | CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o IP usado é de alto risco.|
+|`UNV-EMBCO` | CONFIRME O ENDEREÇO: O endereço de cobrança não está relacionado com a localidade do IP.|
+|`CON-POSNEG`| CUIDADO: alguma das informações a seguir está relacionada a uma transação que foi reportada como fraudulenta (cartão, endereço ou email).|
+|`NEG-BA`    | CUIDADO: endereço de cobrança relacionado a transação reportada como fraudulenta.|
+|`NEG-BCO`   | CUIDADO: endereço de cobrança relacionado a transação reportada como fraudulenta.|
+|`NEG-BIN`   | CUIDADO: BIN do cartão relacionado a transações reportadas como fraudulentas.|
+|`NEG-BZC`   | CUIDADO: CEP do endereço de cobrança relacionado a transações reportadas como fraudulentas.|
+|`NEG-CC`    | CUIDADO: cartão relacionado a transações reportadas como fraudulentas.|
+|`NEG-EM`    | CUIDADO: email relacionado a transações reportadas como fraudulentas.|
+|`NEG-EMDOM` | CUIDADO: domínio de email relacionado a transações reportadas como fraudulentas.|
+|`NEG-HIST`  | CUIDADO: tranação está relacionada a uma transação que foi reportada como fraudulenta.|
+|`NEG-ID`    | CUIDADO: cartão relacionado a transações reportadas como fraudulentas.|
+|`NEG-IP`    | CUIDADO: IP relacionado a transações reportadas como fraudulentas.|
+|`NEG-IP3`   | CUIDADO: IP relacionado a transações reportadas como fraudulentas.|
+|`NEG-PEM`   | CUIDADO: email do passageiro relacionado a transações reportadas como fraudulentas.|
+|`NEG-PH`    | CUIDADO: número de telefone relacionado a transações reportadas como fraudulentas.|
+|`NEG-PID`   | CUIDADO: ID do passageiro relacionado a transações reportadas como fraudulentas.|
+|`NEG-PPH`   | CUIDADO: número de telefone do passageiro relacionado a transações reportadas como fraudulentas.|
+|`NEG-SA`    | CUIDADO: endereço de envio relacionado a transação reportada como fraudulenta.|
+|`VEL-ADDR`  | CONFIRME A COMPRA E O ENDEREÇO COM O PORTADOR DO CARTÃO: há diversos endereços relacionados ao cartão ou email.|
+|`VEL-CC`    | CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: há diversos cartões relacionados ao nome ou email.|
+|`VEL-NAME`  | CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: há diversos nomes relacionados ao cartão.|
+|`VELS-CC`   | Cartão utilizado diversas vezes recentemente|
+|`VELI-CC`   | Cartão utilizado diversas vezes recentemente|
+|`VELL-CC`   | Cartão utilizado diversas vezes recentemente|
+|`VELV-CC`   | Cartão utilizado diversas vezes recentemente|
+|`VELS-EM`   | Email utilizado diversas vezes recentemente|
+|`VELI-EM`   | Email utilizado diversas vezes recentemente|
+|`VELL-EM`   | Email utilizado diversas vezes recentemente|
+|`VELV-EM`   | Email utilizado diversas vezes recentemente|
+|`VELS-IP`   | IP utilizado diversas vezes recentemente|
+|`VELI-IP`   | IP utilizado diversas vezes recentemente|
+|`VELL-IP`   | IP utilizado diversas vezes recentemente|
+|`VELV-IP`   | IP utilizado diversas vezes recentemente|
+|`VELS-SA`   | Endereço de envio utilizado diversas vezes recentemente|
+|`VELI-SA`   | Endereço de envio utilizado diversas vezes recentemente|
+|`VELL-SA`   | Endereço de envio utilizado diversas vezes recentemente|
+|`VELV-SA`   | Endereço de envio utilizado diversas vezes recentemente|
+|`VELS-TIP`  | IP utilizado diversas vezes recentemente|
+|`VELI-TIP`  | IP utilizado diversas vezes recentemente|
+|`VELL-TIP`  | IP utilizado diversas vezes recentemente|
+|`BAD-FP`    | CUIDADO: dispositivo de risco.|
+|`INTL-BIN`  | Cartão de crédito emitido fora do Brasil.|
+|`MM-TZTLO`  | Fuso horário do dispositivo é incompatível com os fusos horários do país.|
+|`MUL-EM`    | O cliente utilizou diversos endereços de email diferentes em várias ordens.|
+|`NON-BC`    | Digitação suspeita no nome da cidade.|
+|`NON-FN`    | O primeiro e último nome do cliente são identicos.|
+|`NON-LN`    | Digitação suspeita no sobrenome do cliente.|
+|`RISK-BC`   | Digitação suspeita no nome da cidade.|
+|`RISK-BIN`  | CUIDADO: BIN do cartão relacionado a transações reportadas como fraudulentas.|
+|`RISK-DEV`  | CUIDADO: dispositivo de risco.|
+|`RISK-FN`   | Digitação suspeita no nome do cliente.|
+|`RISK-LN`   | Digitação suspeita no sobrenome do cliente.|
+|`RISK-PIP`  | IP proxy de risco.|
+|`RISK-SD`   | País de envio e de cobrança são diferenres.|
+|`RISK-TB`   | Horário do pedido suspeito.|
+|`RISK-TIP`  | Endereço de IP de risco.|
+|`RISK-TS`   | Horário do pedido suspeito.|
+
 ## Device FingerPrint
 
 ### O que é o D.FingerPrint
