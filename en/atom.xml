@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-22T17:46:48+00:00</updated>
+    <updated>2019-07-23T12:25:25+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26058,36 +26058,44 @@ It is possible to carry out both the total cancellation and the partial cancella
     &lt;tr&gt;
       &lt;th&gt;Field&lt;/th&gt;
       &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Note&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Started&lt;/td&gt;
+      &lt;td&gt;‘Started’&lt;/td&gt;
       &lt;td&gt;Transaction received by Cielo.&lt;/td&gt;
+      &lt;td&gt;Transaction data were accepted and submitted for review.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Accept&lt;/td&gt;
+      &lt;td&gt;‘Accept’&lt;/td&gt;
       &lt;td&gt;Transaction accepted after fraud analysis.&lt;/td&gt;
+      &lt;td&gt;Transaction approved by the risk analysis.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Review&lt;/td&gt;
+      &lt;td&gt;‘Review’&lt;/td&gt;
       &lt;td&gt;Transaction under review after fraud analysis.&lt;/td&gt;
+      &lt;td&gt;Transaction forwarded for manual review - will be reviewed by BPO.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Reject&lt;/td&gt;
+      &lt;td&gt;‘Reject’&lt;/td&gt;
       &lt;td&gt;Transaction rejected after fraud analysis.&lt;/td&gt;
+      &lt;td&gt;Transaction rejected by risk analysis.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Unfinished&lt;/td&gt;
+      &lt;td&gt;‘Unfinished’&lt;/td&gt;
       &lt;td&gt;Transaction not finalized due to some internal error in the system.&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Pendent&lt;/td&gt;
+      &lt;td&gt;‘Pendent’&lt;/td&gt;
       &lt;td&gt;Transaction waiting for analysis&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;ProviderError&lt;/td&gt;
+      &lt;td&gt;‘ProviderError’&lt;/td&gt;
       &lt;td&gt;Transaction with error in antifraud provider.&lt;/td&gt;
+      &lt;td&gt;N/A&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;

@@ -8343,36 +8343,44 @@ It is possible to carry out both the total cancellation and the partial cancella
     <tr>
       <th>Field</th>
       <th>Description</th>
+      <th>Note</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Started</td>
+      <td>‘Started’</td>
       <td>Transaction received by Cielo.</td>
+      <td>Transaction data were accepted and submitted for review.</td>
     </tr>
     <tr>
-      <td>Accept</td>
+      <td>‘Accept’</td>
       <td>Transaction accepted after fraud analysis.</td>
+      <td>Transaction approved by the risk analysis.</td>
     </tr>
     <tr>
-      <td>Review</td>
+      <td>‘Review’</td>
       <td>Transaction under review after fraud analysis.</td>
+      <td>Transaction forwarded for manual review - will be reviewed by BPO.</td>
     </tr>
     <tr>
-      <td>Reject</td>
+      <td>‘Reject’</td>
       <td>Transaction rejected after fraud analysis.</td>
+      <td>Transaction rejected by risk analysis.</td>
     </tr>
     <tr>
-      <td>Unfinished</td>
+      <td>‘Unfinished’</td>
       <td>Transaction not finalized due to some internal error in the system.</td>
+      <td>N/A</td>
     </tr>
     <tr>
-      <td>Pendent</td>
+      <td>‘Pendent’</td>
       <td>Transaction waiting for analysis</td>
+      <td>N/A</td>
     </tr>
     <tr>
-      <td>ProviderError</td>
+      <td>‘ProviderError’</td>
       <td>Transaction with error in antifraud provider.</td>
+      <td>N/A</td>
     </tr>
   </tbody>
 </table>
