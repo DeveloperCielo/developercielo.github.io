@@ -4202,7 +4202,7 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 | `INTL-SA`  | The delivery country is out side of the U.S                                         |
 | `MIL-USA`  | This is a military address in the U.S.                                              |
 | `MM-A`     | CONFIRM THE ADDRESS: Billing and shipping addresses are not related                 |
-| `MM-BIN`   | The BIN of the card (the first six digits of the number) does not match the country |
+| `MM-BIN`   | CONFIRM THE PURCHASE WITH CARD HOLDER: Used card was issued in another country      |
 | `MM-C`     | CONFIRM THE ADDRESS: Billing and shipping addresses are not related                 |
 | `MM-CO`    | CONFIRM THE ADDRESS: Billing and shipping addresses are not related                 |
 | `MM-ST`    | CONFIRM THE ADDRESS: Billing and shipping addresses are not related                 |
