@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-23T12:25:25+00:00</updated>
+    <updated>2019-07-23T12:50:57+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26499,7 +26499,7 @@ It is possible to carry out both the total cancellation and the partial cancella
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-A&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Billing and delivery addresses use different street names&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE ADDRESS: Billing and shipping addresses are not related&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-BIN&lt;/code&gt;&lt;/td&gt;
@@ -26507,19 +26507,19 @@ It is possible to carry out both the total cancellation and the partial cancella
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-C&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Billing and delivery addresses use different cities&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE ADDRESS: Billing and shipping addresses are not related&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-CO&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Billing and delivery addresses use different countries&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE ADDRESS: Billing and shipping addresses are not related&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-ST&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Billing and delivery addresses use different states&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE ADDRESS: Billing and shipping addresses are not related&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-Z&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Billing and delivery addresses use different postal codes&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE ADDRESS: Billing and shipping addresses are not related&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UNV-ADDR&lt;/code&gt;&lt;/td&gt;
@@ -26540,15 +26540,15 @@ It is possible to carry out both the total cancellation and the partial cancella
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-B&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;The same billing address has been used multiple times with multiple customer identities&lt;/td&gt;
+      &lt;td&gt;CAUTION: billing address was used by many different customers&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-C&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;The same account number has been used multiple times with multiple client identities&lt;/td&gt;
+      &lt;td&gt;CAUTION: the card was used by many different customers&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-E&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;The same e-mail address has been used multiple times with multiple customer identities&lt;/td&gt;
+      &lt;td&gt;CAUTION: email address was used by many different clients&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-I&lt;/code&gt;&lt;/td&gt;
@@ -26556,11 +26556,11 @@ It is possible to carry out both the total cancellation and the partial cancella
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-P&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;The same phone number has been used multiple times with multiple customer identities&lt;/td&gt;
+      &lt;td&gt;CAUTION: phone number was used by many different clients&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MORPH-S&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;The same delivery address has been used multiple times with multiple customer identities&lt;/td&gt;
+      &lt;td&gt;CAUTION: delivery address was used by many different clients&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
