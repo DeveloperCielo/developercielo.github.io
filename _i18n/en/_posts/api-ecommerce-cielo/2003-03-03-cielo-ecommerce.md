@@ -4241,25 +4241,25 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 
 | Type | Description                                                                                                                                                                                  |                          
 |------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|                                                                                                                                                                                                    
-| `A`  | Excessive address change. The customer has changed the billing address two or more times in the last six months.                                                                             |
+| `A`  | CONFIRM THE ADDRESS: Excessive address change. The customer has changed the billing address two or more times in the last six months.                                                        |
 | `B`  | BIN of the card or risk authorization. Risk factors are related to credit card BIN and / or card authorization checks.                                                                       |
-| `C`  | Elevated credit card numbers. The customer has used more than six credit card numbers in the last six months.                                                                                |      
+| `C`  | CONFIRM THE PURCHASE WITH CARD HOLDER: The customer has used more than six credit card numbers in the last few months.                                                                       |      
 | `D`  | Impact of email address. The customer uses a free email provider or the email address is risky.                                                                                              |        
 | `E`  | Positive list. The customer is on your positive list.                                                                                                                                        |                       
-| `F`  | Negative list. The account number, address, e-mail, or IP address for this purpose appears on your negative list.                                                                            |                
-| `G`  | Geolocation inconsistencies. The email client's domain, phone number, billing address, shipping address, or IP address is suspect.                                                           |
-| `H`  | Excessive name changes. The customer has changed the name two or more times in the last six months.                                                                                          |                            
-| `I`  | Internet inconsistencies. The IP address and email domain are not consistent with the billing address.                                                                                       |            
-| `N`  | Meaningless entrance. The client name and the address fields contain nonsense words or language.                                                                                             |                   
-| `O`  | Obscenities. Customer data contains obscene words.                                                                                                                                           |                  
-| `P`  | Morphing identity. Multiple values ​​of an identity element are linked to a value of a different identity element. For example, multiple phone numbers are linked to a single account number.  |
+| `F`  | CAUTION: Some of the following information relates to a transaction that has been reported as fraudulent (card, address, or email).                                                          |                
+| `G`  | Computer location different from the location informed at the time of purchase. Attention!                                                                                                   |
+| `H`  | CONFIRM THE PURCHASE WITH CARD HOLDER: The customer has changed its name two or more times in the last months.                                                                               |                             
+| `I`  | CONFIRM THE ADDRESS: The IP address and email domain are not consistent with the billing address.                                                                                            |            
+| `N`  | CONFIRM THE CARD HOLDER AND THE ADDRESS: They contain meaningless words.                                                                                                                     |                   
+| `O`  | CONFIRM THE CARD HOLDER AND THE ADDRESS: They contain meaningless words.                                                                                                                     |                  
+| `P`  | CONFIRM THE CARD HOLDER AND THE ADDRESS: Registered information is shared between different clients.                                                                                         |
 | `Q`  | Phone inconsistencies. The customer's phone number is suspect.                                                                                                                               |            
-| `R`  | Risky order. The transaction, the customer, and the merchant show correlated risk information.                                                                                               |           
+| `R`  | CONFIRM THE CARD HOLDER AND THE ADDRESS: There are correlated risk information in the order.                                                                                                 |           
 | `T`  | Coverage Time. The customer is attempting an order outside of the expected time.                                                                                                             |                           
 | `U`  | Unverifiable address. The billing or delivery address can not be verified.                                                                                                                   |        
-| `V`  | Velocity. The account number has been used many times in the last 15 minutes.                                                                                                                |                          
-| `W`  | Marked as suspect. The billing or delivery address is similar to an address previously marked as suspicious.                                                                                 |    
-| `Z`  | Invalid value. The request contains an unexpected value, a default value has been replaced. Although the transaction can still be processed, examine the request carefully for any anomalies.|
+| `V`  | CONFIRM THE PURCHASE WITH CARD HOLDER: The card has been used many times in the last 15 minutes.                                                                                             |                          
+| `W`  | CAUTION: The address is related to a transaction that has been reported as fraudulent.                                                                                                       |    
+| `Z`  | CONFIRM THE ADDRESS: Billing and shipping addresses are not related.                                                                                                                         |
 
 ## Device FingerPrint
 
