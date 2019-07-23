@@ -4133,7 +4133,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 |-----------------|---------------------------------------------------|---------------------------------------------------------------------|
 | `Started`       | Transação recebida pela Cielo.                    | Dados da transação foram aceitos e enviados para analise            |
 | `Accept`        | Transação aceita após análise de fraude.          | Transação aprovada pela analise de risco                            |
-| `Review`        | Transação em revisão após análise de fraude       | Transaçãoi encaminhada para analise manual - será analisada por BPO |
+| `Review`        | Transação em revisão após análise de fraude       | Transação encaminhada para analise manual - será analisada por BPO |
 | `Reject`        | Transação rejeitada após análise de fraude.       | Transação rejeitada pela analise de risco                           |
 | `Unfinished`    | Transação não finalizada por algum erro sistémico | N/A                                                                 |
 | `Pendent`       | Transação esperando analise                       | N/A                                                                 |
@@ -4311,8 +4311,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 |------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `A`  | CONFIRME O ENDEREÇO: o cliente mudou o endereço de entrega duas ou mais vezes nos últimos meses.                                                                                                     |
 | `B`  | BIN do cartão ou autorização de risco. Os fatores de risco estão relacionados com BIN de cartão de crédito e/ou verificações de autorização do cartão.                                                               |
-| `C`  | CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cliente usou mais de seis cartões nos últimos meses.
-                                                                                      |
+| `C`  | CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cliente usou mais de seis cartões nos últimos meses. |
 | `D`  | Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.                                                                                                      |
 | `E`  | Lista positiva. O cliente está na sua lista positiva.                                                                                                                                                                |
 | `F`  | CUIDADO: alguma das informações a seguir está relacionada a uma transação que foi reportada como fraudulenta (cartão, endereço ou email).                                                                                             |
@@ -4321,8 +4320,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 | `I`  | CONFIRME O ENDEREÇO: o endereço IP e o domínio de email não correspondem ao endereço de entrega.                                                                                                   |
 | `N`  | CONFIRME O DONO DO CARTÃO E O ENDEREÇO: eles contém palavras sem sentido.                                                                                                                |
 | `O`  | CONFIRME O DONO DO CARTÃO E O ENDEREÇO: eles contém palavras sem sentido.                                                                                                                                                             |
-| `P`  | CONFIRME O DONO DO CARTÃO E O ENDEREÇO: informações cadastrais estão compartilhadas entre diferentes clientes.
- |
+| `P`  | CONFIRME O DONO DO CARTÃO E O ENDEREÇO: informações cadastrais estão compartilhadas entre diferentes clientes. |
 | `Q`  | Inconsistências do telefone. O número de telefone do cliente é suspeito.                                                                                                                                             |
 | `R`  | CONFIRME O DONO DO CARTÃO E O ENDEREÇO: há correlações arriscadas no pedido.                                                                                                               |
 | `T`  | Cobertura Time. O cliente está a tentar uma compra fora do horário esperado.                                                                                                                                         |
