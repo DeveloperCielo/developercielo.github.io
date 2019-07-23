@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-23T14:00:04+00:00</updated>
+    <updated>2019-07-23T14:08:22+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26727,6 +26727,8 @@ It is possible to carry out both the total cancellation and the partial cancella
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h3 id=&quot;others&quot;&gt;Others&lt;/h3&gt;
 
 &lt;h2 id=&quot;device-fingerprint&quot;&gt;Device FingerPrint&lt;/h2&gt;
 
