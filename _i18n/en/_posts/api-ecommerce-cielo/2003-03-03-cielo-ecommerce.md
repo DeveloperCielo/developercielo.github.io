@@ -4292,6 +4292,28 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 |`NEG-PID`   | CAUTION: passenger ID related to transactions reported as fraudulent.|
 |`NEG-PPH`   | CAUTION: passenger phone number related to transactions reported as fraudulent.|
 |`NEG-SA`    | CAUTION: shipping address related to transactions reported as fraudulent.|
+|`VEL-ADDR`  | CONFIRM THE PURCHASE AND THE ADDRESS WITH CARD HOLDER: There are many addresses related to the card or the email .|
+|`VEL-CC`    | CONFIRM THE PURCHASE WITH CARD HOLDER: There are many cards related to the name or the email.|
+|`VEL-NAME`  | CONFIRM THE PURCHASE WITH CARD HOLDER: There are many names related to the card.|
+|`VELS-CC`   | Card used many times recently.|
+|`VELI-CC`   | Card used many times recently.|
+|`VELL-CC`   | Card used many times recently.|
+|`VELV-CC`   | Card used many times recently.|
+|`VELS-EM`   | Email used many times recently.|
+|`VELI-EM`   | Email used many times recently.|
+|`VELL-EM`   | Email used many times recently.|
+|`VELV-EM`   | Email used many times recently.|
+|`VELS-IP`   | IP used many times recently.|
+|`VELI-IP`   | IP used many times recently.|
+|`VELL-IP`   | IP used many times recently.|
+|`VELV-IP`   | IP used many times recently.|
+|`VELS-SA`   | Shipping address used many times recently.|
+|`VELI-SA`   | Shipping address used many times recently.|
+|`VELL-SA`   | Shipping address used many times recently.|
+|`VELV-SA`   | Shipping address used many times recently.|
+|`VELS-TIP`  | IP used many times recently.|
+|`VELI-TIP`  | IP used many times recently.|
+|`VELL-TIP`  | IP used many times recently.|
 
 ## Device FingerPrint
 
