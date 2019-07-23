@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-23T13:51:31+00:00</updated>
+    <updated>2019-07-23T13:59:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -29816,7 +29816,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Review&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Transação em revisão após análise de fraude&lt;/td&gt;
-      &lt;td&gt;Transaçãoi encaminhada para analise manual - será analisada por BPO&lt;/td&gt;
+      &lt;td&gt;Transação encaminhada para analise manual - será analisada por BPO&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Reject&lt;/code&gt;&lt;/td&gt;
@@ -30390,10 +30390,6 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:&lt;/p&gt;
       &lt;td&gt;CONFIRME A COMPRA COM O PORTADOR DO CARTÃO: o cliente usou mais de seis cartões nos últimos meses.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;D&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Impacto do endereço de e-mail. O cliente usa um provedor de e-mail gratuito ou o endereço de email é arriscado.&lt;/td&gt;
     &lt;/tr&gt;
@@ -30428,10 +30424,6 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:&lt;/p&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;P&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;CONFIRME O DONO DO CARTÃO E O ENDEREÇO: informações cadastrais estão compartilhadas entre diferentes clientes.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Q&lt;/code&gt;&lt;/td&gt;
