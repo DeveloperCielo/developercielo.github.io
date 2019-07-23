@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-23T14:08:22+00:00</updated>
+    <updated>2019-07-23T14:34:02+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26729,6 +26729,125 @@ It is possible to carry out both the total cancellation and the partial cancella
 &lt;/table&gt;
 
 &lt;h3 id=&quot;others&quot;&gt;Others&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;INV-EM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE EMAIL: email is invalid.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-EMBCO&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Computer location different from the location informed the time of purchase. Attention!&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-IPBC&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE ADDRESS: the billing address is not related to the IP location.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-IPBCO&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE ADDRESS: the billing address is not related to the IP location.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-IPBST&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE ADDRESS: the billing address is not related to the IP location.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-IPEM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE ADDRESS: the billing address is not related to the IP location.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-EM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM PURCHASE AND THE EMAIL WITH CARD HOLDER: Email domain is high risk.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UNV-NID&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE PURCHASE WITH CARD HOLDER: the IP used belongs to an anonymous proxy.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UNV-RISK&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE PURCHASE WITH CARD HOLDER: the IP used is high risk.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;UNV-EMBCO&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE ADDRESS: the billing address is not related to the IP location.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CON-POSNEG&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: some of the following information are related to a transaction that has been reported as fraudulent (card, address, or email).&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-BA&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: billing address related to a transaction reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-BCO&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: billing address related to a transaction reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-BIN&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: card BIN related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-BZC&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: zip code of the billing address related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-CC&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: card related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-EM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: email related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-EMDOM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: email domain related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-HIST&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: transaction is related to a transaction that has been reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-ID&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: card related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-IP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: IP related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-IP3&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: IP related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-PEM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: passenger email related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-PH&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: phone number related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-PID&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: passenger ID related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-PPH&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: passenger phone number related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-SA&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: shipping address related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;device-fingerprint&quot;&gt;Device FingerPrint&lt;/h2&gt;
 
