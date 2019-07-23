@@ -4061,15 +4061,15 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 
 > The status below are displayed in the Backoffice of the Cielo E-Commerce API, inside the Cielo website
 
-|Field|Description|
-|---|---|
-|Started|Transaction received by Cielo.|
-|Accept|Transaction accepted after fraud analysis.|
-|Review|Transaction under review after fraud analysis.|
-|Reject|Transaction rejected after fraud analysis.|
-|Unfinished|Transaction not finalized due to some internal error in the system.|
-|Pendent|Transaction waiting for analysis|
-|ProviderError|Transaction with error in antifraud provider.|
+|Field|Description|Note|
+|---|---|---|
+|'Started'|Transaction received by Cielo.|Transaction data were accepted and submitted for review.|
+|'Accept'|Transaction accepted after fraud analysis.| Transaction approved by the risk analysis.|
+|'Review'|Transaction under review after fraud analysis.| Transaction forwarded for manual review - will be reviewed by BPO.|
+|'Reject'|Transaction rejected after fraud analysis.| Transaction rejected by risk analysis.|
+|'Unfinished'|Transaction not finalized due to some internal error in the system.|N/A|
+|'Pendent'|Transaction waiting for analysis|N/A|
+|'ProviderError'|Transaction with error in antifraud provider.|N/A|
 
 ### FraudAnalysis.Items
 
