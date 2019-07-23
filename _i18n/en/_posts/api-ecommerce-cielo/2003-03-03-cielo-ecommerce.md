@@ -4314,6 +4314,23 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 |`VELS-TIP`  | IP used many times recently.|
 |`VELI-TIP`  | IP used many times recently.|
 |`VELL-TIP`  | IP used many times recently.|
+|`BAD-FP`    | CAUTION: risk device.|
+|`INTL-BIN`  | Credit card issued outside Brazil.|
+|`MM-TZTLO`  | Device time zone is incompatible with country time zone.|
+|`MUL-EM`    | The customer used many different email addresses in various orders.|
+|`NON-BC`    | Suspicious typing in city name.|
+|`NON-FN`    | The first and last name of the customer are identical.|
+|`NON-LN`    | Suspicious typing on client's last name.|
+|`RISK-BC`   | Suspicious typing in city name.
+|`RISK-BIN`  | CAUTION: Card BIN related to transactions reported as fraudulent.
+|`RISK-DEV`  | CAUTION: risk device.|
+|`RISK-FN`   | Suspicious typing in customer name.|
+|`RISK-LN`   | Suspicious typing in customer last name.|
+|`RISK-PIP`  | Risk proxy IP.|
+|`RISK-SD`   | Country of shipment and billing are different.|
+|`RISK-TB`   | Suspicious order time|
+|`RISK-TIP`  | Risk IP address.|
+|`RISK-TS`   | Suspicious order time.|
 
 ## Device FingerPrint
 
