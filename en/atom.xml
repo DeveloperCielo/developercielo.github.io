@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-23T12:50:57+00:00</updated>
+    <updated>2019-07-23T13:02:58+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26503,7 +26503,7 @@ It is possible to carry out both the total cancellation and the partial cancella
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-BIN&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;The BIN of the card (the first six digits of the number) does not match the country&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE PURCHASE WITH CARD HOLDER: Used card was issued in another country&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-C&lt;/code&gt;&lt;/td&gt;
