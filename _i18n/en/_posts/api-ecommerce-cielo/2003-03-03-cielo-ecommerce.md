@@ -4201,24 +4201,24 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 | `COR-SA`   | The delivery address can be normalized                                              |
 | `INTL-SA`  | The delivery country is out side of the U.S                                         |
 | `MIL-USA`  | This is a military address in the U.S.                                              |
-| `MM-A`     | Billing and delivery addresses use different street names                           |
+| `MM-A`     | CONFIRM THE ADDRESS: Billing and shipping addresses are not related                 |
 | `MM-BIN`   | The BIN of the card (the first six digits of the number) does not match the country |
-| `MM-C`     | Billing and delivery addresses use different cities                                 |
-| `MM-CO`    | Billing and delivery addresses use different countries                              |
-| `MM-ST`    | Billing and delivery addresses use different states                                 |
-| `MM-Z`     | Billing and delivery addresses use different postal codes                           |
+| `MM-C`     | CONFIRM THE ADDRESS: Billing and shipping addresses are not related                 |
+| `MM-CO`    | CONFIRM THE ADDRESS: Billing and shipping addresses are not related                 |
+| `MM-ST`    | CONFIRM THE ADDRESS: Billing and shipping addresses are not related                 |
+| `MM-Z`     | CONFIRM THE ADDRESS: Billing and shipping addresses are not related                 |
 | `UNV-ADDR` | The address is unverifiable                                                         |
 
 #### InternetInfoCode
 
 |Type|Description|
-|---------|----------------------------------------------------------------------------------------------------|
-|`MORPH-B`|The same billing address has been used multiple times with multiple customer identities|
-|`MORPH-C`|The same account number has been used multiple times with multiple client identities|
-|`MORPH-E`|The same e-mail address has been used multiple times with multiple customer identities|
+|---------|--------------------------------------------------------------------|
+|`MORPH-B`|CAUTION: billing address was used by many different customers|
+|`MORPH-C`|CAUTION: the card was used by many different customers|
+|`MORPH-E`|CAUTION: email address was used by many different clients|
 |`MORPH-I`|The same IP address has been used multiple times with multiple customer identities|
-|`MORPH-P`|The same phone number has been used multiple times with multiple customer identities|
-|`MORPH-S`|The same delivery address has been used multiple times with multiple customer identities|
+|`MORPH-P`|CAUTION: phone number was used by many different clients|
+|`MORPH-S`|CAUTION: delivery address was used by many different clients|
 
 #### FraudAnalysisReasonCode
 
