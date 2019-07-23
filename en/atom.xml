@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-23T14:34:02+00:00</updated>
+    <updated>2019-07-23T15:32:50+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26845,6 +26845,94 @@ It is possible to carry out both the total cancellation and the partial cancella
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NEG-SA&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;CAUTION: shipping address related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VEL-ADDR&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE PURCHASE AND THE ADDRESS WITH CARD HOLDER: There are many addresses related to the card or the email .&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VEL-CC&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE PURCHASE WITH CARD HOLDER: There are many cards related to the name or the email.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VEL-NAME&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CONFIRM THE PURCHASE WITH CARD HOLDER: There are many names related to the card.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELS-CC&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Card used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELI-CC&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Card used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELL-CC&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Card used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELV-CC&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Card used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELS-EM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Email used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELI-EM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Email used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELL-EM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Email used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELV-EM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Email used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELS-IP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;IP used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELI-IP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;IP used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELL-IP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;IP used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELV-IP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;IP used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELS-SA&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Shipping address used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELI-SA&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Shipping address used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELL-SA&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Shipping address used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELV-SA&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Shipping address used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELS-TIP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;IP used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELI-TIP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;IP used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELL-TIP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;IP used many times recently.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
