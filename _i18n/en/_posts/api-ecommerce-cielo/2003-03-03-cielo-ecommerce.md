@@ -4261,6 +4261,8 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 | `W`  | CAUTION: The address is related to a transaction that has been reported as fraudulent.                                                                                                       |    
 | `Z`  | CONFIRM THE ADDRESS: Billing and shipping addresses are not related.                                                                                                                         |
 
+### Others
+
 ## Device FingerPrint
 
 ### What is D.FingerPrint
