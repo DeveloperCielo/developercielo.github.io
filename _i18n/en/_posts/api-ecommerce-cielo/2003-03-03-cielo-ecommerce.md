@@ -4263,6 +4263,36 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 
 ### Others
 
+| Type | Description                                                                                                                                                                                                            |
+|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`INV-EM`    | CONFIRM THE EMAIL: email is invalid.|
+|`MM-EMBCO`  | Computer location different from the location informed the time of purchase. Attention!|
+|`MM-IPBC`   | CONFIRM THE ADDRESS: the billing address is not related to the IP location.|
+|`MM-IPBCO`  | CONFIRM THE ADDRESS: the billing address is not related to the IP location.|
+|`MM-IPBST`  | CONFIRM THE ADDRESS: the billing address is not related to the IP location.|
+|`MM-IPEM`   | CONFIRM THE ADDRESS: the billing address is not related to the IP location.|
+|`RISK-EM`   | CONFIRM PURCHASE AND THE EMAIL WITH CARD HOLDER: Email domain is high risk.|
+|`UNV-NID`   | CONFIRM THE PURCHASE WITH CARD HOLDER: the IP used belongs to an anonymous proxy.|
+|`UNV-RISK`  | CONFIRM THE PURCHASE WITH CARD HOLDER: the IP used is high risk.|
+|`UNV-EMBCO` | CONFIRM THE ADDRESS: the billing address is not related to the IP location.|
+|`CON-POSNEG`| CAUTION: some of the following information are related to a transaction that has been reported as fraudulent (card, address, or email).|
+|`NEG-BA`    | CAUTION: billing address related to a transaction reported as fraudulent.|
+|`NEG-BCO`   | CAUTION: billing address related to a transaction reported as fraudulent.|
+|`NEG-BIN`   | CAUTION: card BIN related to transactions reported as fraudulent.|
+|`NEG-BZC`   | CAUTION: zip code of the billing address related to transactions reported as fraudulent.|
+|`NEG-CC`    | CAUTION: card related to transactions reported as fraudulent.|
+|`NEG-EM`    | CAUTION: email related to transactions reported as fraudulent.|
+|`NEG-EMDOM` | CAUTION: email domain related to transactions reported as fraudulent.|
+|`NEG-HIST`  | CAUTION: transaction is related to a transaction that has been reported as fraudulent.|
+|`NEG-ID`    | CAUTION: card related to transactions reported as fraudulent.|
+|`NEG-IP`    | CAUTION: IP related to transactions reported as fraudulent.|
+|`NEG-IP3`   | CAUTION: IP related to transactions reported as fraudulent.|
+|`NEG-PEM`   | CAUTION: passenger email related to transactions reported as fraudulent.|
+|`NEG-PH`    | CAUTION: phone number related to transactions reported as fraudulent.|
+|`NEG-PID`   | CAUTION: passenger ID related to transactions reported as fraudulent.|
+|`NEG-PPH`   | CAUTION: passenger phone number related to transactions reported as fraudulent.|
+|`NEG-SA`    | CAUTION: shipping address related to transactions reported as fraudulent.|
+
 ## Device FingerPrint
 
 ### What is D.FingerPrint
