@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-23T15:32:50+00:00</updated>
+    <updated>2019-07-23T16:21:37+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26933,6 +26933,74 @@ It is possible to carry out both the total cancellation and the partial cancella
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;VELL-TIP&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;IP used many times recently.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;BAD-FP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: risk device.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;INTL-BIN&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Credit card issued outside Brazil.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MM-TZTLO&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Device time zone is incompatible with country time zone.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MUL-EM&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The customer used many different email addresses in various orders.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NON-BC&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Suspicious typing in city name.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NON-FN&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The first and last name of the customer are identical.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;NON-LN&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Suspicious typing on client’s last name.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-BC&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Suspicious typing in city name.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-BIN&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: Card BIN related to transactions reported as fraudulent.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-DEV&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;CAUTION: risk device.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-FN&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Suspicious typing in customer name.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-LN&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Suspicious typing in customer last name.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-PIP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Risk proxy IP.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-SD&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Country of shipment and billing are different.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-TB&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Suspicious order time&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-TIP&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Risk IP address.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RISK-TS&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Suspicious order time.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
