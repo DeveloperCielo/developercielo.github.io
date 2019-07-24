@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-24T17:48:22+00:00</updated>
+    <updated>2019-07-24T17:59:48+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -121,7 +121,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;credit-card-sale-without-password&quot;&gt;Credit card sale without password&lt;/h2&gt;
+&lt;h2 id=&quot;credit-card-typed-sale-without-password&quot;&gt;Credit card typed sale without password&lt;/h2&gt;
 
 &lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
 
