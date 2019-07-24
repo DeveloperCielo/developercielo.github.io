@@ -46,6 +46,8 @@ HSM Cielo is parameterized to a KSN as follows:
 * **DID –** Device ID
 * **TC –** Transaction Counter
 
+<br>
+
 In the key register is only inserted the KSI that has 5 numeric characters and the key, as the example below:
 
 **FFFFF**030331234500012
