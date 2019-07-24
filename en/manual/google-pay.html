@@ -206,11 +206,11 @@
 <p>The string obtained will be similar as follows:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"protocolVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ECv1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"signedMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">encryptedMessage</span><span class="se">\"</span><span class="s2">:
-  </span><span class="se">\"</span><span class="s2">ZW5jcnlwdGVkTWVzc2FnZQ==</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ephemeralPublicKey</span><span class="se">\"</span><span class="s2">:
-  </span><span class="se">\"</span><span class="s2">ZXBoZW1lcmFsUHVibGljS2V5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tag</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">c2lnbmF0dXJl</span><span class="se">\"</span><span class="s2">}"</span><span class="w">
+  </span><span class="nl">"protocolVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ECv1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"signedMessage"</span><span class="p">:</span><span class="w"> </span><span class="nl">"{\"encryptedMessage\"</span><span class="p">:</span><span class="w">
+  </span><span class="err">\</span><span class="nl">"ZW5jcnlwdGVkTWVzc2FnZQ==\",\"ephemeralPublicKey\"</span><span class="p">:</span><span class="w">
+  </span><span class="err">\</span><span class="nl">"ZXBoZW1lcmFsUHVibGljS2V5\",\"tag\"</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="s2">"c2lnbmF0dXJl</span><span class="se">\"</span><span class="s2">}"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -247,19 +247,19 @@
 <h2 id="request">Request</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="err">(…)</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AndroidPay"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">encryptedMessage</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">ZW5jcnlwdGVkTWVzc2FnZQ==</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ephemeralPublicKey</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">ZXBoZW1lcmFsUHVibGljS2V5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tag</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">c2lnbmF0dXJl</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"Signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZXBoZW1lcmFsUHVibGljS2V5"</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AndroidPay"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="nl">"{\"encryptedMessage\"</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="nl">"ZW5jcnlwdGVkTWVzc2FnZQ==\",\"ephemeralPublicKey\"</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="nl">"ZXBoZW1lcmFsUHVibGljS2V5\",\"tag\"</span><span class="p">:</span><span class="w"> </span><span class="err">\</span><span class="s2">"c2lnbmF0dXJl</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZXBoZW1lcmFsUHVibGljS2V5"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">

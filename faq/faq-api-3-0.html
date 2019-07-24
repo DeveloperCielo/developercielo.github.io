@@ -779,22 +779,22 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 <p>1) Primeira compra com consentimento do cliente para armazenar credenciais para uso futuro:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Creditcard"</span><span class="p">:{</span><span class="w">
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="s2">"First"</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Creditcard"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"First"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -804,22 +804,22 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 <p>2) Compra eventual e/ou pontual usando credenciais armazenadas previamente:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Creditcard"</span><span class="p">:{</span><span class="w">
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Creditcard"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -833,23 +833,23 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 <p>1) Compra recorrente com periodicidade pré-definida usando credenciais armazenadas previamente:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Creditcard"</span><span class="p">:{</span><span class="w">
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"Recurring"</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Creditcard"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Recurring"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -859,23 +859,23 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 <p>2) Compra recorrente sem periodicidade definida usando credenciais armazenadas previamente:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Creditcard"</span><span class="p">:{</span><span class="w">
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Creditcard"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -885,23 +885,23 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 <p>3) Compra parcelada em transações:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"24440380271234"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador de Teste"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="s2">"Payment"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Creditcard"</span><span class="p">:{</span><span class="w">
-         </span><span class="s2">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="s2">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"Reason"</span><span class="p">:</span><span class="s2">"Installments"</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"creditcard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Creditcard"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"516220******6991"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Portador de Teste"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"09/2019"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Installments"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
