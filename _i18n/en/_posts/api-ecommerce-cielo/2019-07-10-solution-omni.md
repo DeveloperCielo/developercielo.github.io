@@ -69,7 +69,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-## Credit card sale without password
+## Credit card typed sale without password
 
 ### Request
 
