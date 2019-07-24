@@ -441,9 +441,9 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Currency`|---|---|---|---|
 |`Payment.Country`|---|---|---|---|
 
-## Venda com cartão de débito com leitura de tarja e senha
+## Debit card sale with magnetic tarja reading and password
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -481,7 +481,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Payment.Type`|---|---|---|---|
@@ -505,7 +505,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Resposta
+### Response
 
 ```json
 {
@@ -586,7 +586,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
@@ -626,9 +626,9 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Currency`|---|---|---|---|
 |`Payment.Country`|---|---|---|---|
 
-## Venda com cartão de crédito com EMV com senha online
+## Credit card sales with online password with EMV
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -666,7 +666,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Payment.Type`|---|---|---|---|
@@ -690,7 +690,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Resposta
+### Response
 
 ```json
 {
@@ -771,7 +771,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
@@ -811,9 +811,9 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Currency`|---|---|---|---|
 |`Payment.Country`|---|---|---|---|
 
-## Venda com cartão de débito com EMV e senha online
+## Debit card sale with EMV and online password
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -849,7 +849,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Payment.Type`|---|---|---|---|
@@ -871,7 +871,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Resposta
+### Response
 
 ```json
 {
@@ -952,7 +952,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
@@ -992,9 +992,9 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Currency`|---|---|---|---|
 |`Payment.Country`|---|---|---|---|
 
-## Venda com vale alimentação (cartão de voucher) com EMV e senha online
+## Sale with meal ticket (voucher card) with EMV and online password
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -1030,7 +1030,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Payment.Type`|---|---|---|---|
@@ -1052,7 +1052,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Resposta
+### Response
 
 ```json
 {
@@ -1133,7 +1133,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
