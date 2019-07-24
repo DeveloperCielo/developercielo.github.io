@@ -107,31 +107,31 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
-|`Payment.Type`|Texto|---|---|---|
-|`Payment.SoftDescriptor`|Texto|---|---|---|
+|`Payment.Type`|Text|---|---|---|
+|`Payment.SoftDescriptor`|Text|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.Amount`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|Texto|---|---|---|
+|`Payment.Interest`|Text|---|---|---|
 |`Payment.ProductId`|---|---|---|---|
 |`CreditCard.CardNumber`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.SecurityCodeStatus`|Texto|---|---|---|
+|`CreditCard.SecurityCodeStatus`|Text|---|---|---|
 |`CreditCard.SecurityCode`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.InputMode`|Texto|---|---|---|
-|`CreditCard.AuthenticationMethod`|Texto|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|---|
+|`CreditCard.InputMode`|Text|---|---|---|
+|`CreditCard.AuthenticationMethod`|Text|---|---|---|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Boolean|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|Texto|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|Texto|---|---|---|
+|`PinPadInformation.SerialNumber`|Text|---|---|---|
+|`PinPadInformation.PhysicalCharacteristics`|Text|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Resposta
+### Response
 
 ```json
 {
@@ -212,49 +212,49 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
-|`Customer.Name`|Texto|---|---|---|
+|`Customer.Name`|Text|---|---|---|
 |`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|Texto|---|---|---|
+|`Payment.Interest`|Text|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
 |`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|---|
-|`CreditCard.InputMode`|Texto|---|---|---|
-|`CreditCard.AuthenticationMethod`|Texto|---|---|---|
+|`CreditCard.InputMode`|Text|---|---|---|
+|`CreditCard.AuthenticationMethod`|Text|---|---|---|
 |`CreditCard.EmvData`|---|---|---|---|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
-|`PinBlock.EncryptionType`|Texto|---|---|---|
-|`PinBlock.KsnIdentification`|Texto|---|---|---|
+|`PinBlock.EncryptionType`|Text|---|---|---|
+|`PinBlock.KsnIdentification`|Text|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|Texto|---|---|---|
+|`Payment.SoftDescriptor`|Text|---|---|---|
 |`Payment.ProductId`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|Texto|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|Texto|---|---|---|
+|`PinPadInformation.SerialNumber`|Text|---|---|---|
+|`PinPadInformation.PhysicalCharacteristics`|Text|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 |`Payment.Amount`|---|---|---|---|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|Texto|---|---|---|
+|`Payment.Provider`|Text|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|Booleano|---|---|---|
+|`Payment.IsSplitted`|Boolean|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|Texto|---|---|---|
+|`Payment.ReturnMessage`|Text|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|Texto|---|---|---|
+|`Payment.Type`|Text|---|---|---|
 |`Payment.Currency`|---|---|---|---|
-|`Payment.Country`|Texto|---|---|---|
+|`Payment.Country`|Text|---|---|---|
 
-## Venda com cartão de crédito com leitura de tarja e senha
+## Credit card sale with magnetic tarja reading and password
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -294,7 +294,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Payment.Type`|---|---|---|---|
@@ -320,7 +320,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Resposta
+### Response
 
 ```json
 {
@@ -401,7 +401,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
