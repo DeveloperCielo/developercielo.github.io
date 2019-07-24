@@ -14,62 +14,62 @@ language_tabs:
   shell: cURL
 ---
 
-# Visão geral - API Solução Omni
+# Overview  - Omni Solution API  
 
-# Objetivo
+# Goal
 
-Possibilitar a integração de parceiros de negócio/Subadquirentes com a Cielo para transações com cartões não-presentes (transações digitadas) e cartões presentes nas modalidades Chip e Tarja.
+Enable the integration of business partners/sub-acquire with Cielo for transactions with non-gift cards (typed transactions) and gift cards in Chip and Tarja modalities.
 
-# Glossário
+# Glossary
 
-|ID|Descrição|
-|BC|Biblioteca Compartilhada para PINPad|
-|DUKPT|(Devired Unique Key Per Transaction) Método de criptografia utilizado na Cielo|
-|PIN|Senha do cartão|
-|BDK|(Base Derived Key) Chave do Sub a ser instalada no HSM|
-|HSM|(Hardware Security Module) Servidor para geração, armazenamento, gerenciamento e funcionalidades criptográficas de chaves digitais|
-|OAUTH2|Protocolo de autenticação utilizado nas APIs|
+|ID|Description|
+|BC|PINPad Shared Library|
+|DUKPT|(Devired Unique Key Per Transaction) Encryption method used at Cielo|
+|PIN|Card password|
+|BDK|(Base Derived Key) Sub key to be installed on HSM|
+|HSM|(Hardware Security Module) Server for digital key generation, storage, management and digital key encryptions functionality.|
+|OAUTH2|Authentication protocol used in APIs|
 
-# Pré-requisitos
+# Prerequisites
 
-Para a integração é necessário que a solução de captura do parceiro de negócio/Subadquirente possua os seguintes componentes:
+For the integration, the business partner/sub-acquire capture solution must have the following components:
 
-* Biblioteca Compartilhada para PINPad ou biblioteca proprietária certificada com as bandeiras.
-* Chaves de Criptografia DUKPT implementada para PIN.
-* Disponibilizar sua BDK para instalação no HSM Cielo.
+* Shared Library for PINPad or proprietary library certified with flags.
+* DUKPT encryption keys implemented for PIN.
+* Provide your BDK installation on HSM Cielo;
 
-Formato da Chave exigida pela Cielo:
+Key Format required by Cielo:
 
-O HSM Cielo está parametrizado para um KSN da seguinte forma:
+HSM Cielo is parameterized to a KSN as follows:
 
-* **KSI -** Número de identificação da Chave
+* **KSI -** Key identification number
 * **DID –** Device ID
 * **TC –** Transaction Counter
 
-No cadastro da chave somente é inserido o KSI que possui 5 caracteres numéricos e a chave, conforme exemplo abaixo:
+In the key register is only inserted the KSI that has 5 numeric characters and the key, as the example below:
 
 **FFFFF**030331234500012
 
-<aside class="warning">Obs.: Os F’s devem ser preenchidos automaticamente pela Solução de Captura.</aside>
+<aside class="warning">Note: The F's must be filled in automatically by the Capture Solution..</aside>
 
-# Autenticação
+# Authentication
 
-A autenticação é uma operação necessária para obtenção do token que será utilizado nas demais chamadas de APIs.
+The authentication is a necessary operation to obtain the token that will be used in other API calls.
 
 |Security scheme type:|OAuth2|
-|clientCredentials OAuth Flow|**Token URL:** https://authsandbox.braspag.com.br/oauth2/token<br><br>**Scopes:**<br><br>* `Administrator` - Admin everything<br><br>* `AnalyticsApiOverview` - See the analytics<br><br>* `AdminBackoffice` - Use the backoffice|
+|clientCredentials OAuth Flow|**URL Token:** https://authsandbox.braspag.com.br/oauth2/token<br><br>**Scopes:**<br><br>* `Administrator` - Admin everything<br><br>* `AnalyticsApiOverview` - See the analytics<br><br>* `AdminBackoffice` - Use the backoffice|
 
-# Pagamento
+# Payment
 
-Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Payment.Status) na resposta para certificar-se que o pagamento foi gerado com sucesso ou se houve alguma falha.
+When a payment is created (201 - Created), you should review the Status (Payment.Status) in the response to make sure that the payment was successfully generated or failed.
 
-| SandBox                                             | Produção                                      |
+| SandBox                                             | Production                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-## Venda com cartão de crédito digitado e sem senha
+## Credit card sale without password
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
