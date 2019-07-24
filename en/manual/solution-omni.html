@@ -129,76 +129,76 @@
             </div>
 
             <div class="post">
-  <h1 id="visão-geral---api-solução-omni">Visão geral - API Solução Omni</h1>
+  <h1 id="overview----omni-solution-api">Overview  - Omni Solution API</h1>
 
-<h1 id="objetivo">Objetivo</h1>
+<h1 id="goal">Goal</h1>
 
-<p>Possibilitar a integração de parceiros de negócio/Subadquirentes com a Cielo para transações com cartões não-presentes (transações digitadas) e cartões presentes nas modalidades Chip e Tarja.</p>
+<p>Enable the integration of business partners/sub-acquire with Cielo for transactions with non-gift cards (typed transactions) and gift cards in Chip and Tarja modalities.</p>
 
-<h1 id="glossário">Glossário</h1>
+<h1 id="glossary">Glossary</h1>
 
 <table>
   <tbody>
     <tr>
       <td>ID</td>
-      <td>Descrição</td>
+      <td>Description</td>
     </tr>
     <tr>
       <td>BC</td>
-      <td>Biblioteca Compartilhada para PINPad</td>
+      <td>PINPad Shared Library</td>
     </tr>
     <tr>
       <td>DUKPT</td>
-      <td>(Devired Unique Key Per Transaction) Método de criptografia utilizado na Cielo</td>
+      <td>(Devired Unique Key Per Transaction) Encryption method used at Cielo</td>
     </tr>
     <tr>
       <td>PIN</td>
-      <td>Senha do cartão</td>
+      <td>Card password</td>
     </tr>
     <tr>
       <td>BDK</td>
-      <td>(Base Derived Key) Chave do Sub a ser instalada no HSM</td>
+      <td>(Base Derived Key) Sub key to be installed on HSM</td>
     </tr>
     <tr>
       <td>HSM</td>
-      <td>(Hardware Security Module) Servidor para geração, armazenamento, gerenciamento e funcionalidades criptográficas de chaves digitais</td>
+      <td>(Hardware Security Module) Server for digital key generation, storage, management and digital key encryptions functionality.</td>
     </tr>
     <tr>
       <td>OAUTH2</td>
-      <td>Protocolo de autenticação utilizado nas APIs</td>
+      <td>Authentication protocol used in APIs</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="pré-requisitos">Pré-requisitos</h1>
+<h1 id="prerequisites">Prerequisites</h1>
 
-<p>Para a integração é necessário que a solução de captura do parceiro de negócio/Subadquirente possua os seguintes componentes:</p>
+<p>For the integration, the business partner/sub-acquire capture solution must have the following components:</p>
 
 <ul>
-  <li>Biblioteca Compartilhada para PINPad ou biblioteca proprietária certificada com as bandeiras.</li>
-  <li>Chaves de Criptografia DUKPT implementada para PIN.</li>
-  <li>Disponibilizar sua BDK para instalação no HSM Cielo.</li>
+  <li>Shared Library for PINPad or proprietary library certified with flags.</li>
+  <li>DUKPT encryption keys implemented for PIN.</li>
+  <li>Provide your BDK installation on HSM Cielo;</li>
 </ul>
 
-<p>Formato da Chave exigida pela Cielo:</p>
+<p>Key Format required by Cielo:</p>
 
-<p>O HSM Cielo está parametrizado para um KSN da seguinte forma:</p>
+<p>HSM Cielo is parameterized to a KSN as follows:</p>
 
 <ul>
-  <li><strong>KSI -</strong> Número de identificação da Chave</li>
+  <li><strong>KSI -</strong> Key identification number</li>
   <li><strong>DID –</strong> Device ID</li>
   <li><strong>TC –</strong> Transaction Counter</li>
 </ul>
 
-<p>No cadastro da chave somente é inserido o KSI que possui 5 caracteres numéricos e a chave, conforme exemplo abaixo:</p>
+<p>In the key register is only inserted the KSI that has 5 numeric characters and the key, as the example below:</p>
 
 <p><strong>FFFFF</strong>030331234500012</p>
 
-<aside class="warning">Obs.: Os F’s devem ser preenchidos automaticamente pela Solução de Captura.</aside>
+<aside class="warning">Note: The F's must be filled in automatically by the Capture Solution..</aside>
 
-<h1 id="autenticação">Autenticação</h1>
+<h1 id="authentication">Authentication</h1>
 
-<p>A autenticação é uma operação necessária para obtenção do token que será utilizado nas demais chamadas de APIs.</p>
+<p>The authentication is a necessary operation to obtain the token that will be used in other API calls.</p>
 
 <table>
   <tbody>
@@ -208,20 +208,20 @@
     </tr>
     <tr>
       <td>clientCredentials OAuth Flow</td>
-      <td><strong>Token URL:</strong> https://authsandbox.braspag.com.br/oauth2/token<br /><strong>Scopes:</strong><br />* <code class="highlighter-rouge">Administrator</code> - Admin everything<br />* <code class="highlighter-rouge">AnalyticsApiOverview</code> - See the analytics<br />* <code class="highlighter-rouge">AdminBackoffice</code> - Use the backoffice</td>
+      <td><strong>URL Token:</strong> https://authsandbox.braspag.com.br/oauth2/token<br /><strong>Scopes:</strong><br />* <code class="highlighter-rouge">Administrator</code> - Admin everything<br />* <code class="highlighter-rouge">AnalyticsApiOverview</code> - See the analytics<br />* <code class="highlighter-rouge">AdminBackoffice</code> - Use the backoffice</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="pagamento">Pagamento</h1>
+<h1 id="payment">Payment</h1>
 
-<p>Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Payment.Status) na resposta para certificar-se que o pagamento foi gerado com sucesso ou se houve alguma falha.</p>
+<p>When a payment is created (201 - Created), you should review the Status (Payment.Status) in the response to make sure that the payment was successfully generated or failed.</p>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: center">SandBox</th>
-      <th style="text-align: center">Produção</th>
+      <th style="text-align: center">Production</th>
     </tr>
   </thead>
   <tbody>
@@ -232,9 +232,9 @@
   </tbody>
 </table>
 
-<h2 id="venda-com-cartão-de-crédito-digitado-e-sem-senha">Venda com cartão de crédito digitado e sem senha</h2>
+<h2 id="credit-card-sale-without-password">Credit card sale without password</h2>
 
-<h3 id="requisição">Requisição</h3>
+<h3 id="request">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -785,7 +785,7 @@
 
 <h2 id="venda-com-cartão-de-crédito-com-leitura-de-tarja-e-senha">Venda com cartão de crédito com leitura de tarja e senha</h2>
 
-<h3 id="requisição-1">Requisição</h3>
+<h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -1354,7 +1354,7 @@
 
 <h2 id="venda-com-cartão-de-débito-com-leitura-de-tarja-e-senha">Venda com cartão de débito com leitura de tarja e senha</h2>
 
-<h3 id="requisição-2">Requisição</h3>
+<h3 id="requisição-1">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -1907,7 +1907,7 @@
 
 <h2 id="venda-com-cartão-de-crédito-com-emv-com-senha-online">Venda com cartão de crédito com EMV com senha online</h2>
 
-<h3 id="requisição-3">Requisição</h3>
+<h3 id="requisição-2">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -2460,7 +2460,7 @@
 
 <h2 id="venda-com-cartão-de-débito-com-emv-e-senha-online">Venda com cartão de débito com EMV e senha online</h2>
 
-<h3 id="requisição-4">Requisição</h3>
+<h3 id="requisição-3">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -2997,7 +2997,7 @@
 
 <h2 id="venda-com-vale-alimentação-cartão-de-voucher-com-emv-e-senha-online">Venda com vale alimentação (cartão de voucher) com EMV e senha online</h2>
 
-<h3 id="requisição-5">Requisição</h3>
+<h3 id="requisição-4">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -3557,7 +3557,7 @@
 
 <h2 id="confirmação-de-pagamento-usando-cartão-digitado">Confirmação de pagamento usando cartão digitado</h2>
 
-<h3 id="requisição-6">Requisição</h3>
+<h3 id="requisição-5">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
@@ -3630,7 +3630,7 @@
 
 <h2 id="confirmação-de-pagamento-usando-cartão-emv">Confirmação de pagamento usando cartão EMV</h2>
 
-<h3 id="requisição-7">Requisição</h3>
+<h3 id="requisição-6">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
@@ -3751,7 +3751,7 @@
 
 <h2 id="cancelamento-de-pagamento-com-cartão-digitado">Cancelamento de pagamento com cartão digitado</h2>
 
-<h3 id="requisição-8">Requisição</h3>
+<h3 id="requisição-7">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -3875,7 +3875,7 @@
 
 <h2 id="cancelamento-de-pagamento-com-cartão-presente">Cancelamento de pagamento com cartão presente</h2>
 
-<h3 id="requisição-9">Requisição</h3>
+<h3 id="requisição-8">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -4028,7 +4028,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-10">Requisição</h3>
+<h3 id="requisição-9">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
@@ -4102,7 +4102,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-11">Requisição</h3>
+<h3 id="requisição-10">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
 
@@ -4178,7 +4178,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-12">Requisição</h3>
+<h3 id="requisição-11">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
 
