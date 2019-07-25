@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-25T11:37:35+00:00</updated>
+    <updated>2019-07-25T11:50:32+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3894,19 +3894,19 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;desfazimento&quot;&gt;Desfazimento&lt;/h1&gt;
+&lt;h1 id=&quot;depletion&quot;&gt;Depletion&lt;/h1&gt;
 
-&lt;h2 id=&quot;desfaz-um-pagamento&quot;&gt;Desfaz um pagamento&lt;/h2&gt;
+&lt;h2 id=&quot;undo-a-payment&quot;&gt;Undo a payment&lt;/h2&gt;
 
-&lt;p&gt;O pagamente retornou com sucesso e pode ser desfeito.&lt;/p&gt;
+&lt;p&gt;The payment returned success and can be undone.&lt;/p&gt;
 
-&lt;p&gt;Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pagamento.&lt;/p&gt;
+&lt;p&gt;Depletion must be requested through PaymentId received on the return of payment.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
       &lt;th style=&quot;text-align: center&quot;&gt;SandBox&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Produção&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Production&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -3917,7 +3917,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;requisição&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;request-10&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method delete&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/physicalSales/{PaymentId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -3938,11 +3938,11 @@
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;Propriedade&lt;/th&gt;
-      &lt;th&gt;Tipo&lt;/th&gt;
-      &lt;th&gt;Tamanho&lt;/th&gt;
-      &lt;th&gt;Obrigatório&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Required&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -3970,7 +3970,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;desfaz-um-pagamento-1&quot;&gt;Desfaz um pagamento&lt;/h2&gt;
+&lt;h2 id=&quot;desfaz-um-pagamento&quot;&gt;Desfaz um pagamento&lt;/h2&gt;
 
 &lt;p&gt;Quando o pagamente não retornar, o mesmo deve ser desfeito.&lt;/p&gt;
 
@@ -3991,7 +3991,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method delete&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/physicalSales/orderId/{MerchantOrderId}&lt;/span&gt;&lt;/aside&gt;
 
@@ -4067,7 +4067,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;requisição-2&quot;&gt;Requisição&lt;/h3&gt;
+&lt;h3 id=&quot;requisição-1&quot;&gt;Requisição&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method get&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/initialization/{TerminalId}&lt;/span&gt;&lt;/aside&gt;
 
