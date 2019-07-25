@@ -1225,9 +1225,9 @@ null
 |`ReturnCode`|---|---|---|---|
 |`ReturnMessage`|---|---|---|---|
 
-## Confirmação de pagamento usando cartão EMV
+## Payment confirmation using the EMV Card
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
@@ -1238,12 +1238,12 @@ null
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`EmvData`|---|---|---|---|
 |`IssuerScriptResults`|---|---|---|---|
 
-### Resposta
+### Response
 
 ```json
 {
@@ -1266,22 +1266,22 @@ null
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`ConfirmationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
 |`ReturnMessage`|---|---|---|---|
 
-# Cancelamento
+# Cancellation
 
-| SandBox                                             | Produção                                      |
+| SandBox                                             | Production                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-## Cancelamento de pagamento com cartão digitado
+## Card payment typed cancellation 
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -1296,14 +1296,14 @@ null
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantVoidId`|---|---|---|---|
 |`MerchantVoidDate`|---|---|---|---|
 |`Card.InputMode`|---|---|---|---|
 |`Card.CardNumber`|---|---|---|---|
 
-### Resposta
+### Response
 
 ```json
 {
@@ -1335,15 +1335,15 @@ null
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`VoidId`|---|---|---|---|
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
 
-## Cancelamento de pagamento com cartão presente
+## Gift card payment cancellation
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -1359,7 +1359,7 @@ null
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantVoidId`|---|---|---|---|
 |`MerchantVoidDate`|---|---|---|---|
@@ -1367,7 +1367,7 @@ null
 |`Card.TrackOneData`|---|---|---|---|
 |`Card.TrackTwoData`|---|---|---|---|
 
-### Resposta
+### Response
 
 ```json
 {
@@ -1399,7 +1399,7 @@ null
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`VoidId`|---|---|---|---|
 |`Status`|---|---|---|---|
