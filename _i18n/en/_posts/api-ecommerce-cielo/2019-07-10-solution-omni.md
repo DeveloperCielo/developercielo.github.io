@@ -16,7 +16,7 @@ language_tabs:
 
 # Overview  - Omni Solution API  
 
-# Goal
+# Objective
 
 Enable the integration of business partners/sub-acquire with Cielo for transactions with non-gift cards (typed transactions) and gift cards in Chip and Tarja modalities.
 
@@ -1173,21 +1173,21 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Currency`|---|---|---|---|
 |`Payment.Country`|---|---|---|---|
 
-# Confirmação
+# Confirmation
 
-Quando o pagamento retornar sucesso e pode ser confirmado.
+When the payment returns successful and can be confirmed.
 
-Esta operação requer o PaymentId recebido no retorno do pagamento, além dos dados EmvData se o pagamento foi realizado atráves de Chip.
+This operation requires the PaymentId received on the return of payment, beyond the data of the EmvData, if the payment was made through Chip.
 
-A confirmação somente é necessária para pagamentos feitos através do POS.
+Verification is only required for payments made through POS.
 
-| SandBox                                             | Produção                                      |
+| SandBox                                             | Production                                    |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-## Confirmação de pagamento usando cartão digitado
+## Payment confirmation using a card typed
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
@@ -1195,7 +1195,7 @@ A confirmação somente é necessária para pagamentos feitos através do POS.
 null
 ```
 
-### Resposta
+### Response
 
 ```json
 {
@@ -1218,7 +1218,7 @@ null
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`ConfirmationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
