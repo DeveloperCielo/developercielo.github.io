@@ -1405,19 +1405,19 @@ null
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
 
-# Desfazimento
+# Depletion
 
-## Desfaz um pagamento
+## Undo a payment
 
-O pagamente retornou com sucesso e pode ser desfeito.
+The payment returned success and can be undone.
 
-Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pagamento. 
+Depletion must be requested through PaymentId received on the return of payment.
 
-| SandBox                                             | Produção                                      |
+| SandBox                                             | Production                                    |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
@@ -1436,7 +1436,7 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`ConfirmationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
