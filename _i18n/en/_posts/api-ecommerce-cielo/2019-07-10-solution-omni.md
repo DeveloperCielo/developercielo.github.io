@@ -1477,19 +1477,19 @@ To request the depletion you must inform the MerchantOrderId sent on the payment
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
 
-# Baixa de parâmetros
+# Parameters Download
 
-Essa operação é necessária para que o parceiro de negócio / Subadquirente receba todas as tabelas de parâmetros necessários para que a solução de captura possa efetuar as transações via chamada de API. Essa informação será recebida através de API e deverá ser instalada na BC
+This operation is required for the business partner/sub-acquire to receive all required parameter tables so that the capture solution can perform transactions via the API call. This information will be received through the API and should be installed at the BC.
 
-## Inicialização de um terminal
+## Initialization of a terminal
 
-Solicita as tabelas e parametros para operação do terminal
+Request tables and parameters for terminal operation.
 
-| SandBox                                             | Produção                                      |
+| SandBox                                             | Production                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1      | https://parametersdownload.cieloecommerce.cielo.com.br/api/v0.1      |
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
 
@@ -1677,7 +1677,7 @@ Solicita as tabelas e parametros para operação do terminal
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantId`|---|---|---|---|
 |`TerminalId`|---|---|---|---|
