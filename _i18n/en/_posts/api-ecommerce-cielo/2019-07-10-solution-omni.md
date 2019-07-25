@@ -1442,17 +1442,17 @@ Depletion must be requested through PaymentId received on the return of payment.
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
 
-## Desfaz um pagamento
+## Undo a payment
 
-Quando o pagamente não retornar, o mesmo deve ser desfeito.
+When the payment does not return, it must be undone.
 
-Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado no pagamento.
+To request the depletion you must inform the MerchantOrderId sent on the payment.
 
-| SandBox                                             | Produção                                      |
+| SandBox                                             | Production                                    |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-### Requisição
+### Request
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
 
@@ -1471,7 +1471,7 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`ConfirmationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
