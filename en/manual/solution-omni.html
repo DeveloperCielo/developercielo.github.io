@@ -131,7 +131,7 @@
             <div class="post">
   <h1 id="overview----omni-solution-api">Overview  - Omni Solution API</h1>
 
-<h1 id="goal">Goal</h1>
+<h1 id="objective">Objective</h1>
 
 <p>Enable the integration of business partners/sub-acquire with Cielo for transactions with non-gift cards (typed transactions) and gift cards in Chip and Tarja modalities.</p>
 
@@ -3532,19 +3532,19 @@
   </tbody>
 </table>
 
-<h1 id="confirmação">Confirmação</h1>
+<h1 id="confirmation">Confirmation</h1>
 
-<p>Quando o pagamento retornar sucesso e pode ser confirmado.</p>
+<p>When the payment returns successful and can be confirmed.</p>
 
-<p>Esta operação requer o PaymentId recebido no retorno do pagamento, além dos dados EmvData se o pagamento foi realizado atráves de Chip.</p>
+<p>This operation requires the PaymentId received on the return of payment, beyond the data of the EmvData, if the payment was made through Chip.</p>
 
-<p>A confirmação somente é necessária para pagamentos feitos através do POS.</p>
+<p>Verification is only required for payments made through POS.</p>
 
 <table>
   <thead>
     <tr>
       <th style="text-align: center">SandBox</th>
-      <th style="text-align: center">Produção</th>
+      <th style="text-align: center">Production</th>
     </tr>
   </thead>
   <tbody>
@@ -3555,16 +3555,16 @@
   </tbody>
 </table>
 
-<h2 id="confirmação-de-pagamento-usando-cartão-digitado">Confirmação de pagamento usando cartão digitado</h2>
+<h2 id="payment-confirmation-using-a-card-typed">Payment confirmation using a card typed</h2>
 
-<h3 id="requisição">Requisição</h3>
+<h3 id="request-6">Request</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">null</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="resposta">Resposta</h3>
+<h3 id="response-6">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -3589,11 +3589,11 @@
 <table>
   <thead>
     <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -3630,7 +3630,7 @@
 
 <h2 id="confirmação-de-pagamento-usando-cartão-emv">Confirmação de pagamento usando cartão EMV</h2>
 
-<h3 id="requisição-1">Requisição</h3>
+<h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
@@ -3668,7 +3668,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-1">Resposta</h3>
+<h3 id="resposta">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -3751,7 +3751,7 @@
 
 <h2 id="cancelamento-de-pagamento-com-cartão-digitado">Cancelamento de pagamento com cartão digitado</h2>
 
-<h3 id="requisição-2">Requisição</h3>
+<h3 id="requisição-1">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -3807,7 +3807,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-2">Resposta</h3>
+<h3 id="resposta-1">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"VoidId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="p">,</span><span class="w">
@@ -3875,7 +3875,7 @@
 
 <h2 id="cancelamento-de-pagamento-com-cartão-presente">Cancelamento de pagamento com cartão presente</h2>
 
-<h3 id="requisição-3">Requisição</h3>
+<h3 id="requisição-2">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -3939,7 +3939,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-3">Resposta</h3>
+<h3 id="resposta-2">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"VoidId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="p">,</span><span class="w">
@@ -4028,7 +4028,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-4">Requisição</h3>
+<h3 id="requisição-3">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
@@ -4102,7 +4102,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-5">Requisição</h3>
+<h3 id="requisição-4">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
 
@@ -4178,7 +4178,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-6">Requisição</h3>
+<h3 id="requisição-5">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
 
