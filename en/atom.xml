@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-25T12:23:12+00:00</updated>
+    <updated>2019-07-30T18:29:24+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -22683,6 +22683,264 @@ In case you decide for Public App on Cielo Store, you’ll be able to upload you
 &lt;blockquote&gt;
   &lt;p&gt;Under construction&lt;/p&gt;
 &lt;/blockquote&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>Postman Cielo</title>
+        <category term="tutorial" />
+        <link href="https://developercielo.github.io/en/tutorial/postman"/>
+        <updated>2003-03-03T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/en/tutorial/postman</id>
+        <content type="html">&lt;h1 id=&quot;what-is-postman&quot;&gt;What is POSTMAN?&lt;/h1&gt;
+
+&lt;p&gt;Postman is an API client that makes it easy for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex ** HTTP and HTTP ** requests as well as read their responses.&lt;/p&gt;
+
+&lt;h1 id=&quot;why-use-postman&quot;&gt;Why use POSTMAN?&lt;/h1&gt;
+
+&lt;p&gt;In addition to the practicality of having all the integration examples and codes ready, POSTMAN is the official test tool for Cielo’s development and support teams. This way, when integrating, if you have doubts, it will be faster and simpler to confirm what may be happening with your code.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Other advantages of POSTMAN&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Free tool&lt;/li&gt;
+  &lt;li&gt;No need to install EXE - it’s an extension of Google Chrome&lt;/li&gt;
+  &lt;li&gt;Works on any platform: Windows, MacOS and Linux&lt;/li&gt;
+  &lt;li&gt;Converts JSON into several languages (EX: Python, PHP, Ruby)&lt;/li&gt;
+  &lt;li&gt;Synchronization between various applications&lt;/li&gt;
+  &lt;li&gt;Synchronize code between teams (Paid version)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;download-and-register&quot;&gt;Download and register&lt;/h1&gt;
+
+&lt;p&gt;To use Postman, simply install the APP on your computer. This can be done in two ways:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Installing the desktop version&lt;/strong&gt;: Just go to , download the version for your platform and install the executable&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Installing the Chrome extension&lt;/strong&gt;: Just go to the Chrome Store and install the Postman extension&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;installing-the-chrome-extension&quot;&gt;Installing the Chrome extension&lt;/h2&gt;
+
+&lt;p&gt;1.Go to the Chrome Store, search for POSTMAN in APPs&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/additional documents/tutorial-postman/p1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;At the App’s tab, in your Google Chrome, go to the Postman icon&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;When accessing Postman for the first time,a login account will be requested. This step is optional.
+If you choose to creat an account, It will synchronize your settings and APIs through any device where a Postman instance is running with the same account&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Set up your Collections and environments to start testing&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;explaining-postman-components&quot;&gt;Explaining POSTMAN Components&lt;/h1&gt;
+
+&lt;p&gt;In this area we will explain the different components of the Postman and its functions. After this introduction, the next parts of this tutorial will focus on the settings for API testing&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/pc.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt; - &lt;strong&gt;Environment&lt;/strong&gt;:
+Environment to which requests will be directed. In this area, data will be defined as:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;MerchantId&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Store ID on Sky APIs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;MerchantKey&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Store Security Key at Sky APIs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;POST / PUT URL&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Endpoint To create or edit transactions&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;GET URL&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;Endpoint for Querying Transactions&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;We suggest creating two environments, one with production data and another Sandbox, each with its own credentials and URLs.
+In this way it becomes much simpler to perform tests with the same contract for both environments.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;B&lt;/strong&gt; - &lt;strong&gt;Header&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is the MerchantId / MerchantKey, which by default uses the same data registered in &lt;code class=&quot;highlighter-rouge&quot;&gt;Environment&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt; - &lt;strong&gt;Body&lt;/strong&gt;:
+It is the content of the Requisitions. Here is where you can change or create examples for the API and validate the contents of your &lt;code class=&quot;highlighter-rouge&quot;&gt;POST&lt;/code&gt; /&lt;code class=&quot;highlighter-rouge&quot;&gt; GET&lt;/code&gt; / &lt;code class=&quot;highlighter-rouge&quot;&gt;PUT&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;D&lt;/strong&gt; - &lt;strong&gt;Collection&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;Location that contains all examples and codes that can be used in the API. Here are the transactions, queries, and other features that exist in the Cielo’s APIs.
+The number of collections is unlimited, meaning you can create multiple collections to fit your Postman style of use.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-environment-heaven&quot;&gt;Creating Environment Heaven&lt;/h2&gt;
+
+&lt;p&gt;The first step in using postman is the creation of the API environment. This setting will define which credentials and endpoints will be used by default, thus avoiding the need to perform configurations for each test.&lt;/p&gt;
+
+&lt;h3 id=&quot;creating-the-environment&quot;&gt;&lt;strong&gt;Creating the environment&lt;/strong&gt;:&lt;/h3&gt;
+
+&lt;p&gt;1 - In the upper right corner, click on the gear and select “Manage environment”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2 - In the management screen, just fill in the settings according to the screen below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3 - Now the endpoints and credentials for tests are already registered. We suggest you create two environments: &lt;code class=&quot;highlighter-rouge&quot;&gt;Production&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Sandbox&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In the &lt;strong&gt;Cielo Cielo Ecommerce&lt;/strong&gt; credentials, &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantID&lt;/code&gt; and&lt;code class=&quot;highlighter-rouge&quot;&gt; MerchantKey&lt;/code&gt;, must match the URL environment, that is, Sandbox credentials only work with Sandbox URLs
+The &lt;strong&gt;Checkout Cielo&lt;/strong&gt; has no &lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt; or a sandbox environment. To perform tests, the &lt;strong&gt;“Test Mode”&lt;/strong&gt; must be activated. For more information about Test Mode, access the &lt;a href=&quot;https://developercielo.github.io/Checkout-Backoffice/&quot;&gt;Backoffice Tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;importing-a-collection&quot;&gt;Importing a Collection&lt;/h2&gt;
+
+&lt;p&gt;Cielo has standard collections for its APIs. 
+You can import them directly into your POSTMAN and have all the examples ready to use instantly, without the need to copy them directly from our manuals.&lt;/p&gt;
+
+&lt;p&gt;Follow the steps below:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Access the area of the manual where the Collection link is available.Copy it.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;IMPORTANT:&lt;/strong&gt; In order for your collection to always be up to date, we suggest you always look for the latest version of the collection in the manual.  IMPORTED COLLECTIONS DOES NOT HAVE AUTOMATICAL UPDATES&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;With Postman opened, use the IMPORT button, and select the “IMPORT FROM LINK” option.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Your Cielo collection is now available. Just select Environment and the requisition. By clicking on SEND, Postman will execute communication with Cielo.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;collections-and-environments-cielo&quot;&gt;Collections and Environments Cielo&lt;/h2&gt;
+
+&lt;p&gt;Below, we list the collections and Environments Cielo. Use them in your Postman to perform tests and integrations.&lt;/p&gt;
+
+&lt;h3 id=&quot;api-cielo-ecommerce&quot;&gt;Api Cielo Ecommerce&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt; -&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Privacy Policy&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Sandbox&lt;/td&gt;
+      &lt;td&gt;** Transaction submission **: https://apisandbox.cieloecommerce.cielo.com.br &lt;br /&gt; ** Transaction query **: https: //apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Production&lt;/td&gt;
+      &lt;td&gt;** Transaction submission **: https://api.cieloecommerce.cielo.com.br/ &lt;br /&gt; ** Transaction query **: https: //apiquery.cieloecommerce.cielo.com.br/&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;checkout-cielo&quot;&gt;Checkout Cielo&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Collection&lt;/strong&gt; -&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Privacy Policy&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Production&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Transaction submission&lt;/strong&gt;: https: //cieloecommerce.cielo.com.br/api&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;making-a-requisition&quot;&gt;Making a requisition&lt;/h1&gt;
+
+&lt;p&gt;With its Collection and Environmet configured, creating a transaction with Cielo is extremely easy:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/pr.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Select which request you want to use.&lt;/li&gt;
+  &lt;li&gt;Verify that the correct Environment is selected&lt;/li&gt;
+  &lt;li&gt;Click SEND.&lt;/li&gt;
+  &lt;li&gt;At the bottom you will see 2 information:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Response Body&lt;/code&gt; - Here is where the data returned from your transactions are listed&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HTTP Status&lt;/code&gt; - Here you check if your request worked.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: If you do not receive a response, check the HTTP status.&lt;/p&gt;
+
+&lt;h2 id=&quot;generating-examples-in-other-languages&quot;&gt;Generating examples in other languages.&lt;/h2&gt;
+
+&lt;p&gt;POSTMAN allows you to create examples of other languages based on the JSON requests for Cielo products.&lt;/p&gt;
+
+&lt;p&gt;Below we show how to generate an example in Python&lt;/p&gt;
+
+&lt;p&gt;1 - Access the request you want to convert and click &lt;code class=&quot;highlighter-rouge&quot;&gt;CODE&lt;/code&gt; in the right corner of the screen.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;OBS&lt;/em&gt;: If this link does not exist on your screen, click &lt;code class=&quot;highlighter-rouge&quot;&gt;Params&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/p10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2 - Select the language you want to convert, in this case, Python.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/pcode.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;3 - The Json sample is converted to Python&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/pcode2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </content>
     </entry>
     
