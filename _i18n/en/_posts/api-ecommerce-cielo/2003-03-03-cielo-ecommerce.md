@@ -5,6 +5,7 @@ description: The purpose of this documentation is to guide the developer on how 
 search: true
 translated: true
 categories: manual
+sort_order: 2
 tags:
   - API Payment
 language_tabs:
