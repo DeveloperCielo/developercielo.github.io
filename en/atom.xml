@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-07-31T12:28:11+00:00</updated>
+    <updated>2019-07-31T12:31:00+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13,7 +13,7 @@
     </author>
     
     <entry>
-        <title>Manual de Integração Solução Omni</title>
+        <title>Integration Manual Omni Solution</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/en/manual/solution-omni"/>
         <updated>2019-07-10T00:00:00+00:00</updated>
