@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-07-31T13:59:56+00:00</updated>
+    <updated>2019-08-05T21:36:14+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7183,31 +7183,37 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Cavv&lt;/td&gt;
+      &lt;td&gt;Payment.Authenticate&lt;/td&gt;
+      &lt;td&gt;Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Sim, para que a autenticação seja realizada é obrigatório enviar como true&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.ExternalAuthentication.Cavv&lt;/td&gt;
       &lt;td&gt;Booleano que indica se a transação é submetida o não para o processo de autenticação&lt;/td&gt;
       &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
       &lt;td&gt;Sim, quando a autenticação foi um sucesso&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Xid&lt;/td&gt;
+      &lt;td&gt;Payment.ExternalAuthentication.Xid&lt;/td&gt;
       &lt;td&gt;XID retornado no processo de autenticação&lt;/td&gt;
       &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
       &lt;td&gt;Sim, quando a versão do 3DS for &quot;1&quot;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Eci&lt;/td&gt;
+      &lt;td&gt;Payment.ExternalAuthentication.Eci&lt;/td&gt;
       &lt;td&gt;E-Commerce Indicator retornado no processo de autenticação&lt;/td&gt;
       &lt;td&gt;Numérico [até 3 posições]&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Version&lt;/td&gt;
+      &lt;td&gt;Payment.ExternalAuthentication.Version&lt;/td&gt;
       &lt;td&gt;Versão do 3DS utilizado no processo de autenticação&lt;/td&gt;
       &lt;td&gt;Alfanumérico [1 posições]&lt;/td&gt;
       &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;ReferenceId&lt;/td&gt;
+      &lt;td&gt;Payment.ExternalAuthentication.ReferenceId&lt;/td&gt;
       &lt;td&gt;RequestID retornado no processo de autenticação&lt;/td&gt;
       &lt;td&gt;GUID [36 posições]&lt;/td&gt;
       &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;

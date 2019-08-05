@@ -1300,31 +1300,37 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
   </thead>
   <tbody>
     <tr>
-      <td>Cavv</td>
+      <td>Payment.Authenticate</td>
+      <td>Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
+      <td>-</td>
+      <td>Sim, para que a autenticação seja realizada é obrigatório enviar como true</td>
+    </tr>
+    <tr>
+      <td>Payment.ExternalAuthentication.Cavv</td>
       <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
       <td>Alfanumérico [28 posições]</td>
       <td>Sim, quando a autenticação foi um sucesso</td>
     </tr>
     <tr>
-      <td>Xid</td>
+      <td>Payment.ExternalAuthentication.Xid</td>
       <td>XID retornado no processo de autenticação</td>
       <td>Alfanumérico [28 posições]</td>
       <td>Sim, quando a versão do 3DS for "1"</td>
     </tr>
     <tr>
-      <td>Eci</td>
+      <td>Payment.ExternalAuthentication.Eci</td>
       <td>E-Commerce Indicator retornado no processo de autenticação</td>
       <td>Numérico [até 3 posições]</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td>Version</td>
+      <td>Payment.ExternalAuthentication.Version</td>
       <td>Versão do 3DS utilizado no processo de autenticação</td>
       <td>Alfanumérico [1 posições]</td>
       <td>Sim, quando a versão do 3DS for "2"</td>
     </tr>
     <tr>
-      <td>ReferenceId</td>
+      <td>Payment.ExternalAuthentication.ReferenceId</td>
       <td>RequestID retornado no processo de autenticação</td>
       <td>GUID [36 posições]</td>
       <td>Sim, quando a versão do 3DS for "2"</td>
