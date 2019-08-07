@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-08-05T21:36:14+00:00</updated>
+    <updated>2019-08-07T12:41:16+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5905,7 +5905,7 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Installments&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Wallet&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AndroidPay&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;WalletKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;{\&quot;encryptedMessage\&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ZW5jcnlwdGVkTWVzc2FnZQ==\&quot;,\&quot;ephemeralPublicKey\&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ZXBoZW1lcmFsUHVibGljS2V5\&quot;,\&quot;tag\&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c2lnbmF0dXJl&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;WalletKey&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;{\&quot;encryptedMessage\&quot;: \&quot;ZW5jcnlwdGVkTWVzc2FnZQ==\&quot;,\&quot;ephemeralPublicKey\&quot;: \&quot;ZXBoZW1lcmFsUHVibGljS2V5\&quot;,\&quot;tag\&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c2lnbmF0dXJl&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AdditionalData&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Signature&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ZXBoZW1lcmFsUHVibGljS2V5&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -6421,6 +6421,13 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
+      &lt;td&gt;bpmpi_auth_suppresschallenge&lt;/td&gt;
+      &lt;td&gt;Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.&lt;/td&gt;
+      &lt;td&gt;Booleano: &lt;br /&gt;true – ignorar desafios se houver; &lt;br /&gt;false – apresentar desafio se houver&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
       &lt;td&gt;bpmpi_accesstoken&lt;/td&gt;
       &lt;td&gt;Token gerado pela API de Token de Acesso (etapa 1)&lt;/td&gt;
       &lt;td&gt;Alfanumérico [varivável]&lt;/td&gt;
@@ -6510,6 +6517,27 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
       &lt;td&gt;Booleano&lt;br /&gt;true - sim&lt;br /&gt;false - não&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_recurring_enddate&lt;/td&gt;
+      &lt;td&gt;Identifica a data de término da recorrência&lt;/td&gt;
+      &lt;td&gt;Texto (AAAA-MM-DD)&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_recurring_frequency&lt;/td&gt;
+      &lt;td&gt;Indica a frequência da recorrência&lt;/td&gt;
+      &lt;td&gt;Número&lt;br /&gt;1 - Mensal&lt;br /&gt;2 - Bimestral&lt;br /&gt;3 - Trimestral&lt;br /&gt;4 - Quadrimestral&lt;br /&gt;6 - Semestral&lt;br /&gt;12 - Anual&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_recurring_originalpurchasedate&lt;/td&gt;
+      &lt;td&gt;Identifica a data da 1ª transação que originou a recorrência&lt;/td&gt;
+      &lt;td&gt;Texto (AAAA-MM-DD)&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -7190,7 +7218,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Payment.ExternalAuthentication.Cavv&lt;/td&gt;
-      &lt;td&gt;Booleano que indica se a transação é submetida o não para o processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Assinatura que é retornada nos cenários de sucesso na autenticação&lt;/td&gt;
       &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
       &lt;td&gt;Sim, quando a autenticação foi um sucesso&lt;/td&gt;
     &lt;/tr&gt;
@@ -7272,7 +7300,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;cavv&lt;/td&gt;
-      &lt;td&gt;Booleano que indica se a transação é submetida o não para o processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Assinatura que é retornada nos cenários de sucesso na autenticação&lt;/td&gt;
       &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
       &lt;td&gt;Sim, quando a autenticação foi um sucesso&lt;/td&gt;
     &lt;/tr&gt;

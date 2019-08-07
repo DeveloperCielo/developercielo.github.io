@@ -538,6 +538,13 @@
       <td>Sim</td>
     </tr>
     <tr>
+      <td>bpmpi_auth_suppresschallenge</td>
+      <td>Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.</td>
+      <td>Booleano: <br />true – ignorar desafios se houver; <br />false – apresentar desafio se houver</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
       <td>bpmpi_accesstoken</td>
       <td>Token gerado pela API de Token de Acesso (etapa 1)</td>
       <td>Alfanumérico [varivável]</td>
@@ -627,6 +634,27 @@
       <td>Booleano<br />true - sim<br />false - não</td>
       <td>Não</td>
       <td>Sim</td>
+    </tr>
+    <tr>
+      <td>bpmpi_recurring_enddate</td>
+      <td>Identifica a data de término da recorrência</td>
+      <td>Texto (AAAA-MM-DD)</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>bpmpi_recurring_frequency</td>
+      <td>Indica a frequência da recorrência</td>
+      <td>Número<br />1 - Mensal<br />2 - Bimestral<br />3 - Trimestral<br />4 - Quadrimestral<br />6 - Semestral<br />12 - Anual</td>
+      <td>Não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>bpmpi_recurring_originalpurchasedate</td>
+      <td>Identifica a data da 1ª transação que originou a recorrência</td>
+      <td>Texto (AAAA-MM-DD)</td>
+      <td>Não</td>
+      <td>Não</td>
     </tr>
   </tbody>
 </table>
@@ -1307,7 +1335,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
     </tr>
     <tr>
       <td>Payment.ExternalAuthentication.Cavv</td>
-      <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
+      <td>Assinatura que é retornada nos cenários de sucesso na autenticação</td>
       <td>Alfanumérico [28 posições]</td>
       <td>Sim, quando a autenticação foi um sucesso</td>
     </tr>
@@ -1389,7 +1417,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
   <tbody>
     <tr>
       <td>cavv</td>
-      <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
+      <td>Assinatura que é retornada nos cenários de sucesso na autenticação</td>
       <td>Alfanumérico [28 posições]</td>
       <td>Sim, quando a autenticação foi um sucesso</td>
     </tr>
