@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-08-07T13:24:07+00:00</updated>
+    <updated>2019-08-07T13:56:10+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -9198,7 +9198,7 @@ Currently are available:&lt;/p&gt;
       &lt;td&gt;Version&lt;/td&gt;
       &lt;td&gt;3DS applied version&lt;/td&gt;
       &lt;td&gt;Numeric&lt;/td&gt;
-      &lt;td&gt;1&lt;br /&gt; &lt;strong&gt;1&lt;/strong&gt; = &lt;em&gt;3DS 1.0;&lt;/em&gt; &lt;br /&gt;&lt;strong&gt;2&lt;/strong&gt; = &lt;em&gt;3DS 2.0;&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;1&lt;br /&gt; &lt;strong&gt;1.0&lt;/strong&gt; = &lt;em&gt;3DS 1.0;&lt;/em&gt; &lt;br /&gt;&lt;strong&gt;2.0&lt;/strong&gt; = &lt;em&gt;3DS 2.0;&lt;/em&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ReferenceId&lt;/td&gt;
@@ -9255,6 +9255,14 @@ Currently are available:&lt;/p&gt;
       &lt;td&gt;bpmpi_auth_notifyonly&lt;/td&gt;
       &lt;td&gt;Boolean that indicates if the transaction will be submitted to notify mode. In this mode, the authentication process will not be performed. &lt;strong&gt;VALID JUST FOR MASTERCARD&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Boolean: &lt;br /&gt;true – notify mode; &lt;br /&gt;false – authentication mode&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_auth_suppresschallenge&lt;/td&gt;
+      &lt;td&gt;Boolean that indicates if ignore or not the challenge. If the challenge is ignored, the liability will keep with the merchant.&lt;/td&gt;
+      &lt;td&gt;Boolean: &lt;br /&gt;true – ignore challenge &lt;br /&gt;false – perform challenge&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -9361,6 +9369,30 @@ Currently are available:&lt;/p&gt;
       &lt;td&gt;&lt;br /&gt;&lt;em&gt;true&lt;/em&gt;&lt;br /&gt;&lt;em&gt;false&lt;/em&gt;&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_recurring_enddate&lt;/td&gt;
+      &lt;td&gt;End date of recurrency&lt;/td&gt;
+      &lt;td&gt;Text (AAAA-MM-DD)&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_recurring_frequency&lt;/td&gt;
+      &lt;td&gt;Frequency of recurrency&lt;/td&gt;
+      &lt;td&gt;Number&lt;br /&gt;1 - Monthy&lt;br /&gt;2 - Bimonthly&lt;br /&gt;3 - Quarterly&lt;br /&gt;4 - Four Monthly&lt;br /&gt;6 - Semester&lt;br /&gt;12 - Annual&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;bpmpi_recurring_originalpurchasedate&lt;/td&gt;
+      &lt;td&gt;Date of first transaction that orignated the recurrency&lt;/td&gt;
+      &lt;td&gt;Text (AAAA-MM-DD)&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -10115,7 +10147,7 @@ This procedure is also valid for merchants that performed authentication outside
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Cavv&lt;/td&gt;
-      &lt;td&gt;Boolean that indicates if the transaction is submitted to authentication process&lt;/td&gt;
+      &lt;td&gt;Signature returned in case of successfull authentication&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;28&lt;/td&gt;
       &lt;td&gt;Yes (&lt;em&gt;when authentication is successfull&lt;/em&gt;)&lt;/td&gt;
@@ -10130,7 +10162,7 @@ This procedure is also valid for merchants that performed authentication outside
     &lt;tr&gt;
       &lt;td&gt;Eci&lt;/td&gt;
       &lt;td&gt;E-Commerce Indicator returned in authentication process&lt;/td&gt;
-      &lt;td&gt;Numeric&lt;/td&gt;
+      &lt;td&gt;Numeric [1]&lt;/td&gt;
       &lt;td&gt;Max 3&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
@@ -10138,7 +10170,7 @@ This procedure is also valid for merchants that performed authentication outside
       &lt;td&gt;Version&lt;/td&gt;
       &lt;td&gt;3DS version used in authentication process&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Numeric [1]&lt;/td&gt;
       &lt;td&gt;Yes, (&lt;em&gt;when 3DS version is  &quot;2&quot;&lt;/em&gt;)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -10203,7 +10235,7 @@ This procedure is also valid for merchants that performed authentication outside
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;cavv&lt;/td&gt;
-      &lt;td&gt;Boolean that indicates if the transaction is submitted to authentication process&lt;/td&gt;
+      &lt;td&gt;Signature returned in case of successfull authentication&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;28&lt;/td&gt;
       &lt;td&gt;Yes (&lt;em&gt;when authentication is successfull&lt;/em&gt;)&lt;/td&gt;
@@ -10218,14 +10250,14 @@ This procedure is also valid for merchants that performed authentication outside
     &lt;tr&gt;
       &lt;td&gt;eci&lt;/td&gt;
       &lt;td&gt;E-Commerce Indicator returned in authentication process&lt;/td&gt;
-      &lt;td&gt;Numeric&lt;/td&gt;
+      &lt;td&gt;Numeric [1]&lt;/td&gt;
       &lt;td&gt;Max 3&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;versao&lt;/td&gt;
       &lt;td&gt;3DS version used in authentication process&lt;/td&gt;
-      &lt;td&gt;Alphanumeric [1]&lt;/td&gt;
+      &lt;td&gt;Numeric [1]&lt;/td&gt;
       &lt;td&gt;Yes, (&lt;em&gt;when 3DS version is  &quot;2&quot;&lt;/em&gt;)&lt;/td&gt;
       &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;

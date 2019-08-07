@@ -493,7 +493,7 @@ Currently are available:</p>
       <td>Version</td>
       <td>3DS applied version</td>
       <td>Numeric</td>
-      <td>1<br /> <strong>1</strong> = <em>3DS 1.0;</em> <br /><strong>2</strong> = <em>3DS 2.0;</em></td>
+      <td>1<br /> <strong>1.0</strong> = <em>3DS 1.0;</em> <br /><strong>2.0</strong> = <em>3DS 2.0;</em></td>
     </tr>
     <tr>
       <td>ReferenceId</td>
@@ -550,6 +550,14 @@ Currently are available:</p>
       <td>bpmpi_auth_notifyonly</td>
       <td>Boolean that indicates if the transaction will be submitted to notify mode. In this mode, the authentication process will not be performed. <strong>VALID JUST FOR MASTERCARD</strong></td>
       <td>Boolean: <br />true – notify mode; <br />false – authentication mode</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_auth_suppresschallenge</td>
+      <td>Boolean that indicates if ignore or not the challenge. If the challenge is ignored, the liability will keep with the merchant.</td>
+      <td>Boolean: <br />true – ignore challenge <br />false – perform challenge</td>
       <td>Yes</td>
       <td>Yes</td>
       <td> </td>
@@ -656,6 +664,30 @@ Currently are available:</p>
       <td><br /><em>true</em><br /><em>false</em></td>
       <td>No</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_recurring_enddate</td>
+      <td>End date of recurrency</td>
+      <td>Text (AAAA-MM-DD)</td>
+      <td>No</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_recurring_frequency</td>
+      <td>Frequency of recurrency</td>
+      <td>Number<br />1 - Monthy<br />2 - Bimonthly<br />3 - Quarterly<br />4 - Four Monthly<br />6 - Semester<br />12 - Annual</td>
+      <td>No</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_recurring_originalpurchasedate</td>
+      <td>Date of first transaction that orignated the recurrency</td>
+      <td>Text (AAAA-MM-DD)</td>
+      <td>No</td>
+      <td>No</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -1410,7 +1442,7 @@ This procedure is also valid for merchants that performed authentication outside
   <tbody>
     <tr>
       <td>Cavv</td>
-      <td>Boolean that indicates if the transaction is submitted to authentication process</td>
+      <td>Signature returned in case of successfull authentication</td>
       <td>Alphanumeric</td>
       <td>28</td>
       <td>Yes (<em>when authentication is successfull</em>)</td>
@@ -1425,7 +1457,7 @@ This procedure is also valid for merchants that performed authentication outside
     <tr>
       <td>Eci</td>
       <td>E-Commerce Indicator returned in authentication process</td>
-      <td>Numeric</td>
+      <td>Numeric [1]</td>
       <td>Max 3</td>
       <td>Yes</td>
     </tr>
@@ -1433,7 +1465,7 @@ This procedure is also valid for merchants that performed authentication outside
       <td>Version</td>
       <td>3DS version used in authentication process</td>
       <td>Alphanumeric</td>
-      <td>1</td>
+      <td>Numeric [1]</td>
       <td>Yes, (<em>when 3DS version is  "2"</em>)</td>
     </tr>
     <tr>
@@ -1498,7 +1530,7 @@ This procedure is also valid for merchants that performed authentication outside
   <tbody>
     <tr>
       <td>cavv</td>
-      <td>Boolean that indicates if the transaction is submitted to authentication process</td>
+      <td>Signature returned in case of successfull authentication</td>
       <td>Alphanumeric</td>
       <td>28</td>
       <td>Yes (<em>when authentication is successfull</em>)</td>
@@ -1513,14 +1545,14 @@ This procedure is also valid for merchants that performed authentication outside
     <tr>
       <td>eci</td>
       <td>E-Commerce Indicator returned in authentication process</td>
-      <td>Numeric</td>
+      <td>Numeric [1]</td>
       <td>Max 3</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td>versao</td>
       <td>3DS version used in authentication process</td>
-      <td>Alphanumeric [1]</td>
+      <td>Numeric [1]</td>
       <td>Yes, (<em>when 3DS version is  "2"</em>)</td>
       <td> </td>
     </tr>
