@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-08-07T12:41:16+00:00</updated>
+    <updated>2019-08-07T12:46:01+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7231,13 +7231,13 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
     &lt;tr&gt;
       &lt;td&gt;Payment.ExternalAuthentication.Eci&lt;/td&gt;
       &lt;td&gt;E-Commerce Indicator retornado no processo de autenticação&lt;/td&gt;
-      &lt;td&gt;Numérico [até 3 posições]&lt;/td&gt;
+      &lt;td&gt;Numérico [1 posição]&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Payment.ExternalAuthentication.Version&lt;/td&gt;
       &lt;td&gt;Versão do 3DS utilizado no processo de autenticação&lt;/td&gt;
-      &lt;td&gt;Alfanumérico [1 posições]&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [1 posição]&lt;/td&gt;
       &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -7313,7 +7313,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
     &lt;tr&gt;
       &lt;td&gt;eci&lt;/td&gt;
       &lt;td&gt;E-Commerce Indicator retornado no processo de autenticação&lt;/td&gt;
-      &lt;td&gt;Numérico [até 3 posições]&lt;/td&gt;
+      &lt;td&gt;Numérico [1 posição]&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
