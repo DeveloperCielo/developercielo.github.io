@@ -1128,7 +1128,6 @@ curl
 ## Cartão de Débito
 
 Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado com as seguintes bandeiras e bancos:
-Bancos Suportados:
 
 | MASTERCARD      | VISA            |
 |-----------------|-----------------|
@@ -1141,19 +1140,256 @@ Bancos Suportados:
 | Caixa           | N/A             |
 | BancooB         | N/A             |
 
-### Autenticação Débito
+### Autenticação Débito - 3DS 1.0
 
-O Cartão de débito por padrão exige que o portador seja direcionado para o ambiente Bancário, onde será avaliada a senha e dados informados pela loja. 
-Existe a opção de não autenticar transações de débito, porem é necessario que o banco emissor do cartão permita tal transação.
-Essa **não é uma permissão concedida pela cielo**, o lojista deve acionar o banco e solicitar a permissão
+Por regra de mercado, todas as transações online realizadas com cartão de débito devem ser autenticadas através de um protocolo chamado 3DS, obrigatoriamente. Atualmente existem 2 versões: 3DS 1.0 e 3DS 2.0.
 
-Em transações de cartão de débito sem autenticação, há limitação de bancos:
+Na versão 1, o portador será direcionado para o ambiente bancário, onde será desafiado pelo emissor do cartão, digitando a sua senha e concluindo a autenticação. Essa versão não é compatível com dispositivos mobile e ocorrerá desafio em 100% dos casos. Existe a possibilidade de não autenticar transações de débito no e-Commerce, o que é conhecido como “Débito sem Senha”, porém, cabe aos Bancos Emissores do cartão aprovarem tal modelo, pois **não é uma permissão concedida pela Cielo.**
 
-| Bandeira   | Bancos                             |
-|------------|------------------------------------|
-| Visa       | Bradesco / Banco do Brasil         |
-| MasterCard | Santander / Banco do Brasil        |
-| Elo        | Bradesco / Banco do Brasil         |
+A autenticação é um processo que é mandatório para transações de débito no eCommerce, porém, é possível utilizá-la também para transações de crédito. Fica à critério do lojista autenticar transações de crédito no e-Commerce.
+
+Recentemente, houve o lançamento da nova versão do 3DS 2.0 pelas bandeiras no mercado, permitindo a Cielo e emissores o desenvolvimento dessa solução, que já está disponível para integração. A tendência é que cada vez mais seja utilizada, considerando as suas diversas melhorias e benefícios. Para conhecer o 3DS 2.0, acesse [https://developercielo.github.io/manual/emv3ds](https://developercielo.github.io/manual/emv3ds).
+
+#### MPI – Merchant Plug-in
+
+O Merchant plug-in, conhecido por MPI, é um serviço que permite a realização da chamada de autenticação, integrado e certificado com bandeiras para processamento de autenticação de 3DS. A Cielo permite ao lojista a integração do 3DS 1.0 ou 2.0 através do MPI Interno ou do MPI Externo.
+
+* MPI Interno: serviço já integrado a solução de 3DS Cielo, sem necessidade de integração e/ou contratação adicional. Em caso de utilização de MPI Interno para o 3DS 1.0 siga para a etapa "[Transação Padrão](https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-padr%C3%A3o)"
+
+* MPI Externo: serviço contratado pelo lojista, sem interferência da Cielo. Muito utilizado quando o lojista já possui um fornecedor de MPI contratado. Em caso de utilização de MPI Externo para o 3DS 1.0, siga a próxima etapa “Autenticação Externa 3DS 1.0”
+
+#### Autenticação Externa – MPI 3DS 1.0
+
+Considerando a escolha por autenticar com 3DS 1.0 utilizando um serviço/fornecedor de MPI contratado (MPI Externo), a Cielo está preparada para receber essas informações na autorização.
+
+##### Criando uma venda com autenticação externa
+
+Para criar uma venda com cartão de crédito ou débito contendo dados de autenticação externa, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment conforme o exemplo.
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{
+    "MerchantOrderId":"2014111903",
+    "Customer":
+    {
+        "Name":"Comprador crédito autenticação",
+        "Identity":"12345678912",
+        "IdentityType":"cpf"
+    },
+    "Payment":
+    {
+        "Type":"CreditCard",
+        "Amount":15700,
+        "Installments":1,
+        "Authenticate":true,
+        "SoftDescriptor":"123456789ABCD",
+        "ReturnUrl":"https://www.cielo.com.br",
+        "CreditCard":
+        {
+            "CardNumber":"1234123412341231",
+            "Holder":"Teste Holder",
+            "ExpirationDate":"12/2030",
+            "SecurityCode":"123",
+            "Brand":"Visa"
+        },
+        "ExternalAuthentication":
+        {
+            "Cavv":"123456789",
+            "Xid":"987654321",
+            "Eci":"5"
+        }
+    }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111903",
+   "Customer":{  
+      "Name":"Comprador crédito autenticação",
+      "Identity":"12345678912",
+      "IdentityType":"cpf"
+   },
+   "Payment":{  
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "Authenticate":true,
+      "ReturnUrl":"http://www.cielo.com.br",
+      "SoftDescriptor":"123456789ABCD",
+      "CreditCard":{  
+         "CardNumber":"4551870000000183",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "ExternalAuthentication":{
+         "Cavv":"123456789",
+         "Xid":"987654321",
+         "Eci":"5"
+      }
+   }
+}
+--verbose
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
+|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
+|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
+|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
+|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
+|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
+|`Payment.Authenticate`|Booleano|---|Não (Default false)|Indica se a transação deve ser autenticada (true) ou não (false). Mesmo para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor “True”, e no nó ExternalAuthentication deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI).|
+|`Payment.ExternalAuthentication.Cavv`|Texto|28|Sim|O valor Cavv é retornado pelo mecanismo de autenticação.|
+|`Payment.ExternalAuthentication.Xid`|Texto|28|Sim|O valor Xid é retornado pelo mecanismo de autenticação.|
+|`Payment.ExternalAuthentication.Eci`|Número|1|Sim|O valor Eci é retornado pelo mecanismo de autenticação.|
+|`CreditCard.CardNumber.`|Texto|19|Sim|Número do Cartão do Comprador|
+|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
+|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
+|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
+
+### Resposta
+
+```json
+{
+    "MerchantOrderId":"2014111903",
+    "Customer":
+    {
+        "Name":"Comprador crédito autenticação",
+        "Identity":"12345678912",
+        "IdentityType":"cpf"
+    },
+    "Payment":
+    {
+        "ServiceTaxAmount":0,
+        "Installments":1,
+        "Interest":"ByMerchant",
+        "Capture":false,
+        "Authenticate":true,
+        "CreditCard":
+        {
+            "CardNumber":"123412******1112",
+            "Holder":"Teste Holder",
+            "ExpirationDate":"12/2030",
+            "SaveCard":false,
+            "Brand":"Visa"
+        },
+        "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
+        "Tid": "1006993069257E521001",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
+        "Type":"CreditCard",
+        "Amount":15700,
+        "Currency":"BRL",
+        "Country":"BRA",
+        "ExtraDataCollection":[],
+        "Status":0,
+        "ReturnCode":"0",
+        "ReturnMessage":"Transacao autorizada"
+        "ExternalAuthentication":
+        {  
+            "Cavv":"123456789",
+            "Xid":"987654321",
+            "Eci":"5"
+        },
+        "Links":
+        [
+            {
+                "Method":"GET",
+                "Rel":"self",
+                "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId":"2014111903",
+    "Customer":
+    {
+        "Name":"Comprador crédito autenticação",
+        "Identity":"12345678912",
+        "IdentityType":"cpf"
+    },
+    "Payment":
+    {
+        "ServiceTaxAmount":0,
+        "Installments":1,
+        "Interest":"ByMerchant",
+        "Capture":false,
+        "Authenticate":true,
+        "CreditCard":
+        {
+            "CardNumber":"123412******1112",
+            "Holder":"Teste Holder",
+            "ExpirationDate":"12/2030",
+            "SaveCard":false,
+            "Brand":"Visa"
+        },
+        "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
+        "Tid": "1006993069257E521001",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
+        "Type":"CreditCard",
+        "Amount":15700,
+        "Currency":"BRL",
+        "Country":"BRA",
+        "ExtraDataCollection":[],
+        "Status":0,
+        "ReturnCode": "0",
+        "ReturnMessage":"Transacao autorizada",
+        "ExternalAuthentication":
+        {  
+            "Cavv":"123456789",
+            "Xid":"987654321",
+            "Eci":"5"
+        },
+        "Links":
+        [
+            {
+                "Method":"GET",
+                "Rel":"self",
+                "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
+            }
+        ]
+    }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
+|`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
+|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
+|`Status`|Status da Transação.|Byte|---|2|
+|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
 
 ### Transação padrão
 
@@ -3441,240 +3677,6 @@ A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 2
 |3|Mudança de status do Antifraude|
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|cancelamento negado|
-
-# Autenticação Externa
-
-O processo de autenticação possibilita realizar uma venda(crédito ou débito) a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude. 
-Este processo de autenticação pode ser feito junto ou separado da autorização, e para os casos onde o estabelecimento opta por realizar a autenticação em um provedor externo(de sua escolha), estamos preparados para receber a autorização já com o resultado da autenticação.
-
-## Criando uma venda com autenticação externa
-
-Para criar uma venda com cartão de crédito ou débito contendo dados de autenticação externa, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment conforme o exemplo.
-
-### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{
-    "MerchantOrderId":"2014111903",
-    "Customer":
-    {
-        "Name":"Comprador crédito autenticação",
-        "Identity":"12345678912",
-        "IdentityType":"cpf"
-    },
-    "Payment":
-    {
-        "Type":"CreditCard",
-        "Amount":15700,
-        "Installments":1,
-        "Authenticate":true,
-        "SoftDescriptor":"123456789ABCD",
-        "ReturnUrl":"https://www.cielo.com.br",
-        "CreditCard":
-        {
-            "CardNumber":"1234123412341231",
-            "Holder":"Teste Holder",
-            "ExpirationDate":"12/2030",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-        },
-        "ExternalAuthentication":
-        {
-            "Cavv":"123456789",
-            "Xid":"987654321",
-            "Eci":"5"
-        }
-    }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2014111903",
-   "Customer":{  
-      "Name":"Comprador crédito autenticação",
-      "Identity":"12345678912",
-      "IdentityType":"cpf"
-   },
-   "Payment":{  
-      "Type":"CreditCard",
-      "Amount":15700,
-      "Installments":1,
-      "Authenticate":true,
-      "ReturnUrl":"http://www.cielo.com.br",
-      "SoftDescriptor":"123456789ABCD",
-      "CreditCard":{  
-         "CardNumber":"4551870000000183",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-      },
-      "ExternalAuthentication":{
-         "Cavv":"123456789",
-         "Xid":"987654321",
-         "Eci":"5"
-      }
-   }
-}
---verbose
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
-|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`Payment.Authenticate`|Booleano|---|Não (Default false)|Indica se a transação deve ser autenticada (true) ou não (false). Mesmo para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor “True”, e no nó ExternalAuthentication deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI).|
-|`Payment.ExternalAuthentication.Cavv`|Texto|28|Sim|O valor Cavv é retornado pelo mecanismo de autenticação.|
-|`Payment.ExternalAuthentication.Xid`|Texto|28|Sim|O valor Xid é retornado pelo mecanismo de autenticação.|
-|`Payment.ExternalAuthentication.Eci`|Número|1|Sim|O valor Eci é retornado pelo mecanismo de autenticação.|
-|`CreditCard.CardNumber.`|Texto|19|Sim|Número do Cartão do Comprador|
-|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-
-### Resposta
-
-```json
-{
-    "MerchantOrderId":"2014111903",
-    "Customer":
-    {
-        "Name":"Comprador crédito autenticação",
-        "Identity":"12345678912",
-        "IdentityType":"cpf"
-    },
-    "Payment":
-    {
-        "ServiceTaxAmount":0,
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":false,
-        "Authenticate":true,
-        "CreditCard":
-        {
-            "CardNumber":"123412******1112",
-            "Holder":"Teste Holder",
-            "ExpirationDate":"12/2030",
-            "SaveCard":false,
-            "Brand":"Visa"
-        },
-        "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
-        "Tid": "1006993069257E521001",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-        "Type":"CreditCard",
-        "Amount":15700,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "ExtraDataCollection":[],
-        "Status":0,
-        "ReturnCode":"0",
-        "ReturnMessage":"Transacao autorizada"
-        "ExternalAuthentication":
-        {  
-            "Cavv":"123456789",
-            "Xid":"987654321",
-            "Eci":"5"
-        },
-        "Links":
-        [
-            {
-                "Method":"GET",
-                "Rel":"self",
-                "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId":"2014111903",
-    "Customer":
-    {
-        "Name":"Comprador crédito autenticação",
-        "Identity":"12345678912",
-        "IdentityType":"cpf"
-    },
-    "Payment":
-    {
-        "ServiceTaxAmount":0,
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":false,
-        "Authenticate":true,
-        "CreditCard":
-        {
-            "CardNumber":"123412******1112",
-            "Holder":"Teste Holder",
-            "ExpirationDate":"12/2030",
-            "SaveCard":false,
-            "Brand":"Visa"
-        },
-        "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
-        "Tid": "1006993069257E521001",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-        "Type":"CreditCard",
-        "Amount":15700,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "ExtraDataCollection":[],
-        "Status":0,
-        "ReturnCode": "0",
-        "ReturnMessage":"Transacao autorizada",
-        "ExternalAuthentication":
-        {  
-            "Cavv":"123456789",
-            "Xid":"987654321",
-            "Eci":"5"
-        },
-        "Links":
-        [
-            {
-                "Method":"GET",
-                "Rel":"self",
-                "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
-|`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
 
 # Análise de Fraude (AF)
 
@@ -8963,4 +8965,3 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |24|PaymentMethodIsNotEnabled|
 |98|InvalidRequest|
 |99|InternalError|
- 
