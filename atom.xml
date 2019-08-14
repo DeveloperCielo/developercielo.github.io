@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-08-14T17:38:47+00:00</updated>
+    <updated>2019-08-14T18:40:26+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6056,7 +6056,7 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
 
 &lt;p&gt;&lt;strong&gt;- Visa:&lt;/strong&gt; a bandeira não possui modelo de Stand-In e apenas Emissores 100% prontos com solução própria estão aptos a responder um pedido de autenticação usando EMV 3DS 2.0.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt;Emissores já prontos com solução própria de 3DS 2.0 Visa: Caixa (Crédito – atualmente com autenticação silenciosa, sem desafio), Santander (Débito e Crédito) e Itaú (Crédito – atualmente com autenticação silenciosa, sem desafio).&lt;/aside&gt;
+&lt;aside class=&quot;notice&quot;&gt;Emissores já prontos com solução própria de 3DS 2.0 Visa: Caixa (Crédito – atualmente com autenticação silenciosa, sem desafio), Santander (Débito e Crédito), Itaú (Crédito – atualmente com autenticação silenciosa, sem desafio), Porto Seguro (Crédito), Banco Neon (Crédito) e Midway (Crédito).&lt;/aside&gt;
 
 &lt;h2 id=&quot;o-que-é-o-data-only--somente-notificação&quot;&gt;O que é o Data Only – Somente Notificação&lt;/h2&gt;
 
@@ -6401,8 +6401,7 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
       &lt;th&gt;&lt;strong&gt;Dados de Parametrização&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
       &lt;th&gt;&lt;strong&gt;Tipo/Tamanho&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Obrigatório para autenticação com desafio&lt;/strong&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;strong&gt;Obrigatório para autenticação silenciosa (sem desafio)&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Obrigatório&lt;/strong&gt;&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
@@ -6411,13 +6410,11 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
       &lt;td&gt;Booleano que indica se a transação é submetida o não para o processo de autenticação&lt;/td&gt;
       &lt;td&gt;Booleano: &lt;br /&gt;true – submeter à autenticação; &lt;br /&gt;false – não submeter à autenticação&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_auth_notifyonly&lt;/td&gt;
       &lt;td&gt;Booleano que indica se a transação com cartão será submetida no modo “somente notificação”. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. &lt;strong&gt;VÁLIDO SOMENTE PARA CARTÕES MASTERCARD&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;Booleano: &lt;br /&gt;true – modo somente notificação; &lt;br /&gt;false – modo com autenticação&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -6425,13 +6422,11 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
       &lt;td&gt;Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.&lt;/td&gt;
       &lt;td&gt;Booleano: &lt;br /&gt;true – ignorar desafios se houver; &lt;br /&gt;false – apresentar desafio se houver&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;bpmpi_accesstoken&lt;/td&gt;
       &lt;td&gt;Token gerado pela API de Token de Acesso (etapa 1)&lt;/td&gt;
       &lt;td&gt;Alfanumérico [varivável]&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;

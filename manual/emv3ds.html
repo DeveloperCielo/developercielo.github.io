@@ -173,7 +173,7 @@
 
 <p><strong>- Visa:</strong> a bandeira não possui modelo de Stand-In e apenas Emissores 100% prontos com solução própria estão aptos a responder um pedido de autenticação usando EMV 3DS 2.0.</p>
 
-<aside class="notice">Emissores já prontos com solução própria de 3DS 2.0 Visa: Caixa (Crédito – atualmente com autenticação silenciosa, sem desafio), Santander (Débito e Crédito) e Itaú (Crédito – atualmente com autenticação silenciosa, sem desafio).</aside>
+<aside class="notice">Emissores já prontos com solução própria de 3DS 2.0 Visa: Caixa (Crédito – atualmente com autenticação silenciosa, sem desafio), Santander (Débito e Crédito), Itaú (Crédito – atualmente com autenticação silenciosa, sem desafio), Porto Seguro (Crédito), Banco Neon (Crédito) e Midway (Crédito).</aside>
 
 <h2 id="o-que-é-o-data-only--somente-notificação">O que é o Data Only – Somente Notificação</h2>
 
@@ -518,8 +518,7 @@
       <th><strong>Dados de Parametrização</strong></th>
       <th><strong>Descrição</strong></th>
       <th><strong>Tipo/Tamanho</strong></th>
-      <th><strong>Obrigatório para autenticação com desafio</strong></th>
-      <th><strong>Obrigatório para autenticação silenciosa (sem desafio)</strong></th>
+      <th><strong>Obrigatório</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -528,13 +527,11 @@
       <td>Booleano que indica se a transação é submetida o não para o processo de autenticação</td>
       <td>Booleano: <br />true – submeter à autenticação; <br />false – não submeter à autenticação</td>
       <td>Sim</td>
-      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_auth_notifyonly</td>
       <td>Booleano que indica se a transação com cartão será submetida no modo “somente notificação”. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. <strong>VÁLIDO SOMENTE PARA CARTÕES MASTERCARD</strong></td>
       <td>Booleano: <br />true – modo somente notificação; <br />false – modo com autenticação</td>
-      <td>Sim</td>
       <td>Sim</td>
     </tr>
     <tr>
@@ -542,13 +539,11 @@
       <td>Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.</td>
       <td>Booleano: <br />true – ignorar desafios se houver; <br />false – apresentar desafio se houver</td>
       <td>Sim</td>
-      <td>Sim</td>
     </tr>
     <tr>
       <td>bpmpi_accesstoken</td>
       <td>Token gerado pela API de Token de Acesso (etapa 1)</td>
       <td>Alfanumérico [varivável]</td>
-      <td>Sim</td>
       <td>Sim</td>
     </tr>
   </tbody>
