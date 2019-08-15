@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-08-15T12:29:48+00:00</updated>
+    <updated>2019-08-15T13:22:16+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25410,7 +25410,7 @@ Below we specify any existing differences:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;Internal MPI: service already integrated with 3DS Cielo solution, without the need for additional integration and/or hiring. In case of using the Internal MPI for 3DS 1.0 go to the step “[Default Transaction] (inserir link)”.&lt;/p&gt;
+    &lt;p&gt;Internal MPI: service already integrated with 3DS Cielo solution, without the need for additional integration and/or hiring. In case of using the Internal MPI for 3DS 1.0 go to the step “&lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#default-transaction&quot;&gt;Default Transaction&lt;/a&gt;”.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;External MPI: service hired by the merchant, without the interference from Cielo. It is very used when the merchant already has a contracted MPI supplier. In case of using the external MPI for the 3DS 1.0, follow the next step “External Authentication 3DS 1.0”.&lt;/p&gt;
@@ -32655,7 +32655,7 @@ It is possible to carry out both the total cancellation and the partial cancella
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;In all instances, the scheduled recurrence is a standard transaction for Cielo, its only difference being the need to send an additional parameter that defines it as &lt;strong&gt;Own Recurrence&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as &lt;strong&gt;Own Recurrence&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Parameter:&lt;/strong&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;= &lt;code class=&quot;highlighter-rouge&quot;&gt;True&lt;/code&gt;&lt;/p&gt;
 
