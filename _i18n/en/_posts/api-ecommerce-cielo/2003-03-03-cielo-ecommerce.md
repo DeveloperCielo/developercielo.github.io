@@ -1151,7 +1151,7 @@ Recently, the new version of 3DS 2.0 was release by the brands in the market, al
 
 Merchant plug-in, known as MPI, is a service that allows to perform the authentication call, integrated and certificated with brands for the 3DS authentication processing. Cielo allows the merchant to integrate to the 3DS 1.0 or 2.0 through Internal MPI or External MPI.
 
-* Internal MPI: service already integrated with 3DS Cielo solution, without the need for additional integration and/or hiring. In case of using the Internal MPI for 3DS 1.0 go to the step “[Default Transaction] (inserir link)”.
+* Internal MPI: service already integrated with 3DS Cielo solution, without the need for additional integration and/or hiring. In case of using the Internal MPI for 3DS 1.0 go to the step “[Default Transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#default-transaction)”.
 
 * External MPI: service hired by the merchant, without the interference from Cielo. It is very used when the merchant already has a contracted MPI supplier. In case of using the external MPI for the 3DS 1.0, follow the next step “External Authentication 3DS 1.0”.
 
@@ -4510,7 +4510,7 @@ In this model, the merchant is responsible for creating the necessary intelligen
 |**Create transactional repetition**|The store must sent a new transaction whenever it needs an Authorization|
 |**Behavior for declined transaction**|If one of the transactions is declined, it will be up to the store to "retry" a new authorization|
 
-In all instances, the scheduled recurrence is a standard transaction for Cielo, its only difference being the need to send an additional parameter that defines it as **Own Recurrence**
+In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as **Own Recurrence**
 
 **Parameter:** `Payment.Recurrent`= `True`
 
