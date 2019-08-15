@@ -1139,25 +1139,25 @@ This payment method is automatically released along to the Cielo's affiliation a
 
 ### Debit Authentication - 3DS 1.0
 
-Por regra de mercado, todas as transações online realizadas com cartão de débito devem ser autenticadas através de um protocolo chamado 3DS, obrigatoriamente. Atualmente existem 2 versões: 3DS 1.0 e 3DS 2.0.
+As a market rule, all the online debit card transactions must be authenticated through a protocol called 3DS, obligatorily. Currently, there are 2 versions: 3DS 1.0 and 3DS 2.0.
 
-Na versão 1, o portador será direcionado para o ambiente bancário, onde será desafiado pelo emissor do cartão, digitando a sua senha e concluindo a autenticação. Essa versão não é compatível com dispositivos mobile e ocorrerá desafio em 100% dos casos. Existe a possibilidade de não autenticar transações de débito no e-Commerce, o que é conhecido como “Débito sem Senha”, porém, cabe aos Bancos Emissores do cartão aprovarem tal modelo, pois **não é uma permissão concedida pela Cielo.**
+In the version 1, the carrier will be directed to the banking environment, where it will be challenged by the card issuer, typing the password and completing the authentication. This version is not compatible with mobile devices and the challenge will happen in 100% of the cases. There is the possibility of not authenticating debit transactions in e-Commerce, which is known as "Debt without password", however, it is up to the card issuing banks to approve this model, because **the permission is not granted by Cielo**.
 
-A autenticação é um processo que é mandatório para transações de débito no eCommerce, porém, é possível utilizá-la também para transações de crédito. Fica à critério do lojista autenticar transações de crédito no e-Commerce.
+Authentication is a process that is mandatory for eCommerce debit transactions, but, it can also be used for credit transactions. It's up to the merchant to authenticate credit transactions in e-Commerce.
 
-Recentemente, houve o lançamento da nova versão do 3DS 2.0 pelas bandeiras no mercado, permitindo a Cielo e emissores o desenvolvimento dessa solução, que já está disponível para integração. A tendência é que cada vez mais seja utilizada, considerando as suas diversas melhorias e benefícios. Para conhecer o 3DS 2.0, acesse [https://developercielo.github.io/en/manual/emv3ds](https://developercielo.github.io/en/manual/emv3ds).
+Recently, the new version of 3DS 2.0 was release by the brands in the market, allowing Cielo and issuers to develop this solution, that is already available for integration. The tendency is to be increasingly used, considering its many improvements and benefits. To learn about 3DS 2.0, access [https://developercielo.github.io/en/manual/emv3ds](https://developercielo.github.io/en/manual/emv3ds).
 
 #### MPI – Merchant Plug-in
 
-O Merchant plug-in, conhecido por MPI, é um serviço que permite a realização da chamada de autenticação, integrado e certificado com bandeiras para processamento de autenticação de 3DS. A Cielo permite ao lojista a integração do 3DS 1.0 ou 2.0 através do MPI Interno ou do MPI Externo.
+Merchant plug-in, known as MPI, is a service that allows to perform the authentication call, integrated and certificated with brands for the 3DS authentication processing. Cielo allows the merchant to integrate to the 3DS 1.0 or 2.0 through Internal MPI or External MPI.
 
-* MPI Interno: serviço já integrado a solução de 3DS Cielo, sem necessidade de integração e/ou contratação adicional. Em caso de utilização de MPI Interno para o 3DS 1.0 siga para a etapa "[Transação Padrão](https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-padr%C3%A3o)"
+* Internal MPI: service already integrated with 3DS Cielo solution, without the need for additional integration and/or hiring. In case of using the Internal MPI for 3DS 1.0 go to the step “[Default Transaction] (inserir link)”.
 
-* MPI Externo: serviço contratado pelo lojista, sem interferência da Cielo. Muito utilizado quando o lojista já possui um fornecedor de MPI contratado. Em caso de utilização de MPI Externo para o 3DS 1.0, siga a próxima etapa “Autenticação Externa 3DS 1.0”
+* External MPI: service hired by the merchant, without the interference from Cielo. It is very used when the merchant already has a contracted MPI supplier. In case of using the external MPI for the 3DS 1.0, follow the next step “External Authentication 3DS 1.0”.
 
-#### Autenticação Externa – MPI 3DS 1.0
+#### External Authentication - MPI 3DS 1.0
 
-Considerando a escolha por autenticar com 3DS 1.0 utilizando um serviço/fornecedor de MPI contratado (MPI Externo), a Cielo está preparada para receber essas informações na autorização.
+Considering the choice to authenticate with 3DS 1.0 using a contracted MPI service/provider(External MPI), Cielo is prepared to receive this information in authorization.
 
 ##### Creating a sale with external authentication
 
@@ -1389,7 +1389,7 @@ characters|Text|13|Alphanumeric text|
 |`ReturnCode`|CReturn code of Acquiring.|Text|32|Alphanumeric texto|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
 
-### Standard Transaction
+### Default Transaction
 
 To create a sale that will use a debit card, you must do a POST for the Payment resource as example.
 
