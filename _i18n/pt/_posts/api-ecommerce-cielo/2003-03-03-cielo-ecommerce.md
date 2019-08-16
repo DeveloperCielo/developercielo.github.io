@@ -2608,7 +2608,7 @@ O **cancelamento** é a operação responsável pela cancelamento total ou parci
 
 Basta realizar um `POST` enviando o valor a ser cancelado.
 
-<aside class="notice"><strong>Atenção:</strong> Cancelamento parcial é disponível apenas para transações de crédito *CAPTURADAS*</aside>
+<aside class="notice"><strong>Atenção:</strong> Cancelamento parcial é disponível apenas para transações *CAPTURADAS*</aside>
 
 <aside class="notice"><strong>Atenção:</strong> O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
 
@@ -3475,7 +3475,7 @@ O **cancelamento  parcial** é o ato de cancelar um valor menor que o valor tota
 
  Basta realizar um `POST` enviando o valor a ser cancelado.
 
-<aside class="notice"><strong>Atenção:</strong> Cancelamento parcial disponível apenas para transações de crédito *CAPTURADAS*</aside>
+<aside class="notice"><strong>Atenção:</strong> Cancelamento parcial disponível apenas para transações *CAPTURADAS*</aside>
 
 <aside class="notice"><strong>Atenção:</strong> O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
 
