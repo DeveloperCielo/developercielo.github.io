@@ -686,9 +686,9 @@ curl
          }
      },
      "IsCryptoCurrencyNegotiation": true,
-	 "Type":"CreditCard",
+     "Type":"CreditCard",
      "Amount":15700,
-	 "AirlineData":{
+     "AirlineData":{
          "TicketNumber":"AR988983"
      }
    }
@@ -802,8 +802,8 @@ curl
         "Amount": 15700,
         "CapturedAmount": 15700,
         "Country": "BRA",
-		"AirlineData": {
-          "TicketNumber": "AR988983"
+        "AirlineData":{
+            "TicketNumber": "AR988983"
 		},
         "ExtraDataCollection": [],
         "Status": 2,
