@@ -510,6 +510,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
     <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
     <span class="nt">&lt;taxa-embarque/&gt;</span>
     <span class="nt">&lt;soft-descriptor/&gt;</span>
+    <span class="nt">&lt;numero-bilhete&gt;</span>123456<span class="nt">&lt;/numero-bilhete&gt;</span>
   <span class="nt">&lt;/dados-pedido&gt;</span>
   <span class="nt">&lt;forma-pagamento&gt;</span>
     <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
@@ -782,6 +783,13 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
       <td>Opcional</td>
       <td>0..13</td>
       <td>Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.</td>
+    </tr>
+    <tr>
+      <td>numero-bilhete</td>
+      <td>Alfanumérico</td>
+      <td>Não</td>
+      <td>13</td>
+      <td>Informar o número do principal bilhete aéreo da transação.</td>
     </tr>
   </tbody>
 </table>

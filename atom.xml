@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-08-16T18:12:25+00:00</updated>
+    <updated>2019-08-16T18:25:55+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14686,6 +14686,7 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque/&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero-bilhete&amp;gt;&lt;/span&gt;123456&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero-bilhete&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
@@ -14958,6 +14959,13 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
       &lt;td&gt;Opcional&lt;/td&gt;
       &lt;td&gt;0..13&lt;/td&gt;
       &lt;td&gt;Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;numero-bilhete&lt;/td&gt;
+      &lt;td&gt;Alfanumérico&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;13&lt;/td&gt;
+      &lt;td&gt;Informar o número do principal bilhete aéreo da transação.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
