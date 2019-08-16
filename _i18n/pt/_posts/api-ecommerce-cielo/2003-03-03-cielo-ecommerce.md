@@ -601,8 +601,6 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
         }
    },
    "Payment":{  
-     "Type":"CreditCard",
-     "Amount":15700,
      "Currency":"BRL",
      "Country":"BRA",
      "ServiceTaxAmount":0,
@@ -623,7 +621,12 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
             "Reason":"Unscheduled"
          }
      },
-     "IsCryptoCurrencyNegotiation": true
+     "IsCryptoCurrencyNegotiation": true,
+	 "Type":"CreditCard",
+     "Amount":15700,
+	 "AirlineData":{
+         "TicketNumber":"AR988983"
+     }
    }
 }
 ```
@@ -664,8 +667,6 @@ curl
         }
    },
    "Payment":{  
-     "Type":"CreditCard",
-     "Amount":15700,
      "ServiceTaxAmount":0,
      "Installments":1,
      "Interest":"ByMerchant",
@@ -684,7 +685,12 @@ curl
             "Reason":"Unscheduled"
          }
      },
-     "IsCryptoCurrencyNegotiation": true
+     "IsCryptoCurrencyNegotiation": true,
+	 "Type":"CreditCard",
+     "Amount":15700,
+	 "AirlineData":{
+         "TicketNumber":"AR988983"
+     }
    }
 }
 --verbose
@@ -728,6 +734,7 @@ curl
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
 |`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
 |`Payment.IsCryptocurrencyNegotiation`|Booleano|-|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|
+|`Payment.TicketNumber`|alfanumérico|13|Não|Informar o número do principal bilhete aéreo da transação.|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
@@ -795,6 +802,9 @@ curl
         "Amount": 15700,
         "CapturedAmount": 15700,
         "Country": "BRA",
+		"AirlineData": {
+          "TicketNumber": "AR988983"
+		},
         "ExtraDataCollection": [],
         "Status": 2,
         "ReturnCode": "6",
