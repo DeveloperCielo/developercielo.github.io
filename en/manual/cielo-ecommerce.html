@@ -1217,8 +1217,6 @@ Below we specify any existing differences:</p>
         </span><span class="p">}</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">  
-     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -1239,7 +1237,12 @@ Below we specify any existing differences:</p>
             </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
      </span><span class="p">},</span><span class="w">
-     </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+     </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"AirlineData"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"TicketNumber"</span><span class="p">:</span><span class="s2">"AR988983"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1279,8 +1282,6 @@ Below we specify any existing differences:</p>
         <span class="o">}</span>
    <span class="o">}</span>,
    <span class="s2">"Payment"</span>:<span class="o">{</span>  
-     <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-     <span class="s2">"Amount"</span>:15700,
      <span class="s2">"ServiceTaxAmount"</span>:0,
      <span class="s2">"Installments"</span>:1,
      <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
@@ -1299,7 +1300,12 @@ Below we specify any existing differences:</p>
             <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
      <span class="o">}</span>,
-     <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>
+     <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
+     <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
+     <span class="s2">"Amount"</span>:15700,
+     <span class="s2">"AirlineData"</span>:<span class="o">{</span>
+         <span class="s2">"TicketNumber"</span>:<span class="s2">"AR988983"</span>
+     <span class="o">}</span>
    <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -1569,6 +1575,13 @@ Below we specify any existing differences:</p>
       <td>Send true if the transaction refers to the sell of the cryptocurrency</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">Payment.TicketNumber</code></td>
+      <td>alphanumeric</td>
+      <td>13</td>
+      <td>No</td>
+      <td>Enter the primary airline ticket number of the transaction.</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
       <td>Text</td>
       <td>19</td>
@@ -1684,6 +1697,9 @@ Below we specify any existing differences:</p>
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
         </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AirlineData"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"TicketNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AR988983"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nl">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
         </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
