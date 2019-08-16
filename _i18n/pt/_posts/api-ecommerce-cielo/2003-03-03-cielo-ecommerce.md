@@ -622,9 +622,9 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
          }
      },
      "IsCryptoCurrencyNegotiation": true,
-	 "Type":"CreditCard",
+     "Type":"CreditCard",
      "Amount":15700,
-	 "AirlineData":{
+     "AirlineData":{
          "TicketNumber":"AR988983"
      }
    }
