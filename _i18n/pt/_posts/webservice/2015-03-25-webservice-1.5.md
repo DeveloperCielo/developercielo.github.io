@@ -312,6 +312,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
     <idioma>PT</idioma>
     <taxa-embarque/>
     <soft-descriptor/>
+    <numero-bilhete>123456</numero-bilhete>
   </dados-pedido>
   <forma-pagamento>
     <bandeira>visa</bandeira>
@@ -387,6 +388,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 |idioma|Alfanumérico|Opcional|2|Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. **Caso não seja enviado, o sistema assumirá “PT”**.|
 |taxa-embarque|Numérico|Opcional|1..9|Montante do valor da autorização que deve ser destinado à taxa de embarque.|
 |soft-descriptor|Alfanumérico|Opcional|0..13|Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.|
+|numero-bilhete|Alfanumérico|Não|13|Informar o número do principal bilhete aéreo da transação.|
 
 <aside class="notice">O cadastro do cliente está habilitado para transacionar apenas com a moeda REAL, caso necessite de mais informações, contate a central de relacionamento, seu gerente comercial ou o Suporte Web Cielo eCommerce.</aside>
 
