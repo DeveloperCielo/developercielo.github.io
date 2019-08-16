@@ -601,8 +601,6 @@ To create a transaction that will use a credit card, it is necessary to send a r
         }
    },
    "Payment":{  
-     "Type":"CreditCard",
-     "Amount":15700,
      "Currency":"BRL",
      "Country":"BRA",
      "ServiceTaxAmount":0,
@@ -623,7 +621,12 @@ To create a transaction that will use a credit card, it is necessary to send a r
             "Reason": "Unscheduled"
          }
      },
-     "IsCryptoCurrencyNegotiation": true
+     "IsCryptoCurrencyNegotiation": true,
+     "Type":"CreditCard",
+     "Amount":15700,
+     "AirlineData":{
+         "TicketNumber":"AR988983"
+     }
    }
 }
 ```
@@ -664,8 +667,6 @@ curl
         }
    },
    "Payment":{  
-     "Type":"CreditCard",
-     "Amount":15700,
      "ServiceTaxAmount":0,
      "Installments":1,
      "Interest":"ByMerchant",
@@ -684,7 +685,12 @@ curl
             "Reason": "Unscheduled"
          }
      },
-     "IsCryptoCurrencyNegotiation": true
+     "IsCryptoCurrencyNegotiation": true,
+     "Type":"CreditCard",
+     "Amount":15700,
+     "AirlineData":{
+         "TicketNumber":"AR988983"
+     }
    }
 }
 --verbose
@@ -728,6 +734,7 @@ curl
 |`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
 |`Payment.Authenticate`|Booleano|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
 |`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
+|`Payment.TicketNumber`|alphanumeric|13|No|Enter the primary airline ticket number of the transaction.|
 |`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
@@ -795,6 +802,9 @@ curl
         "Amount": 15700,
         "CapturedAmount": 15700,
         "Country": "BRA",
+        "AirlineData":{
+            "TicketNumber": "AR988983"
+        },
         "ExtraDataCollection": [],
         "Status": 2,
         "ReturnCode": "6",
