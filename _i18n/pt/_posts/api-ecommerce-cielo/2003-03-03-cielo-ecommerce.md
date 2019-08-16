@@ -804,7 +804,7 @@ curl
         "Country": "BRA",
         "AirlineData":{
             "TicketNumber": "AR988983"
-		},
+        },
         "ExtraDataCollection": [],
         "Status": 2,
         "ReturnCode": "6",
