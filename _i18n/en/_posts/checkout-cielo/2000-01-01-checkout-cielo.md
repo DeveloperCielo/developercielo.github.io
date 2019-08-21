@@ -1437,8 +1437,8 @@ Just register the product, including a billing interval and a closing date (Opti
 
 If one of the recurrence transactions is not authorized, Checkout Cielo performs the retry automatically, sending a new transaction, considering:
 
-* **Time interval between attempts:** 1 day
-* **Number of retries:** 3 (three), one per day, for 3 consecutive days from the day following the unauthorized original transaction.
+* **Time interval between attempts:** 3 days
+* **Number of retries:** 4 (four), one per day, for 4 consecutive days from the day following the unauthorized original transaction.
 
 **NOTE**: This process aims to maintain a positive response to the authorization process, preventing the merchant from losing the sale. The Retry Process generates duplicate orders within the Backoffice because the original order, the one declined, will be displayed in the Orders list, along with the new authorized transaction
 
