@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-08-16T18:36:00+00:00</updated>
+    <updated>2019-08-21T21:49:21+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -49729,8 +49729,8 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 &lt;p&gt;Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Intervalo de tempo entre as tentativas:&lt;/strong&gt; 1 dia&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Quantidade de retentativas:&lt;/strong&gt; 3 (três), uma por dia, por 3 dias corridos a partir do dia seguinte da transação original não autorizada.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Intervalo de tempo entre as tentativas:&lt;/strong&gt; 4 dias&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Quantidade de retentativas:&lt;/strong&gt; 4 (quatro), uma por dia, por 4 dias corridos a partir do dia seguinte da transação original não autorizada.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;OBS&lt;/strong&gt;: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada&lt;/p&gt;
