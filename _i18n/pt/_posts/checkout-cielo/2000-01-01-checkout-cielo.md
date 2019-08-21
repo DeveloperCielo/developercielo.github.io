@@ -1423,8 +1423,8 @@ Basta cadastrar o produto, incluindo um intervalo de cobrança e uma data para e
 
 Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:
 
-* **Intervalo de tempo entre as tentativas:** 1 dia
-* **Quantidade de retentativas:** 3 (três), uma por dia, por 3 dias corridos a partir do dia seguinte da transação original não autorizada.
+* **Intervalo de tempo entre as tentativas:** 4 dias
+* **Quantidade de retentativas:** 4 (quatro), uma por dia, por 4 dias corridos a partir do dia seguinte da transação original não autorizada.
 
 **OBS**: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada
 
