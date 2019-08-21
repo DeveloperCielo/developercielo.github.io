@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-08-21T21:49:27+00:00</updated>
+    <updated>2019-08-21T21:52:29+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -52458,8 +52458,8 @@ If there is a recurrence node in the technical contract, the &lt;code class=&quo
 &lt;p&gt;If one of the recurrence transactions is not authorized, Checkout Cielo performs the retry automatically, sending a new transaction, considering:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Time interval between attempts:&lt;/strong&gt; 1 day&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Number of retries:&lt;/strong&gt; 3 (three), one per day, for 3 consecutive days from the day following the unauthorized original transaction.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Time interval between attempts:&lt;/strong&gt; 3 days&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Number of retries:&lt;/strong&gt; 4 (four), one per day, for 4 consecutive days from the day following the unauthorized original transaction.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: This process aims to maintain a positive response to the authorization process, preventing the merchant from losing the sale. The Retry Process generates duplicate orders within the Backoffice because the original order, the one declined, will be displayed in the Orders list, along with the new authorized transaction&lt;/p&gt;
