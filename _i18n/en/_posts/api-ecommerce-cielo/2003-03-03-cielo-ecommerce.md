@@ -734,7 +734,7 @@ curl
 |`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
 |`Payment.Authenticate`|Booleano|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
 |`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
-|`Payment.TicketNumber`|alphanumeric|13|No|Enter the primary airline ticket number of the transaction.|
+|`Payment.AirlineData.TicketNumber`|alphanumeric|13|No|Enter the primary airline ticket number of the transaction.|
 |`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
