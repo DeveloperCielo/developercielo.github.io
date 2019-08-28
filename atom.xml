@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-08-21T21:56:28+00:00</updated>
+    <updated>2019-08-28T14:16:54+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -22954,7 +22954,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.TicketNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.AirlineData.TicketNumber&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;alfanumérico&lt;/td&gt;
       &lt;td&gt;13&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
