@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-08-28T17:57:47+00:00</updated>
+    <updated>2019-08-28T18:31:50+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8874,13 +8874,74 @@ is valid for all the eCommerce transactions, whether it is debit, credit or prep
 &lt;p&gt;In order to send transactions with request for 3DS 2.0 authentication, it is important that, besides Cielo, the issuer and the card brand are ready with the solution. 
 Currently are available:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;- Mastercard:&lt;/strong&gt; the brand has a Stand-In model, in case that the issuer is not able yet to respond an authenticated request using 3DS 2.0 EMV. In this scenario, Mastercard evaluates the uploaded data, for example the client’s historical behavioral and transactional classifying authentication requests as “Low Risk” and “No Low Risk” in Stand-In mode. With this information, the Issuers have a protection even if they do not have their own solution of 3DS 2.0, and will have greater confidence in authenticated transactions. In Stand-In cases, Mastercard will respond to the authentication in 100% of cases silently (no challenge to the carrier) and, once the transaction has been authenticated, the liability in case of fraud will remain with the Issuer.&lt;/p&gt;
-
-&lt;aside class=&quot;notice&quot;&gt;Issuers that are ready with its own solution of 3DS 2.0 Mastercard: Santander (Debit and Credit), PagSeguro (Credit), C6 (Debit and Credit), Realize (Credit), Itaú (Credit) and Acesso (Credit). The rest of the issuers will work,  for the time being, with the Mastercard Stand-In solution.&lt;/aside&gt;
+&lt;p&gt;&lt;strong&gt;- Mastercard:&lt;/strong&gt; the brand has a Stand-In model, in case that the issuer is not able yet to respond an authenticated request using 3DS 2.0 EMV. In this scenario, Mastercard evaluates the uploaded data, for example the client’s historical behavioral and transactional classifying authentication requests as “Low Risk” and “No Low Risk” in Stand-In mode. With this information, the Issuers have a protection even if they do not have their own solution of 3DS 2.0, and will have greater confidence in authenticated transactions. In Stand-In cases, Mastercard will respond to the authentication in 100% of cases silently (no challenge to the carrier) and, once the transaction has been authenticated, the liability in case of fraud will remain with the Issuer. The decision to authorize the transaction or not is to the Issuer.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;- Visa:&lt;/strong&gt; the card brand does not has a Stand-In model and just issuers 100% ready with its own solution are able to respond to an authenticated request using the 3DS 2.0 EMV.&lt;/p&gt;
 
-&lt;aside class=&quot;notice&quot;&gt; Issuers that are ready with its own solution of 3DS 2.0 Visa: Caixa (Credit – currently with silent authentication, no challenge), Santander (Debit and Credit), Itaú (Credit – currently with silent authentication, no challenge), Porto Seguro (Credit), Banco Neon (Credit) and Midway (Credit).&lt;/aside&gt;
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;CARDS BRANDS&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;ISSUE BANK&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;MASTERCARD&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;VISA&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Caixa Econômica&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Santander&lt;/td&gt;
+      &lt;td&gt;Credit/Debit&lt;/td&gt;
+      &lt;td&gt;Credit/Debit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Itaú&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Midway&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PagSeguro&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Acesso&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Banco Neon&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Realize&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;C6&lt;/td&gt;
+      &lt;td&gt;Credit/Debit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Porto Seguro&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;what-is-the-data-only---notification-only&quot;&gt;What is the Data Only - Notification Only&lt;/h2&gt;
 
