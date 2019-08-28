@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-08-28T14:17:00+00:00</updated>
+    <updated>2019-08-28T14:20:05+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24655,7 +24655,7 @@ Below we specify any existing differences:&lt;/p&gt;
       &lt;td&gt;Send true if the transaction refers to the sell of the cryptocurrency&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.TicketNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.AirlineData.TicketNumber&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;alphanumeric&lt;/td&gt;
       &lt;td&gt;13&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
