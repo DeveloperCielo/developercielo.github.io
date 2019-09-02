@@ -494,14 +494,13 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
 
 <p>Exemplo de código Java para criptografar o número do cartão usando uma  public key:</p>
 
-<p>’
-import java.security.PublicKey;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.security.PublicKey;
 import java.util.Base64;
 import javax.crypto.Cipher;
 public class EncriptCard {
 public String encript(PublicKey key, String cardNumber) {
 try {
-Cipher cipher = Cipher.getInstance(“RSA”);
+Cipher cipher = Cipher.getInstance("RSA");
 cipher.init(Cipher.ENCRYPT_MODE, key);
 byte[] encryptedBytes =
 cipher.doFinal(cardNumber.getBytes());
@@ -513,7 +512,7 @@ throw new RuntimeException(e);
 }
 }
 }
-‘</p>
+</code></pre></div></div>
 
 <h1 id="códigos-da-api">Códigos da API</h1>
 

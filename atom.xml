@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-02T18:26:30+00:00</updated>
+    <updated>2019-09-02T18:30:48+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5738,14 +5738,13 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
 
 &lt;p&gt;Exemplo de código Java para criptografar o número do cartão usando uma  public key:&lt;/p&gt;
 
-&lt;p&gt;’
-import java.security.PublicKey;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.security.PublicKey;
 import java.util.Base64;
 import javax.crypto.Cipher;
 public class EncriptCard {
 public String encript(PublicKey key, String cardNumber) {
 try {
-Cipher cipher = Cipher.getInstance(“RSA”);
+Cipher cipher = Cipher.getInstance(&quot;RSA&quot;);
 cipher.init(Cipher.ENCRYPT_MODE, key);
 byte[] encryptedBytes =
 cipher.doFinal(cardNumber.getBytes());
@@ -5757,7 +5756,7 @@ throw new RuntimeException(e);
 }
 }
 }
-‘&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;códigos-da-api&quot;&gt;Códigos da API&lt;/h1&gt;
 
