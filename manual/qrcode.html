@@ -497,20 +497,21 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.security.PublicKey;
 import java.util.Base64;
 import javax.crypto.Cipher;
+
 public class EncriptCard {
-public String encript(PublicKey key, String cardNumber) {
-try {
-Cipher cipher = Cipher.getInstance("RSA");
-cipher.init(Cipher.ENCRYPT_MODE, key);
-byte[] encryptedBytes =
-cipher.doFinal(cardNumber.getBytes());
-String encryptedCard =
-Base64.getEncoder().encodeToString(encryptedBytes);
-return encryptedCard;
-} catch (Exception e) {
-throw new RuntimeException(e);
-}
-}
+    public String encript(PublicKey key, String cardNumber) {
+        try {
+            Cipher cipher = Cipher.getInstance("RSA");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            byte[] encryptedBytes =
+                cipher.doFinal(cardNumber.getBytes());
+            String encryptedCard =
+                Base64.getEncoder().encodeToString(encryptedBytes);
+            return encryptedCard;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 </code></pre></div></div>
 

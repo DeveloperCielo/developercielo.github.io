@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-02T18:30:48+00:00</updated>
+    <updated>2019-09-02T18:37:32+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5741,20 +5741,21 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.security.PublicKey;
 import java.util.Base64;
 import javax.crypto.Cipher;
+
 public class EncriptCard {
-public String encript(PublicKey key, String cardNumber) {
-try {
-Cipher cipher = Cipher.getInstance(&quot;RSA&quot;);
-cipher.init(Cipher.ENCRYPT_MODE, key);
-byte[] encryptedBytes =
-cipher.doFinal(cardNumber.getBytes());
-String encryptedCard =
-Base64.getEncoder().encodeToString(encryptedBytes);
-return encryptedCard;
-} catch (Exception e) {
-throw new RuntimeException(e);
-}
-}
+    public String encript(PublicKey key, String cardNumber) {
+        try {
+            Cipher cipher = Cipher.getInstance(&quot;RSA&quot;);
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            byte[] encryptedBytes =
+                cipher.doFinal(cardNumber.getBytes());
+            String encryptedCard =
+                Base64.getEncoder().encodeToString(encryptedBytes);
+            return encryptedCard;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
