@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-08-29T12:08:49+00:00</updated>
+    <updated>2019-09-02T17:45:14+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5733,6 +5733,12 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
   &lt;li&gt;&lt;strong&gt;Homologação&lt;/strong&gt; : &lt;strong&gt;apihom.cielo.com&lt;/strong&gt;. Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Produção&lt;/strong&gt; : &lt;strong&gt;api.cielo.com.br&lt;/strong&gt;. Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h1 id=&quot;códigos-da-api&quot;&gt;Códigos da API&lt;/h1&gt;
+
+&lt;h2 id=&quot;erros-da-api&quot;&gt;Erros da API&lt;/h2&gt;
+
+&lt;h2 id=&quot;erros-de-pagamento&quot;&gt;Erros de Pagamento&lt;/h2&gt;
 
 &lt;h1 id=&quot;dúvidas-frequentes&quot;&gt;Dúvidas Frequentes&lt;/h1&gt;
 
