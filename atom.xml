@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-02T17:57:55+00:00</updated>
+    <updated>2019-09-02T18:11:29+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6078,10 +6078,6 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
 &lt;h1 id=&quot;canal-de-suporte-a-dúvidas&quot;&gt;Canal de Suporte a Dúvidas&lt;/h1&gt;
 
 &lt;p&gt;Caso ainda tenha dúvidas deve-se abrir um chamado via &lt;a href=&quot;https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000316152&quot;&gt;Zendesk&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;para-erros-ou-problemas&quot;&gt;Para Erros ou Problemas&lt;/h1&gt;
-
-&lt;p&gt;Utilize o canal &lt;a href=&quot;https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000316172&quot;&gt;Zendesk&lt;/a&gt;.&lt;/p&gt;
 </content>
     </entry>
     
