@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-02T18:52:14+00:00</updated>
+    <updated>2019-09-02T18:57:19+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5495,6 +5495,8 @@ curl --request GET \
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT12KMuYsxImzwe9aGX8XXvzEF60E600ZjdvmYU64UnZKgfbttwNi+Tl7ZcB2cnS/oJMrfA0AbRHukJnL/fFsziHOjv0A1xRcE70ZbJRkob5A5s4GenF+jv/xCTOoIetFimZHZDiPPFux2NyrL3ZqSs7F4XJZvo2zPfCVlAcnEbVf+8vWX3goP2TEuAqZtBT543wIDAQAB+dqSzZSqZolYU1sjV7s8FzsjZYqo+AjM8BMuPlMoPEuBqgRFm4fSRIpeJIr0G9FokSU3X6MAZTvC7n3YePHFsFmGxPTrKpEFrp8s28f1qMP5suTsA
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;criptografia&quot;&gt;Criptografia&lt;/h3&gt;
 
 &lt;h3 id=&quot;payments&quot;&gt;Payments&lt;/h3&gt;
 
