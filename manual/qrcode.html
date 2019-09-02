@@ -490,6 +490,31 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
   <li><strong>Produção</strong> : <strong>api.cielo.com.br</strong>. Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.</li>
 </ul>
 
+<h1 id="criptografia">Criptografia</h1>
+
+<p>Exemplo de código Java para criptografar o número do cartão usando uma  public key:</p>
+
+<p>’
+import java.security.PublicKey;
+import java.util.Base64;
+import javax.crypto.Cipher;
+public class EncriptCard {
+public String encript(PublicKey key, String cardNumber) {
+try {
+Cipher cipher = Cipher.getInstance(“RSA”);
+cipher.init(Cipher.ENCRYPT_MODE, key);
+byte[] encryptedBytes =
+cipher.doFinal(cardNumber.getBytes());
+String encryptedCard =
+Base64.getEncoder().encodeToString(encryptedBytes);
+return encryptedCard;
+} catch (Exception e) {
+throw new RuntimeException(e);
+}
+}
+}
+‘</p>
+
 <h1 id="códigos-da-api">Códigos da API</h1>
 
 <h2 id="erros-da-api">Erros da API</h2>

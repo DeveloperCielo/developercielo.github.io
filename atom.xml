@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-02T18:11:29+00:00</updated>
+    <updated>2019-09-02T18:26:30+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5733,6 +5733,31 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
   &lt;li&gt;&lt;strong&gt;Homologação&lt;/strong&gt; : &lt;strong&gt;apihom.cielo.com&lt;/strong&gt;. Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Produção&lt;/strong&gt; : &lt;strong&gt;api.cielo.com.br&lt;/strong&gt;. Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h1 id=&quot;criptografia&quot;&gt;Criptografia&lt;/h1&gt;
+
+&lt;p&gt;Exemplo de código Java para criptografar o número do cartão usando uma  public key:&lt;/p&gt;
+
+&lt;p&gt;’
+import java.security.PublicKey;
+import java.util.Base64;
+import javax.crypto.Cipher;
+public class EncriptCard {
+public String encript(PublicKey key, String cardNumber) {
+try {
+Cipher cipher = Cipher.getInstance(“RSA”);
+cipher.init(Cipher.ENCRYPT_MODE, key);
+byte[] encryptedBytes =
+cipher.doFinal(cardNumber.getBytes());
+String encryptedCard =
+Base64.getEncoder().encodeToString(encryptedBytes);
+return encryptedCard;
+} catch (Exception e) {
+throw new RuntimeException(e);
+}
+}
+}
+‘&lt;/p&gt;
 
 &lt;h1 id=&quot;códigos-da-api&quot;&gt;Códigos da API&lt;/h1&gt;
 
