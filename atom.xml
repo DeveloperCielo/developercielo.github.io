@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-02T17:45:14+00:00</updated>
+    <updated>2019-09-02T17:53:41+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5737,6 +5737,83 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
 &lt;h1 id=&quot;códigos-da-api&quot;&gt;Códigos da API&lt;/h1&gt;
 
 &lt;h2 id=&quot;erros-da-api&quot;&gt;Erros da API&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Código&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+      &lt;th&gt;Modelo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;201&lt;/td&gt;
+      &lt;td&gt;Created&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;400&lt;/td&gt;
+      &lt;td&gt;Bad Request.&lt;/td&gt;
+      &lt;td&gt;{“description”:”Error full description.”,”type”:”string”}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;401&lt;/td&gt;
+      &lt;td&gt;Unauthorized.&lt;/td&gt;
+      &lt;td&gt;{“description”:”Error full description.”,”type”:”string”}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;403&lt;/td&gt;
+      &lt;td&gt;Forbidden.&lt;/td&gt;
+      &lt;td&gt;{“description”:”Error full description.”,”type”:”string”}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;404&lt;/td&gt;
+      &lt;td&gt;Not Found.&lt;/td&gt;
+      &lt;td&gt;{“description”:”Error full description.”,”type”:”string”}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;412&lt;/td&gt;
+      &lt;td&gt;Precondition Failed.&lt;/td&gt;
+      &lt;td&gt;{“properties”:{“code”:{“type”:”string”,”description”:”Error code.”},”description”:{“type”:”string”,”description”:”Error full description.”}}}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;413&lt;/td&gt;
+      &lt;td&gt;Request Entity Too Large.&lt;/td&gt;
+      &lt;td&gt;{“description”:”Error full description.”,”type”:”string”}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;415&lt;/td&gt;
+      &lt;td&gt;Unsupported Media Type.&lt;/td&gt;
+      &lt;td&gt;{“description”:”Error full description.”,”type”:”string”}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;422&lt;/td&gt;
+      &lt;td&gt;Unprocessable Entity.&lt;/td&gt;
+      &lt;td&gt;{“properties”:{“code”:{“type”:”string”,”description”:”Error code.”},”description”:{“type”:”string”,”description”:”Error full description.”}}}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;429&lt;/td&gt;
+      &lt;td&gt;Too Many Requests.&lt;/td&gt;
+      &lt;td&gt;{“description”:”Error full description.”,”type”:”string”}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;500&lt;/td&gt;
+      &lt;td&gt;Internal Server Error.&lt;/td&gt;
+      &lt;td&gt;{“properties”:{“code”:{“type”:”string”,”description”:”Error code.”},”description”:{“type”:”string”,”description”:”Error full description.”}}}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;502&lt;/td&gt;
+      &lt;td&gt;Bad Gateway.&lt;/td&gt;
+      &lt;td&gt;{“description”:”Error full description.”,”type”:”string”}&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;504&lt;/td&gt;
+      &lt;td&gt;Gateway Timeout.&lt;/td&gt;
+      &lt;td&gt;{“description”:”Error full description.”,”type”:”string”}&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h2 id=&quot;erros-de-pagamento&quot;&gt;Erros de Pagamento&lt;/h2&gt;
 

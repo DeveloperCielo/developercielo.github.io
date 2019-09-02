@@ -494,6 +494,83 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
 
 <h2 id="erros-da-api">Erros da API</h2>
 
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+      <th>Modelo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Bad Request.</td>
+      <td>{“description”:”Error full description.”,”type”:”string”}</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized.</td>
+      <td>{“description”:”Error full description.”,”type”:”string”}</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden.</td>
+      <td>{“description”:”Error full description.”,”type”:”string”}</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found.</td>
+      <td>{“description”:”Error full description.”,”type”:”string”}</td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td>Precondition Failed.</td>
+      <td>{“properties”:{“code”:{“type”:”string”,”description”:”Error code.”},”description”:{“type”:”string”,”description”:”Error full description.”}}}</td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td>Request Entity Too Large.</td>
+      <td>{“description”:”Error full description.”,”type”:”string”}</td>
+    </tr>
+    <tr>
+      <td>415</td>
+      <td>Unsupported Media Type.</td>
+      <td>{“description”:”Error full description.”,”type”:”string”}</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Unprocessable Entity.</td>
+      <td>{“properties”:{“code”:{“type”:”string”,”description”:”Error code.”},”description”:{“type”:”string”,”description”:”Error full description.”}}}</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>Too Many Requests.</td>
+      <td>{“description”:”Error full description.”,”type”:”string”}</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Internal Server Error.</td>
+      <td>{“properties”:{“code”:{“type”:”string”,”description”:”Error code.”},”description”:{“type”:”string”,”description”:”Error full description.”}}}</td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td>Bad Gateway.</td>
+      <td>{“description”:”Error full description.”,”type”:”string”}</td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td>Gateway Timeout.</td>
+      <td>{“description”:”Error full description.”,”type”:”string”}</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="erros-de-pagamento">Erros de Pagamento</h2>
 
 <h1 id="dúvidas-frequentes">Dúvidas Frequentes</h1>
