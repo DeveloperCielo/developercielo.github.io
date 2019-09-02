@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-02T18:37:32+00:00</updated>
+    <updated>2019-09-02T18:43:47+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5496,6 +5496,31 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h1 id=&quot;criptografia&quot;&gt;Criptografia&lt;/h1&gt;
+
+&lt;p&gt;Exemplo de código Java para criptografar o número do cartão usando uma  public key:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.security.PublicKey;
+import java.util.Base64;
+import javax.crypto.Cipher;
+
+public class EncriptCard {
+    public String encript(PublicKey key, String cardNumber) {
+        try {
+            Cipher cipher = Cipher.getInstance(&quot;RSA&quot;);
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            byte[] encryptedBytes =
+                cipher.doFinal(cardNumber.getBytes());
+            String encryptedCard =
+                Base64.getEncoder().encodeToString(encryptedBytes);
+            return encryptedCard;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h3 id=&quot;payments&quot;&gt;Payments&lt;/h3&gt;
 
 &lt;p&gt;O recurso &lt;strong&gt;POST /payments&lt;/strong&gt; é responsável por efetuar o pagamento com base nos dados contidos no payload da requisição. No header da requisição é necessário os dados de &lt;strong&gt;client_id&lt;/strong&gt;, &lt;strong&gt;access_token&lt;/strong&gt;, &lt;strong&gt;Content-type&lt;/strong&gt; e &lt;strong&gt;wallet&lt;/strong&gt;. Wallet representa a carteira digital da aplicação sendo única por app. O corpo da requisição é composto por dados provenientes do aplicativo e do QR Code. &lt;strong&gt;Verificar seção 3 para os campos extraídos do QR Code&lt;/strong&gt;.&lt;/p&gt;
@@ -5733,31 +5758,6 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
   &lt;li&gt;&lt;strong&gt;Homologação&lt;/strong&gt; : &lt;strong&gt;apihom.cielo.com&lt;/strong&gt;. Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Produção&lt;/strong&gt; : &lt;strong&gt;api.cielo.com.br&lt;/strong&gt;. Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h1 id=&quot;criptografia&quot;&gt;Criptografia&lt;/h1&gt;
-
-&lt;p&gt;Exemplo de código Java para criptografar o número do cartão usando uma  public key:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.security.PublicKey;
-import java.util.Base64;
-import javax.crypto.Cipher;
-
-public class EncriptCard {
-    public String encript(PublicKey key, String cardNumber) {
-        try {
-            Cipher cipher = Cipher.getInstance(&quot;RSA&quot;);
-            cipher.init(Cipher.ENCRYPT_MODE, key);
-            byte[] encryptedBytes =
-                cipher.doFinal(cardNumber.getBytes());
-            String encryptedCard =
-                Base64.getEncoder().encodeToString(encryptedBytes);
-            return encryptedCard;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;códigos-da-api&quot;&gt;Códigos da API&lt;/h1&gt;
 
