@@ -2872,7 +2872,7 @@ curl
 |`Payment.Chargebacks[n].Date`|Chargeback date|Date|10|AAAA-MM-DD|
 |`Payment.Chargebacks[n].ReasonCode`|Chargeback reason code|Text|10|Alphanumeric Text|
 |`Payment.Chargebacks[n].ReasonMessage`|Chargeback reason message|Text|512|Alphanumeric Text|
-|`Payment.Chargebacks[n].Status`|Chargegback status <br/> [Values List - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}/manual/en/cielo-ecommerce#list-values-payment.chargebacks[n].status)|Text|32|Text|
+|`Payment.Chargebacks[n].Status`|Chargegback status <br/> [Values List - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}//manual/en/cielo-ecommerce#list-values-payment.chargebacks[n].status)|Text|32|Text|
 |`Payment.Chargebacks[n].RawData`|Raw Data|Text|512|Alphanumeric Text|
 |`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
