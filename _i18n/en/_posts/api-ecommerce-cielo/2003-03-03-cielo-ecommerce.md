@@ -9350,8 +9350,8 @@ The table below lists all possible codes to be sent in the MerchantDefinedData p
 |Value|Description|
 |:-|:-|
 |Received|Chargeback received from acquirer|
-|AcceptedByMerchant|Chargeback accepted by merchant. In this case the store understands that it has indeed suffered a chargeback and will not hold the dispute|
-|ContestedByMerchant|Chargeback contested by merchant. In this case the store has sent the necessary documents to try to reverse the chargeback|
+|AcceptedByMerchant|Chargeback accepted by establishment. In this case the establishment understands that it has indeed suffered a chargeback and will not hold the contestation|
+|ContestedByMerchant|Chargeback contested by establishment. In this case the establishment has sent the necessary documents to try to reverse the chargeback|
 
 ## Service Tax Amount - BOARDING FEE
 
