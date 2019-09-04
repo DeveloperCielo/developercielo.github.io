@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-04T23:02:23+00:00</updated>
+    <updated>2019-09-04T23:14:53+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -43635,11 +43635,11 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;AcceptedByMerchant&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback accepted by merchant. In this case the store understands that it has indeed suffered a chargeback and will not hold the dispute&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback accepted by establishment. In this case the establishment understands that it has indeed suffered a chargeback and will not hold the contestation&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;ContestedByMerchant&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback contested by merchant. In this case the store has sent the necessary documents to try to reverse the chargeback&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback contested by establishment. In this case the establishment has sent the necessary documents to try to reverse the chargeback&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
