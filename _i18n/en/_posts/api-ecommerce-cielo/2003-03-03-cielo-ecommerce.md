@@ -2880,7 +2880,6 @@ curl
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 
-
 ### Consult - MerchandOrderID
 
 It is not possible to directly query a payment by the identifier sent by the store (MerchantOrderId), but it is possible to get all PaymentIds associated with the identifier.
