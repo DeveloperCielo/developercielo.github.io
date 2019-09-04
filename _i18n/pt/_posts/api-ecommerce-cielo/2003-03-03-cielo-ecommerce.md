@@ -2901,7 +2901,7 @@ curl
 |`Payment.Chargebacks[n].Date`|Data do chargeback|Date|10|AAAA-MM-DD|
 |`Payment.Chargebacks[n].ReasonCode`|Código de motivo do chargeback|Texto|10|Texto alfanumérico|
 |`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback|Texto|512|Texto alfanumérico|
-|`Payment.Chargebacks[n].Status`|Status do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
+|`Payment.Chargebacks[n].Status`|Status do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
 |`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente|Texto|512|Alphanumeric Text|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
