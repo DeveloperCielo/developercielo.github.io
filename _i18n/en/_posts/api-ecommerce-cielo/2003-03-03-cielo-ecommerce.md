@@ -3626,6 +3626,7 @@ The store **must** return in response to notification: **HTTP Status Code 200 OK
 |3|AntiFraud status change|
 |4|Recurring payment status change (Ex. automatic deactivation)|
 |5|cancellation declined|
+|7|Chargeback notification <br/> More details [Risk Notification](https://braspag.github.io//en/manual/risknotification)|
 
 # Fraud Analysis (AF)
 
