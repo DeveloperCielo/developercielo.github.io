@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-04T22:41:42+00:00</updated>
+    <updated>2019-09-04T22:45:29+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -27438,7 +27438,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Status do chargeback &lt;br /&gt; &lt;a href=&quot;https://developercielo.github.io/manual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status&quot;&gt;Lista de Valores - Payment.Chargebacks{n}.Status&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Status do chargeback &lt;br /&gt; &lt;a href=&quot;https://developercielo.github.iomanual/cielo-ecommerce#lista-de-valores-payment.chargebacks[n].status&quot;&gt;Lista de Valores - Payment.Chargebacks{n}.Status&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
