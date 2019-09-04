@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-04T22:52:01+00:00</updated>
+    <updated>2019-09-04T23:02:23+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -28787,7 +28787,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Chargegback status &lt;br /&gt; &lt;a href=&quot;https://developercielo.github.io/manual/en/cielo-ecommerce#list-values-payment.chargebacks[n].status&quot;&gt;Values List - Payment.Chargebacks{n}.Status&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Chargegback status &lt;br /&gt; &lt;a href=&quot;https://developercielo.github.io//manual/en/cielo-ecommerce#list-values-payment.chargebacks[n].status&quot;&gt;Values List - Payment.Chargebacks{n}.Status&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;32&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
