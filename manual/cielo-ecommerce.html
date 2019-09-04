@@ -5449,6 +5449,17 @@ Abaixo especificamos qualquer diferença existente:</p>
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Chargebacks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"CaseNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-04"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"104"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Outras Fraudes - Cartao Ausente"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Received"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"RawData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Client did not participate and did not authorize transaction"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24bc8366-fc31-4d6c-8555-17049a836a07"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
@@ -5501,6 +5512,17 @@ Abaixo especificamos qualquer diferença existente:</p>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
         <span class="s2">"AuthorizationCode"</span>: <span class="s2">"123456"</span>,
+        <span class="s2">"Chargebacks"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"Amount"</span>: 10000,
+                <span class="s2">"CaseNumber"</span>: <span class="s2">"123456"</span>,
+                <span class="s2">"Date"</span>: <span class="s2">"2017-06-04"</span>,
+                <span class="s2">"ReasonCode"</span>: <span class="s2">"104"</span>,
+                <span class="s2">"ReasonMessage"</span>: <span class="s2">"Outras Fraudes - Cartao Ausente"</span>,
+                <span class="s2">"Status"</span>: <span class="s2">"Received"</span>,
+                <span class="s2">"RawData"</span>: <span class="s2">"Client did not participate and did not authorize transaction"</span>
+            <span class="o">}</span>
+        <span class="o">]</span>,
         <span class="s2">"PaymentId"</span>: <span class="s2">"24bc8366-fc31-4d6c-8555-17049a836a07"</span>,
         <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
         <span class="s2">"Amount"</span>: 15700,
@@ -5609,6 +5631,55 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>2</td>
       <td>Sim</td>
       <td>Número de Parcelas.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].Amount</code></td>
+      <td>Valor do chargeback</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].CaseNumber</code></td>
+      <td>Número do caso relacionado ao chargeback</td>
+      <td>Texto</td>
+      <td>16</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].Date</code></td>
+      <td>Data do chargeback</td>
+      <td>Date</td>
+      <td>10</td>
+      <td>AAAA-MM-DD</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].ReasonCode</code></td>
+      <td>Código de motivo do chargeback</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].ReasonMessage</code></td>
+      <td>Mensagem de motivo do chargeback</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].Status</code></td>
+      <td>Status do chargeback <br /> <a href="https://developercielo.github.iomanual/braspag-pagador#lista-de-valores-payment.chargebacks[n].status">Lista de Valores - Payment.Chargebacks{n}.Status</a></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Chargebacks[n].RawData</code></td>
+      <td>Dado enviado pela adquirente</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Alphanumeric Text</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -19699,6 +19770,31 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
     <tr>
       <td>99</td>
       <td>InternalError</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lista-de-valores---paymentchargebacksnstatus">Lista de Valores - Payment.Chargebacks[n].Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Valor</th>
+      <th style="text-align: left">Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Received</td>
+      <td style="text-align: left">Chargeback recebido da adquirente</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AcceptedByMerchant</td>
+      <td style="text-align: left">Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ContestedByMerchant</td>
+      <td style="text-align: left">Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback</td>
     </tr>
   </tbody>
 </table>
