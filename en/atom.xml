@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-02T19:39:45+00:00</updated>
+    <updated>2019-09-04T19:22:54+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -30263,6 +30263,10 @@ It is possible to carry out both the total cancellation and the partial cancella
     &lt;tr&gt;
       &lt;td&gt;5&lt;/td&gt;
       &lt;td&gt;cancellation declined&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Chargeback notification &lt;br /&gt; More details &lt;a href=&quot;https://braspag.github.io//en/manual/risknotification&quot;&gt;Risk Notification&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
