@@ -2752,6 +2752,17 @@ curl
         },
         "ProofOfSale": "674532",
         "AuthorizationCode": "123456",
+        "Chargebacks": [
+            {
+                "Amount": 10000,
+                "CaseNumber": "123456",
+                "Date": "2017-06-04",
+                "ReasonCode": "104",
+                "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+                "Status": "Received",
+                "RawData": "Client did not participate and did not authorize transaction"
+            }
+        ],
         "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
         "Type": "CreditCard",
         "Amount": 15700,
@@ -2805,6 +2816,17 @@ curl
         },
         "ProofOfSale": "674532",
         "AuthorizationCode": "123456",
+        "Chargebacks": [
+            {
+                "Amount": 10000,
+                "CaseNumber": "123456",
+                "Date": "2017-06-04",
+                "ReasonCode": "104",
+                "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+                "Status": "Received",
+                "RawData": "Client did not participate and did not authorize transaction"
+            }
+        ],
         "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
         "Type": "CreditCard",
         "Amount": 15700,
@@ -2845,11 +2867,19 @@ curl
 |`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
 |`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
+|`Payment.Chargebacks[n].Amount`|Chargeback amount|Number|15|10000|
+|`Payment.Chargebacks[n].CaseNumber`|Chargeback case number|Text|16|Alphanumeric Text|
+|`Payment.Chargebacks[n].Date`|Chargeback date|Date|10|AAAA-MM-DD|
+|`Payment.Chargebacks[n].ReasonCode`|Chargeback reason code|Text|10|Alphanumeric Text|
+|`Payment.Chargebacks[n].ReasonMessage`|Chargeback reason message|Text|512|Alphanumeric Text|
+|`Payment.Chargebacks[n].Status`|Chargegback status <br/> [Values List - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}manual/en/braspag-pagador#list-values-payment.chargebacks[n].status)|Text|32|Text|
+|`Payment.Chargebacks[n].RawData`|Raw Data|Text|512|Alphanumeric Text|
 |`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
+
 
 ### Consult - MerchandOrderID
 
@@ -9315,6 +9345,14 @@ The table below lists all possible codes to be sent in the MerchantDefinedData p
 |LowCost|
 |Pickup|
 |Other|
+
+## Values List - Payment.Chargebacks[n].Status
+
+|Value|Description|
+|:-|:-|
+|Received|Chargeback received from acquirer|
+|AcceptedByMerchant|Chargeback accepted by merchant. In this case the store understands that it has indeed suffered a chargeback and will not hold the dispute|
+|ContestedByMerchant|Chargeback contested by merchant. In this case the store has sent the necessary documents to try to reverse the chargeback|
 
 ## Service Tax Amount - BOARDING FEE
 
