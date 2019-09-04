@@ -9011,5 +9011,5 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |Valor|Descrição|
 |:-|:-|
 |Received|Chargeback recebido da adquirente|
-|AcceptedByMerchant|Chargeback aceito pela loja. Neste caso a loja entende que sofreu de fato um chargeback e não irá realizar a disputa|
-|ContestedByMerchant|Chargeback contestado pela loja. Neste caso a loja enviou os documentos necessários para tentar reverter o chargeback|
+|AcceptedByMerchant|Chargeback acatado pelo estabelecimento. Neste caso o estabelecimento entende que sofreu de fato um chargeback e não irá realizar a contestação|
+|ContestedByMerchant|Chargeback contestado pelo estabelecimento. Neste caso o estabelecimento enviou os documentos necessários para tentar reverter o chargeback|
