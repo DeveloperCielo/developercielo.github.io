@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-05T16:01:04+00:00</updated>
+    <updated>2019-09-05T16:23:16+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5701,7 +5701,7 @@ public class EncriptCard {
 
 &lt;h1 id=&quot;dê-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/h1&gt;
 
-&lt;p&gt;Para a composição do payload do &lt;strong&gt;/payments&lt;/strong&gt; deve-se mesclar informações provenientes da leitura do QR Code e informações do cartão/portador via aplicativo. Na tabela abaixo é especificado o dê-para dos dados extraídos do QR Code para o payload da requisição. &lt;strong&gt;Para mais informações dos campos provenientes do QR Code verificar a seção 4.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para a composição do payload do &lt;strong&gt;/payments&lt;/strong&gt; deve-se mesclar informações provenientes da leitura do QR Code e informações do cartão/portador via aplicativo. Na tabela abaixo é especificado o dê-para dos dados extraídos do QR Code para o payload da requisição. &lt;strong&gt;Para mais informações dos campos provenientes do QR Code verificar o próximo item.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -5795,11 +5795,6 @@ public class EncriptCard {
 &lt;p&gt;Para a obtenção do POS de homologação deve-se abrir chamado via &lt;a href=&quot;https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000324432&quot;&gt;Zendesk&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Homologação&lt;/strong&gt; : &lt;strong&gt;apihom.cielo.com&lt;/strong&gt;. Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Produção&lt;/strong&gt; : &lt;strong&gt;api.cielo.com.br&lt;/strong&gt;. Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;h1 id=&quot;api-de-callback-desfazimento&quot;&gt;API de Callback (desfazimento)&lt;/h1&gt;
 
