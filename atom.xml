@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-05T16:39:02+00:00</updated>
+    <updated>2019-09-05T16:49:10+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5764,7 +5764,9 @@ public class EncriptCard {
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Nota: O campo MerchantAccountInformation.Id tem o tamanho máximo de 10 posições, ao extrair a informação referente no QR Code descontar os dois primeiros e os quatros últimos dígitos.&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Nota: O campo MerchantAccountInformation.Id tem o tamanho máximo de 10 posições, ao extrair a informação referente no QR Code descontar os dois primeiros e os quatros últimos dígitos.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;Nota: Os campos que não foram especificados na tabela acima não são obrigatórios, porém, caso necessário olhar o swagger no final desta documentação.&lt;/strong&gt;&lt;/p&gt;
 
