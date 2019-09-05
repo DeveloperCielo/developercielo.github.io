@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-05T14:07:26+00:00</updated>
+    <updated>2019-09-05T14:08:48+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -27534,7 +27534,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].RawData&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Dado enviado pela adquirente&lt;/td&gt;
+      &lt;td&gt;Titular do cartão ou outra mensagem&lt;/td&gt;
       &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
       &lt;td&gt;Alphanumeric Text&lt;/td&gt;
