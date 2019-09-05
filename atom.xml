@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-05T18:48:57+00:00</updated>
+    <updated>2019-09-05T19:32:08+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5562,41 +5562,41 @@ public class EncriptCard {
   &lt;p&gt;&lt;strong&gt;Body&lt;/strong&gt;&lt;/p&gt;
 
   &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
-  &quot;technology&quot;:{
-     &quot;type&quot;:&quot;QRCODE&quot;,
-     &quot;identifier&quot;:&quot;13050329197F190A&quot;
-  },
-  &quot;operationType&quot;:{
-     &quot;id&quot;:1
-  },
-  &quot;amount&quot;:10.11,
-  &quot;paymentInstallments&quot;:1,
-  &quot;terminalLogicalNumber&quot;:1234,
-  &quot;paymentDate&quot;:&quot;2018-03-02T10:00:00.000-03:00&quot;,
-  &quot;mainProduct&quot;:{
-     &quot;id&quot;:1000
-  },
-  &quot;subProduct&quot;:{
-     &quot;id&quot;:1
-  },
-  &quot;merchantAccountInformation&quot;:{
-     &quot;id&quot;:70117799,
-     &quot;merchantName&quot;:&quot;Hotelaria Accor Pdb Ltda&quot;
-  },
-  &quot;card&quot;:{
-     &quot;cardNumber&quot;:1234123412341234,
-     &quot;holder&quot;:&quot;JOAO DA SILVA&quot;,
-     &quot;expirationDate&quot;:&quot;01/25&quot;,
-     &quot;brand&quot;:&quot;VISA&quot;
-  },
-  &quot;carrier&quot;:{
-     &quot;name&quot;:&quot;João da Silva&quot;,
-     &quot;document&quot;:&quot;31727721012&quot;,
-     &quot;deviceId&quot;:&quot;3ac43b36-0d92-48a7-901b-d3a527d9c3fe&quot;
-  },
-  &quot;crc&quot;:{
-     &amp;gt;&quot;qrCodeText&quot;:&quot;00020101021226410005Cielo0116123456789012000102082009130352040000530398654120000000001005802BR5905CIELO6014SANTO ANDRE SP801010033”https://www.cielo.com.br/qrcode”011613050329197F190A0212150518113349030410000404000105020006020163049872&quot;
-  }
+ &quot;technology&quot;:{
+    &quot;type&quot;:&quot;QRCODE&quot;,
+    &quot;identifier&quot;:&quot;13050329197F190A&quot;
+ },
+ &quot;operationType&quot;:{
+    &quot;id&quot;:1
+ },
+ &quot;amount&quot;:10,
+ &quot;paymentInstallments&quot;:01,
+ &quot;terminalLogicalNumber&quot;:12345,
+ &quot;paymentDate&quot;:&quot;2018-05-15T11:33:49Z&quot;,
+ &quot;mainProduct&quot;:{
+    &quot;id&quot;:1000
+ },
+ &quot;subProduct&quot;:{
+    &quot;id&quot;:1
+ },
+ &quot;merchantAccountInformation&quot;:{
+    &quot;id&quot;:3456789012,
+    &quot;merchantName&quot;:&quot;Hotelaria Accor Pdb Ltda&quot;
+ },
+ &quot;card&quot;:{
+    &quot;encryptedCardNumber&quot;: &quot;KPzccLxuZFavn6FN5XhOsXdF19wrfiOleE0lCMixw+0E79YAVn659vDpKhy/D/EQnRbiKrrfRQYyQeek2cpyd5hiqtwK+4gdfUo8X4NpSYxDdk0n0ru1czg8hWn3Dl6LkQT8K/lOgfTttZQgQsmwPRBzhDImlzIav9E1Uqvzba3WWPrusCgGgE5oEMTGLjcmG1ZZByeXHiDmU5Pd9TomILj4nVFsoOWYtM5PZDn+1FfJ3lDLgND8asUMyLIqyQMZ3iDM6Rrgp/4Yj5082FNO++6ZMW2mPmlr4i2gmFi2sV4QayNuXX34mxrUw1kYpSetNVEL/okGzSaGxbN0O37Fug==&quot;,
+    &quot;holder&quot;:&quot;JOAO DA SILVA&quot;,
+    &quot;expirationDate&quot;:&quot;01/25&quot;,
+    &quot;brand&quot;:&quot;VISA&quot;
+ },
+ &quot;carrier&quot;:{
+    &quot;name&quot;:&quot;João da Silva&quot;,
+    &quot;document&quot;:&quot;31727721012&quot;,
+    &quot;deviceId&quot;:&quot;3ac43b36-0d92-48a7-901b-d3a527d9c3fe&quot;
+ },
+ &quot;crc&quot;:{
+    &amp;gt;&quot;qrCodeText&quot;:&quot;00020101021226410005Cielo0116123456789012000102082009130352040000530398654120000000001005802BR5905CIELO6014SANTO ANDRE SP801010033”https://www.cielo.com.br/qrcode”011613050329197F190A0212150518113349030410000404000105020006020163049872&quot;
+ }
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
 &lt;/blockquote&gt;
