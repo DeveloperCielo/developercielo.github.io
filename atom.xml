@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-05T16:29:41+00:00</updated>
+    <updated>2019-09-05T16:39:02+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5701,7 +5701,11 @@ public class EncriptCard {
 
 &lt;h1 id=&quot;dê-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/h1&gt;
 
-&lt;p&gt;Para a composição do payload do &lt;strong&gt;/payments&lt;/strong&gt; deve-se mesclar informações provenientes da leitura do QR Code e informações do cartão/portador via aplicativo. Na tabela abaixo é especificado o dê-para dos dados extraídos do QR Code para o payload da requisição. &lt;strong&gt;Para mais informações dos campos provenientes do QR Code verificar o próximo item.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Para a composição do payload do &lt;strong&gt;/payments&lt;/strong&gt; deve-se mesclar informações provenientes da leitura do QR Code e informações do cartão/portador via aplicativo. Na tabela abaixo é especificado o dê-para dos dados extraídos do QR Code para o payload da requisição.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Para mais informações dos campos provenientes do QR Code verificar o próximo item.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
