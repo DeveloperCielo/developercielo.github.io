@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-04T23:14:47+00:00</updated>
+    <updated>2019-09-05T12:21:58+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5758,6 +5758,12 @@ public class EncriptCard {
   &lt;li&gt;&lt;strong&gt;Homologação&lt;/strong&gt; : &lt;strong&gt;apihom.cielo.com&lt;/strong&gt;. Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Produção&lt;/strong&gt; : &lt;strong&gt;api.cielo.com.br&lt;/strong&gt;. Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h1 id=&quot;api-de-callback-desfazimento&quot;&gt;API de Callback (desfazimento)&lt;/h1&gt;
+
+&lt;p&gt;Existe uma API de retorno de chamada para enviar informações sobre as transações de desfazimento, que pode ocorrer no fluxo de transações entre o POS e a plataforma do sistema de autorização.&lt;/p&gt;
+
+&lt;p&gt;Será necessário com que o parceiro desenvolva uma API de retorno de chamada para receber as informações sobre aa transações de desfazimento e encaminhar a URL(endpoint)  para nossa equipe através do Zendesk. Lembrando que a API de Callback deve ser gerada no formato restfull.&lt;/p&gt;
 
 &lt;h1 id=&quot;códigos-da-api&quot;&gt;Códigos da API&lt;/h1&gt;
 
