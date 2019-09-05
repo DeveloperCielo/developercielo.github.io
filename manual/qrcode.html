@@ -523,16 +523,17 @@ public class EncriptCard {
 
 <h2 id="requisição">Requisição</h2>
 
-<p>{<br />
-   “transactionDate”: “2018-10-29T14:35:12.000+0000”,
-   “terminalLogicalNumber”: “78257509”,
-   “authorizationCode”: “019387”,
-   “nsu”: “572061”,
-   “merchantId”: 1000000000,
-   “amount”: 82.90,
-   “originalTransactionType”: 1,
-   “statusCode”: 3
-}</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{  
+   "transactionDate": "2018-10-29T14:35:12.000+0000",
+   "terminalLogicalNumber": "78257509",
+   "authorizationCode": "019387",
+   "nsu": "572061",
+   "merchantId": 1000000000,
+   "amount": 82.90,
+   "originalTransactionType": 1,
+   "statusCode": 3
+}
+</code></pre></div></div>
 
 <table>
   <thead>
@@ -575,7 +576,7 @@ public class EncriptCard {
     </tr>
     <tr>
       <td><code class="highlighter-rouge">merchantId</code></td>
-      <td>Identificador da loja na API Cielo eCommerce</td>
+      <td>Identificador da loja na Cielo (extraído do QRCode)</td>
       <td>Número</td>
       <td>36</td>
       <td>Sim</td>

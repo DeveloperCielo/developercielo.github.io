@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-05T14:08:48+00:00</updated>
+    <updated>2019-09-05T14:19:13+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5767,16 +5767,17 @@ public class EncriptCard {
 
 &lt;h2 id=&quot;requisição&quot;&gt;Requisição&lt;/h2&gt;
 
-&lt;p&gt;{&lt;br /&gt;
-   “transactionDate”: “2018-10-29T14:35:12.000+0000”,
-   “terminalLogicalNumber”: “78257509”,
-   “authorizationCode”: “019387”,
-   “nsu”: “572061”,
-   “merchantId”: 1000000000,
-   “amount”: 82.90,
-   “originalTransactionType”: 1,
-   “statusCode”: 3
-}&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{  
+   &quot;transactionDate&quot;: &quot;2018-10-29T14:35:12.000+0000&quot;,
+   &quot;terminalLogicalNumber&quot;: &quot;78257509&quot;,
+   &quot;authorizationCode&quot;: &quot;019387&quot;,
+   &quot;nsu&quot;: &quot;572061&quot;,
+   &quot;merchantId&quot;: 1000000000,
+   &quot;amount&quot;: 82.90,
+   &quot;originalTransactionType&quot;: 1,
+   &quot;statusCode&quot;: 3
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -5819,7 +5820,7 @@ public class EncriptCard {
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;merchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Identificador da loja na API Cielo eCommerce&lt;/td&gt;
+      &lt;td&gt;Identificador da loja na Cielo (extraído do QRCode)&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;36&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
