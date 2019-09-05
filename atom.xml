@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-05T16:23:16+00:00</updated>
+    <updated>2019-09-05T16:29:41+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5795,6 +5795,28 @@ public class EncriptCard {
 &lt;p&gt;Para a obtenção do POS de homologação deve-se abrir chamado via &lt;a href=&quot;https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000324432&quot;&gt;Zendesk&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Ambiente&lt;/th&gt;
+      &lt;th&gt;Endereço&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Homologação&lt;/td&gt;
+      &lt;td&gt;apihom.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Produção&lt;/td&gt;
+      &lt;td&gt;api.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h1 id=&quot;api-de-callback-desfazimento&quot;&gt;API de Callback (desfazimento)&lt;/h1&gt;
 
