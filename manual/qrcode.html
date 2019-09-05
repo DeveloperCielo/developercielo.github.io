@@ -521,6 +521,8 @@ public class EncriptCard {
 
 <p>Será necessário com que o parceiro desenvolva uma API de retorno de chamada para receber as informações sobre aa transações de desfazimento e encaminhar a URL(endpoint)  para nossa equipe através do Zendesk. Lembrando que a API de Callback deve ser gerada no formato restfull.</p>
 
+<h2 id="requisição">Requisição</h2>
+
 <p>{<br />
    “transactionDate”: “2018-10-29T14:35:12.000+0000”,
    “terminalLogicalNumber”: “78257509”,
@@ -531,6 +533,76 @@ public class EncriptCard {
    “originalTransactionType”: 1,
    “statusCode”: 3
 }</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">transactionDate</code></td>
+      <td>Data da transação (extraída do QRCode)</td>
+      <td>Texto</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">terminalLogicalNumber</code></td>
+      <td>Número lógico do POS</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">authorizationCode</code></td>
+      <td>Código de autorização da transação</td>
+      <td>Texto alfanumérico</td>
+      <td>6</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nsu</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">merchantId</code></td>
+      <td>Identificador da loja na API Cielo eCommerce</td>
+      <td>Número</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">amount</code></td>
+      <td>Valor da transação</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">originalTransactionType</code></td>
+      <td> </td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">statusCode</code></td>
+      <td> </td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="códigos-da-api">Códigos da API</h1>
 
