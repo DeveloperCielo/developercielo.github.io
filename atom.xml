@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-05T12:21:58+00:00</updated>
+    <updated>2019-09-05T12:57:33+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5761,7 +5761,7 @@ public class EncriptCard {
 
 &lt;h1 id=&quot;api-de-callback-desfazimento&quot;&gt;API de Callback (desfazimento)&lt;/h1&gt;
 
-&lt;p&gt;Existe uma API de retorno de chamada para enviar informações sobre as transações de desfazimento, que pode ocorrer no fluxo de transações entre o POS e a plataforma do sistema de autorização.&lt;/p&gt;
+&lt;p&gt;Existe uma API de callback para enviar informações sobre as transações de desfazimento, que pode ocorrer no fluxo de transações entre o POS e a plataforma do sistema de autorização.&lt;/p&gt;
 
 &lt;p&gt;Será necessário com que o parceiro desenvolva uma API de retorno de chamada para receber as informações sobre aa transações de desfazimento e encaminhar a URL(endpoint)  para nossa equipe através do Zendesk. Lembrando que a API de Callback deve ser gerada no formato restfull.&lt;/p&gt;
 
