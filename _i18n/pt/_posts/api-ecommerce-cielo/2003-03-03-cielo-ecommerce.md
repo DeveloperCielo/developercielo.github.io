@@ -2902,7 +2902,7 @@ curl
 |`Payment.Chargebacks[n].ReasonCode`|Código de motivo do chargeback|Texto|10|Texto alfanumérico|
 |`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback|Texto|512|Texto alfanumérico|
 |`Payment.Chargebacks[n].Status`|Status do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}//manual/cielo-ecommerce#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
-|`Payment.Chargebacks[n].RawData`|Dado enviado pela adquirente|Texto|512|Alphanumeric Text|
+|`Payment.Chargebacks[n].RawData`|Titular do cartão ou outra mensagem|Texto|512|Alphanumeric Text|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
