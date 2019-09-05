@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-05T16:56:11+00:00</updated>
+    <updated>2019-09-05T18:33:23+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5774,6 +5774,10 @@ public class EncriptCard {
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/qrcode/qrcode-pos.png&quot; alt=&quot;QrCode Gerado Pelo POS&quot; /&gt;&lt;/p&gt;
 
+&lt;p&gt;Os campos destacados em vermelho são provenientes da análise do QR Code. O ID do campo e seu tamanho são sempre enviados antes do valor correspondente.&lt;/p&gt;
+
+&lt;p&gt;“0002&lt;strong&gt;01&lt;/strong&gt;0102&lt;strong&gt;12&lt;/strong&gt;26410005&lt;strong&gt;Cielo&lt;/strong&gt;0116&lt;strong&gt;1234567890120001&lt;/strong&gt;0208&lt;strong&gt;20091303&lt;/strong&gt;5204&lt;strong&gt;0000&lt;/strong&gt;5303&lt;strong&gt;986&lt;/strong&gt;5412&lt;strong&gt;000000000100&lt;/strong&gt;5802&lt;strong&gt;BR&lt;/strong&gt;5905&lt;strong&gt;CIELO&lt;/strong&gt;6014&lt;strong&gt;SANTO ANDRE SP&lt;/strong&gt;801010033&lt;strong&gt;”https://www.cielo.com.br/qrcode”&lt;/strong&gt;0116&lt;strong&gt;13050329197F190A&lt;/strong&gt;0212&lt;strong&gt;150518113349&lt;/strong&gt;0304&lt;strong&gt;1000&lt;/strong&gt;0404&lt;strong&gt;0001&lt;/strong&gt;0502&lt;strong&gt;00&lt;/strong&gt;0602&lt;strong&gt;01&lt;/strong&gt;6304&lt;strong&gt;9872”&lt;/strong&gt;&lt;/p&gt;
+
 &lt;h1 id=&quot;como-testar&quot;&gt;Como Testar&lt;/h1&gt;
 
 &lt;p&gt;Atualmente existem duas possibilidades para testar o fluxo de pagamento no ambiente de homologação.&lt;/p&gt;
@@ -5792,7 +5796,7 @@ public class EncriptCard {
   &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/qrcode/qrcode-qrcodeimg.png&quot; alt=&quot;QrCode gerado a partir do código Exemplo&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;** Observação: Ao testar com o QR Code especificado um erro do tipo 422 é esperado, pois, não existe dados transacionais referentes no autorizador da Cielo.**&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Observação: Ao testar com o QR Code especificado um erro do tipo 422 é esperado, pois, não existe dados transacionais referentes no autorizador da Cielo.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;como-obter-o-pos-de-homologação&quot;&gt;Como obter o POS de homologação.&lt;/h1&gt;
 
