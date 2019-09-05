@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-05T13:45:24+00:00</updated>
+    <updated>2019-09-05T13:59:15+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -28794,7 +28794,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].RawData&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Raw Data&lt;/td&gt;
+      &lt;td&gt;Card holder or other message&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;512&lt;/td&gt;
       &lt;td&gt;Alphanumeric Text&lt;/td&gt;
