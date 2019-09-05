@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-05T14:19:13+00:00</updated>
+    <updated>2019-09-05T15:51:00+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -5722,7 +5722,7 @@ public class EncriptCard {
 
 &lt;p&gt;&lt;strong&gt;Nota: Os campos que não foram especificados na tabela acima não são obrigatórios, porém, caso necessário olhar o swagger no final desta documentação.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;layout-do-qr-code-gerado-pelo-pos&quot;&gt;Layout do QR Code gerado pelo POS&lt;/h1&gt;
+&lt;h2 id=&quot;layout-do-qr-code-gerado-pelo-pos&quot;&gt;Layout do QR Code gerado pelo POS&lt;/h2&gt;
 
 &lt;p&gt;Atualmente o POS cria o QR Code a partir das informações especificadas abaixo com base na especificação “&lt;strong&gt;EMVCo-Merchant-Presented-QR-Specification-v1&lt;/strong&gt;”.&lt;/p&gt;
 
