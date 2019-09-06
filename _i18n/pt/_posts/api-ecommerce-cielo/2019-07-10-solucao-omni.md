@@ -1710,16 +1710,6 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |`ReturnCode`|---|---|---|---|
 |`ReturnMessage`|---|---|---|---|
 
-## Desfazimento de pagamento de cartão digitado
-
-Quando o pagamento não retornar, o mesmo deve ser desfeito.
-
-Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado no pagamento.
-
-| SandBox                                             | Produção                                      |
-|:---------------------------------------------------:|:---------------------------------------------:|
-| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
-
 ### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
