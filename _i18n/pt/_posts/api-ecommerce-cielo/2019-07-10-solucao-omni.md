@@ -483,7 +483,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
 ```json
-{{
+{
   "MerchantOrderId": "201904150003",
   "Payment": {
     "Type": "PhysicalDebitCard",
@@ -2071,7 +2071,7 @@ Solicita as tabelas e parametros para operação do terminal
       "IntEmvConctactRiskMinPercent": 0,
       "IntEmvConctactRiskMaxPercent": 0,
       "ProductIds": [
-        0
+         0
       ]
     }
   ],
