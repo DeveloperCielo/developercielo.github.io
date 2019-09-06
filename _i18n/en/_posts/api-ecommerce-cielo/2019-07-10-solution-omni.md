@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Integration Manual Omni Solution
+title: Manual de Integração Solução Omni
 description: API para integração de vendas no físico e OnLine
 search: true
 translated: true
@@ -8,70 +8,68 @@ toc_footers: true
 categories: manual
 sort_order: 1
 tags:
-  - API Payment
+  - API Pagamento
 language_tabs:
   json: JSON
   shell: cURL
 ---
 
-# Overview  - Omni Solution API  
+# Visão geral - API Solução Omni
 
-# Objective
+# Objetivo
 
-Enable the integration of business partners/sub-acquire with Cielo for transactions with non-gift cards (typed transactions) and gift cards in Chip and Tarja modalities.
+Possibilitar a integração de parceiros de negócio/Subadquirentes com a Cielo para transações com cartões não-presentes (transações digitadas) e cartões presentes nas modalidades Chip e Tarja.
 
-# Glossary
+# Glossário
 
-|ID|Description|
-|BC|PINPad Shared Library|
-|DUKPT|(Devired Unique Key Per Transaction) Encryption method used at Cielo|
-|PIN|Card password|
-|BDK|(Base Derived Key) Sub key to be installed on HSM|
-|HSM|(Hardware Security Module) Server for digital key generation, storage, management and digital key encryptions functionality.|
-|OAUTH2|Authentication protocol used in APIs|
+|ID|Descrição|
+|BC|Biblioteca Compartilhada para PINPad|
+|DUKPT|(Devired Unique Key Per Transaction) Método de criptografia utilizado na Cielo|
+|PIN|Senha do cartão|
+|BDK|(Base Derived Key) Chave do Sub a ser instalada no HSM|
+|HSM|(Hardware Security Module) Servidor para geração, armazenamento, gerenciamento e funcionalidades criptográficas de chaves digitais|
+|OAUTH2|Protocolo de autenticação utilizado nas APIs|
 
-# Prerequisites
+# Pré-requisitos
 
-For the integration, the business partner/sub-acquire capture solution must have the following components:
+Para a integração é necessário que a solução de captura do parceiro de negócio/Subadquirente possua os seguintes componentes:
 
-* Shared Library for PINPad or proprietary library certified with flags.
-* DUKPT encryption keys implemented for PIN.
-* Provide your BDK installation on HSM Cielo;
+* Biblioteca Compartilhada para PINPad ou biblioteca proprietária certificada com as bandeiras.
+* Chaves de Criptografia DUKPT implementada para PIN.
+* Disponibilizar sua BDK para instalação no HSM Cielo.
 
-Key Format required by Cielo:
+Formato da Chave exigida pela Cielo:
 
-HSM Cielo is parameterized to a KSN as follows:
+O HSM Cielo está parametrizado para um KSN da seguinte forma:
 
-* **KSI -** Key identification number
+* **KSI -** Número de identificação da Chave
 * **DID –** Device ID
 * **TC –** Transaction Counter
 
-<br>
-
-In the key register is only inserted the KSI that has 5 numeric characters and the key, as the example below:
+No cadastro da chave somente é inserido o KSI que possui 5 caracteres numéricos e a chave, conforme exemplo abaixo:
 
 **FFFFF**030331234500012
 
-<aside class="warning">Note: The F's must be filled in automatically by the Capture Solution..</aside>
+<aside class="warning">Obs.: Os F’s devem ser preenchidos automaticamente pela Solução de Captura.</aside>
 
-# Authentication
+# Autenticação
 
-The authentication is a necessary operation to obtain the token that will be used in other API calls.
+A autenticação é uma operação necessária para obtenção do token que será utilizado nas demais chamadas de APIs.
 
 |Security scheme type:|OAuth2|
-|clientCredentials OAuth Flow|**URL Token:** https://authsandbox.braspag.com.br/oauth2/token<br><br>**Scopes:**<br><br>* `Administrator` - Admin everything<br><br>* `AnalyticsApiOverview` - See the analytics<br><br>* `AdminBackoffice` - Use the backoffice|
+|clientCredentials OAuth Flow|**Token URL:** https://authsandbox.braspag.com.br/oauth2/token<br><br>**Scopes:**<br><br>* `Administrator` - Admin everything<br><br>* `AnalyticsApiOverview` - See the analytics<br><br>* `AdminBackoffice` - Use the backoffice|
 
-# Payment
+# Pagamento
 
-When a payment is created (201 - Created), you should review the Status (Payment.Status) in the response to make sure that the payment was successfully generated or failed.
+Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Payment.Status) na resposta para certificar-se que o pagamento foi gerado com sucesso ou se houve alguma falha.
 
-| SandBox                                             | Production                                      |
+| SandBox                                             | Produção                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-## Credit card typed sale without password
+## Venda com cartão de crédito digitado e sem senha
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -84,6 +82,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "Amount": 15798,
     "Installments": 1,
+    "Capture": true,
     "Interest": "ByMerchant",
     "ProductId": 1,
     "CreditCard": {
@@ -107,31 +106,32 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
-|`Payment.Type`|Text|---|---|---|
-|`Payment.SoftDescriptor`|Text|---|---|---|
+|`Payment.Type`|Texto|---|---|---|
+|`Payment.SoftDescriptor`|Texto|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.Amount`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|Text|---|---|---|
+|`Payment.Interest`|Texto|---|---|---|
 |`Payment.ProductId`|---|---|---|---|
 |`CreditCard.CardNumber`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.SecurityCodeStatus`|Text|---|---|---|
+|`CreditCard.SecurityCodeStatus`|Texto|---|---|---|
 |`CreditCard.SecurityCode`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.InputMode`|Text|---|---|---|
-|`CreditCard.AuthenticationMethod`|Text|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|Boolean|---|---|---|
+|`CreditCard.InputMode`|Texto|---|---|---|
+|`CreditCard.AuthenticationMethod`|Texto|---|---|---|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|Text|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|Text|---|---|---|
+|`PinPadInformation.SerialNumber`|Texto|---|---|---|
+|`PinPadInformation.PhysicalCharacteristics`|Texto|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -142,6 +142,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -154,7 +155,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -207,54 +209,67 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
-|`Customer.Name`|Text|---|---|---|
+|`Customer.Name`|Texto|---|---|---|
 |`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|Text|---|---|---|
+|`Payment.Interest`|Texto|---|---|---|
+|`Payment.Capture`|Texto|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
 |`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|---|
-|`CreditCard.InputMode`|Text|---|---|---|
-|`CreditCard.AuthenticationMethod`|Text|---|---|---|
+|`CreditCard.InputMode`|Texto|---|---|---|
+|`CreditCard.AuthenticationMethod`|Texto|---|---|---|
 |`CreditCard.EmvData`|---|---|---|---|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
-|`PinBlock.EncryptionType`|Text|---|---|---|
-|`PinBlock.KsnIdentification`|Text|---|---|---|
+|`PinBlock.EncryptionType`|Texto|---|---|---|
+|`PinBlock.KsnIdentification`|Texto|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|Text|---|---|---|
+|`Payment.SoftDescriptor`|Texto|---|---|---|
 |`Payment.ProductId`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|Text|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|Text|---|---|---|
+|`PinPadInformation.SerialNumber`|Texto|---|---|---|
+|`PinPadInformation.PhysicalCharacteristics`|Texto|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 |`Payment.Amount`|---|---|---|---|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|Text|---|---|---|
+|`Payment.Provider`|Texto|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|Boolean|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|Text|---|---|---|
+|`Payment.ReturnMessage`|Texto|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|Text|---|---|---|
+|`Payment.Type`|Texto|---|---|---|
 |`Payment.Currency`|---|---|---|---|
-|`Payment.Country`|Text|---|---|---|
+|`Payment.Country`|Texto|---|---|---|
 
-## Credit card sale with magnetic tarja reading and password
+## Venda com cartão de crédito com leitura de tarja e senha
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -267,6 +282,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "Amount": 15798,
     "Installments": 1,
+    "Capture": true,
     "Interest": "ByMerchant",
     "ProductId": 1,
     "CreditCard": {
@@ -282,7 +298,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PinPadInformation": {
       "TerminalId": "10000001",
@@ -294,7 +311,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Payment.Type`|---|---|---|---|
@@ -302,6 +319,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.Amount`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
 |`Payment.ProductId`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
@@ -315,12 +333,13 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
 |`PinPadInformation.SerialNumber`|---|---|---|---|
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -331,6 +350,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -343,7 +363,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -396,17 +417,30 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
@@ -417,6 +451,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -441,14 +476,14 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Currency`|---|---|---|---|
 |`Payment.Country`|---|---|---|---|
 
-## Debit card sale with magnetic tarja reading and password
+## Venda com cartão de débito com leitura de tarja e senha
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
 ```json
-{
+{{
   "MerchantOrderId": "201904150003",
   "Payment": {
     "Type": "PhysicalDebitCard",
@@ -469,7 +504,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PinPadInformation": {
       "TerminalId": "10000001",
@@ -481,7 +517,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Payment.Type`|---|---|---|---|
@@ -500,12 +536,13 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`DebitCard.PanSequenceNumber`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
 |`PinPadInformation.SerialNumber`|---|---|---|---|
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -516,6 +553,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -528,7 +566,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -581,12 +620,24 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
@@ -602,6 +653,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -626,9 +678,9 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Currency`|---|---|---|---|
 |`Payment.Country`|---|---|---|---|
 
-## Credit card sales with online password with EMV
+## Venda com cartão de crédito com EMV com senha online
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -642,6 +694,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
     "Amount": 15798,
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "ProductId": 1,
     "CreditCard": {
       "ExpirationDate": "12/2020",
@@ -654,7 +707,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PinPadInformation": {
       "TerminalId": "10000001",
@@ -666,7 +720,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Payment.Type`|---|---|---|---|
@@ -675,6 +729,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Amount`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`Payment.ProductId`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
@@ -685,12 +740,13 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
 |`PinPadInformation.SerialNumber`|---|---|---|---|
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -701,6 +757,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -713,7 +770,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -766,17 +824,30 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
@@ -787,6 +858,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -811,9 +883,9 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Currency`|---|---|---|---|
 |`Payment.Country`|---|---|---|---|
 
-## Debit card sale with EMV and online password
+## Venda com cartão de débito com EMV e senha online
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -837,7 +909,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PinPadInformation": {
       "TerminalId": "10000001",
@@ -849,7 +922,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Payment.Type`|---|---|---|---|
@@ -866,12 +939,13 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`DebitCard.PanSequenceNumber`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
 |`PinPadInformation.SerialNumber`|---|---|---|---|
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -882,6 +956,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -894,7 +969,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -947,17 +1023,30 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
@@ -968,6 +1057,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -992,9 +1082,9 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Currency`|---|---|---|---|
 |`Payment.Country`|---|---|---|---|
 
-## Sale with meal ticket (voucher card) with EMV and online password
+## Venda com vale alimentação (cartão de voucher) com EMV e senha online
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -1018,7 +1108,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PinPadInformation": {
       "TerminalId": "10000001",
@@ -1030,7 +1121,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Payment.Type`|---|---|---|---|
@@ -1047,12 +1138,13 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`VoucherCard.PanSequenceNumber`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
 |`PinPadInformation.SerialNumber`|---|---|---|---|
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -1063,6 +1155,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -1075,7 +1168,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -1128,17 +1222,30 @@ When a payment is created (201 - Created), you should review the Status (Payment
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
@@ -1149,6 +1256,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -1173,21 +1281,21 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Currency`|---|---|---|---|
 |`Payment.Country`|---|---|---|---|
 
-# Confirmation
+# Confirmação
 
-When the payment returns successful and can be confirmed.
+Quando o pagamento retornar sucesso e pode ser confirmado.
 
-This operation requires the PaymentId received on the return of payment, beyond the data of the EmvData, if the payment was made through Chip.
+Esta operação requer o PaymentId recebido no retorno do pagamento, além dos dados EmvData se o pagamento foi realizado atráves de Chip.
 
-Verification is only required for payments made through POS.
+A confirmação somente é necessária para pagamentos feitos através do POS.
 
-| SandBox                                             | Production                                    |
+| SandBox                                             | Produção                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-## Payment confirmation using a card typed
+## Confirmação de pagamento usando cartão digitado
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
@@ -1195,7 +1303,7 @@ Verification is only required for payments made through POS.
 null
 ```
 
-### Response
+### Resposta
 
 ```json
 {
@@ -1218,16 +1326,16 @@ null
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`ConfirmationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
 |`ReturnMessage`|---|---|---|---|
 
-## Payment confirmation using the EMV Card
+## Confirmação de pagamento usando cartão EMV
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
@@ -1238,12 +1346,12 @@ null
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`EmvData`|---|---|---|---|
 |`IssuerScriptResults`|---|---|---|---|
 
-### Response
+### Resposta
 
 ```json
 {
@@ -1266,22 +1374,22 @@ null
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`ConfirmationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
 |`ReturnMessage`|---|---|---|---|
 
-# Cancellation
+# Cancelamento
 
-| SandBox                                             | Production                                      |
+| SandBox                                             | Produção                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-## Card payment typed cancellation 
+## Cancelamento de pagamento com cartão digitado
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -1296,20 +1404,21 @@ null
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantVoidId`|---|---|---|---|
 |`MerchantVoidDate`|---|---|---|---|
 |`Card.InputMode`|---|---|---|---|
 |`Card.CardNumber`|---|---|---|---|
 
-### Response
+### Resposta
 
 ```json
 {
   "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
   "Status": 10,
   "ReturnCode": 0,
+  "ReturnMessage": "Success",
   "Links": [
     {
       "Method": "GET",
@@ -1335,15 +1444,16 @@ null
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`VoidId`|---|---|---|---|
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
 
-## Gift card payment cancellation
+## Cancelamento de pagamento com cartão presente
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -1359,7 +1469,7 @@ null
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantVoidId`|---|---|---|---|
 |`MerchantVoidDate`|---|---|---|---|
@@ -1367,13 +1477,14 @@ null
 |`Card.TrackOneData`|---|---|---|---|
 |`Card.TrackTwoData`|---|---|---|---|
 
-### Response
+### Resposta
 
 ```json
 {
   "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
   "Status": 10,
   "ReturnCode": 0,
+  "ReturnMessage": "Success",
   "Links": [
     {
       "Method": "GET",
@@ -1399,62 +1510,106 @@ null
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`VoidId`|---|---|---|---|
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
 
-# Depletion
+# Desfazimento
 
-## Undo a payment
+## Desfazimento de pagamento de cartão digitado.
 
-The payment returned success and can be undone.
+O pagamento retornou com sucesso e pode ser desfeito.
 
-Depletion must be requested through PaymentId received on the return of payment.
+Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pagamento. 
 
-| SandBox                                             | Production                                    |
+| SandBox                                             | Produção                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-### Request
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+
+## Desfazimento de pagamento de cartão EMV.
+
+O pagamento retornou com sucesso e pode ser desfeito.
+
+Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pagamento. 
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+### Requisição
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
 ```json
 {
-  "ConfirmationStatus": 2,
-  "Status": 2,
-  "ReturnCode": 0,
-  "Links": [
-    {
-      "Method": "GET",
-      "Rel": "self",
-      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
-    }
-  ]
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptsResults": "0000"
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
+|`EmvData`|---|---|---|---|
+|`IssuerScriptsResults`|---|---|---|---|
 
-## Undo a payment
-
-When the payment does not return, it must be undone.
-
-To request the depletion you must inform the MerchantOrderId sent on the payment.
-
-| SandBox                                             | Production                                    |
-|:---------------------------------------------------:|:---------------------------------------------:|
-| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
-
-### Request
-
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
+### Resposta
 
 ```json
 {
@@ -1471,25 +1626,338 @@ To request the depletion you must inform the MerchantOrderId sent on the payment
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`ConfirmationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
 
-# Parameters Download
+### Requisição
 
-This operation is required for the business partner/sub-acquire to receive all required parameter tables so that the capture solution can perform transactions via the API call. This information will be received through the API and should be installed at the BC.
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
 
-## Initialization of a terminal
+```json
+{
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptsResults": "0000"
+}
+```
 
-Request tables and parameters for terminal operation.
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`EmvData`|---|---|---|---|
+|`IssuerScriptsResults`|---|---|---|---|
 
-| SandBox                                             | Production                                      |
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+
+## Desfazimento de pagamento de cartão digitado
+
+Quando o pagamento não retornar, o mesmo deve ser desfeito.
+
+Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado no pagamento.
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+## Desfazimento de pagamento de cartão digitado
+
+Quando o pagamento não retornar, o mesmo deve ser desfeito.
+
+Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado no pagamento.
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+## Desfazimento de pagamento de cartão EMV
+
+Quando o pagamento não retornar, o mesmo deve ser desfeito.
+
+Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado no pagamento.
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
+
+```json
+{
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptsResults": "0000"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`EmvData`|---|---|---|---|
+|`IssuerScriptsResults`|---|---|---|---|
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
+
+```json
+{
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptsResults": "0000"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`EmvData`|---|---|---|---|
+|`IssuerScriptsResults`|---|---|---|---|
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+# Desfazimento de cancelamento
+
+Desfaz um cancelamento
+
+## Desfaz um cancelamento
+
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
+
+```json
+{
+  "CancellationStatus": 4,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CancellationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+### Resposta
+
+```json
+{
+  "CancellationStatus": 4,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CancellationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+## Desfaz um cancelamento
+
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
+
+### Resposta
+
+```json
+{
+  "CancellationStatus": 4,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CancellationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+# Baixa de parâmetros
+
+Essa operação é necessária para que o parceiro de negócio / Subadquirente receba todas as tabelas de parâmetros necessários para que a solução de captura possa efetuar as transações via chamada de API. Essa informação será recebida através de API e deverá ser instalada na BC
+
+## Inicialização de um terminal
+
+Solicita as tabelas e parametros para operação do terminal
+
+| SandBox                                             | Produção                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1      | https://parametersdownload.cieloecommerce.cielo.com.br/api/v0.1      |
 
-### Request
+### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
 
@@ -1601,7 +2069,10 @@ Request tables and parameters for terminal operation.
       "IntEmvConctactRiskFloorLimit": 0,
       "IntEmvConctactRiskMinValue": 0,
       "IntEmvConctactRiskMinPercent": 0,
-      "IntEmvConctactRiskMaxPercent": 0
+      "IntEmvConctactRiskMaxPercent": 0,
+      "ProductIds": [
+        0
+      ]
     }
   ],
   "Parameters": [
@@ -1677,7 +2148,7 @@ Request tables and parameters for terminal operation.
 }
 ```
 
-|Property|Type|Size|Required|Description|
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantId`|---|---|---|---|
 |`TerminalId`|---|---|---|---|
@@ -1772,6 +2243,7 @@ Request tables and parameters for terminal operation.
 |`Emv.IntEmvConctactRiskMinValue`|---|---|---|---|
 |`Emv.IntEmvConctactRiskMinPercent`|---|---|---|---|
 |`Emv.IntEmvConctactRiskMaxPercent`|---|---|---|---|
+|`Emv.ProductIds`|---|---|---|---|
 |`Parameters.Currency`|---|---|---|---|
 |`Parameters.AllowFallbackWhenChipReadingFails`|---|---|---|---|
 |`Parameters.AllowChargingMoedeiroFromCash`|---|---|---|---|
@@ -1834,3 +2306,174 @@ Request tables and parameters for terminal operation.
 |`AidParameters`|---|---|---|---|
 |`PublicKeys`|---|---|---|---|
 |`InitializationVersion`|---|---|---|---|
+
+# Lojas
+
+Essa operação permite o cadastro de lojas e terminais , viabilizando modelos de negócios onde o facilitador necessite segmentar sua operação.
+
+## Merchant
+
+### POST Merchant - Requisição
+
+Cria um novo merchant.
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/merchants</span></aside>
+
+```json
+{
+  "Address": {
+    "ZipCode": "string",
+    "Street": "string",
+    "Number": "string",
+    "Complement": "string"
+  },
+  "TradeName": "string",
+  "CompanyName": "string",
+  "Email": "string",
+  "PhoneNumber": "string",
+  "Mcc": 0,
+  "DocumentNumber": "string",
+  "DocumentType": "Cpf",
+  "Owner": {
+    "Name": "string",
+    "Email": "string",
+    "PhoneNumber": "string",
+    "MessengerPhone": "string",
+    "Gender": "Other"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Address.ZipCode`|---|---|---|---|
+|`Address.Street`|---|---|---|---|
+|`Address.Number`|---|---|---|---|
+|`Address.Number`|---|---|---|---|
+|`TradeName`|---|---|---|---|
+|`CompanyName`|---|---|---|---|
+|`Email`|---|---|---|---|
+|`PhoneNumber`|---|---|---|---|
+|`Mcc`|---|---|---|---|
+|`DocumentNumber`|---|---|---|---|
+|`DocumentType`|---|---|---|---|
+|`Owner.Name`|---|---|---|---|
+|`Owner.Email`|---|---|---|---|
+|`Owner.PhoneNumber`|---|---|---|---|
+|`Owner.MessengerPhone`|---|---|---|---|
+|`Owner.Gender`|---|---|---|---|
+
+### GET Merchant - Resposta
+
+Efetua a busca do merchant pelo seu ID.
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
+
+```json
+{
+  "Merchant": {
+    "SubordinatedMerchantId": "string",
+    "Owner": {
+      "Name": "string",
+      "Email": "string",
+      "PhoneNumber": "string",
+      "MessengerPhone": "string",
+      "Gender": "Other"
+    }
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`SubordinatedMerchantId`|---|---|---|---|
+|`Owner.Name`|---|---|---|---|
+|`Owner.Email`|---|---|---|---|
+|`Owner.PhoneNumber`|---|---|---|---|
+|`Owner.MessengerPhone`|---|---|---|---|
+|`Owner.Gender`|---|---|---|---|
+
+### PUT Merchant - Requisição
+
+Faz alteração do merchant pelo seu ID.
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
+
+```json
+{
+  "Address": {
+    "ZipCode": "string",
+    "Street": "string",
+    "Number": "string",
+    "Complement": "string"
+  },
+  "TradeName": "string",
+  "CompanyName": "string",
+  "Email": "string",
+  "PhoneNumber": "string",
+  "Mcc": 0,
+  "DocumentNumber": "string",
+  "DocumentType": "Cpf"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Address.ZipCode`|---|---|---|---|
+|`Address.Street`|---|---|---|---|
+|`Address.Number`|---|---|---|---|
+|`Address.Complement`|---|---|---|---|
+|`TradeName`|---|---|---|---|
+|`CompanyName`|---|---|---|---|
+|`Email`|---|---|---|---|
+|`PhoneNumber`|---|---|---|---|
+|`Mcc`|---|---|---|---|
+|`DocumentNumber`|---|---|---|---|
+
+## Terminal
+
+Cria um novo terminal.
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
+
+```json
+{
+  "TerminalBaseModel": {
+    "CommunicationType": "string",
+    "EquipmentModel": 0,
+    "EquipmentSerialNumber": "string",
+    "TerminalId": "string"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`TerminalBaseModel.CommunicationType`|---|---|---|---|
+|`TerminalBaseModel.EquipmentModel`|---|---|---|---|
+|`TerminalBaseModel.EquipmentSerialNumber`|---|---|---|---|
+|`TerminalBaseModel.TerminalId`|---|---|---|---|
+
+### Resposta
+
+```json
+{
+  "Terminal": {
+    "CommunicationType": "string",
+    "EquipmentModel": 0,
+    "EquipmentSerialNumber": "string",
+    "TerminalId": "string",
+    "SubordinatedMerchantId": "string"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Terminal.CommunicationType`|---|---|---|---|
+|`Terminal.EquipmentModel`|---|---|---|---|
+|`Terminal.EquipmentSerialNumber`|---|---|---|---|
+|`Terminal.TerminalId`|---|---|---|---|
+|`Terminal.SubordinatedMerchantId`|---|---|---|---|
