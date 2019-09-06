@@ -3,7 +3,7 @@ layout: manual
 title: Manual de Integração Solução Omni
 description: API para integração de vendas no físico e OnLine
 search: true
-translated: true
+translated: false
 toc_footers: true
 categories: manual
 sort_order: 1
@@ -82,6 +82,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "Amount": 15798,
     "Installments": 1,
+    "Capture": true,
     "Interest": "ByMerchant",
     "ProductId": 1,
     "CreditCard": {
@@ -112,6 +113,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.SoftDescriptor`|Texto|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.Amount`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|Texto|---|---|---|
 |`Payment.ProductId`|---|---|---|---|
@@ -140,6 +142,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -152,7 +155,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -205,6 +209,18 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
@@ -216,6 +232,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Customer.Name`|Texto|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|Texto|---|---|---|
+|`Payment.Capture`|Texto|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
@@ -265,6 +282,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "Amount": 15798,
     "Installments": 1,
+    "Capture": true,
     "Interest": "ByMerchant",
     "ProductId": 1,
     "CreditCard": {
@@ -280,7 +298,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PinPadInformation": {
       "TerminalId": "10000001",
@@ -300,6 +319,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.Amount`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
 |`Payment.ProductId`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
@@ -313,6 +333,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
 |`PinPadInformation.SerialNumber`|---|---|---|---|
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
@@ -329,6 +350,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -341,7 +363,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -394,6 +417,18 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
@@ -405,6 +440,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Customer.Name`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
@@ -415,6 +451,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -446,7 +483,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
 ```json
-{
+{{
   "MerchantOrderId": "201904150003",
   "Payment": {
     "Type": "PhysicalDebitCard",
@@ -467,7 +504,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PinPadInformation": {
       "TerminalId": "10000001",
@@ -498,6 +536,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`DebitCard.PanSequenceNumber`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
 |`PinPadInformation.SerialNumber`|---|---|---|---|
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
@@ -514,6 +553,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -526,7 +566,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -579,6 +620,18 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
@@ -600,6 +653,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -640,6 +694,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
     "Amount": 15798,
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "ProductId": 1,
     "CreditCard": {
       "ExpirationDate": "12/2020",
@@ -652,7 +707,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PinPadInformation": {
       "TerminalId": "10000001",
@@ -673,6 +729,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.Amount`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`Payment.ProductId`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
@@ -683,6 +740,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
 |`PinPadInformation.SerialNumber`|---|---|---|---|
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
@@ -699,6 +757,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -711,7 +770,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -764,6 +824,18 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
@@ -775,6 +847,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Customer.Name`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
@@ -785,6 +858,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -835,7 +909,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PinPadInformation": {
       "TerminalId": "10000001",
@@ -864,6 +939,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`DebitCard.PanSequenceNumber`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
 |`PinPadInformation.SerialNumber`|---|---|---|---|
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
@@ -880,6 +956,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -892,7 +969,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -945,6 +1023,18 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
@@ -956,6 +1046,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Customer.Name`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
@@ -966,6 +1057,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -1016,7 +1108,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PinPadInformation": {
       "TerminalId": "10000001",
@@ -1045,6 +1138,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`VoucherCard.PanSequenceNumber`|---|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
 |`PinPadInformation.SerialNumber`|---|---|---|---|
 |`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
@@ -1061,6 +1155,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
   "Payment": {
     "Installments": 1,
     "Interest": "ByMerchant",
+    "Capture": true,
     "CreditCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
@@ -1073,7 +1168,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "EncryptedPinBlock": "2280F6BDFD0C038D",
         "EncryptionType": "Dukpt3Des",
         "KsnIdentification": "1231vg31fv231313123"
-      }
+      },
+      "PanSequenceNumber": 123
     },
     "PaymentDateTime": "2019-04-15T12:00:00Z",
     "ServiceTaxAmount": 0,
@@ -1126,6 +1222,18 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
       }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
     ]
   }
 }
@@ -1137,6 +1245,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Customer.Name`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
+|`Payment.Capture`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
@@ -1147,6 +1256,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -1308,6 +1418,7 @@ null
   "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
   "Status": 10,
   "ReturnCode": 0,
+  "ReturnMessage": "Success",
   "Links": [
     {
       "Method": "GET",
@@ -1338,6 +1449,7 @@ null
 |`VoidId`|---|---|---|---|
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
 
 ## Cancelamento de pagamento com cartão presente
 
@@ -1372,6 +1484,7 @@ null
   "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
   "Status": 10,
   "ReturnCode": 0,
+  "ReturnMessage": "Success",
   "Links": [
     {
       "Method": "GET",
@@ -1402,12 +1515,77 @@ null
 |`VoidId`|---|---|---|---|
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
 
 # Desfazimento
 
-## Desfaz um pagamento
+## Desfazimento de pagamento de cartão digitado.
 
-O pagamente retornou com sucesso e pode ser desfeito.
+O pagamento retornou com sucesso e pode ser desfeito.
+
+Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pagamento. 
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+
+## Desfazimento de pagamento de cartão EMV.
+
+O pagamento retornou com sucesso e pode ser desfeito.
 
 Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pagamento. 
 
@@ -1421,38 +1599,17 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 
 ```json
 {
-  "ConfirmationStatus": 2,
-  "Status": 2,
-  "ReturnCode": 0,
-  "Links": [
-    {
-      "Method": "GET",
-      "Rel": "self",
-      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
-    }
-  ]
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptsResults": "0000"
 }
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
+|`EmvData`|---|---|---|---|
+|`IssuerScriptsResults`|---|---|---|---|
 
-## Desfaz um pagamento
-
-Quando o pagamente não retornar, o mesmo deve ser desfeito.
-
-Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado no pagamento.
-
-| SandBox                                             | Produção                                      |
-|:---------------------------------------------------:|:---------------------------------------------:|
-| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
-
-### Requisição
-
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
+### Resposta
 
 ```json
 {
@@ -1474,6 +1631,319 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |`ConfirmationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
 |`ReturnCode`|---|---|---|---|
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
+
+```json
+{
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptsResults": "0000"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`EmvData`|---|---|---|---|
+|`IssuerScriptsResults`|---|---|---|---|
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+
+## Desfazimento de pagamento de cartão digitado
+
+Quando o pagamento não retornar, o mesmo deve ser desfeito.
+
+Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado no pagamento.
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+## Desfazimento de pagamento de cartão digitado
+
+Quando o pagamento não retornar, o mesmo deve ser desfeito.
+
+Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado no pagamento.
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+## Desfazimento de pagamento de cartão EMV
+
+Quando o pagamento não retornar, o mesmo deve ser desfeito.
+
+Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado no pagamento.
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
+
+```json
+{
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptsResults": "0000"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`EmvData`|---|---|---|---|
+|`IssuerScriptsResults`|---|---|---|---|
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
+
+```json
+{
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptsResults": "0000"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`EmvData`|---|---|---|---|
+|`IssuerScriptsResults`|---|---|---|---|
+
+### Resposta
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+# Desfazimento de cancelamento
+
+Desfaz um cancelamento
+
+## Desfaz um cancelamento
+
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
+
+```json
+{
+  "CancellationStatus": 4,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CancellationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+### Resposta
+
+```json
+{
+  "CancellationStatus": 4,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CancellationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
+
+## Desfaz um cancelamento
+
+### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
+
+### Resposta
+
+```json
+{
+  "CancellationStatus": 4,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CancellationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+|`ReturnCode`|---|---|---|---|
+|`ReturnMessage`|---|---|---|---|
 
 # Baixa de parâmetros
 
@@ -1599,7 +2069,10 @@ Solicita as tabelas e parametros para operação do terminal
       "IntEmvConctactRiskFloorLimit": 0,
       "IntEmvConctactRiskMinValue": 0,
       "IntEmvConctactRiskMinPercent": 0,
-      "IntEmvConctactRiskMaxPercent": 0
+      "IntEmvConctactRiskMaxPercent": 0,
+      "ProductIds": [
+        0
+      ]
     }
   ],
   "Parameters": [
@@ -1770,6 +2243,7 @@ Solicita as tabelas e parametros para operação do terminal
 |`Emv.IntEmvConctactRiskMinValue`|---|---|---|---|
 |`Emv.IntEmvConctactRiskMinPercent`|---|---|---|---|
 |`Emv.IntEmvConctactRiskMaxPercent`|---|---|---|---|
+|`Emv.ProductIds`|---|---|---|---|
 |`Parameters.Currency`|---|---|---|---|
 |`Parameters.AllowFallbackWhenChipReadingFails`|---|---|---|---|
 |`Parameters.AllowChargingMoedeiroFromCash`|---|---|---|---|
@@ -1832,3 +2306,174 @@ Solicita as tabelas e parametros para operação do terminal
 |`AidParameters`|---|---|---|---|
 |`PublicKeys`|---|---|---|---|
 |`InitializationVersion`|---|---|---|---|
+
+# Lojas
+
+Essa operação permite o cadastro de lojas e terminais , viabilizando modelos de negócios onde o facilitador necessite segmentar sua operação.
+
+## Merchant
+
+### POST Merchant - Requisição
+
+Cria um novo merchant.
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/merchants</span></aside>
+
+```json
+{
+  "Address": {
+    "ZipCode": "string",
+    "Street": "string",
+    "Number": "string",
+    "Complement": "string"
+  },
+  "TradeName": "string",
+  "CompanyName": "string",
+  "Email": "string",
+  "PhoneNumber": "string",
+  "Mcc": 0,
+  "DocumentNumber": "string",
+  "DocumentType": "Cpf",
+  "Owner": {
+    "Name": "string",
+    "Email": "string",
+    "PhoneNumber": "string",
+    "MessengerPhone": "string",
+    "Gender": "Other"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Address.ZipCode`|---|---|---|---|
+|`Address.Street`|---|---|---|---|
+|`Address.Number`|---|---|---|---|
+|`Address.Number`|---|---|---|---|
+|`TradeName`|---|---|---|---|
+|`CompanyName`|---|---|---|---|
+|`Email`|---|---|---|---|
+|`PhoneNumber`|---|---|---|---|
+|`Mcc`|---|---|---|---|
+|`DocumentNumber`|---|---|---|---|
+|`DocumentType`|---|---|---|---|
+|`Owner.Name`|---|---|---|---|
+|`Owner.Email`|---|---|---|---|
+|`Owner.PhoneNumber`|---|---|---|---|
+|`Owner.MessengerPhone`|---|---|---|---|
+|`Owner.Gender`|---|---|---|---|
+
+### GET Merchant - Resposta
+
+Efetua a busca do merchant pelo seu ID.
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
+
+```json
+{
+  "Merchant": {
+    "SubordinatedMerchantId": "string",
+    "Owner": {
+      "Name": "string",
+      "Email": "string",
+      "PhoneNumber": "string",
+      "MessengerPhone": "string",
+      "Gender": "Other"
+    }
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`SubordinatedMerchantId`|---|---|---|---|
+|`Owner.Name`|---|---|---|---|
+|`Owner.Email`|---|---|---|---|
+|`Owner.PhoneNumber`|---|---|---|---|
+|`Owner.MessengerPhone`|---|---|---|---|
+|`Owner.Gender`|---|---|---|---|
+
+### PUT Merchant - Requisição
+
+Faz alteração do merchant pelo seu ID.
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
+
+```json
+{
+  "Address": {
+    "ZipCode": "string",
+    "Street": "string",
+    "Number": "string",
+    "Complement": "string"
+  },
+  "TradeName": "string",
+  "CompanyName": "string",
+  "Email": "string",
+  "PhoneNumber": "string",
+  "Mcc": 0,
+  "DocumentNumber": "string",
+  "DocumentType": "Cpf"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Address.ZipCode`|---|---|---|---|
+|`Address.Street`|---|---|---|---|
+|`Address.Number`|---|---|---|---|
+|`Address.Complement`|---|---|---|---|
+|`TradeName`|---|---|---|---|
+|`CompanyName`|---|---|---|---|
+|`Email`|---|---|---|---|
+|`PhoneNumber`|---|---|---|---|
+|`Mcc`|---|---|---|---|
+|`DocumentNumber`|---|---|---|---|
+
+## Terminal
+
+Cria um novo terminal.
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
+
+```json
+{
+  "TerminalBaseModel": {
+    "CommunicationType": "string",
+    "EquipmentModel": 0,
+    "EquipmentSerialNumber": "string",
+    "TerminalId": "string"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`TerminalBaseModel.CommunicationType`|---|---|---|---|
+|`TerminalBaseModel.EquipmentModel`|---|---|---|---|
+|`TerminalBaseModel.EquipmentSerialNumber`|---|---|---|---|
+|`TerminalBaseModel.TerminalId`|---|---|---|---|
+
+### Resposta
+
+```json
+{
+  "Terminal": {
+    "CommunicationType": "string",
+    "EquipmentModel": 0,
+    "EquipmentSerialNumber": "string",
+    "TerminalId": "string",
+    "SubordinatedMerchantId": "string"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Terminal.CommunicationType`|---|---|---|---|
+|`Terminal.EquipmentModel`|---|---|---|---|
+|`Terminal.EquipmentSerialNumber`|---|---|---|---|
+|`Terminal.TerminalId`|---|---|---|---|
+|`Terminal.SubordinatedMerchantId`|---|---|---|---|
