@@ -1592,7 +1592,7 @@ Para criar uma venda de transferência eletronica, é necessário fazer um POST 
         "Name":"Nome do Comprador",
         "Identity": "12345678909",
         "IdentityType": "CPF",
-        "Email": "comprador@braspag.com.br",
+        "Email": "comprador@cielo.com.br",
         "Address":
         {
              "Street":"Alameda Xingu",
@@ -1610,7 +1610,7 @@ Para criar uma venda de transferência eletronica, é necessário fazer um POST 
         "Provider":"Bradesco2",
         "Type":"EletronicTransfer",
         "Amount":10000,
-        "ReturnUrl":"http://www.braspag.com.br"
+        "ReturnUrl":"http://www.cielo.com.br"
     }
 }
 ```
@@ -1630,7 +1630,7 @@ curl
         "Name":"Nome do Comprador",
         "Identity": "12345678909",
         "IdentityType": "CPF",
-        "Email": "comprador@braspag.com.br",
+        "Email": "comprador@cielo.com.br",
         "Address":
         {
              "Street":"Alameda Xingu",
@@ -1648,7 +1648,7 @@ curl
         "Provider":"Bradesco2",
         "Type":"EletronicTransfer",
         "Amount":10000,
-        "ReturnUrl":"http://www.braspag.com.br"
+        "ReturnUrl":"http://www.cielo.com.br"
     }
 }
 --verbose
