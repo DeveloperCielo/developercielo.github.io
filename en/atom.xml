@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-09T13:34:00+00:00</updated>
+    <updated>2019-09-09T13:37:49+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -24418,8 +24418,6 @@ PaymentIds associated with the identifier.&lt;/p&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;p&gt;NOTE: Partial cancellations are only available for Credit Card.&lt;/p&gt;
 
 &lt;h3 id=&quot;total-cancellation&quot;&gt;Total cancellation&lt;/h3&gt;
 
