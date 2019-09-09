@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-09T13:48:20+00:00</updated>
+    <updated>2019-09-09T13:52:08+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6984,7 +6984,7 @@ public class EncriptCard {
 
 &lt;h3 id=&quot;payments&quot;&gt;Payments&lt;/h3&gt;
 
-&lt;p&gt;O recurso &lt;strong&gt;POST /payments&lt;/strong&gt; é responsável por efetuar o pagamento com base nos dados contidos no payload da requisição. No header da requisição é necessário os dados de &lt;strong&gt;client_id&lt;/strong&gt;, &lt;strong&gt;access_token&lt;/strong&gt;, &lt;strong&gt;Content-type&lt;/strong&gt; e &lt;strong&gt;wallet&lt;/strong&gt;. Wallet representa a carteira digital da aplicação sendo única por app. O corpo da requisição é composto por dados provenientes do aplicativo e do QR Code. [Verificar seção 3 para os campos extraídos do QR Code] (https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments).&lt;/p&gt;
+&lt;p&gt;O recurso &lt;strong&gt;POST /payments&lt;/strong&gt; é responsável por efetuar o pagamento com base nos dados contidos no payload da requisição. No header da requisição é necessário os dados de &lt;strong&gt;client_id&lt;/strong&gt;, &lt;strong&gt;access_token&lt;/strong&gt;, &lt;strong&gt;Content-type&lt;/strong&gt; e &lt;strong&gt;wallet&lt;/strong&gt;. Wallet representa a carteira digital da aplicação sendo única por app. O corpo da requisição é composto por dados provenientes do aplicativo e do QR Code. [Verificar seção 3 para os campos extraídos do QR Code] (https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments) .&lt;/p&gt;
 
 &lt;h4 id=&quot;contrato-2&quot;&gt;Contrato&lt;/h4&gt;
 
