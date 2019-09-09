@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-09T12:30:20+00:00</updated>
+    <updated>2019-09-09T12:48:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7082,10 +7082,73 @@ public class EncriptCard {
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;technology.identifier&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Campo proveniente do QRCode, veja &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/a&gt; Texto alfanumérico&lt;/td&gt;
+      &lt;td&gt;Identificador da transação. Campo proveniente do QRCode, veja &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
       &lt;td&gt;16&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;operationType.id&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Enviar o numeral 1 por padrão&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Valor da transação (em ambiente de homologação enviar apenas número inteiros). Campo proveniente do QRCode, veja &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;16&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;paymentInstallments&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número de parcelas. Campo proveniente do QRCode, veja &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;terminalLogicalNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número lógico do POS. Campo proveniente do QRCode, veja &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;paymentDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data e hora da transação. Campo proveniente do QRCode, veja &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;mainProduct.id&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Produto matriz. Campo proveniente do QRCode, veja &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;subProduct.id&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Produto secundário. Campo proveniente do QRCode, veja &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;merchantAccountInformation.id&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número do estabelecimento comercial. Campo proveniente do QRCode, veja &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;merchantAccountInformation.merchantName&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Nome do estabelecimento comercial. Campo proveniente do QRCode, veja &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Dê-para QR Code x Recurso Payments&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
