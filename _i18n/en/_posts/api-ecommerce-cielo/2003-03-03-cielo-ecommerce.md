@@ -3366,8 +3366,6 @@ Each payment method suffer different impacts when a cancellation order (VOID) is
 |Credit card|Cielo returns the value via bank credit|300 days after authorization|Yes|
 |Debit card|Cancellation only in API. The return of the value is made by the merchant himself|300 days after authorization|No|
 
-NOTE: Partial cancellations are only available for Credit Card.
-
 ### Total cancellation
 
 To cancel a sale that uses a credit card, it is necessary to do a PUT for the Payment feature. Cancellation can be made via PaymentID or MerchantOrderId (order number).
