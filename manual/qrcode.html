@@ -119,7 +119,7 @@
             <div class="post">
   <h1 id="requerimentos-para-acesso">Requerimentos para acesso</h1>
 
-<p>Para acesso a APIs é necessário abrir um chamado via <a href="https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000330511">Zendesk</a></p>
+<p>Para acesso a APIs é necessário abrir um cDê-para QR Code x Rechamado via <a href="https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000330511">Zendesk</a></p>
 
 <p><strong>Nota: Futuramente a geração de credenciais será feita via portal do desenvolvedor.</strong></p>
 
@@ -357,6 +357,34 @@ public class EncriptCard {
 </code></pre></div>  </div>
 </blockquote>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">technology.type</code></td>
+      <td>Enviar “QRCODE” por padrão</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">technology.identifier</code></td>
+      <td>Campo proveniente do QRCode, veja <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Dê-para QR Code x Recurso Payments</a> Texto alfanumérico</td>
+      <td>16</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="exemplo-de-requisição-2">Exemplo de Requisição</h4>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --request POST \
@@ -406,7 +434,7 @@ public class EncriptCard {
 <h4 id="exemplo-de-resposta-2">Exemplo de Resposta</h4>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "transactionDate": "2018-03-02T10:00:00.000-03:00",
+    "transactionDate": "2018-05-15T11:33:49.000-03:00",
     "terminalLogicalNumber": "12345",
     "authorizationCode": "8888",
     "nsu": "999"
