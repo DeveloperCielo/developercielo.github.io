@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-09T12:58:46+00:00</updated>
+    <updated>2019-09-09T13:14:13+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7148,6 +7148,62 @@ public class EncriptCard {
       &lt;td&gt;Nome do estabelecimento comercial. Campo proveniente do QRCode, &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments&quot;&gt;Veja layout&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;card.encryptedCardNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número do cartão criptografado, &lt;a href=&quot;https://developercielo.github.io/manual/qrcode#public-keys&quot;&gt;Veja mais&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;card.holder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Nome do portador impresso no cartão.&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;card.expirationDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Data de validade impresso no cartão.&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;card.brand&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Bandeira do cartão. Consultar a lista de produtos e bandeiras aceitas no QRCode.&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;carrier.name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Nome do usuário do aplicativo.&lt;/td&gt;
+      &lt;td&gt;Texyo&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;carrier.document&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Documento do usuário do aplicativo, exemplo CPF. Enviar apenas número&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;carrier.deviceId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;crc.qrCodeText&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;QRCode&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
