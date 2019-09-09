@@ -3414,8 +3414,6 @@ Cada meio de pagamento sofre impactos diferentes quando uma ordem de cancelament
 |Cartão de crédito|A Cielo devolve o valor via crédito bancario|300 dias pós autorização|Sim|
 |Cartão de Débito|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|300 dias pós autorização|Não|
 
-OBS: Cancelamentos parciais são disponiveis apenas para Cartão de Crédito.
-
 ### Cancelamento total
 
 Para cancelar uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment. É possível realizar o cancelamento via PaymentID ou MerchantOrderId (numero do pedido).
