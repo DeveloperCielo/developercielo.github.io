@@ -250,173 +250,147 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.PaymentDateTime</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Amount</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Capture</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Installments</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Interest</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.ProductId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.SecurityCodeStatus</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.BrandId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinPadInformation.TerminalId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinPadInformation.SerialNumber</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-  </tbody>
-</table>
+<p>|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|—|—|—|—|—|
+|<code class="highlighter-rouge">MerchantOrderId</code>|String|—|—| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal |
+|<code class="highlighter-rouge">Payment.Type</code>|String|—|—|Value: “PhysicalCreditCard” / Tipo da Transação|
+|<code class="highlighter-rouge">Payment.SoftDescriptor</code>|String|13|—|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|<code class="highlighter-rouge">Payment.PaymentDateTime</code>|String &gt;|—|—|Data e Hora da captura da transação|
+|<code class="highlighter-rouge">Payment.Amount</code>|Integer(int64)|—|—|Valor da transação (1079 = R$10,79)|
+|<code class="highlighter-rouge">Payment.Capture</code>|Booleano|—|—|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|<code class="highlighter-rouge">Payment.Installments</code>|Integer|—|—|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|<code class="highlighter-rouge">Payment.Interest</code>|String|—|—|Default: “ByMerchant”
+Enum: “ByMerchant” “ByIssuer”
+Tipo de Parcelamento</p>
+<ul>
+  <li>Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.</td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.ProductId</code></td>
+          <td>Integer</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Código do produto identificado através do bin do cartão.</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.SecurityCodeStatus</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.BrandId</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
+          <td>Booleano</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinPadInformation.TerminalId</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinPadInformation.SerialNumber</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
 
 <h3 id="resposta">Resposta</h3>
 
@@ -512,285 +486,303 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Installments</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Interest</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Capture</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.BrandId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">CreditCard.EmvData</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinBlock.EncryptionType</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinBlock.KsnIdentification</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.PaymentDateTime</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.ProductId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinPadInformation.TerminalId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinPadInformation.SerialNumber</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Amount</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.ReceivedDate</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.CapturedAmount</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Provider</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.ConfirmationStatus</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.InitializationVersion</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.EmvResponseData</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Status</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.IsSplitted</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.ReturnCode</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.ReturnMessage</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.PaymentId</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Currency</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Payment.Country</code></td>
-      <td>Texto</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-  </tbody>
-</table>
+<p>|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|—|—|—|—|—|
+|<code class="highlighter-rouge">MerchantOrderId</code>|String|—|—| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal |
+|<code class="highlighter-rouge">Customer.Name</code>|String|—|—|—|
+<code class="highlighter-rouge">Payment.Installments</code>|Integer|—|—|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|<code class="highlighter-rouge">Payment.Interest</code>|String|—|—|Default: “ByMerchant”
+Enum: “ByMerchant” “ByIssuer”
+Tipo de Parcelamento</p>
+<ul>
+  <li>Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.</td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.Capture</code></td>
+          <td>Booleano</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.BrandId</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
+          <td>Booleano</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">CreditCard.EmvData</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinBlock.EncryptionType</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinBlock.KsnIdentification</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.PaymentDateTime</code></td>
+          <td>String &gt;</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Data e Hora da captura da transação</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
+          <td>String</td>
+          <td>13</td>
+          <td>—</td>
+          <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.ProductId</code></td>
+          <td>Integer</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Código do produto identificado através do bin do cartão.</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinPadInformation.TerminalId</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinPadInformation.SerialNumber</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.Amount</code></td>
+          <td>Integer(int64)</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Valor da transação (1079 = R$10,79)</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.ReceivedDate</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.CapturedAmount</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.Provider</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.ConfirmationStatus</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.InitializationVersion</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.EmvResponseData</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.Status</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.IsSplitted</code></td>
+          <td>Booleano</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.ReturnCode</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.ReturnMessage</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.PaymentId</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.Type</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Value: “PhysicalCreditCard” / Tipo da Transação</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.Currency</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><code class="highlighter-rouge">Payment.Country</code></td>
+          <td>String</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
 
 <h2 id="venda-com-cartão-de-crédito-com-leitura-de-tarja-e-senha">Venda com cartão de crédito com leitura de tarja e senha</h2>
 
@@ -1624,7 +1616,7 @@
     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"DebitCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2020"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -1747,49 +1739,49 @@
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td><code class="highlighter-rouge">DebitCard.ExpirationDate</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.BrandId</code></td>
+      <td><code class="highlighter-rouge">DebitCard.BrandId</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
+      <td><code class="highlighter-rouge">DebitCard.IssuerId</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
+      <td><code class="highlighter-rouge">DebitCard.TruncateCardNumberWhenPrinting</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
+      <td><code class="highlighter-rouge">DebitCard.InputMode</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
+      <td><code class="highlighter-rouge">DebitCard.AuthenticationMethod</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.EmvData</code></td>
+      <td><code class="highlighter-rouge">DebitCard.EmvData</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
@@ -1817,7 +1809,7 @@
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.PanSequenceNumber</code></td>
+      <td><code class="highlighter-rouge">DebitCard.PanSequenceNumber</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
@@ -2787,7 +2779,7 @@
     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"DebitCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2020"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -2917,49 +2909,49 @@
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td><code class="highlighter-rouge">DebitCard.ExpirationDate</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.BrandId</code></td>
+      <td><code class="highlighter-rouge">DebitCard.BrandId</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
+      <td><code class="highlighter-rouge">DebitCard.IssuerId</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
+      <td><code class="highlighter-rouge">DebitCard.TruncateCardNumberWhenPrinting</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
+      <td><code class="highlighter-rouge">DebitCard.InputMode</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
+      <td><code class="highlighter-rouge">DebitCard.AuthenticationMethod</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.EmvData</code></td>
+      <td><code class="highlighter-rouge">DebitCard.EmvData</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
@@ -2987,7 +2979,7 @@
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.PanSequenceNumber</code></td>
+      <td><code class="highlighter-rouge">DebitCard.PanSequenceNumber</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
@@ -3360,7 +3352,7 @@
     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"VoucherCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2020"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -3490,49 +3482,49 @@
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td><code class="highlighter-rouge">VoucherCard.ExpirationDate</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.BrandId</code></td>
+      <td><code class="highlighter-rouge">VoucherCard.BrandId</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
+      <td><code class="highlighter-rouge">VoucherCard.IssuerId</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
+      <td><code class="highlighter-rouge">VoucherCard.TruncateCardNumberWhenPrinting</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
+      <td><code class="highlighter-rouge">VoucherCard.InputMode</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
+      <td><code class="highlighter-rouge">VoucherCard.AuthenticationMethod</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.EmvData</code></td>
+      <td><code class="highlighter-rouge">VoucherCard.EmvData</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
@@ -3560,7 +3552,7 @@
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CreditCard.PanSequenceNumber</code></td>
+      <td><code class="highlighter-rouge">VoucherCard.PanSequenceNumber</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
