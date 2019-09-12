@@ -3797,31 +3797,31 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado <br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência</td>
     </tr>
   </tbody>
 </table>
@@ -3851,17 +3851,17 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">EmvData</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Dados da transação EMV <br />Dados obtidos através do comando PP_GoOnChip na BC</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">IssuerScriptResults</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Resultado dos scripts EMV do emissor</td>
     </tr>
   </tbody>
 </table>
@@ -3901,31 +3901,31 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado <br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência</td>
     </tr>
   </tbody>
 </table>
@@ -3976,17 +3976,17 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantVoidId</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantVoidDate</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Data do cancelamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Card.InputMode</code></td>
@@ -3997,10 +3997,10 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Card.CardNumber</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Número do cartão <br />Requerido quando a transação for digitada.</td>
     </tr>
   </tbody>
 </table>
@@ -4050,31 +4050,31 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">VoidId</code></td>
+      <td>String - uuid</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identificador do cancelamento</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -4109,17 +4109,17 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantVoidId</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">MerchantVoidDate</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Data do cancelamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Card.InputMode</code></td>
@@ -4130,17 +4130,17 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Card.TrackOneData</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Dados da trilha 1 <br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Card.TrackTwoData</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Dados da trilha 2 <br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação</td>
     </tr>
   </tbody>
 </table>
@@ -4190,31 +4190,31 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">VoidId</code></td>
+      <td>String - uuid</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identificador do cancelamento</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -4275,24 +4275,24 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -4330,24 +4330,24 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -4396,17 +4396,17 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">EmvData</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Dados da transação EMV <br />Dados obtidos através do comando PP_GoOnChip na BC</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">IssuerScriptsResults</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Resultado dos scripts EMV do emissor</td>
     </tr>
   </tbody>
 </table>
@@ -4440,24 +4440,24 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -4485,17 +4485,17 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">EmvData</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Dados da transação EMV <br />Dados obtidos através do comando PP_GoOnChip na BC</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">IssuerScriptsResults</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Resultado dos scripts EMV do emissor</td>
     </tr>
   </tbody>
 </table>
@@ -4529,24 +4529,24 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -4606,31 +4606,31 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -4669,31 +4669,31 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -4742,17 +4742,17 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">EmvData</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Dados da transação EMV <br />Dados obtidos através do comando PP_GoOnChip na BC</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">IssuerScriptsResults</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Resultado dos scripts EMV do emissor</td>
     </tr>
   </tbody>
 </table>
@@ -4787,31 +4787,31 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -4839,17 +4839,17 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">EmvData</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Dados da transação EMV <br />Dados obtidos através do comando PP_GoOnChip na BC</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">IssuerScriptsResults</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Resultado dos scripts EMV do emissor</td>
     </tr>
   </tbody>
 </table>
@@ -4884,31 +4884,31 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -4922,68 +4922,6 @@
 <h3 id="requisição-18">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">CancellationStatus</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ReturnCode</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ReturnMessage</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-  </tbody>
-</table>
 
 <h3 id="resposta-18">Resposta</h3>
 
@@ -5020,31 +4958,31 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">CancellationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado <br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -5090,31 +5028,31 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">CancellationStatus</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado <br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
@@ -5145,6 +5083,8 @@
 <h3 id="requisição-20">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
+
+<h3 id="resposta-20">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -5345,17 +5285,17 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identificador da loja</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">TerminalId</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identificador do terminal</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Acquirer.EnableContaclessCardReader</code></td>
@@ -6843,7 +6783,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-20">Resposta</h3>
+<h3 id="resposta-21">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
