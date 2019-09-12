@@ -1328,10 +1328,10 @@ null
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência|
 
 ## Confirmação de pagamento usando cartão EMV
 
@@ -1348,8 +1348,8 @@ null
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`EmvData`|---|---|---|---|
-|`IssuerScriptResults`|---|---|---|---|
+|`EmvData`|String|---|---|Dados da transação EMV <br><br>Dados obtidos através do comando PP_GoOnChip na BC|
+|`IssuerScriptResults`|String|---|---|Resultado dos scripts EMV do emissor|
 
 ### Resposta
 
@@ -1376,10 +1376,10 @@ null
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência|
 
 # Cancelamento
 
@@ -1406,10 +1406,10 @@ null
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantVoidId`|---|---|---|---|
-|`MerchantVoidDate`|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
 |`Card.InputMode`|---|---|---|---|
-|`Card.CardNumber`|---|---|---|---|
+|`Card.CardNumber`|String|---|---|Número do cartão <br><br>Requerido quando a transação for digitada.|
 
 ### Resposta
 
@@ -1446,10 +1446,10 @@ null
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`VoidId`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
+|`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`Status`|Integer int16|---|---|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 
 ## Cancelamento de pagamento com cartão presente
 
@@ -1471,11 +1471,11 @@ null
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantVoidId`|---|---|---|---|
-|`MerchantVoidDate`|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
 |`Card.InputMode`|---|---|---|---|
-|`Card.TrackOneData`|---|---|---|---|
-|`Card.TrackTwoData`|---|---|---|---|
+|`Card.TrackOneData`|String|---|---|Dados da trilha 1 <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.TrackTwoData`|String|---|---|Dados da trilha 2 <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
 
 ### Resposta
 
@@ -1512,10 +1512,10 @@ null
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`VoidId`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
+|`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`Status`|Integer int16|---|---|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 
 # Desfazimento
 
@@ -1552,9 +1552,9 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 
 ### Requisição
 
@@ -1579,9 +1579,9 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 
 ## Desfazimento de pagamento de cartão EMV.
 
@@ -1606,8 +1606,8 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`EmvData`|---|---|---|---|
-|`IssuerScriptsResults`|---|---|---|---|
+|`EmvData`|String|---|---|Dados da transação EMV <br><br>Dados obtidos através do comando PP_GoOnChip na BC|
+|`IssuerScriptsResults`|String|---|---|Resultado dos scripts EMV do emissor|
 
 ### Resposta
 
@@ -1628,9 +1628,9 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 
 ### Requisição
 
@@ -1645,8 +1645,8 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`EmvData`|---|---|---|---|
-|`IssuerScriptsResults`|---|---|---|---|
+|`EmvData`|String|---|---|Dados da transação EMV <br><br>Dados obtidos através do comando PP_GoOnChip na BC|
+|`IssuerScriptsResults`|String|---|---|Resultado dos scripts EMV do emissor|
 
 ### Resposta
 
@@ -1667,9 +1667,9 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 
 ## Desfazimento de pagamento de cartão digitado
 
@@ -1705,10 +1705,10 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 
 ### Requisição
 
@@ -1734,10 +1734,10 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 
 ## Desfazimento de pagamento de cartão EMV
 
@@ -1762,8 +1762,8 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`EmvData`|---|---|---|---|
-|`IssuerScriptsResults`|---|---|---|---|
+|`EmvData`|String|---|---|Dados da transação EMV <br><br>Dados obtidos através do comando PP_GoOnChip na BC|
+|`IssuerScriptsResults`|String|---|---|Resultado dos scripts EMV do emissor|
 
 ### Resposta
 
@@ -1785,10 +1785,10 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 
 ### Requisição
 
@@ -1803,8 +1803,8 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`EmvData`|---|---|---|---|
-|`IssuerScriptsResults`|---|---|---|---|
+|`EmvData`|String|---|---|Dados da transação EMV <br><br>Dados obtidos através do comando PP_GoOnChip na BC|
+|`IssuerScriptsResults`|String|---|---|Resultado dos scripts EMV do emissor|
 
 ### Resposta
 
@@ -1826,10 +1826,10 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`ConfirmationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 
 # Desfazimento de cancelamento
 
@@ -1840,34 +1840,6 @@ Desfaz um cancelamento
 ### Requisição
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
-
-```json
-{
-  "CancellationStatus": 4,
-  "Status": 2,
-  "ReturnCode": 0,
-  "ReturnMessage": "Success",
-  "Links": [
-    {
-      "Method": "GET",
-      "Rel": "self",
-      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
-    },
-    {
-      "Method": "POST",
-      "Rel": "void",
-      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
-    }
-  ]
-}
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`CancellationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
 
 ### Resposta
 
@@ -1894,10 +1866,10 @@ Desfaz um cancelamento
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`CancellationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|---|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 
 ## Desfaz um cancelamento
 
@@ -1930,10 +1902,10 @@ Desfaz um cancelamento
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`CancellationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-|`ReturnCode`|---|---|---|---|
-|`ReturnMessage`|---|---|---|---|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|---|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 
 # Baixa de parâmetros
 
@@ -1950,6 +1922,8 @@ Solicita as tabelas e parametros para operação do terminal
 ### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
+
+### Resposta
 
 ```json
 {
@@ -2140,8 +2114,8 @@ Solicita as tabelas e parametros para operação do terminal
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantId`|---|---|---|---|
-|`TerminalId`|---|---|---|---|
+|`MerchantId`|String|---|---|Identificador da loja|
+|`TerminalId`|String|---|---|Identificador do terminal|
 |`Acquirer.EnableContaclessCardReader`|---|---|---|---|
 |`Acquirer.LockAppFunctionsExceptInitialization`|---|---|---|---|
 |`Acquirer.HasChipReader`|---|---|---|---|
