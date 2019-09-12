@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-12T19:06:13+00:00</updated>
+    <updated>2019-09-12T19:35:57+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7401,7 +7401,7 @@ public class EncriptCard {
 
   &lt;p&gt;QR Code Gerado a partir do código Exemplo&lt;/p&gt;
 
-  &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/qrcode/qrcode-qrcodeimg.png&quot; alt=&quot;QrCode gerado a partir do código Exemplo&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/qro-code-exemplo.png&quot; alt=&quot;QR Code gerado a partir do código de exemplo:&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;Observação: Ao testar com o QR Code especificado um erro do tipo 422 é esperado, pois, não existe dados transacionais referentes no autorizador da Cielo.&lt;/strong&gt;&lt;/p&gt;
