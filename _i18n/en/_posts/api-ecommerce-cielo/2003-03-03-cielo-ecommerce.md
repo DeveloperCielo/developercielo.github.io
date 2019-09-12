@@ -7083,6 +7083,20 @@ If there is any error in the flow, where it is not possible to validate the card
 
 * 500 - Internal Server Error
 
+#### NEGATIVE - Restriction Cadastral
+
+``` json
+  {    
+      "Code": 389,     
+      "Message": "Restrição Cadastral"   
+  }
+```
+
+If there is any error in the flow, where it is not possible to validate the card, the service will return error:
+
+* 500 - Internal Server Error
+* 400 - Bad Request
+
 # Silent Order Post
 
 Integration that Cielo offers to merchants, where the payment data is safely traced, while maintaining full control over the Ckeckout experience.
