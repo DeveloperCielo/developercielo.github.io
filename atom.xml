@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-12T19:46:35+00:00</updated>
+    <updated>2019-09-12T21:37:36+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -38010,12 +38010,6 @@ O código de retorno &lt;strong&gt;00 representa sucesso no Zero Auth&lt;/strong
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bandeira inválida&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Caso ocorra algum erro no fluxo, onde não seja possível validar o cartão, o serviço irá retornar erro:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;500 – Internal Server Erro&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;h4 id=&quot;negativa---restrição-cadastral&quot;&gt;NEGATIVA - Restrição Cadastral&lt;/h4&gt;
 

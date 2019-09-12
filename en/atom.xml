@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-12T19:46:41+00:00</updated>
+    <updated>2019-09-12T21:37:42+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32229,12 +32229,6 @@ The return code &lt;strong&gt;“00” represents success in Zero Auth&lt;/stron
       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Message&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bandeira inválida&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;If there is any error in the flow, where it is not possible to validate the card, the service will return error:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;500 - Internal Server Error&lt;/li&gt;
-&lt;/ul&gt;
 
 &lt;h4 id=&quot;negative---restriction-cadastral&quot;&gt;NEGATIVE - Restriction Cadastral&lt;/h4&gt;
 
