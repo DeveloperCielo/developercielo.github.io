@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-12T16:46:47+00:00</updated>
+    <updated>2019-09-12T17:00:45+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7384,7 +7384,7 @@ public class EncriptCard {
 
 &lt;p&gt;Os campos destacados em negrito são provenientes da análise do QR Code. O ID do campo e seu tamanho são sempre enviados antes do valor correspondente.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/layout-qr-code.png.png&quot; alt=&quot;Layout QRCode&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/layout-qr-code.png&quot; alt=&quot;Layout QRCode&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;como-testar&quot;&gt;Como Testar&lt;/h1&gt;
 
@@ -7401,7 +7401,7 @@ public class EncriptCard {
 
   &lt;p&gt;QR Code Gerado a partir do código Exemplo&lt;/p&gt;
 
-  &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/qrcode-qrcodeimg.png&quot; alt=&quot;QrCode gerado a partir do código Exemplo&quot; /&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/qrcode/qrcode-qrcodeimg.png&quot; alt=&quot;QrCode gerado a partir do código Exemplo&quot; /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;strong&gt;Observação: Ao testar com o QR Code especificado um erro do tipo 422 é esperado, pois, não existe dados transacionais referentes no autorizador da Cielo.&lt;/strong&gt;&lt;/p&gt;
