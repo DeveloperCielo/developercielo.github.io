@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-12T17:47:45+00:00</updated>
+    <updated>2019-09-12T17:55:22+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -224,7 +224,7 @@
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Default: &lt;code class=&quot;highlighter-rouge&quot;&gt;ByMerchant&lt;/code&gt; &lt;br /&gt; Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;ByMerchant&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ByIssuer&lt;/code&gt; &lt;br /&gt; Tipo de Parcelamento: &lt;br /&gt; * Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. &lt;br /&gt; * Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.&lt;/td&gt;
+      &lt;td&gt;Default: &lt;code class=&quot;highlighter-rouge&quot;&gt;ByMerchant&lt;/code&gt; &lt;br /&gt; Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;ByMerchant&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;ByIssuer&lt;/code&gt; &lt;br /&gt; Tipo de Parcelamento: &lt;br /&gt; - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. &lt;br /&gt; - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ProductId&lt;/code&gt;&lt;/td&gt;
