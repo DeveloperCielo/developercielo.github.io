@@ -7079,10 +7079,6 @@ Below the fields returned after validation:
   }
 ```
 
-If there is any error in the flow, where it is not possible to validate the card, the service will return error:
-
-* 500 - Internal Server Error
-
 #### NEGATIVE - Restriction Cadastral
 
 ``` json
