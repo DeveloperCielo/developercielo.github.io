@@ -253,10 +253,10 @@
 <p>|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |—|—|—|—|—|
 |<code class="highlighter-rouge">MerchantOrderId</code>|String|—|—| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal |
-|<code class="highlighter-rouge">Payment.Type</code>|String|—|—|Value: “PhysicalCreditCard” / Tipo da Transação|
+|<code class="highlighter-rouge">Payment.Type</code>|String|—|Sim|Value: “PhysicalCreditCard” / Tipo da Transação|
 |<code class="highlighter-rouge">Payment.SoftDescriptor</code>|String|13|—|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
-|<code class="highlighter-rouge">Payment.PaymentDateTime</code>|String &gt;|—|—|Data e Hora da captura da transação|
-|<code class="highlighter-rouge">Payment.Amount</code>|Integer(int64)|—|—|Valor da transação (1079 = R$10,79)|
+|<code class="highlighter-rouge">Payment.PaymentDateTime</code>|String -date-time&gt;|—|Sim|Data e Hora da captura da transação|
+|<code class="highlighter-rouge">Payment.Amount</code>|Integer(int64)|—|Sim|Valor da transação (1079 = R$10,79)|
 |<code class="highlighter-rouge">Payment.Capture</code>|Booleano|—|—|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
 |<code class="highlighter-rouge">Payment.Installments</code>|Integer|—|—|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
 |<code class="highlighter-rouge">Payment.Interest</code>|String|—|—|Default: “ByMerchant”
@@ -264,132 +264,29 @@ Enum: “ByMerchant” “ByIssuer”
 Tipo de Parcelamento</p>
 <ul>
   <li>Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.</li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.</td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">Payment.ProductId</code></td>
-          <td>Integer</td>
-          <td>—</td>
-          <td>—</td>
-          <td>Código do produto identificado através do bin do cartão.</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">CreditCard.SecurityCodeStatus</code></td>
-          <td>String</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">CreditCard.BrandId</code></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
-          <td>String</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
-          <td>String</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
-          <td>Booleano</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">PinPadInformation.TerminalId</code></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">PinPadInformation.SerialNumber</code></td>
-          <td>String</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
-          <td>String</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td> </td>
-          <td><code class="highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li>Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|<code class="highlighter-rouge">Payment.ProductId</code>|Integer|—|Sim|Código do produto identificado através do bin do cartão.|
+|<code class="highlighter-rouge">CreditCard.CardNumber</code>|—|—|—|—|
+|<code class="highlighter-rouge">CreditCard.ExpirationDate</code>|—|—|Sim|—|
+|<code class="highlighter-rouge">CreditCard.SecurityCodeStatus</code>|String|—|—|—|
+|<code class="highlighter-rouge">CreditCard.SecurityCode</code>|—|—|—|—|
+|<code class="highlighter-rouge">CreditCard.BrandId</code>|—|—|—|—|
+|<code class="highlighter-rouge">CreditCard.IssuerId</code>|—|—|—|—|
+|<code class="highlighter-rouge">CreditCard.InputMode</code>|String|—|—|—|
+|<code class="highlighter-rouge">CreditCard.AuthenticationMethod</code>|String|—|—|—|
+|<code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code>|Booleano|—|—|—|
+|<code class="highlighter-rouge">PinPadInformation.TerminalId</code>|String|—|Sim|Número Lógico definido no Concentrador Cielo.|
+|<code class="highlighter-rouge">PinPadInformation.SerialNumber</code>|String|—|Sim|Número de Série do Equipamento.|
+|<code class="highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code>|String|—|Sim|Enum: “WithoutPinPad” “PinPadWithoutChipReader” “PinPadWithChipReaderWithoutSamModule” “PinPadWithChipReaderWithSamModule” “NotCertifiedPinPad” “PinPadWithChipReaderWithoutSamAndContactless” “PinPadWithChipReaderWithSamModuleAndContactless”
+Sem PIN-pad = “WithoutPinPad”;
+PIN-pad sem leitor de Chip = “PinpadWithoutChipReader”;
+PIN-pad com leitor de Chip sem módulo SAM = “PinPadWithChipReaderWithoutSamModule”;
+PIN-pad com leitor de Chip com módulo SAM = “PinPadWithChipReaderWithSamModule”;
+PIN-pad não homologado = “NotCertifiedPinPad”;
+PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = “PinpadWithChipReaderWithoutSamAndContactless”;
+PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = “PinpadWithChipReaderWithSamAndContactless”.
+Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|<code class="highlighter-rouge">PinPadInformation.ReturnDataInfo</code>|String|—|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|</li>
 </ul>
 
 <h3 id="resposta">Resposta</h3>
@@ -598,7 +495,7 @@ Tipo de Parcelamento</p>
         <tr>
           <td> </td>
           <td><code class="highlighter-rouge">Payment.PaymentDateTime</code></td>
-          <td>String &gt;</td>
+          <td>String -date-time&gt;</td>
           <td>—</td>
           <td>—</td>
           <td>Data e Hora da captura da transação</td>

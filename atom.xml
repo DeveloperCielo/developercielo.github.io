@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-12T17:30:22+00:00</updated>
+    <updated>2019-09-12T17:37:14+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -162,10 +162,10 @@
 &lt;p&gt;|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |—|—|—|—|—|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;|String|—|—| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal |
-|&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;|String|—|—|Value: “PhysicalCreditCard” / Tipo da Transação|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;|String|—|Sim|Value: “PhysicalCreditCard” / Tipo da Transação|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.SoftDescriptor&lt;/code&gt;|String|13|—|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
-|&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.PaymentDateTime&lt;/code&gt;|String &amp;gt;|—|—|Data e Hora da captura da transação|
-|&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;|Integer(int64)|—|—|Valor da transação (1079 = R$10,79)|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.PaymentDateTime&lt;/code&gt;|String -date-time&amp;gt;|—|Sim|Data e Hora da captura da transação|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;|Integer(int64)|—|Sim|Valor da transação (1079 = R$10,79)|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Capture&lt;/code&gt;|Booleano|—|—|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;|Integer|—|—|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
 |&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Interest&lt;/code&gt;|String|—|—|Default: “ByMerchant”
@@ -173,132 +173,29 @@ Enum: “ByMerchant” “ByIssuer”
 Tipo de Parcelamento&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ProductId&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;Integer&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;Código do produto identificado através do bin do cartão.&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.SecurityCodeStatus&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;String&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.BrandId&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.IssuerId&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.InputMode&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;String&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.AuthenticationMethod&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;String&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.TruncateCardNumberWhenPrinting&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;Booleano&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadInformation.TerminalId&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadInformation.SerialNumber&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;String&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadInformation.PhysicalCharacteristics&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;String&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadInformation.ReturnDataInfo&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-          &lt;td&gt;—&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ProductId&lt;/code&gt;|Integer|—|Sim|Código do produto identificado através do bin do cartão.|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;|—|—|—|—|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.ExpirationDate&lt;/code&gt;|—|—|Sim|—|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.SecurityCodeStatus&lt;/code&gt;|String|—|—|—|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.SecurityCode&lt;/code&gt;|—|—|—|—|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.BrandId&lt;/code&gt;|—|—|—|—|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.IssuerId&lt;/code&gt;|—|—|—|—|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.InputMode&lt;/code&gt;|String|—|—|—|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.AuthenticationMethod&lt;/code&gt;|String|—|—|—|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.TruncateCardNumberWhenPrinting&lt;/code&gt;|Booleano|—|—|—|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadInformation.TerminalId&lt;/code&gt;|String|—|Sim|Número Lógico definido no Concentrador Cielo.|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadInformation.SerialNumber&lt;/code&gt;|String|—|Sim|Número de Série do Equipamento.|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadInformation.PhysicalCharacteristics&lt;/code&gt;|String|—|Sim|Enum: “WithoutPinPad” “PinPadWithoutChipReader” “PinPadWithChipReaderWithoutSamModule” “PinPadWithChipReaderWithSamModule” “NotCertifiedPinPad” “PinPadWithChipReaderWithoutSamAndContactless” “PinPadWithChipReaderWithSamModuleAndContactless”
+Sem PIN-pad = “WithoutPinPad”;
+PIN-pad sem leitor de Chip = “PinpadWithoutChipReader”;
+PIN-pad com leitor de Chip sem módulo SAM = “PinPadWithChipReaderWithoutSamModule”;
+PIN-pad com leitor de Chip com módulo SAM = “PinPadWithChipReaderWithSamModule”;
+PIN-pad não homologado = “NotCertifiedPinPad”;
+PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = “PinpadWithChipReaderWithoutSamAndContactless”;
+PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = “PinpadWithChipReaderWithSamAndContactless”.
+Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|&lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadInformation.ReturnDataInfo&lt;/code&gt;|String|—|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;resposta&quot;&gt;Resposta&lt;/h3&gt;
@@ -507,7 +404,7 @@ Tipo de Parcelamento&lt;/p&gt;
         &lt;tr&gt;
           &lt;td&gt; &lt;/td&gt;
           &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.PaymentDateTime&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;String &amp;gt;&lt;/td&gt;
+          &lt;td&gt;String -date-time&amp;gt;&lt;/td&gt;
           &lt;td&gt;—&lt;/td&gt;
           &lt;td&gt;—&lt;/td&gt;
           &lt;td&gt;Data e Hora da captura da transação&lt;/td&gt;
