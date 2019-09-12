@@ -7156,10 +7156,6 @@ Abaixo os campos retornados após a validação:
   }
 ```
 
-Caso ocorra algum erro no fluxo, onde não seja possível validar o cartão, o serviço irá retornar erro: 
-
-* 500 – Internal Server Erro
-
 #### NEGATIVA - Restrição Cadastral
 
 ``` json
