@@ -109,10 +109,10 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal |
-|`Payment.Type`|String|---|---|Value: "PhysicalCreditCard" / Tipo da Transação|
+|`Payment.Type`|String|---|Sim|Value: "PhysicalCreditCard" / Tipo da Transação|
 |`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
-|`Payment.PaymentDateTime`|String <date-time>>|---|---|Data e Hora da captura da transação|
-|`Payment.Amount`|Integer(int64)|---|---|Valor da transação (1079 = R$10,79)|
+|`Payment.PaymentDateTime`|String -date-time>|---|Sim|Data e Hora da captura da transação|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
 |`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
 |`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
 |`Payment.Interest`|String|---|---|Default: "ByMerchant"
@@ -120,9 +120,9 @@ Enum: "ByMerchant" "ByIssuer"
 Tipo de Parcelamento
 - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.
 - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
-|`Payment.ProductId`|Integer|---|---|Código do produto identificado através do bin do cartão.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
 |`CreditCard.CardNumber`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
+|`CreditCard.ExpirationDate`|---|---|Sim|---|
 |`CreditCard.SecurityCodeStatus`|String|---|---|---|
 |`CreditCard.SecurityCode`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
@@ -130,10 +130,18 @@ Tipo de Parcelamento
 |`CreditCard.InputMode`|String|---|---|---|
 |`CreditCard.AuthenticationMethod`|String|---|---|---|
 |`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|---|
-|`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|String|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|String|---|---|---|
-|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: "WithoutPinPad" "PinPadWithoutChipReader" "PinPadWithChipReaderWithoutSamModule" "PinPadWithChipReaderWithSamModule" "NotCertifiedPinPad" "PinPadWithChipReaderWithoutSamAndContactless" "PinPadWithChipReaderWithSamModuleAndContactless"
+Sem PIN-pad = “WithoutPinPad”;
+PIN-pad sem leitor de Chip = “PinpadWithoutChipReader”;
+PIN-pad com leitor de Chip sem módulo SAM = “PinPadWithChipReaderWithoutSamModule”;
+PIN-pad com leitor de Chip com módulo SAM = “PinPadWithChipReaderWithSamModule”;
+PIN-pad não homologado = “NotCertifiedPinPad”;
+PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = “PinpadWithChipReaderWithoutSamAndContactless”;
+PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = “PinpadWithChipReaderWithSamAndContactless”.
+Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 
 ### Resposta
 
@@ -251,7 +259,7 @@ Tipo de Parcelamento
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|String|---|---|---|
 |`PinBlock.KsnIdentification`|String|---|---|---|
-|`Payment.PaymentDateTime`|String <date-time>>|---|---|Data e Hora da captura da transação|
+|`Payment.PaymentDateTime`|String -date-time>|---|---|Data e Hora da captura da transação|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`Payment.ProductId`|Integer|---|---|Código do produto identificado através do bin do cartão.|
