@@ -108,27 +108,31 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
-|`Payment.Type`|Texto|---|---|---|
-|`Payment.SoftDescriptor`|Texto|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
-|`Payment.Capture`|---|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|Texto|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal |
+|`Payment.Type`|String|---|---|Value: "PhysicalCreditCard" / Tipo da Transação|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.PaymentDateTime`|String <date-time>>|---|---|Data e Hora da captura da transação|
+|`Payment.Amount`|Integer(int64)|---|---|Valor da transação (1079 = R$10,79)|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: "ByMerchant"
+Enum: "ByMerchant" "ByIssuer"
+Tipo de Parcelamento
+- Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.
+- Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.ProductId`|Integer|---|---|Código do produto identificado através do bin do cartão.|
 |`CreditCard.CardNumber`|---|---|---|---|
 |`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.SecurityCodeStatus`|Texto|---|---|---|
+|`CreditCard.SecurityCodeStatus`|String|---|---|---|
 |`CreditCard.SecurityCode`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.InputMode`|Texto|---|---|---|
-|`CreditCard.AuthenticationMethod`|Texto|---|---|---|
+|`CreditCard.InputMode`|String|---|---|---|
+|`CreditCard.AuthenticationMethod`|String|---|---|---|
 |`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|---|
 |`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|Texto|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|Texto|---|---|---|
+|`PinPadInformation.SerialNumber`|String|---|---|---|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
 
 ### Resposta
@@ -228,44 +232,48 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
-|`Customer.Name`|Texto|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|Texto|---|---|---|
-|`Payment.Capture`|Texto|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal |
+|`Customer.Name`|String|---|---|---|
+`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: "ByMerchant"
+Enum: "ByMerchant" "ByIssuer"
+Tipo de Parcelamento
+- Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.
+- Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
 |`CreditCard.ExpirationDate`|---|---|---|---|
 |`CreditCard.BrandId`|---|---|---|---|
 |`CreditCard.IssuerId`|---|---|---|---|
 |`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|---|
-|`CreditCard.InputMode`|Texto|---|---|---|
-|`CreditCard.AuthenticationMethod`|Texto|---|---|---|
+|`CreditCard.InputMode`|String|---|---|---|
+|`CreditCard.AuthenticationMethod`|String|---|---|---|
 |`CreditCard.EmvData`|---|---|---|---|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
-|`PinBlock.EncryptionType`|Texto|---|---|---|
-|`PinBlock.KsnIdentification`|Texto|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
+|`PinBlock.EncryptionType`|String|---|---|---|
+|`PinBlock.KsnIdentification`|String|---|---|---|
+|`Payment.PaymentDateTime`|String <date-time>>|---|---|Data e Hora da captura da transação|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|Texto|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.ProductId`|Integer|---|---|Código do produto identificado através do bin do cartão.|
 |`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|Texto|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|Texto|---|---|---|
+|`PinPadInformation.SerialNumber`|String|---|---|---|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|---|---|
 |`PinPadInformation.ReturnDataInfo`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
+|`Payment.Amount`|Integer(int64)|---|---|Valor da transação (1079 = R$10,79)|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|Texto|---|---|---|
+|`Payment.Provider`|String|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
 |`Payment.IsSplitted`|Booleano|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|Texto|---|---|---|
+|`Payment.ReturnMessage`|String|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|Texto|---|---|---|
-|`Payment.Currency`|---|---|---|---|
-|`Payment.Country`|Texto|---|---|---|
+|`Payment.Type`|String|---|---|Value: "PhysicalCreditCard" / Tipo da Transação|
+|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
 
 ## Venda com cartão de crédito com leitura de tarja e senha
 
@@ -554,7 +562,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
     "Installments": 1,
     "Interest": "ByMerchant",
     "Capture": true,
-    "CreditCard": {
+    "DebitCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
       "IssuerId": 2,
@@ -643,17 +651,17 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Customer.Name`|---|---|---|---|
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.EmvData`|---|---|---|---|
+|`DebitCard.ExpirationDate`|---|---|---|---|
+|`DebitCard.BrandId`|---|---|---|---|
+|`DebitCard.IssuerId`|---|---|---|---|
+|`DebitCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
+|`DebitCard.InputMode`|---|---|---|---|
+|`DebitCard.AuthenticationMethod`|---|---|---|---|
+|`DebitCard.EmvData`|---|---|---|---|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`DebitCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -957,7 +965,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
     "Installments": 1,
     "Interest": "ByMerchant",
     "Capture": true,
-    "CreditCard": {
+    "DebitCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
       "IssuerId": 2,
@@ -1047,17 +1055,17 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
 |`Payment.Capture`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.EmvData`|---|---|---|---|
+|`DebitCard.ExpirationDate`|---|---|---|---|
+|`DebitCard.BrandId`|---|---|---|---|
+|`DebitCard.IssuerId`|---|---|---|---|
+|`DebitCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
+|`DebitCard.InputMode`|---|---|---|---|
+|`DebitCard.AuthenticationMethod`|---|---|---|---|
+|`DebitCard.EmvData`|---|---|---|---|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`DebitCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
@@ -1156,7 +1164,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
     "Installments": 1,
     "Interest": "ByMerchant",
     "Capture": true,
-    "CreditCard": {
+    "VoucherCard": {
       "ExpirationDate": "12/2020",
       "BrandId": 1,
       "IssuerId": 2,
@@ -1246,17 +1254,17 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.Installments`|---|---|---|---|
 |`Payment.Interest`|---|---|---|---|
 |`Payment.Capture`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.EmvData`|---|---|---|---|
+|`VoucherCard.ExpirationDate`|---|---|---|---|
+|`VoucherCard.BrandId`|---|---|---|---|
+|`VoucherCard.IssuerId`|---|---|---|---|
+|`VoucherCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
+|`VoucherCard.InputMode`|---|---|---|---|
+|`VoucherCard.AuthenticationMethod`|---|---|---|---|
+|`VoucherCard.EmvData`|---|---|---|---|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`VoucherCard.PanSequenceNumber`|---|---|---|---|
 |`Payment.PaymentDateTime`|---|---|---|---|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|---|---|---|---|
