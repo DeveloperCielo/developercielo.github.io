@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-13T12:41:50+00:00</updated>
+    <updated>2019-09-13T18:45:05+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7455,14 +7455,14 @@ Observação: Ao testar com o QR Code especificado um erro do tipo 422 é espera
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;originalTransactionType&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Transação de origem. Comunica o desfazimento de uma transação do /payments.&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;statusCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;1 - Pagamento / 2 - Cancelamento / 3 - Desfazimento - Quando desfazimento - statusCode = 3&lt;/td&gt;
       &lt;td&gt;Número&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
