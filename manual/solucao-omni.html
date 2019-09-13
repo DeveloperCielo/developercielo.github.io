@@ -5299,1060 +5299,1060 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Acquirer.EnableContaclessCardReader</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Habilita Leitora Cartão Sem Contato</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Acquirer.LockAppFunctionsExceptInitialization</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Bloquear as funções do aplicativo, com exceção da Inicialização</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Acquirer.HasChipReader</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Indica que tem leitora de Chip-Card</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Acquirer.HasMagneticTrackReader</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Indica que tem leitor da trilha magnética</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Acquirer.HasKeyboard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Indica que tem teclado para digitação</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Merchant.MerchantId</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Código do Lojista na PayStore, definido no momento da criação do lojista.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Merchant.NetworkName</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Nome da rede da sub-adquirente cadastrado pelo Gestor da PayStore.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Merchant.MerchantName</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Nome fantasia do lojista, definido no momento da criação do mesmo no portal da PayStore.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Merchant.MerchantAddress</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Endereço do lojista obtido a partir da digitação do CEP momento da criação do mesmo no portal da PayStore.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Merchant.NationalId</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>CPF ou CNPJ, definido no momento da criação do Lojista no portal da PayStore.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.InitialBin</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Início do range de BIN’s.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.FinalBin</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Final do range de BIN’s.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.ProductId</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Chave estrangeira de “PRODUCT TABLE”.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.Type</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Admite os seguintes valores <br />0 - ESPECÍFICO <br />1 – GENERICO.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowFallbackWhenChipReadingFails</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite fallback se houver erro na leitura do Chip.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowChargingMoedeiroFromCash</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite carga de moedeiro a partir de dinheiro em espécie em espécie.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowPurchaseWithCompreESaque</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite venda com Compre &amp; Saque.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowOfflineFunctionExceptForEMVCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite função offline, exceto cartão EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowTypingCardNumber</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite digitação do número do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.MaskCardNumberUsingLast4Digits</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Imprimir apenas os 4 últimos dígitos do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.MaskCardNumberUsingFirst6AndLas4Digits</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowPrintCardHolderBalance</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite imprimir o saldo do portador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowDisplayCardHolderBalance</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite exibir no display o saldo do portador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowPrintingPartialCardNumberInReceipt</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite impressão parcial do número do cartão no comprovante das transações.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.RestrictSaleWithDuplicateValueWhenPostdated</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Impede venda com valor duplicado para prédatamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.RestrictSaleWithDuplicateValueWhenPostdated</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Impede venda com valor duplicado.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.RequiresPassword</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita senha.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.InterpretsLastDigitOfSecurityCode</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Interpreta último dígito do Código de Serviço.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.RequiresPasswordExceptForEMVCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita senha, exceto cartão EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.RequiresSecurityCodeWhenMagneticTrackIsRead</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita Código de Segurança na leitura de trilha.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.RequiresSecurityCodeWhenCardNumberIsTyped</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>olicita Código de Segurança para cartão digitado.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.RequiresTypingLast4Digits</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita digitação dos últimos 4 dígitos.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowCaptureOfFirstInstallmentValue</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite captura do valor da primeira parcela.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowCaptureOfDownpaymentValue</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite captura do valor de entrada.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowGuaranteeHandling</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite tratamento de garantia.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite pré-datar a primeira parcela para venda e consulta CDC.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowPostdating</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite pré-datamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowCDCSale</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite venda CDC.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowFinancingByStore</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite financiamento pela Loja.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.AllowFinancingByCreditCardCompany</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite financiamento pela Administradora.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.ValidateCardTrack1</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Verifica Trilha 1 do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.DoNotValidateCardModule10</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Não validar o Módulo 10 do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.CheckExpiryDateWhenCardNumberIsTyped</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Verifica data de validade do cartão digitado.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.CheckExpiryDateWhenMagneticTrackIsRead</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Verifica data de validade da trilha.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Bins.IssuerId</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Chave estrangeira de “ISSUER TABLE”.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.ProductId</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identificador do produto.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.ProductName</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Nome do produto.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.ProductType</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Admite os seguintes valores <br />0 - CREDITO <br />1 – DEBITO</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.BrandId</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identificador da bandeira do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowTransactionWithContactlessCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite Transação com Cartão Sem Contato.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.IsFinancialProduct</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Produto Financeiro.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowOfflineAuthorizationForEMVCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite Autorização Offline EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowReprintReceipt</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite Reimpressão do comprovante.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowPrintReceipt</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite Impressão do comprovante.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowOfflineAuthorizationForContactlessCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite Autorização Offline para Cartão Sem Contato.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowCancel</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite Cancelamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowUndo</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite Desfazimento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowCaptureOfFirstInstallmentValue</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite captura do valor da primeira parcela.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowCaptureOfDownpaymentValue</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite captura do valor de entrada.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowGuaranteeHandling</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite tratamento de garantia.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite pré-datar a primeira parcela para venda e consulta CDC.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowPostdating</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite pré-datamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowCDCSale</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite venda CDC.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowFinancingByStore</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite financiamento pela Loja.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.AllowFinancingByCreditCardCompany</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite financiamento pela Administradora.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Número máximo de parcelas para financiamento ADM.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.MaximumNumberOfInstallmentsWhenFinancingByStore</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Número máximo de parcelas para financiamento Loja.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.MaximumNumberOfinstallmentsForSaleAndCDCQuery</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Número máximo de parcelas para venda e consulta CDC.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.MinimumNumberOfInstallmentsWhenFinancingByStore</code></td>
+      <td>Integer int64</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Valor mínimo de parcelas para financiamento Loja.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.SaleGuaranteeType</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Tipo de Garantia para o Pré-datado. <br />Admite os seguintes valores <br />00 – Não permite tratamento de Garantia (Venda Garantida); <br />05 – Permite transações Pré-datadas Garantidas; <br />07 – Permite transações Pré-datadas Garantidas e Sem Garantia.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.PostdatedDayCountLimit</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Limite máximo em dias para pré-datar a partir da data atual. <br />00 – Não aceita. <br />XX - Pré-datado.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Products.FirstInstallmentDayCountLimit</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Limite da data de primeira parcela. <br />00 – Não aceita. <br />XX - Limite de dias.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.Aid</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identificador da aplicação EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.TagsFirst</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Conjunto de tags obrigatórias enviadas o 1º Generate AC.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.TagsSecond</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Conjunto de tags obrigatórias enviadas o 2º Generate AC.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.IdxRecord</code></td>
-      <td>—</td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.Type</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Admite os seguintes valores <br />0 - CREDITO <br />1 – DEBITO</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.RCodeFirst</code></td>
-      <td>—</td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.RCodeSecond</code></td>
-      <td>—</td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.InvalidateFunctionIfCardIsOnBlacklist</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Invalida a função se o cartão consta na Lista Negra.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.RequireBINToBeInCardRangeTable</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Obriga que o BIN esteja na tabela de Range de Cartões (tipo 2B).</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.StoreTransactionsRejectedByTerminalAppAndSendToHost</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Armazena e envia para o Host as transações rejeitadas pelo aplicativo do terminal.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.NatEmvConctactRiskFloorLimit</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Valor máximo de verificação para autorização offline das transações. As transações realizadas com a leitura do Chip EMV e com valor acima do “Floor limit”, deverão ser autorizadas no modo online.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.NatEmvConctactRiskMinValue</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Valor mínimo para o cálculo de seleção aleatória para autorização offline. Conforme processo definido na Especificação EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.NatEmvConctactRiskMinPercent</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Porcentagem mínima para seleção aleatória. Utilizar apenas o conteúdo do último byte.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.NatEmvConctactRiskMaxPercent</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Porcentagem máxima para seleção aleatória. Utilizar apenas o conteúdo do último byte.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.IntEmvConctactRiskFloorLimit</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Valor máximo de verificação para autorização offline das transações. As transações realizadas com a leitura do Chip EMV e com valor acima do “Floor limit”, deverão ser autorizadas no modo online.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.IntEmvConctactRiskMinValue</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Valor mínimo para o cálculo de seleção aleatória para autorização offline. Conforme processo definido na Especificação EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.IntEmvConctactRiskMinPercent</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Porcentagem mínima para seleção aleatória. Utilizar apenas o conteúdo do último byte.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.IntEmvConctactRiskMaxPercent</code></td>
+      <td>Integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Porcentagem máxima para seleção aleatória. Utilizar apenas o conteúdo do último byte.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Emv.ProductIds</code></td>
+      <td>Array of integers int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Produtos habilitados para esta aplicação EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.Currency</code></td>
-      <td>—</td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.AllowFallbackWhenChipReadingFails</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite fallback se houver erro na leitura do Chip.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.AllowChargingMoedeiroFromCash</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite carga de moedeiro a partir de dinheiro em espécie.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.AllowPurchaseWithCompreESaque</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite venda com Compre &amp; Saque.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.AllowOfflineFunctionExceptForEMVCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite função offline, exceto cartão EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.AllowTypingCardNumber</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite entrada manual do número do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.MaskCardNumberUsingLast4Digits</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Imprimir apenas os 4 últimos dígitos do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.MaskCardNumberUsingFirst6AndLas4Digits</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.AllowPrintCardHolderBalance</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite imprimir o saldo do portador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.AllowDisplayCardHolderBalance</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite exibir no display o saldo do portador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.AllowPrintingPartialCardNumberInReceipt</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite impressão parcial do número do cartão no comprovante das transações.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.RestrictSaleWithDuplicateValueWhenPostdated</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Impede venda com valor duplicado para pré-datamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.RestrictSaleWithDuplicateValue</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Impede venda com valor duplicado.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.RequiresPassword</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita senha.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.InterpretsLastDigitOfSecurityCode</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Interpreta último dígito do Código de Serviço.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.RequiresPasswordExceptForEMVCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita senha, exceto cartão EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.RequiresSecurityCodeWhenMagneticTrackIsRead</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita Código de Segurança na leitura de trilha.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.RequiresSecurityCodeWhenCardNumberIsTyped</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita Código de Segurança para cartão digitado.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.RequiresTypingLast4Digits</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita digitação dos últimos 4 dígitos.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.CapturesServiceFee</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Captura Taxa de Serviço.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.AllowCancellationWithValueGreaterThanTheValueOfTheSale</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite valor do Cancelamento maior que o valor da venda original.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Parameters.CaptureBoardingFee</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Captura Taxa de Embarque.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.IssuerId</code></td>
+      <td>integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identificador do emissor.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.IssuerName</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Nome do emissor.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowFallbackWhenChipReadingFails</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite fallback se houver erro na leitura do Chip.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowChargingMoedeiroFromCash</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite fallback se houver erro na leitura do Chip.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowPurchaseWithCompreESaque</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite venda com Compre &amp; Saque.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowOfflineFunctionExceptForEMVCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite função offline, exceto cartão EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowTypingCardNumber</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite digitação do número do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.MaskCardNumberUsingLast4Digits</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Imprimir apenas os 4 últimos dígitos do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.MaskCardNumberUsingFirst6AndLas4Digits</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowPrintCardHolderBalance</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite imprimir o saldo do portador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowDisplayCardHolderBalance</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite exibir no display o saldo do portador.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.Option03BiAllowPrintingPartialCardNumberInReceipt07</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite impressão parcial do número do cartão no comprovante das transações.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.RestrictSaleWithDuplicateValueWhenPostdated</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Impede venda com valor duplicado para pré-datamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.RestrictSaleWithDuplicateValue</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Impede venda com valor duplicado.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.RequiresPassword</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita senha.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.InterpretsLastDigitOfSecurityCode</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Interpreta último dígito do Código de Serviço.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.RequiresPasswordExceptForEMVCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita senha, exceto cartão EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.RequiresSecurityCodeWhenMagneticTrackIsRead</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita Código de Segurança na leitura de trilha.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.RequiresSecurityCodeWhenCardNumberIsTyped</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita Código de Segurança para cartão digitado.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.RequiresTypingLast4Digits</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Solicita digitação dos últimos 4 dígitos.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowCaptureOfFirstInstallmentValue</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite captura do valor da primeira parcela.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowCaptureOfDownpaymentValue</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite captura do valor de entrada.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowGuaranteeHandling</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite tratamento de garantia.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite pré-datar a primeira parcela para venda e consulta CDC.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowPostdating</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite pré-datamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowCDCSale</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite venda CDC.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowFinancingByStore</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite financiamento pela Loja.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.AllowFinancingByCreditCardCompany</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Permite financiamento pela Administradora.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.RequiresChipReader</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Exige a existência de Leitor de Chip.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.RequiresPinpad</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Exige a existência de PIN-pad.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.LimitDayforReversal</code></td>
+      <td>integer int32</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Data limite em dias para permitir Cancelamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.LimitValueforReversal</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Valor máximo para Cancelamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.LimitPercentforReversal</code></td>
+      <td>integer int64</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Percentual máximo para Cancelamento.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.IssuerNameForDisplay</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Nome do Issuer para o Display.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Issuers.IssuerNameForPrint</code></td>
+      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Nome do Issuer para Impressão.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">AidParameters</code></td>
