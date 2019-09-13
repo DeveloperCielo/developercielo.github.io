@@ -2310,22 +2310,22 @@ Cria um novo merchant.
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`Address.ZipCode`|---|---|---|---|
-|`Address.Street`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`TradeName`|---|---|---|---|
-|`CompanyName`|---|---|---|---|
-|`Email`|---|---|---|---|
-|`PhoneNumber`|---|---|---|---|
-|`Mcc`|---|---|---|---|
-|`DocumentNumber`|---|---|---|---|
-|`DocumentType`|---|---|---|---|
-|`Owner.Name`|---|---|---|---|
-|`Owner.Email`|---|---|---|---|
-|`Owner.PhoneNumber`|---|---|---|---|
-|`Owner.MessengerPhone`|---|---|---|---|
-|`Owner.Gender`|---|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`TradeName`|String|---|---|---|
+|`CompanyName`|String|---|---|---|
+|`Email`|String|---|---|---|
+|`PhoneNumber`|String|---|---|---|
+|`Mcc`|String|---|---|---|
+|`DocumentNumber`|String|---|---|---|
+|`DocumentType`|String|---|---|Enum: `Cpf` `Cnpj`|
+|`Owner.Name`|String|---|---|---|
+|`Owner.Email`|String|---|---|---|
+|`Owner.PhoneNumber`|String|---|---|---|
+|`Owner.MessengerPhone`|String|---|---|---|
+|`Owner.Gender`|String|---|---|Enum: `Other` `Male` `Female`|
 
 ### GET Merchant - Resposta
 
@@ -2351,11 +2351,11 @@ Efetua a busca do merchant pelo seu ID.
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`SubordinatedMerchantId`|---|---|---|---|
-|`Owner.Name`|---|---|---|---|
-|`Owner.Email`|---|---|---|---|
-|`Owner.PhoneNumber`|---|---|---|---|
-|`Owner.MessengerPhone`|---|---|---|---|
-|`Owner.Gender`|---|---|---|---|
+|`Owner.Name`|String|---|---|---|
+|`Owner.Email`|String|---|---|---|
+|`Owner.PhoneNumber`|String|---|---|---|
+|`Owner.MessengerPhone`|String|---|---|---|
+|`Owner.Gender`|String|---|---|Enum: `Other` `Male` `Female`|
 
 ### PUT Merchant - Requisição
 
@@ -2383,16 +2383,17 @@ Faz alteração do merchant pelo seu ID.
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`Address.ZipCode`|---|---|---|---|
-|`Address.Street`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`Address.Complement`|---|---|---|---|
-|`TradeName`|---|---|---|---|
-|`CompanyName`|---|---|---|---|
-|`Email`|---|---|---|---|
-|`PhoneNumber`|---|---|---|---|
-|`Mcc`|---|---|---|---|
-|`DocumentNumber`|---|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`TradeName`|String|---|---|---|
+|`CompanyName`|String|---|---|---|
+|`Email`|String|---|---|---|
+|`PhoneNumber`|String|---|---|---|
+|`Mcc`|String|---|---|---|
+|`DocumentNumber`|String|---|---|---|
+|`DocumentType`|String|---|---|Enum: `Cpf` `Cnpj`|
 
 ## Terminal
 
@@ -2415,10 +2416,10 @@ Cria um novo terminal.
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`TerminalBaseModel.CommunicationType`|---|---|---|---|
-|`TerminalBaseModel.EquipmentModel`|---|---|---|---|
-|`TerminalBaseModel.EquipmentSerialNumber`|---|---|---|---|
-|`TerminalBaseModel.TerminalId`|---|---|---|---|
+|`TerminalBaseModel.CommunicationType`|String|---|---|---|
+|`TerminalBaseModel.EquipmentModel`|Integer|---|---|---|
+|`TerminalBaseModel.EquipmentSerialNumber`|String|---|---|---|
+|`TerminalBaseModel.TerminalId`|String|---|---|---|
 
 ### Resposta
 
@@ -2436,8 +2437,8 @@ Cria um novo terminal.
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`Terminal.CommunicationType`|---|---|---|---|
-|`Terminal.EquipmentModel`|---|---|---|---|
-|`Terminal.EquipmentSerialNumber`|---|---|---|---|
-|`Terminal.TerminalId`|---|---|---|---|
-|`Terminal.SubordinatedMerchantId`|---|---|---|---|
+|`TerminalBaseModel.CommunicationType`|String|---|---|---|
+|`TerminalBaseModel.EquipmentModel`|Integer|---|---|---|
+|`TerminalBaseModel.EquipmentSerialNumber`|String|---|---|---|
+|`TerminalBaseModel.TerminalId`|String|---|---|---|
+|`Terminal.SubordinatedMerchantId`|String uuid|---|---|---|
