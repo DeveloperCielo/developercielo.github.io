@@ -2116,157 +2116,157 @@ Solicita as tabelas e parametros para operação do terminal
 |---|---|---|---|---|
 |`MerchantId`|String|---|---|Identificador da loja|
 |`TerminalId`|String|---|---|Identificador do terminal|
-|`Acquirer.EnableContaclessCardReader`|---|---|---|---|
-|`Acquirer.LockAppFunctionsExceptInitialization`|---|---|---|---|
-|`Acquirer.HasChipReader`|---|---|---|---|
-|`Acquirer.HasMagneticTrackReader`|---|---|---|---|
-|`Acquirer.HasKeyboard`|---|---|---|---|
-|`Merchant.MerchantId`|---|---|---|---|
-|`Merchant.NetworkName`|---|---|---|---|
-|`Merchant.MerchantName`|---|---|---|---|
-|`Merchant.MerchantAddress`|---|---|---|---|
-|`Merchant.NationalId`|---|---|---|---|
-|`Bins.InitialBin`|---|---|---|---|
-|`Bins.FinalBin`|---|---|---|---|
-|`Bins.ProductId`|---|---|---|---|
-|`Bins.Type`|---|---|---|---|
-|`Bins.AllowFallbackWhenChipReadingFails`|---|---|---|---|
-|`Bins.AllowChargingMoedeiroFromCash`|---|---|---|---|
-|`Bins.AllowPurchaseWithCompreESaque`|---|---|---|---|
-|`Bins.AllowOfflineFunctionExceptForEMVCard`|---|---|---|---|
-|`Bins.AllowTypingCardNumber`|---|---|---|---|
-|`Bins.MaskCardNumberUsingLast4Digits`|---|---|---|---|
-|`Bins.MaskCardNumberUsingFirst6AndLas4Digits`|---|---|---|---|
-|`Bins.AllowPrintCardHolderBalance`|---|---|---|---|
-|`Bins.AllowDisplayCardHolderBalance`|---|---|---|---|
-|`Bins.AllowPrintingPartialCardNumberInReceipt`|---|---|---|---|
-|`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|---|---|---|---|
-|`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|---|---|---|---|
-|`Bins.RequiresPassword`|---|---|---|---|
-|`Bins.InterpretsLastDigitOfSecurityCode`|---|---|---|---|
-|`Bins.RequiresPasswordExceptForEMVCard`|---|---|---|---|
-|`Bins.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|---|---|---|---|
-|`Bins.RequiresSecurityCodeWhenMagneticTrackIsRead`|---|---|---|---|
-|`Bins.RequiresSecurityCodeWhenCardNumberIsTyped`|---|---|---|---|
-|`Bins.RequiresTypingLast4Digits`|---|---|---|---|
-|`Bins.AllowCaptureOfFirstInstallmentValue`|---|---|---|---|
-|`Bins.AllowCaptureOfDownpaymentValue`|---|---|---|---|
-|`Bins.AllowGuaranteeHandling`|---|---|---|---|
-|`Bins.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|---|---|---|---|
-|`Bins.AllowPostdating`|---|---|---|---|
-|`Bins.AllowCDCSale`|---|---|---|---|
-|`Bins.AllowFinancingByStore`|---|---|---|---|
-|`Bins.AllowFinancingByCreditCardCompany`|---|---|---|---|
-|`Bins.ValidateCardTrack1`|---|---|---|---|
-|`Bins.DoNotValidateCardModule10`|---|---|---|---|
-|`Bins.CheckExpiryDateWhenCardNumberIsTyped`|---|---|---|---|
-|`Bins.CheckExpiryDateWhenMagneticTrackIsRead`|---|---|---|---|
-|`Bins.IssuerId`|---|---|---|---|
-|`Products.ProductId`|---|---|---|---|
-|`Products.ProductName`|---|---|---|---|
-|`Products.ProductType`|---|---|---|---|
-|`Products.BrandId`|---|---|---|---|
-|`Products.AllowTransactionWithContactlessCard`|---|---|---|---|
-|`Products.IsFinancialProduct`|---|---|---|---|
-|`Products.AllowOfflineAuthorizationForEMVCard`|---|---|---|---|
-|`Products.AllowReprintReceipt`|---|---|---|---|
-|`Products.AllowPrintReceipt`|---|---|---|---|
-|`Products.AllowOfflineAuthorizationForContactlessCard`|---|---|---|---|
-|`Products.AllowCancel`|---|---|---|---|
-|`Products.AllowUndo`|---|---|---|---|
-|`Products.AllowCaptureOfFirstInstallmentValue`|---|---|---|---|
-|`Products.AllowCaptureOfDownpaymentValue`|---|---|---|---|
-|`Products.AllowGuaranteeHandling`|---|---|---|---|
-|`Products.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|---|---|---|---|
-|`Products.AllowPostdating`|---|---|---|---|
-|`Products.AllowCDCSale`|---|---|---|---|
-|`Products.AllowFinancingByStore`|---|---|---|---|
-|`Products.AllowFinancingByCreditCardCompany`|---|---|---|---|
-|`Products.MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany`|---|---|---|---|
-|`Products.MaximumNumberOfInstallmentsWhenFinancingByStore`|---|---|---|---|
-|`Products.MaximumNumberOfinstallmentsForSaleAndCDCQuery`|---|---|---|---|
-|`Products.MinimumNumberOfInstallmentsWhenFinancingByStore`|---|---|---|---|
-|`Products.SaleGuaranteeType`|---|---|---|---|
-|`Products.PostdatedDayCountLimit`|---|---|---|---|
-|`Products.FirstInstallmentDayCountLimit`|---|---|---|---|
-|`Emv.Aid`|---|---|---|---|
-|`Emv.TagsFirst`|---|---|---|---|
-|`Emv.TagsSecond`|---|---|---|---|
-|`Emv.IdxRecord`|---|---|---|---|
-|`Emv.Type`|---|---|---|---|
-|`Emv.RCodeFirst`|---|---|---|---|
-|`Emv.RCodeSecond`|---|---|---|---|
-|`Emv.InvalidateFunctionIfCardIsOnBlacklist`|---|---|---|---|
-|`Emv.RequireBINToBeInCardRangeTable`|---|---|---|---|
-|`Emv.StoreTransactionsRejectedByTerminalAppAndSendToHost`|---|---|---|---|
-|`Emv.NatEmvConctactRiskFloorLimit`|---|---|---|---|
-|`Emv.NatEmvConctactRiskMinValue`|---|---|---|---|
-|`Emv.NatEmvConctactRiskMinPercent`|---|---|---|---|
-|`Emv.NatEmvConctactRiskMaxPercent`|---|---|---|---|
-|`Emv.IntEmvConctactRiskFloorLimit`|---|---|---|---|
-|`Emv.IntEmvConctactRiskMinValue`|---|---|---|---|
-|`Emv.IntEmvConctactRiskMinPercent`|---|---|---|---|
-|`Emv.IntEmvConctactRiskMaxPercent`|---|---|---|---|
-|`Emv.ProductIds`|---|---|---|---|
-|`Parameters.Currency`|---|---|---|---|
-|`Parameters.AllowFallbackWhenChipReadingFails`|---|---|---|---|
-|`Parameters.AllowChargingMoedeiroFromCash`|---|---|---|---|
-|`Parameters.AllowPurchaseWithCompreESaque`|---|---|---|---|
-|`Parameters.AllowOfflineFunctionExceptForEMVCard`|---|---|---|---|
-|`Parameters.AllowTypingCardNumber`|---|---|---|---|
-|`Parameters.MaskCardNumberUsingLast4Digits`|---|---|---|---|
-|`Parameters.MaskCardNumberUsingFirst6AndLas4Digits`|---|---|---|---|
-|`Parameters.AllowPrintCardHolderBalance`|---|---|---|---|
-|`Parameters.AllowDisplayCardHolderBalance`|---|---|---|---|
-|`Parameters.AllowPrintingPartialCardNumberInReceipt`|---|---|---|---|
-|`Parameters.RestrictSaleWithDuplicateValueWhenPostdated`|---|---|---|---|
-|`Parameters.RestrictSaleWithDuplicateValue`|---|---|---|---|
-|`Parameters.RequiresPassword`|---|---|---|---|
-|`Parameters.InterpretsLastDigitOfSecurityCode`|---|---|---|---|
-|`Parameters.RequiresPasswordExceptForEMVCard`|---|---|---|---|
-|`Parameters.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|---|---|---|---|
-|`Parameters.RequiresSecurityCodeWhenMagneticTrackIsRead`|---|---|---|---|
-|`Parameters.RequiresSecurityCodeWhenCardNumberIsTyped`|---|---|---|---|
-|`Parameters.RequiresTypingLast4Digits`|---|---|---|---|
-|`Parameters.CapturesServiceFee`|---|---|---|---|
-|`Parameters.AllowCancellationWithValueGreaterThanTheValueOfTheSale`|---|---|---|---|
-|`Parameters.CaptureBoardingFee`|---|---|---|---|
-|`Issuers.IssuerId`|---|---|---|---|
-|`Issuers.IssuerName`|---|---|---|---|
-|`Issuers.AllowFallbackWhenChipReadingFails`|---|---|---|---|
-|`Issuers.AllowChargingMoedeiroFromCash`|---|---|---|---|
-|`Issuers.AllowPurchaseWithCompreESaque`|---|---|---|---|
-|`Issuers.AllowOfflineFunctionExceptForEMVCard`|---|---|---|---|
-|`Issuers.AllowTypingCardNumber`|---|---|---|---|
-|`Issuers.MaskCardNumberUsingLast4Digits`|---|---|---|---|
-|`Issuers.MaskCardNumberUsingFirst6AndLas4Digits`|---|---|---|---|
-|`Issuers.AllowPrintCardHolderBalance`|---|---|---|---|
-|`Issuers.AllowDisplayCardHolderBalance`|---|---|---|---|
-|`Issuers.Option03BiAllowPrintingPartialCardNumberInReceipt07`|---|---|---|---|
-|`Issuers.RestrictSaleWithDuplicateValueWhenPostdated`|---|---|---|---|
-|`Issuers.RestrictSaleWithDuplicateValue`|---|---|---|---|
-|`Issuers.RequiresPassword`|---|---|---|---|
-|`Issuers.InterpretsLastDigitOfSecurityCode`|---|---|---|---|
-|`Issuers.RequiresPasswordExceptForEMVCard`|---|---|---|---|
-|`Issuers.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|---|---|---|---|
-|`Issuers.RequiresSecurityCodeWhenMagneticTrackIsRead`|---|---|---|---|
-|`Issuers.RequiresSecurityCodeWhenCardNumberIsTyped`|---|---|---|---|
-|`Issuers.RequiresTypingLast4Digits`|---|---|---|---|
-|`Issuers.AllowCaptureOfFirstInstallmentValue`|---|---|---|---|
-|`Issuers.AllowCaptureOfDownpaymentValue`|---|---|---|---|
-|`Issuers.AllowGuaranteeHandling`|---|---|---|---|
-|`Issuers.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|---|---|---|---|
-|`Issuers.AllowPostdating`|---|---|---|---|
-|`Issuers.AllowCDCSale`|---|---|---|---|
-|`Issuers.AllowFinancingByStore`|---|---|---|---|
-|`Issuers.AllowFinancingByCreditCardCompany`|---|---|---|---|
-|`Issuers.RequiresChipReader`|---|---|---|---|
-|`Issuers.RequiresPinpad`|---|---|---|---|
-|`Issuers.LimitDayforReversal`|---|---|---|---|
-|`Issuers.LimitValueforReversal`|---|---|---|---|
-|`Issuers.LimitPercentforReversal`|---|---|---|---|
-|`Issuers.IssuerNameForDisplay`|---|---|---|---|
-|`Issuers.IssuerNameForPrint`|---|---|---|---|
+|`Acquirer.EnableContaclessCardReader`|Booleano|---|---|Habilita Leitora Cartão Sem Contato|
+|`Acquirer.LockAppFunctionsExceptInitialization`|Booleano|---|---|Bloquear as funções do aplicativo, com exceção da Inicialização|
+|`Acquirer.HasChipReader`|Booleano|---|---|Indica que tem leitora de Chip-Card|
+|`Acquirer.HasMagneticTrackReader`|Booleano|---|---|Indica que tem leitor da trilha magnética|
+|`Acquirer.HasKeyboard`|Booleano|---|---|Indica que tem teclado para digitação|
+|`Merchant.MerchantId`|String|---|---|Código do Lojista na PayStore, definido no momento da criação do lojista.|
+|`Merchant.NetworkName`|String|---|---|Nome da rede da sub-adquirente cadastrado pelo Gestor da PayStore.|
+|`Merchant.MerchantName`|String|---|---|Nome fantasia do lojista, definido no momento da criação do mesmo no portal da PayStore.|
+|`Merchant.MerchantAddress`|String|---|---|Endereço do lojista obtido a partir da digitação do CEP momento da criação do mesmo no portal da PayStore.|
+|`Merchant.NationalId`|String|---|---|CPF ou CNPJ, definido no momento da criação do Lojista no portal da PayStore.|
+|`Bins.InitialBin`|String|---|---|Início do range de BIN’s.|
+|`Bins.FinalBin`|String|---|---|Final do range de BIN’s.|
+|`Bins.ProductId`|Integer int32|---|---|Chave estrangeira de “PRODUCT TABLE”.|
+|`Bins.Type`|Integer int32|---|---|Admite os seguintes valores <br><br>0 - ESPECÍFICO <br><br>1 – GENERICO.|
+|`Bins.AllowFallbackWhenChipReadingFails`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Bins.AllowChargingMoedeiroFromCash`|Booleano|---|---|Permite carga de moedeiro a partir de dinheiro em espécie em espécie.|
+|`Bins.AllowPurchaseWithCompreESaque`|Booleano|---|---|Permite venda com Compre & Saque.|
+|`Bins.AllowOfflineFunctionExceptForEMVCard`|Booleano|---|---|Permite função offline, exceto cartão EMV.|
+|`Bins.AllowTypingCardNumber`|Booleano|---|---|Permite digitação do número do cartão.|
+|`Bins.MaskCardNumberUsingLast4Digits`|Booleano|---|---|Imprimir apenas os 4 últimos dígitos do cartão.|
+|`Bins.MaskCardNumberUsingFirst6AndLas4Digits`|Booleano|---|---|Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.|
+|`Bins.AllowPrintCardHolderBalance`|Booleano|---|---|Permite imprimir o saldo do portador.|
+|`Bins.AllowDisplayCardHolderBalance`|Booleano|---|---|Permite exibir no display o saldo do portador.|
+|`Bins.AllowPrintingPartialCardNumberInReceipt`|Booleano|---|---|Permite impressão parcial do número do cartão no comprovante das transações.|
+|`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado para prédatamento.|
+|`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado.|
+|`Bins.RequiresPassword`|Booleano|---|---|Solicita senha.|
+|`Bins.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interpreta último dígito do Código de Serviço.|
+|`Bins.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Solicita senha, exceto cartão EMV.|
+|`Bins.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.|
+|`Bins.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Solicita Código de Segurança na leitura de trilha.|
+|`Bins.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|olicita Código de Segurança para cartão digitado.|
+|`Bins.RequiresTypingLast4Digits`|Booleano|---|---|Solicita digitação dos últimos 4 dígitos.|
+|`Bins.AllowCaptureOfFirstInstallmentValue`|Booleano|---|---|Permite captura do valor da primeira parcela.|
+|`Bins.AllowCaptureOfDownpaymentValue`|Booleano|---|---|Permite captura do valor de entrada.|
+|`Bins.AllowGuaranteeHandling`|Booleano|---|---|Permite tratamento de garantia.|
+|`Bins.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Booleano|---|---|Permite pré-datar a primeira parcela para venda e consulta CDC.|
+|`Bins.AllowPostdating`|Booleano|---|---|Permite pré-datamento.|
+|`Bins.AllowCDCSale`|Booleano|---|---|Permite venda CDC.|
+|`Bins.AllowFinancingByStore`|Booleano|---|---|Permite financiamento pela Loja.|
+|`Bins.AllowFinancingByCreditCardCompany`|Booleano|---|---|Permite financiamento pela Administradora.|
+|`Bins.ValidateCardTrack1`|Booleano|---|---|Verifica Trilha 1 do cartão.|
+|`Bins.DoNotValidateCardModule10`|Booleano|---|---|Não validar o Módulo 10 do cartão.|
+|`Bins.CheckExpiryDateWhenCardNumberIsTyped`|Booleano|---|---|Verifica data de validade do cartão digitado.|
+|`Bins.CheckExpiryDateWhenMagneticTrackIsRead`|Booleano|---|---|Verifica data de validade da trilha.|
+|`Bins.IssuerId`|Integer int32|---|---|Chave estrangeira de “ISSUER TABLE”.|
+|`Products.ProductId`|Integer int32|---|---|Identificador do produto.|
+|`Products.ProductName`|String|---|---|Nome do produto.|
+|`Products.ProductType`|Integer int32|---|---|Admite os seguintes valores <br><br>0 - CREDITO <br><br>1 – DEBITO|
+|`Products.BrandId`|String|---|---|Identificador da bandeira do cartão.|
+|`Products.AllowTransactionWithContactlessCard`|Booleano|---|---|Permite Transação com Cartão Sem Contato.|
+|`Products.IsFinancialProduct`|Booleano|---|---|Produto Financeiro.|
+|`Products.AllowOfflineAuthorizationForEMVCard`|Booleano|---|---|Permite Autorização Offline EMV.|
+|`Products.AllowReprintReceipt`|Booleano|---|---|Permite Reimpressão do comprovante.|
+|`Products.AllowPrintReceipt`|Booleano|---|---|Permite Impressão do comprovante.|
+|`Products.AllowOfflineAuthorizationForContactlessCard`|Booleano|---|---|Permite Autorização Offline para Cartão Sem Contato.|
+|`Products.AllowCancel`|Booleano|---|---|Permite Cancelamento.|
+|`Products.AllowUndo`|Booleano|---|---|Permite Desfazimento.|
+|`Products.AllowCaptureOfFirstInstallmentValue`|Booleano|---|---|Permite captura do valor da primeira parcela.|
+|`Products.AllowCaptureOfDownpaymentValue`|Booleano|---|---|Permite captura do valor de entrada.|
+|`Products.AllowGuaranteeHandling`|Booleano|---|---|Permite tratamento de garantia.|
+|`Products.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Booleano|---|---|Permite pré-datar a primeira parcela para venda e consulta CDC.|
+|`Products.AllowPostdating`|Booleano|---|---|Permite pré-datamento.|
+|`Products.AllowCDCSale`|Booleano|---|---|Permite venda CDC.|
+|`Products.AllowFinancingByStore`|Booleano|---|---|Permite financiamento pela Loja.|
+|`Products.AllowFinancingByCreditCardCompany`|Booleano|---|---|Permite financiamento pela Administradora.|
+|`Products.MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany`|Integer int32|---|---|Número máximo de parcelas para financiamento ADM.|
+|`Products.MaximumNumberOfInstallmentsWhenFinancingByStore`|Integer int32|---|---|Número máximo de parcelas para financiamento Loja.|
+|`Products.MaximumNumberOfinstallmentsForSaleAndCDCQuery`|Integer int32|---|---|Número máximo de parcelas para venda e consulta CDC.|
+|`Products.MinimumNumberOfInstallmentsWhenFinancingByStore`|Integer int64|---|---|Valor mínimo de parcelas para financiamento Loja.|
+|`Products.SaleGuaranteeType`|String|---|---|Tipo de Garantia para o Pré-datado. <br><br>Admite os seguintes valores <br><br>00 – Não permite tratamento de Garantia (Venda Garantida); <br><br>05 – Permite transações Pré-datadas Garantidas; <br><br>07 – Permite transações Pré-datadas Garantidas e Sem Garantia.|
+|`Products.PostdatedDayCountLimit`|Integer int32|---|---|Limite máximo em dias para pré-datar a partir da data atual. <br><br>00 – Não aceita. <br><br>XX - Pré-datado.|
+|`Products.FirstInstallmentDayCountLimit`|Integer int32|---|---|Limite da data de primeira parcela. <br><br>00 – Não aceita. <br><br>XX - Limite de dias.|
+|`Emv.Aid`|String|---|---|Identificador da aplicação EMV.|
+|`Emv.TagsFirst`|String|---|---|Conjunto de tags obrigatórias enviadas o 1º Generate AC.|
+|`Emv.TagsSecond`|String|---|---|Conjunto de tags obrigatórias enviadas o 2º Generate AC.|
+|`Emv.IdxRecord`|Integer int32|---|---|---|
+|`Emv.Type`|Integer int32|---|---|Admite os seguintes valores <br><br>0 - CREDITO <br><br>1 – DEBITO|
+|`Emv.RCodeFirst`|String|---|---|---|
+|`Emv.RCodeSecond`|String|---|---|---|
+|`Emv.InvalidateFunctionIfCardIsOnBlacklist`|Booleano|---|---|Invalida a função se o cartão consta na Lista Negra.|
+|`Emv.RequireBINToBeInCardRangeTable`|Booleano|---|---|Obriga que o BIN esteja na tabela de Range de Cartões (tipo 2B).|
+|`Emv.StoreTransactionsRejectedByTerminalAppAndSendToHost`|Booleano|---|---|Armazena e envia para o Host as transações rejeitadas pelo aplicativo do terminal.|
+|`Emv.NatEmvConctactRiskFloorLimit`|Integer int32|---|---|Valor máximo de verificação para autorização offline das transações. As transações realizadas com a leitura do Chip EMV e com valor acima do “Floor limit”, deverão ser autorizadas no modo online.|
+|`Emv.NatEmvConctactRiskMinValue`|Integer int32|---|---|Valor mínimo para o cálculo de seleção aleatória para autorização offline. Conforme processo definido na Especificação EMV.|
+|`Emv.NatEmvConctactRiskMinPercent`|Integer int32|---|---|Porcentagem mínima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.NatEmvConctactRiskMaxPercent`|Integer int32|---|---|Porcentagem máxima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.IntEmvConctactRiskFloorLimit`|Integer int32|---|---|Valor máximo de verificação para autorização offline das transações. As transações realizadas com a leitura do Chip EMV e com valor acima do “Floor limit”, deverão ser autorizadas no modo online.|
+|`Emv.IntEmvConctactRiskMinValue`|Integer int32|---|---|Valor mínimo para o cálculo de seleção aleatória para autorização offline. Conforme processo definido na Especificação EMV.|
+|`Emv.IntEmvConctactRiskMinPercent`|Integer int32|---|---|Porcentagem mínima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.IntEmvConctactRiskMaxPercent`|Integer int32|---|---|Porcentagem máxima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.ProductIds`|Array of integers int32|---|---|Produtos habilitados para esta aplicação EMV.|
+|`Parameters.Currency`|String|---|---|---|
+|`Parameters.AllowFallbackWhenChipReadingFails`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Parameters.AllowChargingMoedeiroFromCash`|Booleano|---|---|Permite carga de moedeiro a partir de dinheiro em espécie.|
+|`Parameters.AllowPurchaseWithCompreESaque`|Booleano|---|---|Permite venda com Compre & Saque.|
+|`Parameters.AllowOfflineFunctionExceptForEMVCard`|Booleano|---|---|Permite função offline, exceto cartão EMV.|
+|`Parameters.AllowTypingCardNumber`|Booleano|---|---|Permite entrada manual do número do cartão.|
+|`Parameters.MaskCardNumberUsingLast4Digits`|Booleano|---|---|Imprimir apenas os 4 últimos dígitos do cartão.|
+|`Parameters.MaskCardNumberUsingFirst6AndLas4Digits`|Booleano|---|---|Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.|
+|`Parameters.AllowPrintCardHolderBalance`|Booleano|---|---|Permite imprimir o saldo do portador.|
+|`Parameters.AllowDisplayCardHolderBalance`|Booleano|---|---|Permite exibir no display o saldo do portador.|
+|`Parameters.AllowPrintingPartialCardNumberInReceipt`|Booleano|---|---|Permite impressão parcial do número do cartão no comprovante das transações.|
+|`Parameters.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado para pré-datamento.|
+|`Parameters.RestrictSaleWithDuplicateValue`|Booleano|---|---|Impede venda com valor duplicado.|
+|`Parameters.RequiresPassword`|Booleano|---|---|Solicita senha.|
+|`Parameters.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interpreta último dígito do Código de Serviço.|
+|`Parameters.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Solicita senha, exceto cartão EMV.|
+|`Parameters.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.|
+|`Parameters.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Solicita Código de Segurança na leitura de trilha.|
+|`Parameters.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|Solicita Código de Segurança para cartão digitado.|
+|`Parameters.RequiresTypingLast4Digits`|Booleano|---|---|Solicita digitação dos últimos 4 dígitos.|
+|`Parameters.CapturesServiceFee`|Booleano|---|---|Captura Taxa de Serviço.|
+|`Parameters.AllowCancellationWithValueGreaterThanTheValueOfTheSale`|Booleano|---|---|Permite valor do Cancelamento maior que o valor da venda original.|
+|`Parameters.CaptureBoardingFee`|Booleano|---|---|Captura Taxa de Embarque.|
+|`Issuers.IssuerId`|integer int32|---|---|Identificador do emissor.|
+|`Issuers.IssuerName`|String|---|---|Nome do emissor.|
+|`Issuers.AllowFallbackWhenChipReadingFails`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Issuers.AllowChargingMoedeiroFromCash`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Issuers.AllowPurchaseWithCompreESaque`|Booleano|---|---|Permite venda com Compre & Saque.|
+|`Issuers.AllowOfflineFunctionExceptForEMVCard`|Booleano|---|---|Permite função offline, exceto cartão EMV.|
+|`Issuers.AllowTypingCardNumber`|Booleano|---|---|Permite digitação do número do cartão.|
+|`Issuers.MaskCardNumberUsingLast4Digits`|Booleano|---|---|Imprimir apenas os 4 últimos dígitos do cartão.|
+|`Issuers.MaskCardNumberUsingFirst6AndLas4Digits`|Booleano|---|---|Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.|
+|`Issuers.AllowPrintCardHolderBalance`|Booleano|---|---|Permite imprimir o saldo do portador.|
+|`Issuers.AllowDisplayCardHolderBalance`|Booleano|---|---|Permite exibir no display o saldo do portador.|
+|`Issuers.Option03BiAllowPrintingPartialCardNumberInReceipt07`|Booleano|---|---|Permite impressão parcial do número do cartão no comprovante das transações.|
+|`Issuers.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado para pré-datamento.|
+|`Issuers.RestrictSaleWithDuplicateValue`|Booleano|---|---|Impede venda com valor duplicado.|
+|`Issuers.RequiresPassword`|Booleano|---|---|Solicita senha.|
+|`Issuers.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interpreta último dígito do Código de Serviço.|
+|`Issuers.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Solicita senha, exceto cartão EMV.|
+|`Issuers.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.|
+|`Issuers.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Solicita Código de Segurança na leitura de trilha.|
+|`Issuers.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|Solicita Código de Segurança para cartão digitado.|
+|`Issuers.RequiresTypingLast4Digits`|Booleano|---|---|Solicita digitação dos últimos 4 dígitos.|
+|`Issuers.AllowCaptureOfFirstInstallmentValue`|Booleano|---|---|Permite captura do valor da primeira parcela.|
+|`Issuers.AllowCaptureOfDownpaymentValue`|Booleano|---|---|Permite captura do valor de entrada.|
+|`Issuers.AllowGuaranteeHandling`|Booleano|---|---|Permite tratamento de garantia.|
+|`Issuers.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Booleano|---|---|Permite pré-datar a primeira parcela para venda e consulta CDC.|
+|`Issuers.AllowPostdating`|Booleano|---|---|Permite pré-datamento.|
+|`Issuers.AllowCDCSale`|Booleano|---|---|Permite venda CDC.|
+|`Issuers.AllowFinancingByStore`|Booleano|---|---|Permite financiamento pela Loja.|
+|`Issuers.AllowFinancingByCreditCardCompany`|Booleano|---|---|Permite financiamento pela Administradora.|
+|`Issuers.RequiresChipReader`|Booleano|---|---|Exige a existência de Leitor de Chip.|
+|`Issuers.RequiresPinpad`|Booleano|---|---|Exige a existência de PIN-pad.|
+|`Issuers.LimitDayforReversal`|integer int32|---|---|Data limite em dias para permitir Cancelamento.|
+|`Issuers.LimitValueforReversal`|String|---|---|Valor máximo para Cancelamento.|
+|`Issuers.LimitPercentforReversal`|integer int64|---|---|Percentual máximo para Cancelamento.|
+|`Issuers.IssuerNameForDisplay`|String|---|---|Nome do Issuer para o Display.|
+|`Issuers.IssuerNameForPrint`|String|---|---|Nome do Issuer para Impressão.|
 |`AidParameters`|---|---|---|---|
 |`PublicKeys`|---|---|---|---|
 |`InitializationVersion`|---|---|---|---|
