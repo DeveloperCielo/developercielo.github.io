@@ -135,6 +135,30 @@
 
 <p><img src="https://developercielo.github.io/images/qrcode/qrcode-fluxointegracaoqrcode.png" alt="Fluxo de integração Qr Code" /></p>
 
+<h3 id="ambientes">Ambientes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ambiente</th>
+      <th>Endereço</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Homologação</td>
+      <td>apihom.cielo.com.br</td>
+      <td>Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.</td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td>api.cielo.com.br</td>
+      <td>Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="access-token">Access Token</h3>
 
 <p>O recurso <strong>access_token</strong> é responsável pela autenticação utilizando protocolo OAuth 2.0. Com o client_id e client_secret em mãos a requisição ao <strong>POST /access_token</strong> deve ser feita portando os parâmetros <strong>client_id</strong> e <strong>authorization</strong> no <strong>Header</strong> e o <strong>grant_type</strong> no corpo da requisição, segue exemplo abaixo.</p>
@@ -703,30 +727,6 @@ Observação: Ao testar com o QR Code especificado um erro do tipo 422 é espera
 <h1 id="como-obter-o-pos-de-homologação">Como obter o POS de homologação.</h1>
 
 <p>Para a obtenção do POS de homologação deve-se abrir chamado via <a href="https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000324432">Zendesk</a>.</p>
-
-<h1 id="ambientes">Ambientes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Ambiente</th>
-      <th>Endereço</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Homologação</td>
-      <td>apihom.cielo.com.br</td>
-      <td>Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.</td>
-    </tr>
-    <tr>
-      <td>Produção</td>
-      <td>api.cielo.com.br</td>
-      <td>Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.</td>
-    </tr>
-  </tbody>
-</table>
 
 <h1 id="api-de-callback-desfazimento">API de Callback (desfazimento)</h1>
 

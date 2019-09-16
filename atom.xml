@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-13T18:45:05+00:00</updated>
+    <updated>2019-09-16T16:40:56+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6787,6 +6787,30 @@
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/qrcode/qrcode-fluxointegracaoqrcode.png&quot; alt=&quot;Fluxo de integração Qr Code&quot; /&gt;&lt;/p&gt;
 
+&lt;h3 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Ambiente&lt;/th&gt;
+      &lt;th&gt;Endereço&lt;/th&gt;
+      &lt;th&gt;Descrição&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Homologação&lt;/td&gt;
+      &lt;td&gt;apihom.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Produção&lt;/td&gt;
+      &lt;td&gt;api.cielo.com.br&lt;/td&gt;
+      &lt;td&gt;Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h3 id=&quot;access-token&quot;&gt;Access Token&lt;/h3&gt;
 
 &lt;p&gt;O recurso &lt;strong&gt;access_token&lt;/strong&gt; é responsável pela autenticação utilizando protocolo OAuth 2.0. Com o client_id e client_secret em mãos a requisição ao &lt;strong&gt;POST /access_token&lt;/strong&gt; deve ser feita portando os parâmetros &lt;strong&gt;client_id&lt;/strong&gt; e &lt;strong&gt;authorization&lt;/strong&gt; no &lt;strong&gt;Header&lt;/strong&gt; e o &lt;strong&gt;grant_type&lt;/strong&gt; no corpo da requisição, segue exemplo abaixo.&lt;/p&gt;
@@ -7355,30 +7379,6 @@ Observação: Ao testar com o QR Code especificado um erro do tipo 422 é espera
 &lt;h1 id=&quot;como-obter-o-pos-de-homologação&quot;&gt;Como obter o POS de homologação.&lt;/h1&gt;
 
 &lt;p&gt;Para a obtenção do POS de homologação deve-se abrir chamado via &lt;a href=&quot;https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000324432&quot;&gt;Zendesk&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h1&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Ambiente&lt;/th&gt;
-      &lt;th&gt;Endereço&lt;/th&gt;
-      &lt;th&gt;Descrição&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Homologação&lt;/td&gt;
-      &lt;td&gt;apihom.cielo.com.br&lt;/td&gt;
-      &lt;td&gt;Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Produção&lt;/td&gt;
-      &lt;td&gt;api.cielo.com.br&lt;/td&gt;
-      &lt;td&gt;Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
 
 &lt;h1 id=&quot;api-de-callback-desfazimento&quot;&gt;API de Callback (desfazimento)&lt;/h1&gt;
 
