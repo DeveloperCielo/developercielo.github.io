@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-16T16:40:56+00:00</updated>
+    <updated>2019-09-17T13:45:17+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11345,7 +11345,7 @@ No &lt;strong&gt;Checkout Cielo&lt;/strong&gt; não há &lt;code class=&quot;hig
 
 &lt;p&gt;Ambas contam com a Cielo Store, loja de aplicativos B2B disponível em todos as LIO´s, dando escala e distribuição para qualquer aplicativo integrado a ela.&lt;/p&gt;
 
-&lt;h2 id=&quot;modelos-disponíveis-da-cielo-lio&quot;&gt;Modelos disponíveis da Cielo LIO&lt;/h2&gt;
+&lt;h3 id=&quot;modelos-disponíveis-da-cielo-lio&quot;&gt;Modelos disponíveis da Cielo LIO&lt;/h3&gt;
 
 &lt;p&gt;Atualmente a Cielo LIO está disponível em 3 modelos: LIO V1, LIO V2 e LIO +&lt;/p&gt;
 
@@ -13153,6 +13153,11 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
   &lt;li&gt;Todas as requisições e respostas encontram-se no formato JSON.&lt;/li&gt;
   &lt;li&gt;As seções abaixo possuem todas as informações necessárias para realizar a integração de forma rápida e segura.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Atenção&lt;/strong&gt;: O modelo da LIO+ não possui a aba de pedidos para a utlização na Integração Remota, a integração deve acontecer com os
+modelos v1 e v2 [Modelos disponíveis da Cielo LIO] ().&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;vídeo-demo-1&quot;&gt;Vídeo Demo&lt;/h2&gt;
 
