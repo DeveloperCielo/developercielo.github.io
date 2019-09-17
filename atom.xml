@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-17T17:03:00+00:00</updated>
+    <updated>2019-09-17T17:21:31+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7470,7 +7470,7 @@ Observação: Ao testar com o QR Code especificado um erro do tipo 422 é espera
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h1 id=&quot;bandeiras-e-formas-de-parcelamento&quot;&gt;Bandeiras e formas de parcelamento&lt;/h1&gt;
+&lt;h1 id=&quot;bandeiras-e-formas-de-parcelamento&quot;&gt;Bandeiras e Formas de Parcelamento&lt;/h1&gt;
 
 &lt;p&gt;A versão atual da API de QRCode possui suporte às seguintes bandeiras e formas de parcelamento:&lt;/p&gt;
 
