@@ -818,6 +818,85 @@ Observação: Ao testar com o QR Code especificado um erro do tipo 422 é espera
   </tbody>
 </table>
 
+<h1 id="bandeiras-e-formas-de-parcelamento">Bandeiras e formas de parcelamento</h1>
+
+<p>A versão atual da API de QRCode possui suporte às seguintes bandeiras e formas de parcelamento:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bandeira</th>
+      <th>À vista</th>
+      <th>Parcelado Loja</th>
+      <th>Parcelado Emissor</th>
+      <th>Parcelado Cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>American Express</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td><em>Não</em></td>
+    </tr>
+    <tr>
+      <td>Diners Club</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td><em>Não</em></td>
+    </tr>
+    <tr>
+      <td>JCB</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td><em>Não</em></td>
+    </tr>
+    <tr>
+      <td>Banescard</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td><em>Não</em></td>
+    </tr>
+    <tr>
+      <td>Hipercard</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td>Sim</td>
+      <td><em>Não</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Cartões emitidos no exterior não possuem permissão de parcelamento.   <br />
+A solução de pagamento QR Code Cielo atualmente não aceita pagamentos no débito.</p>
+</blockquote>
+
 <h1 id="códigos-da-api">Códigos da API</h1>
 
 <h2 id="erros-da-api">Erros da API</h2>
