@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-17T13:45:17+00:00</updated>
+    <updated>2019-09-17T13:55:35+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -13156,7 +13156,7 @@ O método recebe como parâmetro o &lt;code class=&quot;highlighter-rouge&quot;&
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Atenção&lt;/strong&gt;: O modelo da LIO+ não possui a aba de pedidos para a utlização na Integração Remota, a integração deve acontecer com os
-modelos v1 e v2 [Modelos disponíveis da Cielo LIO] ().&lt;/p&gt;
+modelos LIO v1 e LIO v2.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;vídeo-demo-1&quot;&gt;Vídeo Demo&lt;/h2&gt;
