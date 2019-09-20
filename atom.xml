@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-20T15:21:04+00:00</updated>
+    <updated>2019-09-20T15:30:29+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -990,6 +990,11 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h2 id=&quot;autorização-com-autenticação&quot;&gt;Autorização com Autenticação&lt;/h2&gt;
+
+&lt;p&gt;Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó &lt;strong&gt;ExternalAuthentication&lt;/strong&gt; ).
+Veja maiores detalhes em: &lt;a href=&quot;https://developercielo.github.io/manual/autorizacao-com-autenticacao&quot;&gt;https://developercielo.github.io/manual/autorizacao-com-autenticacao&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;Últimas-atualizações&quot;&gt;Últimas atualizações&lt;/h1&gt;
 
