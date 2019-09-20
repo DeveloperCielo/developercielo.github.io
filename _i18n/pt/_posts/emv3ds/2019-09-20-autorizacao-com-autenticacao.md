@@ -1,7 +1,7 @@
 ---
 layout: manual
 title: 3. Autorização com Autenticação
-description: Integração técnica Gateway Braspag
+description: Manual integração técnica do 3DS 2.0
 search: true
 translated: true
 categories: manual
