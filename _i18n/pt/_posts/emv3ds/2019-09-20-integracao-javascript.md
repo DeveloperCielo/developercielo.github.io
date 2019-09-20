@@ -4,9 +4,7 @@ title: 2.1. Integração via Javascript
 description: Manual integração técnica do 3DS 2.0
 search: true
 translated: true
-toc_footers: true
 categories: manual
-sort_order: 1
 tags:
   - Autenticação 3DS 2.0
 language_tabs:
