@@ -119,7 +119,7 @@ braspag3ds.authenticate(orderData: OrderData(...),
 | recurringData | RecurringData? | Dados da recorrência | Não |
 | deviceIpAddress | String? | Endereço IP do dispositivo | Não |
 
-## Descrição dos Status do Callback
+## Descrição dos Status do Callback 
 
 | **Status** | **Descrição** | 
 | --- | --- |
