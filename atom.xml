@@ -5,12 +5,34 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-19T18:52:08+00:00</updated>
+    <updated>2019-09-20T14:38:10+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
         <email>neto.joaobatista@gmail.com</email>
     </author>
+    
+    <entry>
+        <title>2.3. SDK IOS (em breve)</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/integracao-sdk-ios"/>
+        <updated>2019-09-20T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/manual/integracao-sdk-ios</id>
+        <content type="html">&lt;h1 id=&quot;em-breve&quot;&gt;Em breve&lt;/h1&gt;
+
+</content>
+    </entry>
+    
+    <entry>
+        <title>2.2. SDK Android (em breve)</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/integracao-sdk-android"/>
+        <updated>2019-09-20T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/manual/integracao-sdk-android</id>
+        <content type="html">&lt;h1 id=&quot;em-breve&quot;&gt;Em breve&lt;/h1&gt;
+
+</content>
+    </entry>
     
     <entry>
         <title>Manual de Integração Solução Omni</title>
