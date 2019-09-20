@@ -1,7 +1,7 @@
 ---
 layout: manual
 title: 3. Autorização com Autenticação
-description: Integração técnica Gateway Braspag
+description: Integração técnica Cielo E-Commerce
 search: true
 translated: true
 categories: manual
