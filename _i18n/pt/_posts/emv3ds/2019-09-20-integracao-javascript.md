@@ -271,6 +271,11 @@ Utilize os cartões de **teste** abaixo para simular diversos cenários no ambie
 | 4000000000001117 | UNENROLLED | Autenticação com desafio e Cartão não elegível |
 | 4000000000001109 | FAILURE | Autenticação com desafio e portador falhou na autenticação |
 
+## Autorização com Autenticação
+
+Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó **ExternalAuthentication** ).
+Veja maiores detalhes em: [https://developercielo.github.io/manual/autorizacao-com-autenticacao](https://developercielo.github.io/manual/autorizacao-com-autenticacao)
+
 # Últimas atualizações
 
 Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-20-integracao-javascript.md)
