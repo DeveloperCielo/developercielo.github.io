@@ -317,5 +317,3 @@ Veja maiores detalhes em: [https://braspag.github.io/manual/autorizacao-com-aute
 # Últimas atualizações
 
 Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-13-integracao-javascript.md)
-
-
