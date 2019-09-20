@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-20T15:10:35+00:00</updated>
+    <updated>2019-09-20T15:15:27+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -994,6 +994,227 @@
 &lt;h1 id=&quot;Últimas-atualizações&quot;&gt;Últimas atualizações&lt;/h1&gt;
 
 &lt;p&gt;Para visualizar as últimas atualizações do manual, &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-20-integracao-javascript.md&quot;&gt;clique aqui&lt;/a&gt;&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>3. Autorização com Autenticação</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/autorizacao-com-autenticacao"/>
+        <updated>2019-09-20T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/manual/autorizacao-com-autenticacao</id>
+        <content type="html">&lt;h1 id=&quot;autorização-com-autenticação-api-30&quot;&gt;Autorização com Autenticação (API 3.0)&lt;/h1&gt;
+
+&lt;p&gt;Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó &lt;strong&gt;ExternalAuthentication&lt;/strong&gt; ).
+Este procedimento é válido também para estabelecimentos que realizaram a autenticação fora da Cielo (MPI Externo).&lt;/p&gt;
+
+&lt;p&gt;Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 3.0:&lt;/p&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales&lt;/span&gt;&lt;/aside&gt;
+
+&lt;h3 id=&quot;request&quot;&gt;Request&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2017051002&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+     &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+     &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://www.loja.com.br&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;4000000000001000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Portador&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2021&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ExternalAuthentication&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Cavv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AAABB2gHA1B5EFNjWQcDAAAAAAB=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Xid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Uk5ZanBHcWw2RjRCbEN5dGtiMTB=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Eci&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReferenceID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a24a5d87-b1a1-4aef-a37b-2f30b91274e6&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; POST &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.cieloecommerce.cielo.com.br/1/sales&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
+   &lt;span class=&quot;s2&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2017051002&quot;&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Customer&quot;&lt;/span&gt;:
+   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
+     &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+   &lt;span class=&quot;s2&quot;&gt;&quot;Payment&quot;&lt;/span&gt;:
+   &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
+     &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;...&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;s2&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;:true,
+     &lt;span class=&quot;s2&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;http://www.loja.com.br&quot;&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;4000000000001000&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Holder&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Nome do Portador&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2021&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
+     &lt;span class=&quot;s2&quot;&gt;&quot;ExternalAuthentication&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;s2&quot;&gt;&quot;Cavv&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;AAABB2gHA1B5EFNjWQcDAAAAAAB=&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;Xid&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Uk5ZanBHcWw2RjRCbEN5dGtiMTB=&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;Eci&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;Version&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;,
+       &lt;span class=&quot;s2&quot;&gt;&quot;ReferenceId&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;a24a5d87-b1a1-4aef-a37b-2f30b91274e6&quot;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Campo&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Tipo/Tamanho&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Obrigatório&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.Authenticate&lt;/td&gt;
+      &lt;td&gt;Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;Sim, para que a autenticação seja realizada é obrigatório enviar como true&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.ExternalAuthentication.Cavv&lt;/td&gt;
+      &lt;td&gt;Assinatura que é retornada nos cenários de sucesso na autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a autenticação foi um sucesso&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.ExternalAuthentication.Xid&lt;/td&gt;
+      &lt;td&gt;XID retornado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a versão do 3DS for &quot;1&quot;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.ExternalAuthentication.Eci&lt;/td&gt;
+      &lt;td&gt;E-Commerce Indicator retornado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Numérico [1 posição]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.ExternalAuthentication.Version&lt;/td&gt;
+      &lt;td&gt;Versão do 3DS utilizado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [1 posição]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Payment.ExternalAuthentication.ReferenceId&lt;/td&gt;
+      &lt;td&gt;RequestID retornado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;GUID [36 posições]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
+
+&lt;p&gt;Vide https://developercielo.github.io/manual/cielo-ecommerce#resposta&lt;/p&gt;
+
+&lt;h1 id=&quot;autorização-com-autenticação-webservice-15&quot;&gt;Autorização com Autenticação (Webservice 1.5)&lt;/h1&gt;
+
+&lt;p&gt;Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 1.5.&lt;/p&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/servicos/ecommwsec.do&lt;/span&gt;&lt;/aside&gt;
+
+&lt;h3 id=&quot;request-1&quot;&gt;Request&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;?xml&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;encoding=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;requisicao-transacao&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.2.1&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;dados-ec&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dados-ec&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;dados-portador&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dados-portador&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(...)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/forma-pagamento&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;autorizar&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/autorizar&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;capturar&amp;gt;&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/capturar&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;gerar-token&amp;gt;&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/gerar-token&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;dados-autenticacao-mpi-externa&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;cavv&amp;gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;901234&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5678&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;567&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90120&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&amp;lt;/cavv&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;xid&amp;gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;45678&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;567&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;90123&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/xid&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;eci&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/eci&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;versao&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/versao&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;dstid&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dstid&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/dados-autenticacao-mpi-externa&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;lt;/requisicao-transacao&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;&lt;strong&gt;Campo&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Descrição&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Tipo/Tamanho&lt;/strong&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;strong&gt;Obrigatório&lt;/strong&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cavv&lt;/td&gt;
+      &lt;td&gt;Assinatura que é retornada nos cenários de sucesso na autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a autenticação foi um sucesso&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;xid&lt;/td&gt;
+      &lt;td&gt;XID retornado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [28 posições]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a versão do 3DS for &quot;1&quot;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;eci&lt;/td&gt;
+      &lt;td&gt;E-Commerce Indicator retornado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Numérico [1 posição]&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;versao&lt;/td&gt;
+      &lt;td&gt;Versão do 3DS utilizado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;Alfanumérico [1 posição]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;dstid&lt;/td&gt;
+      &lt;td&gt;RequestID retornado no processo de autenticação&lt;/td&gt;
+      &lt;td&gt;GUID [36 posições]&lt;/td&gt;
+      &lt;td&gt;Sim, quando a versão do 3DS for &quot;2&quot;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
+
+&lt;p&gt;Vide https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno&lt;/p&gt;
 </content>
     </entry>
     
