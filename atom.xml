@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-20T15:05:07+00:00</updated>
+    <updated>2019-09-20T15:10:35+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -991,6 +991,9 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;h1 id=&quot;Últimas-atualizações&quot;&gt;Últimas atualizações&lt;/h1&gt;
+
+&lt;p&gt;Para visualizar as últimas atualizações do manual, &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-20-integracao-javascript.md&quot;&gt;clique aqui&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     
