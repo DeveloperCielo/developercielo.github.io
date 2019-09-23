@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-23T12:51:48+00:00</updated>
+    <updated>2019-09-23T12:53:23+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -1083,7 +1083,7 @@ Veja maiores detalhes em: &lt;a href=&quot;https://developercielo.github.io/manu
     </entry>
     
     <entry>
-        <title>2.3. SDK Android</title>
+        <title>2.2. SDK Android</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/manual/integracao-sdk-android"/>
         <updated>2019-09-20T00:00:00+00:00</updated>
