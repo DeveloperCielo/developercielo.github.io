@@ -5,6 +5,7 @@ description: Manual integração técnica do 3DS 2.0
 search: true
 translated: true
 categories: manual
+sort_order: 5
 tags:
   - 3DS 2.0 Authentication
 language_tabs:
