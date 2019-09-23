@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-23T12:53:23+00:00</updated>
+    <updated>2019-09-23T16:31:28+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -10142,7 +10142,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
   &lt;li&gt;&lt;strong&gt;POST&lt;/strong&gt; /payments&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/qrcode/qrcode-fluxointegracaoqrcode.png&quot; alt=&quot;Fluxo de integração Qr Code&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxoIntegracao.png&quot; alt=&quot;Fluxo de Integração QR Code&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;ambientes&quot;&gt;Ambientes&lt;/h3&gt;
 
