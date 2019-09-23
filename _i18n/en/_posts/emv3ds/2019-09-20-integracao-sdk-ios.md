@@ -5,6 +5,7 @@ description: Technical documentation to guide the developer to integrate with 3D
 search: true
 translated: true
 categories: manual
+sort_order: 4
 tags:
   - 3DS 2.0 Authentication
 ---
