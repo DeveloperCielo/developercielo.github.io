@@ -1,7 +1,7 @@
 ---
 layout: manual
 title: 2.3. SDK IOS
-description: Integração técnica Gateway Cielo
+description: Integração técnica E-Commerce Cielo
 search: true
 translated: true
 categories: manual
@@ -11,7 +11,7 @@ tags:
 
 # O que é 3DS 2.0?
 
-Para maiores detalhes sobre o 3DS 2.0, acesse:[https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?](https://braspag.github.io/manualp/emv3ds#o-que-%C3%A9-3ds-2.0?)
+Para maiores detalhes sobre o 3DS 2.0, acesse:[https://developercielo.github.io/manual/emv3ds#o-que-%C3%A9-3ds-2.0?](https://developercielo.github.io/manual/emv3ds#o-que-%C3%A9-3ds-2.0?)
 
 # Passo 1 - Solicitação de Token de Acesso
 
@@ -312,8 +312,8 @@ Utilize os cartões de **teste** abaixo para simular diversos cenários no ambie
 ## Autorização com Autenticação
 
 Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó **ExternalAuthentication** ).
-Veja maiores detalhes em: [https://braspag.github.io/manual/autorizacao-com-autenticacao](https://braspag.github.io/manual/autorizacao-com-autenticacao)
+Veja maiores detalhes em: [https://developercielo.github.io/manual/autorizacao-com-autenticacao](https://developercielo.github.io/manual/autorizacao-com-autenticacao)
 
 # Últimas atualizações
 
-Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/Braspag/braspag.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-13-integracao-javascript.md)
+Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-20-integracao-sdk-ios.md)
