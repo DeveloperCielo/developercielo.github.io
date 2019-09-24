@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-24T15:52:29+00:00</updated>
+    <updated>2019-09-24T15:55:30+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2238,7 +2238,7 @@ See more details at: &lt;a href=&quot;https://developercielo.github.io/manual/au
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;autorização-com-autenticação&quot;&gt;Autorização com Autenticação&lt;/h2&gt;
+&lt;h2 id=&quot;authorization-with-authentication&quot;&gt;Authorization with Authentication&lt;/h2&gt;
 
 &lt;p&gt;After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication&quot; (node &lt;strong&gt;ExternalAuthentication&lt;/strong&gt; ).
 See more details at: &lt;a href=&quot;https://developercielo.github.io/manual/autorizacao-com-autenticacao&quot;&gt;https://developercielo.github.io/manual/autorizacao-com-autenticacao&lt;/a&gt;&lt;/p&gt;
