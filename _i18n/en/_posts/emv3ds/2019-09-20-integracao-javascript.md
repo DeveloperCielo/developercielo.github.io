@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: 2.2. Javascript Integration
+title: 2.1. Javascript Integration
 description: Technical documentation to guide the developer to integrate with 3DS 2.0
 search: true
 translated: true
