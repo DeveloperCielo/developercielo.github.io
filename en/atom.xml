@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-24T16:26:18+00:00</updated>
+    <updated>2019-09-24T16:31:23+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2180,11 +2180,11 @@ See more details at: &lt;a href=&quot;https://developercielo.github.io/manual/au
 &lt;h2 id=&quot;authorization-with-authentication&quot;&gt;Authorization with Authentication&lt;/h2&gt;
 
 &lt;p&gt;After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication&quot; (node &lt;strong&gt;ExternalAuthentication&lt;/strong&gt; ).
-See more details at: &lt;a href=&quot;https://developercielo.github.io/manual/autorizacao-com-autenticacao&quot;&gt;https://developercielo.github.io/manual/autorizacao-com-autenticacao&lt;/a&gt;&lt;/p&gt;
+See more details at: &lt;a href=&quot;https://developercielo.github.io/en/manual/autorizacao-com-autenticacao&quot;&gt;https://developercielo.github.io/en/manual/autorizacao-com-autenticacao&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;last-updates&quot;&gt;Last updates&lt;/h1&gt;
 
-&lt;p&gt;To view the latest manual updates, &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-20-integracao-javascript.md&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To view the latest manual updates, &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-20-integracao-sdk-android.md&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     
