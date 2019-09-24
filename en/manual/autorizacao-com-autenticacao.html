@@ -131,10 +131,10 @@
             <div class="post">
   <h1 id="authorization-with-authentication-api-30">Authorization with Authentication (API 3.0)</h1>
 
-<p>Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de "autenticação externa" (nó <strong>ExternalAuthentication</strong> ).
-Este procedimento é válido também para estabelecimentos que realizaram a autenticação fora da Cielo (MPI Externo).</p>
+<p>After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication" (node <strong>ExternalAuthentication</strong> ).
+This procedure is also valid for establishments that performed authentication outside Cielo (External MPI).</p>
 
-<p>Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 3.0:</p>
+<p>See example below, describing the sending of Cielo 3.0 API authorization request authentication data:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales</span></aside>
 
@@ -210,59 +210,59 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 <table>
   <thead>
     <tr>
-      <th><strong>Campo</strong></th>
-      <th><strong>Descrição</strong></th>
-      <th><strong>Tipo/Tamanho</strong></th>
-      <th><strong>Obrigatório</strong></th>
+      <th><strong>Field</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type/Size</strong></th>
+      <th><strong>Required</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Payment.Authenticate</td>
-      <td>Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
-      <td>-</td>
-      <td>Sim, para que a autenticação seja realizada é obrigatório enviar como true</td>
+      <td>Boolean which defines whether the buyer will be directed to the issuing Bank for card authentication</td>
+      <td>Boolean</td>
+      <td>Yes, for authentication to be performed it is required to send as <code class="highlighter-rouge">true</code></td>
     </tr>
     <tr>
       <td>Payment.ExternalAuthentication.Cavv</td>
-      <td>Assinatura que é retornada nos cenários de sucesso na autenticação</td>
-      <td>Alfanumérico [28 posições]</td>
-      <td>Sim, quando a autenticação foi um sucesso</td>
+      <td>Signature that is returned in authentication success scenarios</td>
+      <td>Alphanumeric [28 characters]</td>
+      <td>Yes, when authentication was a success</td>
     </tr>
     <tr>
       <td>Payment.ExternalAuthentication.Xid</td>
-      <td>XID retornado no processo de autenticação</td>
-      <td>Alfanumérico [28 posições]</td>
-      <td>Sim, quando a versão do 3DS for "1"</td>
+      <td>XID returned in authentication process</td>
+      <td>Alphanumeric [28 characters]</td>
+      <td>Yes, when the 3DS version is "1"</td>
     </tr>
     <tr>
       <td>Payment.ExternalAuthentication.Eci</td>
-      <td>E-Commerce Indicator retornado no processo de autenticação</td>
-      <td>Numérico [1 posição]</td>
-      <td>Sim</td>
+      <td>E-Commerce Indicator returned in authentication process</td>
+      <td>Numeric [1 character]</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>Payment.ExternalAuthentication.Version</td>
-      <td>Versão do 3DS utilizado no processo de autenticação</td>
-      <td>Alfanumérico [1 posição]</td>
-      <td>Sim, quando a versão do 3DS for "2"</td>
+      <td>3DS version used in authentication process</td>
+      <td>Alphanumeric [1 character]</td>
+      <td>Yes, when the 3DS version is "2"</td>
     </tr>
     <tr>
       <td>Payment.ExternalAuthentication.ReferenceId</td>
-      <td>RequestID retornado no processo de autenticação</td>
-      <td>GUID [36 posições]</td>
-      <td>Sim, quando a versão do 3DS for "2"</td>
+      <td>RequestID returned in authentication process</td>
+      <td>GUID [36 characters]</td>
+      <td>Yes, when the 3DS version is "2"</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="response">Response</h3>
 
-<p>Vide https://developercielo.github.io/manual/cielo-ecommerce#resposta</p>
+<p>See https://developercielo.github.io/manual/cielo-ecommerce#resposta</p>
 
-<h1 id="autorização-com-autenticação-webservice-15">Autorização com Autenticação (Webservice 1.5)</h1>
+<h1 id="authorization-with-authentication-webservice-15">Authorization with Authentication (Webservice 1.5)</h1>
 
-<p>Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 1.5.</p>
+<p>See example below, describing the submission of the Cielo 1.5 API authorization request authentication data.</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/servicos/ecommwsec.do</span></aside>
 
@@ -298,49 +298,49 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 <table>
   <thead>
     <tr>
-      <th><strong>Campo</strong></th>
-      <th><strong>Descrição</strong></th>
-      <th><strong>Tipo/Tamanho</strong></th>
-      <th><strong>Obrigatório</strong></th>
+      <th><strong>Field</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type/Size</strong></th>
+      <th><strong>Required</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>cavv</td>
-      <td>Assinatura que é retornada nos cenários de sucesso na autenticação</td>
-      <td>Alfanumérico [28 posições]</td>
-      <td>Sim, quando a autenticação foi um sucesso</td>
+      <td>Signature that is returned in authentication success scenarios</td>
+      <td>Alphanumeric [28 characters]</td>
+      <td>Yes, when authentication was a success</td>
     </tr>
     <tr>
       <td>xid</td>
-      <td>XID retornado no processo de autenticação</td>
-      <td>Alfanumérico [28 posições]</td>
-      <td>Sim, quando a versão do 3DS for "1"</td>
+      <td>XID returned in authentication process</td>
+      <td>Alphanumeric [28 characters]</td>
+      <td>Yes, when the 3DS version is "1"</td>
     </tr>
     <tr>
       <td>eci</td>
-      <td>E-Commerce Indicator retornado no processo de autenticação</td>
-      <td>Numérico [1 posição]</td>
-      <td>Sim</td>
+      <td>E-Commerce Indicator returned in authentication process</td>
+      <td>Numeric [1 character]</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>versao</td>
-      <td>Versão do 3DS utilizado no processo de autenticação</td>
-      <td>Alfanumérico [1 posição]</td>
-      <td>Sim, quando a versão do 3DS for "2"</td>
+      <td>3DS version used in authentication process</td>
+      <td>Alphanumeric [1 character]</td>
+      <td>Yes, when the 3DS version is "2"</td>
     </tr>
     <tr>
       <td>dstid</td>
-      <td>RequestID retornado no processo de autenticação</td>
-      <td>GUID [36 posições]</td>
-      <td>Sim, quando a versão do 3DS for "2"</td>
+      <td>RequestID returned in authentication process</td>
+      <td>GUID [36 characters]</td>
+      <td>Yes, when the 3DS version is "2"</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="response-1">Response</h3>
 
-<p>Vide https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno</p>
+<p>See https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno</p>
 
 </div>
 
