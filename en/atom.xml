@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-24T16:01:30+00:00</updated>
+    <updated>2019-09-24T16:07:59+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7045,7 +7045,7 @@ The Master must provide Subordinate information in order to use it during the On
     </entry>
     
     <entry>
-        <title>Introduction to 3DS 2.0</title>
+        <title>1. Introduction to 3DS 2.0</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/en/manual/emv3ds"/>
         <updated>2018-09-10T00:00:00+00:00</updated>
