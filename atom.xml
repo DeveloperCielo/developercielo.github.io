@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-24T16:38:29+00:00</updated>
+    <updated>2019-09-24T16:58:08+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11685,8 +11685,8 @@ Clique em uma das opções abaixo para visualizar o manual mais adequado para su
 
 &lt;ol&gt;
   &lt;li&gt;Autenticação via Java Script: ideal para implementação em &lt;a href=&quot;https://developercielo.github.io/manual/integracao-javascript&quot;&gt;websites&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Autenticação via SDK Android: ideal para implementação in-app Android &lt;strong&gt;(em breve)&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;Autenticação via SDK IOS: ideal para implementação em in-app IOS &lt;strong&gt;(em breve)&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Autenticação via SDK Android: ideal para implementação in-app Android em &lt;a href=&quot;https://developercielo.github.io/manual/integracao-sdk-android&quot;&gt;websites&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Autenticação via SDK IOS: ideal para implementação em in-app IOS em &lt;a href=&quot;https://developercielo.github.io/manual/integracao-sdk-ios&quot;&gt;websites&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;autorização-com-autenticação&quot;&gt;Autorização com Autenticação&lt;/h2&gt;
