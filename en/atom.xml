@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-24T16:11:23+00:00</updated>
+    <updated>2019-09-24T16:21:32+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7240,15 +7240,15 @@ Currently are available:&lt;/p&gt;
 Click one of the options below to view the manual that best suits your needs:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Javascript Authentication: ideal for deployment in &lt;a href=&quot;https://developercielo.github.io/manual/integracao-javascript&quot;&gt;websites&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;SDK Android Authentication: ideal for deployment in-app Android &lt;strong&gt;(coming soon)&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;SDK IOS Authentication: ideal for deployment in-app IOS &lt;strong&gt;(coming soon)&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Javascript Authentication: ideal for deployment in &lt;a href=&quot;https://developercielo.github.io/en/manual/integracao-javascript&quot;&gt;websites&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;SDK Android Authentication: ideal for deployment in-app Android in &lt;a href=&quot;https://developercielo.github.io/en/manual/integracao-sdk-android&quot;&gt;websites&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;SDK IOS Authentication: ideal for deployment in-app IOS in &lt;a href=&quot;https://developercielo.github.io/en/manual/integracao-sdk-ios&quot;&gt;websites&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;authorization-with-authentication&quot;&gt;Authorization with Authentication&lt;/h2&gt;
 
 &lt;p&gt;After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication&quot; (node &lt;strong&gt;ExternalAuthentication&lt;/strong&gt; ).
-See more details at: &lt;a href=&quot;https://developercielo.github.io/manual/autorizacao-com-autenticacao&quot;&gt;https://developercielo.github.io/manual/autorizacao-com-autenticacao&lt;/a&gt;&lt;/p&gt;
+See more details at: &lt;a href=&quot;https://developercielo.github.io/en/manual/autorizacao-com-autenticacao&quot;&gt;https://developercielo.github.io/en/manual/autorizacao-com-autenticacao&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     
