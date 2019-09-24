@@ -60,19 +60,19 @@ The solution is composed by the access token request via the API and authenticat
 
 # STEP 2 - Using SDK
 
-Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:
+To use the SDK you need to copy and paste the Braspag3dsSdk file into app libs:
 
 ```swift
 import Braspag3dsSdk
 ```
 
-Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
+Then it's necessary to pass to the client side (APP) the *access_token* generated in the previous step:
 
 ```swift
 let braspag3ds = Braspag3ds(accessToken: "<<Access_Token gerado no passo 1>>", environment: Environment.production)
 ```
 
-Em seguida é necessário utilizar o método `authenticate`, informando os dados do comprador e o *callback* que receberá a resposta:
+Then you must use the method `authenticate`, informing the buyer details and the *callback* that will receive the response:
 
 ```swift
 braspag3ds.authenticate(orderData: OrderData(...),
@@ -103,212 +103,212 @@ braspag3ds.authenticate(orderData: OrderData(...),
   }
 ```
 
-## Parâmetros de entrada do método *authenticate*
+## Method input parameters *authenticate*
 
-| **Campo** | **Tipo** | **Descrição** | **Obrigatório** |
+| **Parameter** | **Type** | **Description** | **Required** |
 | --- | --- | -- | -- |
-| orderData | OrderData | Dados do pedido de pagamento | Sim |
-| cardData | CardData | Dados do cartão | Sim |
-| authOptions | OptionsData? | Configurações adicionais ao processo de 3DS | Não |
-| billToData | BillToData? | Dados de cobrança do portador | Não |
-| shipToData | ShipToData? | Dados da entrega | Não |
-| cart | [CartItemData]? | Array com itens do carrinho | Não |
-| deviceData | [DeviceData]? | Configurações adicionais ao processo de 3DS | Não |
-| userData | UserData? | Dados do usuário na sua loja | Não |
-| airlineData | AirlineData? | Dados da passagem aérea | Não |
-| mdd | MddData? | Dados extras enviados pelo lojista | Não |
-| recurringData | RecurringData? | Dados da recorrência | Não |
-| deviceIpAddress | String? | Endereço IP do dispositivo | Não |
+| orderData | OrderData | Payment order data | Yes |
+| cardData | CardData | Card data | Yes |
+| authOptions | OptionsData? | Additional settings to the 3DS process | No |
+| billToData | BillToData? | Carrier billing data | No |
+| shipToData | ShipToData? | Delivery data | No |
+| cart | [CartItemData]? | Array with cart items | No |
+| deviceData | [DeviceData]? | Additional settings to the 3DS process | No |
+| userData | UserData? | User data in your store | No |
+| airlineData | AirlineData? | Airline Data | No |
+| mdd | MddData? | Extra data sent by the seller | No |
+| recurringData | RecurringData? | Recurring data | No |
+| deviceIpAddress | String? | Device IP address | No |
 
-## Descrição dos Status do Callback 
+## Callback status description
 
-| **Status** | **Descrição** | 
+| **Status** | **Description** | 
 | --- | --- |
-| success | É retornado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornados. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.|
-| unenrolled | É retornado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
-| failure | É retornado quando o cartão é elegível, porém não teve o processo de autenticação falhou por algum motivo. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
-| error | É retornado quando o processo de autenticação recebeu um erro sistêmico. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
-| unsupportedBrand | É retornado quando a bandeira do cartão não é suportado pelo 3DS 2.0 |
+| success | It's returned when the card is eligible and the authentication process has been successfully completed. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.|
+| unenrolled | It's returned when the card is not eligible, that is the holder and/or issuer doesn't participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+| failure | It's returned when the card is eligible but has not had the authentication process failed for some reason. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+| error | It's returned when the authentication process received a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
+| unsupportedBrand | Returns when card banner is not supported by 3DS 2.0 |
 
-## Descrição dos campos do *AuthenticationResponse*
+## Description of the fields of *AuthenticationResponse*
 
-| **Saída** | **Descrição** | **Tipo/Tamanho** |
+| **Output** | **Description** | **Type/Size** |
 | --- | --- | --- |
-| cavv | Dado que representa assinatura da autenticação | Alfanumérico [28 posições] |
-| xid | ID que representa a requisição da autenticação | Alfanumérico [28 posições] |
-| eci | Código indicador do e-commerce, que representa o resultado da autenticação | Numérico [até 2 posições] |
-| version | Versão do 3DS aplicado | Numérico [1 posição]1 – 3DS 1.02 – 3DS 2.0 |
-| referenceID | ID que representa a requisição de autenticação | GUID [36 posições] |
-| returnCode | Código de retorno da requisição de autenticação | Alfanumérico [até 5 posições] |
-| returnMessage | Mensagem de retorno da requisição de autenticação | Alfanumérico [varivável] |
+| cavv | Data representing authentication signature | Alphanumeric [28 characters] |
+| xid | ID representing authentication request | Alphanumeric [28 characters] |
+| eci | E-commerce indicator code, which represents the result of authentication | Numeric [to 2 characters] |
+| version | 3DS version applied | Numeric [1 character]1 – 3DS 1.02 – 3DS 2.0 |
+| referenceID | ID representing the authentication request | GUID [36 characters] |
+| returnCode | Authentication request return code | Alphanumeric [to 5 characters] |
+| returnMessage | Authentication request return message | Alphanumeric [variable] |
 
-# Detalhamento dos objetos da requisição
+# Detailing of requisition objects
 
-Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisição é separada em diversos objetos com contexto de dados bem definido conforme a tabela dos parâmetros de entrada do authenticate mostra. Abaixo vamos detalhar cada um dos objetos utilziados.
+For facilitate of use only what the merchant needs to send, The request is separated into several objects with well-defined data context as the table of authenticate input parameters shows. Below we will detail each of the objects used.
 
-<aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco</aside>
+<aside class="warning">The greater the number of parameterized fields, the greater the chance of having transparent authentication, because the issuer will have greater subsidy for risk analysis.</aside>
 
 ## OptionsData
 
-| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| notifyonly | Booleano que indica se a transação com cartão será submetida no modo "somente notificação". Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. **VÁLIDO SOMENTE PARA CARTÕES MASTERCARD** | Booleano: <br>true – modo somente notificação; <br>false – modo com autenticação | Não |
-| suppresschallenge | Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.  | Booleano: <br>true – ignorar desafios se houver; <br>false – apresentar desafio se houver | Não |
+| notifyonly | Boolean indicating whether the card transaction will be submitted in "notification only" mode. In this mode, the authentication process will not be triggered, but, the data will be flagged. **VALID ONLY FOR MASTERCARD CARDS** | Boolean: <br>true – notification only mode; <br>false – authentication mode | No |
+| suppresschallenge | Boolean indicating whether or not to ignore the challenge when it exists. If a transaction authorized after ignoring the challenge, liability remains with the establishment.  | Boolean: <br>true – ignore challenges if any; <br>false – present challenge if there is | No |
 
 ## OrderData
 
-| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| orderNumber | Código do pedido no estabelecimento | Alphanumérico [até 50 posições] | Sim |
-| currencyCode | Código da moeda | Fixo &quot;BRL&quot; | Sim |
-| totalAmount | Valor total da transação, enviado em centavos | Numérico [até 15 posições] | Sim |
-| paymentMethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | *PaymentMethod* <br><br>credit – Cartão de Crédito<br>debit – Cartão de Débito | Sim |
-| installments | Número de parcelas da transação | Numérico [até 2 posições] | Sim |
-| recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
-| productCode | Tipo da compra | *ProductCode*<br><br> hotel: Hotelaria<br>financeAccount: Financiamento de conta<br>checkAcceptance: Check acceptance<br>digitalGoods: Digital Goods<br>cashDispenser: Dispensação de dinheiro<br>fuel: Combustível<br>retail: Varejo geral<br>luxuryGoods: Artigos de luxo<br>recharge: recarga<br>goodsPurchase: compra de mercadorias<br>quasiMoneyTransaction: Transação quase-dinheiro<br>carRental: Alugue de Carros<br>restaurant: Restaurante<br>services: Serviços<br>other: Outros<br>turism: Turismo | Não |
-| countLast24Hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
-| countLast6Months | Quantidade de pedidos efetuados por este comprador nos últimos 6 meses | Numérico [até 4 posições] | Não |
-| countLast1Year | Quantidade de pedidos efetuados por este comprador no último ano | Numérico [até 3 posições] | Não |
-| cardAttemptsLast24Hours | Quantidade de transações com o mesmo cartão nas últimas 24h | Numérico [até 3 posições] | Não |
-| marketingOptIn | Indica se o comprador aceitou receber ofertas de marketing | Booleano<br>true – sim<br>false – não  | Não |
-| marketingSource | Identifica a origem da campanha de marketing | Alfanumérico [até 40 posições] | Não |
-| transactionMode | Identifica o canal que originou a transação | M: MOTO<br>R: Varejo<br>S: E-Commerce<br>P: Mobile<br>T: Tablet | Não |
-| merchantUrl | Endereço do site do estabelcimento | Alphanumérico [100] Exemplo: http://www.exemplo.com.br | Sim |
+| orderNumber | Order code at merchant | Alphanumeric [to 50 characters] | Yes |
+| currencyCode | Currency code | Fixo &quot;BRL&quot; | Yes |
+| totalAmount | Total transaction amount, sent in cents | Numeric [to 15 characters] | Yes |
+| paymentMethod | Type of card to be authenticated. In the case of a multiple card, you must specify either Credit or Debit | *PaymentMethod* <br><br>CREDIT – Credit Card<br>DEBIT – Debit Card | Yes |
+| installments | Number of transaction quota | Numeric [to 2 characters] | Yes |
+| recurrence | Indicates if it is an order that generates future recurrences | Boolean<br>true<br>false | No |
+| productCode | Purchase Type | *ProductCode*<br><br> HOTEL: Hotel<br>FINANCEACCOUNT: Account financing<br>CHECKACCEPTANCE: Check acceptance<br>DIGITALGOODS: Digital Goods<br>CASHDISPENSER: Cash dispenser<br>FUEL: Fuel<br>RETAIL: Retail<br>LUXURYGOODS: Luxury goods<br>RECHARGE: Recharge<br>GOODSPURCHASE: Purchase of goods<br>QUASIMONEYTRANSACTION: Quasi-money transaction<br>CARRENTAL: Car rental<br>RESTAURANT: Restaurant<br>SERVICES: Services<br>OTHER: Other<br>TURISM: Turism | No |
+| countLast24Hours | Quantity of orders placed by this buyer in the last 24h | Numeric [to 3 characters] | No |
+| countLast6Months | Quantity of orders placed by this buyer in the last 6 months | Numeric [to 4 characters] | No |
+| countLast1Year | Quantity of orders placed by this buyer in the last year | Numeric [to 3 characters] | No |
+| cardAttemptsLast24Hours | Number of same card transactions in last 24h | Numeric [to 3 characters] | No |
+| marketingOptIn | Indicates whether the buyer has agreed to receive marketing offers. | Boolean<br>true – yes<br>false – no  | No |
+| marketingSource | Identifies the source of the marketing campaign. | Alphanumeric [to 40 characters] | No |
+| transactionMode | Identifies the channel that originated the transaction.. | M: MOTO<br>R: Retail<br>S: E-Commerce<br>P: Mobile<br>T: Tablet | No |
+| merchantUrl | Merchant website address | Alphanumeric [100] Example: http://www.exemplo.com.br | Yes |
 
 ## CardData
 
-| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| number | Número do Cartão | Numérico [até 19 posições] | Sim |
-| expirationMonth | Mês do vencimento do cartão | Numérico [2 posições] | Sim |
-| cardexpirationYear | Ano do vencimento do cartão | Numérico [4 posições] | Sim | 
-| cardAlias | Alias do cartão | Alphanumérico [até 128 posições] | Não |
-| defaultCard | Indica se é um cartão padrão do cliente na loja | Booleano<br>true - sim<br>false - não | Não |
+| number | Card number | Numeric [to 19 characters] | Yes |
+| expirationMonth | Card expiration month | Numeric [2 characters] | Yes |
+| cardexpirationYear | Card expiration year | Numeric [4 characters] | Yes | 
+| cardAlias | Card alias | Alphanumeric [to 128 characters] | No |
+| defaultCard | Indicates if it is a standard store customer card | Boolean<br>true - Yes<br>false - No | No |
 
 ## BillToData
 
-| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| customerId | Identifica o CPF/CNPJ do comprador | Numérico [11 a 14 posições]<br>99999999999999 | Não |
-| contactName| Nome do contato do endereço de cobrança | Alfanumérico [até 120] | Sim |
-| phoneNumber | Telefone de contato do endereço de cobrança | Numérico [até 15 posições], no formato: 5511999999999 | Sim |
-| email | E-mail do contato do endereço de cobrança | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Sim |
-| street1 | Logradouro e Número do endereço de cobrança | Alfanumérico [até 60] | Sim |
-| street2 | Complemento e bairro do endereço de cobrança | Alfanumérico [até 60] | Sim |
-| city | Cidade do endereço de cobrança | Alfanumérico [até 50] | Sim |
-| state | Sigla do estado do endereço de cobrança | Texto [2 posições] | Sim |
-| zipCode | CEP do endereço de cobrança | Alfanumérico [até 8 posições], no formato: 99999999 | Sim |
-| country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Sim |
+| customerId | Identify the buyer CPF/CNPJ | Numeric [11 to 14 characters]<br>99999999999999 | No |
+| contactName| Billing address contact name | Alphanumeric [to 120 characters] | Yes |
+| phoneNumber | Billing address contact phone | Numeric [to 15 characters], in the format: 5511999999999 | Yes |
+| email | Billing address contact email | Alphanumeric [to 255 characters], in the format [nome@exemplo.com](mailto:nome@exemplo.com) | Yes |
+| street1 | Billing address and address number | Alphanumeric [to 60 characters] | Yes |
+| street2 | Billing second address and neighborhood | Alphanumeric [to 60 characters] | Yes |
+| city | Billing address city | Alphanumeric [to 50 characters] | Yes |
+| state | Billing address state initials | Text [2 characters] | Yes |
+| zipCode | Billing address zip | Alphanumeric [to 8 characters], in the format: 99999999 | Yes |
+| country | Billing address country | Text [2 characters] Ex. BR | Yes |
 
 ## ShipToData
 
-| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| sameAsBillTo | Indica se utiliza o mesmo endereço fornecido para endereço de cobrança | Booleano<br>true<br>false | Não |
-| addressee | Nome do contato do endereço de entrega | Alfanumérico [até 60] | Não |
-| phoneNumber | Telefone de contato do endereço de entrega | Numérico [até 15 posições], no formato: 5511999999999 | Não |
-| email | E-mail do contato do endereço de entrega | Alfanumérico [até 255], no formato [nome@exemplo.com](mailto:nome@exemplo.com) | Não |
-| street1 | Logradouro e Número do endereço de entrega | Alfanumérico [até 60] | Não |
-| street2 | Complemento e bairro do endereço de entrega | Alfanumérico [até 60] | Não | 
-| city | Cidade do endereço de entrega | Alfanumérico [até 50] | Não |
-| state | Sigla do estado do endereço de entrega | Texto [2 posições] | Não | 
-| zipCode | CEP do endereço de entrega | Alfanumérico [até 8 posições], no formato: 99999999 | Não |
-| country | País do endereço de cobrança | Texto [2 posições] Ex. BR | Não |
-| shippingMethod | Tipo do método de envio | *ShippingMethodEnum*<br><br>lowcost: envio econômico<br>sameday: envio no mesmo dia<br>oneday: envio no dia seguinte<br>twoday: envio em dois dias<br>threeday: envio em três dias<br>pickup: retirada na loja<br>other: outrosnone: não há envio | Não |
-| firstUsageDate | Indica a data de quando houve a primeira utilização do endereço de entrega | Texto<br>AAAA-MM-DD – data da criação  | Não |
+| sameAsBillTo | Indicates whether to use the same address provided for billing address | Boolean<br>true<br>false | No |
+| addressee | Shipping address contact name | Alphanumeric [to 60 characters] | No |
+| phoneNumber | Shipping address contact phone | Numeric [to 15 characters], in the format: 5511999999999 | No |
+| email | Shipping contact email | Alphanumeric [to 255 characters], in the format [nome@exemplo.com](mailto:nome@exemplo.com) | No |
+| street1 | Shipping address and address number | Alphanumeric [to 60 characters] | No |
+| street2 | Shipping second address and neighborhood | Alphanumeric [to 60 characters] | No | 
+| city | Shipping address city | Alphanumeric [to 50 characters] | No |
+| state | Shipping address state initials | Text [2 characters] | No | 
+| zipCode | Shipping address zip | Alphanumeric [to 8 characters], in the format: 99999999 | No |
+| country | Shipping address country | Text [2 characters] Ex. BR | No |
+| shippingMethod | Shipping method type | *ShippingMethodEnum*<br><br>LOWCOST: Low cost<br>SAMEDAY: same day shipping<br>ONEDAY: next day shipping<br>TWODAY: shipping in two days<br>THREEDAY: shipping in three days<br>PICKUP: pick up in store<br>OTHER: Other <br>NONE: no shipping | No |
+| firstUsageDate | Indicates the date when the shipping address was first used | Text<br>YYYY-MM-DD – creation date  | No |
 
 ## CartItemData
 
-| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| description | Descrição do item | Alfanumérico [até 255 posições] | Não |
-| name | Nome do item | Alfanumérico [até 255 posições] | Sim |
-| sku | SKU do item | Alfanumérico [até 255 posições] | Não |
-| quantity| Quantidade do item no carrinho | Numérico [até 10 posições] | Não |
-| unitprice | Valor unitário do item do carrinho em centavos | Numérico [até 10 posições] | Não |
+| description | Item description | Alphanumeric [to 255 characters] | No |
+| name | Item name | Alphanumeric [to 255 characters] | Yes |
+| sku | Item SKU | Alphanumeric [to 255 characters] | No |
+| quantity| Item quantity in cart | Numeric [to 10 characters] | No |
+| unitprice | Cart item unit value in cents | Numeric [to 10 characters] | No |
 
 ## DeviceData
 
-| **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| fingerprint | Id retornado pelo Device Finger Print | Alfanumérico [sem limitação] | Não |
-| provider | Nome do provedor do Device Finger Print | Alfanumérico [até 32 posições] cardinal<br>inauth<br>threatmetrix| Não |
+| fingerprint | Id returned by Device Finger Print | Alphanumeric [without limitation] | No |
+| provider | Device Finger Print Provider Name | Alphanumeric [to 32 characters] cardinal<br>inauth<br>threatmetrix| No |
 
 ## UserData
 
-| **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| guest | Indica se o comprador é um comprador sem login (guest)| Booleano<br>true – sim<br>false – não  | Não |
-| createdDate | Indica a data de quando houve a criação da conta do comprador | Texto<br>AAAA-MM-DD – data da criação  | Não |
-| changedDate | Indica a data de quando houve a última alteração na conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração | Não |
-| passwordChangedDate | Indica a data de quando houve a alteração de senha da conta do comprador | Texto<br>AAAA-MM-DD – data da última alteração de senha  | Não |
-| authenticationMethod | Método de autenticação do comprador na loja | *AuthenticationMethod* <br> noAuthentication - Não houve autenticação<br>ownStoreLogin - Login da própria loja<br>federatedLogin - Login com ID federado<br>fidoAuthenticator - Login com autenticador FIDO | Não |
-| authenticationProtocol | Dado que representa o protocolo de login efetuado na loja | Alfanumérico [até 2048 posições] | Não |
-| authenticationTimestamp | A data e hora que o login foi efetuado na loja | Texto [19 posições] _YYYY-MM-ddTHH:mm:SS_ | Não |
-| newCustomer | Identifica se um comprador novo na loja| Booleano<br>true – sim<br>false – não  | Não |
+| guest | Indicates whether the buyer is a non-signed buyer (guest)| Boolean<br>true – yes<br>false – no  | No |
+| createdDate | Indicates the date when the buyer account was created | Text<br>YYYY-MM-DD – creation date | No |
+| changedDate | Indicates the date when the buyer account was last updated | Text<br>YYYY-MM-DD – date of last update | No |
+| passwordChangedDate | Indicates the date when the buyer account password was changed | Text<br>AAAA-MM-DD – date of last password change  | No |
+| authenticationMethod | Store buyer authentication method | *AuthenticationMethod* <br> NOAUTHENTICATION - There was no authentication<br>OWNSTORELOGIN - Own store login<br>FEDERATEDLOGIN - Federated ID login<br>FIDOAUTHENTICATOR - Login with FIDO authenticator | No |
+| authenticationProtocol | Data representing the store login protocol | Alphanumeric [to 2048 characters] | No |
+| authenticationTimestamp | The date and time the store was logged in | Text [19 characters] _YYYY-MM-ddTHH:mm:SS_ | No |
+| newCustomer | Identifies if a new buyer in the store | Boolean<br>true – yes<br>false – no  | No |
 
 ## AirlineData
 
-| **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| numberOfPassengers | Número de passageiros | Numérico [3 posições] | Não |
-| billToPassportCountry | Código do país que emitiu o passaporte (ISO Standard Country Codes) | Texto [2 posições] | Não |
-| billtoPassportNumber | Número do passaporte | Alfanumérico [40 posições] | Não |
-| travelLeg | Trecho da viagem | TravelLeg | Não |
-| passenger | Dados do passageiro | Passenger | Não |
+| numberOfPassengers | Number of passengers | Numeric [3 characters] | No |
+| billToPassportCountry | Passport country code (ISO Standard Country Codes) | Text [2 characters] | No |
+| billtoPassportNumber | Passport number | Alphanumeric [40 characters] | No |
+| travelLeg | Stretch of the trip | TravelLeg | No |
+| passenger | Passenger data | Passenger | No |
 
 ## TravelLeg
 
-| **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| carrier | Código IATA para o trecho | Alfanumérico [2 posições] | Não |
-| departureDate | Data de partida | Texto<br>AAAA-MM-DD | Não |
-| origin | Código IATA do aeroporto de origem | Alfanumérico [5 posições] | Não |
-| destination | Código IATA do aeroporto de destino | Alfanumérico [5 posições] | Não |
+| carrier | IATA code for the stretch | Alphanumeric [2 characters] | No |
+| departureDate | Departure date | Text<br>YYYY-MM-DD | No |
+| origin | IATA code of origin airport | Alphanumeric [5 characters] | No |
+| destination | IATA code of destination airport | Alphanumeric [5 characters] | No |
 
 ## Passenger
 
-| **Propriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| name | Nome do passageiro | Alfanumérico [até 60 posições] | Não |
-| ticketPrice | O valor da passagem em centavos | Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não |
+| name | Passenger name | Alphanumeric [to 60 characters] | No |
+| ticketPrice | The value of the ticket in cents | Numeric [to 15 characters],<br>example: R$ 125,54 = 12554 | No |
 
 ## MDD
 
-| **Proriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| mdd1 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
-| mdd2 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
-| mdd3 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
-| mdd4 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
-| mdd5 | Dado Extra definido pelo lojista | Alfanumérico [até 255 posições] | Não |
+| mdd1 | Extra data set by the seller | Alphanumeric [to 255 characters] | No |
+| mdd2 | Extra data set by the seller | Alphanumeric [to 255 characters] | No |
+| mdd3 | Extra data set by the seller | Alphanumeric [to 255 characters] | No |
+| mdd4 | Extra data set by the seller | Alphanumeric [to 255 characters] | No |
+| mdd5 | Extra data set by the seller | Alphanumeric [to 255 characters] | No |
 
 ## RecurringData
 
-| **Proriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| endDate | Identifica a data de término da recorrência | Texto (AAAA-MM-DD) | Não |
-| frequency | Indica a frequência da recorrência | *RecurringFrequencyEnum* <br><br>MonthlyBimonthly<br>Quarterly<br>Triannual<br>SemiAnnual<br>Yearly| Não |
-| originalPurchaseDate | Identifica a data da 1ª transação que originou a recorrência | Texto (AAAA-MM-DD) | Não |
+| endDate | Identify recurrence end date | Text (YYYY-MM-DD) | No |
+| frequency | Indicates recurrence frequency | *RecurringFrequencyEnum* <br><br>MONTHLYBIMONTHLY<br>QUARTERLY<br>TRIANNUAL<br>SEMIANNUAL<br>YEARLY| No |
+| originalPurchaseDate | Identifies the date of the 1st transaction that originated the recurrence. | Text (YYYY-MM-DD) | No |
 
-## Demais parâmetros
+## Other parameters
 
-| **Proriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Parameter** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| ipAddress | Endereço IP da máquina do comprador | Alfanumérico [até 45] | Não |
+| ipAddress | IP address of buyer's machine | Alphanumeric [to 45 characters] | No |
 
-# Cartões de Teste
+# Test Cards
 
-Utilize os cartões de **teste** abaixo para simular diversos cenários no ambiente de **SANDBOX**
+Use the **test** cards below to simulate various scenarios in the **SANDBOX** environment.
 
-| **Cartão** | **Resultado** | **Descrição** |
+| **Card** | **Result** | **Description** |
 | --- | --- | --- |
-| 4000000000001000 | SUCCESS | Autenticação Silenciosa e portador autenticou com sucesso |
-| 4000000000001018 | FAILURE | Autenticação Silenciosa e portador finalizou com falha|
-| 4000000000001034 | UNENROLLED | Cartão não elegível para autenticação |
-| 4000000000001091 | SUCCESS | Autenticação com desafio e portador autenticou com sucesso|
-| 4000000000001117 | UNENROLLED | Autenticação com desafio e Cartão não elegível |
-| 4000000000001109 | FAILURE | Autenticação com desafio e portador falhou na autenticação |
+| 4000000000001000 | SUCCESS | Silent and carrier authentication successfully authenticated |
+| 4000000000001018 | FAILURE | Silent and carrier authentication ended in failure |
+| 4000000000001034 | UNENROLLED | Card not eligible for authentication |
+| 4000000000001091 | SUCCESS | Challenging and carrier authentication successfully authenticated |
+| 4000000000001117 | UNENROLLED | Challenge authentication and ineligible card |
+| 4000000000001109 | FAILURE | Challenging and carrier authentication failed authentication |
 
 ## Authorization with Authentication
 
