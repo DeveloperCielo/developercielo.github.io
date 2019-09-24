@@ -5,13 +5,14 @@ description: Integração técnica E-Commerce Cielo
 search: true
 translated: true
 categories: manual
+sort_order: 4
 tags:
   - Autenticação 3DS 2.0
 ---
 
 # O que é 3DS 2.0?
 
-Para maiores detalhes sobre o 3DS 2.0, acesse:[https://developercielo.github.io/manual/emv3ds#o-que-%C3%A9-3ds-2.0?](https://developercielo.github.io/manual/emv3ds#o-que-%C3%A9-3ds-2.0?)
+Para maiores detalhes sobre o 3DS 2.0, acesse: [https://developercielo.github.io/manual/emv3ds](https://developercielo.github.io/manual/emv3ds)
 
 # Passo 1 - Solicitação de Token de Acesso
 
