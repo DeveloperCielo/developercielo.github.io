@@ -5,6 +5,7 @@ description: Manual integração técnica do 3DS 2.0
 search: true
 translated: true
 categories: manual
+sort_order: 5
 tags:
   - Autenticação 3DS 2.0
 language_tabs:
@@ -103,7 +104,7 @@ curl
 
 ### Response
 
-Vide https://developercielo.github.io/manual/cielo-ecommerce#resposta
+Veja mais: [https://developercielo.github.io/manual/cielo-ecommerce#resposta](https://developercielo.github.io/manual/cielo-ecommerce#resposta)
 
 # Autorização com Autenticação (Webservice 1.5)
 
@@ -151,4 +152,4 @@ Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisiçã
 
 ### Response
 
-Vide https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno
+Veja mais: [https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno](https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno)
