@@ -8,6 +8,8 @@ categories: manual
 sort_order: 4
 tags:
   - 3DS 2.0 Authentication
+language_tabs:
+  json: JSON
 ---
 
 # What is 3DS 2.0?
@@ -313,8 +315,8 @@ Use the **test** cards below to simulate various scenarios in the **SANDBOX** en
 ## Authorization with Authentication
 
 After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication&quot; (node **ExternalAuthentication** ).
-See more details at: [https://developercielo.github.io/manual/autorizacao-com-autenticacao](https://developercielo.github.io/manual/autorizacao-com-autenticacao)
+See more details at: [https://developercielo.github.io/en/manual/autorizacao-com-autenticacao](https://developercielo.github.io/en/manual/autorizacao-com-autenticacao)
 
 # Last updates
 
-To view the latest manual updates, [click here](https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-20-integracao-javascript.md)
+To view the latest manual updates, [click here](https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-20-integracao-sdk-ios.md)
