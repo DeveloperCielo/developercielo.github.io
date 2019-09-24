@@ -40,7 +40,17 @@
 
     <body>
         
-        <div class="content-container no-dark-box">
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
         
             <div id="submenu">
                 <div class="submenu-container">
@@ -1177,11 +1187,11 @@
 <h2 id="authorization-with-authentication">Authorization with Authentication</h2>
 
 <p>After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication" (node <strong>ExternalAuthentication</strong> ).
-See more details at: <a href="https://developercielo.github.io/manual/autorizacao-com-autenticacao">https://developercielo.github.io/manual/autorizacao-com-autenticacao</a></p>
+See more details at: <a href="https://developercielo.github.io/en/manual/autorizacao-com-autenticacao">https://developercielo.github.io/en/manual/autorizacao-com-autenticacao</a></p>
 
 <h1 id="last-updates">Last updates</h1>
 
-<p>To view the latest manual updates, <a href="https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-20-integracao-javascript.md">click here</a></p>
+<p>To view the latest manual updates, <a href="https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-20-integracao-sdk-ios.md">click here</a></p>
 
 </div>
 
@@ -1246,6 +1256,20 @@ See more details at: <a href="https://developercielo.github.io/manual/autorizaca
         <script src="https://developercielo.github.io/en/assets/bundles/js/search.min.js"></script>
         
 
+        
+        <script>
+            let langs = '';
+            let langsArray = [];
+
+            
+            langs += "<a data-language-name='json'>JSON</a>";
+            langsArray.push('json');
+            
+
+            var toggleCode = 'Toggle';
+        </script>
+
+        <script src='https://developercielo.github.io/en/assets/bundles/js/language_buttons.min.js'></script>
         
 
         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
