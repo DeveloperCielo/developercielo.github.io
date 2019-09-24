@@ -5,6 +5,7 @@ description: Integração técnica E-Commerce Cielo
 search: true
 translated: true
 categories: manual
+sort_order: 3
 tags:
   - Autenticação 3DS 2.0
 ---
