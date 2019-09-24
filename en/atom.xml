@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-09-24T16:35:36+00:00</updated>
+    <updated>2019-09-24T16:38:35+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2189,7 +2189,7 @@ See more details at: &lt;a href=&quot;https://developercielo.github.io/en/manual
     </entry>
     
     <entry>
-        <title>2.2. Javascript Integration</title>
+        <title>2.1. Javascript Integration</title>
         <category term="manual" />
         <link href="https://developercielo.github.io/en/manual/integracao-javascript"/>
         <updated>2019-09-20T00:00:00+00:00</updated>
@@ -3475,7 +3475,7 @@ This procedure is also valid for establishments that performed authentication ou
 
 &lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;See https://developercielo.github.io/manual/cielo-ecommerce#resposta&lt;/p&gt;
+&lt;p&gt;See more: &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#response&quot;&gt;https://developercielo.github.io/en/manual/cielo-ecommerce#response&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;authorization-with-authentication-webservice-15&quot;&gt;Authorization with Authentication (Webservice 1.5)&lt;/h1&gt;
 
@@ -3557,7 +3557,7 @@ This procedure is also valid for establishments that performed authentication ou
 
 &lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;See https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno&lt;/p&gt;
+&lt;p&gt;See more: &lt;a href=&quot;https://developercielo.github.io/en/manual/webservice-1-5#return-types&quot;&gt;https://developercielo.github.io/en/manual/webservice-1-5#return-types&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     
