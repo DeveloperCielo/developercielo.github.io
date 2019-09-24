@@ -272,7 +272,7 @@ Use the **test** cards below to simulate different scenarios in the **SANDBOX** 
 | 4000000000001117 | UNENROLLED | Authentication with challenge and card not enrolled |
 | 4000000000001109 | FAILURE | Failed Authentication with challenge |
 
-## Autorização com Autenticação
+## Authorization with Authentication
 
 After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication&quot; (node **ExternalAuthentication** ).
 See more details at: [https://developercielo.github.io/manual/autorizacao-com-autenticacao](https://developercielo.github.io/manual/autorizacao-com-autenticacao)
