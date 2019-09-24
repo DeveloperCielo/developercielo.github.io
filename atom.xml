@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-24T16:58:08+00:00</updated>
+    <updated>2019-09-24T17:01:27+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -20,7 +20,7 @@
         <id>https://developercielo.github.io/manual/integracao-sdk-ios</id>
         <content type="html">&lt;h1 id=&quot;o-que-é-3ds-20&quot;&gt;O que é 3DS 2.0?&lt;/h1&gt;
 
-&lt;p&gt;Para maiores detalhes sobre o 3DS 2.0, acesse:&lt;a href=&quot;https://developercielo.github.io/manual/emv3ds#o-que-%C3%A9-3ds-2.0?&quot;&gt;https://developercielo.github.io/manual/emv3ds#o-que-%C3%A9-3ds-2.0?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para maiores detalhes sobre o 3DS 2.0, acesse: &lt;a href=&quot;https://developercielo.github.io/manual/emv3ds&quot;&gt;https://developercielo.github.io/manual/emv3ds&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;passo-1---solicitação-de-token-de-acesso&quot;&gt;Passo 1 - Solicitação de Token de Acesso&lt;/h1&gt;
 
@@ -3283,7 +3283,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 
 &lt;h3 id=&quot;response&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;Vide https://developercielo.github.io/manual/cielo-ecommerce#resposta&lt;/p&gt;
+&lt;p&gt;Veja mais: &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#resposta&quot;&gt;https://developercielo.github.io/manual/cielo-ecommerce#resposta&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;autorização-com-autenticação-webservice-15&quot;&gt;Autorização com Autenticação (Webservice 1.5)&lt;/h1&gt;
 
@@ -3365,7 +3365,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 
 &lt;h3 id=&quot;response-1&quot;&gt;Response&lt;/h3&gt;
 
-&lt;p&gt;Vide https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno&lt;/p&gt;
+&lt;p&gt;Veja mais: &lt;a href=&quot;https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno&quot;&gt;https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     
