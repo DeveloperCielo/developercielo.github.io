@@ -104,7 +104,7 @@ curl
 
 ### Response
 
-See https://developercielo.github.io/manual/cielo-ecommerce#resposta
+See more: [https://developercielo.github.io/en/manual/cielo-ecommerce#response](https://developercielo.github.io/en/manual/cielo-ecommerce#response)
 
 # Authorization with Authentication (Webservice 1.5)
 
@@ -152,4 +152,4 @@ See example below, describing the submission of the Cielo 1.5 API authorization 
 
 ### Response
 
-See https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno
+See more: [https://developercielo.github.io/en/manual/webservice-1-5#return-types](https://developercielo.github.io/en/manual/webservice-1-5#return-types)
