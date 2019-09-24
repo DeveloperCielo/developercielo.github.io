@@ -1,7 +1,7 @@
 ---
 layout: manual
 title: 3. Authorization with Authentication
-description: Manual integração técnica do 3DS 2.0
+description: Technical Integration Manual 3DS 2.0
 search: true
 translated: true
 categories: manual
@@ -15,10 +15,10 @@ language_tabs:
 
 # Authorization with Authentication (API 3.0)
 
-Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó **ExternalAuthentication** ).
-Este procedimento é válido também para estabelecimentos que realizaram a autenticação fora da Cielo (MPI Externo).
+After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication&quot; (node **ExternalAuthentication** ).
+This procedure is also valid for establishments that performed authentication outside Cielo (External MPI).
 
-Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 3.0:
+See example below, describing the sending of Cielo 3.0 API authorization request authentication data:
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales</span></aside>
 
@@ -93,22 +93,22 @@ curl
 }
 ```
 
-| **Campo** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Field** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| Payment.Authenticate | Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão| - | Sim, para que a autenticação seja realizada é obrigatório enviar como true |
-| Payment.ExternalAuthentication.Cavv | Assinatura que é retornada nos cenários de sucesso na autenticação | Alfanumérico [28 posições] | Sim, quando a autenticação foi um sucesso |
-| Payment.ExternalAuthentication.Xid | XID retornado no processo de autenticação | Alfanumérico [28 posições] | Sim, quando a versão do 3DS for &quot;1&quot; |
-| Payment.ExternalAuthentication.Eci | E-Commerce Indicator retornado no processo de autenticação | Numérico [1 posição] | Sim |
-| Payment.ExternalAuthentication.Version | Versão do 3DS utilizado no processo de autenticação | Alfanumérico [1 posição] | Sim, quando a versão do 3DS for &quot;2&quot; |
-| Payment.ExternalAuthentication.ReferenceId | RequestID retornado no processo de autenticação | GUID [36 posições] | Sim, quando a versão do 3DS for &quot;2&quot; |
+| Payment.Authenticate | Boolean which defines whether the buyer will be directed to the issuing Bank for card authentication | Boolean | Yes, for authentication to be performed it is required to send as `true` |
+| Payment.ExternalAuthentication.Cavv | Signature that is returned in authentication success scenarios | Alphanumeric [28 characters] | Yes, when authentication was a success |
+| Payment.ExternalAuthentication.Xid | XID returned in authentication process | Alphanumeric [28 characters] | Yes, when the 3DS version is &quot;1&quot; |
+| Payment.ExternalAuthentication.Eci | E-Commerce Indicator returned in authentication process | Numeric [1 character] | Yes |
+| Payment.ExternalAuthentication.Version | 3DS version used in authentication process | Alphanumeric [1 character] | Yes, when the 3DS version is &quot;2&quot; |
+| Payment.ExternalAuthentication.ReferenceId | RequestID returned in authentication process | GUID [36 characters] | Yes, when the 3DS version is &quot;2&quot; |
 
 ### Response
 
-Vide https://developercielo.github.io/manual/cielo-ecommerce#resposta
+See https://developercielo.github.io/manual/cielo-ecommerce#resposta
 
-# Autorização com Autenticação (Webservice 1.5)
+# Authorization with Authentication (Webservice 1.5)
 
-Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 1.5.
+See example below, describing the submission of the Cielo 1.5 API authorization request authentication data.
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/servicos/ecommwsec.do</span></aside>
 
@@ -142,14 +142,14 @@ Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisiçã
 </requisicao-transacao>
 ```
 
-| **Campo** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| **Field** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| cavv | Assinatura que é retornada nos cenários de sucesso na autenticação | Alfanumérico [28 posições] | Sim, quando a autenticação foi um sucesso |
-| xid | XID retornado no processo de autenticação | Alfanumérico [28 posições] | Sim, quando a versão do 3DS for &quot;1&quot; |
-| eci | E-Commerce Indicator retornado no processo de autenticação | Numérico [1 posição] | Sim |
-| versao | Versão do 3DS utilizado no processo de autenticação | Alfanumérico [1 posição] | Sim, quando a versão do 3DS for &quot;2&quot; |
-| dstid | RequestID retornado no processo de autenticação | GUID [36 posições] | Sim, quando a versão do 3DS for &quot;2&quot; |
+| cavv | Signature that is returned in authentication success scenarios | Alphanumeric [28 characters] | Yes, when authentication was a success |
+| xid | XID returned in authentication process | Alphanumeric [28 characters] | Yes, when the 3DS version is &quot;1&quot; |
+| eci | E-Commerce Indicator returned in authentication process | Numeric [1 character] | Yes |
+| versao | 3DS version used in authentication process | Alphanumeric [1 character] | Yes, when the 3DS version is &quot;2&quot; |
+| dstid | RequestID returned in authentication process | GUID [36 characters] | Yes, when the 3DS version is &quot;2&quot; |
 
 ### Response
 
-Vide https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno
+See https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno
