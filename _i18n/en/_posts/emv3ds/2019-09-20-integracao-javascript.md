@@ -275,7 +275,7 @@ Use the **test** cards below to simulate different scenarios in the **SANDBOX** 
 ## Authorization with Authentication
 
 After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication&quot; (node **ExternalAuthentication** ).
-See more details at: [https://developercielo.github.io/manual/autorizacao-com-autenticacao](https://developercielo.github.io/manual/autorizacao-com-autenticacao)
+See more details at: [https://developercielo.github.io/en/manual/autorizacao-com-autenticacao](https://developercielo.github.io/en/manual/autorizacao-com-autenticacao)
 
 # Last updates
 
