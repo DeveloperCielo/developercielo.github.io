@@ -1281,6 +1281,38 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
 |`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
 
+## Fluxo de pagamento (Biblioteca Compartilhada)
+
+**Exemplo fluxo (Biblioteca Compartilhada):**
+
+|ID|Descrição do Fluxo|
+|---|---|
+| 1 | Inserção do valor da transação (campo `Amount` do request da transação) |
+| 2 | Recuperar Data/Hora da transação (campo `PaymentDateTime` do request da transação) |
+| 3 | Seleção do tipo de pagamento (débito, crédito, voucher...) (campo `Type` do request da transação) |
+| 4 | Chamada do PP_StartGetCard passando os valores: |
+| 4.1 | Identificador da rede adquirente (Cielo `03`) |
+| 4.2 | Tipo de aplicação (relacionado ao item 3) |
+| 4.3 | Valor inicial da transação (item 1) |
+| 4.4 | Data da transação (item 2) |
+| 4.5 | Hora da transação (item 2) |
+| 5 | Caso tenha sido utilizado um cartão com chip, recuperar o aid através da tag 4F no retorno da PP_getCard. |
+| 6 | Seleção de produtos (campo "ProductId" do request da transação): 
+
+**Transações com chip:**
+
+|ID|Descrição do Fluxo|
+|---|---|
+|1| Realizar a busca na tabela "Emv" pelo AID do cartão (campo `Aid`) e selecionar os produtos associados através do campo `ProductIds` |
+|2| Nos produtos associados, recuperar aqueles que possuem o mesmo `ProductType` (tabela `Products`) que iniciado na transação (DÉBITO, CRÉDITO..) e o mesmo fluxo do host (campo `HostFlow`) que os definido pela Cielo. |
+
+**Transações com tarja/digitada:**
+
+|ID|Descrição do Fluxo|
+|---|---|
+| 1 | Ao recuperar o pan do cartão, buscar na tabela `Bins` um que o bin esteja entre os valores `InitialBin` e `FinalBin` (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo `ProductId`; 
+| 2 | Recuperar os produtos que tem o mesmo `ProductType` (tabela `Products`) que iniciado na transação (DÉBITO, CRÉDITO...) e o mesmo fluxo do host (campo `HostFlow`) que os definido pela Cielo.
+
 # Confirmação
 
 Quando o pagamento retornar sucesso e pode ser confirmado.
