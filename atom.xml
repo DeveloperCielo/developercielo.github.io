@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-24T17:01:27+00:00</updated>
+    <updated>2019-09-25T21:17:53+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -6992,6 +6992,107 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;fluxo-de-pagamento-biblioteca-compartilhada&quot;&gt;Fluxo de pagamento (Biblioteca Compartilhada)&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Exemplo fluxo (Biblioteca Compartilhada):&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ID&lt;/th&gt;
+      &lt;th&gt;Descrição do Fluxo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Inserção do valor da transação (campo &lt;code class=&quot;highlighter-rouge&quot;&gt;Amount&lt;/code&gt; do request da transação)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Recuperar Data/Hora da transação (campo &lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentDateTime&lt;/code&gt; do request da transação)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Seleção do tipo de pagamento (débito, crédito, voucher…) (campo &lt;code class=&quot;highlighter-rouge&quot;&gt;Type&lt;/code&gt; do request da transação)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Chamada do PP_StartGetCard passando os valores:&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.1&lt;/td&gt;
+      &lt;td&gt;Identificador da rede adquirente (Cielo &lt;code class=&quot;highlighter-rouge&quot;&gt;03&lt;/code&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.2&lt;/td&gt;
+      &lt;td&gt;Tipo de aplicação (relacionado ao item 3)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.3&lt;/td&gt;
+      &lt;td&gt;Valor inicial da transação (item 1)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.4&lt;/td&gt;
+      &lt;td&gt;Data da transação (item 2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.5&lt;/td&gt;
+      &lt;td&gt;Hora da transação (item 2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;Caso tenha sido utilizado um cartão com chip, recuperar o aid através da tag 4F no retorno da PP_getCard.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Seleção de produtos (campo “ProductId” do request da transação):&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Transações com chip:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ID&lt;/th&gt;
+      &lt;th&gt;Descrição do Fluxo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Realizar a busca na tabela “Emv” pelo AID do cartão (campo &lt;code class=&quot;highlighter-rouge&quot;&gt;Aid&lt;/code&gt;) e selecionar os produtos associados através do campo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductIds&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Nos produtos associados, recuperar aqueles que possuem o mesmo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductType&lt;/code&gt; (tabela &lt;code class=&quot;highlighter-rouge&quot;&gt;Products&lt;/code&gt;) que iniciado na transação (DÉBITO, CRÉDITO..) e o mesmo fluxo do host (campo &lt;code class=&quot;highlighter-rouge&quot;&gt;HostFlow&lt;/code&gt;) que os definido pela Cielo.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Transações com tarja/digitada:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ID&lt;/th&gt;
+      &lt;th&gt;Descrição do Fluxo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Ao recuperar o pan do cartão, buscar na tabela &lt;code class=&quot;highlighter-rouge&quot;&gt;Bins&lt;/code&gt; um que o bin esteja entre os valores &lt;code class=&quot;highlighter-rouge&quot;&gt;InitialBin&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;FinalBin&lt;/code&gt; (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductId&lt;/code&gt;;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Recuperar os produtos que tem o mesmo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductType&lt;/code&gt; (tabela &lt;code class=&quot;highlighter-rouge&quot;&gt;Products&lt;/code&gt;) que iniciado na transação (DÉBITO, CRÉDITO…) e o mesmo fluxo do host (campo &lt;code class=&quot;highlighter-rouge&quot;&gt;HostFlow&lt;/code&gt;) que os definido pela Cielo.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
