@@ -1238,6 +1238,186 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
   </li>
 </ul>
 
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N</td>
+      <td>Número - Valores representados por dígitos de “0” a “9”</td>
+    </tr>
+    <tr>
+      <td>ANS</td>
+      <td>Alfanumérico especial - Valores alfanuméricos especiais contém (96) caracteres no total. Incluindo números e pontuação</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome do Campo</th>
+      <th>Tamanho</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Payload Format Indicator</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Versão dos dados do QRCode utilizada na geração do código. Fixo “01”</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Point of Initiation Method</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Identificador do método QRCode gerado: Fixo “12” - QRCode Dinâmico</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Merchant Account Information</td>
+      <td>Até 56</td>
+      <td>ANS</td>
+      <td>Informações do Estabelecimento</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>00 - Globally Unique Identifier</td>
+      <td>Até 32</td>
+      <td>ANS</td>
+      <td>Identificador global: usar fixo “Cielo”</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>01 - Merchant Account Information</td>
+      <td>16</td>
+      <td>N</td>
+      <td>Número do Estabelecimento Comercial</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>02 - Logic Number</td>
+      <td>08</td>
+      <td>N</td>
+      <td>Número Lógico do terminal</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Merchant Category Code</td>
+      <td>04</td>
+      <td>N</td>
+      <td>Ramo de atividade do estabelecimento (MCC)</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Transaction Currency</td>
+      <td>03</td>
+      <td>N</td>
+      <td>Código da Moeda</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Transaction Amount</td>
+      <td>12</td>
+      <td>N</td>
+      <td>Valor da Transação</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Country Code</td>
+      <td>02</td>
+      <td>ANS</td>
+      <td>Código do país:<br />Fixo: “BR”</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Merchant Name</td>
+      <td>Até 25</td>
+      <td>ANS</td>
+      <td>Nome Fantasia do Estabelecimento</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Merchant City</td>
+      <td>Até 15</td>
+      <td>ANS</td>
+      <td>CIdade do Estabelecimento</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Transaction Informations</td>
+      <td>Até 120</td>
+      <td>ANS</td>
+      <td>Informações da transação</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>00 - Globally Unique Identifier</td>
+      <td>Até 80</td>
+      <td>ANS</td>
+      <td>Identificador global:<br />Usar fixo a URL abaixou, incluindo (“”) as aspas:<br />“https://www.cielo.com.br/qrcode”</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>01 - Transaction ID</td>
+      <td>16</td>
+      <td>ANS</td>
+      <td>Código único da transação,extraído Bit31</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>02 - Transaction Date</td>
+      <td>12</td>
+      <td>N</td>
+      <td>Data e hora da transação (DDMMAAHHmmss)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>03 - Main Product</td>
+      <td>04</td>
+      <td>N</td>
+      <td>Produto Matriz</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>04 - Sub Product</td>
+      <td>04</td>
+      <td>N</td>
+      <td>Produto secundário</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>05 - Payment Installments</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Número de parcelas</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>06 - Transaction Type</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Tipo da transação:<br />“01” - Venda<br />“02” - Cancelamento</td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>CRC</td>
+      <td>04</td>
+      <td>ANS</td>
+      <td>Checksum calculado dos dados QRCode (Veja Documentação “EMV-QRCode” e “ISO13239”</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="canal-de-suporte-a-dúvidas">Canal de Suporte a Dúvidas</h1>
 
 <p>Caso ainda tenha dúvidas deve-se abrir um chamado via <a href="https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000316152">Zendesk</a>.</p>
