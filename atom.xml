@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-09-30T18:00:45+00:00</updated>
+    <updated>2019-09-30T18:08:54+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -50171,6 +50171,13 @@ O response possuirá o &lt;code class=&quot;highlighter-rouge&quot;&gt;Checkout_
       &lt;td&gt;Transação não permitida&lt;/td&gt;
       &lt;td&gt;Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes Transação&lt;/td&gt;
       &lt;td&gt;Não&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BP171&lt;/td&gt;
+      &lt;td&gt;Rejeitado por risco de Fraude&lt;/td&gt;
+      &lt;td&gt;Transação rejeitada por risco de fraude&lt;/td&gt;
+      &lt;td&gt;Transação rejeitada por risco de fraude&lt;/td&gt;
+      &lt;td&gt;Nâo&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
