@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-03T15:19:49+00:00</updated>
+    <updated>2019-10-03T15:32:06+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -34021,12 +34021,14 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;h1 id=&quot;bin-checker&quot;&gt;BIN Checker&lt;/h1&gt;
 
-&lt;p&gt;The BIN Checker is credit or debit card data search service, that Cielo Ecommerce merchants can use to validate whether the screen filled data on the card is valid. The service return the following data on the card:&lt;/p&gt;
+&lt;p&gt;The “&lt;strong&gt;BIN Checker&lt;/strong&gt;” is &lt;strong&gt;credit or debit card data search service&lt;/strong&gt;, which returns to the Cielo e-Commerce API merchant information that allows you to validate the data entered on the checkout screen. The service return the following data on the card:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Card Brand&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Card Type:&lt;/strong&gt;Credit, Debit or Multiple (Credit and Debit)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Card Nationality:&lt;/strong&gt; Foreign or national (Brazil)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Card Brand:&lt;/strong&gt; Brand Name&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Card Type:&lt;/strong&gt; Credit, Debit or Multiple (Credit and Debit)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Card Nationality:&lt;/strong&gt; Foreign or National (Brazil)&lt;/li&gt;
+  &lt;li&gt;**Card : Whether or not the card is corporate&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Issuing Bank&lt;/em&gt;:** Code and Name&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;This information makes it possible to take some actions on the checkout and increase the conversion rate.&lt;/p&gt;
