@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-10-03T15:10:30+00:00</updated>
+    <updated>2019-10-03T15:19:43+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -39911,13 +39911,14 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 &lt;h1 id=&quot;consulta-bin&quot;&gt;Consulta Bin&lt;/h1&gt;
 
-&lt;p&gt;A “&lt;strong&gt;Consulta de Bins&lt;/strong&gt;”  é um serviço de &lt;strong&gt;pesquisa de dados do cartão&lt;/strong&gt;, de crédito ou débito, que os lojistas da API Cielo Ecommerce podem utilizar para validar se os dados preenchidos em tela sobre o cartão são válidos.
-O serviço retornar os seguintes dados sobre o cartão:&lt;/p&gt;
+&lt;p&gt;O “&lt;strong&gt;Consulta de Bins&lt;/strong&gt;”  é um serviço de &lt;strong&gt;pesquisa de dados do cartão&lt;/strong&gt;, de crédito ou débito, que retorna ao lojista da API Cielo e-Commerce informações que permitem validar os dados preenchidos na tela do checkout. O serviço retorna os seguintes dados sobre o cartão:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Bandeira do cartão&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tipo de cartão:&lt;/strong&gt;Crédito, Débito ou Múltiplo (Crédito e Débito)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Nacionalidade do cartão:&lt;/strong&gt; estrangeiro ou nacional&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Bandeira do cartão:&lt;/strong&gt; Nome da Bandeira&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Tipo de cartão:&lt;/strong&gt; Crédito, Débito ou Múltiplo (Crédito e Débito)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Nacionalidade do cartão:&lt;/strong&gt; Estrangeiro ou Nacional&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cartão Corporativo:&lt;/strong&gt; Se o cartão é ou não é corporativo&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Banco Emissor:&lt;/strong&gt; Código e Nome&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Essas informações permitem tomar ações no momento do checkout para melhorar a conversão da loja.&lt;/p&gt;
