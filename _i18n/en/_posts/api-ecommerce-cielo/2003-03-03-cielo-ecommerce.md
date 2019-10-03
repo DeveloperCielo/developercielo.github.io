@@ -6849,8 +6849,8 @@ The “**BIN Checker**” is **credit or debit card data search service**, which
 * **Card Brand:** Brand Name
 * **Card Type:** Credit, Debit or Multiple (Credit and Debit)
 * **Card Nationality:** Foreign or National (Brazil)
-* **Card : Whether or not the card is corporate
-* *Issuing Bank*:** Code and Name
+* **Card:** Whether or not the card is corporate
+* **Issuing Bank:** Code and Name
 
 This information makes it possible to take some actions on the checkout and increase the conversion rate.
 
