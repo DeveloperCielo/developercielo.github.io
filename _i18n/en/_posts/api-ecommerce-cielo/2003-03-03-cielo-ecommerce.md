@@ -6844,11 +6844,13 @@ curl
 
 # BIN Checker
 
-The BIN Checker is credit or debit card data search service, that Cielo Ecommerce merchants can use to validate whether the screen filled data on the card is valid. The service return the following data on the card:
+The “**BIN Checker**” is **credit or debit card data search service**, which returns to the Cielo e-Commerce API merchant information that allows you to validate the data entered on the checkout screen. The service return the following data on the card:
 
-* **Card Brand**
-* **Card Type:**Credit, Debit or Multiple (Credit and Debit)
-* **Card Nationality:** Foreign or national (Brazil)
+* **Card Brand:** Brand Name
+* **Card Type:** Credit, Debit or Multiple (Credit and Debit)
+* **Card Nationality:** Foreign or National (Brazil)
+* **Card : Whether or not the card is corporate
+* *Issuing Bank*:** Code and Name
 
 This information makes it possible to take some actions on the checkout and increase the conversion rate.
 
