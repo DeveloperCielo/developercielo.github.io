@@ -6916,12 +6916,13 @@ curl
 
 # Consulta Bin
 
-A “**Consulta de Bins**”  é um serviço de **pesquisa de dados do cartão**, de crédito ou débito, que os lojistas da API Cielo Ecommerce podem utilizar para validar se os dados preenchidos em tela sobre o cartão são válidos.
-O serviço retornar os seguintes dados sobre o cartão:
+O “**Consulta de Bins**”  é um serviço de **pesquisa de dados do cartão**, de crédito ou débito, que retorna ao lojista da API Cielo e-Commerce informações que permitem validar os dados preenchidos na tela do checkout. O serviço retorna os seguintes dados sobre o cartão:
 
-* **Bandeira do cartão**
-* **Tipo de cartão:**Crédito, Débito ou Múltiplo (Crédito e Débito)
-* **Nacionalidade do cartão:** estrangeiro ou nacional
+* **Bandeira do cartão:** Nome da Bandeira
+* **Tipo de cartão:** Crédito, Débito ou Múltiplo (Crédito e Débito)
+* **Nacionalidade do cartão:** Estrangeiro ou Nacional
+* **Cartão Corporativo:** Se o cartão é ou não é corporativo
+* **Banco Emissor:** Código e Nome
 
 Essas informações permitem tomar ações no momento do checkout para melhorar a conversão da loja.
 
