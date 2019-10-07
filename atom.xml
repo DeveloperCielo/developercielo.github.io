@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-10-03T15:43:43+00:00</updated>
+    <updated>2019-10-07T18:54:22+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14642,6 +14642,10 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
     &lt;tr&gt;
       &lt;td&gt;3&lt;/td&gt;
       &lt;td&gt;Transação com cartão contactless&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Transação com QRCode&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
