@@ -70,11 +70,13 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 
 **Boleto**
 
+O Checkout Cielo permite a utilização de Boletos do Bradesco (Carteira 26 e SPD) e Banco do Brasil (Carteira 17). Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja disponibilizado no Backoffice Checkout.
+
 |Banco|Tipo|
 |---|---|
 |Bradesco|Não registrado|
 |Bradesco|Registrado SPS|
-|Banco do Brasil|Carteira 17 e Registrado|
+|Banco do Brasil|Registrado|
 
 **Débito Online**
 
