@@ -74,7 +74,7 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 |---|---|
 |Bradesco|Não registrado|
 |Bradesco|Registrado SPS|
-|Banco do Brasil|Não registrado|
+|Banco do Brasil|Carteira 17 e Registrado|
 
 **Débito Online**
 
