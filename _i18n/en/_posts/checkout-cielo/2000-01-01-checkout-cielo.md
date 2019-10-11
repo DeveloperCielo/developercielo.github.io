@@ -71,7 +71,7 @@ The current version of Checkout Cielo supports the following payment means:
 |---|---|
 |Bradesco|Not registered|
 |Bradesco|SPS registered|
-|Banco do Brasil|Not registered|
+|Banco do Brasil|Registered|
 
 **Online Debit**
 
@@ -926,7 +926,7 @@ Debit card transactions will be included in the Backoffice Cielo Checkout as PEN
 
 ### Bank slip
 
-Checkout Cielo allows the use of Bradesco (Wallet 26 and SPS) and Banco do Brasil Bank slips (Wallet 18).
+Checkout Cielo allows the use of Bradesco (Wallet 26 and SPS) and Banco do Brasil Bank slips (Wallet 17).
 This means of payment must be registered by Cielo Support to be made available in Backoffice Checkout.
 
 Supported Banks:
