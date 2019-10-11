@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-10-11T12:46:13+00:00</updated>
+    <updated>2019-10-11T12:54:59+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -51377,6 +51377,8 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
 
 &lt;p&gt;&lt;strong&gt;Boleto&lt;/strong&gt;&lt;/p&gt;
 
+&lt;p&gt;O Checkout Cielo permite a utilização de Boletos do Bradesco (Carteira 26 e SPD) e Banco do Brasil (Carteira 17). Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja disponibilizado no Backoffice Checkout.&lt;/p&gt;
+
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -51395,7 +51397,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Banco do Brasil&lt;/td&gt;
-      &lt;td&gt;Carteira 17 e Registrado&lt;/td&gt;
+      &lt;td&gt;Registrado&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
