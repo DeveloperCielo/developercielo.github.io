@@ -1119,7 +1119,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `payment_method_type`                | Cód. do tipo de meio de pagamento                                                                            | Numérico      | 1              |
 | `payment_method_brand`               | Bandeira (somente para transações com meio de pagamento cartão de crédito)                                   | Numérico      | 1              |
 | `payment_method_bank`                | Banco emissor (Para transações de Boleto e Débito Automático)                                                | Numérico      | 1              |
-| `payment_maskedcredicard`            | Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)                           | Alfanumérico  | 20             |
+| `payment_maskedcreditcard`            | Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)                           | Alfanumérico  | 20             |
 | `payment_installments`               | Número de parcelas                                                                                           | Numérico      | 1              |
 | `payment_antifrauderesult`           | Status das transações de cartão de Crédito no Antifraude                                                     | Numérico      | 1              |
 | `payment_boletonumber`               | número do boleto gerado                                                                                      | String        | 1              |
