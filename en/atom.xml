@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-15T19:02:15+00:00</updated>
+    <updated>2019-10-24T17:00:52+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3567,7 +3567,48 @@ This procedure is also valid for establishments that performed authentication ou
         <link href="https://developercielo.github.io/en/manual/solution-omni"/>
         <updated>2019-07-10T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/en/manual/solution-omni</id>
-        <content type="html">
+        <content type="html">&lt;h1 id=&quot;overview---api-omni-solution&quot;&gt;Overview - API Omni Solution&lt;/h1&gt;
+
+&lt;h1 id=&quot;proposal&quot;&gt;Proposal&lt;/h1&gt;
+
+&lt;p&gt;Enable the integration of business partners/sub-purchasers with Cielo for transactions with non-present cards (typed transactions) and gift cards in Chip and black stripe modalities.&lt;/p&gt;
+
+&lt;h1 id=&quot;glossary&quot;&gt;Glossary&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ID&lt;/td&gt;
+      &lt;td&gt;Description&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BC&lt;/td&gt;
+      &lt;td&gt;PINPad Shared Library&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DUKPT&lt;/td&gt;
+      &lt;td&gt;(Devired Unique Key Per Transaction) Encryption method used at Cielo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PIN&lt;/td&gt;
+      &lt;td&gt;Card password&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BDK&lt;/td&gt;
+      &lt;td&gt;(Base Derived Key) Sub key to be installed on the HSM&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;HSM&lt;/td&gt;
+      &lt;td&gt;(Hardware Security Module) Server for digital key generation, storage, management and cryptographic functionality&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;OAUTH2&lt;/td&gt;
+      &lt;td&gt;Authentication protocol used in APIs&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
 </content>
     </entry>
     
