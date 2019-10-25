@@ -51,3 +51,55 @@ In the key register is only inserted the KSI that has 5 numeric characters and t
 <aside class="warning">Note.: The F’s must be filled in automatically by the Capture Solution.</aside>
 
 # Authentication
+
+Authentication is a necessary operation to obtain the token that will be used in other API calls.
+
+|Security scheme type:|OAuth2|
+|clientCredentials OAuth Flow|**Token URL:** https://authsandbox.braspag.com.br/oauth2/token<br><br>**Scopes:**<br><br>* `Administrator` - Admin everything<br><br>* `AnalyticsApiOverview` - See the analytics<br><br>* `AdminBackoffice` - Use the backoffice|
+
+# Payment
+
+When a payment is created (201 - Created), you should review the Status (Payment.Status) in the response to make sure that the payment was successfully generated or if there was any failure.
+
+| SandBox                                             | Production                                    |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+## Credit card typed sales without password
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
+
+```json
+{
+  "MerchantOrderId": "201904150001",
+  "Payment": {
+    "Type": "PhysicalCreditCard",
+    "SoftDescriptor": "Description",
+    "PaymentDateTime": "2019-04-15T12:00:00Z",
+    "Amount": 15798,
+    "Installments": 1,
+    "Capture": true,
+    "Interest": "ByMerchant",
+    "ProductId": 1,
+    "CreditCard": {
+      "CardNumber": 1234567812345678,
+      "ExpirationDate": "12/2020",
+      "SecurityCodeStatus": "Collected",
+      "SecurityCode": 1230,
+      "BrandId": 1,
+      "IssuerId": 2,
+      "InputMode": "Typed",
+      "AuthenticationMethod": "NoPassword",
+      "TruncateCardNumberWhenPrinting": true
+    },
+    "PinPadInformation": {
+      "TerminalId": "10000001",
+      "SerialNumber": "ABC123",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
+      "ReturnDataInfo": "00"
+    }
+  }
+}
+```
