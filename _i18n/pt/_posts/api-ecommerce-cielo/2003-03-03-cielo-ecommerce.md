@@ -786,6 +786,7 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222",
          "CardOnFile":{
             "Usage": "Used",
             "Reason":"Unscheduled"
@@ -868,6 +869,7 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222",
          "CardOnFile":{
             "Usage": "Used",
             "Reason":"Unscheduled"
@@ -916,6 +918,7 @@ curl
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
 |`tryautomaticcancellation`|Caso ocorra algum erro durante a autorização (status Não Finalizada - "0"), a resposta incluirá o campo “tryautomaticcancellation” como true. Neste caso, a transação será sondada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico. |Booleano|-|true ou false|
+|`Payment.PaymentAccountReference`|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.|Numérico|29|---|
 
 ### Transação Autenticada
 
