@@ -8,7 +8,7 @@ categories: manual
 tags:
   - Webservice 1.5
 language_tabs:
-  - xml: XML
+  xml: XML
 ---
 
 # Webservice integration 1.5
