@@ -5431,7 +5431,8 @@ PaymentIds associated with the identifier.</p>
             </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentAccountReference"</span><span class="p">:</span><span class="s2">"92745135160550440006111072222"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
@@ -5494,7 +5495,8 @@ PaymentIds associated with the identifier.</p>
             <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
-            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
+            <span class="s2">"PaymentAccountReference"</span>:<span class="s2">"92745135160550440006111072222"</span>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
         <span class="s2">"AuthorizationCode"</span>: <span class="s2">"123456"</span>,
@@ -5701,6 +5703,13 @@ PaymentIds associated with the identifier.</p>
       <td>10</td>
       <td>Yes</td>
       <td>Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
+      <td>The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn’t send the information the field will not be returned.</td>
+      <td>Number</td>
+      <td>29</td>
+      <td>—</td>
     </tr>
   </tbody>
 </table>
