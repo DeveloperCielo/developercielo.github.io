@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-25T18:21:15+00:00</updated>
+    <updated>2019-10-25T18:28:08+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25816,10 +25816,10 @@ PaymentIds associated with the identifier.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.PaymentAccountReference&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn’t send the information the field will not be returned.&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;29&lt;/td&gt;
-      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn’t send the information the field will not be returned.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;

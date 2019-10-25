@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-10-25T18:21:08+00:00</updated>
+    <updated>2019-10-25T18:28:02+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -30512,10 +30512,10 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.PaymentAccountReference&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.&lt;/td&gt;
       &lt;td&gt;Numérico&lt;/td&gt;
       &lt;td&gt;29&lt;/td&gt;
-      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Não&lt;/td&gt;
+      &lt;td&gt;O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
