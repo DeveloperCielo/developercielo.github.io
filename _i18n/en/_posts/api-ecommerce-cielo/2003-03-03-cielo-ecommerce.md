@@ -786,6 +786,7 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222",
             "CardOnFile":{
                "Usage": "Used",
                "Reason": "Unscheduled"
@@ -868,6 +869,7 @@ curl
             "ExpirationDate": "12/2030",
             "SaveCard": false,
             "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222",
             "CardOnFile":{
                "Usage": "Used",
                "Reason": "Unscheduled"
@@ -916,6 +918,7 @@ curl
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
 |`tryautomaticcancellation`|In case of error during authorization (status "Not Finished - 0"), the response will include the "tryautomaticcancellation" field as "true". In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. |Boolean|-|true or false|
+|`Payment.PaymentAccountReference`|The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn't send the information the field will not be returned.|Number|29|---|
 
 ### Creating a authenticated transaction
 
