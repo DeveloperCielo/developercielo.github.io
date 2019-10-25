@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-25T12:46:55+00:00</updated>
+    <updated>2019-10-25T14:18:26+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3609,6 +3609,30 @@ This procedure is also valid for establishments that performed authentication ou
 &lt;/table&gt;
 
 &lt;h1 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h1&gt;
+
+&lt;p&gt;For the integration, it is necessary that the business partner/sub-purchaser capture solution must have the following components:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Shared library for PINPad or proprietary library certified with the brands.&lt;/li&gt;
+  &lt;li&gt;DUKPT encryption keys implemented for PIN.&lt;/li&gt;
+  &lt;li&gt;Make your BDK available for installation on HSM Cielo.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;HSM Cielo is parameterized to a KSN as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;KSI -&lt;/strong&gt; Key identification number&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;DID –&lt;/strong&gt; Device ID&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;TC –&lt;/strong&gt; Transaction Counter&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the key register is only inserted the KSI that has 5 numeric characters and the key, as the example below:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FFFFF&lt;/strong&gt;030331234500012&lt;/p&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;Note.: The F’s must be filled in automatically by the Capture Solution.&lt;/aside&gt;
+
+&lt;h1 id=&quot;authentication&quot;&gt;Authentication&lt;/h1&gt;
 </content>
     </entry>
     

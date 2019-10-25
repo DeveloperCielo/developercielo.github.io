@@ -172,6 +172,30 @@
 
 <h1 id="prerequisites">Prerequisites</h1>
 
+<p>For the integration, it is necessary that the business partner/sub-purchaser capture solution must have the following components:</p>
+
+<ul>
+  <li>Shared library for PINPad or proprietary library certified with the brands.</li>
+  <li>DUKPT encryption keys implemented for PIN.</li>
+  <li>Make your BDK available for installation on HSM Cielo.</li>
+</ul>
+
+<p>HSM Cielo is parameterized to a KSN as follows:</p>
+
+<ul>
+  <li><strong>KSI -</strong> Key identification number</li>
+  <li><strong>DID –</strong> Device ID</li>
+  <li><strong>TC –</strong> Transaction Counter</li>
+</ul>
+
+<p>In the key register is only inserted the KSI that has 5 numeric characters and the key, as the example below:</p>
+
+<p><strong>FFFFF</strong>030331234500012</p>
+
+<aside class="warning">Note.: The F’s must be filled in automatically by the Capture Solution.</aside>
+
+<h1 id="authentication">Authentication</h1>
+
 </div>
 
 
