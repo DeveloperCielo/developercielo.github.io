@@ -1681,6 +1681,7 @@ Below we specify any existing differences:</p>
             </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentAccountReference"</span><span class="p">:</span><span class="s2">"92745135160550440006111072222"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
                </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
                </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
@@ -1762,6 +1763,7 @@ Below we specify any existing differences:</p>
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>,
+            <span class="s2">"PaymentAccountReference"</span>:<span class="s2">"92745135160550440006111072222"</span>,
             <span class="s2">"CardOnFile"</span>:<span class="o">{</span>
                <span class="s2">"Usage"</span>: <span class="s2">"Used"</span>,
                <span class="s2">"Reason"</span>: <span class="s2">"Unscheduled"</span>
@@ -1878,6 +1880,13 @@ Below we specify any existing differences:</p>
       <td>Boolean</td>
       <td>-</td>
       <td>true or false</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.PaymentAccountReference</code></td>
+      <td>The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn’t send the information the field will not be returned.</td>
+      <td>Number</td>
+      <td>29</td>
+      <td>—</td>
     </tr>
   </tbody>
 </table>
