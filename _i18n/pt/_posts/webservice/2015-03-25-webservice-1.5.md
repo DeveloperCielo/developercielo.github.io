@@ -469,7 +469,7 @@ O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo 
         <lr>00</lr>
         <arp>123456</arp>
         <nsu>549935</nsu>
-		<par>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</par>
+        <par>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</par>
     </autorizacao>
 </transacao>
 ```
