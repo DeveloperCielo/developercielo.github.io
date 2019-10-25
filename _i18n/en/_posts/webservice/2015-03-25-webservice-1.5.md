@@ -422,25 +422,43 @@ To operations related to a transaction (consults, authorization, capture and can
 
 The next example shows the more reduced way of a message of return such <transaction>. Basically, it's composed by order data and data from transaction's configuration.
 
-```xml
+``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transaction version="1.3.0" id="af32f93c-5e9c-4f44-9478-ccc5aca9319e" xmlns="http://ecommerce.cbmp.com.br">
-  <tid>10017348980735271001</tid>
-  <dados-pedido>
-    <numero>1130006436</numero>
-    <valor>1000</valor>
-    <moeda>986</moeda>
-    <data-hora>2011-12-05T16:01:28.655-02:00</data-hora>
-    <descricao>[origem:10.50.54.156]</descricao>
-    <idioma>PT</idioma>
-  </dados-pedido>
-  <forma-pagamento>
-    <bandeira>visa</bandeira>
-    <produto>1</produto>
-    <parcelas>1</parcelas>
-  </forma-pagamento>
-  <status>0</status>
-  <url-autenticacao>https://ecommerce.cielo.com.br/web/index.cbmp?id=a783251</url-autenticacao>
+<transacao versao="1.6.2" id="af32f93c-5e9c-4f44-9478-ccc5aca9319e" xmlns="http://ecommerce.cbmp.com.br">
+    <tid>100699306908642F1001</tid>
+    <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
+    <dados-pedido>
+        <numero>2132385784</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2013-02-18T16:51:30.852-03:00</data-hora>
+        <descricao>[origem:0:0:0:0:0:0:0:1]</descricao>
+        <idioma>PT</idioma>
+        <taxa-embarque>0</taxa-embarque>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>4</status>
+    <autenticacao>
+        <codigo>4</codigo>
+        <mensagem>Transacao sem autenticacao</mensagem>
+        <data-hora>2013-02-18T16:51:31.158-03:00</data-hora>
+        <valor>1000</valor>
+        <eci>7</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>4</codigo>
+        <mensagem>Transação autorizada</mensagem>
+        <data-hora>2013-02-18T16:51:31.460-03:00</data-hora>
+        <valor>1000</valor>
+        <lr>00</lr>
+        <arp>123456</arp>
+        <nsu>549935</nsu>
+		<par>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</par>
+    </autorizacao>
 </transacao>
 ```
 
@@ -459,6 +477,7 @@ The table below details TAGS from basic-XML of return, identified by source node
 |forma-pagamento|||identical to source sent by store on creation of transaction.|
 |status|Numeric|12|code of transaction. Look the appendix to a list of contacts.|
 |url-autenticacao|Alphanumeric|1..256|URL of redirection to Cielo.|
+|par|Numeric|29|The pair will only be returned for transactions sent in xml version 1.6.2. The PAR (payment account reference) is the number that associates different tokens with the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn't send the information the field will not be returned.|
 
 Finally, there is another type of return which is employed every time a request can't be executed, because it's invalid or for some failure in its process. In this scenario, root node of XML response is like this `<erro>`.
 
