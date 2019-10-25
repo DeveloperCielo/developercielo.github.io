@@ -2884,7 +2884,7 @@ curl
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-|`CreditCard.PaymentAccountReference`|The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn't send the information the field will not be returned.|Number|29|---|
+|`CreditCard.PaymentAccountReference`|Number|29|No|The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn't send the information the field will not be returned.|
 
 ### Consult - MerchandOrderID
 
