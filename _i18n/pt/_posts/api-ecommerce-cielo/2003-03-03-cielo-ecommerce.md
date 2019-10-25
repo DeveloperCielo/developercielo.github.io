@@ -2260,8 +2260,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa",
-            "PaymentAccountReference":"92745135160550440006111072222"
+            "Brand": "Visa"
         },
         "ProofOfSale": "674532",
         "AuthorizationCode": "123456",
@@ -2314,8 +2313,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa",
-            "PaymentAccountReference":"92745135160550440006111072222"
+            "Brand": "Visa"
         },
         "ProofOfSale": "674532",
         "AuthorizationCode": "123456",
@@ -2364,7 +2362,7 @@ curl
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Não|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-|`CreditCard.PaymentAccountReference`|Numérico|29|Não|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.|
+
 
 ### Consulta - MerchandOrderID
 
@@ -2783,7 +2781,8 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222"
         },
         "ProofOfSale": "674532",
         "AuthorizationCode": "123456",
@@ -2847,7 +2846,8 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222"
         },
         "ProofOfSale": "674532",
         "AuthorizationCode": "123456",
@@ -2914,6 +2914,7 @@ curl
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
+|`CreditCard.PaymentAccountReference`|Numérico|29|Não|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.|
 
 ### Consulta - MerchandOrderID
 
