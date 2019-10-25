@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-10-25T12:15:21+00:00</updated>
+    <updated>2019-10-25T12:38:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19476,7 +19476,7 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
 &lt;p&gt;O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;transacao&amp;gt;&lt;/code&gt;. Basicamente, ela é composta pelos dados do pedido e dados da configuração da transação.&lt;/p&gt;
 
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.3.0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;af32f93c-5e9c-4f44-9478-ccc5aca9319e&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;transacao&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;versao=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.6.2&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;af32f93c-5e9c-4f44-9478-ccc5aca9319e&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://ecommerce.cbmp.com.br&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;tid&amp;gt;&lt;/span&gt;100699306908642F1001&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tid&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;pan&amp;gt;&lt;/span&gt;uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pan&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;dados-pedido&amp;gt;&lt;/span&gt;
@@ -19509,6 +19509,7 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;lr&amp;gt;&lt;/span&gt;00&lt;span class=&quot;nt&quot;&gt;&amp;lt;/lr&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;arp&amp;gt;&lt;/span&gt;123456&lt;span class=&quot;nt&quot;&gt;&amp;lt;/arp&amp;gt;&lt;/span&gt;
         &lt;span class=&quot;nt&quot;&gt;&amp;lt;nsu&amp;gt;&lt;/span&gt;549935&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nsu&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;par&amp;gt;&lt;/span&gt;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&lt;span class=&quot;nt&quot;&gt;&amp;lt;/par&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;/autorizacao&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/transacao&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -19562,6 +19563,12 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
       &lt;td&gt;Alfanumérico&lt;/td&gt;
       &lt;td&gt;1..256&lt;/td&gt;
       &lt;td&gt;URL de redirecionamento à Cielo.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;par&lt;/td&gt;
+      &lt;td&gt;Numérico&lt;/td&gt;
+      &lt;td&gt;29&lt;/td&gt;
+      &lt;td&gt;O retorno do par só será feito para transações enviadas no xml versão 1.6.2. O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;

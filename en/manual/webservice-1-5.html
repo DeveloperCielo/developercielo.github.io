@@ -852,23 +852,41 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <p>The next example shows the more reduced way of a message of return such . Basically, it’s composed by order data and data from transaction’s configuration.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;transaction</span> <span class="na">version=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"af32f93c-5e9c-4f44-9478-ccc5aca9319e"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;tid&gt;</span>10017348980735271001<span class="nt">&lt;/tid&gt;</span>
-  <span class="nt">&lt;dados-pedido&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>1130006436<span class="nt">&lt;/numero&gt;</span>
-    <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-    <span class="nt">&lt;data-hora&gt;</span>2011-12-05T16:01:28.655-02:00<span class="nt">&lt;/data-hora&gt;</span>
-    <span class="nt">&lt;descricao&gt;</span>[origem:10.50.54.156]<span class="nt">&lt;/descricao&gt;</span>
-    <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-  <span class="nt">&lt;/dados-pedido&gt;</span>
-  <span class="nt">&lt;forma-pagamento&gt;</span>
-    <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-    <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-  <span class="nt">&lt;/forma-pagamento&gt;</span>
-  <span class="nt">&lt;status&gt;</span>0<span class="nt">&lt;/status&gt;</span>
-  <span class="nt">&lt;url-autenticacao&gt;</span>https://ecommerce.cielo.com.br/web/index.cbmp?id=a783251<span class="nt">&lt;/url-autenticacao&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.6.2"</span> <span class="na">id=</span><span class="s">"af32f93c-5e9c-4f44-9478-ccc5aca9319e"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tid&gt;</span>100699306908642F1001<span class="nt">&lt;/tid&gt;</span>
+    <span class="nt">&lt;pan&gt;</span>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=<span class="nt">&lt;/pan&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>2132385784<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2013-02-18T16:51:30.852-03:00<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>[origem:0:0:0:0:0:0:0:1]<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;taxa-embarque&gt;</span>0<span class="nt">&lt;/taxa-embarque&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;status&gt;</span>4<span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;autenticacao&gt;</span>
+        <span class="nt">&lt;codigo&gt;</span>4<span class="nt">&lt;/codigo&gt;</span>
+        <span class="nt">&lt;mensagem&gt;</span>Transacao sem autenticacao<span class="nt">&lt;/mensagem&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2013-02-18T16:51:31.158-03:00<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;eci&gt;</span>7<span class="nt">&lt;/eci&gt;</span>
+    <span class="nt">&lt;/autenticacao&gt;</span>
+    <span class="nt">&lt;autorizacao&gt;</span>
+        <span class="nt">&lt;codigo&gt;</span>4<span class="nt">&lt;/codigo&gt;</span>
+        <span class="nt">&lt;mensagem&gt;</span>Transação autorizada<span class="nt">&lt;/mensagem&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2013-02-18T16:51:31.460-03:00<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;lr&gt;</span>00<span class="nt">&lt;/lr&gt;</span>
+        <span class="nt">&lt;arp&gt;</span>123456<span class="nt">&lt;/arp&gt;</span>
+        <span class="nt">&lt;nsu&gt;</span>549935<span class="nt">&lt;/nsu&gt;</span>
+        <span class="nt">&lt;par&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/par&gt;</span>
+    <span class="nt">&lt;/autorizacao&gt;</span>
 <span class="nt">&lt;/transacao&gt;</span>
 </code></pre></div></div>
 
@@ -921,6 +939,12 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>Alphanumeric</td>
       <td>1..256</td>
       <td>URL of redirection to Cielo.</td>
+    </tr>
+    <tr>
+      <td>par</td>
+      <td>Numeric</td>
+      <td>29</td>
+      <td>The pair will only be returned for transactions sent in xml version 1.6.2. The PAR (payment account reference) is the number that associates different tokens with the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn’t send the information the field will not be returned.</td>
     </tr>
   </tbody>
 </table>
