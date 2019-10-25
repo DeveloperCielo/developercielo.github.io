@@ -196,6 +196,78 @@
 
 <h1 id="authentication">Authentication</h1>
 
+<p>Authentication is a necessary operation to obtain the token that will be used in other API calls.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Security scheme type:</td>
+      <td>OAuth2</td>
+    </tr>
+    <tr>
+      <td>clientCredentials OAuth Flow</td>
+      <td><strong>Token URL:</strong> https://authsandbox.braspag.com.br/oauth2/token<br /><strong>Scopes:</strong><br />* <code class="highlighter-rouge">Administrator</code> - Admin everything<br />* <code class="highlighter-rouge">AnalyticsApiOverview</code> - See the analytics<br />* <code class="highlighter-rouge">AdminBackoffice</code> - Use the backoffice</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="payment">Payment</h1>
+
+<p>When a payment is created (201 - Created), you should review the Status (Payment.Status) in the response to make sure that the payment was successfully generated or if there was any failure.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">SandBox</th>
+      <th style="text-align: center">Production</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">https://apisandbox.cieloecommerce.cielo.com.br</td>
+      <td style="text-align: center">https://api.cieloecommerce.cielo.com.br/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="credit-card-typed-sales-without-password">Credit card typed sales without password</h2>
+
+<h3 id="request">Request</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201904150001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalCreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15798</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567812345678</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2020"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SecurityCodeStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Collected"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1230</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Typed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NoPassword"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TruncateCardNumberWhenPrinting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModule"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
