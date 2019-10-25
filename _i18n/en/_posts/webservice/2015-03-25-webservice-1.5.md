@@ -457,7 +457,7 @@ The next example shows the more reduced way of a message of return such <transac
         <lr>00</lr>
         <arp>123456</arp>
         <nsu>549935</nsu>
-		<par>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</par>
+        <par>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</par>
     </autorizacao>
 </transacao>
 ```
