@@ -436,7 +436,7 @@ O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo 
 
 ``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<transacao versao="1.3.0" id="af32f93c-5e9c-4f44-9478-ccc5aca9319e" xmlns="http://ecommerce.cbmp.com.br">
+<transacao versao="1.6.2" id="af32f93c-5e9c-4f44-9478-ccc5aca9319e" xmlns="http://ecommerce.cbmp.com.br">
     <tid>100699306908642F1001</tid>
     <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
     <dados-pedido>
@@ -469,6 +469,7 @@ O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo 
         <lr>00</lr>
         <arp>123456</arp>
         <nsu>549935</nsu>
+		<par>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</par>
     </autorizacao>
 </transacao>
 ```
@@ -488,6 +489,7 @@ A tabela abaixo detalha as TAGS do XML básico de retorno, identificado pelo nó
 |forma-pagamento|Idêntico ao nó enviado pela loja na criação da transação.|
 |status|Numérico|12|Código de status da transação. Veja o apêndice para a lista de status|
 |url-autenticacao|Alfanumérico|1..256|URL de redirecionamento à Cielo.|
+|par|Numérico|29|O retorno do par só será feito para transações enviadas no xml versão 1.6.2. O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.|
 
 Por fim, há outro tipo de retorno que é empregado toda vez que uma requisição não pode ser executada, seja porque era inválida ou por ter ocorrido falha no seu processamento. Nesse cenário o nó raiz do XML de resposta é do tipo `<erro>`.
 
