@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-10-25T19:42:58+00:00</updated>
+    <updated>2019-10-28T11:54:32+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -28599,6 +28599,8 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;Atenção: Os retornos de autorização estão sujeitos a inserção de novos campos advindos das bandeiras/emissores. Faça sua integração de forma a prever este tipo de comportamento utilizando adequadamente as técnicas de serialização e deserialização de objetos.&lt;/aside&gt;
 
 &lt;h3 id=&quot;transação-padrão&quot;&gt;Transação padrão&lt;/h3&gt;
 
