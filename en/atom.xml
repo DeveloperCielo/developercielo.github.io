@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-28T12:00:10+00:00</updated>
+    <updated>2019-10-28T12:08:50+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -22072,6 +22072,8 @@ Below we specify any existing differences:&lt;/p&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;aside class=&quot;warning&quot;&gt;Attention: Authorization returns are subject to the insertion of new fields from flags/issuers. Integrate them to predict this type of behavior by properly using object serialization and deserialization techniques.&lt;/aside&gt;
 
 &lt;h3 id=&quot;creating-a-authenticated-transaction&quot;&gt;Creating a authenticated transaction&lt;/h3&gt;
 

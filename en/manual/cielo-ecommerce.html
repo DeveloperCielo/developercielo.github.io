@@ -1891,6 +1891,8 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
+<aside class="warning">Attention: Authorization returns are subject to the insertion of new fields from flags/issuers. Integrate them to predict this type of behavior by properly using object serialization and deserialization techniques.</aside>
+
 <h3 id="creating-a-authenticated-transaction">Creating a authenticated transaction</h3>
 
 <p>To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the <code class="highlighter-rouge">POST</code> method for the Payment feature as shown.</p>
