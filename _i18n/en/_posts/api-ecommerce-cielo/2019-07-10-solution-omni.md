@@ -115,3 +115,10 @@ Property|Type|Size|Required|Description|
 |`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
 |`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Installment Type: <br><br> - If bit 6 of the confParamOp05 attribute present in the issuerTable and binTable tables and bit 6 of the confParamOp03 attribute of the productTable table are all enabled indicates that the interest-free installment type can be made. <br> <br> - If bit 7 of the confParamOp05 attribute, present in the issuerTable and binTable tables and bit 7 of the confParamOp03 attribute of the productTable table are all enabled, it indicates that the interest installment type can be made. No interest = "ByMerchant"; With interest = “ByIssuer”.|
 |`Payment.ProductId`|Integer|---|Yes|Product code identified via card bin.|
+|`CreditCard.CardNumber`|String|19|---|Card number (PAN)|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Yes|Card Expiration Date <br><br>Data obtained through the command PP_GetCard in BC at the time of the transaction capture.
+|`CreditCard.SecurityCodeStatus`|String|---|---|Enum: `Collected` `Unreadable` `Nonexistent` <br><br> Security code collection status (CVV)|
+|`CreditCard.SecurityCode`|String|3 or 4|---|Security code (CVV)|
+|`CreditCard.BrandId`|Integer|---|Yes|Brand identification obtained through the BrandId field from the PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Yes|Issuer code obtained through IssuerId field from the BIN TABLE.|
+
