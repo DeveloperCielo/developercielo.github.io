@@ -922,10 +922,6 @@ curl
 
 <aside class="warning">Attention: Authorization returns are subject to the insertion of new fields from flags/issuers. Integrate them to predict this type of behavior by properly using object serialization and deserialization techniques.</aside>
 
-Authorization returns are subject to the insertion of new fields from flags / issuers.
-
-
-
 ### Creating a authenticated transaction
 
 To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the `POST` method for the Payment feature as shown.
