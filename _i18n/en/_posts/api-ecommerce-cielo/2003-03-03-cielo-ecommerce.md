@@ -920,6 +920,12 @@ curl
 |`tryautomaticcancellation`|In case of error during authorization (status "Not Finished - 0"), the response will include the "tryautomaticcancellation" field as "true". In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. |Boolean|-|true or false|
 |`Payment.PaymentAccountReference`|The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn't send the information the field will not be returned.|Number|29|---|
 
+<aside class="warning">Attention: Authorization returns are subject to the insertion of new fields from flags/issuers. Integrate them to predict this type of behavior by properly using object serialization and deserialization techniques.</aside>
+
+Authorization returns are subject to the insertion of new fields from flags / issuers.
+
+
+
 ### Creating a authenticated transaction
 
 To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the `POST` method for the Payment feature as shown.
