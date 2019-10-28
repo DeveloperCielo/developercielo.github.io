@@ -352,8 +352,57 @@
       <td>Yes</td>
       <td>Product code identified via card bin.</td>
     </tr>
+    <tr>
+      <td> </td>
+      <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>String</td>
+      <td>19</td>
+      <td>—</td>
+      <td>Card number (PAN)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>String</td>
+      <td>MM/yyyy</td>
+      <td>Yes</td>
+      <td>Card Expiration Date <br />Data obtained through the command PP_GetCard in BC at the time of the transaction capture.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><code class="highlighter-rouge">CreditCard.SecurityCodeStatus</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Enum: <code class="highlighter-rouge">Collected</code> <code class="highlighter-rouge">Unreadable</code> <code class="highlighter-rouge">Nonexistent</code> <br /> Security code collection status (CVV)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><code class="highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>String</td>
+      <td>3 or 4</td>
+      <td>—</td>
+      <td>Security code (CVV)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><code class="highlighter-rouge">CreditCard.BrandId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Brand identification obtained through the BrandId field from the PRODUCT TABLE.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Issuer code obtained through IssuerId field from the BIN TABLE.</td>
+    </tr>
   </tbody>
 </table>
+
 
 </div>
 
