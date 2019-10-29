@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-29T19:40:55+00:00</updated>
+    <updated>2019-10-29T19:53:02+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4118,6 +4118,13 @@ This procedure is also valid for establishments that performed authentication ou
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Equipment’s serial number.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadInformation.PhysicalCharacteristics&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutPinPad&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadWithoutChipReader&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadWithChipReaderWithoutSamModule&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadWithChipReaderWithSamModule&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;NotCertifiedPinPad&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadWithChipReaderWithoutSamAndContactless&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadWithChipReaderWithSamModuleAndContactless&lt;/code&gt; &lt;br /&gt; No PIN-pad = &lt;code class=&quot;highlighter-rouge&quot;&gt;WithoutPinPad&lt;/code&gt;; &lt;br /&gt; PIN-pad without Chip reader = &lt;code class=&quot;highlighter-rouge&quot;&gt;PinpadWithoutChipReader&lt;/code&gt;; &lt;br /&gt;PIN-Pad with Chip reader without SAM Module = &lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadWithChipReaderWithoutSamModule&lt;/code&gt;; &lt;br /&gt; PIN-Pad with Chip reader with SAM Module = &lt;code class=&quot;highlighter-rouge&quot;&gt;PinPadWithChipReaderWithSamModule&lt;/code&gt;; &lt;br /&gt; PIN-pad not homologated = &lt;code class=&quot;highlighter-rouge&quot;&gt;NotCertifiedPinPad&lt;/code&gt;; &lt;br /&gt; PIN-Pad with Chip reader without SAM and Contactless Card = &lt;code class=&quot;highlighter-rouge&quot;&gt;PinpadWithChipReaderWithoutSamAndContactless&lt;/code&gt;; &lt;br /&gt; PIN-Pad with Chip reader with SAM and Contactless Card = &lt;code class=&quot;highlighter-rouge&quot;&gt;PinpadWithChipReaderWithSamAndContactless&lt;/code&gt;. &lt;br /&gt; Note: In case the application cannot inform the above data, such information must be obtained through the return BC’s PP_GetInfo() function.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
