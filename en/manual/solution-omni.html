@@ -389,7 +389,7 @@
       <td>String</td>
       <td>—</td>
       <td>Yes</td>
-      <td>Enum: <code class="highlighter-rouge">Typed</code> <code class="highlighter-rouge">MagStripe</code> <code class="highlighter-rouge">Emv</code> <br />Identification of card capture mode in the transaction. This information must be obtained through the return of BC’s PP_GetCard function. <br /> “00” - Magnetic <br /> “01” - VISA Cash Coin on TIBC v1 <br /> “02” - VISA Cash Coin on TIBC v3 <br /> “03” - EMV with contact <br /> “04” - Easy Entry on TIBC v1 <br /> “05”- Contactless chip simulating the black stripe” 06 “- Contactless EMV.</td>
+      <td>Enum: <code class="highlighter-rouge">Typed</code> <code class="highlighter-rouge">MagStripe</code> <code class="highlighter-rouge">Emv</code> <br />Identification of card capture mode in the transaction. This information must be obtained through the return of BC’s PP_GetCard function. <br /> “00” - Magnetic <br /> “01” - VISA Cash Coin on TIBC v1 <br /> “02” - VISA Cash Coin on TIBC v3 <br /> “03” - EMV with contact <br /> “04” - Easy Entry on TIBC v1 <br /> “05”- Contactless chip simulating the black stripe <br />  “06”- Contactless EMV.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
@@ -582,6 +582,27 @@
       <td>—</td>
       <td>Yes</td>
       <td>Brand identification obtained through the BrandId field from the PRODUCT TABLE.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Issuer code obtained through IssuerId field from the BIN TABLE.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Indicates whether the card number will be truncated at the time the voucher is printed. The capture solution must make this decision based on <code class="highlighter-rouge">confParamOp03</code> present in the BIN TABLE, PARAMETER TABLE and ISSUER TABLE tables.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Enum: <code class="highlighter-rouge">Typed</code> <code class="highlighter-rouge">MagStripe</code> <code class="highlighter-rouge">Emv</code> <br />Identification of card capture mode in the transaction. This information must be obtained through the return of BC’s PP_GetCard function. <br />“00” – Magnetic <br />“01” - VISA Cash Coin on TIBC v1 <br />“02” - VISA Cash Coin on TIBC v3 <br />“03” – EMV with contact <br />“04” - Easy Entry on TIBC v1 <br />“05” - Contactless chip simulating the black stripe <br /> “06” - Contactless EMV.</td>
     </tr>
   </tbody>
 </table>

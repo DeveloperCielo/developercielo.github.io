@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-29T19:13:05+00:00</updated>
+    <updated>2019-10-29T19:32:43+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3827,7 +3827,7 @@ This procedure is also valid for establishments that performed authentication ou
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
-      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identification of card capture mode in the transaction. This information must be obtained through the return of BC’s PP_GetCard function. &lt;br /&gt; “00” - Magnetic &lt;br /&gt; “01” - VISA Cash Coin on TIBC v1 &lt;br /&gt; “02” - VISA Cash Coin on TIBC v3 &lt;br /&gt; “03” - EMV with contact &lt;br /&gt; “04” - Easy Entry on TIBC v1 &lt;br /&gt; “05”- Contactless chip simulating the black stripe” 06 “- Contactless EMV.&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identification of card capture mode in the transaction. This information must be obtained through the return of BC’s PP_GetCard function. &lt;br /&gt; “00” - Magnetic &lt;br /&gt; “01” - VISA Cash Coin on TIBC v1 &lt;br /&gt; “02” - VISA Cash Coin on TIBC v3 &lt;br /&gt; “03” - EMV with contact &lt;br /&gt; “04” - Easy Entry on TIBC v1 &lt;br /&gt; “05”- Contactless chip simulating the black stripe &lt;br /&gt;  “06”- Contactless EMV.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.AuthenticationMethod&lt;/code&gt;&lt;/td&gt;
@@ -4020,6 +4020,27 @@ This procedure is also valid for establishments that performed authentication ou
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Brand identification obtained through the BrandId field from the PRODUCT TABLE.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.IssuerId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Integer&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Issuer code obtained through IssuerId field from the BIN TABLE.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.TruncateCardNumberWhenPrinting&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Indicates whether the card number will be truncated at the time the voucher is printed. The capture solution must make this decision based on &lt;code class=&quot;highlighter-rouge&quot;&gt;confParamOp03&lt;/code&gt; present in the BIN TABLE, PARAMETER TABLE and ISSUER TABLE tables.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.InputMode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identification of card capture mode in the transaction. This information must be obtained through the return of BC’s PP_GetCard function. &lt;br /&gt;“00” – Magnetic &lt;br /&gt;“01” - VISA Cash Coin on TIBC v1 &lt;br /&gt;“02” - VISA Cash Coin on TIBC v3 &lt;br /&gt;“03” – EMV with contact &lt;br /&gt;“04” - Easy Entry on TIBC v1 &lt;br /&gt;“05” - Contactless chip simulating the black stripe &lt;br /&gt; “06” - Contactless EMV.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
