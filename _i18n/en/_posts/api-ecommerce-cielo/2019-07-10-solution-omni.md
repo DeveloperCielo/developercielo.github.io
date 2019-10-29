@@ -247,19 +247,3 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinPadInformation.TerminalId`|String|---|Yes|Logic Number defined at the Cielo Concentrator.|
 |`PinPadInformation.SerialNumber`|String|---|Yes|Equipment’s serial number.|
 |`PinPadInformation.PhysicalCharacteristics`|String|---|Yes|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> No PIN-pad = `WithoutPinPad`; <br><br> PIN-pad without Chip reader = `PinpadWithoutChipReader`; <br><br>PIN-Pad with Chip reader without SAM Module = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-Pad with Chip reader with SAM Module = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad not homologated = `NotCertifiedPinPad`; <br><br> PIN-Pad with Chip reader without SAM and Contactless Card = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-Pad with Chip reader with SAM and Contactless Card = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Note: In case the application cannot inform the above data, such information must be obtained through the return BC's PP_GetInfo() function.|
-|`PinPadInformation.ReturnDataInfo`|String|---|Yes|	Return of shared library PP_GetInfo() function. |
-|`Payment.Amount`|Integer(int64)|---|Yes|Transaction amount (1079 = R$10,79)|
-|`Payment.ReceivedDate`|---|---|---|---|
-|`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|String|---|---|---|
-|`Payment.ConfirmationStatus`|---|---|---|---|
-|`Payment.InitializationVersion`|---|---|---|---|
-|`Payment.EmvResponseData`|---|---|---|---|
-|`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|Boolean|---|---|---|
-|`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|String|---|---|---|
-|`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|String|---|Yes|Value: `PhysicalCreditCard` / Transaction type|
-|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Currency (Fill with “BRL”)|
-|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / Country (Fill with “BRA”)|
