@@ -188,6 +188,8 @@
   <li><strong>TC –</strong> Transaction Counter</li>
 </ul>
 
+<p>Key Format required by Cielo:</p>
+
 <p>In the key register is only inserted the KSI that has 5 numeric characters and the key, as the example below:</p>
 
 <p><strong>FFFFF</strong>030331234500012</p>
@@ -397,6 +399,13 @@
       <td>—</td>
       <td>Yes</td>
       <td>Enum: <code class="highlighter-rouge">NoPassword</code> <code class="highlighter-rouge">OnlineAuthentication</code> <code class="highlighter-rouge">OfflineAuthentication</code> <br />Authentication method <br />- If the card was read from typing, check bit 3 of the confParamOp04 attribute of the binTable, parameterTable and issuerTable tables. If all are enabled, the password must be captured and authenticationMethod assumes value 2. Otherwise, assume value 1; <br />-If the card was read from the track, check bit 3 of the confParamOp04 attribute of the binTable, parameterTable and issuerTable tables. If all are enabled, then check bit 2 of the same field. If this value is 1, the password must be captured. If it is set to 0, password capture will depend on the last digit of the service code; <br />- If the card was read through the EMV chip, the authenticationMethod will be populated based on the return of the PP_GoOnChip function(). No resultado PP_GoOnChip(), where if the field of position 003 of the return from PP_GoOnChip () and if the position field 003 of the return from PP_GoOnChip() value 1 indicates the the pin has been validated offline, the authenticationMethod will be 3. If the position field 003 and the position field 006 of the return from PP_GoOnChip () are with the value set to 0, the authenticationMethod will be 1. If the position field 003 and the position field 006 of the return from PP_GoOnChip() are with values ​​0 and 1 respectively, the authenticationMethod will be 2. <br />1 - No password = “NoPassword”; <br />2 - Online password = “Online Authentication”; <br />3 - Offline password = “Offline Authentication”.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Indicates if card number will be truncated at time of voucher printing. The capture solution should make this decision based on <code class="highlighter-rouge">confParamOp03</code> present in the BIN TABLE, PARAMETER TABLE, and ISSUER TABLE tables.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PinPadInformation.TerminalId</code></td>
