@@ -688,6 +688,118 @@
       <td>Yes</td>
       <td>Enum: <code class="highlighter-rouge">WithoutPinPad</code> <code class="highlighter-rouge">PinPadWithoutChipReader</code> <code class="highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code> <code class="highlighter-rouge">PinPadWithChipReaderWithSamModule</code> <code class="highlighter-rouge">NotCertifiedPinPad</code> <code class="highlighter-rouge">PinPadWithChipReaderWithoutSamAndContactless</code> <code class="highlighter-rouge">PinPadWithChipReaderWithSamModuleAndContactless</code> <br /> No PIN-pad = <code class="highlighter-rouge">WithoutPinPad</code>; <br /> PIN-pad without Chip reader = <code class="highlighter-rouge">PinpadWithoutChipReader</code>; <br />PIN-Pad with Chip reader without SAM Module = <code class="highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code>; <br /> PIN-Pad with Chip reader with SAM Module = <code class="highlighter-rouge">PinPadWithChipReaderWithSamModule</code>; <br /> PIN-pad not homologated = <code class="highlighter-rouge">NotCertifiedPinPad</code>; <br /> PIN-Pad with Chip reader without SAM and Contactless Card = <code class="highlighter-rouge">PinpadWithChipReaderWithoutSamAndContactless</code>; <br /> PIN-Pad with Chip reader with SAM and Contactless Card = <code class="highlighter-rouge">PinpadWithChipReaderWithSamAndContactless</code>. <br /> Note: In case the application cannot inform the above data, such information must be obtained through the return BC’s PP_GetInfo() function.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Return of shared library PP_GetInfo() function.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td>Integer(int64)</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Transaction amount (1079 = R$10,79)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReceivedDate</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.CapturedAmount</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Provider</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ConfirmationStatus</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.InitializationVersion</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.EmvResponseData</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Status</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.IsSplitted</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReturnCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.ReturnMessage</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.PaymentId</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Value: <code class="highlighter-rouge">PhysicalCreditCard</code> / Transaction type</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Currency</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: “BRL” / Value: “BRL” / Currency (Fill with “BRL”)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.Country</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: “BRA” / Value: “BRA” / Country (Fill with “BRA”)</td>
+    </tr>
   </tbody>
 </table>
 
