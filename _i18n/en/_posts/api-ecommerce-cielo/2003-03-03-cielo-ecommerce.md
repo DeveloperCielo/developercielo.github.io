@@ -5051,16 +5051,16 @@ For recurring debit card transactions, after submitting a request for a transact
 |`DebitCard.CardOnFile.Reason`|Indicates the purpose of cards storage if the `Usage` field is` Used`.<br>**Recurring** - Scheduled recurring purchase (e.g. signatures).<br>**Unscheduled** - Unscheduled recurring purchase (ex. service applications).<br>**Installments** - Installment payment through recurrence.|Text|---|Conditional|
 |`DebitCard.PaymentAccountReference`|The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn't send the information the field will not be returned.|Number|29|No|
 |`Payment.Provider`|Defines behavior of the payment method|Text|15|---|
-|`Payment.AuthorizationCode`|Authorization code.|Texto|6|---|
+|`Payment.AuthorizationCode`|Authorization code.|Text|6|---|
 |`Payment.Eci`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|---|
 |`Payment.Tid`|Transaction Id on the acquirer.|Text|6|---|
 |`Payment.ProofOfSale`|Authorization number, identical to NSU.|Text|6|---|
 |`Payment.Authenticate`|Defines whether the buyer will be directed to the Issuing bank for card authentication|Boolean|---|No|
-|`ExternalAuthentication.Cavv`|The Cavv value is returned by the authentication mechanism.|Texto|28|Yes|
-|`ExternalAuthentication.Xid`|The Xid value is returned by the authentication mechanism.|Texto|28|Yes|
-|`ExternalAuthentication.Eci`|The Eci value is returned by the authentication mechanism.|Número|1|Yes|
+|`ExternalAuthentication.Cavv`|The Cavv value is returned by the authentication mechanism.|Text|28|Yes|
+|`ExternalAuthentication.Xid`|The Xid value is returned by the authentication mechanism.|Text|28|Yes|
+|`ExternalAuthentication.Eci`|The Eci value is returned by the authentication mechanism.|Number|1|Yes|
 |`ExternalAuthentication.Version`|---|---|---|
-|`Payment.Recurrent`|Marking an unscheduled recurrence transaction|boolean|5|Yes|
+|`Payment.Recurrent`|Marking an unscheduled recurrence transaction|Boolean|5|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.ReturnUrl`|URI to which the user will be redirected after payment ends|Text|1024|Yes|
 |`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
