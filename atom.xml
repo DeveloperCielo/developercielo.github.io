@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-10-30T18:28:27+00:00</updated>
+    <updated>2019-10-30T18:54:41+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14708,6 +14708,33 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
     &lt;tr&gt;
       &lt;td&gt;28&lt;/td&gt;
       &lt;td&gt;Cancelamento de venda&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Você pode pegar outros dados diretamente do objeto payments&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Campo&lt;/th&gt;
+      &lt;th&gt;Descrição do campo&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;authCode&lt;/td&gt;
+      &lt;td&gt;Cód de Autorização(AUT do recibo)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;cieloCode&lt;/td&gt;
+      &lt;td&gt;Campo DOC do recibo (NSU)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;brand&lt;/td&gt;
+      &lt;td&gt;Bandeira do Cartão&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
