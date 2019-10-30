@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-10-30T17:54:50+00:00</updated>
+    <updated>2019-10-30T18:06:39+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -10813,7 +10813,7 @@ public class EncriptCard {
 
 &lt;p&gt;Os campos destacados e identificamos abaixo são provenientes da análise do QR Code. O ID do campo e seu tamanho são sempre enviados antes do valor correspondente.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/layout-qr-code.png&quot; alt=&quot;Layout QRCode&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/layout_qrcode_.png&quot; alt=&quot;Layout QRCode&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;como-testar&quot;&gt;Como Testar&lt;/h1&gt;
 
