@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-30T15:53:47+00:00</updated>
+    <updated>2019-10-30T15:59:59+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31413,7 +31413,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.AuthorizationCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Authorization code.&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
@@ -31448,21 +31448,21 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Cavv&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;The Cavv value is returned by the authentication mechanism.&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;28&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Xid&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;The Xid value is returned by the authentication mechanism.&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;28&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Eci&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;The Eci value is returned by the authentication mechanism.&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
       &lt;td&gt;1&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
@@ -31476,7 +31476,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Marking an unscheduled recurrence transaction&lt;/td&gt;
-      &lt;td&gt;boolean&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
       &lt;td&gt;5&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
