@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-10-30T17:08:28+00:00</updated>
+    <updated>2019-10-30T17:20:34+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11650,6 +11650,11 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
       &lt;td&gt;&lt;strong&gt;BANCO EMISSOR&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;MASTERCARD&lt;/strong&gt;&lt;/td&gt;
       &lt;td&gt;&lt;strong&gt;VISA&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Banco do Brasil&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Crédito/Débito&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Caixa Econômica&lt;/td&gt;
