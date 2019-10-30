@@ -1192,7 +1192,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 <table>
   <thead>
     <tr>
-      <th>Você pode pegar outros dados diretamente do objeto payments</th>
+      <th>Você pode pegar outros dados diretamente do (<strong>objeto Payment</strong>)</th>
       <th> </th>
     </tr>
     <tr>
@@ -1215,6 +1215,27 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
     </tr>
   </tbody>
 </table>
+
+<p>Exemplo para código para trazer bandeira e transação:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPayment</span><span class="o">(</span><span class="nc">Order</span> <span class="n">paidOrder</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="nc">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="no">TAG</span><span class="o">,</span> <span class="s">"ON PAYMENT"</span><span class="o">);</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">paidOrder</span><span class="o">;</span>
+
+    <span class="n">order</span><span class="o">.</span><span class="na">markAsPaid</span><span class="o">();</span>
+
+    <span class="n">orderManager</span><span class="o">.</span><span class="na">updateOrder</span><span class="o">(</span><span class="n">order</span><span class="o">);</span>
+
+    <span class="nc">Payment</span> <span class="n">pgTO</span> <span class="o">=</span> <span class="n">order</span><span class="o">.</span><span class="na">getPayments</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="n">bandeira</span> <span class="o">=</span> <span class="n">getBandeira</span><span class="o">(</span><span class="n">pgTO</span><span class="o">.</span><span class="na">getPaymentFields</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"brand"</span><span class="o">));</span>
+    <span class="n">transacao</span> <span class="o">=</span> <span class="n">pgTO</span><span class="o">.</span><span class="na">getPaymentFields</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">"authCode"</span><span class="o">);</span>
+
+    <span class="n">pagamento</span><span class="o">.</span><span class="na">setBandeira</span><span class="o">(</span><span class="n">bandeira</span><span class="o">);</span>
+    <span class="n">pagamento</span><span class="o">.</span><span class="na">setAutorizacao</span><span class="o">(</span><span class="n">transacao</span><span class="o">);</span>
+</code></pre></div></div>
 
 <blockquote>
   <p>Todos os valores financeiros são informados sem vírgula, ou seja 2500 são equivalentes a R$ 25,00.</p>
