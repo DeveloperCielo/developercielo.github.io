@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-30T14:17:25+00:00</updated>
+    <updated>2019-10-30T15:53:47+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -30361,9 +30361,9 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 &lt;h1 id=&quot;recurring-payments&quot;&gt;Recurring Payments&lt;/h1&gt;
 
-&lt;p&gt;Recurring payments are transactions that must be repeated after a certain period of time.&lt;/p&gt;
+&lt;p&gt;Recurring payments are credit and debit card transactions that must be repeated after a certain period of time. For recurring debit card transactions, authentication with 3DS 2.0 of the first transaction occurs (chargeback risk for fraud becomes Bank Issuer), and subsequent transactions aren’t submitted for authentication (risk of fraud chargeback remains with the merchant). The debit recurrence solution is available for Visa cards only. It will soon be available for Mastercard cards.&lt;/p&gt;
 
-&lt;p&gt;These are payments normally found on &lt;strong&gt;signatures&lt;/strong&gt;, where the buyer wants to be automatically charged but does not want to re-enter the credit card details.&lt;/p&gt;
+&lt;p&gt;These are payments normally found on &lt;strong&gt;signatures&lt;/strong&gt;, where the buyer wants to be automatically charged but doesn’t want to re-enter the card details.&lt;/p&gt;
 
 &lt;h2 id=&quot;types-of-recurrences&quot;&gt;Types of recurrences&lt;/h2&gt;
 
@@ -30606,7 +30606,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt; parameter must be &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;, otherwise the transaction will be declined.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-16&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;credit-request&quot;&gt;Credit Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -30627,7 +30627,9 @@ In this model, the merchant’ system is in charge of defining the period, the t
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;262&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+             &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;First&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -30657,7 +30659,9 @@ In this model, the merchant’ system is in charge of defining the period, the t
          &lt;span class=&quot;s2&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;12/2030&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;262&quot;&lt;/span&gt;,
          &lt;span class=&quot;s2&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;,
-         &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;
+         &lt;span class=&quot;s2&quot;&gt;&quot;Brand&quot;&lt;/span&gt;:&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;,
+         &lt;span class=&quot;s2&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;Usage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;First&quot;&lt;/span&gt;
      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -30780,10 +30784,24 @@ In this model, the merchant’ system is in charge of defining the period, the t
       &lt;td&gt;10&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;First&lt;/strong&gt; if the card has been stored and is your first use.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; if the card has been stored and was previously used in another transaction.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of cards storage if the &lt;code class=&quot;highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is&lt;code class=&quot;highlighter-rouge&quot;&gt; Used&lt;/code&gt;.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring purchase (e.g. signatures).&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring purchase (ex. service applications).&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installment payment through recurrence.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-22&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;credit-response&quot;&gt;Credit Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014113245231706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -31028,6 +31046,478 @@ In this model, the merchant’ system is in charge of defining the period, the t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;h4 id=&quot;debit-request&quot;&gt;Debit Request&lt;/h4&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014121201&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Comprador rec propria&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Recurrent&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1234123412341231&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Teste Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;11/2019&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SecurityCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;First&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ExternalAuthentication&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Cavv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A901234A5678A0123A567A90120=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Xid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A90123A45678A0123A567A90123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Eci&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Required&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Store identifier in API Cielo eCommerce.&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Public Key for Double Authentication in API Cielo eCommerce.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Request Identifier, used when the merchant uses different servers for each GET/POST/PUT&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Order ID number.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Buyer’s name.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Order Amount (to be sent in cents).&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReturnUrl&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;URI to where the user will be redirected after payment ends&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;1024&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;marking an unscheduled recurrence transaction&lt;/td&gt;
+      &lt;td&gt;boolean&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.CardNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Buyer’s Card Number.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;19&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.Holder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Buyer’s name printed on card.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Expiry date printed on card.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Security code printed on back of card.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.Brand&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Card issuer.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;First&lt;/strong&gt; if the card has been stored and is your first use.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; if the card has been stored and was previously used in another transaction.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of cards storage if the &lt;code class=&quot;highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is&lt;code class=&quot;highlighter-rouge&quot;&gt; Used&lt;/code&gt;.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring purchase (e.g. signatures).&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring purchase (ex. service applications).&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installment payment through recurrence.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Cavv&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The Cavv value is returned by the authentication mechanism.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;28&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Xid&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The Xid value is returned by the authentication mechanism.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;28&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Eci&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The Eci value is returned by the authentication mechanism.&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Version&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;debit-response&quot;&gt;Debit Response&lt;/h4&gt;
+
+&lt;p&gt;For recurring debit card transactions, after submitting a request for a transaction with 3DS 2.0 authentication request, the Issuer Transaction ID information is returned on the first authenticated transaction. This information should be stored and sent in subsequent transactions, allowing the Issuing Bank to link subsequent unauthenticated debit transactions, with the first debit transaction authenticated. This model is available for Visa debit cards only.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014121201&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Customer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Comprador rec propria&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Payment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;409603******0183&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Teste Holder&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ExpirationDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;11/2019&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;SaveCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Brand&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Visa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardOnFile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Usage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;First&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;PaymentAccountReference&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;80215935306245595386112369301&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Provider&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Cielo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;149867&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Eci&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Tid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;10069930698EGKISAQCC&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;165009&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Authenticate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ExternalAuthentication&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Cavv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A901234A5678A0123A567A90120=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Xid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A90123A45678A0123A567A90123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Eci&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Recurrent&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;IssuerTransactionId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;009295034362939&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReceivedDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2019-10-22 16:59:26&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CapturedAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CapturedDate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2019-10-22 16:59:27&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReturnUrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;IsSplitted&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReturnMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Transacao capturada com sucesso&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ReturnCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;470e8811-14de-41d1-9a52-3ba9a2bfce37&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DebitCard&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Currency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Country&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BRA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Links&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;GET&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Rel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;self&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://clicktime.symantec.com/33u6P2R2ydHsCe3omoVXP9r7Vc?u=https%3A%2F%2Fapiquerysandbox.cieloecommerce.cielo.com.br%2F1%2Fsales%2F470e8811-14de-41d1-9a52-3ba9a2bfce37%2522&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Required&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Store identifier in API Cielo eCommerce.&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Public Key for Double Authentication in API Cielo eCommerce.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Request Identifier, used when the merchant uses different servers for each GET/POST/PUT&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Order ID number.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Customer.Name&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Buyer’s name.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;255&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.CardNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Buyer’s Card Number.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;19&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.Holder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Buyer’s name printed on card.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Expiry date printed on card.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Security code printed on back of card.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.Brand&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Card issuer.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.CardOnFile.Usage&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;First&lt;/strong&gt; if the card has been stored and is your first use.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; if the card has been stored and was previously used in another transaction.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Indicates the purpose of cards storage if the &lt;code class=&quot;highlighter-rouge&quot;&gt;Usage&lt;/code&gt; field is&lt;code class=&quot;highlighter-rouge&quot;&gt; Used&lt;/code&gt;.&lt;br /&gt;&lt;strong&gt;Recurring&lt;/strong&gt; - Scheduled recurring purchase (e.g. signatures).&lt;br /&gt;&lt;strong&gt;Unscheduled&lt;/strong&gt; - Unscheduled recurring purchase (ex. service applications).&lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installment payment through recurrence.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Conditional&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.PaymentAccountReference&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn’t send the information the field will not be returned.&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;29&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.AuthorizationCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Authorization code.&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Eci&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Eletronic Commerce Indicator. Represents how secure a transaction is.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Tid&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Transaction Id on the acquirer.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ProofOfSale&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Authorization number, identical to NSU.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Authenticate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Defines whether the buyer will be directed to the Issuing bank for card authentication&lt;/td&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Cavv&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The Cavv value is returned by the authentication mechanism.&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;28&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Xid&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The Xid value is returned by the authentication mechanism.&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;28&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Eci&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The Eci value is returned by the authentication mechanism.&lt;/td&gt;
+      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ExternalAuthentication.Version&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Recurrent&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Marking an unscheduled recurrence transaction&lt;/td&gt;
+      &lt;td&gt;boolean&lt;/td&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Amount&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Order Amount (to be sent in cents).&lt;/td&gt;
+      &lt;td&gt;Number&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.ReturnUrl&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;URI to which the user will be redirected after payment ends&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;1024&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Type&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Type of the Payment Method.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Currency&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Currency in which payment will be made (BRL).&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Country&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Country where payment will be made.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
 &lt;h3 id=&quot;creating-a-scheduled-recurrence&quot;&gt;Creating a SCHEDULED RECURRENCE&lt;/h3&gt;
 
 &lt;p&gt;To create a recurring sale whose first recurrence is authorized with the form of payment as credit card, just do a POST as the example.&lt;/p&gt;
@@ -31036,7 +31526,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
  of. All subsequent transactions will be automatically captured.&lt;/aside&gt;
 
-&lt;h4 id=&quot;request-17&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-16&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -31235,7 +31725,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-23&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-22&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014113245231706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -31424,7 +31914,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;To create a recurring sale whose first recurrence will not be authorized on the same date with the form of payment as credit card, just do a POST as the example.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-18&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-17&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -31681,7 +32171,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-24&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-23&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014113245231706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -31835,7 +32325,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;To change the Recurrence buyer’s data, just do a Put as the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-19&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-18&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Customer&lt;/span&gt;&lt;/aside&gt;
 
@@ -32099,7 +32589,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-25&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-24&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -32110,7 +32600,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;To change the end date of the Recurrence, just do a Put as the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-20&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-19&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/EndDate&lt;/span&gt;&lt;/aside&gt;
 
@@ -32177,7 +32667,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-26&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-25&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -32188,7 +32678,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;To change the Recurrence Interval, just do a Put according to the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-21&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-20&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Interval&lt;/span&gt;&lt;/aside&gt;
 
@@ -32255,7 +32745,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-27&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-26&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -32268,7 +32758,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;aside class=&quot;notice&quot;&gt;Rule: If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03&lt;/aside&gt;
 
-&lt;h4 id=&quot;request-22&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-21&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay&lt;/span&gt;&lt;/aside&gt;
 
@@ -32335,7 +32825,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-28&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-27&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -32346,7 +32836,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;To modify the value of the recurrence, just do a Put as example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-23&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-22&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Amount&lt;/span&gt;&lt;/aside&gt;
 
@@ -32415,7 +32905,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;aside class=&quot;warning&quot;&gt;This change only affects the payment date of the next recurrence.&lt;/aside&gt;
 
-&lt;h4 id=&quot;response-29&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-28&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -32426,7 +32916,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;To change the date of the next Payment, just do a Put as the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-24&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-23&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate&lt;/span&gt;&lt;/aside&gt;
 
@@ -32493,7 +32983,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-30&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-29&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -32506,7 +32996,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.&lt;/aside&gt;
 
-&lt;h4 id=&quot;request-25&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-24&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Payment&lt;/span&gt;&lt;/aside&gt;
 
@@ -32655,7 +33145,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-31&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-30&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -32666,12 +33156,79 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;To disable a recurrent order, just do a Put as the example.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-26&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-25&quot;&gt;Request&lt;/h4&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate&lt;/span&gt;&lt;/aside&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
 &lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; PUT &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Property&lt;/th&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Size&lt;/th&gt;
+      &lt;th&gt;Required&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Store identifier in API Cielo eCommerce.&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Public Key for Double Authentication in API Cielo eCommerce.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Request Identifier, used when the merchant uses different servers for each GET/POST/PUT&lt;/td&gt;
+      &lt;td&gt;Guid&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Recurrence identification number.&lt;/td&gt;
+      &lt;td&gt;Text&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&quot;response-31&quot;&gt;Response&lt;/h4&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;See the Annex &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; to the list with all HTTP status codes possibly returned by the API.&lt;/p&gt;
+
+&lt;h3 id=&quot;rehabilitating-a-recurrent-order&quot;&gt;Rehabilitating a Recurrent Order&lt;/h3&gt;
+
+&lt;p&gt;To Rehabilitate a recurring order, just do a Put as the example.&lt;/p&gt;
+
+&lt;h4 id=&quot;request-26&quot;&gt;Request&lt;/h4&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate&lt;/span&gt;&lt;/aside&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
+&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; PUT &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
@@ -32729,73 +33286,6 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 &lt;p&gt;See the Annex &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; to the list with all HTTP status codes possibly returned by the API.&lt;/p&gt;
 
-&lt;h3 id=&quot;rehabilitating-a-recurrent-order&quot;&gt;Rehabilitating a Recurrent Order&lt;/h3&gt;
-
-&lt;p&gt;To Rehabilitate a recurring order, just do a Put as the example.&lt;/p&gt;
-
-&lt;h4 id=&quot;request-27&quot;&gt;Request&lt;/h4&gt;
-
-&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method put&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate&lt;/span&gt;&lt;/aside&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl
-&lt;span class=&quot;nt&quot;&gt;--request&lt;/span&gt; PUT &lt;span class=&quot;s2&quot;&gt;&quot;https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;MerchantKey: 0123456789012345678901234567890123456789&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;--verbose&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Property&lt;/th&gt;
-      &lt;th&gt;Description&lt;/th&gt;
-      &lt;th&gt;Type&lt;/th&gt;
-      &lt;th&gt;Size&lt;/th&gt;
-      &lt;th&gt;Required&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Store identifier in API Cielo eCommerce.&lt;/td&gt;
-      &lt;td&gt;Guid&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MerchantKey&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Public Key for Double Authentication in API Cielo eCommerce.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;40&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RequestId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Request Identifier, used when the merchant uses different servers for each GET/POST/PUT&lt;/td&gt;
-      &lt;td&gt;Guid&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt;
-      &lt;td&gt;No&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;RecurrentPaymentId&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Recurrence identification number.&lt;/td&gt;
-      &lt;td&gt;Text&lt;/td&gt;
-      &lt;td&gt;50&lt;/td&gt;
-      &lt;td&gt;Yes&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&quot;response-33&quot;&gt;Response&lt;/h4&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP Status 200
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;See the Annex &lt;a href=&quot;#http-status-code&quot;&gt;HTTP Status Code&lt;/a&gt; to the list with all HTTP status codes possibly returned by the API.&lt;/p&gt;
-
 &lt;h2 id=&quot;renew-easy&quot;&gt;Renew easy&lt;/h2&gt;
 
 &lt;p&gt;The use of this feature allows the automatic replacement of an expired card .
@@ -32803,7 +33293,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;aside class=&quot;notice&quot;&gt;Warning: It is necessary to request enabling this feature in the register  &lt;/aside&gt;
 
-&lt;h3 id=&quot;request-28&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-27&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -33009,7 +33499,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-34&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-33&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014113245231706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -33286,7 +33776,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;p&gt;To save a card without authorizing it, just perform a post with the card data.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-29&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-28&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/card/&lt;/span&gt;&lt;/aside&gt;
 
@@ -33365,7 +33855,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-35&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-34&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;CardToken&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;db62dc71-d07b-4745-9969-42697b988ccb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -33413,7 +33903,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;p&gt;To save a card by creating its token, just send a sales creation standard request by sending SaveCard as “true”. The response will return the card Token.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-30&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-29&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -33815,7 +34305,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-36&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-35&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -34048,7 +34538,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 &lt;p&gt;To create a credit card sale with protected card token, it is necessary to do a POST for the Payment feature as the example.&lt;/p&gt;
 
-&lt;h3 id=&quot;request-31&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-30&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -34210,7 +34700,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-37&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-36&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -34413,7 +34903,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;request-32&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-31&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/sales/&lt;/span&gt;&lt;/aside&gt;
 
@@ -34550,7 +35040,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-38&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-37&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -34795,7 +35285,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 &lt;h2 id=&quot;integration-2&quot;&gt;Integration&lt;/h2&gt;
 
-&lt;h3 id=&quot;request-33&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-32&quot;&gt;Request&lt;/h3&gt;
 
 &lt;p&gt;A &lt;code class=&quot;highlighter-rouge&quot;&gt;GET&lt;/code&gt; request must be sent containing the BIN to be checked:&lt;/p&gt;
 
@@ -34819,7 +35309,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;https://apiquerysandbox.cieloecommerce.cielo.com.br/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;/cardBin/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;420020&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;response-39&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-38&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;00&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -34968,7 +35458,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
 
 &lt;p&gt;Each type of validation requires a different technical contract. They will result in differentiated responses&lt;/p&gt;
 
-&lt;h3 id=&quot;request-34&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-33&quot;&gt;Request&lt;/h3&gt;
 
 &lt;h4 id=&quot;standard&quot;&gt;Standard&lt;/h4&gt;
 
@@ -35093,7 +35583,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-40&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-39&quot;&gt;Response&lt;/h3&gt;
 
 &lt;p&gt;The response always returns if the card can be authorized at the moment. This information only means that &lt;em&gt;the card is valid to transact&lt;/em&gt;, but does not necessarily indicate that a certain value will be authorized.&lt;/p&gt;
 
@@ -35230,7 +35720,7 @@ The return code &lt;strong&gt;“00” represents success in Zero Auth&lt;/stron
 
 &lt;p&gt;Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000&lt;/p&gt;
 
-&lt;h3 id=&quot;request-35&quot;&gt;Request&lt;/h3&gt;
+&lt;h3 id=&quot;request-34&quot;&gt;Request&lt;/h3&gt;
 
 &lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/v1/accesstoken?merchantid={mid_loja}&lt;/span&gt;&lt;/aside&gt;
 
@@ -35262,7 +35752,7 @@ The return code &lt;strong&gt;“00” represents success in Zero Auth&lt;/stron
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;response-41&quot;&gt;Response&lt;/h3&gt;
+&lt;h3 id=&quot;response-40&quot;&gt;Response&lt;/h3&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/json&quot;&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;--header&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;&lt;/span&gt;
@@ -35479,7 +35969,7 @@ Each Wallet has an &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPubl
 
 &lt;h3 id=&quot;decryption&quot;&gt;Decryption&lt;/h3&gt;
 
-&lt;h4 id=&quot;request-36&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-35&quot;&gt;Request&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Decryption&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -35632,7 +36122,7 @@ Each Wallet has an &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPubl
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-42&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-41&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -35803,7 +36293,7 @@ Each Wallet has an &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPubl
 
 &lt;h3 id=&quot;sending-the-card&quot;&gt;Sending the card&lt;/h3&gt;
 
-&lt;h4 id=&quot;request-37&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-36&quot;&gt;Request&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Sending&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;card&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -35960,7 +36450,7 @@ Each Wallet has an &lt;code class=&quot;highlighter-rouge&quot;&gt;EphemeralPubl
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-43&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-42&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -36175,7 +36665,7 @@ VKeU&lt;br /&gt;
 
 &lt;p&gt;In the model below, we demonstrate how to use the Apple Pay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Apple via Payload&lt;/p&gt;
 
-&lt;h4 id=&quot;request-38&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-37&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;Request Sample &lt;em&gt;Apple Pay&lt;/em&gt;&lt;/p&gt;
 
@@ -36333,7 +36823,7 @@ VKeU&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-44&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-43&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -36506,7 +36996,7 @@ VKeU&lt;br /&gt;
 
 &lt;p&gt;In the model below, we demonstrate how Apple Pay can be used with sending the card open, without the need for WalletKey.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-39&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-38&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;In this model, the merchant only informs that the transaction is from an Apple Pay Wallet and sends the ECI and CAVV data provided by APPLE&lt;/p&gt;
 
@@ -36672,7 +37162,7 @@ VKeU&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-45&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-44&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6242-642-723&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -36869,7 +37359,7 @@ VKeU&lt;br /&gt;
   &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Walletkey&lt;/code&gt; is the &lt;code class=&quot;highlighter-rouge&quot;&gt;CallID&lt;/code&gt; parameter returned by VisaCheckout&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;request-40&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-39&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;Default request sample &lt;em&gt;VisaCheckout&lt;/em&gt;&lt;/p&gt;
 
@@ -37036,7 +37526,7 @@ VKeU&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-46&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-45&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -37222,7 +37712,7 @@ VKeU&lt;br /&gt;
 
 &lt;p&gt;In the model below, we demonstrate how VisaCheckout can be used with the sending of the open card without a WalletKey.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-41&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-40&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;In this model, the merchant only informs that the transaction is from Wallet VisaCheckout and sends the ECI and CAVV data provided by Visa&lt;/p&gt;
 
@@ -37419,7 +37909,7 @@ VKeU&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-47&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-46&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111706&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -37620,7 +38110,7 @@ VKeU&lt;br /&gt;
 
 &lt;p&gt;To use the wallet &lt;a href=&quot;https://developer.mastercard.com/product/masterpass&quot;&gt;&lt;strong&gt;Masterpass&lt;/strong&gt;&lt;/a&gt; it is necessary that the store is already registered with Mastercard, and integrated the search of card data of the platform.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-42&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-41&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;Request Sample &lt;em&gt;Masterpass&lt;/em&gt;&lt;/p&gt;
 
@@ -37800,7 +38290,7 @@ VKeU&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-48&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-47&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111708&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -38039,7 +38529,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
 
 &lt;p&gt;In the model below, we demonstrate how to use the SamsungPay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Samsung via Payload&lt;/p&gt;
 
-&lt;h4 id=&quot;request-43&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-42&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;Request Sample &lt;em&gt;SamsungPay&lt;/em&gt;&lt;/p&gt;
 
@@ -38197,7 +38687,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-49&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-48&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111703&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -38367,7 +38857,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
 
 &lt;p&gt;In the model below, we demonstrate how SamsungPay can be used with sending the card open, without the need for WalletKey.&lt;/p&gt;
 
-&lt;h4 id=&quot;request-44&quot;&gt;Request&lt;/h4&gt;
+&lt;h4 id=&quot;request-43&quot;&gt;Request&lt;/h4&gt;
 
 &lt;p&gt;In this model, the merchant only informs that the transaction is from an SamsungPay and sends the ECI and CAVV data provided by Samsung&lt;/p&gt;
 
@@ -38533,7 +39023,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl&lt;br /&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h4 id=&quot;response-50&quot;&gt;Response&lt;/h4&gt;
+&lt;h4 id=&quot;response-49&quot;&gt;Response&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;6242-642-723&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
