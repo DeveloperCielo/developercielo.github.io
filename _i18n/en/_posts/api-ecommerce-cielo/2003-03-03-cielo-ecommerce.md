@@ -4535,9 +4535,9 @@ When Velocity is active, the transaction response will bring a specific node cal
 
 # Recurring Payments
 
-Recurring payments are transactions that must be repeated after a certain period of time.
+Recurring payments are credit and debit card transactions that must be repeated after a certain period of time. For recurring debit card transactions, authentication with 3DS 2.0 of the first transaction occurs (chargeback risk for fraud becomes Bank Issuer), and subsequent transactions aren't submitted for authentication (risk of fraud chargeback remains with the merchant). The debit recurrence solution is available for Visa cards only. It will soon be available for Mastercard cards.
 
-These are payments normally found on **signatures**, where the buyer wants to be automatically charged but does not want to re-enter the credit card details.
+These are payments normally found on **signatures**, where the buyer wants to be automatically charged but doesn't want to re-enter the card details.
 
 ## Types of recurrences
 
@@ -4685,7 +4685,7 @@ To create a recurring sale whose recurrence and interval processes will be execu
 
 The `Payment.Recurrent` parameter must be `true`, otherwise the transaction will be declined.
 
-#### Request
+#### Credit Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4707,7 +4707,9 @@ The `Payment.Recurrent` parameter must be `true`, otherwise the transaction will
          "ExpirationDate":"12/2030",
          "SecurityCode":"262",
          "SaveCard":"false",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "CardOnFile":{
+             "Usage": "First"
      }
    }
 }
@@ -4738,7 +4740,9 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"262",
          "SaveCard":"false",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage": "First"
      }
    }
 }
@@ -4762,8 +4766,10 @@ curl
 |`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
 |`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+|`CreditCard.CardOnFile.Usage`|**First** if the card has been stored and is your first use.<br>**Used** if the card has been stored and was previously used in another transaction.|Text|---|No|
+|`CreditCard.CardOnFile.Reason`|Indicates the purpose of cards storage if the `Usage` field is` Used`.<br>**Recurring** - Scheduled recurring purchase (e.g. signatures).<br>**Unscheduled** - Unscheduled recurring purchase (ex. service applications).<br>**Installments** - Installment payment through recurrence.|Text|---|Conditional|
 
-#### Response
+#### Credit Response
 
 ```json
 {
@@ -4908,6 +4914,158 @@ curl
 |`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
 |`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+
+#### Debit Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014121201",
+   "Customer":{  
+      "Name":"Comprador rec propria"
+   },
+   "Payment":{  
+     "Type":"DebitCard",
+     "Amount":15700,
+     "Provider":"Cielo",
+     "ReturnUrl":"https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
+     "Recurrent": true,
+     "DebitCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"11/2019",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage": "First"
+         }
+     },
+     "ExternalAuthentication":{
+         "Cavv":"A901234A5678A0123A567A90120=",
+         "Xid":"A90123A45678A0123A567A90123",
+         "Eci":"5",
+         "Version":"2"
+     }
+   }
+}
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|6|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantOrderId`|Order ID number.|Text|50|Yes|
+|`Customer.Name`|Buyer's name.|Text|255|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
+|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
+|`Payment.Provider`|Defines behavior of the payment method|Text|15|---|
+|`Payment.ReturnUrl`|URI to where the user will be redirected after payment ends|Text|1024|---|
+|`Payment.Recurrent`|marking an unscheduled recurrence transaction|boolean|5|No|
+|`DebitCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
+|`DebitCard.Holder`|Buyer's name printed on card.|Text|25|No|
+|`DebitCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
+|`DebitCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
+|`DebitCard.Brand`|Card issuer.|Text|10|Yes|
+|`DebitCard.CardOnFile.Usage`|**First** if the card has been stored and is your first use.<br>**Used** if the card has been stored and was previously used in another transaction.|Text|---|No|
+|`DebitCard.CardOnFile.Reason`|Indicates the purpose of cards storage if the `Usage` field is` Used`.<br>**Recurring** - Scheduled recurring purchase (e.g. signatures).<br>**Unscheduled** - Unscheduled recurring purchase (ex. service applications).<br>**Installments** - Installment payment through recurrence.|Text|---|Conditional|
+|`ExternalAuthentication.Cavv`|The Cavv value is returned by the authentication mechanism.|Text|28|Yes|
+|`ExternalAuthentication.Xid`|The Xid value is returned by the authentication mechanism.|Text|28|Yes|
+|`ExternalAuthentication.Eci`|The Eci value is returned by the authentication mechanism.|Number|1|Yes|
+|`ExternalAuthentication.Version`|---|---|---|
+
+#### Debit Response
+
+For recurring debit card transactions, after submitting a request for a transaction with 3DS 2.0 authentication request, the Issuer Transaction ID information is returned on the first authenticated transaction. This information should be stored and sent in subsequent transactions, allowing the Issuing Bank to link subsequent unauthenticated debit transactions, with the first debit transaction authenticated. This model is available for Visa debit cards only.
+
+```json
+{
+   "MerchantOrderId": "2014121201",
+   "Customer": {
+        "Name": "Comprador rec propria"
+    },
+   "Payment": {
+     "DebitCard": {
+         "CardNumber": "409603******0183",
+         "Holder": "Teste Holder",
+         "ExpirationDate": "11/2019",
+         "SaveCard": false,
+         "Brand": "Visa",
+         "CardOnFile":{
+            "Usage": "First"
+         },
+         "PaymentAccountReference":"80215935306245595386112369301"
+     },
+     "Provider": "Cielo",
+     "AuthorizationCode": "149867",
+     "Eci": "5",
+     "Tid": "10069930698EGKISAQCC",
+     "ProofOfSale": "165009",
+     "Authenticate": true,
+     "ExternalAuthentication":{
+         "Cavv": "A901234A5678A0123A567A90120=",
+         "Xid": "A90123A45678A0123A567A90123",
+         "Eci": "5",
+         "Version": "2"
+     },
+     "Recurrent": true,
+     "IssuerTransactionId": "009295034362939",
+     "Amount": 15700,
+     "ReceivedDate": "2019-10-22 16:59:26",
+     "CapturedAmount": 15700,
+     "CapturedDate": "2019-10-22 16:59:27",
+     "ReturnUrl": "https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
+     "Status": 2,
+     "IsSplitted": false,
+     "ReturnMessage": "Transacao capturada com sucesso",
+     "ReturnCode": "00",
+     "PaymentId": "470e8811-14de-41d1-9a52-3ba9a2bfce37",
+     "Type": "DebitCard",
+     "Currency": "BRL",
+     "Country": "BRA",
+     "Links": [
+         {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://clicktime.symantec.com/33u6P2R2ydHsCe3omoVXP9r7Vc?u=https%3A%2F%2Fapiquerysandbox.cieloecommerce.cielo.com.br%2F1%2Fsales%2F470e8811-14de-41d1-9a52-3ba9a2bfce37%2522"
+         }
+     ]
+    }
+}
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantOrderId`|Order ID number.|Text|50|Yes|
+|`Customer.Name`|Buyer's name.|Text|255|No|
+|`DebitCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
+|`DebitCard.Holder`|Buyer's name printed on card.|Text|25|No|
+|`DebitCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
+|`DebitCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
+|`DebitCard.Brand`|Card issuer.|Text|10|Yes|
+|`DebitCard.CardOnFile.Usage`|**First** if the card has been stored and is your first use.<br>**Used** if the card has been stored and was previously used in another transaction.|Text|---|No|
+|`DebitCard.CardOnFile.Reason`|Indicates the purpose of cards storage if the `Usage` field is` Used`.<br>**Recurring** - Scheduled recurring purchase (e.g. signatures).<br>**Unscheduled** - Unscheduled recurring purchase (ex. service applications).<br>**Installments** - Installment payment through recurrence.|Text|---|Conditional|
+|`DebitCard.PaymentAccountReference`|The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag doesn't send the information the field will not be returned.|Number|29|No|
+|`Payment.Provider`|Defines behavior of the payment method|Text|15|---|
+|`Payment.AuthorizationCode`|Authorization code.|Texto|6|---|
+|`Payment.Eci`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|---|
+|`Payment.Tid`|Transaction Id on the acquirer.|Text|6|---|
+|`Payment.ProofOfSale`|Authorization number, identical to NSU.|Text|6|---|
+|`Payment.Authenticate`|Defines whether the buyer will be directed to the Issuing bank for card authentication|Boolean|---|No|
+|`ExternalAuthentication.Cavv`|The Cavv value is returned by the authentication mechanism.|Texto|28|Yes|
+|`ExternalAuthentication.Xid`|The Xid value is returned by the authentication mechanism.|Texto|28|Yes|
+|`ExternalAuthentication.Eci`|The Eci value is returned by the authentication mechanism.|Número|1|Yes|
+|`ExternalAuthentication.Version`|---|---|---|
+|`Payment.Recurrent`|Marking an unscheduled recurrence transaction|boolean|5|Yes|
+|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
+|`Payment.ReturnUrl`|URI to which the user will be redirected after payment ends|Text|1024|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
+|`Payment.Currency`|Currency in which payment will be made (BRL).|Text|3|No|
+|`Payment.Country`|Country where payment will be made.|Text|3|No|
 
 ### Creating a SCHEDULED RECURRENCE
 
