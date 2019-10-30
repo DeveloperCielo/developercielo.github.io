@@ -113,7 +113,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.SoftDescriptor`|String|13|---|Identification of the establishment (short name) to be printed and identified on the invoice.|
 |`Payment.PaymentDateTime`|String|date-time|Yes|Transaction capture Date and Time|
 |`Payment.Amount`|Integer(int64)|---|Yes|Transaction amount (1079 = R$10,79)|
-|`Payment.Capture`|Booleano|---|---|Default: false / Boolean that identifies that the authorization must be with auto capture. Authorization without automatic capture is also known as pre-authorization.|
+|`Payment.Capture`|Boolean|---|---|Default: false / Boolean that identifies that the authorization must be with auto capture. Authorization without automatic capture is also known as pre-authorization.|
 |`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
 |`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Installment Type: <br><br> - If bit 6 of the confParamOp05 attribute present in the issuerTable and binTable tables and bit 6 of the confParamOp03 attribute of the productTable table are all enabled indicates that the interest-free installment type can be made. <br> <br> - If bit 7 of the confParamOp05 attribute, present in the issuerTable and binTable tables and bit 7 of the confParamOp03 attribute of the productTable table are all enabled, it indicates that the interest installment type can be made. No interest = "ByMerchant"; With interest = “ByIssuer”.|
 |`Payment.ProductId`|Integer|---|Yes|Product code identified via card bin.|
@@ -232,7 +232,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Customer.Name`|String|---|---|---|
 |`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
 |`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Installment Type: <br><br> - If bit 6 of the confParamOp05 attribute present in the issuerTable and binTable tables and bit 6 of the confParamOp03 attribute of the productTable table are all enabled indicates that the interest-free installment type can be made. <br><br> - If bit 7 of the confParamOp05 attribute, present in the issuerTable and binTable tables and bit 7 of the confParamOp03 attribute of the productTable table are all enabled, it indicates that the interest installment type can be made. No interest = “ByMerchant”; With interest = “ByIssuer”.|
-|`Payment.Capture`|Booleano|---|---|Default: false / Boolean that identifies that the authorization must be with auto capture. Authorization without automatic capture is also known as pre-authorization.|
+|`Payment.Capture`|Boolean|---|---|Default: false / Boolean that identifies that the authorization must be with auto capture. Authorization without automatic capture is also known as pre-authorization.|
 |`CreditCard.ExpirationDate`|String|MM/yyyy|Yes|Card Expiration Date. <br><br>Data obtained through the command PP_GetCard in BC at the time of the transaction capture.|
 |`CreditCard.BrandId`|Integer|---|Yes|Brand identification obtained through the BrandId field from the PRODUCT TABLE.|
 |`CreditCard.IssuerId`|Integer|---|Yes|Issuer code obtained through IssuerId field from the BIN TABLE.|
@@ -266,3 +266,170 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Type`|String|---|Yes|Value: `PhysicalCreditCard` / Transaction type|
 |`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Currency (Fill with “BRL”)|
 |`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / Country (Fill with “BRA”)|
+
+## Credit card sale with the black stripe reading and password
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
+
+```json
+{
+  "MerchantOrderId": "201904150002",
+  "Payment": {
+    "Type": "PhysicalCreditCard",
+    "SoftDescriptor": "Description",
+    "PaymentDateTime": "2019-04-15T12:00:00Z",
+    "Amount": 15798,
+    "Installments": 1,
+    "Capture": true,
+    "Interest": "ByMerchant",
+    "ProductId": 1,
+    "CreditCard": {
+      "ExpirationDate": "12/2020",
+      "SecurityCodeStatus": "Nonexistent",
+      "BrandId": 1,
+      "IssuerId": 2,
+      "InputMode": "MagStripe",
+      "AuthenticationMethod": "OnlinePassword",
+      "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
+      "TrackTwoData": "0123456789012345=012345678901234",
+      "PinBlock": {
+        "EncryptedPinBlock": "2280F6BDFD0C038D",
+        "EncryptionType": "Dukpt3Des",
+        "KsnIdentification": "1231vg31fv231313123"
+      },
+      "PanSequenceNumber": 123
+    },
+    "PinPadInformation": {
+      "TerminalId": "10000001",
+      "SerialNumber": "ABC123",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+      "ReturnDataInfo": "00"
+    }
+  }
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Document number automatically generated by the terminal and incremented by 1 for each transaction made at the terminal.|
+|`Payment.Type`|String|---|Yes|Value: `PhysicalCreditCard` / Transaction Type|
+|`Payment.SoftDescriptor`|String|13|---|Identification of the establishment (short name) to be printed and identified on the invoice.|
+|`Payment.PaymentDateTime`|String|date-time|Yes|Transaction capture Date and Time|
+|`Payment.Amount`|Integer(int64)|---|Yes|Transaction amount (1079 = R$10,79)|
+|`Payment.Capture`|Booleano|---|---|Default: false / Boolean that identifies that the authorization must be with auto capture. Authorization without automatic capture is also known as pre-authorization.|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Installment Type: <br><br> - If bit 6 of the confParamOp05 attribute present in the issuerTable and binTable tables and bit 6 of the confParamOp03 attribute of the productTable table are all enabled indicates that the interest-free installment type can be made. <br> <br> - If bit 7 of the confParamOp05 attribute, present in the issuerTable and binTable tables and bit 7 of the confParamOp03 attribute of the productTable table are all enabled, it indicates that the interest installment type can be made. No interest = "ByMerchant"; With interest = “ByIssuer”.|
+|`Payment.ProductId`|Integer|---|Yes|Product code identified via card bin.|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Yes|Card Expiration Date <br><br>Data obtained through the command PP_GetCard in BC at the time of the transaction capture.
+|`CreditCard.SecurityCodeStatus`|String|---|---|Enum: `Collected` `Unreadable` `Nonexistent` <br><br> Security code collection status (CVV)|
+|`CreditCard.BrandId`|Integer|---|Yes|Brand identification obtained through the BrandId field from the PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Yes|Issuer code obtained through IssuerId field from the BIN TABLE.|
+|`CreditCard.InputMode`|String|---|Yes|Enum: `Typed` `MagStripe` `Emv` <br><br>Identification of card capture mode in the transaction. This information must be obtained through the return of BC's PP_GetCard function. <br><br> "00" - Magnetic <br><br> "01" - VISA Cash Coin on TIBC v1 <br><br> "02" - VISA Cash Coin on TIBC v3 <br><br> "03" - EMV with contact <br><br> "04" - Easy Entry on TIBC v1 <br><br> "05"- Contactless chip simulating the black stripe <br><br>  "06"- Contactless EMV. |
+|`CreditCard.AuthenticationMethod`|String|---|Yes|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Authentication method <br><br>- If the card was read from typing, check bit 3 of the confParamOp04 attribute of the binTable, parameterTable and issuerTable tables. If all are enabled, the password must be captured and authenticationMethod assumes value 2. Otherwise, assume value 1; <br><br>-If the card was read from the track, check bit 3 of the confParamOp04 attribute of the binTable, parameterTable and issuerTable tables. If all are enabled, then check bit 2 of the same field. If this value is 1, the password must be captured. If it is set to 0, password capture will depend on the last digit of the service code; <br><br>- If the card was read through the EMV chip, the authenticationMethod will be populated based on the return of the PP_GoOnChip function(). No resultado PP_GoOnChip(), where if the field of position 003 of the return from PP_GoOnChip () and if the position field 003 of the return from PP_GoOnChip() value 1 indicates the the pin has been validated offline, the authenticationMethod will be 3. If the position field 003 and the position field 006 of the return from PP_GoOnChip () are with the value set to 0, the authenticationMethod will be 1. If the position field 003 and the position field 006 of the return from PP_GoOnChip() are with values ​​0 and 1 respectively, the authenticationMethod will be 2. <br><br>1 - No password = “NoPassword”; <br><br>2 - Online password = “Online Authentication”; <br><br>3 - Offline password = “Offline Authentication”.|
+|`CreditCard.TrackOneData`|String|---|---|Track data 1 <br><br>Obtained through PP_GetCard command in BC at capture transaction time|
+|`CreditCard.TrackTwoData`|String|---|---|Track data 2 <br><br>Obtained through PP_GetCard command in BC at capture transaction time|
+|`PinBlock.EncryptedPinBlock`|---|---|---|---|
+|`PinBlock.EncryptionType`|---|---|---|---|
+|`PinBlock.KsnIdentification`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Card sequential number, used to identify the additional card checking account. Mandatory for transactions with EMV Chip Cards that have PAN Sequence Number (Tag 5F34). |
+|`PinPadInformation.TerminalId`|String|---|Yes|Logic Number defined at the Cielo Concentrator.|
+|`PinPadInformation.SerialNumber`|String|---|Yes|Equipment's serial number.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Yes|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> No PIN-pad = `WithoutPinPad`; <br><br> PIN-pad without Chip reader = `PinpadWithoutChipReader`; <br><br>PIN-Pad with Chip reader without SAM Module = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-Pad with Chip reader with SAM Module = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad not homologated = `NotCertifiedPinPad`; <br><br> PIN-Pad with Chip reader without SAM and Contactless Card = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-Pad with Chip reader with SAM and Contactless Card = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Note: In case the application cannot inform the above data, such information must be obtained through the return BC's PP_GetInfo() function.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Yes|Return of shared library PP_GetInfo() function|
+
+### Response
+
+```json
+{
+  "MerchantOrderId": "20180204",
+  "Customer": {
+    "Name": "[Guest]"
+  },
+  "Payment": {
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "CreditCard": {
+      "ExpirationDate": "12/2020",
+      "BrandId": 1,
+      "IssuerId": 2,
+      "TruncateCardNumberWhenPrinting": true,
+      "InputMode": "Emv",
+      "AuthenticationMethod": "OnlineAuthentication",
+      "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+      "PinBlock": {
+        "EncryptedPinBlock": "2280F6BDFD0C038D",
+        "EncryptionType": "Dukpt3Des",
+        "KsnIdentification": "1231vg31fv231313123"
+      },
+      "PanSequenceNumber": 123
+    },
+    "PaymentDateTime": "2019-04-15T12:00:00Z",
+    "ServiceTaxAmount": 0,
+    "SoftDescriptor": "Description",
+    "ProductId": 1,
+    "PinPadInformation": {
+      "TerminalId": "10000001",
+      "SerialNumber": "ABC123",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
+      "ReturnDataInfo": "00"
+    },
+    "Amount": 15798,
+    "ReceivedDate": "2019-04-15T12:00:00Z",
+    "CapturedAmount": 15798,
+    "Provider": "Cielo",
+    "ConfirmationStatus": 0,
+    "InitializationVersion": 1558708320029,
+    "EmvResponseData": "123456789ABCD1345DEA",
+    "Status": 2,
+    "IsSplitted": false,
+    "ReturnCode": 0,
+    "ReturnMessage": "Successful",
+    "PaymentId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+    "Type": "PhysicalDebitCard",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+      },
+      {
+        "Method": "DELETE",
+        "Rel": "self",
+        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "self",
+        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/confirmation"
+      }
+    ],
+    "PrintMessage": [
+      {
+        "Position": "Top",
+        "Message": "Transação autorizada"
+      },
+      {
+        "Position": "Bottom",
+        "Message": "Obrigado e volte sempre!"
+      }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
+    ]
+  }
+}
+```
