@@ -1301,12 +1301,12 @@ When a payment is created (201 - Created), you should review the Status (Payment
 
 |ID|Flow Description|
 |---|---|
-|1| Search for the the card's AID (field `Aid`) in the table "Emv" and select the associated products through the field `ProductIds`|
+|1| Search for the the card's AID (field `Aid`) in the table "Emv" and select the associated products through the field `ProductIds`.|
 |2| In the associated products, recover those that have the same `ProductType` (table` Products`) that started in the transaction (DEBIT, CREDIT ..) and the same host flow (`HostFlow` field) as defined by Cielo. |
 
 **Black stripe/typed transactions:**
 
 |ID|Flow Description|
 |---|---|
-| 1 | Ao recuperar o pan do cartão, buscar na tabela `Bins` um que o bin esteja entre os valores `InitialBin` e `FinalBin` (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo `ProductId`; 
-| 2 | Recuperar os produtos que tem o mesmo `ProductType` (tabela `Products`) que iniciado na transação (DÉBITO, CRÉDITO...) e o mesmo fluxo do host (campo `HostFlow`) que os definido pela Cielo.
+| 1 | When recovering the card pan, search in the `Bins` table for a bin that is between the values `InitialBin` and `FinalBin` (always consider the most specific Bins range) and recover the associated product in the `ProductId` field; |
+| 2 | Recover products that have the same `ProductType` (`Products` table) that started in the transaction(DEBIT, CREDIT...) and the same host flow (`HostFlow` field) that those defined by Cielo; |
