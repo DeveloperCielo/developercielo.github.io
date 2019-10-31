@@ -3807,6 +3807,48 @@
   </tbody>
 </table>
 
+<p><strong>Transactions with chip:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Flow Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Search for the the card’s AID (field <code class="highlighter-rouge">Aid</code>) in the table “Emv” and select the associated products through the field <code class="highlighter-rouge">ProductIds</code></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>In the associated products, recover those that have the same <code class="highlighter-rouge">ProductType</code> (table<code class="highlighter-rouge"> Products</code>) that started in the transaction (DEBIT, CREDIT ..) and the same host flow (<code class="highlighter-rouge">HostFlow</code> field) as defined by Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Black stripe/typed transactions:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Flow Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Ao recuperar o pan do cartão, buscar na tabela <code class="highlighter-rouge">Bins</code> um que o bin esteja entre os valores <code class="highlighter-rouge">InitialBin</code> e <code class="highlighter-rouge">FinalBin</code> (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo <code class="highlighter-rouge">ProductId</code>;</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Recuperar os produtos que tem o mesmo <code class="highlighter-rouge">ProductType</code> (tabela <code class="highlighter-rouge">Products</code>) que iniciado na transação (DÉBITO, CRÉDITO…) e o mesmo fluxo do host (campo <code class="highlighter-rouge">HostFlow</code>) que os definido pela Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 

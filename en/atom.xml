@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-31T17:14:05+00:00</updated>
+    <updated>2019-10-31T17:44:54+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7241,6 +7241,48 @@ This procedure is also valid for establishments that performed authentication ou
     &lt;tr&gt;
       &lt;td&gt;6&lt;/td&gt;
       &lt;td&gt;Product selection (“ProductId” field of the transaction request):&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Transactions with chip:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ID&lt;/th&gt;
+      &lt;th&gt;Flow Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Search for the the card’s AID (field &lt;code class=&quot;highlighter-rouge&quot;&gt;Aid&lt;/code&gt;) in the table “Emv” and select the associated products through the field &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductIds&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;In the associated products, recover those that have the same &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductType&lt;/code&gt; (table&lt;code class=&quot;highlighter-rouge&quot;&gt; Products&lt;/code&gt;) that started in the transaction (DEBIT, CREDIT ..) and the same host flow (&lt;code class=&quot;highlighter-rouge&quot;&gt;HostFlow&lt;/code&gt; field) as defined by Cielo.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Black stripe/typed transactions:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ID&lt;/th&gt;
+      &lt;th&gt;Flow Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Ao recuperar o pan do cartão, buscar na tabela &lt;code class=&quot;highlighter-rouge&quot;&gt;Bins&lt;/code&gt; um que o bin esteja entre os valores &lt;code class=&quot;highlighter-rouge&quot;&gt;InitialBin&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;FinalBin&lt;/code&gt; (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductId&lt;/code&gt;;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Recuperar os produtos que tem o mesmo &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductType&lt;/code&gt; (tabela &lt;code class=&quot;highlighter-rouge&quot;&gt;Products&lt;/code&gt;) que iniciado na transação (DÉBITO, CRÉDITO…) e o mesmo fluxo do host (campo &lt;code class=&quot;highlighter-rouge&quot;&gt;HostFlow&lt;/code&gt;) que os definido pela Cielo.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
