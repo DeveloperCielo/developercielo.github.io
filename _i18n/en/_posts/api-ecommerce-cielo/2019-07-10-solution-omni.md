@@ -1282,3 +1282,17 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / Country (Fill with “BRA”)|
 
 ## Payment Flow (Shared Library)
+
+|ID|Flow Description|
+|---|---|
+| 1 | Entering the transaction value (  `Amount` field of the transaction request) |
+| 2 | Recover Date/Time of the transaction (`PaymentDateTime` field of the transaction request)  |
+| 3 | Payment type selection (debit, credit, voucher...) (`Type` field of the transaction request) |
+| 4 | PP_StartGetCard call passing the values: |
+| 4.1 | Acquiring network identifier (Cielo `03`) |
+| 4.2 | Application type (related to item 3) |
+| 4.3 | Transaction initial amount (item 1) |
+| 4.4 | Transaction date (item 2) |
+| 4.5 | Transaction time (item 2) |
+| 5 | In case it was use a chip card, recover the aid through the tag 4F on the return from PP_getCard. |
+| 6 | Product selection (`ProductId` field of the transaction request): 
