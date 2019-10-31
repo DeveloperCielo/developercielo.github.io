@@ -1616,6 +1616,20 @@
       <td>Yes</td>
       <td>Equipment’s serial number.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Enum: <code class="highlighter-rouge">WithoutPinPad</code> <code class="highlighter-rouge">PinPadWithoutChipReader</code> <code class="highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code> <code class="highlighter-rouge">PinPadWithChipReaderWithSamModule</code> <code class="highlighter-rouge">NotCertifiedPinPad</code> <code class="highlighter-rouge">PinPadWithChipReaderWithoutSamAndContactless</code> <code class="highlighter-rouge">PinPadWithChipReaderWithSamModuleAndContactless</code> <br /> No PIN-pad = <code class="highlighter-rouge">WithoutPinPad</code>; <br /> PIN-pad without Chip reader = <code class="highlighter-rouge">PinpadWithoutChipReader</code>; <br />PIN-Pad with Chip reader without SAM Module = <code class="highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code>; <br /> PIN-Pad with Chip reader with SAM Module = <code class="highlighter-rouge">PinPadWithChipReaderWithSamModule</code>; <br /> PIN-pad not homologated = <code class="highlighter-rouge">NotCertifiedPinPad</code>; <br /> PIN-Pad with Chip reader without SAM and Contactless Card = <code class="highlighter-rouge">PinpadWithChipReaderWithoutSamAndContactless</code>; <br /> PIN-Pad with Chip reader with SAM and Contactless Card = <code class="highlighter-rouge">PinpadWithChipReaderWithSamAndContactless</code>. <br /> Note: In case the application cannot inform the above data, such information must be obtained through the return BC’s PP_GetInfo() function.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Return of shared library PP_GetInfo() function.</td>
+    </tr>
   </tbody>
 </table>
 
