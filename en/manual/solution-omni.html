@@ -3752,6 +3752,61 @@
 
 <h2 id="payment-flow-shared-library">Payment Flow (Shared Library)</h2>
 
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Flow Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Entering the transaction value (  <code class="highlighter-rouge">Amount</code> field of the transaction request)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Recover Date/Time of the transaction (<code class="highlighter-rouge">PaymentDateTime</code> field of the transaction request)</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Payment type selection (debit, credit, voucher…) (<code class="highlighter-rouge">Type</code> field of the transaction request)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>PP_StartGetCard call passing the values:</td>
+    </tr>
+    <tr>
+      <td>4.1</td>
+      <td>Acquiring network identifier (Cielo <code class="highlighter-rouge">03</code>)</td>
+    </tr>
+    <tr>
+      <td>4.2</td>
+      <td>Application type (related to item 3)</td>
+    </tr>
+    <tr>
+      <td>4.3</td>
+      <td>Transaction initial amount (item 1)</td>
+    </tr>
+    <tr>
+      <td>4.4</td>
+      <td>Transaction date (item 2)</td>
+    </tr>
+    <tr>
+      <td>4.5</td>
+      <td>Transaction time (item 2)</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>In case it was use a chip card, recover the aid through the tag 4F on the return from PP_getCard.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Product selection (<code class="highlighter-rouge">ProductId</code> field of the transaction request):</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 

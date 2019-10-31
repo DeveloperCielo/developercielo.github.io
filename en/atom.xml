@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-31T13:33:22+00:00</updated>
+    <updated>2019-10-31T16:58:31+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7189,6 +7189,61 @@ This procedure is also valid for establishments that performed authentication ou
 &lt;/table&gt;
 
 &lt;h2 id=&quot;payment-flow-shared-library&quot;&gt;Payment Flow (Shared Library)&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;ID&lt;/th&gt;
+      &lt;th&gt;Flow Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Entering the transaction value (  &lt;code class=&quot;highlighter-rouge&quot;&gt;Amount&lt;/code&gt; field of the transaction request)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Recover Date/Time of the transaction (&lt;code class=&quot;highlighter-rouge&quot;&gt;PaymentDateTime&lt;/code&gt; field of the transaction request)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Payment type selection (debit, credit, voucher…) (&lt;code class=&quot;highlighter-rouge&quot;&gt;Type&lt;/code&gt; field of the transaction request)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;PP_StartGetCard call passing the values:&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.1&lt;/td&gt;
+      &lt;td&gt;Acquiring network identifier (Cielo &lt;code class=&quot;highlighter-rouge&quot;&gt;03&lt;/code&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.2&lt;/td&gt;
+      &lt;td&gt;Application type (related to item 3)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.3&lt;/td&gt;
+      &lt;td&gt;Transaction initial amount (item 1)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.4&lt;/td&gt;
+      &lt;td&gt;Transaction date (item 2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4.5&lt;/td&gt;
+      &lt;td&gt;Transaction time (item 2)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;In case it was use a chip card, recover the aid through the tag 4F on the return from PP_getCard.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;Product selection (&lt;code class=&quot;highlighter-rouge&quot;&gt;ProductId&lt;/code&gt; field of the transaction request):&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </content>
     </entry>
     
