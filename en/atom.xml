@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-31T11:40:40+00:00</updated>
+    <updated>2019-10-31T11:44:43+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4948,6 +4948,41 @@ This procedure is also valid for establishments that performed authentication ou
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Transaction amount (1079 = R$10,79)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;MM/yyyy&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Card Expiration Date &lt;br /&gt;Data obtained through the command PP_GetCard in BC at the time of the transaction capture.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.SecurityCodeStatus&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Collected&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Unreadable&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Nonexistent&lt;/code&gt; &lt;br /&gt; Security code collection status (CVV)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;3 or 4&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Security code (CVV)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.BrandId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Integer&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Brand identification obtained through the BrandId field from the PRODUCT TABLE.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.IssuerId&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Integer&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Issuer code obtained through IssuerId field from the BIN TABLE.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
