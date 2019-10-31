@@ -1295,4 +1295,4 @@ When a payment is created (201 - Created), you should review the Status (Payment
 | 4.4 | Transaction date (item 2) |
 | 4.5 | Transaction time (item 2) |
 | 5 | In case it was use a chip card, recover the aid through the tag 4F on the return from PP_getCard. |
-| 6 | Product selection (`ProductId` field of the transaction request): 
+| 6 | Product selection ("ProductId" field of the transaction request): 
