@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-31T11:16:21+00:00</updated>
+    <updated>2019-10-31T11:24:07+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4866,6 +4866,8 @@ This procedure is also valid for establishments that performed authentication ou
 &lt;h2 id=&quot;debit-card-sale-with-black-stripe-reading-and-password&quot;&gt;Debit card sale with black stripe reading and password&lt;/h2&gt;
 
 &lt;h3 id=&quot;request-2&quot;&gt;Request&lt;/h3&gt;
+
+&lt;aside class=&quot;request&quot;&gt;&lt;span class=&quot;method post&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;endpoint&quot;&gt;/1/physicalSales/&lt;/span&gt;&lt;/aside&gt;
 </content>
     </entry>
     
