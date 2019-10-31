@@ -541,3 +541,98 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinPadInformation.SerialNumber`|String|---|Yes|Equipment's serial number.|
 |`PinPadInformation.PhysicalCharacteristics`|String|---|Yes|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> No PIN-pad = `WithoutPinPad`; <br><br> PIN-pad without Chip reader = `PinpadWithoutChipReader`; <br><br>PIN-Pad with Chip reader without SAM Module = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-Pad with Chip reader with SAM Module = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad not homologated = `NotCertifiedPinPad`; <br><br> PIN-Pad with Chip reader without SAM and Contactless Card = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-Pad with Chip reader with SAM and Contactless Card = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Note: In case the application cannot inform the above data, such information must be obtained through the return BC's PP_GetInfo() function.|
 |`PinPadInformation.ReturnDataInfo`|String|---|Yes|Return of shared library PP_GetInfo() function.|
+
+### Response
+
+```json
+{
+  "MerchantOrderId": "20180204",
+  "Customer": {
+    "Name": "[Guest]"
+  },
+  "Payment": {
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "DebitCard": {
+      "ExpirationDate": "12/2020",
+      "BrandId": 1,
+      "IssuerId": 2,
+      "TruncateCardNumberWhenPrinting": true,
+      "InputMode": "Emv",
+      "AuthenticationMethod": "OnlineAuthentication",
+      "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+      "PinBlock": {
+        "EncryptedPinBlock": "2280F6BDFD0C038D",
+        "EncryptionType": "Dukpt3Des",
+        "KsnIdentification": "1231vg31fv231313123"
+      },
+      "PanSequenceNumber": 123
+    },
+    "PaymentDateTime": "2019-04-15T12:00:00Z",
+    "ServiceTaxAmount": 0,
+    "SoftDescriptor": "Description",
+    "ProductId": 1,
+    "PinPadInformation": {
+      "TerminalId": "10000001",
+      "SerialNumber": "ABC123",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
+      "ReturnDataInfo": "00"
+    },
+    "Amount": 15798,
+    "ReceivedDate": "2019-04-15T12:00:00Z",
+    "CapturedAmount": 15798,
+    "Provider": "Cielo",
+    "ConfirmationStatus": 0,
+    "InitializationVersion": 1558708320029,
+    "EmvResponseData": "123456789ABCD1345DEA",
+    "Status": 2,
+    "IsSplitted": false,
+    "ReturnCode": 0,
+    "ReturnMessage": "Successful",
+    "PaymentId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+    "Type": "PhysicalDebitCard",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+      },
+      {
+        "Method": "DELETE",
+        "Rel": "self",
+        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "self",
+        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/confirmation"
+      }
+    ],
+    "PrintMessage": [
+      {
+        "Position": "Top",
+        "Message": "Transação autorizada"
+      },
+      {
+        "Position": "Bottom",
+        "Message": "Obrigado e volte sempre!"
+      }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Cielo"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "São Paulo"
+      }
+    ]
+  }
+}
+```
