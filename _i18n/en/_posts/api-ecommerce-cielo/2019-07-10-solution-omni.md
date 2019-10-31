@@ -677,3 +677,45 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.Type`|String|---|Yes|Value: `PhysicalCreditCard` / Transaction type|
 |`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Currency (Fill with “BRL”)|
 |`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / Country (Fill with “BRA”)|
+
+## Credit card sales with EMV and online password 
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
+
+```json
+{
+  "MerchantOrderId": "201904150004",
+  "Payment": {
+    "Type": "PhysicalCreditCard",
+    "SoftDescriptor": "Description",
+    "PaymentDateTime": "2019-04-15T12:00:00Z",
+    "Amount": 15798,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "ProductId": 1,
+    "CreditCard": {
+      "ExpirationDate": "12/2020",
+      "BrandId": 1,
+      "IssuerId": 2,
+      "InputMode": "Emv",
+      "AuthenticationMethod": "OnlinePassword",
+      "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+      "PinBlock": {
+        "EncryptedPinBlock": "2280F6BDFD0C038D",
+        "EncryptionType": "Dukpt3Des",
+        "KsnIdentification": "1231vg31fv231313123"
+      },
+      "PanSequenceNumber": 123
+    },
+    "PinPadInformation": {
+      "TerminalId": "10000001",
+      "SerialNumber": "ABC123",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
+      "ReturnDataInfo": "00"
+    }
+  }
+}
+```
