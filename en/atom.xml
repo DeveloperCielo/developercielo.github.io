@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-10-31T11:44:43+00:00</updated>
+    <updated>2019-10-31T11:49:26+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -4983,6 +4983,55 @@ This procedure is also valid for establishments that performed authentication ou
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
       &lt;td&gt;Issuer code obtained through IssuerId field from the BIN TABLE.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.InputMode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identification of card capture mode in the transaction. This information must be obtained through the return of BC’s PP_GetCard function. &lt;br /&gt; “00” - Magnetic &lt;br /&gt; “01” - VISA Cash Coin on TIBC v1 &lt;br /&gt; “02” - VISA Cash Coin on TIBC v3 &lt;br /&gt; “03” - EMV with contact &lt;br /&gt; “04” - Easy Entry on TIBC v1 &lt;br /&gt; “05”- Contactless chip simulating the black stripe &lt;br /&gt;  “06”- Contactless EMV.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.AuthenticationMethod&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;NoPassword&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;OnlineAuthentication&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;OfflineAuthentication&lt;/code&gt; &lt;br /&gt;Authentication method &lt;br /&gt;- If the card was read from typing, check bit 3 of the confParamOp04 attribute of the binTable, parameterTable and issuerTable tables. If all are enabled, the password must be captured and authenticationMethod assumes value 2. Otherwise, assume value 1; &lt;br /&gt;-If the card was read from the track, check bit 3 of the confParamOp04 attribute of the binTable, parameterTable and issuerTable tables. If all are enabled, then check bit 2 of the same field. If this value is 1, the password must be captured. If it is set to 0, password capture will depend on the last digit of the service code; &lt;br /&gt;- If the card was read through the EMV chip, the authenticationMethod will be populated based on the return of the PP_GoOnChip function(). No resultado PP_GoOnChip(), where if the field of position 003 of the return from PP_GoOnChip () and if the position field 003 of the return from PP_GoOnChip() value 1 indicates the the pin has been validated offline, the authenticationMethod will be 3. If the position field 003 and the position field 006 of the return from PP_GoOnChip () are with the value set to 0, the authenticationMethod will be 1. If the position field 003 and the position field 006 of the return from PP_GoOnChip() are with values ​​0 and 1 respectively, the authenticationMethod will be 2. &lt;br /&gt;1 - No password = “NoPassword”; &lt;br /&gt;2 - Online password = “Online Authentication”; &lt;br /&gt;3 - Offline password = “Offline Authentication”.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.TrackOneData&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Track data 1 &lt;br /&gt;Obtained through PP_GetCard command in BC at capture transaction time&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.TrackTwoData&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Track data 2 &lt;br /&gt;Obtained through PP_GetCard command in BC at capture transaction time&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PinBlock.EncryptedPinBlock&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PinBlock.EncryptionType&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;PinBlock.KsnIdentification&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;

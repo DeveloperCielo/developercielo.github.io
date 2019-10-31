@@ -1546,6 +1546,55 @@
       <td>Yes</td>
       <td>Issuer code obtained through IssuerId field from the BIN TABLE.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Enum: <code class="highlighter-rouge">Typed</code> <code class="highlighter-rouge">MagStripe</code> <code class="highlighter-rouge">Emv</code> <br />Identification of card capture mode in the transaction. This information must be obtained through the return of BC’s PP_GetCard function. <br /> “00” - Magnetic <br /> “01” - VISA Cash Coin on TIBC v1 <br /> “02” - VISA Cash Coin on TIBC v3 <br /> “03” - EMV with contact <br /> “04” - Easy Entry on TIBC v1 <br /> “05”- Contactless chip simulating the black stripe <br />  “06”- Contactless EMV.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Yes</td>
+      <td>Enum: <code class="highlighter-rouge">NoPassword</code> <code class="highlighter-rouge">OnlineAuthentication</code> <code class="highlighter-rouge">OfflineAuthentication</code> <br />Authentication method <br />- If the card was read from typing, check bit 3 of the confParamOp04 attribute of the binTable, parameterTable and issuerTable tables. If all are enabled, the password must be captured and authenticationMethod assumes value 2. Otherwise, assume value 1; <br />-If the card was read from the track, check bit 3 of the confParamOp04 attribute of the binTable, parameterTable and issuerTable tables. If all are enabled, then check bit 2 of the same field. If this value is 1, the password must be captured. If it is set to 0, password capture will depend on the last digit of the service code; <br />- If the card was read through the EMV chip, the authenticationMethod will be populated based on the return of the PP_GoOnChip function(). No resultado PP_GoOnChip(), where if the field of position 003 of the return from PP_GoOnChip () and if the position field 003 of the return from PP_GoOnChip() value 1 indicates the the pin has been validated offline, the authenticationMethod will be 3. If the position field 003 and the position field 006 of the return from PP_GoOnChip () are with the value set to 0, the authenticationMethod will be 1. If the position field 003 and the position field 006 of the return from PP_GoOnChip() are with values ​​0 and 1 respectively, the authenticationMethod will be 2. <br />1 - No password = “NoPassword”; <br />2 - Online password = “Online Authentication”; <br />3 - Offline password = “Offline Authentication”.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DebitCard.TrackOneData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Track data 1 <br />Obtained through PP_GetCard command in BC at capture transaction time</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DebitCard.TrackTwoData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Track data 2 <br />Obtained through PP_GetCard command in BC at capture transaction time</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PinBlock.EncryptionType</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">PinBlock.KsnIdentification</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
   </tbody>
 </table>
 
