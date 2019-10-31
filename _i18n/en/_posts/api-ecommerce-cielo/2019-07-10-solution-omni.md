@@ -479,3 +479,5 @@ When a payment is created (201 - Created), you should review the Status (Payment
 ## Debit card sale with black stripe reading and password
 
 ### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
