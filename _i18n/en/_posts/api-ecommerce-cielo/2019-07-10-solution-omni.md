@@ -524,3 +524,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`Payment.SoftDescriptor`|String|13|---|Identification of the establishment (short name) to be printed and identified on the invoice.|
 |`Payment.PaymentDateTime`|String|date-time|Yes|Transaction capture Date and Time|
 |`Payment.Amount`|Integer(int64)|---|Yes|Transaction amount (1079 = R$10,79)|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Yes|Card Expiration Date <br><br>Data obtained through the command PP_GetCard in BC at the time of the transaction capture.|
+|`CreditCard.SecurityCodeStatus`|String|---|---|Enum: `Collected` `Unreadable` `Nonexistent` <br><br> Security code collection status (CVV)|
+|`CreditCard.SecurityCode`|String|3 or 4|---|Security code (CVV)|
+|`CreditCard.BrandId`|Integer|---|Yes|Brand identification obtained through the BrandId field from the PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Yes|Issuer code obtained through IssuerId field from the BIN TABLE.|
