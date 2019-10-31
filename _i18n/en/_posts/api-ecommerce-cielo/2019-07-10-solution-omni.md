@@ -536,3 +536,8 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
+|`DebitCard.PanSequenceNumber`|Number|---|---|	Card sequential number, used to identify the additional card checking account. Mandatory for transactions with EMV Chip Cards that have PAN Sequence Number (Tag 5F34).|
+|`PinPadInformation.TerminalId`|String|---|Yes|Logic Number defined at the Cielo Concentrator.|
+|`PinPadInformation.SerialNumber`|String|---|Yes|Equipment's serial number.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Yes|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> No PIN-pad = `WithoutPinPad`; <br><br> PIN-pad without Chip reader = `PinpadWithoutChipReader`; <br><br>PIN-Pad with Chip reader without SAM Module = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-Pad with Chip reader with SAM Module = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad not homologated = `NotCertifiedPinPad`; <br><br> PIN-Pad with Chip reader without SAM and Contactless Card = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-Pad with Chip reader with SAM and Contactless Card = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Note: In case the application cannot inform the above data, such information must be obtained through the return BC's PP_GetInfo() function.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Yes|Return of shared library PP_GetInfo() function|
