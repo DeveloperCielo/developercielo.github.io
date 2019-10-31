@@ -481,3 +481,38 @@ When a payment is created (201 - Created), you should review the Status (Payment
 ### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
+
+```json
+{
+  "MerchantOrderId": "201904150003",
+  "Payment": {
+    "Type": "PhysicalDebitCard",
+    "SoftDescriptor": "Description",
+    "PaymentDateTime": "2019-04-15T12:00:00Z",
+    "Amount": 15798,
+    "ProductId": 1,
+    "DebitCard": {
+      "ExpirationDate": "12/2020",
+      "SecurityCodeStatus": "Nonexistent",
+      "BrandId": 1,
+      "IssuerId": 2,
+      "InputMode": "MagStripe",
+      "AuthenticationMethod": "OnlinePassword",
+      "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
+      "TrackTwoData": "0123456789012345=012345678901234",
+      "PinBlock": {
+        "EncryptedPinBlock": "2280F6BDFD0C038D",
+        "EncryptionType": "Dukpt3Des",
+        "KsnIdentification": "1231vg31fv231313123"
+      },
+      "PanSequenceNumber": 123
+    },
+    "PinPadInformation": {
+      "TerminalId": "10000001",
+      "SerialNumber": "ABC123",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
+      "ReturnDataInfo": "00"
+    }
+  }
+}
+```
