@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-11-04T12:19:47+00:00</updated>
+    <updated>2019-11-06T19:56:45+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7200,7 +7200,7 @@ This procedure is also valid for establishments that performed authentication ou
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;Entering the transaction value (  &lt;code class=&quot;highlighter-rouge&quot;&gt;Amount&lt;/code&gt; field of the transaction request)&lt;/td&gt;
+      &lt;td&gt;Entering the transaction amount (  &lt;code class=&quot;highlighter-rouge&quot;&gt;Amount&lt;/code&gt; field of the transaction request)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;2&lt;/td&gt;
@@ -7240,7 +7240,7 @@ This procedure is also valid for establishments that performed authentication ou
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;6&lt;/td&gt;
-      &lt;td&gt;Product selection (“ProductId” field of the transaction request):&lt;/td&gt;
+      &lt;td&gt;Product selection (&lt;code class=&quot;highlighter-rouge&quot;&gt;ProductId&lt;/code&gt; field of the transaction request):&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -7257,11 +7257,11 @@ This procedure is also valid for establishments that performed authentication ou
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;Search for the the card’s AID (field &lt;code class=&quot;highlighter-rouge&quot;&gt;Aid&lt;/code&gt;) in the table “Emv” and select the associated products through the field &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductIds&lt;/code&gt;.&lt;/td&gt;
+      &lt;td&gt;Search for the the card’s AID (field &lt;code class=&quot;highlighter-rouge&quot;&gt;Aid&lt;/code&gt;) in the “Emv” table and select the associated products through the field &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductIds&lt;/code&gt;.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;In the associated products, recover those that have the same &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductType&lt;/code&gt; (table&lt;code class=&quot;highlighter-rouge&quot;&gt; Products&lt;/code&gt;) that started in the transaction (DEBIT, CREDIT ..) and the same host flow (&lt;code class=&quot;highlighter-rouge&quot;&gt;HostFlow&lt;/code&gt; field) as defined by Cielo.&lt;/td&gt;
+      &lt;td&gt;In the associated products, recover those that have the same &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductType&lt;/code&gt; (table &lt;code class=&quot;highlighter-rouge&quot;&gt;Products&lt;/code&gt;) that started in the transaction (DEBIT, CREDIT ..) and the same host flow (&lt;code class=&quot;highlighter-rouge&quot;&gt;HostFlow&lt;/code&gt; field) as defined by Cielo.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
