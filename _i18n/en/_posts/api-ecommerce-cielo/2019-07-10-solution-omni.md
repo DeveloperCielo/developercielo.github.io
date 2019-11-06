@@ -1285,7 +1285,7 @@ When a payment is created (201 - Created), you should review the Status (Payment
 
 |ID|Flow Description|
 |---|---|
-| 1 | Entering the transaction value (  `Amount` field of the transaction request) |
+| 1 | Entering the transaction amount (  `Amount` field of the transaction request) |
 | 2 | Recover Date/Time of the transaction (`PaymentDateTime` field of the transaction request)  |
 | 3 | Payment type selection (debit, credit, voucher...) (`Type` field of the transaction request) |
 | 4 | PP_StartGetCard call passing the values: |
@@ -1295,14 +1295,14 @@ When a payment is created (201 - Created), you should review the Status (Payment
 | 4.4 | Transaction date (item 2) |
 | 4.5 | Transaction time (item 2) |
 | 5 | In case it was use a chip card, recover the aid through the tag 4F on the return from PP_getCard. |
-| 6 | Product selection ("ProductId" field of the transaction request): 
+| 6 | Product selection (`ProductId` field of the transaction request): 
 
 **Transactions with chip:**
 
 |ID|Flow Description|
 |---|---|
-|1| Search for the the card's AID (field `Aid`) in the table "Emv" and select the associated products through the field `ProductIds`.|
-|2| In the associated products, recover those that have the same `ProductType` (table` Products`) that started in the transaction (DEBIT, CREDIT ..) and the same host flow (`HostFlow` field) as defined by Cielo. |
+|1| Search for the the card's AID (field `Aid`) in the "Emv" table and select the associated products through the field `ProductIds`.|
+|2| In the associated products, recover those that have the same `ProductType` (table `Products`) that started in the transaction (DEBIT, CREDIT ..) and the same host flow (`HostFlow` field) as defined by Cielo. |
 
 **Black stripe/typed transactions:**
 
