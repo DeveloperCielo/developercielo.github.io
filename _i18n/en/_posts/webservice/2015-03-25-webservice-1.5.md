@@ -301,8 +301,9 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
     <data-hora>2011-12-07T11:43:37</data-hora>
     <descricao>[origem:10.50.54.156]</descricao>
     <idioma>PT</idioma>
-    <soft-descriptor/>
     <taxa-embarque/>
+	<soft-descriptor/>
+	<numero-bilhete>123456</numero-bilhete>
   </dados-pedido>
   <forma-pagamento>
     <bandeira>visa</bandeira>
@@ -377,6 +378,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |idioma|Alphanumeric|Optional|2|Order language: PT (Portuguese), EN (English) or ES (Spanish). Based on this information the language is defined used on Cielo' screens. **If it won't be sent, the system will assume "PT".**|
 |taxa-embarque|Numeric|Optional|1..9|Amount of authorization value that must be destined to boarding fee.|
 |soft-descriptor|Alphanumeric|Optional|0..13|Text until 13 characters that will be shown on holder's invoice, after the Commercial Establishment name.|
+|numero-bilhete|Alphanumeric|Optional|13|Notify the main air ticket number of the transaction.|
 
 <aside class="notice">The customer register will be enable to transact only with REAL currency, in case you need more information, contact the service center, commercial manager or Cielo E-commerce Web Support</aside>
 
