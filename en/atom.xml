@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-11-08T12:09:36+00:00</updated>
+    <updated>2019-11-08T12:24:46+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3564,9 +3564,9 @@ This procedure is also valid for establishments that performed authentication ou
     <entry>
         <title>Integration Manual Omni Solution</title>
         <category term="manual" />
-        <link href="https://developercielo.github.io/en/manual/solution-omni"/>
+        <link href="https://developercielo.github.io/en/manual/solucao-omni"/>
         <updated>2019-07-10T00:00:00+00:00</updated>
-        <id>https://developercielo.github.io/en/manual/solution-omni</id>
+        <id>https://developercielo.github.io/en/manual/solucao-omni</id>
         <content type="html">&lt;h1 id=&quot;overview---api-omni-solution&quot;&gt;Overview - API Omni Solution&lt;/h1&gt;
 
 &lt;h1 id=&quot;proposal&quot;&gt;Proposal&lt;/h1&gt;
