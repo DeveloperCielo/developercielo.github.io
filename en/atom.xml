@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-11-06T19:56:45+00:00</updated>
+    <updated>2019-11-08T11:43:54+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -17674,8 +17674,9 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;data-hora&amp;gt;&lt;/span&gt;2011-12-07T11:43:37&lt;span class=&quot;nt&quot;&gt;&amp;lt;/data-hora&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;descricao&amp;gt;&lt;/span&gt;[origem:10.50.54.156]&lt;span class=&quot;nt&quot;&gt;&amp;lt;/descricao&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;idioma&amp;gt;&lt;/span&gt;PT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/idioma&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor/&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;taxa-embarque/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;soft-descriptor/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;numero-bilhete&amp;gt;&lt;/span&gt;123456&lt;span class=&quot;nt&quot;&gt;&amp;lt;/numero-bilhete&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dados-pedido&amp;gt;&lt;/span&gt;
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;forma-pagamento&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;bandeira&amp;gt;&lt;/span&gt;visa&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bandeira&amp;gt;&lt;/span&gt;
@@ -17947,6 +17948,13 @@ mensagem=&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&a
       &lt;td&gt;Optional&lt;/td&gt;
       &lt;td&gt;0..13&lt;/td&gt;
       &lt;td&gt;Text until 13 characters that will be shown on holder’s invoice, after the Commercial Establishment name.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;numero-bilhete&lt;/td&gt;
+      &lt;td&gt;Alphanumeric&lt;/td&gt;
+      &lt;td&gt;Optional&lt;/td&gt;
+      &lt;td&gt;13&lt;/td&gt;
+      &lt;td&gt;Notify the main air ticket number of the transaction.&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;

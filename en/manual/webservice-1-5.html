@@ -499,8 +499,9 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;data-hora&gt;</span>2011-12-07T11:43:37<span class="nt">&lt;/data-hora&gt;</span>
     <span class="nt">&lt;descricao&gt;</span>[origem:10.50.54.156]<span class="nt">&lt;/descricao&gt;</span>
     <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-    <span class="nt">&lt;soft-descriptor/&gt;</span>
     <span class="nt">&lt;taxa-embarque/&gt;</span>
+    <span class="nt">&lt;soft-descriptor/&gt;</span>
+    <span class="nt">&lt;numero-bilhete&gt;</span>123456<span class="nt">&lt;/numero-bilhete&gt;</span>
   <span class="nt">&lt;/dados-pedido&gt;</span>
   <span class="nt">&lt;forma-pagamento&gt;</span>
     <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
@@ -772,6 +773,13 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>Optional</td>
       <td>0..13</td>
       <td>Text until 13 characters that will be shown on holder’s invoice, after the Commercial Establishment name.</td>
+    </tr>
+    <tr>
+      <td>numero-bilhete</td>
+      <td>Alphanumeric</td>
+      <td>Optional</td>
+      <td>13</td>
+      <td>Notify the main air ticket number of the transaction.</td>
     </tr>
   </tbody>
 </table>
