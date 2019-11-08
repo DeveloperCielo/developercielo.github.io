@@ -302,8 +302,8 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
     <descricao>[origem:10.50.54.156]</descricao>
     <idioma>PT</idioma>
     <taxa-embarque/>
-	<soft-descriptor/>
-	<numero-bilhete>123456</numero-bilhete>
+    <soft-descriptor/>
+    <numero-bilhete>123456</numero-bilhete>
   </dados-pedido>
   <forma-pagamento>
     <bandeira>visa</bandeira>
