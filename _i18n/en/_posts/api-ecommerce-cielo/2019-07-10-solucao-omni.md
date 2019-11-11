@@ -1309,3 +1309,15 @@ When a payment is created (201 - Created), you should review the Status (Payment
 |---|---|
 | 1 | When recovering the card pan, search in the `Bins` table for a bin that is between the values `InitialBin` and `FinalBin` (always consider the most specific Bins range) and recover the associated product in the `ProductId` field; |
 | 2 | Recover products that have the same `ProductType` (`Products` table) that started in the transaction(DEBIT, CREDIT...) and the same host flow (`HostFlow` field) that those defined by Cielo; |
+
+# Confirmation
+
+When the payment returns successful, then it can be confirmed.
+
+This operation requires the PaymentId received on the return of the payment, in addition to the EmvData data if the payment was made through Chip.
+
+Confirmation is only required for payments made through POS.
+
+| SandBox                                             | Production                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
