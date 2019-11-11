@@ -5167,8 +5167,8 @@ Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a
          "SaveCard":"false",
          "Brand":"Visa",
          "CardOnFile":{
-		     "usage":"first"
-		 }
+		   "usage":"first"
+         }
      }
    }
 }
@@ -5203,10 +5203,10 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"262",
          "SaveCard":"false",
-         "Brand":"Visa".
-		 "CardOnFile":{
-		     "usage":"first"
-		 }
+         "Brand":"Visa",
+         "CardOnFile":{
+           "usage":"first"
+         }
      }
    }
 }
