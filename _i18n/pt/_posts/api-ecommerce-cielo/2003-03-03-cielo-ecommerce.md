@@ -5511,7 +5511,7 @@ Para transações recorrentes com cartão de débito, após enviado o request de
             "CardOnFile": {
                 "usage":"first"
             }
-        },		
+        },
         "Provider": "cielo",
         "AuthorizationCode": "603094",
         "Eci": "5",
@@ -5575,7 +5575,7 @@ Para transações recorrentes com cartão de débito, após enviado o request de
             "CardOnFile": {
                 "usage":"first"
             }
-        },		
+        },
         "Provider": "cielo",
         "AuthorizationCode": "603094",
         "Eci": "5",
