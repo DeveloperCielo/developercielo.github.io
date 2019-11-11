@@ -5620,8 +5620,9 @@ Para transações recorrentes com cartão de débito, após enviado o request de
 }
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
+|`DebitCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
 |`DebitCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
 |`DebitCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
 |`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
