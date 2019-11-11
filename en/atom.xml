@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-11-08T12:47:39+00:00</updated>
+    <updated>2019-11-11T12:32:58+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7283,6 +7283,29 @@ This procedure is also valid for establishments that performed authentication ou
     &lt;tr&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Recover products that have the same &lt;code class=&quot;highlighter-rouge&quot;&gt;ProductType&lt;/code&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;Products&lt;/code&gt; table) that started in the transaction(DEBIT, CREDIT…) and the same host flow (&lt;code class=&quot;highlighter-rouge&quot;&gt;HostFlow&lt;/code&gt; field) that those defined by Cielo;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;confirmation&quot;&gt;Confirmation&lt;/h1&gt;
+
+&lt;p&gt;When the payment returns successful, then it can be confirmed.&lt;/p&gt;
+
+&lt;p&gt;This operation requires the PaymentId received on the return of the payment, in addition to the EmvData data if the payment was made through Chip.&lt;/p&gt;
+
+&lt;p&gt;Confirmation is only required for payments made through POS.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;SandBox&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Production&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;https://apisandbox.cieloecommerce.cielo.com.br&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;https://api.cieloecommerce.cielo.com.br/&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
