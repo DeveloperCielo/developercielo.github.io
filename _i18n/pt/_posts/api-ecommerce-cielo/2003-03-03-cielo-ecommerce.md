@@ -5408,14 +5408,14 @@ curl
          "SecurityCode":"***",
          "Brand":"Visa",
          "CardOnFile":{
-		   "usage":"first"
+                "usage":"first"
          }
      },
      "ExternalAuthentication":{
-	   "Cavv":"a901234a5678a0123a567a90120=",
-	   "Xid":"a90123a45678a0123a567a90123",
-	   "Eci":"5",
-	   "Version":"2"
+         "Cavv":"a901234a5678a0123a567a90120=",
+         "Xid":"a90123a45678a0123a567a90123",
+         "Eci":"5",
+         "Version":"2"
      }
    }
 }
@@ -5451,14 +5451,14 @@ curl
          "SecurityCode":"***",
          "Brand":"Visa",
          "CardOnFile":{
-		   "usage":"first"
+                "usage":"first"
          }
      },
      "ExternalAuthentication":{
-	   "Cavv":"a901234a5678a0123a567a90120=",
-	   "Xid":"a90123a45678a0123a567a90123",
-	   "Eci":"5",
-	   "Version":"2"
+         "Cavv":"a901234a5678a0123a567a90120=",
+         "Xid":"a90123a45678a0123a567a90123",
+         "Eci":"5",
+         "Version":"2"
      }
    }
 }
@@ -5509,7 +5509,7 @@ Para transações recorrentes com cartão de débito, após enviado o request de
             "SaveCard": false,
             "Brand": "Visa",
             "CardOnFile": {
-			  "usage":"first"
+                "usage":"first"
             }
         },		
         "Provider": "cielo",
