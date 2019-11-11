@@ -1362,7 +1362,6 @@ null
 |`ReturnCode`|String|---|---|Error code/Acquisition transaction response.|
 |`ReturnMessage`|String|---|---|Error message/Acquisition transaction response.|
 
-
 ## Confirmação de pagamento usando cartão EMV
 
 ### Request
