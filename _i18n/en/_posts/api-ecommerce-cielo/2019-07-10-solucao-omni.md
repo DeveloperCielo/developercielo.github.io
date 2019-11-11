@@ -1361,3 +1361,52 @@ null
 |`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled <br><br>13 = Aborted|
 |`ReturnCode`|String|---|---|Error code/Acquisition transaction response.|
 |`ReturnMessage`|String|---|---|Error message/Acquisition transaction response.|
+
+
+## Confirmação de pagamento usando cartão EMV
+
+### Request
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
+
+```json
+{
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptResults": "0000"
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`EmvData`|String|---|---|EMV Transaction Data <br><br>Obtained through PP_GoOnChip Command in BC|
+|`IssuerScriptResults`|String|---|---|Result of EMV scripts of the issuer|
+
+### Response
+
+```json
+{
+  "ConfirmationStatus": 1,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Successful",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    }
+  ]
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Confirmation status. <br><br>0 = Pending <br><br>1 = Confirmed <br><br>2 = Undone|
+|`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled <br><br>13 = Aborted|
+|`ReturnCode`|String|---|---|Error code/Acquisition transaction response.|
+|`ReturnMessage`|String|---|---|Error message/Acquisition transaction response.|
