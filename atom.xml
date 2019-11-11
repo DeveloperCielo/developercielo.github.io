@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-11-11T15:02:58+00:00</updated>
+    <updated>2019-11-11T15:07:07+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -37573,10 +37573,17 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
       &lt;th&gt;Descrição&lt;/th&gt;
       &lt;th&gt;Tipo&lt;/th&gt;
       &lt;th&gt;Tamanho&lt;/th&gt;
-      &lt;th&gt;Formato&lt;/th&gt;
+      &lt;th&gt;Obrigatório&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.CardNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Número do Cartão do Comprador.&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
+      &lt;td&gt;19&lt;/td&gt;
+      &lt;td&gt;Sim&lt;/td&gt;
+    &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;DebitCard.Holder&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Nome do Comprador impresso no cartão.&lt;/td&gt;
