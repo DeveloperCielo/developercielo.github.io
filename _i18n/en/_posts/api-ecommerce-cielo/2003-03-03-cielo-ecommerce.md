@@ -5071,11 +5071,9 @@ For recurring debit card transactions, after submitting a request for a transact
 
 To create a recurring sale whose first recurrence is authorized with the form of payment as credit card, just do a POST as the example.
 
-<aside class="notice"><strong>Warning:</strong> In this recurrence mode, the first transaction must be
+<aside class="notice"><strong>Warning:</strong> In this recurrence mode, the first transaction must be of captured. All subsequent transactions will be automatically captured.</aside>
 
- of. All subsequent transactions will be automatically captured.</aside>
-
-#### Request
+#### Credit Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -5101,7 +5099,10 @@ To create a recurring sale whose first recurrence is authorized with the form of
          "ExpirationDate":"12/2030",
          "SecurityCode":"262",
          "SaveCard":"false",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "CardOnFile":{
+           "usage":"first"
+         }
      }
    }
 }
@@ -5136,7 +5137,10 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"262",
          "SaveCard":"false",
-         "Brand":"Visa"
+         "Brand":"Visa",
+         "CardOnFile":{
+           "usage":"first"
+         }
      }
    }
 }
@@ -5162,8 +5166,10 @@ curl
 |`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
 |`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+|`CreditCard.CardOnFile.Usage`|**First** if the card has been stored and is your first use.<br>**Used** if the card has been stored and was previously used in another transaction.|Text|---|No|
+|`CreditCard.CardOnFile.Reason`|Indicates the purpose of cards storage if the `Usage` field is` Used`.<br>**Recurring** - Scheduled recurring purchase (e.g. signatures).<br>**Unscheduled** - Unscheduled recurring purchase (ex. service applications).<br>**Installments** - Installment payment through recurrence.|Text|---|Conditional|
 
-#### Response
+#### Credit Response
 
 ```json
 {
@@ -5308,6 +5314,274 @@ curl
 |`EndDate`|End date of recurrence.|Text|7|12/2030 (MM/YYYY)|
 |`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|true ou false|
+
+#### Debit Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014121201",
+   "Customer":{  
+      "Name":"Comprador rec programada"
+   },
+   "Payment":{  
+     "Type":"DebitCard",
+     "Amount":15700,
+     "Provider":"cielo",
+     "RecurrentPayment":{
+       "AuthorizeNow":"true",
+       "EndDate":"2030-02-27",
+       "Interval":"bimonthly"
+     },
+     "ReturnUrl":"https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
+     "DebitCard":{  
+         "CardNumber":"*****0183",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"11/2019",
+         "SecurityCode":"***",
+         "Brand":"Visa",
+         "CardOnFile":{
+                "usage":"first"
+         }
+     },
+     "ExternalAuthentication":{
+         "Cavv":"a901234a5678a0123a567a90120=",
+         "Xid":"a90123a45678a0123a567a90123",
+         "Eci":"5",
+         "Version":"2"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+    {  
+   "MerchantOrderId":"2014121201",
+   "Customer":{  
+      "Name":"Comprador rec programada"
+   },
+   "Payment":{  
+     "Type":"DebitCard",
+     "Amount":15700,
+     "Provider":"cielo",
+     "RecurrentPayment":{
+       "AuthorizeNow":"true",
+       "EndDate":"2030-02-27",
+       "Interval":"bimonthly"
+     },
+     "ReturnUrl":"https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
+     "DebitCard":{  
+         "CardNumber":"*****0183",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"11/2019",
+         "SecurityCode":"***",
+         "Brand":"Visa",
+         "CardOnFile":{
+                "usage":"first"
+         }
+     },
+     "ExternalAuthentication":{
+         "Cavv":"a901234a5678a0123a567a90120=",
+         "Xid":"a90123a45678a0123a567a90123",
+         "Eci":"5",
+         "Version":"2"
+     }
+   }
+}
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|6|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantOrderId`|Order ID number.|Text|50|Yes|
+|`Customer.Name`|Buyer's name.|Text|255|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
+|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
+|`Payment.Provider`|Defines behavior of the payment method|Text|15|---|
+|`Payment.RecurrentPayment.EndDate`|End date for recurrence.|Text|10|No|
+|`Payment.RecurrentPayment.Interval`|Recurrence interval.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Text|10|No|
+|`Payment.RecurrentPayment.AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|Yes|
+|`Payment.ReturnUrl`|URI to where the user will be redirected after payment ends|Text|1024|---|
+|`DebitCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
+|`DebitCard.Holder`|Buyer's name printed on card.|Text|25|No|
+|`DebitCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
+|`DebitCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
+|`DebitCard.Brand`|Card issuer.|Text|10|Yes|
+|`DebitCard.CardOnFile.Usage`|**First** if the card has been stored and is your first use.<br>**Used** if the card has been stored and was previously used in another transaction.|Text|---|No|
+|`DebitCard.CardOnFile.Reason`|Indicates the purpose of cards storage if the `Usage` field is` Used`.<br>**Recurring** - Scheduled recurring purchase (e.g. signatures).<br>**Unscheduled** - Unscheduled recurring purchase (ex. service applications).<br>**Installments** - Installment payment through recurrence.|Text|---|Conditional|
+|`ExternalAuthentication.Cavv`|The Cavv value is returned by the authentication mechanism.|Text|28|Yes|
+|`ExternalAuthentication.Xid`|The Xid value is returned by the authentication mechanism.|Text|28|Yes|
+|`ExternalAuthentication.Eci`|The Eci value is returned by the authentication mechanism.|Number|1|Yes|
+|`ExternalAuthentication.Version`|---|---|---|
+
+#### Debit Response
+
+For recurring debit card transactions, after submitting the request for a transaction with 3DS 2.0 authentication request, issuer Transaction ID information is returned on the first authenticated transaction. This information will be stored by Cielo and sent in subsequent transactions, allowing the Issuing Bank to link subsequent unauthenticated debit transactions, with the first debit transaction authenticated. This model is available for Visa debit cards only.
+
+```json
+{
+    "MerchantOrderId": "2014121201",
+    "Customer": {
+        "Name": "Comprador rec programada"
+    },
+    "Payment": {
+        "DebitCard": {
+            "CardNumber": "123412******1231",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "CardOnFile": {
+                "usage":"first"
+            }
+        },
+        "Provider": "cielo",
+        "AuthorizationCode": "603094",
+        "Eci": "5",
+        "Tid": "10069930698dvs6862lc",
+        "ProofOfSale": "139053",
+        "Authenticate": true,
+        "ExternalAuthentication":{
+          "Cavv":"a901234a5678a0123a567a90120=",
+          "Xid":"a90123a45678a0123a567a90123",
+          "Eci":"5",
+          "Version":"2"
+        },
+        "Recurrent": false,
+        "IssuerTransactionId":"009277050978376",
+        "Amount": 15700,
+        "ReceivedDate":"2019-10-04 11:29:49",
+        "CapturedAmount":15700,
+        "CapturedDate":"2019-10-04 11:30:31",
+        "ReturnUrl":"https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
+        "RecurrentPayment": {
+          "ReasonCode": 0,
+          "EndDate": "2030-02-27",
+          "Interval": 2,
+          "AuthorizeNow": true
+        },
+        "Status": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "transacao capturada com sucesso",
+        "ReturnCode": "00",
+        "PaymentId": "a06f448c-ece6-450b-bbee-46fd9f8172bd",
+        "Type": "DebitCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://clicktime.symantec.com/3UMBUMs6zhEfkus8rbrmqgi7Vc?u=https%3A%2F%2Fapiquerysandbox.cieloecommerce.cielo.com.br%2F1%2Fsales%2Fa06f448c-ece6-450b-bbee-46fd9f8172bd%2522"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2014121201",
+    "Customer": {
+        "Name": "Comprador rec programada"
+    },
+    "Payment": {
+        "DebitCard": {
+            "CardNumber": "123412******1231",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "CardOnFile": {
+                "usage":"first"
+            }
+        },
+        "Provider": "cielo",
+        "AuthorizationCode": "603094",
+        "Eci": "5",
+        "Tid": "10069930698dvs6862lc",
+        "ProofOfSale": "139053",
+        "Authenticate": true,
+        "ExternalAuthentication":{
+          "Cavv":"a901234a5678a0123a567a90120=",
+          "Xid":"a90123a45678a0123a567a90123",
+          "Eci":"5",
+          "Version":"2"
+        },
+        "Recurrent": false,
+        "IssuerTransactionId":"009277050978376",
+        "Amount": 15700,
+        "ReceivedDate":"2019-10-04 11:29:49",
+        "CapturedAmount":15700,
+        "CapturedDate":"2019-10-04 11:30:31",
+        "ReturnUrl":"https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
+        "RecurrentPayment": {
+            "ReasonCode": 0,
+            "EndDate": "2030-02-27",
+            "Interval": 2,
+            "AuthorizeNow": true
+        },
+        "Status": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "transacao capturada com sucesso",
+        "ReturnCode": "00",
+        "PaymentId": "a06f448c-ece6-450b-bbee-46fd9f8172bd",
+        "Type": "DebitCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://clicktime.symantec.com/3UMBUMs6zhEfkus8rbrmqgi7Vc?u=https%3A%2F%2Fapiquerysandbox.cieloecommerce.cielo.com.br%2F1%2Fsales%2Fa06f448c-ece6-450b-bbee-46fd9f8172bd%2522"
+            }
+        ]
+    }
+}
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`DebitCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
+|`DebitCard.Holder`|Buyer's name printed on card.|Text|25|No|
+|`DebitCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
+|`DebitCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
+|`DebitCard.Brand`|Card issuer.|Text|10|Yes|
+|`DebitCard.CardOnFile.Usage`|**First** if the card has been stored and is your first use.<br>**Used** if the card has been stored and was previously used in another transaction.|Text|---|No|
+|`DebitCard.CardOnFile.Reason`|Indicates the purpose of cards storage if the `Usage` field is` Used`.<br>**Recurring** - Scheduled recurring purchase (e.g. signatures).<br>**Unscheduled** - Unscheduled recurring purchase (ex. service applications).<br>**Installments** - Installment payment through recurrence.|Text|---|Conditional|
+|`Payment.Provider`|Defines behavior of the payment method|Text|15|---|
+|`Payment.AuthorizationCode`|Authorization code.|Text|6|---|
+|`Payment.Eci`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|---|
+|`Payment.Tid`|Transaction Id on the acquirer.|Text|6|---|
+|`Payment.ProofOfSale`|Authorization number, identical to NSU.|Text|6|---|
+|`Payment.Authenticate`|Defines whether the buyer will be directed to the Issuing bank for card authentication|Boolean|---|No|
+|`ExternalAuthentication.Cavv`|The Cavv value is returned by the authentication mechanism.|Text|28|Yes|
+|`ExternalAuthentication.Xid`|The Xid value is returned by the authentication mechanism.|Text|28|Yes|
+|`ExternalAuthentication.Eci`|The Eci value is returned by the authentication mechanism.|Number|1|Yes|
+|`ExternalAuthentication.Version`|---|---|---|
+|`Payment.Recurrent`|Marking an unscheduled recurrence transaction|Boolean|5|Yes|
+|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
+|`Payment.ReturnUrl`|URI to where the user will be redirected after payment ends|Text|1024|---|
+|`Payment.RecurrentPayment.EndDate`|End date for recurrence.|Text|10|No|
+|`Payment.RecurrentPayment.Interval`|Recurrence interval.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Text|10|No|
+|`Payment.RecurrentPayment.AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|Yes|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
+|`Payment.Currency`|Currency in which payment will be made (BRL).|Text|3|No|
+|`Payment.Country`|Country where payment will be made.|Text|3|No|
 
 ## Scheduling a Scheduled Recurrence
 
