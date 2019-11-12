@@ -3084,7 +3084,7 @@ curl
 |`RecurrentTransactions.TryNumber`|Number of current attempt at the specific recurrence|Number|2|1|
 |`Payment.IssuerTransactionId`|Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.|Text|15|---|
 
-**Warning:** The `IssuerTransactionId` field can also be obtained by querying the first transaction of the recurrence. See details on how to make an appointment [** here **](https://developercielo.github.io/en/manual/cielo-ecommerce#consulting-transactions).
+**Warning:** The `IssuerTransactionId` field can also be obtained by querying the first transaction of the recurrence. See details on how to make an appointment [**here**](https://developercielo.github.io/en/manual/cielo-ecommerce#consulting-transactions).
 
 ## Capture
 
