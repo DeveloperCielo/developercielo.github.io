@@ -1548,7 +1548,7 @@ null
 
 # Depletion
 
-## Depletion using typed card
+## Depletion using card payment typed
 
 Payment was successfully returned and may be undone.
 
@@ -1699,3 +1699,35 @@ Must request the depletion through the PaymentId received on the return of payme
 |`ConfirmationStatus`|Integer int16|---|---|Confirmation status. <br><br>0 = Pending <br><br>1 = Confirmed <br><br>2 = Undone|
 |`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled<br><br>13 = Aborted|
 |`ReturnCode`|String|---|---|Error message/Acquisition transaction response.|
+
+## Depletion using card payment typed
+
+When the payment does not return, it must be undone.
+
+To request the depletion you must inform the MerchantOrderId sent in the payment.
+
+| SandBox                                             | Production                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+### Request
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
+
+### Response
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
