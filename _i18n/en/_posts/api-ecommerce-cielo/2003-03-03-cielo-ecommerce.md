@@ -3018,7 +3018,8 @@ curl
                 "TryNumber": 1
             }
         ],
-        "Status": 1
+        "Status": 1,
+        "IssuerTransactionId": "009295034362939"
     }
 }
 ```
@@ -3059,7 +3060,8 @@ curl
                 "TryNumber": 1
             }
         ],
-        "Status": 1
+        "Status": 1,
+        "IssuerTransactionId": "009295034362939"
     }
 }
 ```
@@ -3080,6 +3082,9 @@ curl
 |`RecurrentTransactions.TransactionId`|Payment ID of the transaction generated on recurrence|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RecurrentTransactions.PaymentNumber`|Number of Recurrence. The first one is zero|Number|2|3|
 |`RecurrentTransactions.TryNumber`|Number of current attempt at the specific recurrence|Number|2|1|
+|`Payment.IssuerTransactionId`|Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.|Text|15|---|
+
+**Warning:** The `IssuerTransactionId` field can also be obtained by querying the first transaction of the recurrence. See details on how to make an appointment [** here **](https://developercielo.github.io/en/manual/cielo-ecommerce#consulting-transactions).
 
 ## Capture
 
@@ -4993,7 +4998,8 @@ For recurring debit card transactions, after submitting a request for a transact
          "SaveCard": false,
          "Brand": "Visa",
          "CardOnFile":{
-            "Usage": "First"
+            "Usage": "First",
+            "Reason": "Conforme documentação"
          },
          "PaymentAccountReference":"80215935306245595386112369301"
      },
@@ -5061,6 +5067,7 @@ For recurring debit card transactions, after submitting a request for a transact
 |`ExternalAuthentication.Eci`|The Eci value is returned by the authentication mechanism.|Number|1|Yes|
 |`ExternalAuthentication.Version`|---|---|---|
 |`Payment.Recurrent`|Marking an unscheduled recurrence transaction|Boolean|5|Yes|
+|`Payment.IssuerTransactionId`|Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.|Text|15|---|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.ReturnUrl`|URI to which the user will be redirected after payment ends|Text|1024|Yes|
 |`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
@@ -5574,6 +5581,7 @@ For recurring debit card transactions, after submitting the request for a transa
 |`ExternalAuthentication.Eci`|The Eci value is returned by the authentication mechanism.|Number|1|Yes|
 |`ExternalAuthentication.Version`|---|---|---|
 |`Payment.Recurrent`|Marking an unscheduled recurrence transaction|Boolean|5|Yes|
+|`Payment.IssuerTransactionId`|Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.|Text|15|---|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.ReturnUrl`|URI to where the user will be redirected after payment ends|Text|1024|---|
 |`Payment.RecurrentPayment.EndDate`|End date for recurrence.|Text|10|No|
