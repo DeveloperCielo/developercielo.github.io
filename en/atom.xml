@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-11-12T03:50:03+00:00</updated>
+    <updated>2019-11-12T03:56:09+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -30070,7 +30070,7 @@ PaymentIds associated with the identifier.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; The &lt;code class=&quot;highlighter-rouge&quot;&gt;IssuerTransactionId&lt;/code&gt; field can also be obtained by querying the first transaction of the recurrence. See details on how to make an appointment &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#consulting-transactions&quot;&gt;** here **&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; The &lt;code class=&quot;highlighter-rouge&quot;&gt;IssuerTransactionId&lt;/code&gt; field can also be obtained by querying the first transaction of the recurrence. See details on how to make an appointment &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#consulting-transactions&quot;&gt;&lt;strong&gt;here&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;capture-1&quot;&gt;Capture&lt;/h2&gt;
 
