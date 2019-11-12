@@ -2984,11 +2984,11 @@ curls
 |---|---|---|---|---|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-### Consulta Recorrencia
+### Consulta Recorrência
 
 Para consultar uma Recorrência de cartão de crédito, é necessário fazer um `GET`  conforme o exemplo.
 
-**A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um `GET` na transação (Disponivel em "Consultanto vendas)** 
+**A Consulta da Recorrência traz dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um `GET` na transação (Disponível em "Consultando vendas)** 
 
 #### Requisição
 
@@ -3047,7 +3047,8 @@ curl
                 "TryNumber": 1
             }
         ],
-        "Status": 1
+        "Status": 1,
+        "IssuerTransactionId": "009295034362939"
     }
 }
 ```
@@ -3088,7 +3089,8 @@ curl
                 "TryNumber": 1
             }
         ],
-        "Status": 1
+        "Status": 1,
+        "IssuerTransactionId": "009295034362939"
     }
 }
 ```
@@ -3109,6 +3111,9 @@ curl
 |`RecurrentTransactions.TransactionId`|Payment ID da transação gerada na recorrência|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RecurrentTransactions.PaymentNumber`|Número da Recorrência. A primeira é zero|Número|2|3|
 |`RecurrentTransactions.TryNumber`|Número da tentativa atual na recorrência específica|Número|2|1|
+|`Payment.IssuerTransactionId`|Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.|Texto|15|---|
+
+<aside class="warning">Atenção: O campo  “IssuerTransactionId” também pode ser obtido através da consulta da primeira transação da recorrência. Ver detalhes de como fazer uma consulta [aqui](https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-transa%C3%A7%C3%B5es).</aside>
 
 ## Captura
 
@@ -5059,7 +5064,8 @@ Para transações recorrentes com cartão de débito, após enviado o request de
          "SaveCard": false,
          "Brand": "Visa",
          "CardOnFile":{
-            "Usage": "First"
+            "Usage": "First",
+            "Reason": "Conforme documentação"
          },
          "PaymentAccountReference":"80215935306245595386112369301"
      },
@@ -5076,7 +5082,7 @@ Para transações recorrentes com cartão de débito, após enviado o request de
          "Version": "2"
      },
      "Recurrent": true,
-     "IssuerTransactionId": "009295034362939",
+     "IssuerTransactionId": "009242668734612",
      "Amount": 15700,
      "ReceivedDate": "2019-10-22 16:59:26",
      "CapturedAmount": 15700,
@@ -5127,6 +5133,7 @@ Para transações recorrentes com cartão de débito, após enviado o request de
 |`ExternalAuthentication.Eci`|O valor Eci é retornado pelo mecanismo de autenticação.|Número|1|Sim|
 |`ExternalAuthentication.Version`|---|---|---|
 |`Payment.Recurrent`|marcação de uma transação de recorrencia não programada|boolean|5|Não|
+|`Payment.IssuerTransactionId`|Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.|Texto|15|---|
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
 |`Payment.ReturnUrl`|URI para onde o usuário será redirecionado após o fim do pagamento|Texto|1024|Sim|
 |`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
@@ -5640,6 +5647,7 @@ Para transações recorrentes com cartão de débito, após enviado o request de
 |`ExternalAuthentication.Eci`|O valor Eci é retornado pelo mecanismo de autenticação.|Número|1|Sim|
 |`ExternalAuthentication.Version`|---|---|---|
 |`Payment.Recurrent`|marcação de uma transação de recorrencia não programada|boolean|5|Não|
+|`Payment.IssuerTransactionId`|Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.|Texto|15|---|
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
 |`Payment.ReturnUrl`|URI para onde o usuário será redirecionado após o fim do pagamento|Texto|1024|Sim|
 |`Payment.RecurrentPayment.EndDate`|Data para termino da recorrência.|Texto|10|Não|
