@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-11-12T03:16:45+00:00</updated>
+    <updated>2019-11-12T03:21:51+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31980,7 +31980,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Atenção: O campo &lt;code class=&quot;highlighter-rouge&quot;&gt;IssuerTransactionId&lt;/code&gt; também pode ser obtido através da consulta da primeira transação da recorrência. Ver detalhes de como fazer uma consulta &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-transa%C3%A7%C3%B5es&quot;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; O campo &lt;code class=&quot;highlighter-rouge&quot;&gt;IssuerTransactionId&lt;/code&gt; também pode ser obtido através da consulta da primeira transação da recorrência. Ver detalhes de como fazer uma consulta &lt;a href=&quot;https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-transa%C3%A7%C3%B5es&quot;&gt;&lt;strong&gt;aqui&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;captura-1&quot;&gt;Captura&lt;/h2&gt;
 
