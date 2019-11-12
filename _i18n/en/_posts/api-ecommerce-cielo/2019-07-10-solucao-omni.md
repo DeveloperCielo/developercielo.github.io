@@ -1409,3 +1409,11 @@ null
 |`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled <br><br>13 = Aborted|
 |`ReturnCode`|String|---|---|Error code/Acquisition transaction response.|
 |`ReturnMessage`|String|---|---|Error message/Acquisition transaction response.|
+
+# Cancellation
+
+| SandBox                                             | Production                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+## Payment cancellation using typed card
