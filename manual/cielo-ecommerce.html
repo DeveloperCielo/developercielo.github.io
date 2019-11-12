@@ -5855,11 +5855,11 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h3 id="consulta-recorrencia">Consulta Recorrencia</h3>
+<h3 id="consulta-recorrência">Consulta Recorrência</h3>
 
 <p>Para consultar uma Recorrência de cartão de crédito, é necessário fazer um <code class="highlighter-rouge">GET</code>  conforme o exemplo.</p>
 
-<p><strong>A Consulta da Recorrência tras dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um <code class="highlighter-rouge">GET</code> na transação (Disponivel em “Consultanto vendas)</strong></p>
+<p><strong>A Consulta da Recorrência traz dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um <code class="highlighter-rouge">GET</code> na transação (Disponível em “Consultando vendas)</strong></p>
 
 <h4 id="requisição-12">Requisição</h4>
 
@@ -5951,7 +5951,8 @@ Abaixo especificamos qualquer diferença existente:</p>
                 </span><span class="nl">"TryNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"009295034362939"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -5991,7 +5992,8 @@ Abaixo especificamos qualquer diferença existente:</p>
                 <span class="s2">"TryNumber"</span>: 1
             <span class="o">}</span>
         <span class="o">]</span>,
-        <span class="s2">"Status"</span>: 1
+        <span class="s2">"Status"</span>: 1,
+        <span class="s2">"IssuerTransactionId"</span>: <span class="s2">"009295034362939"</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -6105,8 +6107,17 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>2</td>
       <td>1</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.IssuerTransactionId</code></td>
+      <td>Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>—</td>
+    </tr>
   </tbody>
 </table>
+
+<aside class="warning">Atenção: O campo  “IssuerTransactionId” também pode ser obtido através da consulta da primeira transação da recorrência. Ver detalhes de como fazer uma consulta [aqui](https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-transa%C3%A7%C3%B5es).</aside>
 
 <h2 id="captura-1">Captura</h2>
 
@@ -10650,7 +10661,8 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
          </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conforme documentação"</span><span class="w">
          </span><span class="p">},</span><span class="w">
          </span><span class="nl">"PaymentAccountReference"</span><span class="p">:</span><span class="s2">"80215935306245595386112369301"</span><span class="w">
      </span><span class="p">},</span><span class="w">
@@ -10667,7 +10679,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
          </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
      </span><span class="p">},</span><span class="w">
      </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"009295034362939"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"009242668734612"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
      </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-22 16:59:26"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
@@ -10870,6 +10882,13 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
       <td>boolean</td>
       <td>5</td>
       <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.IssuerTransactionId</code></td>
+      <td>Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Amount</code></td>
@@ -11839,6 +11858,13 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
       <td>boolean</td>
       <td>5</td>
       <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.IssuerTransactionId</code></td>
+      <td>Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.</td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Amount</code></td>
