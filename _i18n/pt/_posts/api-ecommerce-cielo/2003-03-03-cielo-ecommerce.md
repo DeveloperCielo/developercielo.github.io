@@ -3113,7 +3113,7 @@ curl
 |`RecurrentTransactions.TryNumber`|Número da tentativa atual na recorrência específica|Número|2|1|
 |`Payment.IssuerTransactionId`|Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.|Texto|15|---|
 
-<aside class="notice">Atenção: O campo `IssuerTransactionId` também pode ser obtido através da consulta da primeira transação da recorrência. Ver detalhes de como fazer uma consulta [aqui](https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-transa%C3%A7%C3%B5es).</aside>
+<strong>Atenção:</strong> O campo `IssuerTransactionId` também pode ser obtido através da consulta da primeira transação da recorrência. Ver detalhes de como fazer uma consulta <strong>[aqui](https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-transa%C3%A7%C3%B5es).</strong>
 
 ## Captura
 
