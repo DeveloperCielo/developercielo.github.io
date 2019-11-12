@@ -5928,7 +5928,8 @@ PaymentIds associated with the identifier.</p>
                 </span><span class="nl">"TryNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"009295034362939"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -5968,7 +5969,8 @@ PaymentIds associated with the identifier.</p>
                 <span class="s2">"TryNumber"</span>: 1
             <span class="o">}</span>
         <span class="o">]</span>,
-        <span class="s2">"Status"</span>: 1
+        <span class="s2">"Status"</span>: 1,
+        <span class="s2">"IssuerTransactionId"</span>: <span class="s2">"009295034362939"</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -6082,8 +6084,17 @@ PaymentIds associated with the identifier.</p>
       <td>2</td>
       <td>1</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.IssuerTransactionId</code></td>
+      <td>Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>—</td>
+    </tr>
   </tbody>
 </table>
+
+<p><strong>Warning:</strong> The <code class="highlighter-rouge">IssuerTransactionId</code> field can also be obtained by querying the first transaction of the recurrence. See details on how to make an appointment <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#consulting-transactions">** here **</a>.</p>
 
 <h2 id="capture-1">Capture</h2>
 
@@ -10542,7 +10553,8 @@ In this model, the merchant’ system is in charge of defining the period, the t
          </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Conforme documentação"</span><span class="w">
          </span><span class="p">},</span><span class="w">
          </span><span class="nl">"PaymentAccountReference"</span><span class="p">:</span><span class="s2">"80215935306245595386112369301"</span><span class="w">
      </span><span class="p">},</span><span class="w">
@@ -10762,6 +10774,13 @@ In this model, the merchant’ system is in charge of defining the period, the t
       <td>Boolean</td>
       <td>5</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.IssuerTransactionId</code></td>
+      <td>Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Amount</code></td>
@@ -11731,6 +11750,13 @@ In this model, the merchant’ system is in charge of defining the period, the t
       <td>Boolean</td>
       <td>5</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.IssuerTransactionId</code></td>
+      <td>Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
+      <td>Text</td>
+      <td>15</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Amount</code></td>
