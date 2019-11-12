@@ -1612,7 +1612,7 @@ Must request the depletion through the PaymentId received on the return of payme
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled<br><br>13 = Aborted|
 |`ReturnCode`|String|---|---|Error message/Acquisition transaction response.|
 
-## Depletion EMV Card
+## Depletion using EMV card payment
 
 Payment was successfully returned and may be undone.
 
@@ -1704,7 +1704,7 @@ Must request the depletion through the PaymentId received on the return of payme
 
 When the payment does not return, it must be undone.
 
-To request the depletion you must inform the MerchantOrderId sent in the payment.
+To request the depletion it must be informed the MerchantOrderId sent in the payment.
 
 | SandBox                                             | Production                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
@@ -1742,6 +1742,98 @@ To request the depletion you must inform the MerchantOrderId sent in the payment
 ### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
+
+### Response
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Confirmation status. <br><br>0 = Pending <br><br>1 = Confirmed <br><br>2 = Undone|
+|`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled<br><br>13 = Aborted|
+|`ReturnCode`|String|---|---|Error code/Acquisition transaction response.|
+|`ReturnMessage`|String|---|---|Error message/Acquisition transaction response.|
+
+## Depletion using EMV card payment 
+
+When the payment does not return, it must be undone.
+
+To request the depletion it must be informed the MerchantOrderId sent in the payment.
+
+| SandBox                                             | Production                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+### Request
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
+
+```json
+{
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptsResults": "0000"
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`EmvData`|String|---|---|EMV Transaction Data <br><br>Obtained through PP_GoOnChip Command in BC|
+|`IssuerScriptsResults`|String|---|---|Result of EMV scripts of the issuer|
+
+### Response
+
+```json
+{
+  "ConfirmationStatus": 2,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    }
+  ]
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Confirmation status. <br><br>0 = Pending <br><br>1 = Confirmed <br><br>2 = Undone|
+|`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled<br><br>13 = Aborted|
+|`ReturnCode`|String|---|---|Error code/Acquisition transaction response.|
+|`ReturnMessage`|String|---|---|Error message/Acquisition transaction response.|
+
+### Request
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
+
+```json
+{
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptsResults": "0000"
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`EmvData`|String|---|---|EMV Transaction Data <br><br>Obtained through PP_GoOnChip Command in BC|
+|`IssuerScriptsResults`|String|---|---|Result of EMV scripts of the issuer|
 
 ### Response
 
