@@ -37,13 +37,13 @@ For the integration, it is necessary that the business partner/sub-purchaser cap
 * DUKPT encryption keys implemented for PIN.
 * Make your BDK available for installation on HSM Cielo.
 
+Key Format required by Cielo:
+
 HSM Cielo is parameterized to a KSN as follows:
 
 * **KSI -** Key identification number
 * **DID –** Device ID
 * **TC –** Transaction Counter
-
-Key Format required by Cielo:
 
 In the key register is only inserted the KSI that has 5 numeric characters and the key, as the example below:
 
