@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-11-12T21:16:27+00:00</updated>
+    <updated>2019-11-14T13:14:56+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3618,6 +3618,8 @@ This procedure is also valid for establishments that performed authentication ou
   &lt;li&gt;Make your BDK available for installation on HSM Cielo.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;Key Format required by Cielo:&lt;/p&gt;
+
 &lt;p&gt;HSM Cielo is parameterized to a KSN as follows:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -3625,8 +3627,6 @@ This procedure is also valid for establishments that performed authentication ou
   &lt;li&gt;&lt;strong&gt;DID –&lt;/strong&gt; Device ID&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;TC –&lt;/strong&gt; Transaction Counter&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;Key Format required by Cielo:&lt;/p&gt;
 
 &lt;p&gt;In the key register is only inserted the KSI that has 5 numeric characters and the key, as the example below:&lt;/p&gt;
 
