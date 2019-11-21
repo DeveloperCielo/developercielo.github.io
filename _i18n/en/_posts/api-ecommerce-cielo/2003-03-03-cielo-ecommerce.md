@@ -1589,16 +1589,30 @@ To create an electronic transfer sale, it is necessary to make a POST for the Pa
 
 ```json
 {  
-    "MerchantOrderId":"2014111706",
+    "MerchantOrderId":"2017051109",
     "Customer":
     {  
-        "Name":"Comprador Transferência Eletronica"
-    },
+        "Name":"Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@cielo.com.br",
+        "Address":
+        {
+             "Street":"Alameda Xingu",
+             "Number":"512",
+             "Complement":"27 andar",
+             "ZipCode":"12345987",
+             "City":"São Paulo",
+             "State":"SP",
+             "Country":"BRA",
+             "District":"Alphaville"
+         }
+  },
     "Payment":
     {  
-        "Type":"EletronicTransfer",
-        "Amount":15700,
         "Provider":"Bradesco",
+        "Type":"EletronicTransfer",
+        "Amount":10000,
         "ReturnUrl":"http://www.cielo.com.br"
     }
 }
@@ -1613,16 +1627,30 @@ curl
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {  
-    "MerchantOrderId":"2014111706",
+    "MerchantOrderId":"2017051109",
     "Customer":
     {  
-        "Name":"Comprador Transferência Eletronica"
-    },
+        "Name":"Nome do Comprador",
+        "Identity": "12345678909",
+        "IdentityType": "CPF",
+        "Email": "comprador@cielo.com.br",
+        "Address":
+        {
+             "Street":"Alameda Xingu",
+             "Number":"512",
+             "Complement":"27 andar",
+             "ZipCode":"12345987",
+             "City":"São Paulo",
+             "State":"SP",
+             "Country":"BRA",
+             "District":"Alphaville"
+         }
+  },
     "Payment":
     {  
-        "Type":"EletronicTransfer",
-        "Amount":15700,
         "Provider":"Bradesco",
+        "Type":"EletronicTransfer",
+        "Amount":10000,
         "ReturnUrl":"http://www.cielo.com.br"
     }
 }
